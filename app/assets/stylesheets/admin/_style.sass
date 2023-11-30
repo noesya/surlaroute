@@ -1,0 +1,71 @@
+body.theme-light,
+html[data-bs-theme=light] body
+    background-color: #FFFFFF
+
+.sidebar-wrapper,
+.card
+    background-color: #FAF6EC
+.note-editor
+    background-color: #FFFFFF
+    color: #000000
+
+body.theme-light,
+html[data-bs-theme=light] body
+    .sticky-header
+        background-color: #FFFFFF
+
+body.theme-dark,
+html[data-bs-theme=dark]
+    .sticky-header
+        background-color: #151521
+
+body.theme-dark,
+html[data-bs-theme=dark],
+html
+    .page-heading
+        flex-grow: initial
+    .sidebar-wrapper
+        .sidebar-header
+            img
+                height: 160px
+        .sidebar-footer
+            padding: 2rem
+
+body.theme-dark,
+html[data-bs-theme=dark]
+    .logo
+        filter: saturate(0) brightness(0) invert(1)
+    .note-popover.popover
+        display: none
+        max-width: none
+    .note-popover .popover-content,
+    .note-editor .note-toolbar
+        margin: 0
+        padding: 0 0 5px 5px
+    .sdfi-deletable-file
+        &__block
+            display: none
+            padding: 0
+        &--with-file
+            .sdfi-deletable-file__block
+                display: flex
+
+legend ~ *
+    clear: left
+
+.form-check-input
+    border-width: 1px
+
+.card
+    border-radius: 0.25rem
+.draft
+    opacity: 0.3
+    transition: opacity 0.25s ease
+    &:hover
+        opacity: 1
+.users-edit
+    .user_password input + span
+        top: 36% !important
+
+.handle
+    cursor: move
