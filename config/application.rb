@@ -51,6 +51,7 @@ module Ecotheque
     # TODO Remove when kamifusen is compatible with Vips
     config.active_storage.variant_processor = :mini_magick
 
+    config.action_view.sanitizer_vendor = Rails::HTML4::Sanitizer
     config.action_view.sanitized_allowed_tags = [
       "a", "abbr", "acronym", "address", "b", "big", "blockquote", "br",
       "cite", "code", "dd", "del", "dfn", "div", "dl", "dt", "em",

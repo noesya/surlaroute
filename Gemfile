@@ -32,7 +32,7 @@ gem "simple_form_bs5_file_input", "~> 0.1.3"
 gem "simple_form_password_with_hints", "~> 0.0.7"
 gem "simple-navigation", "~> 4.4"
 gem "sprockets-rails"
-gem "two_factor_authentication", "~> 2.2"
+gem "two_factor_authentication", git: "https://github.com/noesya/two_factor_authentication.git"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
