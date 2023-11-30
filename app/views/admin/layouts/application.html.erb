@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? raw("#{yield(:title)} • #{t('website')}") : t('website') %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "admin" %>
+    <%= javascript_include_tag "admin", defer: true %>
+  </head>
+  <body class="<%= body_classes %>" >
+    <div id="app">
+      <%= render 'admin/application/sidebar' %>
+      <main id="main">
+        <%= render "notice" %>
+        <%= render 'admin/application/header' %>
+        <div class="flex-grow-1">
+          <%= yield %>
+        </div>
+        <%= render 'admin/application/footer' %>
+      </main>
+    </div>
+  </body>
+</html>

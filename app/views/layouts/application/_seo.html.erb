@@ -1,0 +1,9 @@
+<%
+  if content_for?(:title)
+    title = raw("#{yield(:title)} - Écothèque")
+  else
+    title = "Écothèque"
+  end
+%>
+
+<title><%= content_for?(:title) ? raw("#{yield(:title)} • #{t('website')}") : t('website') %></title>
