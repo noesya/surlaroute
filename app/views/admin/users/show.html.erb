@@ -1,0 +1,36 @@
+<%= content_for :title, @user %>
+
+<%= render 'lock' %>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= show @user, :first_name %>
+  </div>
+  <div class="col-md-6">
+    <%= show @user, :last_name %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="mb-5">
+      <label class="small text-muted"><%= User.human_attribute_name :email %></label>
+      <p><%= link_to @user.email, "mailto:#{@user.email}" %></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <%= show @user, :mobile_phone %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="mb-5">
+      <label class="small text-muted"><%= User.human_attribute_name :role %></label>
+      <p><%= t("activerecord.attributes.user.roles.#{@user.role}") %></p>
+    </div>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @user %>
+  <%= edit_link @user %>
+<% end %>

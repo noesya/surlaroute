@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= User.human_attribute_name('last_name') %></th>
+        <th><%= User.human_attribute_name('first_name') %></th>
+        <th><%= User.human_attribute_name('email') %></th>
+        <th><%= User.human_attribute_name('role') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.each do |user| %>
+        <tr>
+          <td><%= link_to_if can?(:read, user), user.last_name, [:admin, user] %></td>
+          <td><%= link_to_if can?(:read, user), user.first_name, [:admin, user] %></td>
+          <td><%= link_to user.email, "mailto:#{user.email}", target: '_blank' %></td>
+          <td><%= t("activerecord.attributes.user.roles.#{user.role}") %></td>
+          <td class="text-end">
+            <%= edit_link user %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
