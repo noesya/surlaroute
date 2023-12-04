@@ -1,7 +1,8 @@
 class Admin::DashboardController < Admin::ApplicationController
   def index
     @metrics = [
-      User
+      User,
+      Material
     ]
     breadcrumb
   end
