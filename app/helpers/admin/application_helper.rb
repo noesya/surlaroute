@@ -11,6 +11,24 @@ module Admin::ApplicationHelper
     classes
   end
 
+  def button_classes(additional = '', **options)
+    classes = "btn btn-primary btn-sm #{additional}"
+    classes += ' disabled' if options[:disabled]
+    classes
+  end
+
+  def button_classes_danger(**options)
+    classes = 'btn btn-outline-danger btn-sm'
+    classes += ' disabled' if options[:disabled]
+    classes
+  end
+
+  def button_classes_minor(**options)
+    classes = 'btn btn-outline-primary btn-sm'
+    classes += ' disabled' if options[:disabled]
+    classes
+  end
+
   def table_classes(with_actions: true)
     classes = 'table'
     classes += ' table--with-actions' if with_actions
@@ -73,6 +91,13 @@ module Admin::ApplicationHelper
     link_to options.delete(:label) || t('create'),
             polymorphic_url_param(object_class_sym, prefix: :new, **options),
             class: html_classes
+  end
+
+  def submit(form)
+    form.button :submit,
+                t('save'),
+                class: button_classes,
+                form: form.options.dig(:html, :id)
   end
 
   private

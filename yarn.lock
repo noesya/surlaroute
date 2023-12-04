@@ -16,3 +16,8 @@ notyf@^3.10.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/notyf/-/notyf-3.10.0.tgz#67a64443c69ea0e6495c56ea0f91198860163d06"
   integrity sha512-Mtnp+0qiZxgrH+TzVlzhWyZceHdAZ/UWK0/ju9U0HQeDpap1mZ8cC7H5wSI5mwgni6yeAjaxsTw0sbMK+aSuHw==
+
+slug@^8.2.3:
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/slug/-/slug-8.2.3.tgz#9aa33e532ae9ccddaf55a42abd9bf6a89d5e44d2"
+  integrity sha512-fXjhAZszNecz855GUNIwW0+sFPi9WV4bMiEKDOCA4wcq1ts1UnUVNy/F78B0Aat7/W3rA+se//33ILKNMrbeYQ==

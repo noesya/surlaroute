@@ -1,0 +1,15 @@
+<%= content_for :title, @material %>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= show @material, :slug %>
+  </div>
+  <div class="col-md-6">
+    <%= show @material, :description %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @material %>
+  <%= edit_link @material %>
+<% end %>

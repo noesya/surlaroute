@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Material.human_attribute_name('name') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% materials.each do |material| %>
+        <tr>
+          <td><%= link_to_if can?(:read, material), material, [:admin, material] %></td>
+          <td class="text-end">
+            <%= edit_link material %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

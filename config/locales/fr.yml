@@ -1,6 +1,10 @@
 fr:
   activerecord:
     attributes:
+      material:
+        description: Description
+        name: Nom
+        slug: Slug
       user:
         email: Email
         first_name: Prénom
@@ -19,11 +23,20 @@ fr:
             password:
               password_strength: ne répond pas aux critères de sécurité
     models:
+      material:
+        one: Matériau
+        other: Matériaux
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s
   admin:
     dashboard: Tableau de bord
+    filters:
+      buttons:
+        expand: Filtres
+        reset: Réinitialiser
+        submit: Filtrer
+      search: Rechercher
     successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
     successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
     successfully_duplicated_html: "<i>%{model}</i> a bien été dupliqué(e)."

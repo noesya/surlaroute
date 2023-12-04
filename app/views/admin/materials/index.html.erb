@@ -1,0 +1,12 @@
+<%= content_for :title, Material.model_name.human(count: 2) %>
+
+<%= render  'admin/application/filters',
+            current_path: admin_materials_path,
+            filters: @filters if @filters.any? %>
+
+<%= render 'admin/materials/list', materials: @materials %>
+<%= paginate @materials, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Material %>
+<% end %>

@@ -59,7 +59,9 @@
     </div>
   </div>
 
-  <%= submit f %>
+  <div class="mb-3">
+    <%= f.submit t('.update'), class: 'btn btn-cta' %>
+  </div>
 <% end %>
 
 <h3 class="mt-5 mb-4"><%= t(".cancel_my_account") %></h3>
