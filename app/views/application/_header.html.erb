@@ -1,7 +1,7 @@
 <header class="mb-3">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Ecothèque</a>
+      <%= link_to t('website'), root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,6 +22,9 @@
             <ul class="dropdown-menu dropdown-menu-lg-end">
               <% if user_signed_in? %>
                 <li><%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %></li>
+                <% unless current_user.visitor? %>
+                  <li><%= link_to "Administration", admin_root_path, class: "dropdown-item" %></li>
+                <% end %>
                 <li><hr class="dropdown-divider"></li>
                 <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
               <% else %>

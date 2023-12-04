@@ -1,0 +1,8 @@
+<h1><%= Material.model_name.human(count: 2) %></h1>
+
+<ul>
+  <% @materials.each do |material| %>
+    <li><%= link_to material, material_path(slug: material.slug) %></li>
+  <% end %>
+</ul>
+<%= paginate @materials, theme: "bootstrap-5" %>
