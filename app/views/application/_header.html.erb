@@ -1,0 +1,36 @@
+<header class="mb-3">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Ecothèque</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to "Accueil", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to Material.model_name.human(count: 2), materials_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= user_signed_in? ? current_user : "Non connecté" %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg-end">
+              <% if user_signed_in? %>
+                <li><%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
