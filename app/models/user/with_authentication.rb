@@ -59,7 +59,6 @@ module User::WithAuthentication
       self.first_name = full_sanitizer.sanitize(self.first_name)&.gsub('=', '')
       self.last_name = full_sanitizer.sanitize(self.last_name)&.gsub('=', '')
       self.mobile_phone = full_sanitizer.sanitize(self.mobile_phone)&.gsub('=', '')
-      self.company_name = full_sanitizer.sanitize(self.company_name)&.gsub('=', '')
     end
 
     def password_complexity
