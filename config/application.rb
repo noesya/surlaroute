@@ -37,6 +37,8 @@ module Ecotheque
 
     config.internal_domains = ['@noesya.coop'].freeze
 
+    config.active_job.queue_adapter = :good_job
+
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
         address: "smtp-relay.brevo.com",
