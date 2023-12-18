@@ -15,7 +15,14 @@
     </div>
   </div>
 
-  <%= f.input :description %>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :description %>
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :image %>
+    </div>
+  </div>
 
   <% content_for :buttons do %>
     <%= destroy_link material if material.persisted? %>

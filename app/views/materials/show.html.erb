@@ -1,5 +1,9 @@
-<h1><%= @material %></h1>
-
-<div>
-  <%= sanitize @material.description %>
+<div class="row">
+  <div class="col-lg-4">
+    <%= kamifusen_tag @material.image, class: 'img-fluid ', alt: @material if @material.image.attached? %>
+  </div>
+  <div class="col-lg-8">
+    <h1><%= @material %></h1>
+    <%= sanitize @material.description %>
+  </div>
 </div>

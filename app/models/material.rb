@@ -21,6 +21,8 @@ class Material < ApplicationRecord
   }
   scope :ordered, -> { order(:name) }
 
+  has_one_attached_deletable :image
+
   def to_s
     "#{name}"
   end
