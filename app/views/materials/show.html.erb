@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-lg-4">
+  <div class="col-lg-6">
     <%= kamifusen_tag @material.image, class: 'img-fluid ', alt: @material if @material.image.attached? %>
   </div>
-  <div class="col-lg-8">
+  <div class="col-lg-6">
     <h1><%= @material %></h1>
     <%= sanitize @material.description %>
   </div>
