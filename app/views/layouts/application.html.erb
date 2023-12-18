@@ -14,6 +14,7 @@
       <%= render "header" %>
       <%= render "notice" %>
       <div class="container">
+        <%= render_breadcrumbs builder: Mazer::BreadcrumbsOnRailsBuilder %>
         <%= yield %>
       </div>
     </main>
