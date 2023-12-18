@@ -24,6 +24,8 @@
     </div>
   </div>
 
+  <%= render 'admin/criterions/partials/edit', about: material %>
+
   <% content_for :buttons do %>
     <%= destroy_link material if material.persisted? %>
     <%= submit f %>

@@ -14,6 +14,7 @@
 #  index_materials_on_slug  (slug)
 #
 class Material < ApplicationRecord
+  include WithCriterions
   include WithSlug
 
   scope :for_search_term, -> (term) {

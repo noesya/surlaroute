@@ -1,0 +1,5 @@
+<input  class="form-control string" 
+        type="text" 
+        value="<%= about.value_for(criterion).text %>" 
+        name="<%= about.class.to_s.parameterize %>[criterions][<%= criterion.id %>]" 
+        id="criterion_<%= criterion.id %>">

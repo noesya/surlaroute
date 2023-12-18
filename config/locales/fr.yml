@@ -1,6 +1,11 @@
 fr:
   activerecord:
     attributes:
+      criterion: 
+        name: Nom
+        about_class: Type d'objets concernés
+        kind: Type de critère
+        hint: Explication dans le formulaire
       material:
         description: Description
         name: Nom
@@ -23,6 +28,9 @@ fr:
             password:
               password_strength: ne répond pas aux critères de sécurité
     models:
+      criterion:
+        one: Critère
+        other: Critères
       material:
         one: Matériau
         other: Matériaux
@@ -80,6 +88,11 @@ fr:
       send_email_code: 'Envoyer le code par email'
       success: ""
   edit: Modifier
+  enums:
+    criterion:
+      kind:
+        text: 'Texte sur plusieurs lignes'
+        string: 'Texte'
   false: Non
   login:
     already_registered: Déjà inscrit ?

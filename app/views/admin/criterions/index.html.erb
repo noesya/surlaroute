@@ -1,0 +1,8 @@
+<%= content_for :title, Criterion.model_name.human(count: 2) %>
+
+<%= render 'admin/criterions/list', criterions: @criterions %>
+<%= paginate @criterions, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Criterion %>
+<% end %>

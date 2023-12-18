@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Criterion.human_attribute_name('name') %></th>
+        <th><%= Criterion.human_attribute_name('about_class') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% criterions.each do |criterion| %>
+        <tr>
+          <td><%= link_to_if can?(:read, criterion), criterion, [:admin, criterion] %></td>
+          <td><%= criterion.about_class.constantize.model_name.human(count: 2) %></td>
+          <td class="text-end">
+            <%= edit_link criterion %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
