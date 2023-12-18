@@ -1,15 +1,14 @@
 <%= content_for :title, @material %>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-lg-4">
     <%= show @material, :image, type: :image %>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-8">
     <%= show @material, :description %>
+    <%= render 'criterions/reader', about: @material %>
   </div>
 </div>
-
-<%= render 'admin/criterions/partials/show', about: @material %>
 
 <% content_for :buttons do %>
   <%= destroy_link @material %>

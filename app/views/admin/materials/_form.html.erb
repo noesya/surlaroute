@@ -3,28 +3,20 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
-    <div class="col-lg-6">
-      <%= f.input :name %>
+    <div class="col-lg-4">
+      <%= f.input :image %>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-8">
+      <%= f.input :name %>
       <%= f.input :slug,
                   input_html: material.persisted? ? {} : {
                     class: 'js-slug-input',
                     data: { source: '#material_name' }
                   } %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-6">
       <%= f.input :description %>
-    </div>
-    <div class="col-lg-6">
-      <%= f.input :image %>
+      <%= render 'admin/criterions/editor', about: material %>
     </div>
   </div>
-
-  <%= render 'admin/criterions/partials/edit', about: material %>
 
   <% content_for :buttons do %>
     <%= destroy_link material if material.persisted? %>
