@@ -1,8 +1,17 @@
 <h1><%= Material.model_name.human(count: 2) %></h1>
 
-<ul>
+<div class="row">
   <% @materials.each do |material| %>
-    <li><%= link_to material, material_path(slug: material.slug) %></li>
+    <div class="col-lg-3 mb-4">
+      <div class="card">
+        <%= kamifusen_tag material.image, width: 400, class: 'card-img-top', alt: material if material.image.attached? %>
+        <div class="card-body">
+          <h2 class="card-title h5">
+            <%= link_to material, material_path(slug: material.slug), class: 'stretched-link' %>
+          </h2>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 <%= paginate @materials, theme: "bootstrap-5" %>
