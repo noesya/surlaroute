@@ -17,8 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    options = {}
-    options[:region_slug] = @region.slug if @region.present?
-    options
+    {
+      path_params: {
+        region_slug: @region&.slug
+      }
+    }
   end
 end
