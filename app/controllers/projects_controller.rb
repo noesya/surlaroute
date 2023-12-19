@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_by!(slug: params[:slug])
+    @project = Project.find_by!(slug: params[:id])
     breadcrumb
     add_breadcrumb @project
   end

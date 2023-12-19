@@ -6,7 +6,7 @@ class MaterialsController < ApplicationController
   end
 
   def show
-    @material = Material.find_by!(slug: params[:slug])
+    @material = Material.find_by!(slug: params[:id])
     breadcrumb
     add_breadcrumb @material
   end

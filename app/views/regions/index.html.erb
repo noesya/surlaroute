@@ -7,7 +7,7 @@
         <%= kamifusen_tag region.image, width: 400, class: 'card-img-top', alt: region if region.image.attached? %>
         <div class="card-body">
           <h2 class="card-title h5">
-            <%= link_to region, region_path(slug: region.slug), class: 'stretched-link' %>
+            <%= link_to region, region, class: 'stretched-link' %>
           </h2>
         </div>
       </div>

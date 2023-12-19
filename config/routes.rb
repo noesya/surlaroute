@@ -22,9 +22,13 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
-  resources :materials, path: "materiaux", only: [:index, :show], param: :slug
-  resources :projects, path: "projets", only: [:index, :show], param: :slug
-  resources :regions, path: "regions", only: [:index, :show], param: :slug
+  scope "(:region_slug)" do 
+    resources :materials, path: "materiaux", only: [:index, :show]
+    resources :projects, path: "projets", only: [:index, :show]
+  end
+  resources :regions, path: "regions", only: :index
+  resources :regions, path: "", only: :show
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

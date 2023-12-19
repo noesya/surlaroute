@@ -10,13 +10,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <%= link_to Material.model_name.human(count: 2), materials_path, class: "nav-link" %>
+            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to Project.model_name.human(count: 2), projects_path, class: "nav-link" %>
+            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to Region.model_name.human(count: 2), regions_path, class: "nav-link" %>
+            <%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil), class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav">

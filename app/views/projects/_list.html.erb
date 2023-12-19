@@ -5,7 +5,7 @@
         <%= kamifusen_tag project.image, width: 400, class: 'card-img-top', alt: project if project.image.attached? %>
         <div class="card-body">
           <h2 class="card-title h5">
-            <%= link_to project, project_path(slug: project.slug), class: 'stretched-link' %>
+            <%= link_to project, project, class: 'stretched-link' %>
           </h2>
         </div>
       </div>
