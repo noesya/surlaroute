@@ -19,7 +19,7 @@
 #
 #  fk_rails_8490687e7c  (criterion_id => criterions.id)
 #
-class Criterion::Value < ApplicationRecord
+class Structure::Value < ApplicationRecord
   belongs_to :about, polymorphic: true
-  belongs_to :criterion
+  belongs_to :item
 end

@@ -1,0 +1,4 @@
+<textarea class="form-control text" 
+          name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>]" 
+          rows="4"
+          id="item_<%= item.id %>"><%= about.value_for(item).text %></textarea>

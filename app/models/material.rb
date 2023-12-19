@@ -14,8 +14,8 @@
 #  index_materials_on_slug  (slug)
 #
 class Material < ApplicationRecord
-  include WithCriterions
   include WithSlug
+  include WithStructure
 
   scope :for_search_term, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")

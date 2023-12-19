@@ -1,7 +1,12 @@
 fr:
+  activemodel:
+    models:
+      structure:
+        one: Structure
+        other: Structures
   activerecord:
     attributes:
-      criterion: 
+      structure/item: 
         name: Nom
         about_class: Type d'objets concernés
         kind: Type de critère
@@ -28,9 +33,9 @@ fr:
             password:
               password_strength: ne répond pas aux critères de sécurité
     models:
-      criterion:
-        one: Critère
-        other: Critères
+      structure/item:
+        one: Élément
+        other: Éléments
       material:
         one: Matériau
         other: Matériaux
@@ -45,6 +50,7 @@ fr:
         reset: Réinitialiser
         submit: Filtrer
       search: Rechercher
+    structure: Structure
     successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
     successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
     successfully_duplicated_html: "<i>%{model}</i> a bien été dupliqué(e)."

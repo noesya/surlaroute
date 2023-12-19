@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       patch 'unlock' => 'users#unlock', on: :member
     end
     resources :materials
-    resources :criterions
+    namespace :structure do
+      resources :items
+    end
     root to: "dashboard#index"
   end
 

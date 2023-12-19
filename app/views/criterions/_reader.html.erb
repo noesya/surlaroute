@@ -1,6 +1,0 @@
-<% about.criterions.each do |criterion| %>
-  <div class="mb-5">
-    <label class="small text-muted"><%= criterion %></label>
-    <%= render "criterions/kinds/#{criterion.kind}", about: about, criterion: criterion %>
-  </div>
-<% end %>

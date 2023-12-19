@@ -5,6 +5,6 @@
   <div class="col-lg-6">
     <h1><%= @material %></h1>
     <p class="mb-5"><%= sanitize @material.description %></p>
-    <%= render 'criterions/reader', about: @material %>
+    <%= render 'structure/items', about: @material %>
   </div>
 </div>

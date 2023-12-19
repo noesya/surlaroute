@@ -1,11 +1,11 @@
-<%= simple_form_for [:admin, criterion] do |f| %>
+<%= simple_form_for [:admin, item] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :about_class, 
-                collection: Criterion::ABOUT_CLASSES.map { |klass| [klass.model_name.human(count: 2), klass]}, 
+                collection: Structure::Item::ABOUT_CLASSES.map { |klass| [klass.model_name.human(count: 2), klass]}, 
                 include_blank: false %>
     <%= f.input :kind, include_blank: false %>
     <%= f.input :hint %>
@@ -13,7 +13,7 @@
   </div>
   
   <% content_for :buttons do %>
-    <%= destroy_link criterion if criterion.persisted? %>
+    <%= destroy_link item if item.persisted? %>
     <%= submit f %>
   <% end %>
 <% end %>

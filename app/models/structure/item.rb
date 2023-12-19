@@ -11,18 +11,21 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class Criterion < ApplicationRecord
+class Structure::Item < ApplicationRecord
   ABOUT_CLASSES = [
     Material
   ]
 
   has_many :values
 
+  validates_presence_of :name
+
   scope :ordered, -> { order(:position) }
 
   enum kind: {
     string: 0,
     text: 1,
+    heading_1: 100
   }, _prefix: :kind
 
   def to_s

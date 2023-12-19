@@ -1,6 +1,0 @@
-<% about.criterions.each do |criterion| %>
-  <div class="mb-3">
-    <label class="form-label" for="criterion_<%= criterion.id %>"><%= criterion %></label>
-    <%= render "admin/criterions/kinds/#{criterion.kind}", about: about, criterion: criterion %>
-  </div>
-<% end %>

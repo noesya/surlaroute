@@ -1,0 +1,10 @@
+<%= content_for :title, @item %>
+
+<%= show @item, :kind %>
+<%= show @item, :about_class %>
+<%= show @item, :hint %>
+
+<% content_for :buttons do %>
+  <%= destroy_link @item %>
+  <%= edit_link @item %>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Structure::Item.human_attribute_name('name') %></th>
+        <th><%= Structure::Item.human_attribute_name('about_class') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.each do |item| %>
+        <tr>
+          <td><%= link_to_if can?(:read, item), item, [:admin, item] %></td>
+          <td><%= item.about_class.constantize.model_name.human(count: 2) %></td>
+          <td class="text-end">
+            <%= edit_link item %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
