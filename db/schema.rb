@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_19_135451) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_19_141136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -126,6 +126,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_135451) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "region_id"
+    t.index ["region_id"], name: "index_materials_on_region_id"
     t.index ["slug"], name: "index_materials_on_slug"
   end
 
@@ -135,6 +137,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_135451) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "region_id"
+    t.index ["region_id"], name: "index_projects_on_region_id"
   end
 
   create_table "regions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

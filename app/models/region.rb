@@ -12,6 +12,9 @@
 class Region < ApplicationRecord
   include WithSlug
 
+  has_many :materials
+  has_many :projects
+
   scope :ordered, -> { order(:name) }
 
   validates_presence_of :name

@@ -13,6 +13,7 @@
                     class: 'js-slug-input',
                     data: { source: '#project_name' }
                   } %>
+      <%= f.association :region %>
       <%= f.input :description %>
       <%= render 'admin/structure/items', about: project %>
     </div>

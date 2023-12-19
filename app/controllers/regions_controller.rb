@@ -7,6 +7,8 @@ class RegionsController < ApplicationController
 
   def show
     @region = Region.find_by!(slug: params[:slug])
+    @materials = @region.materials
+    @projects = @region.projects
     breadcrumb
     add_breadcrumb @region
   end

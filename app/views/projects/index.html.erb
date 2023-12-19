@@ -1,17 +1,4 @@
 <h1><%= Project.model_name.human(count: 2) %></h1>
 
-<div class="row">
-  <% @projects.each do |project| %>
-    <div class="col-lg-3 mb-4">
-      <div class="card">
-        <%= kamifusen_tag project.image, width: 400, class: 'card-img-top', alt: project if project.image.attached? %>
-        <div class="card-body">
-          <h2 class="card-title h5">
-            <%= link_to project, project_path(slug: project.slug), class: 'stretched-link' %>
-          </h2>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'projects/list', projects: @projects %>
 <%= paginate @projects, theme: "bootstrap-5" %>

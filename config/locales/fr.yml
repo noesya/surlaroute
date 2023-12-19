@@ -14,15 +14,17 @@ fr:
       material:
         description: Description
         name: Nom
-        slug: Slug
+        region: Région
+        slug: Identifiant
       project:
         description: Description
         name: Nom
-        slug: Slug
+        region: Région
+        slug: Identifiant
       region:
         description: Description
         name: Nom
-        slug: Slug
+        slug: Identifiant
       user:
         email: Email
         first_name: Prénom

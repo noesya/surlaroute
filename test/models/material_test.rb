@@ -8,10 +8,12 @@
 #  slug        :string           indexed
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  region_id   :uuid             indexed
 #
 # Indexes
 #
-#  index_materials_on_slug  (slug)
+#  index_materials_on_region_id  (region_id)
+#  index_materials_on_slug       (slug)
 #
 require "test_helper"
 

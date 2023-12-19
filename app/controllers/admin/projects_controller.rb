@@ -3,6 +3,8 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   include Admin::Filterable
 
+  has_scope :for_search_term
+
   def index
     @projects = apply_scopes(@projects).ordered.page(params[:page])
     breadcrumb
@@ -55,7 +57,7 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   def project_params
     params.require(:project)
-          .permit(:name, :slug, :description)
+          .permit(:name, :slug, :description, :region_id)
           .merge({ items: params[:project][:items].to_unsafe_hash})
   end
 end

@@ -19,6 +19,10 @@ module WithSlug
     end
   end
 
+  def to_param
+    slug
+  end
+
   protected
 
   def slug_unavailable?(slug)
