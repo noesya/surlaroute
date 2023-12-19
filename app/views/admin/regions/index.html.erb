@@ -1,0 +1,8 @@
+<%= content_for :title, Region.model_name.human(count: 2) %>
+
+<%= render 'admin/regions/list', regions: @regions %>
+<%= paginate @regions, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Region %>
+<% end %>

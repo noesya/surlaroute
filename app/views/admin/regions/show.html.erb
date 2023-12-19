@@ -1,0 +1,15 @@
+<%= content_for :title, @region %>
+
+<div class="row">
+  <div class="col-lg-4">
+    <%= show @region, :image, type: :image %>
+  </div>
+  <div class="col-lg-8">
+    <%= show @region, :description %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @region %>
+  <%= edit_link @region %>
+<% end %>

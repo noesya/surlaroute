@@ -26,7 +26,8 @@ class Structure::Item < ApplicationRecord
   enum kind: {
     string: 0,
     text: 1,
-    heading_1: 100
+    heading_2: 102,
+    heading_3: 103
   }, _prefix: :kind
 
   def to_s

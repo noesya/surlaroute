@@ -3,6 +3,7 @@
     <thead>
       <tr>
         <th><%= Structure::Item.human_attribute_name('name') %></th>
+        <th><%= Structure::Item.human_attribute_name('kind') %></th>
         <th></th>
       </tr>
     </thead>
@@ -10,6 +11,7 @@
       <% items.each do |item| %>
         <tr>
           <td><%= link_to_if can?(:read, item), item, [:admin, item] %></td>
+          <td><%= item.kind_i18n %></td>
           <td class="text-end">
             <%= edit_link item %>
           </td>

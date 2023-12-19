@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-lg-8">
+    <h1><%= @region %></h1>
+    <p class="mb-5"><%= sanitize @region.description %></p>
+  </div>
+  <div class="col-lg-4">
+    <%= kamifusen_tag @region.image, class: 'img-fluid ', alt: @region if @region.image.attached? %>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Region.human_attribute_name('name') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% regions.each do |region| %>
+        <tr>
+          <td><%= link_to_if can?(:read, region), region, [:admin, region] %></td>
+          <td class="text-end">
+            <%= edit_link region %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
