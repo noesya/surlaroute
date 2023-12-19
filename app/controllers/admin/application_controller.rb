@@ -22,4 +22,8 @@ class Admin::ApplicationController < ApplicationController
     redirect_to root_path if current_user.visitor?
   end
 
+  def default_url_options
+    {}
+  end
+
 end
