@@ -1,4 +1,5 @@
 class MaterialsController < ApplicationController
+
   def index
     @materials = Material.all.ordered.page(params[:page])
     breadcrumb

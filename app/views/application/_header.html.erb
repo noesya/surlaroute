@@ -12,6 +12,9 @@
           <li class="nav-item">
             <%= link_to Material.model_name.human(count: 2), materials_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to Project.model_name.human(count: 2), projects_path, class: "nav-link" %>
+          </li>
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in? %>

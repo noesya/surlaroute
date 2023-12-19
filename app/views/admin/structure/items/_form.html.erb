@@ -4,12 +4,8 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :about_class, 
-                collection: Structure::Item::ABOUT_CLASSES.map { |klass| [klass.model_name.human(count: 2), klass]}, 
-                include_blank: false %>
     <%= f.input :kind, include_blank: false %>
     <%= f.input :hint %>
-    <%= f.input :position %>
   </div>
   
   <% content_for :buttons do %>

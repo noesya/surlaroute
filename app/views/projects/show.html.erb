@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-lg-6">
+    <%= kamifusen_tag @project.image, class: 'img-fluid ', alt: @project if @project.image.attached? %>
+  </div>
+  <div class="col-lg-6">
+    <h1><%= @project %></h1>
+    <p class="mb-5"><%= sanitize @project.description %></p>
+    <%= render 'structure/items', about: @project %>
+  </div>
+</div>

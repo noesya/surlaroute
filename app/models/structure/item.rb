@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: criterions
+# Table name: structure_items
 #
 #  id          :uuid             not null, primary key
 #  about_class :string
@@ -13,7 +13,8 @@
 #
 class Structure::Item < ApplicationRecord
   ABOUT_CLASSES = [
-    Material
+    Material,
+    Project
   ]
 
   has_many :values

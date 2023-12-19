@@ -2,16 +2,16 @@
   <table class="<%= table_classes %>">
     <thead>
       <tr>
-        <th><%= Structure::Item.human_attribute_name('name') %></th>
+        <th><%= Project.human_attribute_name('name') %></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <% items.each do |item| %>
+      <% projects.each do |project| %>
         <tr>
-          <td><%= link_to_if can?(:read, item), item, [:admin, item] %></td>
+          <td><%= link_to_if can?(:read, project), project, [:admin, project] %></td>
           <td class="text-end">
-            <%= edit_link item %>
+            <%= edit_link project %>
           </td>
         </tr>
       <% end %>

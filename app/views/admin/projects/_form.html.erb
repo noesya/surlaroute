@@ -1,0 +1,25 @@
+<%= simple_form_for [:admin, project] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <%= f.input :image %>
+    </div>
+    <div class="col-lg-8">
+      <%= f.input :name %>
+      <%= f.input :slug,
+                  input_html: project.persisted? ? {} : {
+                    class: 'js-slug-input',
+                    data: { source: '#project_name' }
+                  } %>
+      <%= f.input :description %>
+      <%= render 'admin/structure/items', about: project %>
+    </div>
+  </div>
+
+  <% content_for :buttons do %>
+    <%= destroy_link project if project.persisted? %>
+    <%= submit f %>
+  <% end %>
+<% end %>

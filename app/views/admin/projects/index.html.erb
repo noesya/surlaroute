@@ -1,0 +1,8 @@
+<%= content_for :title, Project.model_name.human(count: 2) %>
+
+<%= render 'admin/projects/list', projects: @projects %>
+<%= paginate @projects, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Project %>
+<% end %>
