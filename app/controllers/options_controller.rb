@@ -10,6 +10,7 @@ class OptionsController < ApplicationController
   def show
     @option = @item.options.find_by(slug: params[:option_slug])
     @objects = @option.objects
+    @objects = @objects.where(region: @region) if @region.present?
     breadcrumb
     add_breadcrumb @option
     render 'structure/options/show'
@@ -39,6 +40,5 @@ class OptionsController < ApplicationController
   def breadcrumb
     super
     add_breadcrumb @resources_class.model_name.human(count: 2), @resources_class
-    add_breadcrumb @item#, options_path(resources_slug: @resources_slug_i18n, item_slug: @item.slug)
   end
 end

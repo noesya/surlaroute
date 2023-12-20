@@ -47,12 +47,7 @@ class Structure::Item < ApplicationRecord
 
   def save_value(object, data)
     if has_options?
-      values_for(object).destroy_all
-      return if data.blank?
-      option = Structure::Option.find(data)
-      value = value_for(object)
-      value.option = option
-      value.save
+      connect_options(object, data)
     else
       value = value_for(object)
       value.text = data
@@ -82,5 +77,23 @@ class Structure::Item < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def connect_options(object, id_or_ids)
+    values_for(object).destroy_all
+    return if id_or_ids.blank?
+    if id_or_ids.is_a?(String)
+      connect_option(object, id_or_ids)
+    else
+      id_or_ids.compact.each do |id|
+        connect_option(object, id)
+      end
+    end
+  end
+
+  def connect_option(object, id)
+    values_for(object).where(option_id: id).first_or_create
   end
 end

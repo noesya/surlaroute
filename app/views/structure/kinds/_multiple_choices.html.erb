@@ -1,1 +1,6 @@
-
+<% item.options_for(about).each do |option| %>
+  <%= render 'structure/options/link', 
+            about: about, 
+            item: item, 
+            option: option %>
+<% end %>

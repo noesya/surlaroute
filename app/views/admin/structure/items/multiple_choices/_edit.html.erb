@@ -1,0 +1,21 @@
+<%
+name = "#{about.class.to_s.parameterize}[items][#{item.id}][]"
+%>
+<fieldset class="mb-3 check_boxes">
+  <input type="hidden" name="<%= name %>" value="" autocomplete="off">
+  <% item.options.ordered.each do |option| %>
+    <div class="form-check">
+      <input  class="form-check-input is-valid check_boxes required" 
+              type="checkbox" 
+              <% if item.selected_option?(about, option) %>checked="checked"<% end %>
+              value="<%= option.id %>"
+              name="<%= name %>"
+              id="item_<%= item.id %>_option_<%= option.id %>">
+      <label  class="form-check-label collection_check_boxes" 
+              for="item_<%= item.id %>_option_<%= option.id %>">
+        <%= option %>
+      </label>
+    </div>
+  <% end %>
+  <div class="form-text"><%= item.hint %></div>
+</fieldset>
