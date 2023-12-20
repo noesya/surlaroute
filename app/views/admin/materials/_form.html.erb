@@ -4,7 +4,9 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <%= f.input :image, preview: true %>
+      <%= f.input :image,
+                  as: :single_deletable_file, 
+                  preview: true %>
     </div>
     <div class="col-lg-8">
       <%= f.input :name %>

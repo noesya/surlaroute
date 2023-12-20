@@ -57,7 +57,10 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   def project_params
     params.require(:project)
-          .permit(:name, :slug, :description, :region_id)
+          .permit(
+            :name, :slug, :description, :region_id, 
+            :image, :image_delete, :image_infos
+          )
           .merge({ items: params[:project][:items].to_unsafe_hash})
   end
 end
