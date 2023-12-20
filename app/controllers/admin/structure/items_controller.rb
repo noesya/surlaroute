@@ -1,6 +1,8 @@
 class Admin::Structure::ItemsController < Admin::Structure::ApplicationController
   load_and_authorize_resource class: Structure::Item
 
+  include Admin::Reorderable
+
   def index
     @items = @items.where(about_class: about_class).ordered.page(params[:page])
     breadcrumb

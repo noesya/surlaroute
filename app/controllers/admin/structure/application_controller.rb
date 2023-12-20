@@ -3,9 +3,11 @@ class Admin::Structure::ApplicationController < Admin::ApplicationController
   protected
 
   def default_url_options
-    options = {}    
-    options[:about_class] = about_class
-    options
+    {
+      path_params: {
+        about_class: about_class
+      }
+    }
   end
 
   def about_class

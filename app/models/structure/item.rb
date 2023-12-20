@@ -26,6 +26,8 @@ class Structure::Item < ApplicationRecord
   enum kind: {
     string: 0,
     text: 1,
+    single_choice: 11,
+    multiple_choices: 12, 
     heading_2: 102,
     heading_3: 103
   }, _prefix: :kind

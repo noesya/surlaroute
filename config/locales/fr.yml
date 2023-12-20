@@ -116,6 +116,8 @@ fr:
         kind:
           text: 'Texte sur plusieurs lignes'
           string: 'Texte'
+          single_choice: 'Choix unique'
+          multiple_choices: 'Choix multiples'
           heading2: 'Titre'
           heading3: 'Sous-titre'
   false: Non

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :regions
     namespace :structure do
       scope ':about_class' do 
-        resources :items
+        resources :items do
+          collection do
+            post :reorder
+          end
+        end
       end
     end
     root to: "dashboard#index"

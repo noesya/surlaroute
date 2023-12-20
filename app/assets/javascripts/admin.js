@@ -7,6 +7,7 @@
 //= require slug/slug
 //= require simple_form_password_with_hints
 //= require simple_form_bs5_file_input
+//= require sortablejs/Sortable
 //= require mazer/initTheme
 //= require mazer/bootstrap
 //= require mazer/app
