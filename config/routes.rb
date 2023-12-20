@@ -14,6 +14,11 @@ Rails.application.routes.draw do
             post :reorder
           end
         end
+        resources :options do
+          collection do
+            post :reorder
+          end
+        end
       end
     end
     root to: "dashboard#index"

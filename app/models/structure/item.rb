@@ -18,6 +18,8 @@ class Structure::Item < ApplicationRecord
   ]
 
   has_many :values
+  has_many :options, dependent: :destroy
+  accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :name
 
@@ -31,6 +33,14 @@ class Structure::Item < ApplicationRecord
     heading_2: 102,
     heading_3: 103
   }, _prefix: :kind
+
+
+  def has_options?
+    kind.in? [
+      'single_choice',
+      'multiple_choices'
+    ]
+  end
 
   def to_s
     "#{name}"

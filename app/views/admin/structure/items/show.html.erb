@@ -4,6 +4,10 @@
 <%= show @item, :about_class %>
 <%= show @item, :hint %>
 
+<% if @item.has_options? %>
+  <%= render 'admin/structure/options/list', options: @item.options.ordered %>
+<% end %>
+
 <% content_for :buttons do %>
   <%= destroy_link @item %>
   <%= edit_link @item %>

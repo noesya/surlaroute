@@ -8,9 +8,13 @@ fr:
     attributes:
       structure/item: 
         name: Nom
+        slug: Identifiant
         about_class: Type d'objets concernés
         kind: Type de critère
         hint: Explication dans le formulaire
+      structure/option:
+        name: Nom
+        slug: Identifiant
       material:
         description: Description
         name: Nom

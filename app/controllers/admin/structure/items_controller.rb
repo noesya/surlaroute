@@ -58,6 +58,7 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
   end
 
   def item_params
-    params.require(:structure_item).permit(:name, :kind, :hint)
+    params.require(:structure_item)
+          .permit(:name, :slug, :kind, :hint, options_attributes: [:id, :name, :slug, :position, :_destroy])
   end
 end

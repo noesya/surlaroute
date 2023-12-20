@@ -11,6 +11,16 @@
     </div>
   </div>
   <%= f.input :hint %>
+
+  <% if item.has_options? %>
+    <label class="form-label">Options</label>
+    <div id="options">
+      <%= f.simple_fields_for :options do |option| %>
+        <%= render 'option_fields', f: option %>
+      <% end %>
+    </div>
+    <%= link_to_add_association 'Ajouter une option', f, :options %>
+  <% end %>
   
   <% content_for :buttons do %>
     <%= destroy_link item if item.persisted? %>
