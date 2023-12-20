@@ -1,0 +1,3 @@
+<% about.items.each do |item| %>
+  <%= render "admin/structure/items/#{item.kind}/show", about: about, item: item %>
+<% end %>

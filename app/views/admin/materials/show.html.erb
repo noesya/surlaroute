@@ -7,7 +7,7 @@
   <div class="col-lg-8">
     <%= show @material, :description %>
     <%= show @material, :region, type: :reference %>
-    <%= render 'structure/items', about: @material %>
+    <%= render 'admin/structure/items/show', about: @material %>
   </div>
 </div>
 
