@@ -27,7 +27,17 @@ class Structure::Option < ApplicationRecord
 
   scope :ordered, -> { order(:position) }
 
+  def objects
+    item.about_class.constantize.where(id: objects_ids)
+  end
+
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def objects_ids
+    values.pluck(:about_id)
   end
 end

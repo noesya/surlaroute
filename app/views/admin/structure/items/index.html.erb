@@ -1,6 +1,6 @@
 <%= content_for :title, Structure::Item.model_name.human(count: 2) %>
 
-<%= render 'admin/structure/items/edit/list', items: @items %>
+<%= render 'admin/structure/items/list', items: @items %>
 <%= paginate @items, theme: 'bootstrap-5' %>
 
 <% content_for :buttons do %>

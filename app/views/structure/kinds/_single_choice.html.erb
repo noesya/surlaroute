@@ -1,3 +1,16 @@
-<% if about.option_for(item) %>
-  <a class="btn btn-outline-dark rounded-pill"><%= about.option_for(item) %></a>
+<%
+option = about.option_for(item)
+# :materials
+resources_class_name = about.class.to_s.downcase.pluralize.to_sym
+# La clé `routes` est une convention de la gem `route_translator`
+# {:materials=>"materiaux", :projects=>"projets"}
+slugs = t('routes')
+# 'materiaux'
+resources_slug = slugs[resources_class_name]
+%>
+<% if option %>
+  <a  href="<%= option_path(resources_slug: resources_slug, item_slug: item.slug, option_slug: option.slug) %>" 
+      class="btn btn-outline-dark rounded-pill">
+        <%= about.option_for(item) %>
+  </a>
 <% end %>

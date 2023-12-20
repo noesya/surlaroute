@@ -31,12 +31,17 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
-  scope "(:region_slug)" do 
-    resources :materials, path: "materiaux", only: [:index, :show]
-    resources :projects, path: "projets", only: [:index, :show]
+  localized do
+    # La contrainte ressemble à `region_slug: /(occitanie|ile-de-france)/`
+    scope "(:region_slug)", constraints: { region_slug: Regexp.new(Region.pluck(:slug).join("|")) } do 
+      resources :materials, only: [:index, :show]
+      resources :projects, only: [:index, :show]
+      # get ":resources_slug/:item_slug" => 'options#index', as: :options
+      get ":resources_slug/:item_slug/:option_slug" => 'options#show', as: :option
+    end
+    resources :regions, only: :index
+    resources :regions, path: "", only: :show
   end
-  resources :regions, path: "regions", only: :index
-  resources :regions, path: "", only: :show
 
   root to: 'home#index'
 end

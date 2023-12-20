@@ -1,5 +1,5 @@
 <div class="row">
-  <% projects.each do |project| %>
+  <% objects.each do |project| %>
     <div class="col-lg-3 mb-4">
       <div class="card">
         <%= kamifusen_tag project.image, width: 400, class: 'card-img-top', alt: project if project.image.attached? %>

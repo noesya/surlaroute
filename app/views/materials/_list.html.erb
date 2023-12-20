@@ -1,5 +1,5 @@
 <div class="row">
-  <% materials.each do |material| %>
+  <% objects.each do |material| %>
     <div class="col-lg-3 mb-4">
       <div class="card">
         <%= kamifusen_tag material.image, width: 400, class: 'card-img-top', alt: material if material.image.attached? %>
