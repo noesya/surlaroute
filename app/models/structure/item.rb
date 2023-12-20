@@ -8,16 +8,19 @@
 #  kind        :integer          default("string")
 #  name        :string
 #  position    :integer          default(0)
+#  slug        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 class Structure::Item < ApplicationRecord
+  include WithSlug
+  
   ABOUT_CLASSES = [
     Material,
     Project
   ]
 
-  has_many :values
+  has_many :values, dependent: :destroy
   has_many :options, dependent: :destroy
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
 
@@ -40,6 +43,41 @@ class Structure::Item < ApplicationRecord
       'single_choice',
       'multiple_choices'
     ]
+  end
+
+  def save_value(object, data)
+    if has_options?
+      values_for(object).destroy_all
+      return if data.blank?
+      option = Structure::Option.find(data)
+      value = value_for(object)
+      value.option = option
+      value.save
+    else
+      value = value_for(object)
+      value.text = data
+      value.save
+    end
+  end
+
+  def values_for(object)
+    values.where(about: object)
+  end
+
+  def value_for(object)
+    values_for(object).first_or_create
+  end
+
+  def options_for(object)
+    values_for(object).collect(&:option).compact
+  end
+
+  def option_for(object)
+    value_for(object)&.option
+  end
+
+  def selected_option?(object, option)
+    option.in? options_for(object)
   end
 
   def to_s

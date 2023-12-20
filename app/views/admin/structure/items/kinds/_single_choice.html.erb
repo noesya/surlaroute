@@ -1,1 +1,8 @@
-
+<select class="form-select select" 
+        name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>]"
+        id="item_<%= item.id %>">
+  <option value="" label=""></option>
+  <% item.options.ordered.each do |option| %>
+    <option <%= 'selected="selected"' if about.selected_option?(option) %> value="<%= option.id %>"><%= option %></option>
+  <% end %>
+</select>

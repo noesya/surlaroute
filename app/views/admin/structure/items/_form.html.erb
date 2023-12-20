@@ -4,22 +4,27 @@
 
   <div class="row">
     <div class="col-lg-6">
-    <%= f.input :name %>
+      <%= f.input :name %>
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :slug %>
     </div>
     <div class="col-lg-6">
       <%= f.input :kind, include_blank: false %>
     </div>
+    <div class="col-lg-6">
+      <%= f.input :hint %>
+    </div>
   </div>
-  <%= f.input :hint %>
 
   <% if item.has_options? %>
-    <label class="form-label">Options</label>
     <div id="options">
-      <%= f.simple_fields_for :options do |option| %>
-        <%= render 'option_fields', f: option %>
-      <% end %>
+      <label class="form-label">Options</label>
+        <%= f.simple_fields_for :options do |option| %>
+          <%= render 'option_fields', f: option %>
+        <% end %>
+        <%= link_to_add_association 'Ajouter une option', f, :options %>
     </div>
-    <%= link_to_add_association 'Ajouter une option', f, :options %>
   <% end %>
   
   <% content_for :buttons do %>

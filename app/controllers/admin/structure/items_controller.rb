@@ -1,5 +1,5 @@
 class Admin::Structure::ItemsController < Admin::Structure::ApplicationController
-  load_and_authorize_resource class: Structure::Item
+  load_and_authorize_resource class: Structure::Item, find_by: :slug
 
   include Admin::Reorderable
 

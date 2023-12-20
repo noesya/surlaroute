@@ -9,13 +9,20 @@ module WithStructure
   def items=(hash)
     hash.each do |id, data|
       item = Structure::Item.find(id)
-      value = value_for(item)
-      value.text = data
-      value.save
+      next if item.nil?
+      item.save_value(self, data)
     end
   end
 
   def value_for(item)
-    item.values.where(about: self).first_or_create
+    item.value_for(self)
+  end
+
+  def option_for(item)
+    item.option_for(self)
+  end
+
+  def selected_option?(option)
+    option.item.selected_option?(self, option)
   end
 end

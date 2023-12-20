@@ -19,7 +19,6 @@
 #
 #  fk_rails_1ce4c6dd6a  (item_id => structure_items.id)
 #
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   name: MyString

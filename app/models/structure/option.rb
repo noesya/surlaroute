@@ -23,6 +23,7 @@ class Structure::Option < ApplicationRecord
   include WithSlug
 
   belongs_to :item
+  has_many :values
 
   scope :ordered, -> { order(:position) }
 

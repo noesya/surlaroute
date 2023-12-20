@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_20_083146) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_20_131932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -139,6 +139,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_083146) do
     t.datetime "updated_at", null: false
     t.uuid "region_id"
     t.index ["region_id"], name: "index_projects_on_region_id"
+    t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
   create_table "regions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -147,6 +148,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_083146) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_regions_on_slug", unique: true
   end
 
   create_table "structure_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -157,6 +159,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_083146) do
     t.string "about_class"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "structure_options", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -177,8 +180,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_083146) do
     t.uuid "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "option_id"
     t.index ["about_type", "about_id"], name: "index_criterion_values_on_about"
     t.index ["item_id"], name: "index_structure_values_on_item_id"
+    t.index ["option_id"], name: "index_structure_values_on_option_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -225,4 +230,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_083146) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"
+  add_foreign_key "structure_values", "structure_options", column: "option_id"
 end
