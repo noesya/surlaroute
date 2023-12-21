@@ -30,7 +30,15 @@
     <h2 class="h5">Choix</h2>
 
     <div class="table-responsive">
-      <table class="table">
+      <table class="table table-borderless table-small">
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= Structure::Option.human_attribute_name(:name) %></th>
+            <th><%= Structure::Option.human_attribute_name(:slug) %></th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody id="options" data-sortable="inputs">
           <%= f.simple_fields_for :options, item.options.sort_by(&:position) do |option_form| %>
             <%= render 'option_fields', f: option_form %>

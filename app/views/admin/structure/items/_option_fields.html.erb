@@ -1,19 +1,25 @@
 <% id = SecureRandom.hex(6) %>
 <tr class="nested-fields">
-  <td width="10"><i class="bi bi-grip-horizontal handle"></i></td>
+  <td width="10"><i class="bi bi-arrow-down-up handle"></i></td>
   <td>
     <%= f.input :name, 
+                label: false,
+                wrapper: :inline_form,
                 input_html: { id: "name_#{id}" } %>
     <%= f.input :position, as: :hidden, input_html: { "data-sortable-input": true }, wrapper_html: { class: 'd-none' } %>
   </td>
   <td>
     <%= f.input :slug,
+                label: false,
+                wrapper: :inline_form,
                 input_html: {
                   class: 'js-slug',
                   data: { source: "#name_#{id}" }
                 } %>
   </td>
-  <td class="text-end">
-    <%= link_to_remove_association t('admin.delete'), f, class: 'btn btn-sm btn-danger' %>
+  <td class="text-end" width="20">
+    <%= link_to_remove_association f, class: 'btn text-danger' do %>
+      <i class="bi bi-trash"></i>
+    <% end %>
   </td>
 </tr>
