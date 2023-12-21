@@ -118,12 +118,14 @@ fr:
     structure:
       item:
         kind:
-          text: 'Texte sur plusieurs lignes'
+          file: Fichier
+          heading_2: 'Titre'
+          heading_3: 'Sous-titre'
+          option: 'Choix unique'
+          options: 'Choix multiples'
           string: 'Texte'
-          single_choice: 'Choix unique'
-          multiple_choices: 'Choix multiples'
-          heading2: 'Titre'
-          heading3: 'Sous-titre'
+          text: 'Texte sur plusieurs lignes'
+          url: 'Site Web'
   false: Non
   login:
     already_registered: Déjà inscrit ?

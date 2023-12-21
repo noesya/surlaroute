@@ -24,6 +24,8 @@ class Structure::Item < ApplicationRecord
   has_many :options, dependent: :destroy
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
 
+  before_create :set_position
+
   validates_presence_of :name
 
   scope :ordered, -> { order(:position) }
@@ -32,8 +34,9 @@ class Structure::Item < ApplicationRecord
     string: 0,
     text: 1,
     url: 2,
-    single_choice: 11,
-    multiple_choices: 12, 
+    option: 11,
+    options: 12,
+    file: 21,
     heading_2: 102,
     heading_3: 103
   }, _prefix: :kind
@@ -47,13 +50,8 @@ class Structure::Item < ApplicationRecord
   end
 
   def save_value(object, data)
-    if has_options?
-      connect_options(object, data)
-    else
-      value = value_for(object)
-      value.text = data
-      value.save
-    end
+    has_options?  ? connect_options(object, data)
+                  : save_data(object, data)
   end
 
   def values_for(object)
@@ -100,5 +98,20 @@ class Structure::Item < ApplicationRecord
 
   def connect_option(object, id)
     values_for(object).where(option_id: id).first_or_create
+  end
+
+  def save_data(object, data)
+    value = value_for(object)
+    if data.is_a?(String)
+      value.text = data
+    else
+      # ActionDispatch::Http::UploadedFile
+      # byebug
+    end
+    value.save
+  end
+
+  def set_position
+    self.position = Structure::Item.where(about_class: about_class).count
   end
 end

@@ -7,7 +7,11 @@
       <%= f.input :name %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :slug %>
+      <%= f.input :slug,
+                  input_html: item.persisted? ? {} : {
+                    class: 'js-slug-input',
+                    data: { source: '#structure_item_name' }
+                  } %>
     </div>
     <div class="col-lg-6">
       <%= f.input :kind, include_blank: false %>

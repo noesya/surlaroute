@@ -27,6 +27,8 @@ class Structure::Value < ApplicationRecord
   belongs_to :item
   belongs_to :option, optional: true
 
+  has_one_attached_deletable :file
+
   def to_s
     option.present? ? "#{option}"
                     : "#{text}"

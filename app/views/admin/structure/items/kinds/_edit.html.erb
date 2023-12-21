@@ -1,6 +1,6 @@
 <% about.items.each do |item| %>
   <div class="mb-3">
     <label class="form-label" for="criterion_<%= item.id %>"><%= item %></label>
-    <%= render "admin/structure/items/#{item.kind}/edit", about: about, item: item %>
+    <%= render "admin/structure/items/kinds/#{item.kind}/edit", about: about, item: item %>
   </div>
 <% end %>
