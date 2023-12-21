@@ -1,1 +1,2 @@
-TODO
+<% value = item.value_for(about) %>
+<%= link_to value.file.filename, value.file, target: :_blank if value.file.attached? %>
