@@ -1,16 +1,13 @@
-<%
-# :materials
-resources_class_name = about.class.to_s.downcase.pluralize.to_sym
-# La clé `routes` est une convention de la gem `route_translator`
-# {:materials=>"materiaux", :projects=>"projets"}
-slugs = t('routes')
-# 'materiaux'
-resources_slug = slugs[resources_class_name]
-path = option_path(resources_slug: resources_slug, item_slug: item.slug, option_slug: option.slug)
-%>
 <% if option %>
-  <a  href="<%= path %>" 
-      class="btn btn-outline-dark rounded-pill">
+  <%
+  # materials
+  resources_class_name = about.class.to_s.downcase.pluralize
+  # option_materials_path
+  path_name = "option_#{resources_class_name}_path"
+  # /materiaux/famille-de-materiaux/plastiques
+  path = public_send(path_name, item_slug: item.slug, option_slug: option.slug)
+  %>
+  <a href="<%= path %>" class="btn btn-outline-dark rounded-pill">
     <%= option %>
   </a>
 <% end %>

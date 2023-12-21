@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include ResourceWithStructure
 
   def index
     @projects = Project.all.ordered.page(params[:page])

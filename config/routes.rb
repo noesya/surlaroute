@@ -16,10 +16,11 @@ Rails.application.routes.draw do
           get ':item_slug/:option_slug' => 'materials#option', as: :option
         end
       end
-      resources :projects, only: [:index, :show]
-      # materiaux/aspect/mat
-      # projets/categorie/maitre-d-oeuvre
-      get ":resources_slug/:item_slug/:option_slug" => 'options#show', as: :option
+      resources :projects, only: [:index, :show] do
+        collection do
+          get ':item_slug/:option_slug' => 'projects#option', as: :option
+        end
+      end
     end
     get 'regions' => 'regions#index', as: :regions
     resources :regions, path: "", only: :show

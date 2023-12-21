@@ -1,4 +1,5 @@
 class MaterialsController < ApplicationController
+  include ResourceWithStructure
 
   def index
     @materials = Material.all.ordered.page(params[:page])
