@@ -119,8 +119,8 @@ fr:
       item:
         kind:
           file: Fichier
-          heading_2: 'Titre'
-          heading_3: 'Sous-titre'
+          h2: 'Titre'
+          h3: 'Sous-titre'
           option: 'Choix unique'
           options: 'Choix multiples'
           string: 'Texte'

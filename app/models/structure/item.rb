@@ -37,15 +37,15 @@ class Structure::Item < ApplicationRecord
     option: 11,
     options: 12,
     file: 21,
-    heading_2: 102,
-    heading_3: 103
+    h2: 102,
+    h3: 103
   }, _prefix: :kind
 
 
   def has_options?
     kind.in? [
-      'single_choice',
-      'multiple_choices'
+      'option',
+      'options'
     ]
   end
 

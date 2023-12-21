@@ -1,12 +1,6 @@
 class OptionsController < ApplicationController
   before_action :load_about, :load_item
 
-  def index
-    @options = @item.options
-    breadcrumb
-    render 'structure/options/index'
-  end
-  
   def show
     @option = @item.options.find_by(slug: params[:option_slug])
     @objects = @option.objects
