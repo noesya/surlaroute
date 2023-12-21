@@ -13,16 +13,4 @@ module WithStructure
       item.save_value(self, data)
     end
   end
-
-  def value_for(item)
-    item.value_for(self)
-  end
-
-  def option_for(item)
-    item.option_for(self)
-  end
-
-  def selected_option?(option)
-    option.item.selected_option?(self, option)
-  end
 end

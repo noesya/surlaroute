@@ -31,6 +31,7 @@ class Structure::Item < ApplicationRecord
   enum kind: {
     string: 0,
     text: 1,
+    url: 2,
     single_choice: 11,
     multiple_choices: 12, 
     heading_2: 102,

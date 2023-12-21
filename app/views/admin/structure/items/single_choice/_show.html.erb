@@ -1,6 +1,6 @@
-<% if about.option_for(item) %>
+<% if item.option_for(about) %>
   <div class="mb-5">
     <label class="small text-muted"><%= item %></label>
-    <div><%= about.option_for(item) %></div>
+    <div><%= item.option_for(about) %></div>
   </div>
 <% end %>
