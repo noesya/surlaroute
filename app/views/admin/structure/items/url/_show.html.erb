@@ -1,4 +1,4 @@
 <div class="mb-5">
   <label class="small text-muted"><%= item %></label>
-  <p><%= link_to item.value_for(about).text, item.value_for(about).text, target: :_blank if item.value_for(about).text %></p>
+  <p><%= link_to item.text_for(about), item.text_for(about), target: :_blank if item.text_for(about) %></p>
 </div>

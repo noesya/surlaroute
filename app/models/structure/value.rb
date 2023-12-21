@@ -26,4 +26,9 @@ class Structure::Value < ApplicationRecord
   belongs_to :about, polymorphic: true
   belongs_to :item
   belongs_to :option, optional: true
+
+  def to_s
+    option.present? ? "#{option}"
+                    : "#{text}"
+  end
 end

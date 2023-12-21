@@ -64,6 +64,10 @@ class Structure::Item < ApplicationRecord
     values_for(object).first_or_create
   end
 
+  def text_for(object)
+    value_for(object).text
+  end
+
   def options_for(object)
     values_for(object).collect(&:option).compact
   end

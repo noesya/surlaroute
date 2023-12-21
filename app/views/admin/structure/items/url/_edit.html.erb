@@ -1,6 +1,6 @@
 <input  class="form-control string" 
         type="url" 
-        value="<%= item.value_for(about).text %>" 
+        value="<%= item.text_for(about) %>" 
         placeholder="https://"
         pattern="https://.*"
         name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>]" 
