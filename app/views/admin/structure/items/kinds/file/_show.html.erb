@@ -1,4 +1,5 @@
+<% value = item.value_for(about) %>
 <div class="mb-5">
   <label class="small text-muted"><%= item %></label>
-  <p>TODO</p>
+  <p><%= link_to value.file.filename, value.file, target: :_blank if value.file.attached? %></p>
 </div>

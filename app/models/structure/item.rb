@@ -102,13 +102,7 @@ class Structure::Item < ApplicationRecord
 
   def save_data(object, data)
     value = value_for(object)
-    if data.is_a?(String)
-      value.text = data
-    else
-      # ActionDispatch::Http::UploadedFile
-      # byebug
-    end
-    value.save
+    value.save_data(data)
   end
 
   def set_position
