@@ -27,7 +27,13 @@
         <%= f.simple_fields_for :options do |option| %>
           <%= render 'option_fields', f: option %>
         <% end %>
-        <%= link_to_add_association 'Ajouter une option', f, :options %>
+    </div>
+    
+    <%= link_to_add_association 'Ajouter une option', 
+                                f, 
+                                :options,
+                                "data-association-insertion-node": '#options',
+                                "data-association-insertion-method": 'append' %>
     </div>
   <% end %>
   
