@@ -1,3 +1,5 @@
+<% content_for :body_class, 'js-structure-items' %>
+
 <%= simple_form_for [:admin, item] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -15,14 +17,15 @@
     </div>
     <div class="col-lg-6">
       <%= f.input :kind, 
-                  include_blank: false %>
+                  include_blank: false,
+                  input_html: { "data-with-choices": Structure::Item.with_options.join('|') } %>
     </div>
     <div class="col-lg-6">
       <%= f.input :hint %>
     </div>
   </div>
 
-  <div class="js-choices">
+  <div id="js-choices" class="<%= 'd-none' unless item.has_options? %>">
 
     <h2 class="h5">Choix</h2>
 

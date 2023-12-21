@@ -41,12 +41,16 @@ class Structure::Item < ApplicationRecord
     h3: 103
   }, _prefix: :kind
 
-
-  def has_options?
-    kind.in? [
+  def self.with_options
+    [
       'option',
       'options'
     ]
+  end
+
+
+  def has_options?
+    kind.in?(Structure::Item.with_options)
   end
 
   def save_value(object, data)

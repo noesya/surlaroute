@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag "admin" %>
     <%= javascript_include_tag "admin", defer: true %>
   </head>
-  <body class="<%= body_classes %>" >
+  <body class="<%= body_classes %> <%= yield(:body_class) if content_for?(:body_class) %>" >
     <div id="app">
       <%= render 'admin/application/sidebar' %>
       <main id="main">
