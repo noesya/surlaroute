@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   localized do
     # La contrainte ressemble à `region_slug: /(occitanie|ile-de-france)/`
-    scope "(:region_slug)", constraints: { region_slug: Regexp.new(Region.pluck(:slug).join("|")) } do 
+    scope "(:region_slug)", constraints: lambda { |req| Region.pluck(:slug).include?(req.params[:region_slug]) } do
       resources :materials, only: [:index, :show] do
         collection do
           get ':item_slug/:option_slug' => 'materials#option', as: :option
