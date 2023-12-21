@@ -19,7 +19,7 @@ window.sortableManager = {
         'use strict';
         var sortableType = container.dataset.sortable;
         if (sortableType === 'input') {
-            $(container).on('cocoon:after-add cocoon:after-remove', this.updateViaInputs);
+            $(container).on('cocoon:after-add cocoon:after-remove', this.updateViaInputs.bind(this, container));
         }
 
         return new Sortable(container, {
@@ -28,7 +28,7 @@ window.sortableManager = {
             animation: 150,
             fallbackOnBody: true,
             swapThreshold: 0.65,
-            onEnd: sortableType === 'inputs' ? this.updateViaInputs : this.updateViaXhr
+            onEnd: sortableType === 'inputs' ? this.updateViaInputs.bind(this, container) : this.updateViaXhr.bind(this)
         });
     },
 
@@ -50,35 +50,27 @@ window.sortableManager = {
         $.post(url, { ids: ids });
     },
 
-    updateViaInputs: function (event) {
+    updateViaInputs: function (container, event) {
         'use strict';
-        var children = event.to.children,
+        var children = container.children,
             newPosition = 0,
-            child,
+            targetInput,
             i;
 
         for (i = 0; i < children.length; i += 1) {
-            child = children[i];
-            if (this.shouldSkipChild(child)) {
+            targetInput = children[i].querySelector('[data-sortable-input]');
+            if ((targetInput == null) || this.childIsDestroyed(children[i])) {
                 continue;
             }
             newPosition += 1;
-            this.updateChildPosition(child, newPosition);
+            targetInput.value = newPosition;
         }
     },
 
-    shouldSkipChild: function (child) {
+    childIsDestroyed: function (child) {
         'use strict';
         var destroyInput = child.querySelector('input[name$="[_destroy]"]');
         return destroyInput !== null && destroyInput.value === '1';
-    },
-
-    updateChildPosition: function (child, newPosition) {
-        'use strict';
-        var targetInput = child.querySelector('[data-sortable-input]');
-        if (targetInput !== null) {
-            targetInput.value = newPosition;
-        }
     },
 
     invoke: function () {

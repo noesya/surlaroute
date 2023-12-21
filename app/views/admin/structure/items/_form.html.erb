@@ -14,29 +14,36 @@
                   } %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :kind, include_blank: false %>
+      <%= f.input :kind, 
+                  include_blank: false %>
     </div>
     <div class="col-lg-6">
       <%= f.input :hint %>
     </div>
   </div>
 
-  <% if item.has_options? %>
-    <div id="options">
-      <label class="form-label">Options</label>
-        <%= f.simple_fields_for :options do |option| %>
-          <%= render 'option_fields', f: option %>
-        <% end %>
+  <div class="js-choices">
+
+    <h2 class="h5">Choix</h2>
+
+    <div class="table-responsive">
+      <table class="table">
+        <tbody id="options" data-sortable="inputs">
+          <%= f.simple_fields_for :options, item.options.sort_by(&:position) do |option_form| %>
+            <%= render 'option_fields', f: option_form %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-    
+      
     <%= link_to_add_association 'Ajouter une option', 
                                 f, 
                                 :options,
                                 "data-association-insertion-node": '#options',
                                 "data-association-insertion-method": 'append' %>
-    </div>
-  <% end %>
-  
+
+  </div>  
+
   <% content_for :buttons do %>
     <%= destroy_link item if item.persisted? %>
     <%= submit f %>

@@ -22,6 +22,7 @@ window.slugInput = {
 
         for (i = 0; i < sourceSelectors.length; i += 1) {
             sourceInput = document.querySelector(sourceSelectors[i].trim());
+
             if (sourceInput !== null) {
                 sourceInputs.push(sourceInput);
             }
@@ -50,7 +51,8 @@ window.slugInput = {
     invoke: function () {
         'use strict';
         return {
-            init: this.init.bind(this)
+            init: this.init.bind(this),
+            initInput: this.initInput.bind(this)
         };
     }
 }.invoke();

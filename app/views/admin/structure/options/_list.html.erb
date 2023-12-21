@@ -2,14 +2,12 @@
   <table class="<%= table_classes %>">
     <thead>
       <tr>
-        <th width="20"></th>
         <th><%= Structure::Option.human_attribute_name('name') %></th>
       </tr>
     </thead>
-    <tbody data-sortable data-sort-url="<%= reorder_admin_structure_options_path %>">
+    <tbody>
       <% options.each do |option| %>
         <tr data-id="<%= option.id %>">
-          <td class="ps-0"><i class="bi bi-arrow-down-up handle"></i></td>
           <td><%= option %></td>
         </tr>
       <% end %>
