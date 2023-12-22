@@ -3,11 +3,9 @@ class Admin::UsersController < Admin::ApplicationController
 
   include Admin::Filterable
 
-  has_scope :for_role
-  has_scope :for_search_term
 
   def index
-    @users = apply_scopes(@users).ordered.page(params[:page])
+    @users = @users.autofilter(params[:filters]).ordered.page(params[:page])
     breadcrumb
   end
 

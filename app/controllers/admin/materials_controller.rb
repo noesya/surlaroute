@@ -3,10 +3,8 @@ class Admin::MaterialsController < Admin::ApplicationController
 
   include Admin::Filterable
 
-  has_scope :for_search_term
-
   def index
-    @materials = apply_scopes(@materials).ordered.page(params[:page])
+    @materials = @materials.autofilter(params[:filters]).ordered.page(params[:page])
     breadcrumb
   end
 

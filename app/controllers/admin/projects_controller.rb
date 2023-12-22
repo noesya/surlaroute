@@ -3,10 +3,8 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   include Admin::Filterable
 
-  has_scope :for_search_term
-
   def index
-    @projects = apply_scopes(@projects).ordered.page(params[:page])
+    @projects = @projects.autofilter(params[:filters]).ordered.page(params[:page])
     breadcrumb
   end
   

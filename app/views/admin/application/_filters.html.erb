@@ -1,48 +1,35 @@
-<%
-collapsable = true if collapsable.nil? # not ||= because collapsable can be "false"
-should_be_open = false
-filters.each { |filter| should_be_open = true if params.has_key?(filter[:scope_name]) }
-%>
-
-<div class="filters">
-  <% if collapsable %>
-    <a  class="btn btn-light btn-xs filters__button mb-2"
-        data-bs-toggle="collapse"
-        href="#collapseFilters"
-        role="button"
-        aria-expanded="false"
-        aria-controls="collapseFilters">
-      <%= t('admin.filters.buttons.expand') %>
-      <i class="bi bi-filter"></i>
-    </a>
-  <% end %>
-  <div class="collapse filters__content <%= (!collapsable || should_be_open) ? 'show' : '' %>" id="collapseFilters">
-    <%= form_tag current_path, method: :get, class: 'do-not-unlock mb-3' do |f| %>
-      <div class="row">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filters" aria-labelledby="filtersLabel">
+  <div class="offcanvas-header">
+    <h4 id="filtersLabel"><%= t('admin.filters.title') %></h4>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="<%= t('admin.filters.buttons.close') %>"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <% active_filters = 0 %>
+      <%= simple_form_for :filters, url: current_path, method: :get do |f| %>
         <% filters.each do |filter| %>
-          <div class="filters__content__filter col-lg-4">
-            <% if filter[:scope_name] == :for_search_term %>
-              <%= text_field_tag  filter[:scope_name],
-                                  params[filter[:scope_name]],
-                                  placeholder: filter[:label],
-                                  class: 'form-control mb-2 filter' %>
-            <% else %>
-              <% if filter[:tree] %>
-                <% choices = collection_tree(filter[:choices]).map { |elmt| [elmt[:label].html_safe, elmt[:id]] } %>
-              <% else %>
-                <% choices = filter[:choices].map { |elmt| elmt.is_a?(String) ?  [elmt, elmt] : [elmt.is_a?(Hash) ? elmt[:to_s] : elmt.to_s, elmt[:id]] } %>
-              <% end %>
-              <% field_name = filter[:multiple] ? "#{filter[:scope_name]}[]" : filter[:scope_name] %>
-              <%= select_tag  field_name,
-                              options_for_select(choices, params[filter[:scope_name]]),
-                              include_blank: filter[:label],
-                              class: 'form-select mb-2 filter' %>
-            <% end %>
-          </div>
+          <%= render "admin/application/filters/#{filter[:type].to_s}", f: f, filter: filter %>
+          <% 
+            value = filter[:value_method].call(filter, params) 
+            active_filters += 1 unless (value.blank? || (value.is_a?(Array) && value.reject(&:blank?).empty?))
+          %>
         <% end %>
-      </div>
-      <%= submit_tag t('admin.filters.buttons.submit'), class: 'btn btn-primary btn-sm btn-submit' %>
-      <%= link_to t('admin.filters.buttons.reset'), current_path, class: button_classes_minor %>
-    <% end %>
+        <div class='form-group'>
+          <%= submit_tag t('admin.filters.buttons.submit'), class: button_classes %>
+          <%= link_to t('admin.filters.buttons.reset'), current_path, class: button_classes('btn-secondary') %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+<div class="text-sm-end mt-n2 mt-sm-n5">
+  <button class="<%= button_classes('my-1') %>" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters" aria-controls="filters">
+    <%= t('admin.filters.buttons.expand') %>
+    <% if active_filters > 0 %>
+      <span class="badge bg-white text-primary"><%= active_filters %></span>
+    <% end %>
+  </button>
+</div>
+
+

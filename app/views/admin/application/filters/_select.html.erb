@@ -1,0 +1,14 @@
+<% collection = filter[:collection].map { |elmt| elmt.is_a?(String) ? [elmt, elmt] : [elmt.is_a?(Hash) ? elmt[:to_s] : elmt.to_s, elmt[:id]] } %>
+<%= f.input filter[:scope_name], 
+            as: :select, 
+            label: filter[:label],
+            collection: collection,
+            required: false,
+            selected: filter[:value_method].call(filter, params),
+            include_blank: filter[:multiple] ? false : true,
+            input_html: { 
+              multiple: filter[:multiple],
+              class: "form-select mb-#{filter[:margin_bottom]} filter select2"
+            },
+            wrapper_html: { class: filter[:class] }
+%>

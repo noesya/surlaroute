@@ -1,0 +1,10 @@
+<%= f.input filter[:scope_name], 
+            as: :string, 
+            label: filter[:label],
+            required: false,
+            input_html: { 
+              value: filter[:value_method].call(filter, params),
+              class: "mb-#{filter[:margin_bottom]} filter "
+            },
+            wrapper_html: { class: filter[:class] }
+%>

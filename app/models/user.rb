@@ -49,7 +49,10 @@ class User < ApplicationRecord
   include WithRoles
 
   scope :ordered, -> { order(:last_name, :first_name) }
-  scope :for_search_term, -> (term) {
+  
+  scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
+  scope :autofilter_role, -> (role) { where(role: role) }
+  scope :autofilter_search, -> (term) {
     where("
       unaccent(concat(users.first_name, ' ', users.last_name)) ILIKE unaccent(:term) OR
       unaccent(concat(users.last_name, ' ', users.first_name)) ILIKE unaccent(:term) OR
@@ -64,4 +67,5 @@ class User < ApplicationRecord
     first_name.present? ? "#{first_name} #{last_name}"
                         : "#{email}"
   end
+  
 end

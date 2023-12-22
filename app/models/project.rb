@@ -21,10 +21,12 @@ class Project < ApplicationRecord
   
   belongs_to :region, optional: true
 
-  scope :for_search_term, -> (term) {
+  scope :ordered, -> { order(:name) }
+
+  scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
+  scope :autofilter_search, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
-  scope :ordered, -> { order(:name) }
 
   validates_presence_of :name
 

@@ -1,0 +1,12 @@
+<%= f.input filter[:scope_name], 
+            as: :boolean, 
+            label: filter[:label],
+            required: false,
+            checked: filter[:value_method].call(filter, params) == '1',
+            input_html: { 
+              include_hidden: false,
+              checked:  filter[:value_method].call(filter, params) == '1',
+              class: 'filter'
+            },
+            wrapper_html: { class: filter[:class] }
+%>

@@ -66,10 +66,12 @@ fr:
     dashboard: Tableau de bord
     filters:
       buttons:
-        expand: Filtres
+        close: Fermer
+        expand: Rechercher
         reset: Réinitialiser
         submit: Filtrer
-      search: Rechercher
+      search_field: Recherche
+      title: Rechercher
     structure: Structure
     successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
     successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
