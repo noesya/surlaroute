@@ -48,7 +48,6 @@ class User < ApplicationRecord
   include WithAuthentication
   include WithRoles
 
-  scope :ordered, -> { order(:last_name, :first_name) }
   scope :for_search_term, -> (term) {
     where("
       unaccent(concat(users.first_name, ' ', users.last_name)) ILIKE unaccent(:term) OR
@@ -59,6 +58,7 @@ class User < ApplicationRecord
       unaccent(users.mobile_phone) ILIKE unaccent(:term)
     ", term: "%#{sanitize_sql_like(term)}%")
   }
+  scope :ordered, -> { order(:last_name, :first_name) }
 
   def to_s
     first_name.present? ? "#{first_name} #{last_name}"

@@ -8,10 +8,10 @@ module User::WithRoles
 
     enum role: { visitor: 0, admin: 20, superadmin: 30 }
 
-    scope :for_role, -> (role) { where(role: role) }
-
     before_validation :set_default_role, on: :create
     before_validation :check_modifier_role
+
+    scope :for_role, -> (role) { where(role: role) }
 
     def managed_roles
       User.roles.map do |role_name, role_id|

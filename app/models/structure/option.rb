@@ -23,7 +23,7 @@ class Structure::Option < ApplicationRecord
   include WithSlug
 
   belongs_to :item
-  has_many :values
+  has_many :values, dependent: :destroy
 
   scope :ordered, -> { order(:position) }
 

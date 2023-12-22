@@ -19,11 +19,11 @@ class Region < ApplicationRecord
   has_many :materials
   has_many :projects
 
-  scope :ordered, -> { order(:name) }
+  has_one_attached_deletable :image
 
   validates_presence_of :name
 
-  has_one_attached_deletable :image
+  scope :ordered, -> { order(:name) }
 
   def to_s
     "#{name}"
