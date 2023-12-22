@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   draw 'admin'
 
   localized do
-    # La contrainte ressemble à `region_slug: /(occitanie|ile-de-france)/`
     scope "(:region_slug)", constraints: lambda { |req| Region.pluck(:slug).include?(req.params[:region_slug]) } do
       resources :materials, only: [:index, :show] do
         collection do
