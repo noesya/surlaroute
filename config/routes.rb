@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   draw 'admin'
 
   localized do
-    scope "(:region_slug)", constraints: lambda { |req| Region.pluck(:slug).include?(req.params[:region_slug]) } do
+    scope "(:region_slug)", constraints: lambda { |request|
+      region_slug = request.params[:region_slug]
+      Region.where(slug: region_slug).exists?
+    } do
       resources :materials, only: [:index, :show] do
         collection do
           get ':item_slug/:option_slug' => 'materials#option', as: :option

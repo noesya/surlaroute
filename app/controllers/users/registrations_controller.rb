@@ -3,13 +3,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: :update
 
   def edit
-    add_breadcrumb t('admin.dashboard'), :admin_root_path
-    if can? :read, @user
-      add_breadcrumb User.model_name.human(count: 2), admin_users_path
-      add_breadcrumb @user, [:admin, @user]
-      add_breadcrumb t('edit')
-    else
-      add_breadcrumb t('menu.profile')
+    breadcrumb
+    add_breadcrumb t('menu.my_account')
+  end
+
+  def update
+    super do
+      breadcrumb
+      add_breadcrumb t('menu.my_account')
     end
   end
 
