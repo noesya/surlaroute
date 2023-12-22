@@ -14,7 +14,7 @@ window.ecotheque.structure.items = {
         'use strict';
         var kind = this.kindField.value;
         var kindsWithChoices = this.kindField.dataset.withChoices.split('|');
-        if (kindsWithChoices.includes(kind)) {
+        if (kindsWithChoices.indexOf(kind) !== -1) {
             this.choices.classList.remove('d-none');
         } else {
             this.choices.classList.add('d-none');
