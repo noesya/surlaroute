@@ -18,8 +18,12 @@
 class Project < ApplicationRecord
   include WithSlug
   include WithStructure
-  
+
   belongs_to :region, optional: true
+
+  has_one_attached_deletable :image
+
+  validates_presence_of :name
 
   scope :ordered, -> { order(:name) }
 
@@ -27,10 +31,6 @@ class Project < ApplicationRecord
   scope :autofilter_search, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
-
-  validates_presence_of :name
-
-  has_one_attached_deletable :image
 
   def to_s
     "#{name}"

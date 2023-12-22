@@ -14,7 +14,7 @@
 #
 class Structure::Item < ApplicationRecord
   include WithSlug
-  
+
   ABOUT_CLASSES = [
     Material,
     Project
@@ -24,9 +24,9 @@ class Structure::Item < ApplicationRecord
   has_many :options, dependent: :destroy
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
 
-  before_create :set_position
-
   validates_presence_of :name
+
+  before_create :set_position
 
   scope :ordered, -> { order(:position) }
 

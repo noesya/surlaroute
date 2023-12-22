@@ -6,7 +6,7 @@ fr:
         other: Structures
   activerecord:
     attributes:
-      structure/item: 
+      structure/item:
         name: Nom
         slug: Identifiant
         about_class: Type d'objets concernés
@@ -139,6 +139,8 @@ fr:
     subtitle: Vous devez être authentifié pour continuer
   mailers:
     yours: Cordialement.
+  menu:
+    my_account: Mon compte
   please_confirm: Merci de confirmer
   routes:
     materials: materiaux

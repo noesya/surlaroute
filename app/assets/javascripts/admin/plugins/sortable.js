@@ -50,7 +50,7 @@ window.sortableManager = {
         $.post(url, { ids: ids });
     },
 
-    updateViaInputs: function (container, event) {
+    updateViaInputs: function (container) {
         'use strict';
         var children = container.children,
             newPosition = 0,
@@ -59,7 +59,7 @@ window.sortableManager = {
 
         for (i = 0; i < children.length; i += 1) {
             targetInput = children[i].querySelector('[data-sortable-input]');
-            if ((targetInput == null) || this.childIsDestroyed(children[i])) {
+            if (targetInput === null || this.childIsDestroyed(children[i])) {
                 continue;
             }
             newPosition += 1;

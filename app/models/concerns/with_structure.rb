@@ -1,6 +1,10 @@
 module WithStructure
   extend ActiveSupport::Concern
 
+  # included do 
+  #   accepts_nested_attributes_for :items
+  # end
+
   def items
     @items ||= Structure::Item.where(about_class: self.class.to_s).order(:position)
   end
