@@ -1,5 +1,4 @@
 /*global $  */
-
 window.ecotheque.structure.items = {
     init: function () {
         'use strict';

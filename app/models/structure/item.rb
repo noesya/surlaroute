@@ -110,6 +110,7 @@ class Structure::Item < ApplicationRecord
   end
 
   def set_position
-    self.position = Structure::Item.where(about_class: about_class).count
+    last_higher_position = Structure::Item.where(about_class: about_class).maximum(:position) || 0
+    self.position = last_higher_position + 1
   end
 end
