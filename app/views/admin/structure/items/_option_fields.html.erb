@@ -1,11 +1,9 @@
-<% id = SecureRandom.hex(6) %>
 <tr class="nested-fields">
   <td width="10"><i class="bi bi-arrow-down-up handle"></i></td>
   <td>
-    <%= f.input :name, 
+    <%= f.input :name,
                 label: false,
-                wrapper: :inline_form,
-                input_html: { id: "name_#{id}" } %>
+                wrapper: :inline_form %>
     <%= f.input :position, as: :hidden, input_html: { "data-sortable-input": true }, wrapper_html: { class: 'd-none' } %>
   </td>
   <td>
@@ -14,7 +12,7 @@
                 wrapper: :inline_form,
                 input_html: {
                   class: 'js-slug',
-                  data: { source: "#name_#{id}" }
+                  data: { source: "#structure_item_options_attributes_#{f.options[:child_index]}_name" }
                 } %>
   </td>
   <td class="text-end" width="20">
