@@ -142,9 +142,6 @@ fr:
   menu:
     my_account: Mon compte
   please_confirm: Merci de confirmer
-  routes:
-    materials: materiaux
-    projects: projets
   save: Enregistrer
   show: Voir
   show_front: Voir sur le site

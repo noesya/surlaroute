@@ -13,12 +13,12 @@ Rails.application.routes.draw do
       region_slug = request.params[:region_slug]
       Region.where(slug: region_slug).exists?
     } do
-      resources :materials, only: [:index, :show] do
+      resources :materials, path: 'materiaux', only: [:index, :show] do
         collection do
           get ':item_slug/:option_slug' => 'materials#option', as: :option
         end
       end
-      resources :projects, only: [:index, :show] do
+      resources :projects, path: 'projets', only: [:index, :show] do
         collection do
           get ':item_slug/:option_slug' => 'projects#option', as: :option
         end
