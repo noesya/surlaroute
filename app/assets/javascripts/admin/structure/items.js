@@ -11,8 +11,8 @@ window.ecotheque.structure.items = {
 
     manageChoicesVisibilitiy: function () {
         'use strict';
-        var kind = this.kindField.value;
-        var kindsWithChoices = this.kindField.dataset.withChoices.split('|');
+        var kind = this.kindField.value,
+            kindsWithChoices = this.kindField.dataset.withChoices.split('|');
         if (kindsWithChoices.indexOf(kind) !== -1) {
             this.choices.classList.remove('d-none');
         } else {
@@ -22,7 +22,7 @@ window.ecotheque.structure.items = {
 
     initAddItemCallback: function () {
         'use strict';
-        $('#options').on('cocoon:after-insert', function(e, newElmt) {
+        $('#options').on('cocoon:after-insert', function (e, newElmt) {
             var input = $('.js-slug', newElmt);
             input.addClass('js-slug-input');
             window.slugInput.initInput(input.get(0));
