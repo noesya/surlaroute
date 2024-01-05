@@ -53,6 +53,9 @@ class Admin::RegionsController < Admin::ApplicationController
 
   def region_params
     params.require(:region)
-          .permit(:name, :slug, :description)
+          .permit(
+            :name, :slug, :description, 
+            :image, :image_delete, :image_infos
+          )
   end
 end
