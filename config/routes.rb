@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   scope "(:region_slug)", constraints: lambda { |request|
     region_slug = request.params[:region_slug]
-    Region.where(slug: region_slug).exists?
+    region_slug.blank? || Region.where(slug: region_slug).exists?
   } do
     resources :materials, path: 'materiaux', only: [:index, :show] do
       collection do
