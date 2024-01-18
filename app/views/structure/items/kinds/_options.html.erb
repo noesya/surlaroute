@@ -1,5 +1,6 @@
-<div class="row">
+<div class="row mb-4">
   <div class="offset-lg-6 col-lg-6">
+    <label class="small text-muted"><%= item %></label><br>
     <% item.options_for(about).each do |option| %>
       <%= render 'structure/options/link', 
                 about: about, 
