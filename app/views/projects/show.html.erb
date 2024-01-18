@@ -1,11 +1,13 @@
-<div class="row">
-  <div class="col-lg-6">
-    <%= kamifusen_tag @project.image, class: 'img-fluid ', alt: @project if @project.image.attached? %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= kamifusen_tag @project.image, class: 'img-fluid rounded', alt: @project if @project.image.attached? %>
+    </div>
+    <div class="col-lg-6">
+      <h1><%= @project %></h1>
+      <%= link_to @project.region, @project.region if @project.region %>
+      <p class="mb-5"><%= sanitize @project.description %></p>
+    </div>
   </div>
-  <div class="col-lg-6">
-    <h1><%= @project %></h1>
-    <%= link_to @project.region, @project.region if @project.region %>
-    <p class="mb-5"><%= sanitize @project.description %></p>
-  </div>
+  <%= render 'structure/items/show', about: @project %>
 </div>
-<%= render 'structure/items/show', about: @project %>

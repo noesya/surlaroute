@@ -1,25 +1,28 @@
-<div class="row">
-  <div class="col-lg-8">
-    <h1><%= @region %></h1>
-    <p class="mb-5"><%= sanitize @region.description %></p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-8">
+      <h1><%= @region %></h1>
+      <p class="mb-5"><%= sanitize @region.description %></p>
+    </div>
+    <div class="col-lg-4">
+      <%= kamifusen_tag @region.image, class: 'img-fluid rounded', alt: @region if @region.image.attached? %>
+    </div>
   </div>
-  <div class="col-lg-4">
-    <%= kamifusen_tag @region.image, class: 'img-fluid ', alt: @region if @region.image.attached? %>
+
+  <div>
+    <%= @region.materials.count %>
+    <%= Material.model_name.human(count: @region.materials.count).downcase %>
   </div>
+  <div>
+    <%= @region.projects.count %>
+    <%= Project.model_name.human(count: @region.projects.count).downcase %>
+  </div>
+
+  <h2><%= Material.model_name.human(count: 2) %></h2>
+  <%= render 'materials/list', objects: @materials %>
+
+  <h2><%= Project.model_name.human(count: 2) %></h2>
+  <%= render 'projects/list', objects: @projects %>
+
 </div>
-
-<div>
-  <%= @region.materials.count %>
-  <%= Material.model_name.human(count: @region.materials.count).downcase %>
-</div>
-<div>
-  <%= @region.projects.count %>
-  <%= Project.model_name.human(count: @region.projects.count).downcase %>
-</div>
-
-<h2><%= Material.model_name.human(count: 2) %></h2>
-<%= render 'materials/list', objects: @materials %>
-
-<h2><%= Project.model_name.human(count: 2) %></h2>
-<%= render 'projects/list', objects: @projects %>
-

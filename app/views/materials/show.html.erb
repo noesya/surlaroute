@@ -1,11 +1,13 @@
-<div class="row">
-  <div class="col-lg-6">
-    <%= kamifusen_tag @material.image, class: 'img-fluid ', alt: @material if @material.image.attached? %>
-  </div>
-  <div class="col-lg-6">
-    <h1><%= @material %></h1>
-    <%= link_to @material.region, @material.region, class: 'btn btn-outline-dark rounded-pill' if @material.region %>
-    <p class="mb-5"><%= sanitize @material.description %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= kamifusen_tag @material.image, class: 'img-fluid rounded', alt: @material if @material.image.attached? %>
+    </div>
+    <div class="col-lg-6">
+      <h1><%= @material %></h1>
+      <p class="mb-5"><%= sanitize @material.description %></p>
+      <%= link_to @material.region, @material.region, class: 'btn btn-outline-dark rounded-pill' if @material.region %>
+    </div>
   </div>
 </div>
 <%= render 'structure/items/show', about: @material %>

@@ -4,10 +4,12 @@ section_opened = false
 <% about.items.each do |item| %>
   <% if item.kind == 'h2' %>
     <% if section_opened %>
+        </div>
       </section>
     <% end %>
     <% section_opened = true %>
-    <section class="mt-5 py-5">
+    <section class="mt-5 py-5" id="<%= item.slug %>">
+      <div class="container">
   <% end %>
   <%= render "structure/items/kinds/#{item.kind}", about: about, item: item %>
 <% end %>
