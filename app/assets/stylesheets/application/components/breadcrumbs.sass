@@ -1,0 +1,13 @@
+.breadcrumb
+    .breadcrumb-item
+        a
+            font-size: 16px
+            text-decoration: none
+            color: black
+        &.active
+            color: black
+            font-weight: bold
+        + .breadcrumb-item::before
+           content: "→"
+           font-weight: normal
+           color: black

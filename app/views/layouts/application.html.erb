@@ -13,7 +13,7 @@
     <main>
       <%= render "header" %>
       <%= render "notice" %>
-      <div class="container-fluid">
+      <div class="container">
         <%= render_breadcrumbs builder: Mazer::BreadcrumbsOnRailsBuilder if breadcrumbs.many? %>
         <%= yield %>
       </div>

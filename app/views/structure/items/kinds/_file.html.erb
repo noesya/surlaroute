@@ -1,2 +1,6 @@
-<% value = item.value_for(about) %>
-<%= link_to value.file.filename, value.file, target: :_blank if value.file.attached? %>
+<div class="row">
+  <div class="offset-lg-6 col-lg-6">
+    <% value = item.value_for(about) %>
+    <%= link_to value.file.filename, value.file, target: :_blank if value.file.attached? %>
+  </div>
+</div>

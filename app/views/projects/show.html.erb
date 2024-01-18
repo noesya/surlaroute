@@ -6,6 +6,6 @@
     <h1><%= @project %></h1>
     <%= link_to @project.region, @project.region if @project.region %>
     <p class="mb-5"><%= sanitize @project.description %></p>
-    <%= render 'structure/items/show', about: @project %>
   </div>
 </div>
+<%= render 'structure/items/show', about: @project %>

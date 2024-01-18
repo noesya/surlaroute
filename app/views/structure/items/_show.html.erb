@@ -1,3 +1,13 @@
+<%
+section_opened = false
+%>
 <% about.items.each do |item| %>
+  <% if item.kind == 'h2' %>
+    <% if section_opened %>
+      </section>
+    <% end %>
+    <% section_opened = true %>
+    <section class="mt-5 py-5">
+  <% end %>
   <%= render "structure/items/kinds/#{item.kind}", about: about, item: item %>
 <% end %>

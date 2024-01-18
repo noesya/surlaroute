@@ -6,6 +6,6 @@
     <h1><%= @material %></h1>
     <%= link_to @material.region, @material.region, class: 'btn btn-outline-dark rounded-pill' if @material.region %>
     <p class="mb-5"><%= sanitize @material.description %></p>
-    <%= render 'structure/items/show', about: @material %>
   </div>
 </div>
+<%= render 'structure/items/show', about: @material %>
