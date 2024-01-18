@@ -41,7 +41,7 @@
         </thead>
         <tbody id="options" data-sortable="inputs">
           <%= f.simple_fields_for :options, item.options.sort_by(&:position) do |option_form| %>
-            <%= render 'option_fields', f: option_form %>
+            <%= render 'admin/structure/options/form', f: option_form %>
           <% end %>
         </tbody>
       </table>
@@ -50,6 +50,7 @@
     <%= link_to_add_association 'Ajouter une option', 
                                 f, 
                                 :options,
+                                partial: 'admin/structure/options/form',
                                 "data-association-insertion-node": '#options',
                                 "data-association-insertion-method": 'append' %>
 
