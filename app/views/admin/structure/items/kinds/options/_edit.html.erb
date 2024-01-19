@@ -1,7 +1,7 @@
 <%
 name = "#{about.class.to_s.parameterize}[items][#{item.id}][]"
 %>
-<fieldset class="mb-3 check_boxes">
+<fieldset class="check_boxes">
   <input type="hidden" name="<%= name %>" value="" autocomplete="off">
   <% item.options.ordered.each do |option| %>
     <div class="form-check">
