@@ -88,20 +88,38 @@ class Structure::Item < ApplicationRecord
 
   protected
 
-  def connect_options(object, id_or_ids)
+  # Version option unique
+  # {
+  #   "option"=>"a27e43e3-fe31-41b3-a343-feb16ee0112a", 
+  #   "text"=>"Explication des choix"
+  # }
+  # Version options multiples
+  # {
+  #   "options"=>[
+  #     "", 
+  #     "f02e70be-5d9a-40f2-ad35-f69b2f154c97", 
+  #     "af141121-e0cf-4fe1-8235-fcd9373d76c6"
+  #     ], 
+  #   "text"=>"Texte pour brillant et opaque"
+  # }
+  def connect_options(object, hash)
+    text = hash['text']
     values_for(object).destroy_all
-    return if id_or_ids.blank?
-    if id_or_ids.is_a?(String)
-      connect_option(object, id_or_ids)
+    if hash.has_key?('option')
+      connect_option(object, hash['option'], text)
     else
-      id_or_ids.compact.each do |id|
-        connect_option(object, id)
+      hash['options'].compact.each do |id|
+        # On stocke plusieurs fois le même texte, ce qui ne sert à rien
+        connect_option(object, id, text)
       end
     end
   end
 
-  def connect_option(object, id)
-    values_for(object).where(option_id: id).first_or_create
+  def connect_option(object, id, text)
+    return if id.blank?
+    value = values_for(object).where(option_id: id).first_or_create
+    value.text = text
+    value.save
   end
 
   def save_data(object, data)

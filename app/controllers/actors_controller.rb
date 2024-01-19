@@ -16,6 +16,6 @@ class ActorsController < ApplicationController
 
   def breadcrumb
     super
-    add_breadcrumb Actor.model_name.human(count: 2), actors_path
+    add_breadcrumb t('ecosystem'), actors_path
   end
 end

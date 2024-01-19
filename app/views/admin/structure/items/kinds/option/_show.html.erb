@@ -1,6 +1,12 @@
 <% if item.option_for(about) %>
-  <div class="mb-4">
-    <label class="small text-muted"><%= item %></label>
-    <div><%= item.option_for(about) %></div>
+  <div class="row mb-4">
+    <div class="col-lg-4">
+      <label class="small text-muted"><%= item %></label>
+      <p><%= item.option_for(about) %></p>
+    </div>
+    <div class="col-lg-8">
+      <label class="small text-muted"><%= t('admin.structure.explanation') %></label><br>
+      <%= item.text_for(about) %>
+    </div>
   </div>
 <% end %>

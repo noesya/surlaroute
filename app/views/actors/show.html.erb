@@ -8,16 +8,16 @@
     <div class="col-lg-6">
       <h1 class="mb-5"><%= @actor %></h1>
       <p class="fw-bold"><%= sanitize @actor.description %></p>
-      <%= link_to @actor.region, @actor.region, class: 'btn btn-outline-dark btn-sm rounded-pill' if @actor.region %>
+      <%= link_to @actor.region, @actor.region, class: tag_classes if @actor.region %>
     </div>
   </div>
 </div>
 <%= render 'structure/items/show', about: @actor %>
 <% if @actor.materials %>
-<section class="bg-white py-5">
-  <div class="container">
-    <h2><%= Actor.human_attribute_name('materials') %></h2>
-    <%= render 'materials/list', objects: @actor.materials %>
-  </div>
-</section>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= Actor.human_attribute_name('materials') %></h2>
+      <%= render 'materials/list', objects: @actor.materials %>
+    </div>
+  </section>
 <% end %>

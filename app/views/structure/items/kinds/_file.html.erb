@@ -7,7 +7,7 @@ value = item.value_for(about)
     <% if value.file.attached? %>
       <%= link_to value.file.filename, value.file, target: :_blank %>
     <% else %>
-      <p class="text-muted">Non spécifié</p>
+      <p class="text-muted"><%= t('admin.structure.not_set') %></p>
     <% end %>
   </div>
 </div>

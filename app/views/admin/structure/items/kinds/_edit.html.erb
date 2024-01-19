@@ -2,5 +2,6 @@
   <div class="mb-3">
     <label class="form-label" for="criterion_<%= item.id %>"><%= item %></label>
     <%= render "admin/structure/items/kinds/#{item.kind}/edit", about: about, item: item %>
+    <div class="form-text"><%= item.hint %></div>
   </div>
 <% end %>

@@ -7,7 +7,7 @@ value = item.text_for(about)
     <% if value.present? %>
       <p><%= value %></p>
     <% else %>
-      <p class="text-muted">Non spécifié</p>
+      <p class="text-muted"><%= t('admin.structure.not_set') %></p>
     <% end %>
   </div>
 </div>

@@ -12,7 +12,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :projects, Project.model_name.human(count: 2), admin_projects_path, { icon: Icon::PROJECT } if can?(:read, Project)
     primary.item :regions, Region.model_name.human(count: 2), admin_regions_path, { icon: Icon::REGION } if can?(:read, Region)
     primary.item :users, User.model_name.human(count: 2), admin_users_path, { icon: Icon::USER } if can?(:read, User)
-    primary.item :structure, t('admin.structure'), nil, { icon: Icon::STRUCTURE } do |secondary|
+    primary.item :structure, t('admin.structure.title'), nil, { icon: Icon::STRUCTURE } do |secondary|
       Structure::Item::ABOUT_CLASSES.each do |about_class|
         secondary.item about_class.to_s, about_class.model_name.human(count: 2), admin_structure_items_path(about_class: about_class)
       end

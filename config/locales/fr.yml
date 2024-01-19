@@ -82,7 +82,12 @@ fr:
         submit: Filtrer
       search_field: Recherche
       title: Rechercher
-    structure: Structure
+    structure: 
+      title: Structure
+      option: Option
+      options: Options
+      explanation: Texte d'explication
+      not_set: Non renseigné
     successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
     successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
     successfully_duplicated_html: "<i>%{model}</i> a bien été dupliqué(e)."

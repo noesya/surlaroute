@@ -12,7 +12,7 @@ options = item.options_for(about)
                   option: option %>
       <% end %>
     <% else %>
-      <span class="btn btn-outline-dark btn-sm rounded-pill disabled">Non renseigné</span>
+      <span class="<%= tag_classes_disabled %>"><%= t('admin.structure.not_set') %></span>
     <% end %>
   </div>
 </div>

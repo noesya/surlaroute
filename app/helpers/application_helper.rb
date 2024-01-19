@@ -21,4 +21,12 @@ module ApplicationHelper
   def default_images_formats_accepted_hint
     t('default_images_hint', formats: default_images_formats_accepted)
   end
+
+  def tag_classes(classes = '')
+    "btn btn-outline-dark btn-sm mb-2 rounded-pill #{classes}"
+  end
+
+  def tag_classes_disabled(classes = '')
+    tag_classes("disabled #{classes}")
+  end
 end
