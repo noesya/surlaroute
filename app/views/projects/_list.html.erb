@@ -1,13 +1,12 @@
 <div class="row">
   <% objects.each do |project| %>
     <div class="col-lg-3 mb-4">
-      <div class="card">
-        <%= kamifusen_tag project.image, width: 400, class: 'card-img-top img-fluid', alt: project if project.image.attached? %>
-        <div class="card-body">
-          <h2 class="card-title h5">
-            <%= link_to project, project, class: 'stretched-link' %>
-          </h2>
-        </div>
+      <article class="position-relative">
+        <%= kamifusen_tag project.image, 
+                          width: 400,
+                          class: 'img-fluid rounded square', 
+                          alt: project if project.image.attached? %>
+        <h2><%= link_to project, project, class: 'stretched-link' %></h2>
       </div>
     </div>
   <% end %>

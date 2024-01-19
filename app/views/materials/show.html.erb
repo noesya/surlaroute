@@ -35,8 +35,17 @@
       <h2><%= Material.human_attribute_name('actor') %></h2>
       <div class="row">
         <div class="offset-lg-6 col-lg-6">
-          <%= link_to @material.actor, @material.actor %>
-        </div
+          <div class="row">
+            <div class="col-4">
+            <%= link_to @material.actor do %>
+              <%= kamifusen_tag @material.actor.image, width: 300, class: 'img-fluid rounded square' %>
+              <% end %>
+            </div>
+            <div class="col-8">
+              <h3><%= link_to @material.actor, @material.actor %></h3>
+            </div>
+          </div>
+        </div>
       </div
     </div>
   </section>
