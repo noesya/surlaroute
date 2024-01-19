@@ -1,0 +1,12 @@
+<%= content_for :title, Actor.model_name.human(count: 2) %>
+
+<%= render  'admin/application/filters',
+            current_path: admin_actors_path,
+            filters: @filters if @filters.any? %>
+
+<%= render 'admin/actors/list', actors: @actors %>
+<%= paginate @actors, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Actor %>
+<% end %>

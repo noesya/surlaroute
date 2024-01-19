@@ -8,6 +8,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item  :dashboard, t('admin.dashboard'), admin_root_path,  { icon: Icon::DASHBOARD, highlights_on: /admin$/ }
     primary.item :materials, Material.model_name.human(count: 2), admin_materials_path, { icon: Icon::MATERIAL } if can?(:read, Material)
+    primary.item :actors, Actor.model_name.human(count: 2), admin_actors_path, { icon: Icon::ACTOR } if can?(:read, Actor)
     primary.item :projects, Project.model_name.human(count: 2), admin_projects_path, { icon: Icon::PROJECT } if can?(:read, Project)
     primary.item :regions, Region.model_name.human(count: 2), admin_regions_path, { icon: Icon::REGION } if can?(:read, Region)
     primary.item :users, User.model_name.human(count: 2), admin_users_path, { icon: Icon::USER } if can?(:read, User)

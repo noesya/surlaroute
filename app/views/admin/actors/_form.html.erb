@@ -1,0 +1,28 @@
+<%= simple_form_for [:admin, actor] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <%= f.input :image,
+                  as: :single_deletable_file, 
+                  preview: true %>
+    </div>
+    <div class="col-lg-8">
+      <%= f.input :name %>
+      <%= f.input :slug,
+                  input_html: actor.persisted? ? {} : {
+                    class: 'js-slug-input',
+                    data: { source: '#actor_name' }
+                  } %>
+      <%= f.association :region %>
+      <%= f.input :description %>
+      <%= render 'admin/structure/items/kinds/edit', about: actor %>
+    </div>
+  </div>
+
+  <% content_for :buttons do %>
+    <%= destroy_link actor if actor.persisted? %>
+    <%= submit f %>
+  <% end %>
+<% end %>

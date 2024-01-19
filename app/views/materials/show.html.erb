@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
-      <%= kamifusen_tag @material.image, class: 'img-fluid rounded', alt: @material if @material.image.attached? %>
+      <%= kamifusen_tag @material.image,
+                        class: 'img-fluid rounded', 
+                        alt: @material if @material.image.attached? %>
     </div>
     <div class="col-lg-6">
       <h1 class="mb-5"><%= @material %></h1>
@@ -16,7 +18,6 @@
             le 25/12/2023<br>
             Mis à jour le 12/01/2024
           </p>
-
           <%= link_to '', class: 'btn btn-sm btn-light bg-secondary-subtle add_to_favorites' do %>
             Ajouter aux favoris
           <% end %>

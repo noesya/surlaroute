@@ -6,14 +6,10 @@ fr:
         other: Structures
   activerecord:
     attributes:
-      structure/item:
+      actor:
+        description: Description
         name: Nom
-        slug: Identifiant
-        about_class: Type d'objets concernés
-        kind: Type de critère
-        hint: Explication dans le formulaire
-      structure/option:
-        name: Nom
+        region: Région
         slug: Identifiant
       material:
         description: Description
@@ -27,6 +23,15 @@ fr:
         slug: Identifiant
       region:
         description: Description
+        name: Nom
+        slug: Identifiant
+      structure/item:
+        name: Nom
+        slug: Identifiant
+        about_class: Type d'objets concernés
+        kind: Type de critère
+        hint: Explication dans le formulaire
+      structure/option:
         name: Nom
         slug: Identifiant
       user:
@@ -47,9 +52,9 @@ fr:
             password:
               password_strength: ne répond pas aux critères de sécurité
     models:
-      structure/item:
-        one: Élément
-        other: Éléments
+      actor:
+        one: Acteurice
+        other: Écosystème
       material:
         one: Matériau
         other: Matériaux
@@ -59,6 +64,9 @@ fr:
       region:
         one: Région
         other: Régions
+      structure/item:
+        one: Élément
+        other: Éléments
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s

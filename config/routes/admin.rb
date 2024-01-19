@@ -3,6 +3,7 @@ namespace :admin do
     post 'resend_confirmation_email' => 'users#resend_confirmation_email', on: :member
     patch 'unlock' => 'users#unlock', on: :member
   end
+  resources :actors
   resources :materials
   resources :projects
   resources :regions

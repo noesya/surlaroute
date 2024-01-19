@@ -1,0 +1,5 @@
+<div class="container">
+  <h1><%= Actor.model_name.human(count: 2) %></h1>
+  <%= render 'actors/list', objects: @actors %>
+  <%= paginate @actors, theme: "bootstrap-5" %>
+</div>

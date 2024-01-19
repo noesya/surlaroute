@@ -1,0 +1,17 @@
+<%= content_for :title, @actor %>
+
+<div class="row">
+  <div class="col-lg-4">
+    <%= show @actor, :image, type: :image %>
+  </div>
+  <div class="col-lg-8">
+    <%= show @actor, :description %>
+    <%= show @actor, :region, type: :reference %>
+    <%= render 'admin/structure/items/kinds/show', about: @actor %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @actor %>
+  <%= edit_link @actor %>
+<% end %>

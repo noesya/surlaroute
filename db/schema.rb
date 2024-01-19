@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_20_131932) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_19_095301) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -41,6 +41,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_131932) do
     t.uuid "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "actors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.text "description"
+    t.uuid "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_actors_on_region_id"
   end
 
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -228,6 +238,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_131932) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "actors", "regions"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"
   add_foreign_key "structure_values", "structure_options", column: "option_id"

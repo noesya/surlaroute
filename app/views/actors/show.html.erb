@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= kamifusen_tag @actor.image,
+                        class: 'img-fluid rounded', 
+                        alt: @actor if @actor.image.attached? %>
+    </div>
+    <div class="col-lg-6">
+      <h1 class="mb-5"><%= @actor %></h1>
+      <p class="fw-bold"><%= sanitize @actor.description %></p>
+      <%= link_to @actor.region, @actor.region, class: 'btn btn-outline-dark btn-sm rounded-pill' if @actor.region %>
+    </div>
+  </div>
+</div>
+<%= render 'structure/items/show', about: @actor %>
+ 
