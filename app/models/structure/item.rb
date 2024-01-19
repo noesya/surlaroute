@@ -16,8 +16,8 @@ class Structure::Item < ApplicationRecord
   include WithSlug
 
   ABOUT_CLASSES = [
-    Actor,
     Material,
+    Actor,
     Project
   ]
 
