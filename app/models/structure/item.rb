@@ -38,8 +38,7 @@ class Structure::Item < ApplicationRecord
     option: 11,
     options: 12,
     file: 21,
-    h2: 102,
-    h3: 103
+    h2: 102
   }, _prefix: :kind
 
   def self.with_options
