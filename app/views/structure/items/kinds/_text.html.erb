@@ -4,7 +4,7 @@ value = item.text_for(about)
 <div class="row mb-5">
   <div class="offset-lg-6 col-lg-6">
     <%= render 'structure/items/kind_title', item: item %>
-    <% if value.blank? %>
+    <% if value.present? %>
       <%= simple_format value %>
     <% else %>
       <p class="text-muted">Non spécifié</p>
