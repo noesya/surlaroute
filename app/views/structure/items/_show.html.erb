@@ -11,7 +11,11 @@ section_opened = false
       <% section_opened = true %>
       <section class="py-5" id="<%= item.slug %>">
         <div class="container">
+          <h2><%= item %></h2>
+    <% else %>
+      <div class="structure__item__<%= item.kind %>">
+        <%= render "structure/items/kinds/#{item.kind}", about: about, item: item %>
+      </div>
     <% end %>
-    <%= render "structure/items/kinds/#{item.kind}", about: about, item: item %>
   <% end %>
 </div>

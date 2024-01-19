@@ -3,3 +3,30 @@
         @include media-breakpoint-up(lg)
             position: sticky
             top: 20px
+    &__item
+        &__file
+            &:hover
+                .filename::before
+                    background: black
+                    color: white
+            .filename
+                &::before
+                    content: "D"
+                    font-family: "AuguresPicto"
+                    display: block
+                    float: left
+                    font-size: 50px
+                    line-height: 10px
+                    padding: 20px 20px 25px 20px
+                    margin-right: 20px
+                    border: 1px solid black
+                    border-radius: $border-radius
+                    transition: background 0.25s ease, color 0.25s ease
+                a
+                    padding-top: 5px
+                    color: black
+                    text-decoration: none
+                    display: block
+            .filesize
+                text-decoration: none
+                font-size: $small-font-size
