@@ -29,4 +29,15 @@
   </div>
 </div>
 <%= render 'structure/items/show', about: @material %>
- 
+<% if @material.actor %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= Material.human_attribute_name('actor') %></h2>
+      <div class="row">
+        <div class="offset-lg-6 col-lg-6">
+          <%= link_to @material.actor, @material.actor %>
+        </div
+      </div
+    </div>
+  </section>
+<% end %>

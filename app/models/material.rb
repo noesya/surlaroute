@@ -8,18 +8,25 @@
 #  slug        :string           indexed
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  actor_id    :uuid             indexed
 #  region_id   :uuid             indexed
 #
 # Indexes
 #
+#  index_materials_on_actor_id   (actor_id)
 #  index_materials_on_region_id  (region_id)
 #  index_materials_on_slug       (slug)
+#
+# Foreign Keys
+#
+#  fk_rails_e6f2c9950b  (actor_id => actors.id)
 #
 class Material < ApplicationRecord
   include WithSlug
   include WithStructure
 
   belongs_to :region, optional: true
+  belongs_to :actor, optional: true
   
   has_one_attached_deletable :image
 

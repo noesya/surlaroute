@@ -8,8 +8,9 @@ class RegionsController < ApplicationController
 
   def show
     @region = Region.find_by!(slug: params[:id])
-    @materials = @region.materials
-    @projects = @region.projects
+    @materials = @region.materials.limit(4)
+    @projects = @region.projects.limit(4)
+    @actors = @region.actors.limit(4)
     breadcrumb
   end
 

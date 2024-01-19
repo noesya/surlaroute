@@ -13,4 +13,11 @@
   </div>
 </div>
 <%= render 'structure/items/show', about: @actor %>
- 
+<% if @actor.materials %>
+<section class="bg-white py-5">
+  <div class="container">
+    <h2><%= Actor.human_attribute_name('materials') %></h2>
+    <%= render 'materials/list', objects: @actor.materials %>
+  </div>
+</section>
+<% end %>

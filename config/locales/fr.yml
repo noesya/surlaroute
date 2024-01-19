@@ -11,11 +11,13 @@ fr:
         name: Nom
         region: Région
         slug: Identifiant
+        materials: Matériaux fabriqués
       material:
         description: Description
         name: Nom
         region: Région
         slug: Identifiant
+        actor: Fabriqué par
       project:
         description: Description
         name: Nom
@@ -54,7 +56,7 @@ fr:
     models:
       actor:
         one: Acteurice
-        other: Écosystème
+        other: Acteurices
       material:
         one: Matériau
         other: Matériaux
@@ -123,6 +125,7 @@ fr:
       send_code_instead: "Envoyez-moi plutôt un code"
       send_email_code: 'Envoyer le code par email'
       success: ""
+  ecosystem: Écosystème
   edit: Modifier
   enums:
     structure:

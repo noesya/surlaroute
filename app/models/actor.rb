@@ -23,6 +23,7 @@ class Actor < ApplicationRecord
   include WithStructure
 
   belongs_to :region, optional: true
+  has_many :materials
   
   has_one_attached_deletable :image
 

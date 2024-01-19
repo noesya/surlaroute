@@ -17,6 +17,7 @@ class Region < ApplicationRecord
   include WithSlug
 
   has_many :materials
+  has_many :actors
   has_many :projects
 
   has_one_attached_deletable :image

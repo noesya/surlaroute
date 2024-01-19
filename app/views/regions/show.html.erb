@@ -15,14 +15,21 @@
     <%= Material.model_name.human(count: @region.materials.count).downcase %>
   </div>
   <div>
+    <%= @region.actors.count %>
+    <%= Actor.model_name.human(count: @region.actors.count).downcase %>
+  </div>
+  <div>
     <%= @region.projects.count %>
     <%= Project.model_name.human(count: @region.projects.count).downcase %>
   </div>
 
-  <h2><%= Material.model_name.human(count: 2) %></h2>
+  <h2><%= link_to Material.model_name.human(count: 2), materials_path(@region.slug) %></h2>
   <%= render 'materials/list', objects: @materials %>
 
-  <h2><%= Project.model_name.human(count: 2) %></h2>
+  <h2><%= link_to Project.model_name.human(count: 2), projects_path(@region.slug) %></h2>
   <%= render 'projects/list', objects: @projects %>
+
+  <h2><%= link_to t('ecosystem'), actors_path(@region.slug) %></h2>
+  <%= render 'actors/list', objects: @actors %>
 
 </div>
