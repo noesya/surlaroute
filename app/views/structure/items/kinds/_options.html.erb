@@ -3,7 +3,7 @@ options = item.options_for(about)
 %>
 <div class="row mb-5">
   <div class="offset-lg-6 col-lg-6">
-    <label class="small text-muted"><%= item %></label><br>
+    <%= render 'structure/items/kind_title', item: item %>
     <% if options.any? %>
       <% options.each do |option| %>
         <%= render 'structure/options/link', 
