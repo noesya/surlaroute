@@ -7,9 +7,9 @@
   # /materiaux/famille-de-materiaux/plastiques
   path = public_send(path_name, item_slug: item.slug, option_slug: option.slug)
   %>
-  <a href="<%= path %>" class="btn btn-outline-dark rounded-pill">
+  <a href="<%= path %>" class="btn btn-outline-dark btn-sm rounded-pill">
     <%= option %>
   </a>
 <% else %>
-  <span class="btn btn-outline-dark rounded-pill disabled">Non renseigné</span>
+  <span class="btn btn-outline-dark btn-sm rounded-pill disabled">Non renseigné</span>
 <% end %>
