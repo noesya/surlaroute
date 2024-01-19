@@ -1,7 +1,13 @@
+<%
+value = item.value_for(about)
+%>
 <div class="row mb-5">
   <div class="offset-lg-6 col-lg-6">
     <%= render 'structure/items/kind_title', item: item %>
-    <% value = item.value_for(about) %>
-    <%= link_to value.file.filename, value.file, target: :_blank if value.file.attached? %>
+    <% if value.file.attached? %>
+      <%= link_to value.file.filename, value.file, target: :_blank %>
+    <% else %>
+      <p class="text-muted">Non spécifié</p>
+    <% end %>
   </div>
 </div>
