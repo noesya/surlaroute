@@ -4,9 +4,26 @@
       <%= kamifusen_tag @material.image, class: 'img-fluid rounded', alt: @material if @material.image.attached? %>
     </div>
     <div class="col-lg-6">
-      <h1><%= @material %></h1>
-      <p class="mb-5"><%= sanitize @material.description %></p>
-      <%= link_to @material.region, @material.region, class: 'btn btn-outline-dark rounded-pill' if @material.region %>
+      <h1 class="mb-5"><%= @material %></h1>
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="fw-bold"><%= sanitize @material.description %></p>
+        </div>
+        <div class="col-lg-6">
+          <p class="small text-muted">
+            Publié par 
+            <a href="" class="text-muted">Pierre-André Boissinot</a> 
+            le 25/12/2023<br>
+            Mis à jour le 12/01/2024
+          </p>
+
+          <%= link_to '', class: 'btn btn-sm btn-light bg-secondary-subtle add_to_favorites' do %>
+            Ajouter aux favoris
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <%= link_to @material.region, @material.region, class: 'btn btn-outline-dark btn-sm rounded-pill' if @material.region %>
     </div>
   </div>
 </div>
