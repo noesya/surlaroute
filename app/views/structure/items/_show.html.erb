@@ -5,8 +5,7 @@ section_opened = false
   <% about.items.each do |item| %>
     <% if item.kind == 'h2' %>
       <% if section_opened %>
-          </div>
-        </section>
+        </div></section>
       <% end %>
       <% section_opened = true %>
       <section class="py-5" id="<%= item.slug %>">
@@ -17,5 +16,8 @@ section_opened = false
         <%= render "structure/items/kinds/#{item.kind}", about: about, item: item %>
       </div>
     <% end %>
+  <% end %>
+  <% if section_opened %>
+    </div></section>
   <% end %>
 </div>
