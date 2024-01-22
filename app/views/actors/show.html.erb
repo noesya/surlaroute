@@ -10,7 +10,7 @@
       <p class="fw-bold"><%= sanitize @actor.description %></p>
       <hr class="my-5">
       <%= render 'structure/items/zones/header', about: @actor %>
-      <%= link_to @actor.region, @actor.region, class: tag_classes if @actor.region %>
+      <%= render 'application/region', about: @actor %>
     </div>
   </div>
 </div>
