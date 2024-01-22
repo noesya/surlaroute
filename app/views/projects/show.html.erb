@@ -7,10 +7,10 @@
     </div>
     <div class="col-lg-6">
       <%= render 'structure/title_with_structure', about: @project %>
-      <%= link_to @project.region, @project.region if @project.region %>
       <p class="mb-5"><%= sanitize @project.description %></p>
       <hr class="my-5">
       <%= render 'structure/items/zones/header', about: @project %>
+      <%= render 'application/regions', about: @project %>
     </div>
   </div>
   <%= render 'structure/items/zones/page', about: @project %>

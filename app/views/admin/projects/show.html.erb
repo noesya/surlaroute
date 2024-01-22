@@ -6,6 +6,7 @@
   </div>
   <div class="col-lg-8">
     <%= show @project, :description %>
+    <%= show @project, :regions, type: :list %>
     <%= render 'admin/structure/items/kinds/show', about: @project %>
   </div>
 </div>

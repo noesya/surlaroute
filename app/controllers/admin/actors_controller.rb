@@ -56,8 +56,9 @@ class Admin::ActorsController < Admin::ApplicationController
   def actor_params
     params.require(:actor)
           .permit(
-            :name, :slug, :description, :region_id, 
-            :image, :image_delete, :image_infos
+            :name, :slug, :description,
+            :image, :image_delete, :image_infos, 
+            region_ids: []
           )
           .merge({ items: params[:actor][:items].to_unsafe_hash})
   end

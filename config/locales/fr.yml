@@ -9,13 +9,13 @@ fr:
       actor:
         description: Description
         name: Nom
-        region: Région
+        regions: Localisation(s)
         slug: Identifiant
         materials: Matériaux fabriqués
       material:
         description: Description
         name: Nom
-        region: Région
+        regions: Lieu(x) de production
         slug: Identifiant
         actor: Fabriqué par
       project:

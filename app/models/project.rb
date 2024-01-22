@@ -8,18 +8,15 @@
 #  slug        :string           indexed
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  region_id   :uuid             indexed
 #
 # Indexes
 #
-#  index_projects_on_region_id  (region_id)
-#  index_projects_on_slug       (slug) UNIQUE
+#  index_projects_on_slug  (slug) UNIQUE
 #
 class Project < ApplicationRecord
+  include WithRegions
   include WithSlug
   include WithStructure
-
-  belongs_to :region, optional: true
 
   has_one_attached_deletable :image
 

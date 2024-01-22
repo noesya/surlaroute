@@ -1,0 +1,5 @@
+<ul class="list-unstyled">
+  <% value.each do |object| %>
+    <li><%= link_to object, [:admin, object] %></li>
+  <% end %>
+</ul>

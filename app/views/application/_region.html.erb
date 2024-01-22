@@ -1,9 +1,0 @@
-<% if about.region %>
-  <div class="mb-4">
-    <%= render 'structure/items/label', 
-                label: about.class.human_attribute_name(:region) %>
-    <%= link_to about.region, 
-                about.region, 
-                class: 'btn btn-outline-dark btn-sm rounded-pill' %>
-  </div>
-<% end %>

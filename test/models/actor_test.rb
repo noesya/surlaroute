@@ -8,15 +8,6 @@
 #  slug        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  region_id   :uuid             indexed
-#
-# Indexes
-#
-#  index_actors_on_region_id  (region_id)
-#
-# Foreign Keys
-#
-#  fk_rails_a8de6705d8  (region_id => regions.id)
 #
 require "test_helper"
 

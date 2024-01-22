@@ -9,13 +9,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  actor_id    :uuid             indexed
-#  region_id   :uuid             indexed
 #
 # Indexes
 #
-#  index_materials_on_actor_id   (actor_id)
-#  index_materials_on_region_id  (region_id)
-#  index_materials_on_slug       (slug)
+#  index_materials_on_actor_id  (actor_id)
+#  index_materials_on_slug      (slug)
 #
 # Foreign Keys
 #

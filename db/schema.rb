@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_22_081540) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_22_144045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -47,10 +47,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_081540) do
     t.string "name"
     t.string "slug"
     t.text "description"
-    t.uuid "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["region_id"], name: "index_actors_on_region_id"
+  end
+
+  create_table "actors_regions", id: false, force: :cascade do |t|
+    t.uuid "actor_id", null: false
+    t.uuid "region_id", null: false
+    t.index ["actor_id", "region_id"], name: "index_actors_regions_on_actor_id_and_region_id"
+    t.index ["region_id", "actor_id"], name: "index_actors_regions_on_region_id_and_actor_id"
   end
 
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -136,11 +141,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_081540) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "region_id"
     t.uuid "actor_id"
     t.index ["actor_id"], name: "index_materials_on_actor_id"
-    t.index ["region_id"], name: "index_materials_on_region_id"
     t.index ["slug"], name: "index_materials_on_slug"
+  end
+
+  create_table "materials_regions", id: false, force: :cascade do |t|
+    t.uuid "material_id", null: false
+    t.uuid "region_id", null: false
+    t.index ["material_id", "region_id"], name: "index_materials_regions_on_material_id_and_region_id"
+    t.index ["region_id", "material_id"], name: "index_materials_regions_on_region_id_and_material_id"
   end
 
   create_table "projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -149,9 +159,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_081540) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "region_id"
-    t.index ["region_id"], name: "index_projects_on_region_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
+  end
+
+  create_table "projects_regions", id: false, force: :cascade do |t|
+    t.uuid "project_id", null: false
+    t.uuid "region_id", null: false
+    t.index ["project_id", "region_id"], name: "index_projects_regions_on_project_id_and_region_id"
+    t.index ["region_id", "project_id"], name: "index_projects_regions_on_region_id_and_project_id"
   end
 
   create_table "regions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -242,7 +257,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_081540) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "actors", "regions"
   add_foreign_key "materials", "actors"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"

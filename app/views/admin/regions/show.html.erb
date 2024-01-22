@@ -12,6 +12,9 @@
 <h2 class="h5 mt-5"><%= Material.model_name.human(count: 2) %></h2>
 <%= render 'admin/materials/list', materials: @region.materials %>
 
+<h2 class="h5 mt-5"><%= Actor.model_name.human(count: 2) %></h2>
+<%= render 'admin/actors/list', actors: @region.actors %>
+
 <h2 class="h5 mt-5"><%= Project.model_name.human(count: 2) %></h2>
 <%= render 'admin/projects/list', projects: @region.projects %>
 
