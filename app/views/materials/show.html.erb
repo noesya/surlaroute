@@ -6,10 +6,7 @@
                         alt: @material if @material.image.attached? %>
     </div>
     <div class="col-lg-6">
-      <div class="title_with_structure">
-        <h1><%= @material %></h1>
-        <%= render 'structure/items/zones/title', about: @material %>
-      </div>
+      <%= render 'structure/title_with_structure', about: @material %>
       <p class="fw-bold"><%= sanitize @material.description %></p>
       <p class="small text-muted">
         Publié par 

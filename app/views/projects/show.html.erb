@@ -6,9 +6,11 @@
                         alt: @project if @project.image.attached? %>
     </div>
     <div class="col-lg-6">
-      <h1><%= @project %></h1>
+      <%= render 'structure/title_with_structure', about: @project %>
       <%= link_to @project.region, @project.region if @project.region %>
       <p class="mb-5"><%= sanitize @project.description %></p>
+      <hr class="my-5">
+      <%= render 'structure/items/zones/header', about: @project %>
     </div>
   </div>
   <%= render 'structure/items/zones/page', about: @project %>
