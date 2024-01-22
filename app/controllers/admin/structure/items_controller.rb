@@ -4,7 +4,7 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
   include Admin::Reorderable
 
   def index
-    @items = @items.where(about_class: about_class).ordered.page(params[:page])
+    @items = @items.where(about_class: about_class).ordered
     breadcrumb
   end
 
@@ -59,6 +59,11 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
 
   def item_params
     params.require(:structure_item)
-          .permit(:name, :slug, :kind, :hint, options_attributes: [:id, :name, :slug, :position, :_destroy])
+          .permit(
+            :name, :slug, :kind, :hint, :with_explanation, :zone, 
+            options_attributes: [
+              :id, :name, :slug, :position, :_destroy
+            ]
+          )
   end
 end

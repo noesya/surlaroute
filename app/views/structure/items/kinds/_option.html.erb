@@ -1,16 +1,10 @@
 <%
 option = item.option_for(about)
-text = item.text_for(about)
 %>
-<div class="row mb-5">
-  <div class="offset-lg-6 col-lg-6">
-    <%= render 'structure/items/kind_title', item: item %>
-    <%= render 'structure/options/link', 
-              about: about, 
-              item: item, 
-              option: option %>
-    <% if text.present? %>
-      <p><%= text %></p>
-    <% end %>
-  </div>
-</div>
+<%= render 'structure/options/link', 
+          about: about, 
+          item: item, 
+          option: option %>
+<% if text.present? %>
+  <p><%= text %></p>
+<% end %>

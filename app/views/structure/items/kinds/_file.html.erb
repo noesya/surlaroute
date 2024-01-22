@@ -1,23 +1,15 @@
-<%
-value = item.value_for(about)
-%>
-<div class="row mb-5">
-  <div class="offset-lg-6 col-lg-6">
-    <%= render 'structure/items/kind_title', item: item %>
-    <% if value.file.attached? %>
-      <div class="position-relative">
-        <span class="filename">
-          <%= link_to value.file.filename, 
-                      value.file, 
-                      class: 'stretched-link',
-                      target: :_blank %>
-        </span>
-        <span class="filesize">
-          <%= number_to_human_size value.file.blob.byte_size %>
-        </span>
-      </div>
-    <% else %>
-      <p class="text-muted"><%= t('admin.structure.not_set') %></p>
-    <% end %>
+<% if value.file.attached? %>
+  <div class="position-relative">
+    <span class="filename">
+      <%= link_to value.file.filename, 
+                  value.file, 
+                  class: 'stretched-link',
+                  target: :_blank %>
+    </span>
+    <span class="filesize">
+      <%= number_to_human_size value.file.blob.byte_size %>
+    </span>
   </div>
-</div>
+<% else %>
+  <p class="text-muted"><%= t('admin.structure.not_set') %></p>
+<% end %>

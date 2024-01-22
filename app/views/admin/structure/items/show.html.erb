@@ -1,8 +1,10 @@
 <%= content_for :title, @item %>
 
-<%= show @item, :kind %>
-<%= show @item, :about_class %>
-<%= show @item, :hint %>
+<div class="row">
+  <% [:slug, :kind, :zone, :hint, :with_explanation].each do |property| %>
+    <div class="col-lg-4"><%= show @item, property %></div>
+  <% end %>
+</div>
 
 <% if @item.has_options? %>
   <%= render 'admin/structure/options/list', options: @item.options.ordered %>

@@ -2,15 +2,17 @@
 #
 # Table name: structure_items
 #
-#  id          :uuid             not null, primary key
-#  about_class :string
-#  hint        :text
-#  kind        :integer          default("string")
-#  name        :string
-#  position    :integer          default(0)
-#  slug        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id               :uuid             not null, primary key
+#  about_class      :string
+#  hint             :text
+#  kind             :integer          default("string")
+#  name             :string
+#  position         :integer          default(0)
+#  slug             :string
+#  with_explanation :boolean          default(TRUE)
+#  zone             :integer          default("page")
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 class Structure::Item < ApplicationRecord
   include WithSlug
@@ -40,6 +42,12 @@ class Structure::Item < ApplicationRecord
     file: 21,
     h2: 102
   }, _prefix: :kind
+
+  enum zone: {
+    title: 1,
+    header: 2,
+    page: 3 
+  }, _prefix: :zone
 
   def self.with_options
     [

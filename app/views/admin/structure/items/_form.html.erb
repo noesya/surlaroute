@@ -19,6 +19,8 @@
       <%= f.input :kind, 
                   include_blank: false,
                   input_html: { "data-with-choices": Structure::Item.with_options.join('|') } %>
+      <%= f.input :zone, include_blank: false %>
+      <%= f.input :with_explanation %>
     </div>
     <div class="col-lg-6">
       <%= f.input :hint %>

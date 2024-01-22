@@ -32,7 +32,9 @@ fr:
         slug: Identifiant
         about_class: Type d'objets concernés
         kind: Type de critère
-        hint: Explication dans le formulaire
+        hint: Aide pour remplir ce champ
+        with_explanation: Avec un champ d'explication libre
+        zone: Zone de la page
       structure/option:
         name: Nom
         slug: Identifiant
@@ -144,6 +146,10 @@ fr:
           string: 'Texte'
           text: 'Texte sur plusieurs lignes'
           url: 'Site Web'
+        zone: 
+          title: Titre
+          header: En-tête
+          page: Page (zone par défaut)
   false: Non
   login:
     already_registered: Déjà inscrit ?

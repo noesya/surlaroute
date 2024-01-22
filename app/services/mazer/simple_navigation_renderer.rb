@@ -3,7 +3,6 @@ class Mazer::SimpleNavigationRenderer < SimpleNavigation::Renderer::Base
 
   def render(item_container)
     @item_container = item_container
-    puts item_container.selected?
     classes = (item_container.level == 1) ? "menu"
                                           : "submenu"
     classes += " active" if item_container.selected?

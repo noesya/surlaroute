@@ -46,7 +46,11 @@ module Admin::ApplicationHelper
       type ||= object.class.columns_hash[property.to_s].type
     rescue
     end
-    return if value.blank?
+    if object.respond_to?("#{property}_i18n")
+      type = 'enum'
+      value = object.send("#{property}_i18n")
+    end
+    # return if value.blank?
     html = '<div class="mb-5">'
     # html += type.to_s
     html += "<label class=\"small text-muted\">#{ label }</label>"

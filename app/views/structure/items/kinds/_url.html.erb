@@ -1,13 +1,5 @@
-<%
-value = item.text_for(about)
-%>
-<div class="row mb-5">
-  <div class="offset-lg-6 col-lg-6">
-    <%= render 'structure/items/kind_title', item: item %>
-    <% if value.present? %>
-      <%= link_to value, value, target: :_blank %>
-    <% else %>
-      <p class="text-muted"><%= t('admin.structure.not_set') %></p>
-    <% end %>
-  </div>
-</div>
+<% if value.to_s.present? %>
+  <%= link_to value.to_s, value.to_s, target: :_blank %>
+<% else %>
+  <p class="text-muted"><%= t('admin.structure.not_set') %></p>
+<% end %>

@@ -1,0 +1,27 @@
+<%
+section_opened = false
+section_closing_tags = '</div></div></div></section>'
+%>
+<div class="structure mt-5">
+  <% about.items.zone_page.each do |item| %>
+    <% if item.kind == 'h2' %>
+      <%= section_closing_tags.html_safe if section_opened %>
+      <% section_opened = true %>
+      <section class="py-5" id="<%= item.slug %>">
+        <div class="container">
+          <h2><%= item %></h2>
+          <div class="row mb-5">
+            <div class="offset-lg-6 col-lg-6">
+    <% else %>
+      <div class="structure__item__<%= item.kind %> mb-5">
+        <%= render 'structure/items/kind_title', item: item %>
+        <%= render "structure/items/kinds/#{item.kind}", 
+                    about: about, 
+                    item: item, 
+                    value: item.value_for(about),
+                    text: item.text_for(about) %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= section_closing_tags.html_safe if section_opened %>
+</div>
