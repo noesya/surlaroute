@@ -1,3 +1,5 @@
-<% about.items.each do |item| %>
-  <%= render "admin/structure/items/kinds/#{item.kind}/show", about: about, item: item %>
+<% Structure::Item.zones.keys.each do |zone| %>
+  <% about.items.send("zone_#{zone}").each do |item| %>
+    <%= render "admin/structure/items/kinds/#{item.kind}/show", about: about, item: item %>
+  <% end %>
 <% end %>
