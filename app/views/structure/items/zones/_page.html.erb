@@ -2,7 +2,7 @@
 section_opened = false
 section_closing_tags = '</div></div></div></section>'
 %>
-<div class="structure mt-5">
+<div class="structure structure--zone-page mt-5">
   <% about.items.zone_page.each do |item| %>
     <% if item.kind == 'h2' %>
       <%= section_closing_tags.html_safe if section_opened %>
@@ -14,7 +14,7 @@ section_closing_tags = '</div></div></div></section>'
             <div class="offset-lg-6 col-lg-6">
     <% else %>
       <div class="structure__item__<%= item.kind %> mb-5">
-        <%= render 'structure/items/kind_title', item: item %>
+        <%= render 'structure/items/label', label: item.to_s %>
         <%= render "structure/items/kinds/#{item.kind}", 
                     about: about, 
                     item: item, 

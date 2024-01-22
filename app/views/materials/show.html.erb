@@ -6,25 +6,29 @@
                         alt: @material if @material.image.attached? %>
     </div>
     <div class="col-lg-6">
-      <h1 class="mb-5"><%= @material %></h1>
-      <div class="row">
-        <div class="col-lg-6">
-          <p class="fw-bold"><%= sanitize @material.description %></p>
+      <h1 class="mb-5 mt-n2"><%= @material %></h1>
+      <%= render 'structure/items/zones/title', about: @material %>
+      <p class="fw-bold"><%= sanitize @material.description %></p>
+      <p class="small text-muted">
+        Publié par 
+        <a href="" class="text-muted">Pierre-André Boissinot</a> 
+        le <%= l @material.created_at.to_date %>, 
+        mis à jour le <%= l @material.updated_at.to_date %>
+      </p>
+      <%= link_to '', class: 'btn btn-sm btn-light bg-secondary-subtle add_to_favorites' do %>
+        Ajouter aux favoris
+      <% end %>
+      <hr class="my-5">
+      <% if @material.region %>
+        <div class="mb-5">
+          <%= render 'structure/items/label', 
+                      label: Material.human_attribute_name(:region) %>
+          <%= link_to @material.region, 
+                      @material.region, 
+                      class: 'btn btn-outline-dark btn-sm rounded-pill' %>
         </div>
-        <div class="col-lg-6">
-          <p class="small text-muted">
-            Publié par 
-            <a href="" class="text-muted">Pierre-André Boissinot</a> 
-            le 25/12/2023<br>
-            Mis à jour le 12/01/2024
-          </p>
-          <%= link_to '', class: 'btn btn-sm btn-light bg-secondary-subtle add_to_favorites' do %>
-            Ajouter aux favoris
-          <% end %>
-        </div>
-      </div>
-      <hr>
-      <%= link_to @material.region, @material.region, class: 'btn btn-outline-dark btn-sm rounded-pill' if @material.region %>
+      <% end %>
+      <%= render 'structure/items/zones/header', about: @material %>
     </div>
   </div>
 </div>

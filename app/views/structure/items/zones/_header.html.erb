@@ -1,0 +1,12 @@
+<div class="structure structure--zone-header">
+  <% about.items.zone_header.each do |item| %>
+    <div class="structure__item__<%= item.kind %> mb-5">
+      <%= render 'structure/items/label', label: item.to_s %>
+      <%= render "structure/items/kinds/#{item.kind}", 
+                  about: about, 
+                  item: item, 
+                  value: item.value_for(about),
+                  text: item.text_for(about) %>
+    </div>
+  <% end %>
+</div>
