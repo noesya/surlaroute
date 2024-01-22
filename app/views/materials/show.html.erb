@@ -19,8 +19,9 @@
         Ajouter aux favoris
       <% end %>
       <hr class="my-5">
+      <%= render 'structure/items/zones/header', about: @material %>
       <% if @material.region %>
-        <div class="mb-5">
+        <div class="mb-4">
           <%= render 'structure/items/label', 
                       label: Material.human_attribute_name(:region) %>
           <%= link_to @material.region, 
@@ -28,7 +29,6 @@
                       class: 'btn btn-outline-dark btn-sm rounded-pill' %>
         </div>
       <% end %>
-      <%= render 'structure/items/zones/header', about: @material %>
     </div>
   </div>
 </div>
