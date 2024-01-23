@@ -16,6 +16,7 @@
                     data: { source: '#material_name' }
                   } %>
       <%= f.association :actor %>
+      <%= f.association :published_by %>
       <%= f.association :regions, as: :check_boxes %>
       <%= f.input :description %>
       <%= render 'admin/structure/items/kinds/edit', about: material %>

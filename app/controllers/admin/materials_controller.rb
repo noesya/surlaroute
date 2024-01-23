@@ -58,6 +58,7 @@ class Admin::MaterialsController < Admin::ApplicationController
           .permit(
             :name, :slug, :description, :actor_id,
             :image, :image_delete, :image_infos, 
+            :published_by_id,
             region_ids: []
           )
           .merge({ items: params[:material][:items].to_unsafe_hash})

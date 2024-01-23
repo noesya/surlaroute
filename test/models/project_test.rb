@@ -2,16 +2,22 @@
 #
 # Table name: projects
 #
-#  id          :uuid             not null, primary key
-#  description :text
-#  name        :string
-#  slug        :string           indexed
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id              :uuid             not null, primary key
+#  description     :text
+#  name            :string
+#  slug            :string           indexed
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  published_by_id :uuid             indexed
 #
 # Indexes
 #
-#  index_projects_on_slug  (slug) UNIQUE
+#  index_projects_on_published_by_id  (published_by_id)
+#  index_projects_on_slug             (slug) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_fef370b0dc  (published_by_id => users.id)
 #
 require "test_helper"
 

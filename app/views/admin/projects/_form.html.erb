@@ -15,6 +15,7 @@
                     class: 'js-slug-input',
                     data: { source: '#project_name' }
                   } %>
+      <%= f.association :published_by %>
       <%= f.association :regions, as: :check_boxes %>
       <%= f.input :description %>
       <%= render 'admin/structure/items/kinds/edit', about: project %>

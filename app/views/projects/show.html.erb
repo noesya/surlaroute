@@ -8,6 +8,7 @@
     <div class="col-lg-6">
       <%= render 'structure/title_with_structure', about: @project %>
       <p class="mb-5"><%= sanitize @project.description %></p>
+      <%= render 'application/meta', about: @project %>
       <hr class="my-5">
       <%= render 'structure/items/zones/header', about: @project %>
       <%= render 'application/regions', about: @project %>

@@ -58,6 +58,7 @@ class Admin::ProjectsController < Admin::ApplicationController
           .permit(
             :name, :slug, :description,
             :image, :image_delete, :image_infos, 
+            :published_by_id,
             region_ids: []
           )
           .merge({ items: params[:project][:items].to_unsafe_hash})

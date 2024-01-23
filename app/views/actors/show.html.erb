@@ -8,6 +8,7 @@
     <div class="col-lg-6">
       <%= render 'structure/title_with_structure', about: @actor %>
       <p class="fw-bold"><%= sanitize @actor.description %></p>
+      <%= render 'application/meta', about: @actor %>
       <hr class="my-5">
       <%= render 'structure/items/zones/header', about: @actor %>
       <%= render 'application/regions', about: @actor %>
