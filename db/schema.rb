@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_142945) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_161845) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -51,6 +51,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_142945) do
     t.datetime "updated_at", null: false
     t.uuid "published_by_id"
     t.index ["published_by_id"], name: "index_actors_on_published_by_id"
+  end
+
+  create_table "actors_projects", id: false, force: :cascade do |t|
+    t.uuid "actor_id", null: false
+    t.uuid "project_id", null: false
+    t.index ["actor_id", "project_id"], name: "index_actors_projects_on_actor_id_and_project_id"
+    t.index ["project_id", "actor_id"], name: "index_actors_projects_on_project_id_and_actor_id"
   end
 
   create_table "actors_regions", id: false, force: :cascade do |t|
@@ -148,6 +155,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_142945) do
     t.index ["actor_id"], name: "index_materials_on_actor_id"
     t.index ["published_by_id"], name: "index_materials_on_published_by_id"
     t.index ["slug"], name: "index_materials_on_slug"
+  end
+
+  create_table "materials_projects", id: false, force: :cascade do |t|
+    t.uuid "material_id", null: false
+    t.uuid "project_id", null: false
+    t.index ["material_id", "project_id"], name: "index_materials_projects_on_material_id_and_project_id"
+    t.index ["project_id", "material_id"], name: "index_materials_projects_on_project_id_and_material_id"
   end
 
   create_table "materials_regions", id: false, force: :cascade do |t|

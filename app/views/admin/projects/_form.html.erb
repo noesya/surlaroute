@@ -17,6 +17,8 @@
                   } %>
       <%= f.association :published_by %>
       <%= f.association :regions, as: :check_boxes %>
+      <%= f.association :materials, as: :check_boxes %>
+      <%= f.association :actors, as: :check_boxes %>
       <%= f.input :description %>
       <%= render 'admin/structure/items/kinds/edit', about: project %>
     </div>

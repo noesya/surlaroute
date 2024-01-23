@@ -8,20 +8,25 @@ fr:
     attributes:
       actor:
         description: Description
+        materials: Matériaux fabriqués
         name: Nom
+        published_by: Fiche publiée par
         regions: Localisation(s)
         slug: Identifiant
-        materials: Matériaux fabriqués
       material:
+        actor: Fabriqué par
         description: Description
         name: Nom
+        published_by: Fiche publiée par
         regions: Lieu(x) de production
         slug: Identifiant
-        actor: Fabriqué par
       project:
+        actors: Acteurices
         description: Description
+        materials: Matériaux employés
         name: Nom
-        region: Région
+        published_by: Fiche publiée par
+        regions: Régions
         slug: Identifiant
       region:
         description: Description

@@ -59,6 +59,7 @@ class Admin::ActorsController < Admin::ApplicationController
             :name, :slug, :description,
             :image, :image_delete, :image_infos, 
             :published_by_id,
+            project_ids: [], material_ids: [],
             region_ids: []
           )
           .merge({ items: params[:actor][:items].to_unsafe_hash})

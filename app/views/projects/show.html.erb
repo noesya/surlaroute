@@ -16,3 +16,21 @@
   </div>
   <%= render 'structure/items/zones/page', about: @project %>
 </div>
+
+<% if @project.materials %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= Project.human_attribute_name('materials') %></h2>
+      <%= render 'materials/list', objects: @project.materials %>
+    </div>
+  </section>
+<% end %>
+
+<% if @project.actors %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= Project.human_attribute_name('actors') %></h2>
+      <%= render 'actors/list', objects: @project.actors %>
+    </div>
+  </section>
+<% end %>

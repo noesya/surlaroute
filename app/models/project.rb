@@ -25,6 +25,9 @@ class Project < ApplicationRecord
   include WithSlug
   include WithStructure
 
+  has_and_belongs_to_many :actors
+  has_and_belongs_to_many :materials
+
   has_one_attached_deletable :image
 
   validates_presence_of :name
