@@ -4,9 +4,11 @@
       <label class="small text-muted"><%= item %></label>
       <p><%= item.options_for(about).join(', ') %></p>
     </div>
-    <div class="col-lg-8">
-      <label class="small text-muted"><%= t('admin.structure.explanation') %></label><br>
-      <%= item.text_for(about) %>
-    </div>
+    <% if item.with_explanation %>
+      <div class="col-lg-8">
+        <label class="small text-muted"><%= t('admin.structure.explanation') %></label><br>
+        <%= item.text_for(about) %>
+      </div>
+    <% end %>
   </div>
 <% end %>

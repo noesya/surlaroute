@@ -29,4 +29,13 @@ module ApplicationHelper
   def tag_classes_disabled(classes = '')
     tag_classes("disabled #{classes}")
   end
+
+  def url_with_optional_region(about, item, option)
+    # materials
+    resources_class_name = about.class.to_s.downcase.pluralize
+    # option_materials_path
+    path_name = "option_#{resources_class_name}_path"
+    # /materiaux/famille-de-materiaux/plastiques
+    public_send(path_name, item_slug: item.slug, option_slug: option.slug)
+  end
 end

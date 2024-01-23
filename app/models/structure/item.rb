@@ -39,6 +39,7 @@ class Structure::Item < ApplicationRecord
     url: 2,
     option: 11,
     options: 12,
+    colors: 13,
     file: 21,
     h2: 102
   }, _prefix: :kind
@@ -52,10 +53,10 @@ class Structure::Item < ApplicationRecord
   def self.with_options
     [
       'option',
-      'options'
+      'options',
+      'colors'
     ]
   end
-
 
   def has_options?
     kind.in?(Structure::Item.with_options)

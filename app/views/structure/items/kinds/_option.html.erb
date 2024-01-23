@@ -1,10 +1,13 @@
 <%
 option = item.option_for(about)
 %>
-<%= render 'structure/options/link', 
-          about: about, 
-          item: item, 
-          option: option %>
+<% if option %>
+  <a href="<%= url_with_optional_region(about, item, option) %>" class="<%= tag_classes %>">
+    <%= option %>
+  </a>
+<% else %>
+  <span class="<%= tag_classes_disabled %>"><%= t('admin.structure.not_set') %></span>
+<% end %>
 <% if text.present? %>
   <p><%= text %></p>
 <% end %>

@@ -30,6 +30,40 @@
             .filesize
                 text-decoration: none
                 font-size: $small-font-size
+        &__colors
+            .swatches
+                margin-left: -32px
+            .swatch
+                display: inline-block
+                position: relative
+                width: 128px
+                margin-bottom: 15px
+                &__color
+                    border-radius: 100%
+                    display: block
+                    height: 64px
+                    width: 64px
+                    background: white
+                    margin: 0 auto 5px
+                    &--bleu
+                        background: #0000FF
+                    &--rouge
+                        background: #E15B5B
+                    &--vert
+                        background: #288A87
+                    &--blanc
+                        background: #FFFFFF
+                    &--noir
+                        background: #000000
+                    &--transparent
+                        opacity: 0.5
+                &__name
+                    color: black
+                    display: block
+                    text-align: center
+                    text-decoration: none
+                    width: 100%
+
 .title_with_structure
     margin-bottom: 50px
     display: flex
