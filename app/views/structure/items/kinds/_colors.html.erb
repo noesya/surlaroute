@@ -6,7 +6,9 @@ text = item.text_for(about)
   <div class="swatches">
     <% options.each do |option| %>
       <span class="swatch">
-        <span class="swatch__color swatch__color--<%= option.slug %>"></span>
+        <span class="swatch__color">
+          <span class="swatch__color__inner  swatch__color__inner--<%= option.slug %>"></span>
+        </span>
         <a href="<%= url_with_optional_region(about, item, option) %>" class="swatch__name stretched-link">
           <%= option %>
         </a>

@@ -1,3 +1,23 @@
+@keyframes shine
+    0%
+        transform: translateX(-100%) translateY(-100%) rotate(30deg)
+    80%
+        transform: translateX(-100%) translateY(-100%) rotate(30deg)
+    100%
+        transform: translateX(100%) translateY(100%) rotate(30deg)
+
+@mixin shiny
+    &::after
+        content: ''
+        top: 0
+        transform: translateX(100%) rotate(30deg)
+        width: 300%
+        height: 300%
+        position: absolute
+        z-index: 1
+        animation: shine 3s infinite ease-in
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(128,186,232,0) 99%, rgba(128,186,232,0) 100%)
+
 .structure
     h2
         @include media-breakpoint-up(lg)
@@ -39,24 +59,55 @@
                 width: 128px
                 margin-bottom: 15px
                 &__color
+                    background: white
                     border-radius: 100%
                     display: block
                     height: 64px
-                    width: 64px
-                    background: white
                     margin: 0 auto 5px
-                    &--bleu
-                        background: #0000FF
-                    &--rouge
-                        background: #E15B5B
-                    &--vert
-                        background: #288A87
-                    &--blanc
-                        background: #FFFFFF
-                    &--noir
-                        background: #000000
-                    &--transparent
-                        opacity: 0.5
+                    width: 64px
+                    overflow: hidden
+                    position: relative
+                    &__inner
+                        display: block
+                        height: 64px
+                        width: 64px
+                        &--argent
+                            background: linear-gradient(to bottom, #bcc6cc, #eee, #bcc6cc)
+                            @include shiny
+                        &--beige
+                            background: #b9a672
+                        &--blanc
+                            background: #FFFFFF
+                        &--bleu
+                            background: #2440a6
+                        &--gris
+                            background: #999999
+                        &--jaune
+                            background: #fffb00
+                        &--marron
+                            background: #43240d
+                        &--metal
+                            background: linear-gradient(to bottom, #bcc6cc, #eee, #bcc6cc)
+                            @include shiny
+                        &--multicolore
+                            background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 154, 0, 1) 10%, rgba(208, 222, 33, 1) 20%, rgba(79, 220, 74, 1) 30%, rgba(63, 218, 216, 1) 40%, rgba(47, 201, 226, 1) 50%, rgba(28, 127, 238, 1) 60%, rgba(95, 21, 242, 1) 70%, rgba(186, 12, 248, 1) 80%, rgba(251, 7, 217, 1) 90%, rgba(255, 0, 0, 1) 100%)
+                        &--noir
+                            background: #000000
+                        &--or
+                            background: linear-gradient(to bottom, #bcc6cc, #eee, #bcc6cc)
+                            @include shiny
+                        &--orange
+                            background: #ff6200
+                        &--rose
+                            background: #d262d8
+                        &--rouge
+                            background: #E15B5B
+                        &--transparent
+                            opacity: 0.5
+                        &--vert
+                            background: #288A87
+                        &--violet
+                            background: #8e00be
                 &__name
                     color: black
                     display: block
