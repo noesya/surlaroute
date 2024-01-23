@@ -59,7 +59,6 @@
                 width: 128px
                 margin-bottom: 15px
                 &__color
-                    background: white
                     border-radius: 100%
                     display: block
                     height: 64px
@@ -68,6 +67,7 @@
                     overflow: hidden
                     position: relative
                     &__inner
+                        background: white
                         display: block
                         height: 64px
                         width: 64px
@@ -80,6 +80,9 @@
                             background: #FFFFFF
                         &--bleu
                             background: #2440a6
+                        &--cuivre
+                            background: linear-gradient(to bottom, #D47800, #662E00, #D47800)
+                            @include shiny
                         &--gris
                             background: #999999
                         &--jaune
