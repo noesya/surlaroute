@@ -39,7 +39,7 @@
   </section>
 <% end %>
 
-<% if @material.projects %>
+<% if @material.projects.any? %>
   <section class="bg-white py-5">
     <div class="container">
       <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>

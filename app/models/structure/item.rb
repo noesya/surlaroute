@@ -20,7 +20,8 @@ class Structure::Item < ApplicationRecord
   ABOUT_CLASSES = [
     Material,
     Actor,
-    Project
+    Project,
+    Assembly
   ]
 
   has_many :values, dependent: :destroy

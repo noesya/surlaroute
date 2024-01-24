@@ -1,0 +1,16 @@
+<%= content_for :title, @assembly %>
+
+<div class="row">
+  <div class="col-lg-4">
+    <%= show @assembly, :image, type: :image %>
+  </div>
+  <div class="col-lg-8">
+    <%= show @assembly, :description %>
+    <%= render 'admin/structure/items/kinds/show', about: @assembly %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @assembly %>
+  <%= edit_link @assembly %>
+<% end %>

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= kamifusen_tag @assembly.image,
+                        class: 'img-fluid rounded square', 
+                        alt: @assembly if @assembly.image.attached? %>
+    </div>
+    <div class="col-lg-6">
+      <%= render 'structure/title_with_structure', about: @assembly %>
+      <p class="fw-bold"><%= sanitize @assembly.description %></p>
+      <%= render 'application/meta', about: @assembly %>
+      <hr class="my-5">
+      <%= render 'structure/items/zones/header', about: @assembly %>
+    </div>
+  </div>
+</div>
+<%= render 'structure/items/zones/page', about: @assembly %>
+
+<% if @assembly.projects.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.assembly.projects', count: @assembly.projects.count) %></h2>
+      <%= render 'projects/list', objects: @assembly.projects %>
+    </div>
+  </section>
+<% end %>

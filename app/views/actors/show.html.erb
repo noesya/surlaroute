@@ -18,7 +18,7 @@
 
 <%= render 'structure/items/zones/page', about: @actor %>
 
-<% if @actor.materials %>
+<% if @actor.materials.any? %>
   <section class="bg-white py-5">
     <div class="container">
       <h2><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_161845) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_24_080408) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -65,6 +65,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_161845) do
     t.uuid "region_id", null: false
     t.index ["actor_id", "region_id"], name: "index_actors_regions_on_actor_id_and_region_id"
     t.index ["region_id", "actor_id"], name: "index_actors_regions_on_region_id_and_actor_id"
+  end
+
+  create_table "assemblies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.text "description"
+    t.uuid "published_by_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["published_by_id"], name: "index_assemblies_on_published_by_id"
+  end
+
+  create_table "assemblies_projects", id: false, force: :cascade do |t|
+    t.uuid "assembly_id", null: false
+    t.uuid "project_id", null: false
+    t.index ["assembly_id", "project_id"], name: "index_assemblies_projects_on_assembly_id_and_project_id"
+    t.index ["project_id", "assembly_id"], name: "index_assemblies_projects_on_project_id_and_assembly_id"
   end
 
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -278,6 +295,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_161845) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "actors", "users", column: "published_by_id"
+  add_foreign_key "assemblies", "users", column: "published_by_id"
   add_foreign_key "materials", "actors"
   add_foreign_key "materials", "users", column: "published_by_id"
   add_foreign_key "projects", "users", column: "published_by_id"

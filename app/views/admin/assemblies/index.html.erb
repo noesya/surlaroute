@@ -1,0 +1,12 @@
+<%= content_for :title, Assembly.model_name.human(count: 2) %>
+
+<%= render  'admin/application/filters',
+            current_path: admin_assemblies_path,
+            filters: @filters if @filters.any? %>
+
+<%= render 'admin/assemblies/list', assemblies: @assemblies %>
+<%= paginate @assemblies, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Assembly %>
+<% end %>

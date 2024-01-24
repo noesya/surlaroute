@@ -27,6 +27,11 @@ Rails.application.routes.draw do
         get ':item_slug/:option_slug' => 'projects#option', as: :option
       end
     end
+    resources :assemblies, path: 'assemblages', only: [:index, :show] do
+      collection do
+        get ':item_slug/:option_slug' => 'assemblies#option', as: :option
+      end
+    end
   end
   get 'regions' => 'regions#index', as: :regions
   resources :regions, path: "", only: :show
