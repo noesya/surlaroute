@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_24_080408) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_24_094941) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -252,6 +252,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_080408) do
     t.index ["option_id"], name: "index_structure_values_on_option_id"
   end
 
+  create_table "user_favorites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "about_type", null: false
+    t.uuid "about_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["about_type", "about_id"], name: "index_user_favorites_on_about"
+    t.index ["user_id"], name: "index_user_favorites_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -302,4 +312,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_080408) do
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"
   add_foreign_key "structure_values", "structure_options", column: "option_id"
+  add_foreign_key "user_favorites", "users"
 end

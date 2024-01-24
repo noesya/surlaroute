@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Mes favoris</h1>
+  <% if @favorites.none? %>
+    <p>Vous n'avez pas encore de favoris.</p>
+  <% else %>
+    <% @about_types.each do |about_type| %>
+      <%
+      title = about_type.constantize.model_name.human(count: 2)
+      partial = "#{about_type.downcase.pluralize}/list"
+      objects = @favorites.for_about_type(about_type).collect(&:about)
+      %>
+      <div class="mt-5">
+        <h2><%= title %></h2>
+        <%= render partial, objects: objects %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

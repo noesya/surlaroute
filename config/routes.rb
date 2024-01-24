@@ -36,5 +36,8 @@ Rails.application.routes.draw do
   get 'regions' => 'regions#index', as: :regions
   resources :regions, path: "", only: :show
 
+  get 'mon-compte/favoris' => 'favorites#index', as: :favorites
+  put 'mon-compte/favoris' => 'favorites#create'
+  delete 'mon-compte/favoris' => 'favorites#destroy'
   root to: 'home#index'
 end

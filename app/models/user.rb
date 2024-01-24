@@ -48,6 +48,8 @@ class User < ApplicationRecord
   include WithAuthentication
   include WithRoles
 
+  has_many :favorites
+
   scope :ordered, -> { order(:last_name, :first_name) }
   
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
@@ -62,6 +64,10 @@ class User < ApplicationRecord
       unaccent(users.mobile_phone) ILIKE unaccent(:term)
     ", term: "%#{sanitize_sql_like(term)}%")
   }
+
+  def in_favorites?(about)
+    favorites.for_about(about).any?
+  end
 
   def to_s
     first_name.present? ? "#{first_name} #{last_name}"

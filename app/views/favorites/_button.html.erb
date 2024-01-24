@@ -1,0 +1,13 @@
+<% if current_user && current_user.in_favorites?(about) %>
+  <%= link_to favorites_path(about_id: about.id, about_type: about.class), 
+              method: :delete, 
+              class: 'btn btn-sm btn-light bg-secondary-subtle favorites__remove' do %>
+    Retirer de mes favoris
+  <% end %>
+<% else %>
+  <%= link_to favorites_path(about_id: about.id, about_type: about.class), 
+              method: :put, 
+              class: 'btn btn-sm btn-light bg-secondary-subtle favorites__add' do %>
+    Ajouter aux favoris
+  <% end %>
+<% end %>
