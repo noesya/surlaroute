@@ -17,6 +17,7 @@ fr:
         actor: Fabriqué par
         description: Description
         name: Nom
+        projects: Projets qui l'utilisent
         published_by: Fiche publiée par
         regions: Lieu(x) de production
         slug: Identifiant
@@ -186,4 +187,20 @@ fr:
     "yes": Oui
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
   true: Oui
+  ui:
+    actor:
+      materials:
+        one: Matériau fabriqué
+        other: Matériaux fabriqués
+    material:
+      projects:
+        one: Projet qui l'utilise
+        other: Projets qui l'utilisent
+    project:
+      materials:
+        one: Matériau utilisé
+        other: Matériaux utilisés
+      actors:
+        one: L'acteurice
+        other: Les acteurices
   website: Écothèque

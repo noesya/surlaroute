@@ -16,6 +16,7 @@
   </div>
 </div>
 <%= render 'structure/items/zones/page', about: @material %>
+
 <% if @material.actor %>
   <section class="bg-white py-5">
     <div class="container">
@@ -34,6 +35,15 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+<% end %>
+
+<% if @material.projects %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>
+      <%= render 'projects/list', objects: @material.projects %>
     </div>
   </section>
 <% end %>

@@ -15,11 +15,13 @@
     </div>
   </div>
 </div>
+
 <%= render 'structure/items/zones/page', about: @actor %>
+
 <% if @actor.materials %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2><%= Actor.human_attribute_name('materials') %></h2>
+      <h2><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
       <%= render 'materials/list', objects: @actor.materials %>
     </div>
   </section>

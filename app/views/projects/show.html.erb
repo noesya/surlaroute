@@ -20,7 +20,7 @@
 <% if @project.materials %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2><%= Project.human_attribute_name('materials') %></h2>
+      <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
       <%= render 'materials/list', objects: @project.materials %>
     </div>
   </section>
@@ -29,7 +29,7 @@
 <% if @project.actors %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2><%= Project.human_attribute_name('actors') %></h2>
+      <h2><%= t('ui.project.actors', count: @project.actors.count) %></h2>
       <%= render 'actors/list', objects: @project.actors %>
     </div>
   </section>
