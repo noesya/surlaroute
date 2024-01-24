@@ -26,3 +26,12 @@
     </div>
   </section>
 <% end %>
+
+<% if @actor.projects.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.actor.projects', count: @actor.projects.count) %></h2>
+      <%= render 'projects/list', objects: @actor.projects %>
+    </div>
+  </section>
+<% end %>

@@ -201,6 +201,9 @@ fr:
       materials:
         one: Matériau fabriqué
         other: Matériaux fabriqués
+      projects: 
+        one: Projet
+        other: Projets
     assembly:
       projects: 
         one: Projet qui l'utilise

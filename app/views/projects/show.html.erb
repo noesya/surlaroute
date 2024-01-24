@@ -14,8 +14,9 @@
       <%= render 'application/regions', about: @project %>
     </div>
   </div>
-  <%= render 'structure/items/zones/page', about: @project %>
 </div>
+
+<%= render 'structure/items/zones/page', about: @project %>
 
 <% if @project.materials.any? %>
   <section class="bg-white py-5">
