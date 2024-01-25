@@ -217,6 +217,6 @@ fr:
         one: Matériau utilisé
         other: Matériaux utilisés
       actors:
-        one: L'acteurice
-        other: Les acteurices
+        one: Acteur·rice du projet
+        other: Acteur·rices du projet
   website: Écothèque
