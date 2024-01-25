@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= t('ecosystem') %></h1>
+  <%= link_to 'Glossaire', options_actors_path %>
   <%= render 'actors/list', objects: @actors %>
   <%= paginate @actors, theme: "bootstrap-5" %>
 </div>

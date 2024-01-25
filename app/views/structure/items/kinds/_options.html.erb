@@ -4,7 +4,7 @@ text = item.text_for(about)
 %>
 <% if options.any? %>
   <% options.each do |option| %>
-    <a href="<%= url_with_optional_region(about, item, option) %>" class="<%= tag_classes %>">
+    <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>">
       <%= option %>
     </a>
   <% end %>

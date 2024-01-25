@@ -30,12 +30,12 @@ module ApplicationHelper
     tag_classes("disabled #{classes}")
   end
 
-  def url_with_optional_region(about, item, option)
+  def polymorphic_option_path(option)
     # materials
-    resources_class_name = about.class.to_s.downcase.pluralize
+    resources_class_name = option.item.about_class.to_s.downcase.pluralize
     # option_materials_path
     path_name = "option_#{resources_class_name}_path"
-    # /materiaux/famille-de-materiaux/plastiques
-    public_send(path_name, item_slug: item.slug, option_slug: option.slug)
+    # option_materials_path(item_slug: 'materiaux', option_slug: 'plastiques')
+    public_send(path_name, item_slug: option.item.slug, option_slug: option.slug)
   end
 end

@@ -26,6 +26,7 @@ class Structure::Option < ApplicationRecord
   has_many :values, dependent: :destroy
 
   scope :ordered, -> { order(:position) }
+  scope :ordered_by_name, -> { order(:name) }
 
   def objects
     item.about_class.constantize.where(id: objects_ids)

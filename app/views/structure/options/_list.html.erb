@@ -1,0 +1,5 @@
+<ul class="list-unstyled">
+<% objects.each do |option| %>
+  <li><%= link_to option, polymorphic_option_path(option) %></li>
+<% end %>
+</ul>

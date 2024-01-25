@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= Project.model_name.human(count: 2) %></h1>
+  <%= link_to 'Glossaire', options_projects_path %>
   <%= render 'projects/list', objects: @projects %>
   <%= paginate @projects, theme: "bootstrap-5" %>
 </div>

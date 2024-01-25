@@ -9,7 +9,7 @@ text = item.text_for(about)
         <span class="swatch__color">
           <span class="swatch__color__inner  swatch__color__inner--<%= option.slug %>"></span>
         </span>
-        <a href="<%= url_with_optional_region(about, item, option) %>" class="swatch__name stretched-link">
+        <a href="<%= polymorphic_option_path(option) %>" class="swatch__name stretched-link">
           <%= option %>
         </a>
       </span>
