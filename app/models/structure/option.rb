@@ -25,6 +25,8 @@ class Structure::Option < ApplicationRecord
   belongs_to :item
   has_many :values, dependent: :destroy
 
+  before_create :set_position
+
   scope :ordered, -> { order(:position) }
   scope :ordered_by_name, -> { order(:name) }
 
@@ -40,5 +42,10 @@ class Structure::Option < ApplicationRecord
 
   def objects_ids
     values.pluck(:about_id)
+  end
+
+  def set_position
+    last_higher_position = Structure::Item::Option.where(item_id: item_id).maximum(:position) || 0
+    self.position = last_higher_position + 1
   end
 end
