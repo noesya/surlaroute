@@ -1,4 +1,14 @@
 <div class="container">
   <h1>Glossaire</h1>
-  <%= render "structure/options/list", objects: @options %>
+  <% @items.each do |item| %>
+    <% options = Structure::Option.where(item_id: item).ordered_by_name %>
+    <div class="row mt-5">
+      <div class="col-lg-6">
+        <h2><%= item %></h2>
+      </div>
+      <div class="col-lg-6">
+        <%= render "structure/options/list", objects: options %>
+      </div>
+    </div>
+  <% end %>
 </div>

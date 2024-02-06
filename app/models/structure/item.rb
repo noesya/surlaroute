@@ -24,6 +24,12 @@ class Structure::Item < ApplicationRecord
     Assembly
   ]
 
+  KINDS_WITH_OPTIONS = [
+    'option',
+    'options',
+    'colors'
+  ]
+
   has_many :values, dependent: :destroy
   has_many :options, dependent: :destroy
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
@@ -33,6 +39,7 @@ class Structure::Item < ApplicationRecord
   before_create :set_position
 
   scope :ordered, -> { order(:position) }
+  scope :with_options, -> { where(kind: Structure::Item::KINDS_WITH_OPTIONS) }
 
   enum kind: {
     string: 0,
@@ -51,16 +58,8 @@ class Structure::Item < ApplicationRecord
     page: 3 
   }, _prefix: :zone
 
-  def self.with_options
-    [
-      'option',
-      'options',
-      'colors'
-    ]
-  end
-
   def has_options?
-    kind.in?(Structure::Item.with_options)
+    kind.in?(Structure::Item::KINDS_WITH_OPTIONS)
   end
 
   def save_value(object, data)

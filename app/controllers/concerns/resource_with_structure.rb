@@ -2,8 +2,7 @@ module ResourceWithStructure
   extend ActiveSupport::Concern
 
   def options
-    items = Structure::Item.where(about_class: resources_class_string)
-    @options = Structure::Option.where(item_id: items).ordered_by_name
+    @items = Structure::Item.where(about_class: resources_class_string).with_options.ordered
     breadcrumb
     add_breadcrumb 'Glossaire', request.path
     render 'structure/options/index'
