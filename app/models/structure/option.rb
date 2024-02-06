@@ -45,7 +45,7 @@ class Structure::Option < ApplicationRecord
   end
 
   def set_position
-    last_higher_position = Structure::Item::Option.where(item_id: item_id).maximum(:position) || 0
+    last_higher_position = Structure::Option.where(item_id: item_id).maximum(:position) || 0
     self.position = last_higher_position + 1
   end
 end
