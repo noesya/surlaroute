@@ -1,1 +1,3 @@
-<div><%= link_to value, [:admin, value] %></div>
+<% if value %>
+  <div><%= link_to value, [:admin, value] %></div>
+<% end %>
