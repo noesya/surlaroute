@@ -4,6 +4,7 @@
       <tr>
         <th><%= Project.human_attribute_name('name') %></th>
         <th><%= Project.human_attribute_name('image') %></th>
+        <th><%= Project.human_attribute_name('published') %></th>
         <th></th>
       </tr>
     </thead>
@@ -12,6 +13,7 @@
         <tr>
           <td><%= link_to_if can?(:read, project), project, [:admin, project] %></td>
           <td><%= kamifusen_tag project.image, width: 100 if project.image.attached? %></td>
+          <td><%= t project.published %></td>
           <td class="text-end">
             <%= edit_link project %>
           </td>

@@ -58,7 +58,7 @@ class Admin::ActorsController < Admin::ApplicationController
           .permit(
             :name, :slug, :description,
             :image, :image_delete, :image_infos, 
-            :published_by_id,
+            :published, :published_by_id,
             project_ids: [], material_ids: [],
             region_ids: []
           )

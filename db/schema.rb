@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_24_094941) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_09_074247) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_094941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.uuid "published_by_id"
+    t.boolean "published", default: false
     t.index ["published_by_id"], name: "index_actors_on_published_by_id"
   end
 
@@ -74,6 +75,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_094941) do
     t.uuid "published_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "published", default: false
     t.index ["published_by_id"], name: "index_assemblies_on_published_by_id"
   end
 
@@ -169,6 +171,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_094941) do
     t.datetime "updated_at", null: false
     t.uuid "actor_id"
     t.uuid "published_by_id"
+    t.boolean "published", default: false
     t.index ["actor_id"], name: "index_materials_on_actor_id"
     t.index ["published_by_id"], name: "index_materials_on_published_by_id"
     t.index ["slug"], name: "index_materials_on_slug"
@@ -195,6 +198,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_094941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.uuid "published_by_id"
+    t.boolean "published", default: false
     t.index ["published_by_id"], name: "index_projects_on_published_by_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end

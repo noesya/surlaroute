@@ -2,7 +2,7 @@ class AssembliesController < ApplicationController
   include ResourceWithStructure
 
   def index
-    @assemblies = Assembly.all.ordered.page(params[:page])
+    @assemblies = Assembly.published.ordered.page(params[:page])
     breadcrumb
   end
 

@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   include ResourceWithStructure
 
   def index
-    @projects = Project.all.ordered.page(params[:page])
+    @projects = Project.published.ordered.page(params[:page])
     breadcrumb
   end
 

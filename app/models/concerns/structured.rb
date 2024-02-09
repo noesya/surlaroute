@@ -1,4 +1,4 @@
-module WithStructure
+module Structured
   extend ActiveSupport::Concern
 
   included do

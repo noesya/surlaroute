@@ -1,4 +1,4 @@
-module WithSlug
+module Slugged
   extend ActiveSupport::Concern
 
   included do

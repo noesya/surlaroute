@@ -3,11 +3,6 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
-    <div class="col-lg-4">
-      <%= f.input :image,
-                  as: :single_deletable_file, 
-                  preview: true %>
-    </div>
     <div class="col-lg-8">
       <%= f.input :name %>
       <%= f.input :slug,
@@ -15,11 +10,17 @@
                     class: 'js-slug-input',
                     data: { source: '#assembly_name' }
                   } %>
-      <%= f.association :published_by %>
       <%= f.input :description %>
-      <%= render 'admin/structure/items/kinds/edit', about: assembly %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :published %>
+      <%= f.association :published_by %>
+      <%= f.input :image,
+                  as: :single_deletable_file, 
+                  preview: true %>
     </div>
   </div>
+  <%= render 'admin/structure/items/kinds/edit', about: assembly %>
 
   <% content_for :buttons do %>
     <%= destroy_link assembly if assembly.persisted? %>

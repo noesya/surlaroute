@@ -5,6 +5,7 @@
 #  id              :uuid             not null, primary key
 #  description     :text
 #  name            :string
+#  published       :boolean          default(FALSE)
 #  slug            :string           indexed
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

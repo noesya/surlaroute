@@ -1,21 +1,18 @@
-<div class="row">
-  <div class="col-lg-4">
-    <label class="form-label small"><%= t('admin.structure.option') %></label>
-    <select class="form-select select" 
-            name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][option]"
-            id="item_<%= item.id %>">
-      <option value="" label=""></option>
-      <% item.options.ordered.each do |option| %>
-        <option <%= 'selected="selected"' if item.selected_option?(about, option) %> value="<%= option.id %>"><%= option %></option>
-      <% end %>
-    </select>
-  </div>
-  <% if item.with_explanation %>
-    <div class="col-lg-8">
-      <label class="form-label small"><%= t('admin.structure.explanation') %></label>
-      <textarea class="form-control text" 
-                name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]" 
-                id="item_<%= item.id %>_text"><%= item.text_for(about) %></textarea>
-    </div>
+<select class="form-select select" 
+        name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][option]"
+        id="item_<%= item.id %>">
+  <option value="" label=""></option>
+  <% item.options.ordered.each do |option| %>
+    <option <%= 'selected="selected"' if item.selected_option?(about, option) %> value="<%= option.id %>">
+      <%= option %>
+    </option>
   <% end %>
-</div>
+</select>
+<% if item.with_explanation %>
+  <div class="col-lg-8">
+    <label class="form-label small"><%= t('admin.structure.explanation') %></label>
+    <textarea class="form-control text" 
+              name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]" 
+              id="item_<%= item.id %>_text"><%= item.text_for(about) %></textarea>
+  </div>
+<% end %>

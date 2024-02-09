@@ -1,4 +1,4 @@
-module WithRegions
+module Regional
   extend ActiveSupport::Concern
 
   included do

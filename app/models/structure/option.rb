@@ -20,7 +20,7 @@
 #  fk_rails_1ce4c6dd6a  (item_id => structure_items.id)
 #
 class Structure::Option < ApplicationRecord
-  include WithSlug
+  include Slugged
 
   belongs_to :item
   has_many :values, dependent: :destroy

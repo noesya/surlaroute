@@ -5,6 +5,7 @@
 #  id              :uuid             not null, primary key
 #  description     :text
 #  name            :string
+#  published       :boolean          default(FALSE)
 #  slug            :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -19,9 +20,9 @@
 #  fk_rails_402a0ffef2  (published_by_id => users.id)
 #
 class Assembly < ApplicationRecord
-  include WithPublisher
-  include WithSlug
-  include WithStructure
+  include Publishable
+  include Slugged
+  include Structured
 
   has_and_belongs_to_many :projects
   

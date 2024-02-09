@@ -4,6 +4,7 @@
       <tr>
         <th><%= Actor.human_attribute_name('name') %></th>
         <th><%= Actor.human_attribute_name('image') %></th>
+        <th><%= Actor.human_attribute_name('published') %></th>
         <th></th>
       </tr>
     </thead>
@@ -12,6 +13,7 @@
         <tr>
           <td><%= link_to_if can?(:read, actor), actor, [:admin, actor] %></td>
           <td><%= kamifusen_tag actor.image, width: 100 if actor.image.attached? %></td>
+          <td><%= t actor.published %></td>
           <td class="text-end">
             <%= edit_link actor %>
           </td>

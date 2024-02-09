@@ -14,7 +14,7 @@
 #  index_regions_on_slug  (slug) UNIQUE
 #
 class Region < ApplicationRecord
-  include WithSlug
+  include Slugged
 
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :materials

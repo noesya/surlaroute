@@ -2,7 +2,7 @@ class ActorsController < ApplicationController
   include ResourceWithStructure
 
   def index
-    @actors = Actor.all.ordered.page(params[:page])
+    @actors = Actor.published.ordered.page(params[:page])
     breadcrumb
   end
 

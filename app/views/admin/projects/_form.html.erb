@@ -3,11 +3,6 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
-    <div class="col-lg-4">
-      <%= f.input :image,
-                  as: :single_deletable_file, 
-                  preview: true %>
-    </div>
     <div class="col-lg-8">
       <%= f.input :name %>
       <%= f.input :slug,
@@ -15,14 +10,20 @@
                     class: 'js-slug-input',
                     data: { source: '#project_name' }
                   } %>
-      <%= f.association :published_by %>
-      <%= f.association :regions, as: :check_boxes %>
       <%= f.association :materials, as: :check_boxes %>
       <%= f.association :actors, as: :check_boxes %>
       <%= f.input :description %>
-      <%= render 'admin/structure/items/kinds/edit', about: project %>
+      <%= f.association :regions, as: :check_boxes %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :published %>
+      <%= f.association :published_by %>
+      <%= f.input :image,
+                  as: :single_deletable_file, 
+                  preview: true %>
     </div>
   </div>
+  <%= render 'admin/structure/items/kinds/edit', about: project %>
 
   <% content_for :buttons do %>
     <%= destroy_link project if project.persisted? %>

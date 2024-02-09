@@ -58,7 +58,7 @@ class Admin::AssembliesController < Admin::ApplicationController
           .permit(
             :name, :slug, :description, 
             :image, :image_delete, :image_infos, 
-            :published_by_id
+            :published, :published_by_id
           )
           .merge({ items: params[:assembly][:items].to_unsafe_hash})
   end

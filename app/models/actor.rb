@@ -5,6 +5,7 @@
 #  id              :uuid             not null, primary key
 #  description     :text
 #  name            :string
+#  published       :boolean          default(FALSE)
 #  slug            :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -19,10 +20,10 @@
 #  fk_rails_666a0f2abc  (published_by_id => users.id)
 #
 class Actor < ApplicationRecord
-  include WithPublisher
-  include WithRegions
-  include WithSlug
-  include WithStructure
+  include Publishable
+  include Regional
+  include Slugged
+  include Structured
 
   has_many :materials
   has_and_belongs_to_many :projects

@@ -15,7 +15,7 @@
 #  updated_at       :datetime         not null
 #
 class Structure::Item < ApplicationRecord
-  include WithSlug
+  include Slugged
 
   ABOUT_CLASSES = [
     Material,
