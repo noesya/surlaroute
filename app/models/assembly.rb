@@ -20,6 +20,7 @@
 #  fk_rails_402a0ffef2  (published_by_id => users.id)
 #
 class Assembly < ApplicationRecord
+  include Favoritable
   include Publishable
   include Slugged
   include Structured

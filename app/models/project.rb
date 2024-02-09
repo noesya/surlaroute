@@ -21,6 +21,7 @@
 #  fk_rails_fef370b0dc  (published_by_id => users.id)
 #
 class Project < ApplicationRecord
+  include Favoritable
   include Publishable
   include Regional
   include Slugged
