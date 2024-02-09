@@ -3,7 +3,10 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = current_user.favorites
-    @about_types = @favorites.pluck(:about_type).compact.sort
+    @about_types = @favorites.pluck(:about_type)
+                             .compact
+                             .uniq
+                             .sort
   end
 
   def create
