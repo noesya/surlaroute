@@ -7,15 +7,15 @@ class Admin::ProjectsController < Admin::ApplicationController
     @projects = @projects.autofilter(params[:filters]).ordered.page(params[:page])
     breadcrumb
   end
-  
+
   def show
     breadcrumb
   end
-  
+
   def new
     breadcrumb
   end
-  
+
   def edit
     breadcrumb
     add_breadcrumb t('edit')
@@ -57,11 +57,11 @@ class Admin::ProjectsController < Admin::ApplicationController
     params.require(:project)
           .permit(
             :name, :slug, :description,
-            :image, :image_delete, :image_infos, 
+            :image, :image_delete, :image_infos,
             :published, :published_by_id,
             actor_ids: [], material_ids: [],
-            region_ids: []
+            region_ids: [],
+            structure_values_attributes: [:id, :item_id, :text, :option_id, :file, :file_delete, :_destroy]
           )
-          .merge({ items: params[:project][:items].to_unsafe_hash})
   end
 end

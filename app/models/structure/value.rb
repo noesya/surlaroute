@@ -29,17 +29,6 @@ class Structure::Value < ApplicationRecord
 
   has_one_attached_deletable :file
 
-  def save_data(data)
-    return if data.blank?
-    if data.is_a?(String)
-      self.text = data
-    else
-      # ActionDispatch::Http::UploadedFile
-      self.file = data
-    end
-    save
-  end
-
   def to_s
     option.present? ? "#{option}"
                     : "#{text}"

@@ -56,10 +56,10 @@ class Admin::AssembliesController < Admin::ApplicationController
   def assembly_params
     params.require(:assembly)
           .permit(
-            :name, :slug, :description, 
-            :image, :image_delete, :image_infos, 
-            :published, :published_by_id
+            :name, :slug, :description,
+            :image, :image_delete, :image_infos,
+            :published, :published_by_id,
+            structure_values_attributes: [:id, :item_id, :text, :option_id, :file, :file_delete, :_destroy]
           )
-          .merge({ items: params[:assembly][:items].to_unsafe_hash})
   end
 end

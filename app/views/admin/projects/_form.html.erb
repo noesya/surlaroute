@@ -19,11 +19,11 @@
       <%= f.input :published %>
       <%= f.association :published_by %>
       <%= f.input :image,
-                  as: :single_deletable_file, 
+                  as: :single_deletable_file,
                   preview: true %>
     </div>
   </div>
-  <%= render 'admin/structure/items/kinds/edit', about: project %>
+  <%= render 'admin/structure/items/kinds/edit', about: project, f: f %>
 
   <% content_for :buttons do %>
     <%= destroy_link project if project.persisted? %>

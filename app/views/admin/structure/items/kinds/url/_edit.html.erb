@@ -1,7 +1,11 @@
-<input  class="form-control string" 
-        type="url" 
-        value="<%= item.text_for(about) %>" 
-        placeholder="https://"
-        pattern="https://.*"
-        name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>]" 
-        id="item_<%= item.id %>">
+<% value = about.structure_values.detect { |value| value.item_id == item.id } %>
+<% value ||= about.structure_values.new(item_id: item.id) %>
+<%= f.simple_fields_for :structure_values, value do |value_f| %>
+  <%= value_f.hidden_field :item_id %>
+  <%= value_f.input :text,
+                    as: :url,
+                    placeholder: "https://",
+                    pattern: "https://.*",
+                    label: false,
+                    wrapper: false %>
+<% end %>

@@ -1,16 +1,15 @@
-<select class="form-select select" 
-        name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][option]"
-        id="item_<%= item.id %>">
-  <option value="" label=""></option>
-  <% item.options.ordered.each do |option| %>
-    <option <%= 'selected="selected"' if item.selected_option?(about, option) %> value="<%= option.id %>">
-      <%= option %>
-    </option>
+<% value = about.structure_values.detect { |value| value.item_id == item.id } %>
+<% value ||= about.structure_values.new(item_id: item.id) %>
+<%= f.simple_fields_for :structure_values, value do |value_f| %>
+  <%= value_f.hidden_field :item_id %>
+  <%= value_f.association :option,
+                          collection: item.options.ordered,
+                          label: false,
+                          wrapper: false %>
+  <% if item.with_explanation %>
+    <label class="form-label small"><%= t('admin.structure.explanation') %></label>
+    <%= value_f.input :text,
+                      label: false,
+                      wrapper: false %>
   <% end %>
-</select>
-<% if item.with_explanation %>
-  <label class="form-label small"><%= t('admin.structure.explanation') %></label>
-  <textarea class="form-control text" 
-            name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]" 
-            id="item_<%= item.id %>_text"><%= item.text_for(about) %></textarea>
 <% end %>

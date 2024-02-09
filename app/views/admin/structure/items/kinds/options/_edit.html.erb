@@ -5,13 +5,13 @@ name = "#{about.class.to_s.parameterize}[items][#{item.id}][options][]"
   <input type="hidden" name="<%= name %>" value="" autocomplete="off">
   <% item.options.ordered.each do |option| %>
     <div class="form-check">
-      <input  class="form-check-input is-valid check_boxes required" 
-              type="checkbox" 
+      <input  class="form-check-input is-valid check_boxes required"
+              type="checkbox"
               <% if item.selected_option?(about, option) %>checked="checked"<% end %>
               value="<%= option.id %>"
               name="<%= name %>"
               id="item_<%= item.id %>_option_<%= option.id %>">
-      <label  class="form-check-label collection_check_boxes" 
+      <label  class="form-check-label collection_check_boxes"
               for="item_<%= item.id %>_option_<%= option.id %>">
         <%= option %>
       </label>
@@ -20,7 +20,7 @@ name = "#{about.class.to_s.parameterize}[items][#{item.id}][options][]"
 </fieldset>
 <% if item.with_explanation %>
   <label class="form-label small"><%= t('admin.structure.explanation') %></label>
-  <textarea class="form-control text" 
-            name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]" 
+  <textarea class="form-control text"
+            name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]"
             id="item_<%= item.id %>_text"><%= item.text_for(about) %></textarea>
 <% end %>

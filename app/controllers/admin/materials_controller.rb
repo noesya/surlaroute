@@ -57,11 +57,11 @@ class Admin::MaterialsController < Admin::ApplicationController
     params.require(:material)
           .permit(
             :name, :slug, :description, :actor_id,
-            :image, :image_delete, :image_infos, 
+            :image, :image_delete, :image_infos,
             :published, :published_by_id,
             actor_ids: [], project_ids: [],
-            region_ids: []
+            region_ids: [],
+            structure_values_attributes: [:id, :item_id, :text, :option_id, :file, :file_delete, :_destroy]
           )
-          .merge({ items: params[:material][:items].to_unsafe_hash})
   end
 end
