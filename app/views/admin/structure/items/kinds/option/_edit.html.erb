@@ -9,10 +9,8 @@
   <% end %>
 </select>
 <% if item.with_explanation %>
-  <div class="col-lg-8">
-    <label class="form-label small"><%= t('admin.structure.explanation') %></label>
-    <textarea class="form-control text" 
-              name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]" 
-              id="item_<%= item.id %>_text"><%= item.text_for(about) %></textarea>
-  </div>
+  <label class="form-label small"><%= t('admin.structure.explanation') %></label>
+  <textarea class="form-control text" 
+            name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]" 
+            id="item_<%= item.id %>_text"><%= item.text_for(about) %></textarea>
 <% end %>
