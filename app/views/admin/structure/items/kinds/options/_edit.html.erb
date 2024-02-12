@@ -1,16 +1,11 @@
-<% value = about.structure_values.detect { |value| value.item_id == item.id } %>
-<% value ||= about.structure_values.new(item_id: item.id) %>
-<%= f.simple_fields_for :structure_values, value do |value_f| %>
-  <%= value_f.hidden_field :item_id %>
-  <%= value_f.association :options,
-                          as: :check_boxes,
-                          collection: item.options.ordered,
-                          legend_tag: false,
-                          wrapper: false %>
-  <% if item.with_explanation %>
-    <label class="form-label small"><%= t('admin.structure.explanation') %></label>
-    <%= value_f.input :text,
-                      label: false,
-                      wrapper: false %>
-  <% end %>
+<%= f.association :options,
+                        as: :check_boxes,
+                        collection: item.options.ordered,
+                        legend_tag: false,
+                        wrapper: false %>
+<% if item.with_explanation %>
+  <label class="form-label small"><%= t('admin.structure.explanation') %></label>
+  <%= f.input :text,
+                    label: false,
+                    wrapper: false %>
 <% end %>

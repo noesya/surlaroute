@@ -1,11 +1,6 @@
-<% value = about.structure_values.detect { |value| value.item_id == item.id } %>
-<% value ||= about.structure_values.new(item_id: item.id) %>
-<%= f.simple_fields_for :structure_values, value do |value_f| %>
-  <%= value_f.hidden_field :item_id %>
-  <%= value_f.input :text,
-                    as: :url,
-                    placeholder: "https://",
-                    pattern: "https://.*",
-                    label: false,
-                    wrapper: false %>
-<% end %>
+<%= f.input :text,
+                  as: :url,
+                  placeholder: "https://",
+                  pattern: "https://.*",
+                  label: false,
+                  wrapper: false %>
