@@ -105,6 +105,8 @@ fr:
       search_field: Recherche
       title: Rechercher
     structure:
+      add_image: Ajouter une image
+      add_option: Ajouter une option
       title: Structure
       option: Option
       options: Options
