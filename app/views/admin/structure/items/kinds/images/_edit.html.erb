@@ -1,0 +1,8 @@
+<% file = value.files.first || value.files.new %>
+
+<div class="js-nested-cocoon" id="files">
+  <%= f.simple_fields_for :files, file do |file_f| %>
+    <%= render 'admin/structure/items/kinds/images/file_fields', f: file_f %>
+  <% end %>
+  <p><%= link_to_add_association t('add'), f, :files, class: "btn btn-sm btn-primary", partial: "admin/structure/items/kinds/images/file_fields" %></p>
+</div>

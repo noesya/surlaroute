@@ -49,6 +49,7 @@ class Structure::Item < ApplicationRecord
     options: 12,
     colors: 13,
     file: 21,
+    images: 24,
     h2: 102
   }, _prefix: :kind
 

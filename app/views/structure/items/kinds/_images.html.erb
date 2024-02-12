@@ -1,0 +1,13 @@
+<%
+files = item.files_for(about)
+%>
+<div class="row">
+  <% files.each do |file| %>
+    <% next unless file.file.attached? %>
+    <div class="col-md-3">
+      <%= kamifusen_tag file.file,
+                        class: 'img-fluid',
+                        alt: 'TODO' %>
+    </div>
+  <% end %>
+</div>
