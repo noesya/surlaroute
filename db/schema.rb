@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_09_074247) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_12_004837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -243,6 +243,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_074247) do
     t.index ["item_id"], name: "index_structure_options_on_item_id"
   end
 
+  create_table "structure_options_values", id: false, force: :cascade do |t|
+    t.uuid "option_id", null: false
+    t.uuid "value_id", null: false
+    t.index ["option_id"], name: "index_structure_options_values_on_option_id"
+    t.index ["value_id"], name: "index_structure_options_values_on_value_id"
+  end
+
   create_table "structure_values", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "text"
     t.string "about_type", null: false
@@ -250,10 +257,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_074247) do
     t.uuid "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "option_id"
     t.index ["about_type", "about_id"], name: "index_criterion_values_on_about"
     t.index ["item_id"], name: "index_structure_values_on_item_id"
-    t.index ["option_id"], name: "index_structure_values_on_option_id"
   end
 
   create_table "user_favorites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -314,7 +319,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_074247) do
   add_foreign_key "materials", "users", column: "published_by_id"
   add_foreign_key "projects", "users", column: "published_by_id"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
+  add_foreign_key "structure_options_values", "structure_options", column: "option_id"
+  add_foreign_key "structure_options_values", "structure_values", column: "value_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"
-  add_foreign_key "structure_values", "structure_options", column: "option_id"
   add_foreign_key "user_favorites", "users"
 end

@@ -2,8 +2,9 @@
 <% value ||= about.structure_values.new(item_id: item.id) %>
 <%= f.simple_fields_for :structure_values, value do |value_f| %>
   <%= value_f.hidden_field :item_id %>
-  <%= value_f.association :option,
+  <%= value_f.association :options,
                           collection: item.options.ordered,
+                          input_html: { multiple: false },
                           label: false,
                           wrapper: false %>
   <% if item.with_explanation %>

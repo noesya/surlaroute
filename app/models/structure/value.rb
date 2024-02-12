@@ -25,7 +25,7 @@
 class Structure::Value < ApplicationRecord
   belongs_to :about, polymorphic: true
   belongs_to :item
-  belongs_to :option, optional: true
+  has_and_belongs_to_many :options
 
   has_one_attached_deletable :file
 

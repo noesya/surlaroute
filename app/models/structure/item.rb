@@ -75,11 +75,11 @@ class Structure::Item < ApplicationRecord
   end
 
   def options_for(object)
-    values_for(object).collect(&:option).compact
+    value_for(object).options
   end
 
   def option_for(object)
-    value_for(object)&.option
+    options_for(object).first
   end
 
   def selected_option?(object, option)
