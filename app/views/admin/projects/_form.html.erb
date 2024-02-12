@@ -23,7 +23,7 @@
                   preview: true %>
     </div>
   </div>
-  <%= render 'admin/structure/items/kinds/edit', about: project, f: f %>
+  <%= render 'admin/structure/items/kinds/edit', f: f %>
 
   <% content_for :buttons do %>
     <%= destroy_link project if project.persisted? %>

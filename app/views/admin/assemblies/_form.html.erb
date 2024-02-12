@@ -20,7 +20,7 @@
                   preview: true %>
     </div>
   </div>
-  <%= render 'admin/structure/items/kinds/edit', about: assembly, f: f %>
+  <%= render 'admin/structure/items/kinds/edit', f: f %>
 
   <% content_for :buttons do %>
     <%= destroy_link assembly if assembly.persisted? %>
