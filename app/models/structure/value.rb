@@ -33,7 +33,7 @@ class Structure::Value < ApplicationRecord
   validates_associated :files
 
   def to_s
-    options.any?  ? "#{options.map(&:to_s).join(', ')}"
+    options.any?  ? "#{options.ordered.map(&:to_s).join(', ')}"
                   : "#{text}"
   end
 end

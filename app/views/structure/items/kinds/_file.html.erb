@@ -1,7 +1,5 @@
-<%
-file = item.file_for(about)
-%>
-<% if file.file.attached? %>
+<% file = item.file_for(about) %>
+<% if file.present? && file.file.attached? %>
   <div class="position-relative">
     <span class="filename">
       <%= link_to file.file.filename,
