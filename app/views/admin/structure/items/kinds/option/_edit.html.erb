@@ -1,11 +1,11 @@
 <%= f.association :options,
-                        collection: item.options.ordered,
-                        input_html: { multiple: false },
-                        label: false,
-                        wrapper: false %>
+                  collection: item.options.ordered,
+                  input_html: { multiple: false },
+                  label: false,
+                  wrapper: false %>
 <% if item.with_explanation %>
   <label class="form-label small"><%= t('admin.structure.explanation') %></label>
   <%= f.input :text,
-                    label: false,
-                    wrapper: false %>
+              label: false,
+              wrapper: false %>
 <% end %>

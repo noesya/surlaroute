@@ -1,7 +1,7 @@
 <% file = value.files.first || value.files.new %>
 
 <%= f.simple_fields_for :files, file do |file_f| %>
-  <%= file_f.input :file,
+  <%= file_f.input  :file,
                     as: :single_deletable_file,
                     label: false,
                     wrapper: false %>

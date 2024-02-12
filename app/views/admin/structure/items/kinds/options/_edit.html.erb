@@ -1,11 +1,11 @@
 <%= f.association :options,
-                        as: :check_boxes,
-                        collection: item.options.ordered,
-                        legend_tag: false,
-                        wrapper: false %>
+                  as: :check_boxes,
+                  collection: item.options.ordered,
+                  legend_tag: false,
+                  wrapper: false %>
 <% if item.with_explanation %>
   <label class="form-label small"><%= t('admin.structure.explanation') %></label>
   <%= f.input :text,
-                    label: false,
-                    wrapper: false %>
+              label: false,
+              wrapper: false %>
 <% end %>
