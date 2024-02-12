@@ -3,10 +3,13 @@
     <div class="me-3">
       <i class="bi bi-arrow-down-up handle"></i>
     </div>
-    <%= f.input :file,
-                as: :single_deletable_file,
-                label: false,
-                wrapper: false %>
+    <div class="fields flex-grow-1">
+      <%= f.input :file,
+                  as: :single_deletable_file,
+                  label: Structure::Value::File.human_attribute_name("image"),
+                  label_html: { class: "small" } %>
+      <%= f.input :alt, label_html: { class: "small" } %>
+    </div>
     <%= link_to_remove_association t('delete'), f, class: 'btn btn-sm btn-danger ms-3' %>
   </div>
 </div>

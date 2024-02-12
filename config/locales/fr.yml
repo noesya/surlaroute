@@ -54,6 +54,10 @@ fr:
       structure/option:
         name: Nom
         slug: Identifiant
+      structure/value/file:
+        alt: Texte alternatif
+        file: Fichier
+        image: Image
       user:
         email: Email
         first_name: Prénom
