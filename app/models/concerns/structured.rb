@@ -13,7 +13,6 @@ module Structured
   end
 
   def items
-    @items ||= Structure::Item.where(about_class: self.class.to_s)
-                              .order(:position)
+    @items ||= Structure::Item.where(about_class: self.class.to_s).ordered
   end
 end
