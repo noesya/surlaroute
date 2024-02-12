@@ -93,7 +93,6 @@ fr:
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s
-  add: Ajouter
   admin:
     dashboard: Tableau de bord
     filters:
