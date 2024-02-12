@@ -10,7 +10,7 @@
       %>
       <div class="row mb-4">
         <div class="offset-lg-4 col-lg-8">
-          <label class="form-label" for="item_<%= item.id %>"><%= item %></label>
+          <label class="form-label" for="<%= dom_id(item) %>"><%= item %></label>
           <%= f.simple_fields_for :structure_values, value do |value_f| %>
             <%= value_f.hidden_field :item_id %>
             <%= render "admin/structure/items/kinds/#{item.kind}/edit", f: value_f, item: item, value: value %>

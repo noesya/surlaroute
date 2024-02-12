@@ -3,6 +3,7 @@
 <%= f.simple_fields_for :files, file do |file_f| %>
   <%= file_f.input  :file,
                     as: :single_deletable_file,
+                    input_html: { id: dom_id(item) },
                     label: false,
                     wrapper: false %>
 <% end %>
