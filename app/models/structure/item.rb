@@ -86,7 +86,7 @@ class Structure::Item < ApplicationRecord
   end
 
   def files_for(object)
-    value_for(object).files
+    value_for(object).files.ordered
   end
 
   def file_for(object)
