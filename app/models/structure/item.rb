@@ -15,6 +15,7 @@
 #  updated_at       :datetime         not null
 #
 class Structure::Item < ApplicationRecord
+  include Positionable # last_ordered_element is overwritten
   include Slugged
 
   ABOUT_CLASSES = [
@@ -36,9 +37,6 @@ class Structure::Item < ApplicationRecord
 
   validates_presence_of :name
 
-  before_create :set_position
-
-  scope :ordered, -> { order(:position) }
   scope :with_options, -> { where(kind: Structure::Item::KINDS_WITH_OPTIONS) }
 
   enum kind: {
@@ -101,8 +99,7 @@ class Structure::Item < ApplicationRecord
 
   protected
 
-  def set_position
-    last_higher_position = Structure::Item.where(about_class: about_class).maximum(:position) || 0
-    self.position = last_higher_position + 1
+  def last_ordered_element
+    Structure::Item.where(about_class: about_class).ordered.last
   end
 end
