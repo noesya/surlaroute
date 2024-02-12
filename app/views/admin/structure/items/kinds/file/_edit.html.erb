@@ -1,4 +1,4 @@
-<% file = value.files.first || value.files.new %>
+<% file = value.files.first_or_initialize %>
 
 <%= f.simple_fields_for :files, file do |file_f| %>
   <%= file_f.input  :file,
