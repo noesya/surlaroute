@@ -74,7 +74,7 @@ class Structure::Item < ApplicationRecord
   end
 
   def options_for(object)
-    value_for(object).options
+    value_for(object).options.ordered
   end
 
   def option_for(object)
