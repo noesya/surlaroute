@@ -1,6 +1,4 @@
-<%
-files = item.files_for(about)
-%>
+<% files = item.files_for(about) %>
 <div class="row">
   <% files.each do |file| %>
     <% next unless file.file.attached? %>
