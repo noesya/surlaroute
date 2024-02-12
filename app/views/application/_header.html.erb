@@ -33,7 +33,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
                 <li><%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Mes favoris", favorites_path, class: "dropdown-item" %></li>
+                <li><%= link_to t('favorites.title'), favorites_path, class: "dropdown-item" %></li>
                 <% unless current_user.visitor? %>
                   <li><%= link_to "Administration", admin_root_path, class: "dropdown-item" %></li>
                 <% end %>

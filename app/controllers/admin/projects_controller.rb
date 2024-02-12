@@ -2,6 +2,7 @@ class Admin::ProjectsController < Admin::ApplicationController
   load_and_authorize_resource find_by: :slug
 
   include Admin::Filterable
+  include Admin::ResourceWithStructure
 
   def index
     @projects = @projects.autofilter(params[:filters]).ordered.page(params[:page])
@@ -61,11 +62,7 @@ class Admin::ProjectsController < Admin::ApplicationController
             :published, :published_by_id,
             actor_ids: [], material_ids: [],
             region_ids: [],
-            structure_values_attributes: [
-              :id, :item_id, :text, :_destroy,
-              :option_ids, option_ids: [],
-              files_attributes: [:id, :file, :file_delete, :_destroy]
-            ]
+            structure_values_attributes: structure_values_permitted_attributes
           )
   end
 end

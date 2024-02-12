@@ -20,6 +20,7 @@
 #  fk_rails_666a0f2abc  (published_by_id => users.id)
 #
 class Actor < ApplicationRecord
+  include Favoritable
   include Publishable
   include Regional
   include Slugged

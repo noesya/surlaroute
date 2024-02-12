@@ -45,4 +45,4 @@
 
 # Scalingo DB backup
 /db/scalingo-dump.tar.gz
-/db/latest.dump
+/db/*.dump

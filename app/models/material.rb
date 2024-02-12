@@ -24,6 +24,7 @@
 #  fk_rails_e6f2c9950b  (actor_id => actors.id)
 #
 class Material < ApplicationRecord
+  include Favoritable
   include Publishable
   include Regional
   include Slugged

@@ -21,7 +21,7 @@
                   preview: true %>
     </div>
   </div>
-  <%= render 'admin/structure/items/kinds/edit', about: actor, f: f %>
+  <%= render 'admin/structure/items/kinds/edit', f: f %>
 
   <% content_for :buttons do %>
     <%= destroy_link actor if actor.persisted? %>

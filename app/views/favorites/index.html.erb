@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Mes favoris</h1>
+  <h1><%= t('favorites.title') %></h1>
   <% if @favorites.none? %>
-    <p>Vous n'avez pas encore de favoris.</p>
+    <p><%= t('favorites.none') %></p>
   <% else %>
     <% @about_types.each do |about_type| %>
       <%
