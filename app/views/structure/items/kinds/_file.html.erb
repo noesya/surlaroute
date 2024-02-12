@@ -1,13 +1,14 @@
-<% if value.file.attached? %>
+<% file = item.file_for(about) %>
+<% if file.present? && file.file.attached? %>
   <div class="position-relative">
     <span class="filename">
-      <%= link_to value.file.filename, 
-                  value.file, 
+      <%= link_to file.file.filename,
+                  file.file,
                   class: 'stretched-link',
                   target: :_blank %>
     </span>
     <span class="filesize">
-      <%= number_to_human_size value.file.blob.byte_size %>
+      <%= number_to_human_size file.file.blob.byte_size %>
     </span>
   </div>
 <% else %>
