@@ -86,6 +86,14 @@ class Structure::Item < ApplicationRecord
     option.in? options_for(object)
   end
 
+  def files_for(object)
+    value_for(object).files
+  end
+
+  def file_for(object)
+    files_for(object).first
+  end
+
   def to_s
     "#{name}"
   end

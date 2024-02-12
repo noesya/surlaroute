@@ -8,7 +8,7 @@ module Structured
               dependent: :destroy
     accepts_nested_attributes_for :structure_values
 
-    # Needed to execute before_validation callback on Structure::Value#file
+    # Needed to execute before_validation callback on Structure::Value#files
     validates_associated :structure_values
   end
 

@@ -61,7 +61,11 @@ class Admin::ActorsController < Admin::ApplicationController
             :published, :published_by_id,
             project_ids: [], material_ids: [],
             region_ids: [],
-            structure_values_attributes: [:id, :item_id, :text, :option_ids, :file, :file_delete, :_destroy, option_ids: []]
+            structure_values_attributes: [
+              :id, :item_id, :text, :_destroy,
+              :option_ids, option_ids: [],
+              files_attributes: [:id, :file, :file_delete, :_destroy]
+            ]
           )
   end
 end

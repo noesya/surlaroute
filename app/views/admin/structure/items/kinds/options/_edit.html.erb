@@ -5,7 +5,7 @@
   <%= value_f.association :options,
                           as: :check_boxes,
                           collection: item.options.ordered,
-                          label: false,
+                          legend_tag: false,
                           wrapper: false %>
   <% if item.with_explanation %>
     <label class="form-label small"><%= t('admin.structure.explanation') %></label>

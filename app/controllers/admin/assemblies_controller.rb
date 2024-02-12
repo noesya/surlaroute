@@ -59,7 +59,11 @@ class Admin::AssembliesController < Admin::ApplicationController
             :name, :slug, :description,
             :image, :image_delete, :image_infos,
             :published, :published_by_id,
-            structure_values_attributes: [:id, :item_id, :text, :option_ids, :file, :file_delete, :_destroy, option_ids: []]
+            structure_values_attributes: [
+              :id, :item_id, :text, :_destroy,
+              :option_ids, option_ids: [],
+              files_attributes: [:id, :file, :file_delete, :_destroy]
+            ]
           )
   end
 end

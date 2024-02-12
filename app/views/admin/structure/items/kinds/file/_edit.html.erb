@@ -1,9 +1,12 @@
 <% value = about.structure_values.detect { |value| value.item_id == item.id } %>
 <% value ||= about.structure_values.new(item_id: item.id) %>
+<% file = value.files.first || value.files.new %>
 <%= f.simple_fields_for :structure_values, value do |value_f| %>
   <%= value_f.hidden_field :item_id %>
-  <%= value_f.input :file,
-                    as: :single_deletable_file,
-                    label: false,
-                    wrapper: false %>
+  <%= value_f.simple_fields_for :files, file do |file_f| %>
+    <%= file_f.input :file,
+                      as: :single_deletable_file,
+                      label: false,
+                      wrapper: false %>
+  <% end %>
 <% end %>
