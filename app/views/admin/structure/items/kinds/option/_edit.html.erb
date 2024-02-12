@@ -1,16 +1,14 @@
-<select class="form-select select" 
-        name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][option]"
-        id="item_<%= item.id %>">
-  <option value="" label=""></option>
-  <% item.options.ordered.each do |option| %>
-    <option <%= 'selected="selected"' if item.selected_option?(about, option) %> value="<%= option.id %>">
-      <%= option %>
-    </option>
-  <% end %>
-</select>
+<%= f.association :options,
+                  collection: item.options.ordered,
+                  input_html: { multiple: false, id: dom_id(item) },
+                  label: false,
+                  wrapper: false %>
 <% if item.with_explanation %>
-  <label class="form-label small"><%= t('admin.structure.explanation') %></label>
-  <textarea class="form-control text" 
-            name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>][text]" 
-            id="item_<%= item.id %>_text"><%= item.text_for(about) %></textarea>
+  <label class="form-label small" for="<%= dom_id(item) %>_text">
+    <%= t('admin.structure.explanation') %>
+  </label>
+  <%= f.input :text,
+              input_html: { id: "#{dom_id(item)}_text" },
+              label: false,
+              wrapper: false %>
 <% end %>

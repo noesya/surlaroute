@@ -1,4 +1,6 @@
-<textarea class="form-control text" 
-          name="<%= about.class.to_s.parameterize %>[items][<%= item.id %>]" 
-          rows="4"
-          id="item_<%= item.id %>"><%= item.text_for(about) %></textarea>
+<%= f.input :text,
+            as: :text,
+            rows: 4,
+            input_html: { id: dom_id(item) },
+            label: false,
+            wrapper: false %>

@@ -2,6 +2,7 @@ class Admin::AssembliesController < Admin::ApplicationController
   load_and_authorize_resource find_by: :slug
 
   include Admin::Filterable
+  include Admin::ResourceWithStructure
 
   def index
     @assemblies = @assemblies.autofilter(params[:filters]).ordered.page(params[:page])
@@ -56,10 +57,10 @@ class Admin::AssembliesController < Admin::ApplicationController
   def assembly_params
     params.require(:assembly)
           .permit(
-            :name, :slug, :description, 
-            :image, :image_delete, :image_infos, 
-            :published, :published_by_id
+            :name, :slug, :description,
+            :image, :image_delete, :image_infos,
+            :published, :published_by_id,
+            structure_values_attributes: structure_values_permitted_attributes
           )
-          .merge({ items: params[:assembly][:items].to_unsafe_hash})
   end
 end

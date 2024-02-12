@@ -2,6 +2,7 @@ class Admin::ActorsController < Admin::ApplicationController
   load_and_authorize_resource find_by: :slug
 
   include Admin::Filterable
+  include Admin::ResourceWithStructure
 
   def index
     @actors = @actors.autofilter(params[:filters]).ordered.page(params[:page])
@@ -57,11 +58,11 @@ class Admin::ActorsController < Admin::ApplicationController
     params.require(:actor)
           .permit(
             :name, :slug, :description,
-            :image, :image_delete, :image_infos, 
+            :image, :image_delete, :image_infos,
             :published, :published_by_id,
             project_ids: [], material_ids: [],
-            region_ids: []
+            region_ids: [],
+            structure_values_attributes: structure_values_permitted_attributes
           )
-          .merge({ items: params[:actor][:items].to_unsafe_hash})
   end
 end

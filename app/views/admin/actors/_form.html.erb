@@ -17,11 +17,11 @@
       <%= f.input :published %>
       <%= f.association :published_by %>
       <%= f.input :image,
-                  as: :single_deletable_file, 
+                  as: :single_deletable_file,
                   preview: true %>
     </div>
   </div>
-  <%= render 'admin/structure/items/kinds/edit', about: actor %>
+  <%= render 'admin/structure/items/kinds/edit', f: f %>
 
   <% content_for :buttons do %>
     <%= destroy_link actor if actor.persisted? %>
