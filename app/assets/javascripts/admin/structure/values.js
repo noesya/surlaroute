@@ -15,7 +15,6 @@ window.ecotheque.structure.values = {
             i;
 
         for (i = 0; i < nestedCocoonElements.length; i += 1) {
-            console.log(nestedCocoonElements[i]);
             $(nestedCocoonElements[i]).on('cocoon:after-insert', this.initSingleDeletableFile.bind(this));
         }
     },
