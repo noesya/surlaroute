@@ -20,14 +20,12 @@
 #  fk_rails_1ce4c6dd6a  (item_id => structure_items.id)
 #
 class Structure::Option < ApplicationRecord
+  include Positionable # last_ordered_element is overwritten
   include Slugged
 
   belongs_to :item
   has_many :values, dependent: :destroy
 
-  before_create :set_position
-
-  scope :ordered, -> { order(:position) }
   scope :ordered_by_name, -> { order(:name) }
 
   def objects
@@ -44,8 +42,7 @@ class Structure::Option < ApplicationRecord
     values.pluck(:about_id)
   end
 
-  def set_position
-    last_higher_position = Structure::Option.where(item_id: item_id).maximum(:position) || 0
-    self.position = last_higher_position + 1
+  def last_ordered_element
+    Structure::Option.where(item_id: item_id).ordered.last
   end
 end

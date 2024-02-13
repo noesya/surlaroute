@@ -1,0 +1,10 @@
+<% files = item.files_for(about) %>
+<div class="mb-4">
+  <label class="small text-muted"><%= item %></label>
+  <ul>
+    <% files.each do |file| %>
+      <% next unless file.file.attached? %>
+      <li><%= link_to file.file.filename, file.file, target: :_blank %></li>
+    <% end %>
+  </ul>
+</div>

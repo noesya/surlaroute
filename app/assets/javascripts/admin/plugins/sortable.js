@@ -18,8 +18,8 @@ window.sortableManager = {
     createInstance: function (container) {
         'use strict';
         var sortableType = container.dataset.sortable;
-        if (sortableType === 'input') {
-            $(container).on('cocoon:after-add cocoon:after-remove', this.updateViaInputs.bind(this, container));
+        if (sortableType === 'inputs') {
+            $(container).on('cocoon:after-insert cocoon:after-remove', this.updateViaInputs.bind(this, container));
         }
 
         return new Sortable(container, {

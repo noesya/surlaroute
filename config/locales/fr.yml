@@ -54,6 +54,10 @@ fr:
       structure/option:
         name: Nom
         slug: Identifiant
+      structure/value/file:
+        alt: Texte alternatif
+        file: Fichier
+        image: Image
       user:
         email: Email
         first_name: Prénom
@@ -103,7 +107,9 @@ fr:
         submit: Filtrer
       search_field: Recherche
       title: Rechercher
-    structure: 
+    structure:
+      add_image: Ajouter une image
+      add_option: Ajouter une option
       title: Structure
       option: Option
       options: Options
@@ -157,16 +163,17 @@ fr:
     structure:
       item:
         kind:
+          colors: 'Choix de couleurs'
           file: Fichier
           h2: 'Titre'
           h3: 'Sous-titre'
+          images: "Galerie d'images"
           option: 'Choix unique'
           options: 'Choix multiples'
-          colors: 'Choix de couleurs'
           string: 'Texte'
           text: 'Texte sur plusieurs lignes'
           url: 'Site Web'
-        zone: 
+        zone:
           title: Titre
           header: En-tête
           page: Page (zone par défaut)
@@ -210,11 +217,11 @@ fr:
       materials:
         one: Matériau fabriqué
         other: Matériaux fabriqués
-      projects: 
+      projects:
         one: Projet
         other: Projets
     assembly:
-      projects: 
+      projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
     material:

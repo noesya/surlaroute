@@ -7,7 +7,7 @@ module Admin::ResourceWithStructure
     [
       :id, :item_id, :text, :_destroy,
       :option_ids, option_ids: [],
-      files_attributes: [:id, :file, :file_delete, :_destroy]
+      files_attributes: [:id, :file, :file_delete, :file_infos, :alt, :_destroy]
     ]
   end
 end
