@@ -24,7 +24,7 @@ class Structure::Option < ApplicationRecord
   include Slugged
 
   belongs_to :item
-  has_many :values, dependent: :destroy
+  has_and_belongs_to_many :values
 
   scope :ordered_by_name, -> { order(:name) }
 
