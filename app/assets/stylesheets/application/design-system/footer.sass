@@ -24,6 +24,11 @@ footer
         a
             font-weight: bold
             font-size: $font-size-base
+            @include icon(link, after)
+            &::after
+                margin-left: map-get($spacers, 1)
+                margin-right: map-get($spacers, 0)
+                font-size: pxToRem(13)
         li
             + li 
                 margin-top: map-get($spacers, 0)
