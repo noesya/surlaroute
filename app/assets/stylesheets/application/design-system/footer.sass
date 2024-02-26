@@ -1,6 +1,10 @@
 footer
     padding-bottom: map-get($spacers, 4)
     padding-top: map-get($spacers, 4)
+    font-family: 'Work Sans', sans-serif
+    font-weight: 400
+    strong
+        font-weight: 600
     ul
         list-style: none
         margin: 0
@@ -14,15 +18,17 @@ footer
     nav
         a
             text-decoration: none
+        ul:first-of-type
+            font-weight: 600
         @include media-breakpoint-up(md)
             li + li
                 margin-top: map-get($spacers, 1)
     .footer-social
         li:first-of-type a
-            font-weight: bold
+            font-weight: 600
     .footer-credits
         a
-            font-weight: bold
+            font-weight: 600
             font-size: $font-size-base
             @include icon(link, after)
             &::after
@@ -40,7 +46,6 @@ footer
                 align-items: flex-end
         nav
             display: flex
-            justify-content: flex-end
             gap: map-get($spacers, 4)
         .footer-supports
             display: flex

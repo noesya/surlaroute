@@ -1,7 +1,7 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-3">
+      <div class="col-12 col-md-4 col-lg-6">
         <%= link_to root_path, class: "footer-brand" do %>
           <%= image_tag 'logo.svg', alt: t('website') %>
         <% end %>
@@ -12,7 +12,7 @@
           <li><a href="#" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
         </ul>
       </div>
-      <div class="col-12 col-md-9">
+      <div class="col-12 col-md-8 col-lg-6">
         <nav>
           <ul>
             <li><strong><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></strong></li>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-4 col-md-6">
         <span class="small">Réalisation</span>
         <ul class="footer-credits small">
           <li><a href="#">Villette Makerz</a> Assistance à maîtrise d’ouvrage</li>
@@ -40,7 +40,7 @@
           <li><%= image_tag('logos/logo-augureslab.svg', alt: 'France 2030', width: '171', height: '40') %></li>
         </ul>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-8 col-lg-6">
         <span class="small">Soutenu par</span>
         <ul class="footer-supports">
           <li><%= image_tag('logos/logo-france2030.svg', alt: 'France 2030', width: '80', height: '80') %></li>
