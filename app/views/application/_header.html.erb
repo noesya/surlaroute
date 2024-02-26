@@ -8,23 +8,81 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "nav-link" %>
+        <ul class="navbar-nav header-nav">
+          <li class="nav-item dropdown">
+            <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+            <div class="dropdown-menu nav-item-expanded ecosystem">
+              <div class="row">
+                <p class="col-md-6">Vous y retrouverez l’ensemble des structures et personnes porteuses de solutions d’écoscénographie référencées par la communauté Ecothèque.</p>
+                <dl class="col-md-3">
+                  <dt>XX</dt>
+                  <dd>Acteur·ices</dd>
+                </dl>
+                <p class="col-md-3">Glossaire de l'écosystème</p>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
-            <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+            <div class="dropdown-menu nav-item-expanded material">
+              <div class="row">
+                <p class="col-md-6">Vous y retrouverez l’ensemble des matériaux référencés par la communauté Ecothèque.</p>
+                <dl class="col-md-3">
+                  <dt>XX</dt>
+                  <dd>Matériaux</dd>
+                </dl>
+                <p class="col-md-3">Glossaire des matériaux</p>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
-            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+            <div class="dropdown-menu nav-item-expanded project">
+              <div class="row">
+                <p class="col-md-6">Vous y retrouverez l’ensemble des projets d’écoscénographie référencés par la communauté Ecothèque.</p>
+                <dl class="col-md-3">
+                  <dt>XX</dt>
+                  <dd>Projets</dd>
+                </dl>
+                <p class="col-md-3">Glossaire des projets</p>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
-            <%= link_to Assembly.model_name.human(count: 2), assemblies_path(region_slug: nil), class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <%= link_to Assembly.model_name.human(count: 2), assemblies_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+            <div class="dropdown-menu nav-item-expanded assembly">
+              <div class="row">
+                <p class="col-md-6">Vous y retrouverez l’ensemble des assemblages référencées par la communauté Ecothèque.</p>
+                <dl class="col-md-3">
+                  <dt>XX</dt>
+                  <dd>Techniques</dd>
+                </dl>
+                <p class="col-md-3">Glossaire des assemblages</p>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
-            <%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil), class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false"%>
+            <div class="dropdown-menu nav-item-expanded region">
+              <div class="row">
+                <p class="col-md-6">Vous y retrouverez l’ensemble des documents qui vous seront utiles à votre montée en compétence sur le thème de l’écoscénographie.</p>
+                <ul class="col-md-3">
+                  <li><a href="#">Travaux du lab</a></li>
+                  <li><a href="#">Guide</a></li>
+                  <li><a href="#">Calculateurs</a></li>
+                  <li><a href="#">Outils pratiques</a></li>
+                </ul>
+                <ul class="col-md-3">
+                  <li><a href="#">Chartes & manifestes</a></li>
+                  <li><a href="#">Matériauthèques</a></li>
+                  <li><a href="#">Recherches & conférences</a></li>
+                  <li><a href="#">Centre de ressources & annuaires</a></li>
+                </ul>
+              </div>
+            </div>
           </li>
         </ul>
+      </div>
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
@@ -45,7 +103,6 @@
             <li class="nav-item"><%= link_to "Se connecter", new_user_session_path %></li>
           <% end %>
         </ul>
-      </div>
     </div>
   </nav>
 </header>

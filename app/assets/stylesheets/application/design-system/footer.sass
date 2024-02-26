@@ -40,6 +40,11 @@ footer
                 margin-top: map-get($spacers, 0)
             &:last-of-type
                 margin-top: map-get($spacers, 3)
+    .footer-supports
+        display: flex
+        gap: map-get($spacers, 3)
+        justify-content: space-between
+        flex-wrap: wrap
     @include media-breakpoint-up(md)
         .container
             > .row + .row
@@ -47,14 +52,13 @@ footer
         nav
             display: flex
             gap: map-get($spacers, 4)
-        .footer-supports
-            display: flex
-            gap: map-get($spacers, 3)
-            justify-content: space-between
         span.small
             display: block
             margin-bottom: map-get($spacers, 1)
     @include media-breakpoint-down(md)
+        .footer-supports
+            img
+                height: 70px
         padding-bottom: map-get($spacers, 3)
         padding-top: map-get($spacers, 3)
         .row > div + div
