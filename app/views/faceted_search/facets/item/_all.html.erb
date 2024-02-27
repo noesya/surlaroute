@@ -8,18 +8,11 @@
     <% end %>
     <ol class="faceted__facet__list list-inline">
       <% facet.values.each do |value| %>
-        <%
-        identifier = value.slug
-        path = facet.facets.path_for(facet, identifier) + anchor
-        selected = facet.value_selected?(identifier)
-        %>
-        <li class="list-inline-item faceted__facet__list__value <%= 'faceted__facet__list__value--selected' if selected %>">
-          <%= link_to path do %>
-            <span class="btn <%= selected ? 'btn-dark' : 'btn-outline-dark' %> btn-sm mb-1 rounded-pill ">
-              <%= selected ? '× ' : '+ ' %>
-              <%= value %>
-            </span>
-          <% end %>
+        <li class="list-inline-item faceted__facet__list__value">
+          <%= render 'faceted_search/facets/item/item', 
+                      value: value,
+                      facet: facet,
+                      anchor: anchor %>
         </li>
       <% end %>
     </ol>
