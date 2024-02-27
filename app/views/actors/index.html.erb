@@ -1,6 +1,14 @@
 <div class="container">
   <h1><%= t('ecosystem') %></h1>
   <%= link_to 'Glossaire', options_actors_path %>
-  <%= render 'actors/list', objects: @actors %>
-  <%= paginate @actors, theme: "bootstrap-5" %>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <%= render 'faceted_search/facets', facets: @facets %>
+    </div>
+    <div class="col-lg-9">
+      <%= render 'actors/list', objects: @actors %>
+      <%= paginate @actors, theme: "bootstrap-5" %>
+    </div>
+  </div>
 </div>

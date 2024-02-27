@@ -1,0 +1,27 @@
+<% anchor ||= '' %>
+<% if facet.values.any? %>
+  <li>
+    <% unless facet.title.blank? %>
+      <p class="mt-3 mb-2">
+        <b><%= facet.title %></b>
+      </p>
+    <% end %>
+    <ol class="faceted__facet__list list-inline">
+      <% facet.values.each do |value| %>
+        <%
+        identifier = value.slug
+        path = facet.facets.path_for(facet, identifier) + anchor
+        selected = facet.value_selected?(identifier)
+        %>
+        <li class="list-inline-item faceted__facet__list__value <%= 'faceted__facet__list__value--selected' if selected %>">
+          <%= link_to path do %>
+            <span class="btn <%= selected ? 'btn-dark' : 'btn-outline-dark' %> btn-sm mb-1 rounded-pill ">
+              <%= '× ' if selected %>
+              <%= value %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+  </li>
+<% end %>

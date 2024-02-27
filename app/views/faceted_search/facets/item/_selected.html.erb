@@ -1,0 +1,18 @@
+<% anchor ||= '' %>
+<% if facet.values.any? %>
+  <% facet.values.each do |value| %>
+    <% 
+    identifier = value.slug
+    path = facet.facets.path_for(facet, identifier) + anchor
+    %>
+    <% if facet.value_selected?(identifier) %>
+      <li class="list-inline-item">
+        <%= link_to path do %>
+          <span class="btn btn-dark btn-sm mb-1 rounded-pill ">
+            × <%= value %>
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+<% end %>
