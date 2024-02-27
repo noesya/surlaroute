@@ -1,3 +1,4 @@
+<%= content_for :title, Material.model_name.human(count: 2)  %>
 <div class="container">
   <h1><%= Material.model_name.human(count: 2) %></h1>
   <%= link_to 'Glossaire', options_materials_path %>
