@@ -1,0 +1,17 @@
+@function pxToRem($size)
+    $remSize: $size / 16
+    @return #{$remSize}rem
+
+// ICONS
+@mixin icon($icon-name: '', $pseudo-element: before)
+    &::#{$pseudo-element}
+        content: map-get($icons, $icon-name)
+        display: inline-block
+        font-family: 'IconFont'
+        font-style: normal
+        font-variant: normal
+        font-weight: normal
+        line-height: 1
+        speak: never
+        text-transform: none
+        vertical-align: middle

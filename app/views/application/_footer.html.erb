@@ -1,0 +1,55 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-6">
+        <%= link_to root_path, class: "footer-brand" do %>
+          <%= image_tag 'logo.svg', alt: t('website') %>
+        <% end %>
+        <ul class="footer-social mt-1">
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#" title="Linkedin - Lien externe" target="_blank">Linkedin</a></li>
+          <li><a href="#" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-8 col-lg-6">
+        <nav>
+          <ul>
+            <li><strong><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></strong></li>
+            <li><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil) %></li>
+            <li><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil) %></li>
+            <li>Techniques</li>
+          </ul>
+          <ul>
+            <li><strong>Boîte à outils</strong></li>
+          </ul>
+          <ul>
+            <li><strong>Le Lab</strong></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 col-md-4 col-md-6">
+        <span class="small">Réalisation</span>
+        <ul class="footer-credits small">
+          <li><a href="#">Villette Makerz</a> Assistance à maîtrise d’ouvrage</li>
+          <li><a href="#">studio dazd</a> Design graphique</li>
+          <li><a href="#">Ctrl S</a> Écoconception</li>
+          <li><a href="#">noesya</a> Développement</li>
+          <li><%= image_tag('logos/logo-augureslab.svg', alt: 'France 2030', width: '171', height: '40') %></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-8 col-lg-6">
+        <span class="small">Soutenu par</span>
+        <ul class="footer-supports">
+          <li><%= image_tag('logos/logo-france2030.svg', alt: 'France 2030', width: '80', height: '80') %></li>
+          <li><%= image_tag('logos/logo-bdt.svg', alt: 'Banque des territoires', width: '80', height: '80') %></li>
+          <li><%= image_tag('logos/logo-parisville.svg', alt: 'Ville de Paris', width: '80', height: '80') %></li>
+          <li><%= image_tag('logos/logo-ildefrance.svg', alt: 'Région Île de France', width: '80', height: '80') %></li>
+          <li><%= image_tag('logos/logo-prefetidf.svg', alt: 'Préfet de la région Île de France', width: '80', height: '80') %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
