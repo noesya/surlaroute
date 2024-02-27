@@ -4,7 +4,9 @@ class Actor::Facets < FacetedSearch::Facets
 
     @model = Actor.published.ordered
 
-    filter_with_text :name
+    filter_with_text :name, {
+      title: 'Nom'
+    }
 
     items.each do |item|
       add_facet ::FacetedSearch::Facets::Item, item.slug, { item: item }
