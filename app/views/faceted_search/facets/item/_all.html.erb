@@ -16,7 +16,7 @@
         <li class="list-inline-item faceted__facet__list__value <%= 'faceted__facet__list__value--selected' if selected %>">
           <%= link_to path do %>
             <span class="btn <%= selected ? 'btn-dark' : 'btn-outline-dark' %> btn-sm mb-1 rounded-pill ">
-              <%= '× ' if selected %>
+              <%= selected ? '× ' : '+ ' %>
               <%= value %>
             </span>
           <% end %>

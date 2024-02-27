@@ -1,8 +1,8 @@
-class Actor::Facets < FacetedSearch::FacetsWithItems
+class Material::Facets < FacetedSearch::FacetsWithItems
   def initialize(params)
     super
-    @model = Actor.published.ordered
-    @class_name = 'Actor'
+    @model = Material.published.ordered
+    @class_name = 'Material'
     filter_with_text :name, {
       title: 'Nom'
     }
