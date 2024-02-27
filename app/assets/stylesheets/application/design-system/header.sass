@@ -1,19 +1,22 @@
 header
     z-index: 99
     position: relative
+    ul
+        list-style: none
+    a
+        text-decoration: none
     .container
         padding-top: map-get($spacers, 1)
     .header-nav
         a[role="button"]
+            font-weight: 500
             &::after
                 display: none
+            &.show
+                text-decoration: underline
+                text-underline-offset: 2px
         li
             position: static
-            &:hover,
-            &:focus
-                text-decoration: underline
-                .nav-item-expanded
-                    display: block
         .nav-item-expanded
             top: 0
             padding-top: map-get($spacers, 5)
@@ -51,7 +54,7 @@ header
                 dd
                     @include icon(arrow-right, after)
                     &::after
-                        font-size: pxToRem(12)
+                        font-size: pxToRem(10)
                         margin-left: map-get($spacers, 0)
     @include media-breakpoint-down(md)
         .navbar-toggler,

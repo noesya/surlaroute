@@ -17,6 +17,7 @@
         <%= render_breadcrumbs builder: Mazer::BreadcrumbsOnRailsBuilder if breadcrumbs.many? %>
       </div>
       <%= yield %>
+      <%= render "search-modal" %>
       <%= render "footer" %>
     </main>
   </body>
