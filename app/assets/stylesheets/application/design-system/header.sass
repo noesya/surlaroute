@@ -3,10 +3,14 @@ header
     position: relative
     ul
         list-style: none
+        margin-bottom: 0
     a
         text-decoration: none
     .container
         padding-top: map-get($spacers, 1)
+    .collapse
+        > .container
+            padding-top: 0
     .header-nav
         a[role="button"]
             font-weight: 500
@@ -56,10 +60,7 @@ header
                     &::after
                         font-size: pxToRem(10)
                         margin-left: map-get($spacers, 0)
-    @include media-breakpoint-down(md)
-        .navbar-toggler,
-        .navbar-collapse
-            order: 2
-    @include media-breakpoint-up(md)
-        .navbar-collapse
-            flex-grow: unset
+    .nav-container
+        width: calc(100% + 16px)
+        > ul:last-of-type
+            padding-right: 0

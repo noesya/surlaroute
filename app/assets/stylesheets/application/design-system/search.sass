@@ -1,0 +1,38 @@
+%btn-search
+    background: none
+    align-items: center
+    border: 1px solid $color-text
+    display: flex
+    height: pxToRem(24)
+    justify-content: center
+    padding: 0
+    width: pxToRem(24)
+    @include icon(lens)
+    span
+        font-size: 0
+    &::before
+        font-size: pxToRem(12)
+
+.btn-search
+    @extend %btn-search
+    
+.search-modal
+    // OVERIDE BOOTSTRAP
+    .modal-dialog
+        max-width: unset
+        margin: 0
+        padding-top: $container-padding-x
+    .modal-content
+        padding-top: map-get($spacers, 6)
+    .col
+        position: relative
+    form[role="search"]
+        input
+            @extend %hero
+            background: none
+            border: none
+            border-bottom: 1px solid black
+            border-radius: 0
+            box-shadow: none
+            padding-left: 0
+            color: black

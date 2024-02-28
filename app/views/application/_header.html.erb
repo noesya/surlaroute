@@ -1,117 +1,125 @@
 <header class="mb-3">
   <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag 'logo.svg', alt: t('website') %>
-      <% end %>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav header-nav">
-          <li class="nav-item dropdown">
-            <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
-            <div class="dropdown-menu nav-item-expanded ecosystem">
-              <div class="row">
-                <p class="col-md-5">Vous y retrouverez l’ensemble des structures et personnes porteuses de solutions d’écoscénographie référencées par la communauté Ecothèque.</p>
-                <dl class="col-md-3 offset-md-1">
-                  <dt>XX</dt>
-                  <dd>Acteur·ices</dd>
-                </dl>
-                <p class="col-md-3 fw-semibold">Glossaire de l'écosystème</p>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
-            <div class="dropdown-menu nav-item-expanded material">
-              <div class="row">
-                <p class="col-md-5">Vous y retrouverez l’ensemble des matériaux référencés par la communauté Ecothèque.</p>
-                <dl class="col-md-3 offset-md-1">
-                  <dt>XX</dt>
-                  <dd>Matériaux</dd>
-                </dl>
-                <p class="col-md-3 fw-semibold">
-                  <%= link_to 'Glossaire des matériaux', options_materials_path %>
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
-            <div class="dropdown-menu nav-item-expanded project">
-              <div class="row">
-                <p class="col-md-5">Vous y retrouverez l’ensemble des projets d’écoscénographie référencés par la communauté Ecothèque.</p>
-                <dl class="col-md-3 offset-md-1">
-                  <dt>XX</dt>
-                  <dd>Projets</dd>
-                </dl>
-                <p class="col-md-3 fw-semibold">
-                  <%= link_to 'Glossaire des projets', options_projects_path %>
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <%= link_to Assembly.model_name.human(count: 2), assemblies_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
-            <div class="dropdown-menu nav-item-expanded assembly">
-              <div class="row">
-                <p class="col-md-5">Vous y retrouverez l’ensemble des assemblages référencées par la communauté Ecothèque.</p>
-                <dl class="col-md-3 offset-md-1">
-                  <dt>XX</dt>
-                  <dd>Techniques</dd>
-                </dl>
-                <p class="col-md-3 fw-semibold">
-                  <%= link_to 'Glossaire des assemblages', options_assemblies_path %>
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false"%>
-            <div class="dropdown-menu nav-item-expanded region">
-              <div class="row">
-                <p class="col-md-5">Vous y retrouverez l’ensemble des documents qui vous seront utiles à votre montée en compétence sur le thème de l’écoscénographie.</p>
-                <ul class="col-md-3 offset-md-1">
-                  <li><a href="#">Travaux du lab</a></li>
-                  <li><a href="#">Guide</a></li>
-                  <li><a href="#">Calculateurs</a></li>
-                  <li><a href="#">Outils pratiques</a></li>
+    <div class="container d-block">
+      <div class="row align-items-center">
+        <div class="col-md-3">
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag 'logo.svg', alt: t('website') %>
+          <% end %>
+        </div>
+        <div class="col">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="row align-items-center nav-container">
+                <ul class="d-flex gap-2 header-nav col justify-content-around py-1">
+                  <li class="nav-item dropdown">
+                    <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+                    <div class="dropdown-menu nav-item-expanded ecosystem">
+                      <div class="row">
+                        <p class="col-md-5">Vous y retrouverez l’ensemble des structures et personnes porteuses de solutions d’écoscénographie référencées par la communauté Ecothèque.</p>
+                        <dl class="col-md-3 offset-md-1">
+                          <dt>XX</dt>
+                          <dd>Acteur·ices</dd>
+                        </dl>
+                        <p class="col-md-3 fw-semibold">Glossaire de l'écosystème</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+                    <div class="dropdown-menu nav-item-expanded material">
+                      <div class="row">
+                        <p class="col-md-5">Vous y retrouverez l’ensemble des matériaux référencés par la communauté Ecothèque.</p>
+                        <dl class="col-md-3 offset-md-1">
+                          <dt>XX</dt>
+                          <dd>Matériaux</dd>
+                        </dl>
+                        <p class="col-md-3 fw-semibold">
+                          <%= link_to 'Glossaire des matériaux', options_materials_path %>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+                    <div class="dropdown-menu nav-item-expanded project">
+                      <div class="row">
+                        <p class="col-md-5">Vous y retrouverez l’ensemble des projets d’écoscénographie référencés par la communauté Ecothèque.</p>
+                        <dl class="col-md-3 offset-md-1">
+                          <dt>XX</dt>
+                          <dd>Projets</dd>
+                        </dl>
+                        <p class="col-md-3 fw-semibold">
+                          <%= link_to 'Glossaire des projets', options_projects_path %>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <%= link_to Assembly.model_name.human(count: 2), assemblies_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
+                    <div class="dropdown-menu nav-item-expanded assembly">
+                      <div class="row">
+                        <p class="col-md-5">Vous y retrouverez l’ensemble des assemblages référencées par la communauté Ecothèque.</p>
+                        <dl class="col-md-3 offset-md-1">
+                          <dt>XX</dt>
+                          <dd>Techniques</dd>
+                        </dl>
+                        <p class="col-md-3 fw-semibold">
+                          <%= link_to 'Glossaire des assemblages', options_assemblies_path %>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false"%>
+                    <div class="dropdown-menu nav-item-expanded region">
+                      <div class="row">
+                        <p class="col-md-5">Vous y retrouverez l’ensemble des documents qui vous seront utiles à votre montée en compétence sur le thème de l’écoscénographie.</p>
+                        <ul class="col-md-3 offset-md-1">
+                          <li><a href="#">Travaux du lab</a></li>
+                          <li><a href="#">Guide</a></li>
+                          <li><a href="#">Calculateurs</a></li>
+                          <li><a href="#">Outils pratiques</a></li>
+                        </ul>
+                        <ul class="col-md-3">
+                          <li><a href="#">Chartes & manifestes</a></li>
+                          <li><a href="#">Matériauthèques</a></li>
+                          <li><a href="#">Recherches & conférences</a></li>
+                          <li><a href="#">Centre de ressources & annuaires</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
-                <ul class="col-md-3">
-                  <li><a href="#">Chartes & manifestes</a></li>
-                  <li><a href="#">Matériauthèques</a></li>
-                  <li><a href="#">Recherches & conférences</a></li>
-                  <li><a href="#">Centre de ressources & annuaires</a></li>
+                <ul class="col col-md-4 d-flex gap-1 align-items-center justify-content-end py-1">
+                  <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <span>Recherche</span>
+                  </button>
+                  <% if user_signed_in? %>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <%= current_user %>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li><%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %></li>
+                        <li><%= link_to t('favorites.title'), favorites_path, class: "dropdown-item" %></li>
+                        <% unless current_user.visitor? %>
+                          <li><%= link_to "Administration", admin_root_path, class: "dropdown-item" %></li>
+                        <% end %>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
+                      </ul>
+                    </li>
+                  <% else %>
+                    <li class="nav-item"><%= link_to "Se connecter", new_user_session_path %></li>
+                  <% end %>
                 </ul>
               </div>
-            </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
-      <ul class="navbar-nav">
-        <button data-bs-toggle="modal" data-bs-target="#searchModal">
-          <span>Recherche</span>
-        </button>
-        <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= current_user %>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-lg-end">
-              <li><%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %></li>
-              <li><%= link_to t('favorites.title'), favorites_path, class: "dropdown-item" %></li>
-              <% unless current_user.visitor? %>
-                <li><%= link_to "Administration", admin_root_path, class: "dropdown-item" %></li>
-              <% end %>
-              <li><hr class="dropdown-divider"></li>
-              <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li class="nav-item"><%= link_to "Se connecter", new_user_session_path %></li>
-        <% end %>
-      </ul>
     </div>
   </nav>
 </header>

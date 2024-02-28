@@ -1,16 +1,35 @@
-<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal search-modal" id="searchModal" data-bs-backdrop="static" tabindex="-1" aria-label="Fenêtre de recherche" aria-hidden="true">
   <div class="modal-dialog">
+    <div class="container text-end">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="container">
+        <form class="row align-items-end" role="search">
+          <div class="col-10 col-md-5">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </div>
+          <div class="col-2 col-md-7">
+            <button class="btn-search rounded-pill" type="submit"><span>Search</span></button>
+          </div>
+        </form>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="container mt-4">
+        <p class="small">Vous pouvez également consulter nos annuaires</p>
+        <div class="row">
+          <div class="col">
+            <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "stretched-link" %>
+          </div>
+          <div class="col">
+            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "stretched-link" %>
+          </div>
+          <div class="col">
+            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "stretched-link" %>
+          </div>
+          <div class="col">
+            <%= link_to Assembly.model_name.human(count: 2), assemblies_path(region_slug: nil), class: "stretched-link" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
