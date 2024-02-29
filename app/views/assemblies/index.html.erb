@@ -1,6 +1,0 @@
-<div class="container">
-  <h1><%= Assembly.model_name.human(count: 2) %></h1>
-  <%= link_to 'Glossaire', options_assemblies_path %>
-  <%= render 'assemblies/list', objects: @assemblies %>
-  <%= paginate @assemblies, theme: "bootstrap-5" %>
-</div>

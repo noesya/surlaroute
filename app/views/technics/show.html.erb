@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= kamifusen_tag @technic.image,
+                        class: 'img-fluid rounded square',
+                        alt: @technic.image_alt if @technic.image.attached? %>
+    </div>
+    <div class="col-lg-6">
+      <%= render 'structure/title_with_structure', about: @technic %>
+      <p class="fw-bold"><%= sanitize @technic.description %></p>
+      <%= render 'application/meta', about: @technic %>
+      <hr class="my-5">
+      <%= render 'structure/items/zones/header', about: @technic %>
+    </div>
+  </div>
+</div>
+<%= render 'structure/items/zones/page', about: @technic %>
+
+<% if @technic.projects.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.technic.projects', count: @technic.projects.count) %></h2>
+      <%= render 'projects/list', objects: @technic.projects %>
+    </div>
+  </section>
+<% end %>

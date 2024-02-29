@@ -4,7 +4,7 @@ class Admin::DashboardController < Admin::ApplicationController
       Material,
       Actor,
       Project,
-      Assembly,
+      Technic,
       Region,
       User,
     ]

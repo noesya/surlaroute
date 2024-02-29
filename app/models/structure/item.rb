@@ -22,7 +22,7 @@ class Structure::Item < ApplicationRecord
     Material,
     Actor,
     Project,
-    Assembly
+    Technic
   ]
 
   KINDS_WITH_OPTIONS = [

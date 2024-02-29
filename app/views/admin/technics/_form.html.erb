@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, assembly] do |f| %>
+<%= simple_form_for [:admin, technic] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -6,9 +6,9 @@
     <div class="col-lg-8">
       <%= f.input :name %>
       <%= f.input :slug,
-                  input_html: assembly.persisted? ? {} : {
+                  input_html: technic.persisted? ? {} : {
                     class: 'js-slug-input',
-                    data: { source: '#assembly_name' }
+                    data: { source: '#technic_name' }
                   } %>
       <%= f.input :description %>
     </div>
@@ -23,7 +23,7 @@
   <%= render 'admin/structure/items/kinds/edit', f: f %>
 
   <% content_for :buttons do %>
-    <%= destroy_link assembly if assembly.persisted? %>
+    <%= destroy_link technic if technic.persisted? %>
     <%= submit f %>
   <% end %>
 <% end %>
