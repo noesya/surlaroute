@@ -10,12 +10,13 @@ fr:
         description: Description
         materials: Matériaux fabriqués
         name: Nom
+        premium: Fiche premium
         published: Fiche publiée
         published_by: Fiche publiée par
         regions: Localisation(s)
         slug: Identifiant
       material:
-        actor: Fabriqué par
+        actors: Fabriqué par
         description: Description
         name: Nom
         projects: Projets qui l'utilisent

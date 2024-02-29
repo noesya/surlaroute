@@ -7,6 +7,7 @@
 #  image_alt       :string
 #  image_credit    :string
 #  name            :string
+#  premium         :boolean          default(FALSE)
 #  published       :boolean          default(FALSE)
 #  slug            :string
 #  created_at      :datetime         not null
@@ -28,7 +29,7 @@ class Actor < ApplicationRecord
   include Slugged
   include Structured
 
-  has_many :materials
+  has_and_belongs_to_many :materials
   has_and_belongs_to_many :projects
   
   has_one_attached_deletable :image
