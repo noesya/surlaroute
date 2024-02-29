@@ -16,7 +16,7 @@ fr:
         regions: Localisation(s)
         slug: Identifiant
       material:
-        actor: Fabriqué par
+        actors: Fabriqué par
         description: Description
         name: Nom
         projects: Projets qui l'utilisent

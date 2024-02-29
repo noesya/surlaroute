@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_29_161119) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_29_163934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -55,6 +55,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_29_161119) do
     t.string "image_credit"
     t.boolean "premium", default: false
     t.index ["published_by_id"], name: "index_actors_on_published_by_id"
+  end
+
+  create_table "actors_materials", id: false, force: :cascade do |t|
+    t.uuid "actor_id", null: false
+    t.uuid "material_id", null: false
+    t.index ["material_id", "actor_id"], name: "index_actors_materials_on_material_id_and_actor_id"
   end
 
   create_table "actors_projects", id: false, force: :cascade do |t|

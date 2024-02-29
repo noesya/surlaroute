@@ -18,25 +18,27 @@
 </div>
 <%= render 'structure/items/zones/page', about: @material %>
 
-<% if @material.actor %>
+<% if @material.actors.any? %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2><%= Material.human_attribute_name('actor') %></h2>
+      <h2><%= Material.human_attribute_name('actors') %></h2>
       <div class="row">
-        <div class="offset-lg-6 col-lg-6">
-          <div class="row">
-            <% if @material.actor.image.attached? %>
-              <div class="col-4">
-                <%= link_to @material.actor do %>
-                  <%= kamifusen_tag @material.actor.image, width: 300, alt: @material.actor.image_alt, class: 'img-fluid rounded square' %>
-                <% end %>
+        <% @material.actors.each do |actor| %>
+          <div class="offset-lg-6 col-lg-6">
+            <div class="row">
+              <% if actor.image.attached? %>
+                <div class="col-4">
+                  <%= link_to actor do %>
+                    <%= kamifusen_tag actor.image, width: 300, alt: actor.image_alt, class: 'img-fluid rounded square' %>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="col-8">
+                <h3><%= link_to actor, actor %></h3>
               </div>
-            <% end %>
-            <div class="col-8">
-              <h3><%= link_to @material.actor, @material.actor %></h3>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </section>
