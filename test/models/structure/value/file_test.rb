@@ -4,7 +4,9 @@
 #
 #  id         :uuid             not null, primary key
 #  alt        :string
+#  credit     :string
 #  position   :integer
+#  text       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  value_id   :uuid             not null, indexed
