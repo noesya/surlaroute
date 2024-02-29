@@ -56,7 +56,7 @@ class Admin::MaterialsController < Admin::ApplicationController
   def material_params
     params.require(:material)
           .permit(
-            :name, :slug, :description, :actor_id,
+            :name, :slug, :description,
             :image, :image_delete, :image_infos, :image_alt, :image_credit,
             :published, :published_by_id,
             actor_ids: [], project_ids: [],

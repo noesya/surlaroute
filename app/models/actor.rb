@@ -7,6 +7,7 @@
 #  image_alt       :string
 #  image_credit    :string
 #  name            :string
+#  premium         :boolean          default(FALSE)
 #  published       :boolean          default(FALSE)
 #  slug            :string
 #  created_at      :datetime         not null

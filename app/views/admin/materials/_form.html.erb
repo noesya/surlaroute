@@ -10,7 +10,10 @@
                     class: 'js-slug-input',
                     data: { source: '#material_name' }
                   } %>
-      <%= f.association :actor %>
+      <%= f.association :actors,
+                        input_html: {
+                          class: 'select2'
+                        } %>
       <%= f.input :description %>
       <%= f.association :regions, as: :check_boxes %>
     </div>
