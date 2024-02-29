@@ -54,14 +54,16 @@ class Admin::ActorsController < Admin::ApplicationController
   end
 
   def actor_params
+    allowed_params = [
+      :name, :slug, :description,
+      :image, :image_delete, :image_infos, :image_alt, :image_credit,
+      project_ids: [], material_ids: [],
+      region_ids: [],
+      structure_values_attributes: structure_values_permitted_attributes
+    ]
+    allowed_params += [:published, :published_by_id] if can?(:publish, Actor)
+    allowed_params << :premium if can?(:premium, Actor)
     params.require(:actor)
-          .permit(
-            :name, :slug, :description,
-            :image, :image_delete, :image_infos, :image_alt, :image_credit,
-            :published, :published_by_id,
-            project_ids: [], material_ids: [],
-            region_ids: [],
-            structure_values_attributes: structure_values_permitted_attributes
-          )
+          .permit(allowed_params)
   end
 end
