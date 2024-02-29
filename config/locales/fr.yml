@@ -79,8 +79,8 @@ fr:
               password_strength: ne répond pas aux critères de sécurité
     models:
       actor:
-        one: Acteurice
-        other: Acteurices
+        one: Écosystème
+        other: Écosystème
       material:
         one: Matériau
         other: Matériaux
