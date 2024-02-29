@@ -21,7 +21,7 @@
                   input_html: { "data-with-choices": Structure::Item::KINDS_WITH_OPTIONS.join('|') } %>
       <%= f.input :zone, include_blank: false %>
       <%= f.input :with_explanation %>
-      <%= f.input :premium if item.about_class == 'Actor' %>
+      <%= f.input :premium if item.about_class.in?(Structure::Item::ABOUT_CLASSES_WITH_PREMIUM) %>
     </div>
     <div class="col-lg-6">
       <%= f.input :hint %>

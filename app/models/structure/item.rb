@@ -26,6 +26,10 @@ class Structure::Item < ApplicationRecord
     Technic
   ]
 
+  ABOUT_CLASSES_WITH_PREMIUM = [
+    'Actor'
+  ]
+
   KINDS_WITH_OPTIONS = [
     'option',
     'options',
