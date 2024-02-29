@@ -1,8 +1,6 @@
 <%= content_for :title, User.model_name.human(count: 2) %>
 
-<%= render  'admin/application/filters',
-            current_path: admin_users_path,
-            filters: @filters if @filters.any? %>
+<%= render 'filters', current_path: admin_users_path %>
 
 <%= render 'admin/users/list', users: @users %>
 <%= paginate @users, theme: 'bootstrap-5' %>

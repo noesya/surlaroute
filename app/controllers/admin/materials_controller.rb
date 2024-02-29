@@ -1,7 +1,6 @@
 class Admin::MaterialsController < Admin::ApplicationController
   load_and_authorize_resource find_by: :slug
 
-  include Admin::Filterable
   include Admin::ResourceWithStructure
 
   def index
