@@ -69,6 +69,8 @@ fr:
         role: Rôle
         roles:
           admin: Administrateur
+          lab_member: Member du lab
+          subscriber: Abonné·e
           superadmin: Superadmin
           visitor: Visiteur
     errors:
@@ -133,7 +135,7 @@ fr:
         subject: "Code d'authentification à deux facteurs"
         text_html: "Votre code d'authentification est :<br><br><b>%{code}</b><br><br>Il expirera dans %{duration}."
     sessions:
-      signed_in: ''
+      signed_in: ""
     login: Je me connecte
     logout: Déconnexion
     not_yet_registered:
@@ -157,7 +159,7 @@ fr:
       max_login_attempts_reached: "Votre compte a été bloqué pour des raisons de sécurité.<br />Veuillez contacter un administrateur."
       resend_code: "Renvoyer le code"
       send_code_instead: "Envoyez-moi plutôt un code"
-      send_email_code: 'Envoyer le code par email'
+      send_email_code: "Envoyer le code par email"
       success: ""
   ecosystem: Écosystème
   edit: Modifier
@@ -165,16 +167,16 @@ fr:
     structure:
       item:
         kind:
-          colors: 'Choix de couleurs'
+          colors: "Choix de couleurs"
           file: Fichier
-          h2: 'Titre'
-          h3: 'Sous-titre'
+          h2: "Titre"
+          h3: "Sous-titre"
           images: "Galerie d'images"
-          option: 'Choix unique'
-          options: 'Choix multiples'
-          string: 'Texte'
-          text: 'Texte sur plusieurs lignes'
-          url: 'Site Web'
+          option: "Choix unique"
+          options: "Choix multiples"
+          string: "Texte"
+          text: "Texte sur plusieurs lignes"
+          url: "Site Web"
         zone:
           title: Titre
           header: En-tête
@@ -210,7 +212,7 @@ fr:
     "no": Non
     required:
       text: requis
-      mark: '*'
+      mark: "*"
     "yes": Oui
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
   true: Oui
