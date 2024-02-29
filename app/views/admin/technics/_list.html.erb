@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% assemblies.each do |technic| %>
+      <% technics.each do |technic| %>
         <tr>
           <td><%= link_to_if can?(:read, technic), technic, [:admin, technic] %></td>
           <td><%= kamifusen_tag technic.image, width: 100 if technic.image.attached? %></td>
