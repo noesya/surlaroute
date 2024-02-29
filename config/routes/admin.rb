@@ -4,12 +4,12 @@ namespace :admin do
     patch 'unlock' => 'users#unlock', on: :member
   end
   resources :actors
-  resources :assemblies
+  resources :technics
   resources :materials
   resources :projects
   resources :regions
   namespace :structure do
-    scope ':about_class' do 
+    scope ':about_class' do
       resources :items do
         collection do
           post :reorder

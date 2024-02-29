@@ -30,10 +30,10 @@ Rails.application.routes.draw do
         get ':item_slug/:option_slug' => 'projects#option', as: :option
       end
     end
-    resources :assemblies, path: 'assemblages', only: [:index, :show] do
+    resources :technics, path: 'techniques', only: [:index, :show] do
       collection do
-        get 'glossaire' => 'assemblies#options', as: :options
-        get ':item_slug/:option_slug' => 'assemblies#option', as: :option
+        get 'glossaire' => 'technics#options', as: :options
+        get ':item_slug/:option_slug' => 'technics#option', as: :option
       end
     end
   end

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: assemblies
+# Table name: technics
 #
 #  id              :uuid             not null, primary key
 #  description     :text
@@ -15,20 +15,20 @@
 #
 # Indexes
 #
-#  index_assemblies_on_published_by_id  (published_by_id)
+#  index_technics_on_published_by_id  (published_by_id)
 #
 # Foreign Keys
 #
 #  fk_rails_402a0ffef2  (published_by_id => users.id)
 #
-class Assembly < ApplicationRecord
+class Technic < ApplicationRecord
   include Favoritable
   include Publishable
   include Slugged
   include Structured
 
   has_and_belongs_to_many :projects
-  
+
   has_one_attached_deletable :image
 
   validates_presence_of :name

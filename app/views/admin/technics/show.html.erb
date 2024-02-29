@@ -1,0 +1,16 @@
+<%= content_for :title, @technic %>
+
+<div class="row">
+  <div class="col-lg-4">
+    <%= show @technic, :image, type: :image %>
+  </div>
+  <div class="col-lg-8">
+    <%= show @technic, :description %>
+    <%= render 'admin/structure/items/kinds/show', about: @technic %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @technic %>
+  <%= edit_link @technic %>
+<% end %>

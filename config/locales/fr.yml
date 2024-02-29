@@ -14,13 +14,6 @@ fr:
         published_by: Fiche publiée par
         regions: Localisation(s)
         slug: Identifiant
-      assembly:
-        description: Description
-        materials: Matériaux utilisés
-        name: Nom
-        published: Fiche publiée
-        published_by: Fiche publiée par
-        slug: Identifiant
       material:
         actor: Fabriqué par
         description: Description
@@ -60,6 +53,13 @@ fr:
         file: Fichier
         image: Image
         text: Texte
+      technic:
+        description: Description
+        materials: Matériaux utilisés
+        name: Nom
+        published: Fiche publiée
+        published_by: Fiche publiée par
+        slug: Identifiant
       user:
         email: Email
         first_name: Prénom
@@ -81,9 +81,6 @@ fr:
       actor:
         one: Acteurice
         other: Acteurices
-      assembly:
-        one: Assemblage
-        other: Assemblages
       material:
         one: Matériau
         other: Matériaux
@@ -96,6 +93,9 @@ fr:
       structure/item:
         one: Élément
         other: Éléments
+      technic:
+        one: Technique
+        other: Techniques
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s
@@ -222,10 +222,6 @@ fr:
       projects:
         one: Projet
         other: Projets
-    assembly:
-      projects:
-        one: Projet qui l'utilise
-        other: Projets qui l'utilisent
     material:
       projects:
         one: Projet qui l'utilise
@@ -237,4 +233,8 @@ fr:
       actors:
         one: Acteur·rice du projet
         other: Acteur·rices du projet
+    technic:
+      projects:
+        one: Projet qui l'utilise
+        other: Projets qui l'utilisent
   website: Écothèque
