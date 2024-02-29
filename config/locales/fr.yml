@@ -69,7 +69,7 @@ fr:
         role: Rôle
         roles:
           admin: Administrateur
-          lab_member: Member du lab
+          lab_member: Membre du lab
           subscriber: Abonné·e
           superadmin: Superadmin
           visitor: Visiteur
