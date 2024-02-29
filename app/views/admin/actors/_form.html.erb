@@ -14,8 +14,13 @@
       <%= f.association :regions, as: :check_boxes %>
     </div>
     <div class="col-lg-4">
-      <%= f.input :published %>
-      <%= f.association :published_by %>
+      <% if can?(:publish, actor) %>
+        <%= f.input :published %>
+        <%= f.association :published_by %>
+      <% end %>
+      <% if can?(:premium, actor) %>
+        <%= f.input :premium %>
+      <% end %>
       <%= f.input :image,
                   as: :single_deletable_file,
                   preview: true %>
