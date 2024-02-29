@@ -2,20 +2,20 @@
   <table class="<%= table_classes %>">
     <thead>
       <tr>
-        <th><%= Assembly.human_attribute_name('name') %></th>
-        <th><%= Assembly.human_attribute_name('image') %></th>
-        <th><%= Assembly.human_attribute_name('published') %></th>
+        <th><%= Technic.human_attribute_name('name') %></th>
+        <th><%= Technic.human_attribute_name('image') %></th>
+        <th><%= Technic.human_attribute_name('published') %></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <% assemblies.each do |assembly| %>
+      <% assemblies.each do |technic| %>
         <tr>
-          <td><%= link_to_if can?(:read, assembly), assembly, [:admin, assembly] %></td>
-          <td><%= kamifusen_tag assembly.image, width: 100 if assembly.image.attached? %></td>
-          <td><%= t assembly.published %></td>
+          <td><%= link_to_if can?(:read, technic), technic, [:admin, technic] %></td>
+          <td><%= kamifusen_tag technic.image, width: 100 if technic.image.attached? %></td>
+          <td><%= t technic.published %></td>
           <td class="text-end">
-            <%= edit_link assembly %>
+            <%= edit_link technic %>
           </td>
         </tr>
       <% end %>
