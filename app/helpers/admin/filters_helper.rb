@@ -22,7 +22,7 @@ module Admin::FiltersHelper
   end
 
   def render_filter(f, type, name, options = {})
-    options[:input_class] = options.has_key?(:input_class) ? "#{options[:input_class]} filter" : 'mb-3 filter'
+    options[:input_class] = options.has_key?(:input_class) ? "#{options[:input_class]} filter" : 'filter'
     options[:wrapper_class] ||= ''
     
     value = params.dig(:filters, name)
@@ -59,12 +59,11 @@ module Admin::FiltersHelper
 
   def render_select_filter(f, name, value, options)
     options[:multiple] ||= false
-    options[:collection] = options[:collection].map { |elmt| elmt.is_a?(String) ? [elmt, elmt] : [elmt.is_a?(Hash) ? elmt[:to_s] : elmt.to_s, elmt[:id]] }
 
     f.input name, 
             as: :select, 
             label: options[:label],
-            collection: options[:collection],
+            collection: adjust_collection(options[:collection]),
             required: false,
             selected: value,
             include_blank: true,
@@ -77,12 +76,10 @@ module Admin::FiltersHelper
   end
 
   def render_radio_buttons_filter(f, name, value, options)
-    options[:collection] = options[:collection].map { |elmt| elmt.is_a?(String) ? [elmt, elmt] : [elmt.is_a?(Hash) ? elmt[:to_s] : elmt.to_s, elmt[:id]] }
-    
     f.input name, 
             as: :radio_buttons, 
             label: options[:label],
-            collection: options[:collection],
+            collection: adjust_collection(options[:collection]),
             required: false,
             checked: value,
             input_html: { 
@@ -93,12 +90,10 @@ module Admin::FiltersHelper
   end
 
   def render_check_boxes_filter(f, name, value, options)
-    options[:collection] = options[:collection].map { |elmt| elmt.is_a?(String) ? [elmt, elmt] : [elmt.is_a?(Hash) ? elmt[:to_s] : elmt.to_s, elmt[:id]] }
-    
     f.input name, 
             as: :check_boxes, 
             label: options[:label],
-            collection: options[:collection],
+            collection: adjust_collection(options[:collection]),
             required: false,
             checked: value,
             input_html: { 
@@ -142,6 +137,21 @@ module Admin::FiltersHelper
               autocomplete: 'one-time-code'
             },
             wrapper_html: { class: options[:wrapper_class] }
+  end
+
+  private
+
+  def adjust_collection(collection)
+    collection.map do |elmt|
+      case elmt
+      when String
+        [elmt, elmt]
+      when Hash
+        [elmt[:to_s], elmt[:id]]
+      else
+        [elmt.to_s, elmt[:id]]
+      end
+    end
   end
 
 end
