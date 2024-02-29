@@ -5,15 +5,15 @@ class Admin::RegionsController < Admin::ApplicationController
     @regions = @regions.ordered.page(params[:page])
     breadcrumb
   end
-  
+
   def show
     breadcrumb
   end
-  
+
   def new
     breadcrumb
   end
-  
+
   def edit
     breadcrumb
     add_breadcrumb t('edit')
@@ -54,8 +54,8 @@ class Admin::RegionsController < Admin::ApplicationController
   def region_params
     params.require(:region)
           .permit(
-            :name, :slug, :description, 
-            :image, :image_delete, :image_infos
+            :name, :slug, :description,
+            :image, :image_delete, :image_infos, :image_alt, :image_credit
           )
   end
 end

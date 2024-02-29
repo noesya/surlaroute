@@ -6,7 +6,7 @@
       <p class="mb-5"><%= sanitize @region.description %></p>
     </div>
     <div class="col-lg-4">
-      <%= kamifusen_tag @region.image, class: 'img-fluid rounded', alt: @region if @region.image.attached? %>
+      <%= kamifusen_tag @region.image, class: 'img-fluid rounded', alt: @region.image_alt if @region.image.attached? %>
     </div>
   </div>
 

@@ -58,7 +58,7 @@ class Admin::ActorsController < Admin::ApplicationController
     params.require(:actor)
           .permit(
             :name, :slug, :description,
-            :image, :image_delete, :image_infos,
+            :image, :image_delete, :image_infos, :image_alt, :image_credit,
             :published, :published_by_id,
             project_ids: [], material_ids: [],
             region_ids: [],

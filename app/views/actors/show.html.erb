@@ -3,8 +3,8 @@
   <div class="row">
     <div class="col-lg-6">
       <%= kamifusen_tag @actor.image,
-                        class: 'img-fluid rounded square mb-5', 
-                        alt: @actor if @actor.image.attached? %>
+                        class: 'img-fluid rounded square mb-5',
+                        alt: @actor.image_alt if @actor.image.attached? %>
     </div>
     <div class="col-lg-6">
       <%= render 'structure/title_with_structure', about: @actor %>

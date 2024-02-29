@@ -4,6 +4,8 @@
 #
 #  id              :uuid             not null, primary key
 #  description     :text
+#  image_alt       :string
+#  image_credit    :string
 #  name            :string
 #  published       :boolean          default(FALSE)
 #  slug            :string

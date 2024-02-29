@@ -56,8 +56,10 @@ fr:
         slug: Identifiant
       structure/value/file:
         alt: Texte alternatif
+        credit: Crédit
         file: Fichier
         image: Image
+        text: Texte
       user:
         email: Email
         first_name: Prénom
