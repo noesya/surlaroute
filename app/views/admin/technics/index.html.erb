@@ -1,8 +1,6 @@
 <%= content_for :title, Technic.model_name.human(count: 2) %>
 
-<%= render  'admin/application/filters',
-            current_path: admin_technics_path,
-            filters: @filters if @filters.any? %>
+<%= render 'filters', current_path: admin_technics_path %>
 
 <%= render 'admin/technics/list', technics: @technics %>
 <%= paginate @technics, theme: 'bootstrap-5' %>

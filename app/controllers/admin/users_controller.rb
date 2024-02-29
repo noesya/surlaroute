@@ -1,9 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   load_and_authorize_resource
 
-  include Admin::Filterable
-
-
   def index
     @users = @users.autofilter(params[:filters]).ordered.page(params[:page])
     breadcrumb

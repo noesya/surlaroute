@@ -13,6 +13,7 @@
 //= require simple_form_bs5_file_input
 //= require slug/slug
 //= require sortablejs/Sortable
+//= require select2/dist/js/select2
 //= require_self
 //= require_tree ./commons
 //= require_tree ./admin

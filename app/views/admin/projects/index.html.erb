@@ -1,8 +1,6 @@
 <%= content_for :title, Project.model_name.human(count: 2) %>
 
-<%= render  'admin/application/filters',
-            current_path: admin_projects_path,
-            filters: @filters if @filters.any? %>
+<%= render 'filters', current_path: admin_projects_path %>
 
 <%= render 'admin/projects/list', projects: @projects %>
 <%= paginate @projects, theme: 'bootstrap-5' %>

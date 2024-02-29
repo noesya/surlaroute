@@ -1,0 +1,23 @@
+<%= simple_form_for :filters, url: current_path, method: :get do |f| %>
+
+  <%= filters_panel current_path: current_path, active_filters_count: active_filters_count do |form| %>
+
+    <%= render_filter f, 
+                      :string, 
+                      :search, 
+                      label: t('admin.filters.search_field')
+                      %>
+
+    <%= render_filter f, 
+                      :select, 
+                      :role, 
+                      label: User.human_attribute_name('role'),
+                      collection: User.roles.map { |r, v| { to_s: I18n.t("activerecord.attributes.user.roles.#{r}"), id: r } },
+                      multiple: true
+                      %>
+
+  <% end %>
+
+<% end %>
+
+

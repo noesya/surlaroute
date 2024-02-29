@@ -6,6 +6,7 @@
     "cropperjs": "^1.6.1",
     "jquery-cropper": "^1.0.1",
     "notyf": "^3.10.0",
+    "select2": "^4.1.0-rc.0",
     "slug": "^8.2.3",
     "sortablejs": "^1.15.1"
   }
