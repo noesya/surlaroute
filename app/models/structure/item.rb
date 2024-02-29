@@ -8,6 +8,7 @@
 #  kind             :integer          default("string")
 #  name             :string
 #  position         :integer          default(0)
+#  premium          :boolean          default(FALSE)
 #  slug             :string
 #  with_explanation :boolean          default(TRUE)
 #  zone             :integer          default("page")
@@ -23,6 +24,10 @@ class Structure::Item < ApplicationRecord
     Project,
     Material,
     Technic
+  ]
+
+  ABOUT_CLASSES_WITH_PREMIUM = [
+    'Actor'
   ]
 
   KINDS_WITH_OPTIONS = [

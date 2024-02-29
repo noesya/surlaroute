@@ -234,6 +234,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_29_163934) do
     t.string "slug"
     t.integer "zone", default: 3
     t.boolean "with_explanation", default: true
+    t.boolean "premium", default: false
   end
 
   create_table "structure_options", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

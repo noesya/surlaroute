@@ -13,7 +13,7 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
   end
 
   def new
-    @item = Structure::Item.new
+    @item = Structure::Item.new(about_class: about_class)
     breadcrumb
   end
 
@@ -60,7 +60,7 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
   def item_params
     params.require(:structure_item)
           .permit(
-            :name, :slug, :kind, :hint, :with_explanation, :zone, 
+            :name, :slug, :kind, :hint, :with_explanation, :zone, :premium,
             options_attributes: [
               :id, :name, :slug, :position, :_destroy
             ]

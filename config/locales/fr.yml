@@ -38,11 +38,12 @@ fr:
         name: Nom
         slug: Identifiant
       structure/item:
-        name: Nom
-        slug: Identifiant
         about_class: Type d'objets concernés
-        kind: Type de critère
         hint: Aide pour remplir ce champ
+        kind: Type de critère
+        name: Nom
+        premium: Premium
+        slug: Identifiant
         with_explanation: Avec un champ d'explication libre
         zone: Zone de la page
       structure/option:
@@ -208,6 +209,8 @@ fr:
     error_notification:
       default_message: Veuillez renseigner correctement l’ensemble des champs
     hints:
+      structure_item:
+        premium: "Si actif, le critère sera réservé aux acteur·ices premium."
       user:
         mobile_phone: "Format international (+XX). Ce numéro reste privé. En renseignant ce champ, vous acceptez de recevoir vos codes de double authentification par SMS."
     "no": Non
