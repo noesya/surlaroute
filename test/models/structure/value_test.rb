@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AssemblyTest < ActiveSupport::TestCase
+class Structure::ValueTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
