@@ -4,7 +4,7 @@
     <div class="col-lg-6">
       <%= kamifusen_tag @material.image,
                         class: 'img-fluid rounded square',
-                        alt: @material if @material.image.attached? %>
+                        alt: @material.image_alt if @material.image.attached? %>
     </div>
     <div class="col-lg-6">
       <%= render 'structure/title_with_structure', about: @material %>
@@ -28,7 +28,7 @@
             <% if @material.actor.image.attached? %>
               <div class="col-4">
                 <%= link_to @material.actor do %>
-                  <%= kamifusen_tag @material.actor.image, width: 300, alt: @material.actor, class: 'img-fluid rounded square' %>
+                  <%= kamifusen_tag @material.actor.image, width: 300, alt: @material.actor.image_alt, class: 'img-fluid rounded square' %>
                 <% end %>
               </div>
             <% end %>

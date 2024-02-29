@@ -2,12 +2,14 @@
 #
 # Table name: regions
 #
-#  id          :uuid             not null, primary key
-#  description :text
-#  name        :string
-#  slug        :string           indexed
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id           :uuid             not null, primary key
+#  description  :text
+#  image_alt    :string
+#  image_credit :string
+#  name         :string
+#  slug         :string           indexed
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 # Indexes
 #

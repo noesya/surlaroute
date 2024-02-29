@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-lg-6">
       <%= kamifusen_tag @assembly.image,
-                        class: 'img-fluid rounded square', 
-                        alt: @assembly if @assembly.image.attached? %>
+                        class: 'img-fluid rounded square',
+                        alt: @assembly.image_alt if @assembly.image.attached? %>
     </div>
     <div class="col-lg-6">
       <%= render 'structure/title_with_structure', about: @assembly %>

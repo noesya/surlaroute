@@ -58,7 +58,7 @@ class Admin::AssembliesController < Admin::ApplicationController
     params.require(:assembly)
           .permit(
             :name, :slug, :description,
-            :image, :image_delete, :image_infos,
+            :image, :image_delete, :image_infos, :image_alt, :image_credit,
             :published, :published_by_id,
             structure_values_attributes: structure_values_permitted_attributes
           )

@@ -2,10 +2,10 @@
   <% objects.each do |material| %>
     <div class="col-lg-4 mb-4">
       <article class="position-relative">
-        <%= kamifusen_tag material.image, 
-                          width: 400, 
-                          class: 'img-fluid rounded square', 
-                          alt: material if material.image.attached? %>
+        <%= kamifusen_tag material.image,
+                          width: 400,
+                          class: 'img-fluid rounded square',
+                          alt: material.image_alt if material.image.attached? %>
         <h2><%= link_to material, material, class: 'stretched-link' %></h2>
       </article>
     </div>

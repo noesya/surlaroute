@@ -2,10 +2,10 @@
   <% objects.each do |project| %>
     <div class="col-lg-4 mb-4">
       <article class="position-relative">
-        <%= kamifusen_tag project.image, 
+        <%= kamifusen_tag project.image,
                           width: 400,
-                          class: 'img-fluid rounded square', 
-                          alt: project if project.image.attached? %>
+                          class: 'img-fluid rounded square',
+                          alt: project.image_alt if project.image.attached? %>
         <h2><%= link_to project, project, class: 'stretched-link' %></h2>
       </article>
     </div>

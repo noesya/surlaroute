@@ -27,8 +27,6 @@ class Structure::Value < ApplicationRecord
 
   accepts_nested_attributes_for :files, allow_destroy: true
 
-  has_one_attached_deletable :file
-
   # Needed to execute before_validation callback on Structure::Value::File#file
   validates_associated :files
 
