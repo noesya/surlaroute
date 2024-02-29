@@ -19,9 +19,9 @@ class Structure::Item < ApplicationRecord
   include Slugged
 
   ABOUT_CLASSES = [
-    Material,
     Actor,
     Project,
+    Material,
     Technic
   ]
 
