@@ -1,17 +1,3 @@
-# == Schema Information
-#
-# Table name: criterions
-#
-#  id          :uuid             not null, primary key
-#  about_class :string
-#  hint        :text
-#  kind        :integer          default("string")
-#  name        :string
-#  position    :integer          default(0)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 one:
   name: MyString
   kind: 1
