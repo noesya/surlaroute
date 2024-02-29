@@ -8,6 +8,7 @@
 #  kind             :integer          default("string")
 #  name             :string
 #  position         :integer          default(0)
+#  premium          :boolean          default(FALSE)
 #  slug             :string
 #  with_explanation :boolean          default(TRUE)
 #  zone             :integer          default("page")
