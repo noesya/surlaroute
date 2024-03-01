@@ -15,9 +15,19 @@ module Structured
 
     # Needed to execute before_validation callback on Structure::Value#files
     validates_associated :structure_values
+
+    after_save :mark_options_used
   end
 
   def items
     @items ||= Structure::Item.where(about_class: self.class.to_s).ordered
+  end
+
+  protected
+
+  def mark_options_used
+    structure_options.each do |option|
+      option.denormalize_in_use!
+    end
   end
 end
