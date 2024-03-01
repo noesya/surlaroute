@@ -23,6 +23,19 @@ article
         font-size: 20px
         margin-top: 20px
 
+
+blockquote
+    > p
+        font-size: pxToRem(56)
+        @include media-breakpoint-down(md)
+            font-size: pxToRem(32)
+    footer
+        cite
+            @include icon(arrow-right, after)
+            &::after
+                font-size: pxToRem(10)
+                margin-left: map-get($spacers, 0)
+
 %key-figure
     font-size: $key-figures-font-size-md
     line-height: $key-figures-line-height
