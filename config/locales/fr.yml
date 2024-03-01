@@ -33,6 +33,7 @@ fr:
         published_by: Fiche publiée par
         regions: Régions
         slug: Identifiant
+        technics: Techniques
       region:
         description: Description
         name: Nom
@@ -183,8 +184,7 @@ fr:
           text: "Texte sur plusieurs lignes"
           url: "Site Web"
         zone:
-          title: Titre
-          header: En-tête
+          header: Header
           page: Page (zone par défaut)
   false: Non
   favorites:

@@ -3,9 +3,6 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
-    <div class="col-lg-4">
-      <%= f.input :image %>
-    </div>
     <div class="col-lg-8">
       <%= f.input :name %>
       <%= f.input :slug,
@@ -14,6 +11,9 @@
                     data: { source: '#region_name' }
                   } %>
       <%= f.input :description %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :image %>
     </div>
   </div>
 
