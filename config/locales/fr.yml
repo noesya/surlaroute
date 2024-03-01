@@ -174,15 +174,16 @@ fr:
     structure:
       item:
         kind:
-          colors: "Choix de couleurs"
+          colors: Choix de couleurs
           file: Fichier
-          h2: "Titre"
-          h3: "Sous-titre"
-          images: "Galerie d'images"
-          option: "Choix unique"
-          options: "Choix multiples"
-          string: "Texte"
-          text: "Texte sur plusieurs lignes"
+          h2: Titre
+          h3: Sous-titre
+          images: Galerie d'images
+          option: Choix unique
+          options: Choix multiples
+          richtext: Texte enrichi
+          string: Texte
+          text: Texte sur plusieurs lignes
           url: "Site Web"
         zone:
           header: Header

@@ -14,6 +14,8 @@
 //= require slug/slug
 //= require sortablejs/Sortable
 //= require select2/dist/js/select2
+//= require summernote/summernote-bs5
+//= require summernote/lang/summernote-fr-FR.js
 //= require_self
 //= require_tree ./commons
 //= require_tree ./admin
