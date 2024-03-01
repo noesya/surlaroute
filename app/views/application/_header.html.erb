@@ -1,19 +1,19 @@
 <header class="mb-3">
   <nav class="navbar navbar-expand-lg">
     <div class="container d-block">
-      <div class="row align-items-center">
-        <div class="col-md-3">
+      <div class="row align-items-md-center">
+        <div class="col col-md-3 position-absolute position-md-relative">
           <%= link_to root_path, class: "navbar-brand" do %>
             <%= image_tag 'logo.svg', alt: t('website') %>
           <% end %>
         </div>
-        <div class="col">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="col position-relative">
+          <button class="d-block ms-auto ms-md-0 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <div class="row align-items-center nav-container">
-                <ul class="d-flex gap-2 header-nav col justify-content-around py-1">
+                <ul class="d-flex flex-column flex-md-row gap-2 header-nav col justify-content-around py-1">
                   <li class="nav-item dropdown">
                     <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
                     <div class="dropdown-menu nav-item-expanded ecosystem">
@@ -93,7 +93,7 @@
                     </div>
                   </li>
                 </ul>
-                <ul class="col col-md-4 d-flex gap-3 align-items-center justify-content-end py-1">
+                <ul class="col-12 col-md-4 d-flex flex-column flex-md-row gap-2 gap-md-3 align-items-md-center justify-content-end py-1">
                   <a href="#">Le Lab</a>
                   <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
                     <span>Recherche</span>

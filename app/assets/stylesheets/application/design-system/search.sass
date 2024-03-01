@@ -1,20 +1,12 @@
-%btn-search
-    background: none
-    align-items: center
-    border: 1px solid $color-text
-    display: flex
-    height: pxToRem(24)
-    justify-content: center
-    padding: 0
-    width: pxToRem(24)
-    @include icon(lens)
-    span
-        font-size: 0
-    &::before
-        font-size: pxToRem(12)
-
 .btn-search
-    @extend %btn-search
+    display: flex
+    background: none
+    border: none
+    padding: 0
+    @include icon(lens)
+    &::before
+        @include rounded-icon
+        font-size: pxToRem(12)
     
 .search-modal
     // OVERIDE BOOTSTRAP
@@ -44,3 +36,10 @@
 .home-index
     .search-form
         border-bottom: 1px solid black
+
+.home-index section,
+.search-modal
+    .btn-search 
+        span
+            font-size: 0
+            transform: scale(0)
