@@ -6,6 +6,7 @@
 //= require simple_form_bs5_file_input
 //= require notyf/notyf.min
 //= require_self
+//= require_tree ./application
 //= require_tree ./commons
 
 window.ecotheque = {};
