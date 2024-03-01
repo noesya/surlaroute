@@ -11,7 +11,10 @@
                     data: { source: '#project_name' }
                   } %>
       <%= f.association :materials, as: :check_boxes %>
-      <%= f.association :actors, as: :check_boxes %>
+      <%= f.association :actors,
+                        input_html: {
+                          class: 'select2'
+                        } %>
       <%= f.input :description %>
       <%= f.association :regions, as: :check_boxes %>
     </div>

@@ -59,6 +59,7 @@ class Admin::TechnicsController < Admin::ApplicationController
             :name, :slug, :description,
             :image, :image_delete, :image_infos, :image_alt, :image_credit,
             :published, :published_by_id,
+            actor_ids: [],
             structure_values_attributes: structure_values_permitted_attributes
           )
   end
