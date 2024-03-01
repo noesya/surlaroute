@@ -1,3 +1,17 @@
-<div class="container">
-  <h1>Bienvenue sur l'écothèque</h1>
-</div>
+<section>
+  <div class="container py-4 pt-0 pt-md-4">
+    <div class="row align-items-end">
+      <div class="col-md-8 offset-md-2">
+        <h1 class="text-center">La plateforme collaborative de l'écoscénographie</h1>
+        <form class="search-form d-flex gap-3 mt-3 mb-5 align-items-center position-relative" role="search">
+          <input class="search-input w-100 py-1 pe-2 fw-semibold" type="search" placeholder="Cherchez ici un·e acteur·rice, un projet, un matériau ou une technique écoresponsables" aria-label="Search">
+          <button class="btn-search rounded-pill position-absolute end-0" type="submit"><span>Search</span></button>
+        </form>
+      </div>
+      <div class="col-md-2">
+        <p class="small mb-1">Un projet porté par</p>
+        <%= image_tag('logos/logo-augureslab.svg', alt: 'Augures Lab', width: '191', height: '45') %>
+      </div>
+    </div>
+  </div>
+</section>
