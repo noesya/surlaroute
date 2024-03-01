@@ -18,7 +18,7 @@
             <li><strong><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></strong></li>
             <li><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil) %></li>
             <li><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil) %></li>
-            <li>Techniques</li>
+            <li><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil) %></li>
           </ul>
           <ul>
             <li><strong>Boîte à outils</strong></li>
@@ -33,10 +33,10 @@
       <div class="col-12 col-md-4 col-md-6">
         <span class="small">Réalisation</span>
         <ul class="footer-credits small">
-          <li><a href="#">Villette Makerz</a> Assistance à maîtrise d’ouvrage</li>
-          <li><a href="#">studio dazd</a> Design graphique</li>
-          <li><a href="#">Ctrl S</a> Écoconception</li>
-          <li><a href="#">noesya</a> Développement</li>
+          <li><a href="https://villettemakerz.com" target="_blank" rel="noreferrer">Villette Makerz</a> Assistance à maîtrise d’ouvrage</li>
+          <li><a href="https://www.dazd.fr" target="_blank" rel="noreferrer">studio dazd</a> Design graphique</li>
+          <li><a href="https://ctrls.studio" target="_blank" rel="noreferrer">Ctrl S</a> Écoconception</li>
+          <li><a href="https://www.noesya.coop" target="_blank" rel="noreferrer">noesya</a> Développement</li>
           <li><%= image_tag('logos/logo-augureslab.svg', alt: 'France 2030', width: '171', height: '40') %></li>
         </ul>
       </div>

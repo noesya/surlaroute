@@ -45,6 +45,8 @@ fr:
         premium: Premium
         slug: Identifiant
         with_explanation: Avec un champ d'explication libre
+        show_in_list: Afficher dans les listes
+        show_label: Afficher le titre
         zone: Zone de la page
       structure/option:
         name: Nom

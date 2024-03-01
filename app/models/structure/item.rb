@@ -9,6 +9,8 @@
 #  name             :string
 #  position         :integer          default(0)
 #  premium          :boolean          default(FALSE)
+#  show_in_list     :boolean          default(FALSE)
+#  show_label       :boolean          default(TRUE)
 #  slug             :string
 #  with_explanation :boolean          default(TRUE)
 #  zone             :integer          default("page")
@@ -43,6 +45,7 @@ class Structure::Item < ApplicationRecord
   validates_presence_of :name
 
   scope :with_options, -> { where(kind: Structure::Item::KINDS_WITH_OPTIONS) }
+  scope :in_list, -> { where(show_in_list: true) }
 
   enum kind: {
     string: 0,

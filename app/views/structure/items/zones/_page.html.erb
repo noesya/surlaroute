@@ -14,7 +14,7 @@ section_closing_tags = '</div></div></div></section>'
             <div class="offset-lg-6 col-lg-6">
     <% else %>
       <div class="structure__item__<%= item.kind %> mb-5">
-        <%= render 'structure/items/label', label: item.to_s %>
+        <%= render 'structure/items/label', label: item.to_s if item.show_label %>
         <%= render "structure/items/kinds/#{item.kind}", 
                     about: about, 
                     item: item, 
