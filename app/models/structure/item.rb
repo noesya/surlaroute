@@ -100,6 +100,11 @@ class Structure::Item < ApplicationRecord
     files_for(object).first
   end
 
+  def should_display?
+    # TODO
+    true
+  end
+
   def to_s
     "#{name}"
   end
