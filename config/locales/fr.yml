@@ -56,6 +56,7 @@ fr:
         image: Image
         text: Texte
       technic:
+        actors: Contacts
         description: Description
         materials: Matériaux utilisés
         name: Nom

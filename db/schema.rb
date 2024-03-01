@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_29_163934) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_01_090151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -75,6 +75,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_29_163934) do
     t.uuid "region_id", null: false
     t.index ["actor_id", "region_id"], name: "index_actors_regions_on_actor_id_and_region_id"
     t.index ["region_id", "actor_id"], name: "index_actors_regions_on_region_id_and_actor_id"
+  end
+
+  create_table "actors_technics", id: false, force: :cascade do |t|
+    t.uuid "actor_id", null: false
+    t.uuid "technic_id", null: false
+    t.index ["technic_id", "actor_id"], name: "index_actors_technics_on_technic_id_and_actor_id"
   end
 
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
