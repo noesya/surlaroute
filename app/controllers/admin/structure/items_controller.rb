@@ -61,7 +61,7 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
     params.require(:structure_item)
           .permit(
             :name, :slug, :kind, :hint, :with_explanation, :zone, :premium,
-            :show_in_list, :show_label,
+            :show_in_list, :show_label, :color,
             options_attributes: [
               :id, :name, :slug, :position, :_destroy
             ]

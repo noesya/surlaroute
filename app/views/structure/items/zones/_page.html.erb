@@ -7,7 +7,7 @@ section_closing_tags = '</div></div></div></section>'
     <% if item.kind == 'h2' %>
       <%= section_closing_tags.html_safe if section_opened %>
       <% section_opened = true %>
-      <section class="py-5" id="<%= item.slug %>">
+      <section class="py-5" id="<%= item.slug %>"<%= raw " style=\"background: ##{item.color}\"" if item.color.present? %>>
         <div class="container">
           <h2><%= item %></h2>
           <div class="row mb-5">

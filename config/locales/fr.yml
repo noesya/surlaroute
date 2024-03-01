@@ -40,14 +40,15 @@ fr:
         slug: Identifiant
       structure/item:
         about_class: Type d'objets concernés
+        color: Couleur de fond
         hint: Aide pour remplir ce champ
         kind: Type de critère
         name: Nom
         premium: Premium
-        slug: Identifiant
-        with_explanation: Avec un champ d'explication libre
         show_in_list: Afficher dans les listes
         show_label: Afficher le titre
+        slug: Identifiant
+        with_explanation: Avec un champ d'explication libre
         zone: Zone de la page
       structure/option:
         name: Nom
