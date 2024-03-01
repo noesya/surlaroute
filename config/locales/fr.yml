@@ -33,6 +33,7 @@ fr:
         published_by: Fiche publiée par
         regions: Régions
         slug: Identifiant
+        technics: Techniques
       region:
         description: Description
         name: Nom

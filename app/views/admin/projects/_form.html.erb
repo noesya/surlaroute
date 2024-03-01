@@ -10,13 +10,23 @@
                     class: 'js-slug-input',
                     data: { source: '#project_name' }
                   } %>
-      <%= f.association :materials, as: :check_boxes %>
+      <%= f.association :materials,
+                        input_html: {
+                          class: 'select2'
+                        } %>
+      <%= f.association :technics,
+                        input_html: {
+                          class: 'select2'
+                        } %>
       <%= f.association :actors,
                         input_html: {
                           class: 'select2'
                         } %>
       <%= f.input :description %>
-      <%= f.association :regions, as: :check_boxes %>
+      <%= f.association :regions,
+                        input_html: {
+                          class: 'select2'
+                        } %>
     </div>
     <div class="col-lg-4">
       <%= render 'admin/application/form/publication', f: f %>
