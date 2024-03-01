@@ -45,7 +45,7 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
 
   def destroy
     @item.destroy!
-    redirect_to admin_items_url, notice: t('admin.successfully_destroyed_html', model: @item.to_s)
+    redirect_to admin_structure_items_path, notice: t('admin.successfully_destroyed_html', model: @item.to_s)
   end
 
   protected
