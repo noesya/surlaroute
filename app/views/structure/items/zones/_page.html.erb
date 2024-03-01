@@ -3,8 +3,8 @@ section_opened = false
 section_closing_tags = '</div></div></div></section>'
 %>
 <div class="structure structure--zone-page mt-5">
-  <% about.items.zone_page.each do |item| %>
-    <% if item.kind == 'h2' && item.should_display? %>
+  <% about.items.zone_page.ordered.each do |item| %>
+    <% if item.kind == 'h2' && item.should_display_for?(about) %>
       <%= section_closing_tags.html_safe if section_opened %>
       <% section_opened = true %>
       <section class="py-5" id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
@@ -13,7 +13,7 @@ section_closing_tags = '</div></div></div></section>'
           <div class="row mb-5">
             <div class="offset-lg-6 col-lg-6">
     <% else %>
-      <% if item.should_display? %>
+      <% if item.should_display_for?(about) %>
         <div class="structure__item__<%= item.kind %> mb-5">
           <%= render 'structure/items/label', label: item.to_s if item.show_label %>
           <%= render "structure/items/kinds/#{item.kind}", 
