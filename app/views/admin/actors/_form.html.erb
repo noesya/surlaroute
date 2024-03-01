@@ -14,10 +14,7 @@
       <%= f.association :regions, as: :check_boxes %>
     </div>
     <div class="col-lg-4">
-      <% if can?(:publish, actor) %>
-        <%= f.input :published %>
-        <%= f.association :published_by %>
-      <% end %>
+      <%= render 'admin/application/form/publication', f: f %>
       <% if can?(:premium, actor) %>
         <%= f.input :premium %>
       <% end %>
