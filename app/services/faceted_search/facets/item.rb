@@ -15,7 +15,7 @@ module FacetedSearch
     end
 
     def values
-      item.options
+      item.options.in_use
     end
     
     def find_by

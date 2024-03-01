@@ -4,6 +4,7 @@
 #
 #  id               :uuid             not null, primary key
 #  about_class      :string
+#  color            :string
 #  hint             :text
 #  kind             :integer          default("string")
 #  name             :string

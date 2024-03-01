@@ -4,6 +4,7 @@
 #
 #  id         :uuid             not null, primary key
 #  hint       :text
+#  in_use     :boolean          default(FALSE)
 #  name       :string
 #  position   :integer
 #  slug       :string
@@ -27,9 +28,14 @@ class Structure::Option < ApplicationRecord
   has_and_belongs_to_many :values
 
   scope :ordered_by_name, -> { order(:name) }
+  scope :in_use, -> { where(in_use: true) }
 
   def objects
     item.about_class.constantize.where(id: objects_ids)
+  end
+
+  def denormalize_in_use!
+    self.update_column :in_use, objects.any?
   end
 
   def to_s
