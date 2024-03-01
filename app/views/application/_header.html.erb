@@ -2,13 +2,13 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container d-block">
       <div class="row align-items-md-center">
-        <div class="col col-md-3 position-absolute position-md-relative">
+        <div class="navbar-logo col col-md-3">
           <%= link_to root_path, class: "navbar-brand" do %>
             <%= image_tag 'logo.svg', alt: t('website') %>
           <% end %>
         </div>
         <div class="col position-relative">
-          <button class="d-block ms-auto ms-md-0 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="d-block d-md-none ms-auto ms-md-0 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
