@@ -1,12 +1,13 @@
 <div class="row">
-  <% objects.each do |material| %>
+  <% objects.each do |technic| %>
     <div class="col-lg-3 mb-4">
       <article class="position-relative">
-        <%= kamifusen_tag material.image,
+        <%= kamifusen_tag technic.image,
                           width: 400,
                           class: 'img-fluid rounded square',
-                          alt: material.image_alt if material.image.attached? %>
-        <h2><%= link_to material, material, class: 'stretched-link' %></h2>
+                          alt: technic.image_alt if technic.image.attached? %>
+        <h2><%= link_to technic, technic, class: 'stretched-link' %></h2>
+        <%= render 'structure/items/in_list', about: technic %>
       </article>
     </div>
   <% end %>
