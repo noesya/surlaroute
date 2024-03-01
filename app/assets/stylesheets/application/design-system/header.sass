@@ -60,6 +60,18 @@ header
                     &::after
                         font-size: pxToRem(10)
                         margin-left: map-get($spacers, 0)
+    .btn-user
+        @include icon(user)
+        align-items: center
+        border: 1px solid $color-text
+        display: flex
+        height: pxToRem(24)
+        justify-content: center
+        padding: 0
+        width: pxToRem(24)
+        font-size: 0
+        &::before
+            font-size: pxToRem(12)
     .nav-container
         width: calc(100% + 16px)
         > ul:last-of-type

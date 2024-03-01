@@ -73,7 +73,7 @@
                     </div>
                   </li>
                   <li class="nav-item dropdown">
-                    <%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false"%>
+                    <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">Boîte à outils</a>
                     <div class="dropdown-menu nav-item-expanded region">
                       <div class="row">
                         <p class="col-md-5">Vous y retrouverez l’ensemble des documents qui vous seront utiles à votre montée en compétence sur le thème de l’écoscénographie.</p>
@@ -93,13 +93,14 @@
                     </div>
                   </li>
                 </ul>
-                <ul class="col col-md-4 d-flex gap-1 align-items-center justify-content-end py-1">
+                <ul class="col col-md-4 d-flex gap-3 align-items-center justify-content-end py-1">
+                  <a href="#">Le Lab</a>
                   <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
                     <span>Recherche</span>
                   </button>
                   <% if user_signed_in? %>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle btn-user rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <%= current_user %>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-lg-end">
@@ -113,7 +114,7 @@
                       </ul>
                     </li>
                   <% else %>
-                    <li class="nav-item"><%= link_to "Se connecter", new_user_session_path %></li>
+                    <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "btn-user rounded-pill" %></li>
                   <% end %>
                 </ul>
               </div>
