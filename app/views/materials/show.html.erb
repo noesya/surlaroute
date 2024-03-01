@@ -7,7 +7,7 @@
                         alt: @material.image_alt if @material.image.attached? %>
     </div>
     <div class="col-lg-6">
-      <%= render 'structure/title_with_structure', about: @material %>
+      <h1><%= @material %></h1>
       <p class="fw-bold"><%= sanitize @material.description %></p>
       <%= render 'application/meta', about: @material %>
       <hr class="my-5">

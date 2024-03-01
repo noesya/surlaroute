@@ -6,7 +6,7 @@
                         alt: @technic.image_alt if @technic.image.attached? %>
     </div>
     <div class="col-lg-6">
-      <%= render 'structure/title_with_structure', about: @technic %>
+      <h1><%= @technic %></h1>
       <p class="fw-bold"><%= sanitize @technic.description %></p>
       <%= render 'application/meta', about: @technic %>
       <hr class="my-5">

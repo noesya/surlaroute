@@ -1,9 +1,0 @@
-<div class="structure structure--zone-title">
-  <% about.items.zone_title.each do |item| %>
-    <%= render "structure/items/kinds/#{item.kind}", 
-                about: about, 
-                item: item, 
-                value: item.value_for(about),
-                text: item.text_for(about) %>
-  <% end %>
-</div>

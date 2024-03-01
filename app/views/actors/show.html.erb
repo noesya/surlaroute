@@ -7,7 +7,7 @@
                         alt: @actor.image_alt if @actor.image.attached? %>
     </div>
     <div class="col-lg-6">
-      <%= render 'structure/title_with_structure', about: @actor %>
+      <h1><%= @actor %></h1>
       <p class="fw-bold"><%= sanitize @actor.description %></p>
       <%= render 'application/meta', about: @actor %>
       <hr class="my-5">
