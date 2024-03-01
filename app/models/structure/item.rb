@@ -101,9 +101,23 @@ class Structure::Item < ApplicationRecord
     files_for(object).first
   end
 
-  def should_display?
-    # TODO
-    true
+  def children
+    return Structure::Item.none unless kind_h2?
+    next_title ? next_siblings.where('position < ?', next_title.position)
+                : next_siblings
+  end
+
+  def should_display_for?(object)
+    # byebug if kind_file?
+    # règles :
+    # - si l'objet est un auteurice, que c'est un champ premium et que l'objet n'est pas premium, on masque
+    return false if premium? && object.respond_to?(:premium) && !object.premium?
+    # - si c'est un titre on affiche si au moins un des éléments suivants jusqu'au prochain titre est should_display? == true
+    return true if kind_h2? && children.any? { |child| child.should_display_for?(object) }
+    # - si c'est un critère à choix multiple, on affiche tout le temps
+    return true if has_options?
+    # - si c'est un autre critère on affiche si rempli
+    text_for(object).present? || file_for(object)&.file&.attached?
   end
 
   def to_s
@@ -113,6 +127,19 @@ class Structure::Item < ApplicationRecord
   protected
 
   def last_ordered_element
-    Structure::Item.where(about_class: about_class).ordered.last
+    Structure::Item.where(about_class: about_class, zone: zone).ordered.last
   end
+
+  def next_siblings
+   @next_siblings ||= Structure::Item.where(about_class: about_class, zone: zone).where('position > ?', position).ordered
+  end
+
+  def next_title
+    @next_title ||= next_siblings.kind_h2.first
+  end
+
+  
+
+
+
 end
