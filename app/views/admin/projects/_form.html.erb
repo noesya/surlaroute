@@ -19,8 +19,7 @@
       <%= f.association :regions, as: :check_boxes %>
     </div>
     <div class="col-lg-4">
-      <%= f.input :published %>
-      <%= f.association :published_by %>
+      <%= render 'admin/application/form/publication', f: f %>
       <%= f.input :image,
                   as: :single_deletable_file,
                   preview: true %>
