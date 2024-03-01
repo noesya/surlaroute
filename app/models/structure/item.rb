@@ -108,6 +108,7 @@ class Structure::Item < ApplicationRecord
   end
 
   def should_display_for?(object)
+    # byebug if kind_file?
     # règles :
     # - si l'objet est un auteurice, que c'est un champ premium et que l'objet n'est pas premium, on masque
     return false if premium? && object.respond_to?(:premium) && !object.premium?
@@ -116,8 +117,7 @@ class Structure::Item < ApplicationRecord
     # - si c'est un critère à choix multiple, on affiche tout le temps
     return true if has_options?
     # - si c'est un autre critère on affiche si rempli
-    # TODO: les types file && image renvoient quoi ?
-    text_for(object).present?
+    text_for(object).present? || file_for(object)&.file&.attached?
   end
 
   def to_s
