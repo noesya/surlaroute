@@ -19,6 +19,7 @@
     </div>
     <div class="col-lg-6">
       <%= f.input :hint %>
+      <%= f.input :color if item.kind_h2? %>
       <%= f.input :with_explanation %>
       <%= f.input :show_in_list %>
       <%= f.input :show_label %>
