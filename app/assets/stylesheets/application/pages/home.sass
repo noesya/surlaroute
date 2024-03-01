@@ -5,3 +5,11 @@
         footer
             background: #292929
             color: white
+
+.home-placeholder
+    a
+        @include icon(link, after)
+        text-underline-offset: 2px
+        &::after
+            font-size: pxToRem(12)
+            margin-left: map-get($spacers, 0)
