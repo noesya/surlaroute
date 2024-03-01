@@ -182,8 +182,7 @@ fr:
           text: "Texte sur plusieurs lignes"
           url: "Site Web"
         zone:
-          title: Titre
-          header: En-tête
+          header: Header
           page: Page (zone par défaut)
   false: Non
   favorites:

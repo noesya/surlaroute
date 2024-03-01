@@ -57,7 +57,6 @@ class Structure::Item < ApplicationRecord
   }, _prefix: :kind
 
   enum zone: {
-    title: 1,
     header: 2,
     page: 3
   }, _prefix: :zone
