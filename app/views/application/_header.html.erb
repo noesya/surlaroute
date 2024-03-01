@@ -19,9 +19,9 @@
                     <div class="dropdown-menu nav-item-expanded ecosystem">
                       <div class="row">
                         <p class="col-md-5">Vous y retrouverez l’ensemble des structures et personnes porteuses de solutions d’écoscénographie référencées par la communauté Ecothèque.</p>
-                        <dl class="col-md-3 offset-md-1">
+                        <dl class="col-md-3 offset-md-1 position-relative">
                           <dt>XX</dt>
-                          <dd>Acteur·ices</dd>
+                          <dd><%= link_to 'Acteur·ices', actors_path(region_slug: nil), class: "stretched-link" %></dd>
                         </dl>
                         <p class="col-md-3 fw-semibold">Glossaire de l'écosystème</p>
                       </div>
@@ -32,9 +32,9 @@
                     <div class="dropdown-menu nav-item-expanded material">
                       <div class="row">
                         <p class="col-md-5">Vous y retrouverez l’ensemble des matériaux référencés par la communauté Ecothèque.</p>
-                        <dl class="col-md-3 offset-md-1">
+                        <dl class="col-md-3 offset-md-1 position-relative">
                           <dt>XX</dt>
-                          <dd>Matériaux</dd>
+                          <dd><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "stretched-link" %></dd>
                         </dl>
                         <p class="col-md-3 fw-semibold">
                           <%= link_to 'Glossaire des matériaux', options_materials_path %>
@@ -47,9 +47,9 @@
                     <div class="dropdown-menu nav-item-expanded project">
                       <div class="row">
                         <p class="col-md-5">Vous y retrouverez l’ensemble des projets d’écoscénographie référencés par la communauté Ecothèque.</p>
-                        <dl class="col-md-3 offset-md-1">
+                        <dl class="col-md-3 offset-md-1 position-relative">
                           <dt>XX</dt>
-                          <dd>Projets</dd>
+                          <dd><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "stretched-link" %></dd>
                         </dl>
                         <p class="col-md-3 fw-semibold">
                           <%= link_to 'Glossaire des projets', options_projects_path %>
@@ -62,9 +62,9 @@
                     <div class="dropdown-menu nav-item-expanded technic">
                       <div class="row">
                         <p class="col-md-5">Vous y retrouverez l’ensemble des techniques référencées par la communauté Ecothèque.</p>
-                        <dl class="col-md-3 offset-md-1">
+                        <dl class="col-md-3 offset-md-1 position-relative">
                           <dt>XX</dt>
-                          <dd>Techniques</dd>
+                          <dd><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "stretched-link" %></dd>
                         </dl>
                         <p class="col-md-3 fw-semibold">
                           <%= link_to 'Glossaire des techniques', options_technics_path %>
