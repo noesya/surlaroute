@@ -7,6 +7,15 @@ fr:
   activerecord:
     attributes:
       actor:
+        address: Adresse
+        address_additional: Complément d'adresse
+        city: Ville
+        contact_email: Email de contact
+        contact_inventory_url: Inventaire du fabricant
+        contact_name: Nom de contact
+        contact_phone: Téléphone de contact
+        contact_website: Site web
+        country: Pays
         description: Description
         materials: Matériaux fabriqués
         name: Nom
@@ -14,7 +23,9 @@ fr:
         published: Fiche publiée
         published_by: Fiche publiée par
         regions: Localisation(s)
+        service_access_terms: Conditions d'accès au service
         slug: Identifiant
+        zipcode: Code postal
       material:
         actors: Fabriqué par
         description: Description
@@ -131,6 +142,8 @@ fr:
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s
+  actors:
+    information: Informations pratiques
   admin:
     dashboard: Tableau de bord
     filters:

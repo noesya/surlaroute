@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_142433) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_161139) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -54,6 +54,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_142433) do
     t.string "image_alt"
     t.string "image_credit"
     t.boolean "premium", default: false
+    t.text "service_access_terms"
+    t.string "address"
+    t.string "address_additional"
+    t.string "zipcode"
+    t.string "city"
+    t.string "country"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "contact_phone"
+    t.string "contact_website"
+    t.string "contact_inventory_url"
     t.index ["published_by_id"], name: "index_actors_on_published_by_id"
   end
 
