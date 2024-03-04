@@ -187,6 +187,7 @@ fr:
           url: "Site Web"
         zone:
           header: Header
+          lower_page: Bas de la page (sous la roue de Brézet)
           page: Page (zone par défaut)
   false: Non
   favorites:
@@ -215,6 +216,7 @@ fr:
       default_message: Veuillez renseigner correctement l’ensemble des champs
     hints:
       structure_item:
+        color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
       user:
         mobile_phone: "Format international (+XX). Ce numéro reste privé. En renseignant ce champ, vous acceptez de recevoir vos codes de double authentification par SMS."

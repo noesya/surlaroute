@@ -4,7 +4,8 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
   include Admin::Reorderable
 
   def index
-    @items = @items.where(about_class: about_class).ordered
+    @about_class = about_class
+    @items = @items.where(about_class: @about_class).ordered
     breadcrumb
   end
 
