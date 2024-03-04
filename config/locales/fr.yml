@@ -219,6 +219,7 @@ fr:
           h2: Titre
           h3: Sous-titre
           images: Galerie d'images
+          key_figure: Chiffre clé
           option: Choix unique
           options: Choix multiples
           richtext: Texte enrichi
