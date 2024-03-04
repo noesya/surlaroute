@@ -1,7 +1,73 @@
 .hero
+    z-index: 1
     .locations-list
         a.btn
             @include icon(pin)
             &::before
                 font-size: 12px
                 margin-right: calc(#{map-get($spacers, 1)} / 2)
+
+.actors-index,
+.materials-index,
+.projects-index,
+.technics-index
+    .hero
+        height: 78vh
+        overflow: hidden
+        hgroup 
+            p
+                font-weight: 600
+        dl
+            dd
+                font-weight: 400
+        img
+            bottom: 0
+            pointer-events: none
+            position: absolute
+            right: 0
+            z-index: -1
+        @include media-breakpoint-up(md)
+            dl
+                dd
+                    font-size: pxToRem(20)
+        @include media-breakpoint-down(lg)
+            height: 80vh
+            img
+                width: 70%
+        @include media-breakpoint-down(md)
+            height: 76vh
+
+
+// colors and images
+.actors-index
+    background-color: $ecosystem-primary
+    .hero img
+        transform: translate(24%, 21%)
+        @include media-breakpoint-down(lg)
+            transform: translate(21%, 32%)
+        @include media-breakpoint-down(md)
+            transform: translate(21%, 38%)
+.materials-index
+    background-color: $materials-primary
+    .hero img
+        transform: translate(20%, 29%)
+        @include media-breakpoint-down(lg)
+            transform: translate(19%, 35%)
+        @include media-breakpoint-down(md)
+            transform: translate(20%, 46%)
+.projects-index
+    background-color: $projects-primary
+    .hero img
+        transform: translate(11%, 44%)
+        @include media-breakpoint-down(lg)
+            transform: translate(11%, 46%)
+        @include media-breakpoint-down(md)
+            transform: translate(11%, 48%)
+.technics-index
+    background-color: $technic-primary
+    .hero img
+        transform: translate(12%, 27%)
+        @include media-breakpoint-down(lg)
+            transform: translate(13%, 35%)
+        @include media-breakpoint-down(md)
+            transform: translate(12%, 44%)

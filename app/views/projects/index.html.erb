@@ -1,14 +1,49 @@
 <%= content_for :title, Project.model_name.human(count: 2) %>
-<div class="container">
-  <h1><%= Project.model_name.human(count: 2) %></h1>
-  <%= link_to 'Glossaire', options_projects_path %>
-  <div class="row">
-    <div class="col-lg-3">
-      <%= render 'faceted_search/facets', facets: @facets %>
+
+<header class="hero">
+  <div class="container">
+    <div class="row mt-md-4">
+      <div class="col-lg-5">
+        <hgroup>
+          <h1><%= Project.model_name.human(count: 2) %></h1>
+          <p class="mt-3 mt-md-5">Des matériaux dont la qualité a été vérifiée par la pratique et par la recherche, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie, afin de proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés.</p>
+        </hgroup>
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= Project.published.count %></dt>
+          <dd>Projets</dd>
+        </dl>
+        <%= link_to 'Voir le glossaire', options_projects_path, class: 'small arrow-right' %>
+        </p>
+        <%= image_tag('menu/menu-projects.svg', alt: '', width: '921', class: 'menu-typo', height: '901', "aria-hidden" => "true") %>
+      </div>
     </div>
-    <div class="col-lg-9">
-      <%= render 'projects/list', objects: @projects %>
-      <%= paginate @projects, theme: "bootstrap-5" %>
+  </div>  
+</header>
+
+<div class="document-content bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= render 'faceted_search/facets', facets: @facets %>
+      </div>
+      <div class="col-lg-9">
+        <%= render 'projects/list', objects: @projects %>
+        <%= paginate @projects, theme: "bootstrap-5" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="call-to-action">
+  <div class="container py-5">
+    <div class="row align-items-center text-center text-md-start">
+      <div class="col-lg-6">
+        <h3 class="cta-title">Vous avez participé à un projet écoresponsable et vous souhaitez le partager ?</h3>
+        <p class="mt-4 d-none d-md-block">L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer ! </p>
+      </div>
+      <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
+        <a href="#" class="btn btn-dark">Référencer votre projet</a>
+      </div>
     </div>
   </div>
 </div>

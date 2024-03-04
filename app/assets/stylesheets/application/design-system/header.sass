@@ -11,6 +11,10 @@ header
     .collapse
         > .container
             padding-top: 0
+    .navbar-logo
+        z-index: 99
+        @include media-breakpoint-down(md)
+            width: fit-content
     .nav-with-dropdowns
         a[role="button"]
             font-weight: 500
@@ -23,7 +27,7 @@ header
             position: static
         .nav-item-expanded
             top: 0
-            padding-top: map-get($spacers, 5)
+            padding-top: map-get($spacers, 6)
             left: 0
             width: 100%
             height: 100vh
@@ -80,7 +84,7 @@ header
                     padding-left: 0
             dl
                 dt
-                    @extend %key-figure
+                    @extend .key-figure
                     @include media-breakpoint-down(md)
                         font-size: $key-figures-font-size
                 dd
