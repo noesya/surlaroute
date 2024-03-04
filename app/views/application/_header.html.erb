@@ -20,7 +20,7 @@
                     <div class="row">
                       <p class="col-md-5">Vous y retrouverez l’ensemble des structures et personnes porteuses de solutions d’écoscénographie référencées par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
-                        <dt>XX</dt>
+                        <dt><%= Actor.published.count %></dt>
                         <dd><%= link_to 'Acteur·ices', actors_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
@@ -36,7 +36,7 @@
                     <div class="row">
                       <p class="col-md-5">Vous y retrouverez l’ensemble des matériaux référencés par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
-                        <dt>XX</dt>
+                        <dt><%= Material.published.count %></dt>
                         <dd><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
@@ -52,7 +52,7 @@
                     <div class="row">
                       <p class="col-md-5">Vous y retrouverez l’ensemble des projets d’écoscénographie référencés par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
-                        <dt>XX</dt>
+                        <dt><%= Project.published.count %></dt>
                         <dd><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
@@ -68,7 +68,7 @@
                     <div class="row">
                       <p class="col-md-5">Vous y retrouverez l’ensemble des techniques référencées par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
-                        <dt>XX</dt>
+                        <dt><%= Technic.published.count %></dt>
                         <dd><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
