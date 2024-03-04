@@ -1,0 +1,90 @@
+<section class="bg-light py-5">
+  <div class="container">
+    <h2><%= t('projects.brezet_wheel.title') %></h2>
+    <p>TODO: Brezet</p>
+
+    <h3 class="small text-muted">Qu’est-ce qu’une démarche d’écoconception ?</h3>
+    <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+    <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+
+    <h3 class="small text-muted">Pourquoi l’approche Brézet ?</h3>
+    <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+    <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+
+    <br>
+
+    <p><strong>Vous trouverez ci-dessous l’évaluation de ce projet selon l’approche Brézet, regroupant les différents critères pris en compte et leur explication pour chaque axe de l’approche.</strong></p>
+
+    <% if project.has_brezet_wheel_step0? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step0') %></h3>
+      <% [:step0_sustainable_program, :step0_low_tech, :step0_ecodesign_time].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+
+    <% if project.has_brezet_wheel_step1? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step1') %></h3>
+      <% [:step1_local_materials, :step1_recycled_materials, :step1_reusable_materials].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+
+    <% if project.has_brezet_wheel_step2? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step2') %></h3>
+      <% [:step2_components_reduced_amount, :step2_dismountable, :step2_renewable_energy].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+
+    <% if project.has_brezet_wheel_step3? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step3') %></h3>
+      <% [:step3_matter_reduced_amount].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+
+    <% if project.has_brezet_wheel_step4? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step4') %></h3>
+      <% [:step4_artists_travel_optimization, :step4_separate_packaging, :step4_transport_sharing].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+
+    <% if project.has_brezet_wheel_step5? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step5') %></h3>
+      <% [:step5_energy_efficient, :step5_low_power_consumption, :step5_public_area_sorting, :step5_public_awareness, :step5_water_efficient, :step5_zero_waste].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+
+    <% if project.has_brezet_wheel_step6? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step6') %></h3>
+      <% [:step6_extended_lifetime].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+
+    <% if project.has_brezet_wheel_step7? %>
+      <h3 class="h2"><%= t('projects.brezet_wheel.step7') %></h3>
+      <% [:step7_closed_loop_recycling, :step7_composted_materials, :step7_disassembly_five_stream_sorting].each do |attribute_name| %>
+        <% next unless project.public_send("#{attribute_name}?") %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= sanitize project.public_send("#{attribute_name}_text") %>
+      <% end %>
+    <% end %>
+  </div>
+</section>
