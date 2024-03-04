@@ -7,6 +7,7 @@ window.summernoteManager = {
     this.setConfigs();
     this.initEditors();
     this.monkeyPatchDropdownButtons();
+    this.monkeyPatchDropdownClosing();
   },
 
   setConfigs: function () {
@@ -60,6 +61,16 @@ window.summernoteManager = {
     $('button[data-toggle="dropdown"]').each(function () {
       $(this).removeAttr('data-toggle')
         .attr('data-bs-toggle', 'dropdown');
+    });
+  },
+
+  monkeyPatchDropdownClosing: function () {
+    'use strict';
+    $(document).on('click', '.note-dropdown-menu .dropdown-item', function (e) {
+      var dropdownMenu = e.currentTarget.parentNode,
+          dropdownBtn = dropdownMenu.previousElementSibling;
+      dropdownMenu.classList.remove('show');
+      dropdownBtn.classList.remove('show');
     });
   },
 
