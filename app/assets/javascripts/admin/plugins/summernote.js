@@ -23,7 +23,7 @@ window.summernoteManager = {
             ],
             styleTags: [
                 'p',
-                'h3',
+                'h3'
             ],
             followingToolbar: true,
             disableDragAndDrop: true,
@@ -113,8 +113,8 @@ window.summernoteManager = {
     sanitizeTags: function (html, allowedTags) {
         'use strict';
         var allowedTagsRegex = allowedTags.map(function (e) {
-            return '(?!' + e + ')';
-        }).join(''),
+                return '(?!' + e + ')';
+            }).join(''),
             tagStripper = new RegExp('</?' + allowedTagsRegex + '\\w*\\b[^>]*>', 'ig');
 
         return html.replace(tagStripper, '');
