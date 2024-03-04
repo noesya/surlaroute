@@ -4,8 +4,6 @@ module Actor::WithGeolocation
   included do
     geocoded_by :full_address
 
-    validates :address, :zipcode, :city, :country, presence: true
-
     after_validation :geocode, if: -> (geocodable) { geocodable.full_address_present? && geocodable.full_address_changed?
   end
 
