@@ -11,7 +11,7 @@ header
     .collapse
         > .container
             padding-top: 0
-    .header-nav
+    .nav-with-dropdowns
         a[role="button"]
             font-weight: 500
             &::after
@@ -58,10 +58,14 @@ header
                 background: $projects-primary
                 .menu-typo
                     transform: translate(12%, 47%)
-            &.region
+            &.toolbox
+                background: $toolbox-primary
+                .menu-typo
+                    transform: translate(9%, 40%)
+            &.lab
                 background: white
                 .menu-typo
-                    transform: translate(12%, 47%)
+                    transform: translate(11%, 41%)
             .row
                 @extend .container
                 > p:first-of-type

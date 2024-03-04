@@ -13,7 +13,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="row align-items-center nav-container">
-              <ul class="d-flex flex-column flex-md-row gap-2 header-nav col justify-content-around py-1">
+              <ul class="nav-with-dropdowns header-nav d-flex flex-column flex-md-row gap-2 col justify-content-around py-1">
                 <li class="nav-item dropdown">
                   <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link dropdown-toggle", role: "button", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" %>
                   <div class="dropdown-menu nav-item-expanded ecosystem">
@@ -80,7 +80,7 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">Boîte à outils</a>
-                  <div class="dropdown-menu nav-item-expanded region">
+                  <div class="dropdown-menu nav-item-expanded toolbox">
                     <div class="row">
                       <p class="col-md-5">Vous y retrouverez l’ensemble des documents qui vous seront utiles à votre montée en compétence sur le thème de l’écoscénographie.</p>
                       <ul class="col-md-3 offset-md-1">
@@ -96,12 +96,26 @@
                         <li><a href="#">Centre de ressources & annuaires</a></li>
                       </ul>
                     </div>
-                    <%= image_tag('menu/menu-lab.svg', alt: '', width: '921', class: 'menu-typo', height: '901', "aria-hidden" => "true") %>
+                    <%= image_tag('menu/menu-toolbox.svg', alt: '', width: '991', class: 'menu-typo', height: '682', "aria-hidden" => "true") %>
                   </div>
                 </li>
               </ul>
               <ul class="col-12 col-md-4 d-flex flex-column flex-md-row gap-2 gap-md-3 align-items-md-center justify-content-end py-1">
-                <a href="#">Le Lab</a>
+                <li class="nav-with-dropdowns nav-item dropdown position-static">
+                  <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">Le Lab</a>
+                  <div class="dropdown-menu nav-item-expanded lab">
+                    <div class="row">
+                      <p class="col-md-5">Vous y retrouverez la présentation du lab Scénogrrrraphie et les informations utiles pour le rejoindre</p>
+                      <ul class="col-md-3 offset-md-1">
+                        <li><a href="#">Le lab Scénogrrrraphie</a></li>
+                        <li><a href="#">Les membres</a></li>
+                        <li><a href="#">Comment nous rejoindre ?</a></li>
+                        <li><a href="#">Le site web les Augures</a></li>
+                      </ul>
+                    </div>
+                    <%= image_tag('menu/menu-lab.svg', alt: '', width: '921', class: 'menu-typo', height: '901', "aria-hidden" => "true") %>
+                  </div>
+                </li>
                 <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
                   <span>Recherche</span>
                 </button>
