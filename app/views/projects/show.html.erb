@@ -45,3 +45,5 @@
     </div>
   </section>
 <% end %>
+
+<%= render 'projects/show/brezet_wheel', project: @project if @project.has_brezet_wheel? %>

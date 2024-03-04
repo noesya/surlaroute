@@ -72,8 +72,8 @@ class Structure::Item < ApplicationRecord
   end
 
   def self.possible_zones_for(about_class)
-    # zone lower_page is only for Project
-    about_class == 'Project' ? Structure::Item.zones : Structure::Item.zones.reject { |k, v| k == "lower_page" }
+    # zone lower_page is only for Project or Actor
+    ['Projet', 'Actor'].include?(about_class) ? Structure::Item.zones : Structure::Item.zones.reject { |k, v| k == "lower_page" }
   end
 
   def values_for(object)

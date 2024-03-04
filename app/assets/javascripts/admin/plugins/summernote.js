@@ -17,6 +17,7 @@ window.summernoteManager = {
                 ['style', ['style']],
                 ['font', ['bold', 'italic']],
                 ['para', ['ul', 'ol']],
+                ['insert', ['link', 'unlink']],
                 ['view', ['codeview']]
             ],
             styleTags: [

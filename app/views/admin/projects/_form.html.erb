@@ -35,7 +35,10 @@
                   preview: true %>
     </div>
   </div>
+
   <%= render 'admin/structure/items/kinds/edit', f: f %>
+
+  <%= render 'brezet_fields', f: f %>
 
   <% content_for :buttons do %>
     <%= destroy_link project if project.persisted? %>

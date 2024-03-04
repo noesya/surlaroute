@@ -1,0 +1,31 @@
+<section class="bg-light py-5">
+  <div class="container">
+    <h2><%= t('projects.brezet_wheel.title') %></h2>
+    <p>TODO: Brezet</p>
+
+    <h3 class="small text-muted">Qu’est-ce qu’une démarche d’écoconception ?</h3>
+    <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+    <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+
+    <h3 class="small text-muted">Pourquoi l’approche Brézet ?</h3>
+    <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+    <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+
+    <br>
+
+    <p><strong>Vous trouverez ci-dessous l’évaluation de ce projet selon l’approche Brézet, regroupant les différents critères pris en compte et leur explication pour chaque axe de l’approche.</strong></p>
+
+    <% (0..7).each do |step| %>
+      <h3 class="h2"><%= t("projects.brezet_wheel.step#{step}") %></h3>
+      <% Project.fields_for_step(step).each do |attribute_name| %>
+        <% 
+        value = project.public_send("#{attribute_name}") 
+        text = project.public_send("#{attribute_name}_text")
+        %>
+        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
+        <%= value %>
+        <%= sanitize text %>
+      <% end %>
+    <% end %>
+  </div>
+</section>

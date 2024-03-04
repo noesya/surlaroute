@@ -7,6 +7,15 @@ fr:
   activerecord:
     attributes:
       actor:
+        address: Adresse
+        address_additional: Complément d'adresse
+        city: Ville
+        contact_email: Email de contact
+        contact_inventory_url: Inventaire du fabricant
+        contact_name: Nom de contact
+        contact_phone: Téléphone de contact
+        contact_website: Site web
+        country: Pays
         description: Description
         materials: Matériaux fabriqués
         name: Nom
@@ -14,7 +23,9 @@ fr:
         published: Fiche publiée
         published_by: Fiche publiée par
         regions: Localisation(s)
+        service_access_terms: Conditions d'accès au service
         slug: Identifiant
+        zipcode: Code postal
       material:
         actors: Fabriqué par
         description: Description
@@ -33,6 +44,29 @@ fr:
         published_by: Fiche publiée par
         regions: Régions
         slug: Identifiant
+        step0_sustainable_program: Programmation engagée
+        step0_low_tech: Low tech
+        step0_ecodesign_time: Temps adapté à l’écoconception
+        step1_reusable_materials: Matériaux issus du réemploi ou de la réutilisation
+        step1_recycled_materials: Matériaux recyclés
+        step1_local_materials: Matériaux fabriqués localement
+        step2_dismountable: Démontable
+        step2_components_reduced_amount: Réduction du nombre de composants
+        step2_renewable_energy: Energie renouvelable
+        step3_matter_reduced_amount: Réduction de la quantité de matière
+        step4_artists_travel_optimization: Déplacement des artistes optimisé
+        step4_transport_sharing: Mutualisation des transports
+        step4_separate_packaging: Emballage séparable et triable
+        step5_energy_efficient: Econome en énergie
+        step5_water_efficient: Econome en eau
+        step5_low_power_consumption: Projet à très faible consommation énergétique
+        step5_zero_waste: Projet ne produisant pas de déchet
+        step5_public_awareness: Sensibilisation des publics
+        step5_public_area_sorting: Tri dans les espaces publics
+        step6_extended_lifetime: Durée de vie du projet allongée
+        step7_disassembly_five_stream_sorting: Désassemblé et trié en 5 flux
+        step7_composted_materials: Matériaux compostés
+        step7_closed_loop_recycling: Recyclage en boucle fermée
         technics: Techniques
       region:
         description: Description
@@ -108,6 +142,8 @@ fr:
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s
+  actors:
+    information: Informations pratiques
   admin:
     dashboard: Tableau de bord
     filters:
@@ -118,6 +154,10 @@ fr:
         submit: Filtrer
       search_field: Recherche
       title: Rechercher
+    projects:
+      brezet_wheel:
+        enabled: Actif ?
+        explanation_text: Texte d'explication
     structure:
       add_image: Ajouter une image
       add_option: Ajouter une option
@@ -187,7 +227,7 @@ fr:
           url: "Site Web"
         zone:
           header: Header
-          lower_page: Bas de la page (sous la roue de Brézet)
+          lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
   false: Non
   favorites:
@@ -208,6 +248,17 @@ fr:
   menu:
     my_account: Mon compte
   please_confirm: Merci de confirmer
+  projects:
+    brezet_wheel:
+      step0: "0. Concevoir ensemble"
+      step1: "1. Sélection des matériaux ayant le moins d’impact"
+      step2: "2. Réduction de la quantité de matière"
+      step3: "3. Optimisation des techniques de production"
+      step4: "4. Optimisation de la logistique"
+      step5: "5. Réduction de l’impact environnemental de la phase d’utilisation"
+      step6: "6. Optimisation de la durée de vie du projet"
+      step7: "7. Optimisation de la fin de vie du projet"
+      title: Éco-responsabilité du projet
   save: Enregistrer
   show: Voir
   show_front: Voir sur le site
