@@ -12,8 +12,6 @@ window.summernoteManager = {
 
     setConfigs: function () {
         'use strict';
-
-
         this.setConfig('default', {
             toolbar: [
                 ['style', ['style']],
