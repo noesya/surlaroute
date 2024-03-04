@@ -51,6 +51,7 @@ class Structure::Item < ApplicationRecord
   enum kind: {
     string: 0,
     text: 1,
+    richtext: 5,
     url: 2,
     option: 11,
     options: 12,
