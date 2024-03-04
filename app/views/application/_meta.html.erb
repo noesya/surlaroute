@@ -1,4 +1,4 @@
-<p class="small text-muted">
+<p class="small text-muted m-0">
 Publié 
 <% if about.published_by %>
   par <a href="" class="text-muted"><%= about.published_by %></a> 
@@ -6,4 +6,3 @@ Publié
 le <%= l about.created_at.to_date %>, 
 mis à jour le <%= l about.updated_at.to_date %>
 </p>
-<%= render 'favorites/button', about: about %>

@@ -1,6 +1,6 @@
 footer
-    padding-bottom: map-get($spacers, 4)
-    padding-top: map-get($spacers, 4)
+    padding-bottom: map-get($spacers, 5)
+    padding-top: map-get($spacers, 5)
     font-family: 'Work Sans', sans-serif
     font-weight: 400
     strong
@@ -33,11 +33,11 @@ footer
             @include icon(link, after)
             &::after
                 margin-left: map-get($spacers, 1)
-                margin-right: map-get($spacers, 0)
+                margin-right: calc(#{map-get($spacers, 1)} / 2)
                 font-size: pxToRem(13)
         li
             + li 
-                margin-top: map-get($spacers, 0)
+                margin-top: calc(#{map-get($spacers, 1)} / 2)
             &:last-of-type
                 margin-top: map-get($spacers, 3)
     .footer-supports
@@ -51,7 +51,7 @@ footer
                 align-items: flex-end
         nav
             display: flex
-            gap: map-get($spacers, 4)
+            gap: map-get($spacers, 5)
         span.small
             display: block
             margin-bottom: map-get($spacers, 1)
@@ -62,8 +62,8 @@ footer
         padding-bottom: map-get($spacers, 3)
         padding-top: map-get($spacers, 3)
         .row > div + div
-            margin-top: map-get($spacers, 4)
+            margin-top: map-get($spacers, 5)
         ul + ul
-            margin-top: map-get($spacers, 4)
+            margin-top: map-get($spacers, 5)
         li + li 
             margin-top: map-get($spacers, 2)

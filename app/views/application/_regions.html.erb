@@ -1,5 +1,5 @@
 <% if about.regions.any? %>
-  <div class="mb-4">
+  <div class="locations-list mb-4">
     <%= render 'structure/items/label', 
                 label: about.class.human_attribute_name(:regions) %>
     <% about.regions.each do |region| %>

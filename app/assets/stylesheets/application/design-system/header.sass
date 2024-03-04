@@ -72,7 +72,7 @@ header
                         font-weight: 500
                         &::after
                             font-size: pxToRem(10)
-                            margin-left: map-get($spacers, 0)
+                            margin-left: calc(#{map-get($spacers, 1)} / 2)
             .row
                 @extend .container
                 > p:first-of-type
@@ -87,7 +87,7 @@ header
                     @include icon(arrow-right, after)
                     &::after
                         font-size: pxToRem(10)
-                        margin-left: map-get($spacers, 0)
+                        margin-left: calc(#{map-get($spacers, 1)} / 2)
             ul
                 li
                     font-weight: bold
@@ -99,7 +99,7 @@ header
     .btn-user,
     .btn-search
         align-items: center
-        gap: map-get($spacers, 0)
+        gap: calc(#{map-get($spacers, 1)} / 2)
         font-weight: 500
         &::before
             @include rounded-icon
