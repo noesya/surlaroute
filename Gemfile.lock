@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/noesya/summernote-rails.git
-  revision: 32fd182c929cdcacaa6e3bd3569871bd025fa669
+  revision: f7ce423738fa98a1a2bacc509d6906e03b498a0e
+  branch: fix/dart-sass
   specs:
     summernote-rails (0.8.20.1)
       nokogiri
