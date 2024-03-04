@@ -152,6 +152,10 @@ GEM
     cocoon (1.2.15)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
+    countries (6.0.0)
+      unaccent (~> 0.3)
+    country_select (9.0.0)
+      countries (> 5.0, < 7.0)
     crass (1.0.6)
     dartsass-sprockets (3.1.0)
       railties (>= 4.0.0)
@@ -195,6 +199,7 @@ GEM
     gdpr (1.4.0)
       js_cookie_rails
       rails
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     good_job (3.26.1)
@@ -384,6 +389,7 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unaccent (0.4.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -418,6 +424,7 @@ DEPENDENCIES
   cancancan (~> 3)
   capybara
   cocoon (~> 1)
+  country_select (~> 9.0)
   devise (~> 4)
   devise-bootstrap5 (~> 0)
   devise-i18n (~> 1)
@@ -425,6 +432,7 @@ DEPENDENCIES
   enum_help (~> 0)
   faceted_search
   gdpr (~> 1)
+  geocoder (~> 1.8)
   good_job (~> 3)
   image_processing (~> 1)
   jquery-rails (~> 4)

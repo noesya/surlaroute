@@ -2,17 +2,30 @@
 #
 # Table name: actors
 #
-#  id              :uuid             not null, primary key
-#  description     :text
-#  image_alt       :string
-#  image_credit    :string
-#  name            :string
-#  premium         :boolean          default(FALSE)
-#  published       :boolean          default(FALSE)
-#  slug            :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  published_by_id :uuid             indexed
+#  id                    :uuid             not null, primary key
+#  address               :string
+#  address_additional    :string
+#  city                  :string
+#  contact_email         :string
+#  contact_inventory_url :string
+#  contact_name          :string
+#  contact_phone         :string
+#  contact_website       :string
+#  country               :string
+#  description           :text
+#  image_alt             :string
+#  image_credit          :string
+#  latitude              :decimal(, )
+#  longitude             :decimal(, )
+#  name                  :string
+#  premium               :boolean          default(FALSE)
+#  published             :boolean          default(FALSE)
+#  service_access_terms  :text
+#  slug                  :string
+#  zipcode               :string
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  published_by_id       :uuid             indexed
 #
 # Indexes
 #
