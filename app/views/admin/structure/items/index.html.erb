@@ -1,6 +1,6 @@
 <%= content_for :title, Structure::Item.model_name.human(count: 2) %>
 
-<% Structure::Item.zones.keys.each do |zone| %>
+<% Structure::Item.possible_zones_for(@about_class).keys.each do |zone| %>
   <div class="mb-4">
     <h2 class="h5"><%= t("enums.structure.item.zone.#{zone}") %></h2>
     <%= render 'admin/structure/items/list', items: @items.send("zone_#{zone}") %>

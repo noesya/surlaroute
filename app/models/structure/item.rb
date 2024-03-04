@@ -63,11 +63,17 @@ class Structure::Item < ApplicationRecord
 
   enum zone: {
     header: 2,
-    page: 3
+    page: 3,
+    lower_page: 6
   }, _prefix: :zone
 
   def has_options?
     kind.in?(Structure::Item::KINDS_WITH_OPTIONS)
+  end
+
+  def self.possible_zones_for(about_class)
+    # zone lower_page is only for Project
+    about_class == 'Project' ? Structure::Item.zones : Structure::Item.zones.reject { |k, v| k == "lower_page" }
   end
 
   def values_for(object)
@@ -138,9 +144,5 @@ class Structure::Item < ApplicationRecord
   def next_title
     @next_title ||= next_siblings.kind_h2.first
   end
-
-  
-
-
 
 end
