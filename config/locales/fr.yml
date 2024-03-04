@@ -214,7 +214,7 @@ fr:
           url: "Site Web"
         zone:
           header: Header
-          lower_page: Bas de la page (sous la roue de Brézet)
+          lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
   false: Non
   favorites:
