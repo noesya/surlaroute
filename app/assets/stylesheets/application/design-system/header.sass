@@ -30,21 +30,38 @@ header
             border-radius: 0
             z-index: -1
             border: none
+            overflow: hidden
             &.show
                 margin: 0
                 top: 0
                 border: none
                 z-index: -2
+            .menu-typo
+                bottom: 0
+                position: absolute
+                pointer-events: none
+                right: 0
+                z-index: -1
             &.ecosystem
                 background: $ecosystem-primary
+                .menu-typo
+                    transform: translate(16%, 36%)
             &.material
                 background: $materials-primary
+                .menu-typo
+                    transform: translate(8%, 28%)
             &.technic
                 background: $technic-primary
+                .menu-typo
+                    transform: translate(12%, 33%)
             &.project
                 background: $projects-primary
+                .menu-typo
+                    transform: translate(12%, 47%)
             &.region
                 background: white
+                .menu-typo
+                    transform: translate(12%, 47%)
             .row
                 @extend .container
                 > p:first-of-type
