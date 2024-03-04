@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_01_135227) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_142433) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -200,6 +200,52 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_135227) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
+    t.boolean "step0_sustainable_program", default: false
+    t.text "step0_sustainable_program_text"
+    t.boolean "step0_low_tech", default: false
+    t.text "step0_low_tech_text"
+    t.boolean "step0_ecodesign_time", default: false
+    t.text "step0_ecodesign_time_text"
+    t.boolean "step1_reusable_materials", default: false
+    t.text "step1_reusable_materials_text"
+    t.boolean "step1_recycled_materials", default: false
+    t.text "step1_recycled_materials_text"
+    t.boolean "step1_local_materials", default: false
+    t.text "step1_local_materials_text"
+    t.boolean "step2_dismountable", default: false
+    t.text "step2_dismountable_text"
+    t.boolean "step2_components_reduced_amount", default: false
+    t.text "step2_components_reduced_amount_text"
+    t.boolean "step2_renewable_energy", default: false
+    t.text "step2_renewable_energy_text"
+    t.boolean "step3_matter_reduced_amount", default: false
+    t.text "step3_matter_reduced_amount_text"
+    t.boolean "step4_artists_travel_optimization", default: false
+    t.text "step4_artists_travel_optimization_text"
+    t.boolean "step4_transport_sharing", default: false
+    t.text "step4_transport_sharing_text"
+    t.boolean "step4_separate_packaging", default: false
+    t.text "step4_separate_packaging_text"
+    t.boolean "step5_energy_efficient", default: false
+    t.text "step5_energy_efficient_text"
+    t.boolean "step5_water_efficient", default: false
+    t.text "step5_water_efficient_text"
+    t.boolean "step5_low_power_consumption", default: false
+    t.text "step5_low_power_consumption_text"
+    t.boolean "step5_zero_waste", default: false
+    t.text "step5_zero_waste_text"
+    t.boolean "step5_public_awareness", default: false
+    t.text "step5_public_awareness_text"
+    t.boolean "step5_public_area_sorting", default: false
+    t.text "step5_public_area_sorting_text"
+    t.boolean "step6_extended_lifetime", default: false
+    t.text "step6_extended_lifetime_text"
+    t.boolean "step7_disassembly_five_stream_sorting", default: false
+    t.text "step7_disassembly_five_stream_sorting_text"
+    t.boolean "step7_composted_materials", default: false
+    t.text "step7_composted_materials_text"
+    t.boolean "step7_closed_loop_recycling", default: false
+    t.text "step7_closed_loop_recycling_text"
     t.index ["published_by_id"], name: "index_projects_on_published_by_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end

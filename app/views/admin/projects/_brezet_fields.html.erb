@@ -1,0 +1,94 @@
+<h2 class="h4 mt-5"><%= t('projects.brezet_wheel.title') %></h2>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step0') %></h3>
+<div class="row">
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step0_sustainable_program %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step0_low_tech %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step0_ecodesign_time %>
+  </div>
+</div>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step1') %></h3>
+<div class="row">
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step1_reusable_materials %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step1_recycled_materials %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step1_local_materials %>
+  </div>
+</div>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step2') %></h3>
+<div class="row">
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step2_dismountable %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step2_components_reduced_amount %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step2_renewable_energy %>
+  </div>
+</div>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step3') %></h3>
+<%= render "brezet_field", f: f, attribute: :step3_matter_reduced_amount %>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step4') %></h3>
+<div class="row">
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step4_artists_travel_optimization %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step4_transport_sharing %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step4_separate_packaging %>
+  </div>
+</div>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step5') %></h3>
+<div class="row">
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step5_energy_efficient %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step5_water_efficient %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step5_low_power_consumption %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step5_zero_waste %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step5_public_awareness %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step5_public_area_sorting %>
+  </div>
+</div>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step6') %></h3>
+<%= render "brezet_field", f: f, attribute: :step6_extended_lifetime %>
+
+<h3 class="h5"><%= t('projects.brezet_wheel.step7') %></h3>
+<div class="row">
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step7_disassembly_five_stream_sorting %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step7_composted_materials %>
+  </div>
+  <div class="col-lg-4">
+    <%= render "brezet_field", f: f, attribute: :step7_closed_loop_recycling %>
+  </div>
+</div>
