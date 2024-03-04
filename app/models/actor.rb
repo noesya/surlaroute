@@ -41,11 +41,12 @@ class Actor < ApplicationRecord
   include Regional
   include Slugged
   include Structured
+  include WithGeolocation
 
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :technics
-  
+
   has_one_attached_deletable :image
 
   validates_presence_of :name
