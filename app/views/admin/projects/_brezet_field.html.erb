@@ -1,3 +1,6 @@
-<p><strong><%= Project.human_attribute_name(attribute) %></strong></p>
-<%= f.input attribute, label: t('admin.projects.brezet_wheel.enabled') %>
-<%= f.input "#{attribute}_text", label: t('admin.projects.brezet_wheel.explanation_text'), as: :summernote %>
+<div class="mt-3">
+  <strong>
+    <%= f.input attribute, label: Project.human_attribute_name(attribute) %>
+  </strong>
+  <%= f.input "#{attribute}_text", label: t('admin.projects.brezet_wheel.explanation_text'), as: :summernote %>
+</div>
