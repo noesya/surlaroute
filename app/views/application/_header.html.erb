@@ -21,7 +21,7 @@
                       <p class="col-md-5">Vous y retrouverez l’ensemble des structures et personnes porteuses de solutions d’écoscénographie référencées par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
                         <dt><%= Actor.published.count %></dt>
-                        <dd><%= link_to 'Acteur·ices', actors_path(region_slug: nil), class: "stretched-link" %></dd>
+                        <dd class="arrow-right"><%= link_to 'Acteur·ices', actors_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
                         <%= link_to "Glossaire de l'écosystème", options_actors_path %>
@@ -37,7 +37,7 @@
                       <p class="col-md-5">Vous y retrouverez l’ensemble des matériaux référencés par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
                         <dt><%= Material.published.count %></dt>
-                        <dd><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "stretched-link" %></dd>
+                        <dd class="arrow-right"><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
                         <%= link_to 'Glossaire des matériaux', options_materials_path %>
@@ -53,7 +53,7 @@
                       <p class="col-md-5">Vous y retrouverez l’ensemble des projets d’écoscénographie référencés par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
                         <dt><%= Project.published.count %></dt>
-                        <dd><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "stretched-link" %></dd>
+                        <dd class="arrow-right"><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
                         <%= link_to 'Glossaire des projets', options_projects_path %>
@@ -69,7 +69,7 @@
                       <p class="col-md-5">Vous y retrouverez l’ensemble des techniques référencées par la communauté Ecothèque.</p>
                       <dl class="col-md-3 offset-md-1 position-relative">
                         <dt><%= Technic.published.count %></dt>
-                        <dd><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "stretched-link" %></dd>
+                        <dd class="arrow-right"><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "stretched-link" %></dd>
                       </dl>
                       <p class="col-md-3 fw-semibold">
                         <%= link_to 'Glossaire des techniques', options_technics_path %>
@@ -110,7 +110,7 @@
                         <li><a href="#">Le lab Scénogrrrraphie</a></li>
                         <li><a href="#">Les membres</a></li>
                         <li><a href="#">Comment nous rejoindre ?</a></li>
-                        <li><a href="#">Le site web les Augures</a></li>
+                        <li class="arrow-right"><a href="#">Le site web les Augures</a></li>
                       </ul>
                     </div>
                     <%= image_tag('menu/menu-lab.svg', alt: '', width: '921', class: 'menu-typo', height: '901', "aria-hidden" => "true") %>

@@ -71,12 +71,8 @@ header
                 .menu-typo
                     transform: translate(11%, 41%)
                 ul 
-                    li:last-child
-                        @include icon(arrow-right, after)
+                    li.arrow-right
                         font-weight: 500
-                        &::after
-                            font-size: pxToRem(10)
-                            margin-left: calc(#{map-get($spacers, 1)} / 2)
             .row
                 @extend .container
                 > p:first-of-type
@@ -87,11 +83,6 @@ header
                     @extend .key-figure
                     @include media-breakpoint-down(md)
                         font-size: $key-figures-font-size
-                dd
-                    @include icon(arrow-right, after)
-                    &::after
-                        font-size: pxToRem(10)
-                        margin-left: calc(#{map-get($spacers, 1)} / 2)
             ul
                 li
                     font-weight: bold

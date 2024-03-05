@@ -46,6 +46,9 @@ blockquote
     &::after
         font-size: pxToRem(10)
         margin-left: calc(#{map-get($spacers, 1)} / 2)
+        transition: margin-left 0.3s ease
+    &:hover::after
+        margin-left: map-get($spacers, 1)
 
 .key-figure
     font-size: $key-figures-font-size-md
