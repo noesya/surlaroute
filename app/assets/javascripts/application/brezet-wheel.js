@@ -5,6 +5,7 @@ window.ecosystem.brezetWheel = {
         'use strict';
         this.observedEl = document.querySelector('.brezet-wheel-container');
         this.image = this.observedEl.querySelector('figure');
+        this.texts = this.observedEl.querySelectorAll('.brezet-steps span');
         this.breakpoint = 768;
 
         if(window.innerWidth >= this.breakpoint) {
@@ -37,11 +38,20 @@ window.ecosystem.brezetWheel = {
             window.addEventListener("scroll", () => {
                 if (this.scrollPosition > this.triggerPosition) {
                     this.percentage = Math.min(1, (this.scrollPosition - this.triggerPosition) / (window.innerHeight));
-                    this.newImageWidth = this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth);
+                    this.imageWidth = this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth);
+                    this.opacityTransition = (this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth)) * 0.15;
     
-                    this.image.style.width = this.newImageWidth + "%";
+                    this.image.style.width = this.imageWidth + "%";
+                    
+                    this.texts.forEach((text) => {
+                        text.style.opacity = this.opacityTransition + "%";
+                    });
                 } else {
                     this.image.style.width = "100%";
+                    
+                    this.texts.forEach((text) => {
+                        text.style.opacity = "1";
+                    });
                 }
             });
         };
