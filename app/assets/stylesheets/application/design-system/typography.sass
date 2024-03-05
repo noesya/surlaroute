@@ -55,6 +55,18 @@ blockquote
     line-height: $key-figures-line-height
     font-weight: $key-figures-font-weight
 
+.label
+    background: white
+    border-radius: 4px
+    font-size: inherit
+    padding: pxToRem(6) pxToRem(17)
+    width: fit-content
+    &.with-check
+        @include icon(check, after)
+        &::after
+            font-size: pxToRem(12)
+            margin-left: map-get($spacers, 1)
+
 %hero
     font-size: $hero-font-size
     line-height: $hero-line-height

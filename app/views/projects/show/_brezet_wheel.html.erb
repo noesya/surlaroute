@@ -1,31 +1,48 @@
-<section class="bg-light py-5">
+<section class="bg-light py-5 brezet-wheel-container">
   <div class="container">
-    <h2><%= t('projects.brezet_wheel.title') %></h2>
-    <p>TODO: Brezet</p>
+    <div class="row">
+      <div class="brezet-wheel col-lg-12">
+        <div class="row">
+          <div class="col-lg-4">
+            <h2><%= t('projects.brezet_wheel.title') %></h2>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-4">
+          <figure class="position-relative d-md-flex align-items-end">
+            <%= image_tag('brezet-wheel.svg', alt: '', class: 'brezet-wheel-image d-block mx-auto') %>
+            <figcaption class="small mt-4">© studio dazd – Augures Lab Scénogrrrraphie</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="col-lg-6 brezet-details offset-lg-6 mt-5 mt-md-8 position-relative">
+        <h3 class="small text-muted">Qu’est-ce qu’une démarche d’écoconception ?</h3>
+        <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+        <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
 
-    <h3 class="small text-muted">Qu’est-ce qu’une démarche d’écoconception ?</h3>
-    <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
-    <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+        <h3 class="small text-muted mt-4">Pourquoi l’approche Brézet ?</h3>
+        <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+        <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
 
-    <h3 class="small text-muted">Pourquoi l’approche Brézet ?</h3>
-    <p>Cet axe préparatoire consiste à consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
-    <p>Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
+        <br>
 
-    <br>
-
-    <p><strong>Vous trouverez ci-dessous l’évaluation de ce projet selon l’approche Brézet, regroupant les différents critères pris en compte et leur explication pour chaque axe de l’approche.</strong></p>
-
-    <% (0..7).each do |step| %>
-      <h3 class="h2"><%= t("projects.brezet_wheel.step#{step}") %></h3>
-      <% Project.fields_for_step(step).each do |attribute_name| %>
-        <% 
-        value = project.public_send("#{attribute_name}") 
-        text = project.public_send("#{attribute_name}_text")
-        %>
-        <h4><%= Project.human_attribute_name(attribute_name) %></h4>
-        <%= value %>
-        <%= sanitize text %>
-      <% end %>
-    <% end %>
+        <p><strong>Vous trouverez ci-dessous l’évaluation de ce projet selon l’approche Brézet, regroupant les différents critères pris en compte et leur explication pour chaque axe de l’approche.</strong></p>
+        
+        <div class="mt-7">
+          <% (0..7).each do |step| %>
+            <h3 class="h2 mt-7"><%= t("projects.brezet_wheel.step#{step}") %></h3>
+            <% Project.fields_for_step(step).each do |attribute_name| %>
+              <% 
+              value = project.public_send("#{attribute_name}") 
+              text = project.public_send("#{attribute_name}_text")
+              %>
+              <div class="mt-4">
+                <h4 class="label<% if value %> with-check<% end %>"><%= Project.human_attribute_name(attribute_name) %></h4>
+                <%= sanitize text %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
