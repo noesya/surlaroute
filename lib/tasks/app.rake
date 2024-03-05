@@ -24,10 +24,10 @@ namespace :app do
     task :staging do
       Bundler.with_unbundled_env do
         Dotenv.load
-        # Get a new backup archive from Scalingo
-        # PG Addon ID from `scalingo addons` CLI command.
-        sh "scalingo --app #{ENV['SCALINGO_STAGING_APP_NAME']} backups-create --addon #{ENV['SCALINGO_STAGING_PG_ADDON_ID']}"
-        sh "scalingo --app #{ENV['SCALINGO_STAGING_APP_NAME']} backups-download --addon #{ENV['SCALINGO_STAGING_PG_ADDON_ID']} --output db/scalingo-dump.tar.gz"
+        addon_result = `scalingo addons --app #{ENV['SCALINGO_STAGING_APP_NAME']} | grep PostgreSQL`
+        addon_id = addon_result.split('|')[2].strip
+        sh "scalingo --app #{ENV['SCALINGO_STAGING_APP_NAME']} backups-create --addon #{addon_id}"
+        sh "scalingo --app #{ENV['SCALINGO_STAGING_APP_NAME']} backups-download --addon #{addon_id} --output db/scalingo-dump.tar.gz"
 
         sh 'rm -f db/latest.dump' # Remove an old backup file if it exists
         sh 'tar zxvf db/scalingo-dump.tar.gz -C db/' # Extract the new backup archive
