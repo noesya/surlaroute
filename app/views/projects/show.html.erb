@@ -23,27 +23,30 @@
   </div>
 </header>
 
-<%= render 'structure/items/zones/page', about: @project %>
+<main>
 
-<% if @project.materials.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
-      <%= render 'materials/list', objects: @project.materials %>
-    </div>
-  </section>
-<% end %>
+  <%= render 'structure/items/zones/page', about: @project %>
 
-<% if @project.actors.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= t('ui.project.actors', count: @project.actors.count) %></h2>
-      <%= render 'actors/list', objects: @project.actors %>
-      <div class="row">
-        <p class="small col-md-6">*Sont mis en avant les membres du Lab qui ont participé à la rédaction de cette fiche, mais l’équipe projet est plus vaste.<p>
+  <% if @project.materials.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
+        <%= render 'materials/list', objects: @project.materials %>
       </div>
-    </div>
-  </section>
-<% end %>
+    </section>
+  <% end %>
 
-<%= render 'projects/show/brezet_wheel', project: @project if @project.has_brezet_wheel? %>
+  <% if @project.actors.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.project.actors', count: @project.actors.count) %></h2>
+        <%= render 'actors/list', objects: @project.actors %>
+        <div class="row">
+          <p class="small col-md-6">*Sont mis en avant les membres du Lab qui ont participé à la rédaction de cette fiche, mais l’équipe projet est plus vaste.<p>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <%= render 'projects/show/brezet_wheel', project: @project if @project.has_brezet_wheel? %>
+</main>
