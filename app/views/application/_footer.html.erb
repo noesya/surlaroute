@@ -15,10 +15,11 @@
       <div class="col-12 col-md-8 col-lg-6">
         <nav>
           <ul>
-            <li><strong><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></strong></li>
+            <li><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
             <li class="mt-2 pt-md-1"><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil) %></li>
             <li class="mt-2 pt-md-1"><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil) %></li>
             <li class="mt-2 pt-md-1"><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil) %></li>
+            <li class="mt-2 pt-md-1"><%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil) %></li>
           </ul>
           <ul>
             <li><strong>Boîte à outils</strong></li>

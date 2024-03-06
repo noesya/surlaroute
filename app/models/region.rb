@@ -28,6 +28,10 @@ class Region < ApplicationRecord
 
   scope :ordered, -> { order(:name) }
 
+  def empty?
+    actors.none? && materials.none? && projects.none?
+  end
+
   def to_s
     "#{name}"
   end
