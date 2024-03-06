@@ -3,6 +3,7 @@
 
   <div class="row">
     <% @regions.each do |region| %>
+      <% next if region.empty? %>
       <div class="col-lg-3 mb-4">
         <div class="card">
           <%= kamifusen_tag region.image, width: 400, class: 'card-img-top', alt: region.image_alt if region.image.attached? %>
