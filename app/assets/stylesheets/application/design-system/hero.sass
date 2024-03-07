@@ -1,4 +1,5 @@
 .hero
+    overflow: hidden
     z-index: 1
     .locations-list
         a.btn
@@ -13,7 +14,6 @@
 .technics-index
     .hero
         height: 78vh
-        overflow: hidden
         hgroup 
             p
                 font-weight: 600
@@ -41,33 +41,45 @@
 // colors and images
 .actors-index
     background-color: $ecosystem-primary
-    .hero img
-        transform: translate(24%, 21%)
+    .hero
+        background:
+            image: asset-url("menu/menu-ecosystem.svg")
+            repeat: no-repeat
+            position: 130% 340%
         @include media-breakpoint-down(lg)
-            transform: translate(21%, 32%)
+            background-position: 154% 127%
         @include media-breakpoint-down(md)
-            transform: translate(21%, 38%)
+            background-position: 154% 109%
 .materials-index
     background-color: $materials-primary
-    .hero img
-        transform: translate(20%, 29%)
-        @include media-breakpoint-down(lg)
-            transform: translate(19%, 35%)
-        @include media-breakpoint-down(md)
-            transform: translate(20%, 46%)
+    .hero
+        background:
+            image: asset-url("menu/menu-materials.svg")
+            repeat: no-repeat
+            position: 120% 900%
 .projects-index
     background-color: $projects-primary
-    .hero img
-        transform: translate(11%, 44%)
-        @include media-breakpoint-down(lg)
-            transform: translate(11%, 46%)
-        @include media-breakpoint-down(md)
-            transform: translate(11%, 48%)
+    .hero
+        background:
+            image: asset-url("menu/menu-projects.svg")
+            repeat: no-repeat
+            position: 110%  -180%
 .technics-index
     background-color: $technic-primary
-    .hero img
-        transform: translate(12%, 27%)
+    .hero
+        background:
+            image: asset-url("menu/menu-technics.svg")
+            repeat: no-repeat
+            position: 125%  670%
         @include media-breakpoint-down(lg)
-            transform: translate(13%, 35%)
+            background-position: 140% 154%
         @include media-breakpoint-down(md)
-            transform: translate(12%, 44%)
+            background-position: 140% 121%
+
+@include media-breakpoint-down(lg)
+    .actors-index,
+    .materials-index,
+    .projects-index,
+    .technics-index
+        .hero
+            background-size: 70%
