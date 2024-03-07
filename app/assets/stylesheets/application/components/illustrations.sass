@@ -1,0 +1,25 @@
+.placeholder-illustration
+    font-size: pxToRem(390)
+    font-family: $font-family-headings
+    display: flex
+    align-items: center
+    justify-content: center
+    span
+        position: absolute
+        line-height: 1
+        &.first-letter
+            transform: translate(-50%, -10%)
+        &.second-letter
+            transform: translate(50%, 10%)
+    .actors-index &
+        background-color: $ecosystem-primary
+        color: $ecosystem-secondary
+    .materials-index &
+        background-color: $materials-primary
+        color: $materials-secondary
+    .projects-index &
+        background-color: $projects-primary
+        color: $projects-secondary
+    .technic-index &
+        background-color: $technic-primary
+        color: $technic-secondary
