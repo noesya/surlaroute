@@ -52,6 +52,8 @@ class Actor < ApplicationRecord
   validates_presence_of :name
 
   scope :ordered, -> { order(:name) }
+  scope :premium, -> { where(premium: true) }
+  scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
@@ -60,6 +62,15 @@ class Actor < ApplicationRecord
 
   def full_address
     @full_address ||= [address, address_additional, city, zipcode, country].compact_blank.join(', ')
+  end
+
+  def has_any_contact_informations?
+    # match with_contact_informations scope
+    contact_name.present? || 
+      contact_email.present? || 
+      contact_phone.present? || 
+      contact_website.present? ||
+      contact_inventory_url.present? 
   end
 
   def to_s

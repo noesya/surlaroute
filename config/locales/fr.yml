@@ -284,9 +284,9 @@ fr:
   true: Oui
   ui:
     actor:
-      informations: Informations pratiques
       address: Adresse
       contact: Contact
+      informations: Informations pratiques
       materials:
         one: Matériau proposé par cet·te acteur·ice
         other: Matériaux proposés par cet·te acteur·ice
@@ -298,17 +298,22 @@ fr:
         one: Technique proposée par cet·te acteur·ice
         other: Techniques proposées par cet·te acteur·ice
     material:
+      actors: Fabriqué par
+      contact: Contact fournisseur
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
     project:
-      materials:
-        one: Matériau utilisé
-        other: Matériaux utilisés
       actors:
         one: Acteur·rice du projet
         other: Acteur·rices du projet
+      materials:
+        one: Matériau utilisé
+        other: Matériaux utilisés
     technic:
+      actors:
+        one: Contact
+        other: Contacts
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent

@@ -14,6 +14,15 @@
 </div>
 <%= render 'structure/items/zones/page', about: @technic %>
 
+<% if @technic.actors.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.technic.actors', count: @technic.actors.count) %></h2>
+      <%= render 'projects/list', objects: @technic.actors %>
+    </div>
+  </section>
+<% end %>
+
 <% if @technic.projects.any? %>
   <section class="bg-white py-5">
     <div class="container">

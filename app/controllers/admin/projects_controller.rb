@@ -76,7 +76,7 @@ class Admin::ProjectsController < Admin::ApplicationController
             :step6_extended_lifetime, :step6_extended_lifetime_text,
             :step7_disassembly_five_stream_sorting, :step7_disassembly_five_stream_sorting_text, :step7_composted_materials,
             :step7_composted_materials_text, :step7_closed_loop_recycling, :step7_closed_loop_recycling_text,
-            actor_ids: [], material_ids: [], technics_ids: [],
+            actor_ids: [], material_ids: [], technic_ids: [],
             region_ids: [],
             structure_values_attributes: structure_values_permitted_attributes
           )
