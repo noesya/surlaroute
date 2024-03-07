@@ -6,9 +6,7 @@
         <div class="position-absolute pt-3 ps-3">
           <%= render 'favorites/button', about: @project %>
         </div>
-        <%= kamifusen_tag @project.image,
-                          class: 'img-fluid rounded square',
-                          alt: @project.image_alt if @project.image.attached? %>
+        <%= render 'illustration', source: @project %>
       </div>
       <div class="col-lg-6">
         <div class="border-bottom pb-4 mb-4">

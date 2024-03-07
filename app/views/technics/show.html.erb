@@ -1,9 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
-      <%= kamifusen_tag @technic.image,
-                        class: 'img-fluid rounded square',
-                        alt: @technic.image_alt if @technic.image.attached? %>
+      <%= render 'illustration', source: @technic %>
     </div>
     <div class="col-lg-6">
       <h1><%= @technic %></h1>
