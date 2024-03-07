@@ -288,12 +288,15 @@ fr:
       address: Adresse
       contact: Contact
       materials:
-        one: Matériau fabriqué
-        other: Matériaux fabriqués
+        one: Matériau proposé par cet·te acteur·ice
+        other: Matériaux proposés par cet·te acteur·ice
       owner: Vous êtes le.la propriétaire de cette structure ?
       projects:
-        one: Projet
-        other: Projets
+        one: Projet relié à cet·te acteur·ice
+        other: Projets reliés à cet·te acteur·ice
+      technics:
+        one: Technique proposée par cet·te acteur·ice
+        other: Techniques proposées par cet·te acteur·ice
     material:
       projects:
         one: Projet qui l'utilise

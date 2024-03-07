@@ -71,20 +71,30 @@
   </section>
 <% end %>
 
-<% if @actor.materials.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
-      <%= render 'materials/list', objects: @actor.materials %>
-    </div>
-  </section>
-<% end %>
-
 <% if @actor.projects.any? %>
   <section class="bg-white py-5">
     <div class="container">
       <h2><%= t('ui.actor.projects', count: @actor.projects.count) %></h2>
-      <%= render 'projects/list', objects: @actor.projects %>
+      <%= render 'projects/list', objects: @actor.projects.ordered %>
     </div>
   </section>
 <% end %>
+
+<% if @actor.materials.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
+      <%= render 'materials/list', objects: @actor.materials.ordered %>
+    </div>
+  </section>
+<% end %>
+
+<% if @actor.technics.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.actor.technics', count: @actor.technics.count) %></h2>
+      <%= render 'technics/list', objects: @actor.technics.ordered %>
+    </div>
+  </section>
+<% end %>
+
