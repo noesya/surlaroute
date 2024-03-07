@@ -12,13 +12,64 @@
       <%= render 'structure/items/zones/header', about: @actor %>
       <%= render 'regions', about: @actor %>
       <% unless @actor.premium? %>
-        <%= link_to 'Vous êtes le.la propriétaire de cette structure ?', offers_path %>
+        <%= link_to t('ui.actor.owner'), offers_path %>
       <% end %>
     </div>
   </div>
 </div>
 
 <%= render 'structure/items/zones/page', about: @actor %>
+
+<% if @actor.full_address.present? || 
+        @actor.contact_name.present? || 
+        @actor.contact_email.present? || 
+        @actor.contact_phone.present? || 
+        @actor.contact_website.present? ||
+        @actor.contact_inventory_url.present? %>
+   <section class="py-5">
+    <div class="container">
+      <h2><%= t('ui.actor.informations') %></h2>
+      <% if @actor.full_address.present? %>
+        <div class="row mb-5">
+          <div class="offset-lg-6 col-lg-6">
+            <div class="structure__item__string mb-5">
+              <%= render 'structure/items/label', label: t('ui.actor.address') %>
+              <p><%= @actor.full_address %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% if @actor.contact_name.present? || 
+              @actor.contact_email.present? || 
+              @actor.contact_phone.present? || 
+              @actor.contact_website.present? ||
+              @actor.contact_inventory_url.present? %>
+        <div class="row mb-5">
+          <div class="offset-lg-6 col-lg-6">
+            <div class="structure__item__string mb-5">
+              <%= render 'structure/items/label', label: t('ui.actor.contact') %>
+              <% if @actor.contact_name.present? %>
+                <p><%= @actor.contact_name %></p>
+              <% end %>
+              <% if @actor.contact_email.present? %>
+                <p><%= link_to @actor.contact_email, "mailto:#{@actor.contact_email}", target: "_blank" %></p>
+              <% end %>
+              <% if @actor.contact_phone.present? %>
+                <p><%= link_to @actor.contact_phone, "tel:#{@actor.contact_phone}", target: "_blank" %></p>
+              <% end %>
+              <% if @actor.contact_website.present? %>
+                <p><%= link_to @actor.contact_website, @actor.contact_website, target: "_blank" %></p>
+              <% end %>
+              <% if @actor.contact_inventory_url.present? %>
+                <p><%= link_to @actor.contact_inventory_url, @actor.contact_inventory_url, target: "_blank" %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+<% end %>
 
 <% if @actor.materials.any? %>
   <section class="bg-white py-5">

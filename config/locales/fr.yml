@@ -267,6 +267,9 @@ fr:
     error_notification:
       default_message: Veuillez renseigner correctement l’ensemble des champs
     hints:
+      actor: 
+        contact_inventory_url: Doit commencer par https://
+        contact_website: Doit commencer par https://
       structure_item:
         color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
@@ -281,9 +284,13 @@ fr:
   true: Oui
   ui:
     actor:
+      informations: Informations pratiques
+      address: Adresse
+      contact: Contact
       materials:
         one: Matériau fabriqué
         other: Matériaux fabriqués
+      owner: Vous êtes le.la propriétaire de cette structure ?
       projects:
         one: Projet
         other: Projets

@@ -7,6 +7,7 @@ $(document).ready(function () {
             .select2({
                 allowClear: true,
                 dropdownParent: $(this).parent(),
+                language: 'fr',
                 placeholder: ''
             });
     });

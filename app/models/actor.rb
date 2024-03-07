@@ -58,6 +58,10 @@ class Actor < ApplicationRecord
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
 
+  def full_address
+    @full_address ||= [address, address_additional, city, zipcode, country].compact_blank.join(', ')
+  end
+
   def to_s
     "#{name}"
   end

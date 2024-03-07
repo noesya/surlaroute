@@ -21,8 +21,10 @@ section_closing_tags = '</div></div></div></section>'
                           item: item, 
                           value: item.value_for(about),
                           text: item.text_for(about) %>
+            </div>
           <% end %>
         </div>
+      </div>
       <% elsif item.kind == 'images' %>
         <% if item.should_display_for?(about) %>
                 <div class="structure__item__<%= item.kind %> mb-5 pt-4">

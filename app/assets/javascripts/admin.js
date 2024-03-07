@@ -14,6 +14,7 @@
 //= require slug/slug
 //= require sortablejs/Sortable
 //= require select2/dist/js/select2
+//= require select2/dist/js/i18n/fr
 //= require summernote/summernote-bs5
 //= require summernote/lang/summernote-fr-FR.js
 //= require_self

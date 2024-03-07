@@ -7,7 +7,7 @@
   resolved "https://registry.npmjs.org/@splidejs/splide/-/splide-4.1.4.tgz"
   integrity sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==
 
-cropperjs@^1.6.1, cropperjs@>=1.0.0:
+cropperjs@^1.6.1:
   version "1.6.1"
   resolved "https://registry.npmjs.org/cropperjs/-/cropperjs-1.6.1.tgz"
   integrity sha512-F4wsi+XkDHCOMrHMYjrTEE4QBOrsHHN5/2VsVAaRq8P7E5z7xQpT75S+f/9WikmBEailas3+yo+6zPIomW+NOA==
@@ -16,11 +16,6 @@ jquery-cropper@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/jquery-cropper/-/jquery-cropper-1.0.1.tgz"
   integrity sha512-KGlY8b0IJQi2Bxe3lqMKmd5Z2Ce4GrnDE5O8Iciza9xCzXISkL6EqX/jFHwnLL1H6Q4FGjoRguuv3lxezsbKJQ==
-
-jquery@>=1.9.1:
-  version "3.7.1"
-  resolved "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz"
-  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
 
 notyf@^3.10.0:
   version "3.10.0"
