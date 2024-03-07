@@ -4,6 +4,11 @@ window.ecosystem.brezetWheel = {
     init: function () {
         'use strict';
         this.observedEl = document.querySelector('.brezet-wheel-container');
+        
+        if (!this.observedEl) {
+            return;
+        }
+        
         this.image = this.observedEl.querySelector('figure');
         this.texts = this.observedEl.querySelectorAll('.brezet-steps span');
         this.breakpoint = 768;
