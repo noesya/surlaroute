@@ -2,32 +2,42 @@
 # yarn lockfile v1
 
 
-cropperjs@^1.6.1:
+"@splidejs/splide@^4.1.4":
+  version "4.1.4"
+  resolved "https://registry.npmjs.org/@splidejs/splide/-/splide-4.1.4.tgz"
+  integrity sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==
+
+cropperjs@^1.6.1, cropperjs@>=1.0.0:
   version "1.6.1"
-  resolved "https://registry.yarnpkg.com/cropperjs/-/cropperjs-1.6.1.tgz#fd132021d93b824b1b0f2c2c3b763419fb792d89"
+  resolved "https://registry.npmjs.org/cropperjs/-/cropperjs-1.6.1.tgz"
   integrity sha512-F4wsi+XkDHCOMrHMYjrTEE4QBOrsHHN5/2VsVAaRq8P7E5z7xQpT75S+f/9WikmBEailas3+yo+6zPIomW+NOA==
 
 jquery-cropper@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/jquery-cropper/-/jquery-cropper-1.0.1.tgz#6ba9faf1c2c86c0ac3c648d40554ba53673113cf"
+  resolved "https://registry.npmjs.org/jquery-cropper/-/jquery-cropper-1.0.1.tgz"
   integrity sha512-KGlY8b0IJQi2Bxe3lqMKmd5Z2Ce4GrnDE5O8Iciza9xCzXISkL6EqX/jFHwnLL1H6Q4FGjoRguuv3lxezsbKJQ==
+
+jquery@>=1.9.1:
+  version "3.7.1"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz"
+  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
 
 notyf@^3.10.0:
   version "3.10.0"
-  resolved "https://registry.yarnpkg.com/notyf/-/notyf-3.10.0.tgz#67a64443c69ea0e6495c56ea0f91198860163d06"
+  resolved "https://registry.npmjs.org/notyf/-/notyf-3.10.0.tgz"
   integrity sha512-Mtnp+0qiZxgrH+TzVlzhWyZceHdAZ/UWK0/ju9U0HQeDpap1mZ8cC7H5wSI5mwgni6yeAjaxsTw0sbMK+aSuHw==
 
 select2@^4.1.0-rc.0:
   version "4.1.0-rc.0"
-  resolved "https://registry.yarnpkg.com/select2/-/select2-4.1.0-rc.0.tgz#ba3cd3901dda0155e1c0219ab41b74ba51ea22d8"
+  resolved "https://registry.npmjs.org/select2/-/select2-4.1.0-rc.0.tgz"
   integrity sha512-Hr9TdhyHCZUtwznEH2CBf7967mEM0idtJ5nMtjvk3Up5tPukOLXbHUNmh10oRfeNIhj+3GD3niu+g6sVK+gK0A==
 
 slug@^8.2.3:
   version "8.2.3"
-  resolved "https://registry.yarnpkg.com/slug/-/slug-8.2.3.tgz#9aa33e532ae9ccddaf55a42abd9bf6a89d5e44d2"
+  resolved "https://registry.npmjs.org/slug/-/slug-8.2.3.tgz"
   integrity sha512-fXjhAZszNecz855GUNIwW0+sFPi9WV4bMiEKDOCA4wcq1ts1UnUVNy/F78B0Aat7/W3rA+se//33ILKNMrbeYQ==
 
 sortablejs@^1.15.1:
   version "1.15.1"
-  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.15.1.tgz#9a35f52cdff449fb42ea8ecf222f3468d76e0a47"
+  resolved "https://registry.npmjs.org/sortablejs/-/sortablejs-1.15.1.tgz"
   integrity sha512-P5Cjvb0UG1ZVNiDPj/n4V+DinttXG6K8n7vM/HQf0C25K3YKQTQY6fsr/sEGsJGpQ9exmPxluHxKBc0mLKU1lQ==

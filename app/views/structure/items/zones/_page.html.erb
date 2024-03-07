@@ -10,18 +10,28 @@ section_closing_tags = '</div></div></div></section>'
       <section class="py-5" id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
         <div class="container">
           <h2><%= item %></h2>
-          <div class="row mb-5">
-            <div class="offset-lg-6 col-lg-6">
-    <% else %>
-      <% if item.should_display_for?(about) %>
-        <div class="structure__item__<%= item.kind %> mb-5">
-          <%= render 'structure/items/label', label: item.to_s if item.show_label %>
-          <%= render "structure/items/kinds/#{item.kind}", 
-                      about: about, 
-                      item: item, 
-                      value: item.value_for(about),
-                      text: item.text_for(about) %>
+    <% elsif item.kind != 'images' %>
+      <div class="row mb-5">
+        <div class="offset-lg-6 col-lg-6">
+          <% if item.should_display_for?(about) %>
+            <div class="structure__item__<%= item.kind %> mb-5">
+              <%= render 'structure/items/label', label: item.to_s if item.show_label %>
+              <%= render "structure/items/kinds/#{item.kind}", 
+                          about: about, 
+                          item: item, 
+                          value: item.value_for(about),
+                          text: item.text_for(about) %>
+          <% end %>
         </div>
+      <% elsif item.kind == 'images' %>
+        <% if item.should_display_for?(about) %>
+                <div class="structure__item__<%= item.kind %> mb-5 pt-4">
+                  <%= render 'structure/items/label', label: item.to_s if item.show_label %>
+                  <%= render "structure/items/kinds/#{item.kind}", 
+                              about: about, 
+                              item: item, 
+                              value: item.value_for(about),
+                              text: item.text_for(about) %>
       <% end %>
     <% end %>
   <% end %>
