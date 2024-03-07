@@ -7,10 +7,10 @@
     <div class="col-lg-6">
       <h1><%= @actor %></h1>
       <p class="fw-bold"><%= sanitize @actor.description %></p>
-      <%= render 'application/meta', about: @actor %>
+      <%= render 'meta', about: @actor %>
       <hr class="my-5">
       <%= render 'structure/items/zones/header', about: @actor %>
-      <%= render 'application/regions', about: @actor %>
+      <%= render 'regions', about: @actor %>
       <% unless @actor.premium? %>
         <%= link_to 'Vous êtes le.la propriétaire de cette structure ?', offers_path %>
       <% end %>

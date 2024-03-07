@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   put 'mon-compte/suivi' => 'favorites#create'
   delete 'mon-compte/suivi' => 'favorites#destroy'
 
+  # TODO: ca ne restera pas comme ça
+  get 'le-lab/les-members/:member' => 'members#show', as: :member
+
   draw 'admin'
 
   scope "(:region_slug)", constraints: lambda { |request|

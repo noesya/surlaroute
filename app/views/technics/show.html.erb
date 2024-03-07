@@ -6,7 +6,7 @@
     <div class="col-lg-6">
       <h1><%= @technic %></h1>
       <p class="fw-bold"><%= sanitize @technic.description %></p>
-      <%= render 'application/meta', about: @technic %>
+      <%= render 'meta', about: @technic %>
       <hr class="my-5">
       <%= render 'structure/items/zones/header', about: @technic %>
     </div>
