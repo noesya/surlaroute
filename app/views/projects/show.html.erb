@@ -12,10 +12,10 @@
         <div class="border-bottom pb-4 mb-4">
           <h1><%= @project %></h1>
           <p class="mb-4"><%= sanitize @project.description %></p>
-          <%= render 'application/meta', about: @project %>
+          <%= render 'meta', about: @project %>
         </div>
         <%= render 'structure/items/zones/header', about: @project %>
-        <%= render 'application/regions', about: @project %>
+        <%= render 'regions', about: @project %>
       </div>
     </div>
   </div>
