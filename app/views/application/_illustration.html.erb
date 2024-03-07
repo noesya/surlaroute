@@ -13,8 +13,5 @@
     first_letter = name_elements.first[0]
     second_letter = name_elements.many? ? name_elements.second[0] : name_elements.first[1]
   %>
-  <div class="placeholder-illustration rounded square overflow-hidden position-relative">
-    <span class="first-letter"><%= first_letter %></span>
-    <span class="second-letter"><%= second_letter %></span>
-  </div>
+  <div class="placeholder-illustration rounded square overflow-hidden position-relative" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>"></div>
 <% end %>
