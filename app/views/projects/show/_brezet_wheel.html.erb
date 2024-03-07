@@ -69,10 +69,12 @@
               value = project.public_send("#{attribute_name}") 
               text = project.public_send("#{attribute_name}_text")
               %>
-              <div class="mt-4">
-                <h4 class="label<% if value %> with-check<% end %>"><%= Project.human_attribute_name(attribute_name) %></h4>
-                <%= sanitize text %>
-              </div>
+              <% if value %>
+                <div class="mt-4">
+                  <h4 class="label with-check"><%= Project.human_attribute_name(attribute_name) %></h4>
+                  <%= sanitize text %>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         </div>
