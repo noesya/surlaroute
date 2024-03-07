@@ -14,13 +14,18 @@
     </div>
   </div>
 </div>
-<%= render 'structure/items/zones/page', about: @technic %>
 
-<% if @technic.projects.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= t('ui.technic.projects', count: @technic.projects.count) %></h2>
-      <%= render 'projects/list', objects: @technic.projects %>
-    </div>
-  </section>
+<% if user_is_subscribed? %>
+  <%= render 'structure/items/zones/page', about: @technic %>
+
+  <% if @technic.projects.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.technic.projects', count: @technic.projects.count) %></h2>
+        <%= render 'projects/list', objects: @technic.projects %>
+      </div>
+    </section>
+  <% end %>
+<% else %>
+  <%= render 'paywall' %>
 <% end %>

@@ -16,39 +16,44 @@
     </div>
   </div>
 </div>
-<%= render 'structure/items/zones/page', about: @material %>
 
-<% if @material.actors.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= Material.human_attribute_name('actors') %></h2>
-      <div class="row">
-        <% @material.actors.each do |actor| %>
-          <div class="offset-lg-6 col-lg-6">
-            <div class="row">
-              <% if actor.image.attached? %>
-                <div class="col-4">
-                  <%= link_to actor do %>
-                    <%= kamifusen_tag actor.image, width: 300, alt: actor.image_alt, class: 'img-fluid rounded square' %>
-                  <% end %>
+<% if user_is_subscribed? %>
+  <%= render 'structure/items/zones/page', about: @material %>
+
+  <% if @material.actors.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= Material.human_attribute_name('actors') %></h2>
+        <div class="row">
+          <% @material.actors.each do |actor| %>
+            <div class="offset-lg-6 col-lg-6">
+              <div class="row">
+                <% if actor.image.attached? %>
+                  <div class="col-4">
+                    <%= link_to actor do %>
+                      <%= kamifusen_tag actor.image, width: 300, alt: actor.image_alt, class: 'img-fluid rounded square' %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <div class="col-8">
+                  <h3><%= link_to actor, actor %></h3>
                 </div>
-              <% end %>
-              <div class="col-8">
-                <h3><%= link_to actor, actor %></h3>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  </section>
-<% end %>
+    </section>
+  <% end %>
 
-<% if @material.projects.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>
-      <%= render 'projects/list', objects: @material.projects %>
-    </div>
-  </section>
+  <% if @material.projects.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>
+        <%= render 'projects/list', objects: @material.projects %>
+      </div>
+    </section>
+  <% end %>
+<% else %>
+  <%= render 'paywall' %>
 <% end %>
