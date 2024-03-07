@@ -11,6 +11,9 @@
       <hr class="my-5">
       <%= render 'structure/items/zones/header', about: @actor %>
       <%= render 'application/regions', about: @actor %>
+      <% unless @actor.premium? %>
+        <%= link_to 'Vous êtes le.la propriétaire de cette structure ?', offers_path %>
+      <% end %>
     </div>
   </div>
 </div>

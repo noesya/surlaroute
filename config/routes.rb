@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
+  get 'offres' => 'offers#index', as: :offers
+  get 'adhesion' => 'subscriptions#index', as: :subscriptions
+
+  get 'mon-compte/suivi' => 'favorites#index', as: :favorites
+  put 'mon-compte/suivi' => 'favorites#create'
+  delete 'mon-compte/suivi' => 'favorites#destroy'
+
   draw 'admin'
 
   scope "(:region_slug)", constraints: lambda { |request|
@@ -40,8 +47,5 @@ Rails.application.routes.draw do
   get 'regions' => 'regions#index', as: :regions
   resources :regions, path: "", only: :show
 
-  get 'mon-compte/suivi' => 'favorites#index', as: :favorites
-  put 'mon-compte/suivi' => 'favorites#create'
-  delete 'mon-compte/suivi' => 'favorites#destroy'
   root to: 'home#index'
 end
