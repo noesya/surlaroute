@@ -2,6 +2,7 @@
 <div class="js-structure-values-form">
   <% Structure::Item.zones.keys.each do |zone| %>
     <% about.items.send("zone_#{zone}").each do |item| %>
+      <% next unless item.should_display_in_admin_for?(about) %>
       <% if item.kind_h2? %>
         <h2 class="h4 mt-5"><%= item %></h2>
       <% else %>

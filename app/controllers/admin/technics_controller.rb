@@ -22,6 +22,7 @@ class Admin::TechnicsController < Admin::ApplicationController
   end
 
   def create
+    @technic.published_by = current_user if cannot?(:publish, @technic)
     if @technic.save
       redirect_to [:admin, @technic], notice: t('admin.successfully_created_html', model: @technic.to_s)
     else

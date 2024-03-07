@@ -1,6 +1,6 @@
 class Admin::ApplicationController < ApplicationController
 
-  before_action :authenticate_user!, :ensure_role!
+  before_action :authenticate_user!
 
   layout 'admin/layouts/application'
 
@@ -17,10 +17,6 @@ class Admin::ApplicationController < ApplicationController
   end
 
   private
-
-  def ensure_role!
-    redirect_to root_path if current_user.visitor?
-  end
 
   def default_url_options
     {}

@@ -22,6 +22,7 @@ class Admin::ProjectsController < Admin::ApplicationController
   end
 
   def create
+    @project.published_by = current_user if cannot?(:publish, @project)
     if @project.save
       redirect_to [:admin, @project], notice: t('admin.successfully_created_html', model: @project.to_s)
     else
