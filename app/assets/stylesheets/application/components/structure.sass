@@ -119,11 +119,8 @@
                     width: 100%
 
 .structure:not(.structure--zone-header)
-    .row > div
-        &:not(:first-child, :nth-child(2), .structure__item__file:last-of-type, .structure__item__key_figure:last-of-type)
-            @extend .offset-lg-6
-        &:not(:first-child) + div
-            margin-top: map-get($spacers, 4)
+    .details > div + div
+        margin-top: map-get($spacers, 4)
     .structure__item__key_figure
         display: flex
         flex-direction: column-reverse
@@ -131,3 +128,13 @@
         h3
             color: $color-text !important
             font-size: $font-size-base
+    .structure__item__file
+        display: inline-block
+        width: 50%
+        + .structure__item__file
+            float: right
+    .block-images
+        > .row
+            display: block
+        .details
+            width: 100%

@@ -283,6 +283,8 @@ fr:
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
   true: Oui
   ui:
+    global: 
+      hero: Le mot du comité écothèque
     actor:
       address: Adresse
       contact: Contact

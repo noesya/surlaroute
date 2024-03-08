@@ -1,43 +1,49 @@
 <%
 section_opened = false
 section_closing_tags = '</div></div></section>'
+is_present = false
+next_item_kind = nil
 %>
-<div class="structure structure--zone-page mt-5">
-  <% elements.each do |item| %>
-    <% if item.should_display_for?(about).present? %>
-      <% if item.kind == 'h2' && item.should_display_for?(about) %>
-        <%= section_closing_tags.html_safe if section_opened %>
-        <% section_opened = true %>
-          <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
-            <div class="container">
-              <div class="row py-5">
-                <div class="col-md-6">
-                  <h2><%= item %></h2>
-                </div>
-      <% elsif item.kind != 'images' %>
-        <div class="<% if item.kind == 'key_figure' || item.kind == 'file' %>col-md-3<% else %>col-md-6<% end %> structure__item__<%= item.kind %>">
-          <% if item.should_display_for?(about) %>
-            <%= render 'structure/items/label', label: item.to_s if item.show_label %>
-            <%= render "structure/items/kinds/#{item.kind}", 
-                        about: about, 
-                        item: item, 
-                        value: item.value_for(about),
-                        text: item.text_for(about) %>
-          <% end %>
-        </div>
-      <% elsif item.kind == 'images' %>
-        <div class="col-md-12 structure__item__<%= item.kind %>">
-          <% if item.should_display_for?(about) %>
-              <%= render 'structure/items/label', label: item.to_s if item.show_label %>
-              <%= render "structure/items/kinds/#{item.kind}", 
-                          about: about, 
-                          item: item, 
-                          value: item.value_for(about),
-                          text: item.text_for(about) %>
-          <% end %>
-        </div>
+
+<% elements.each do |item| %>
+  <% if item.should_display_for?(about).present? %>
+    <% is_present = true %>
+  <% end %>
+<% end %>
+
+<% if is_present %>
+  <div class="structure structure--zone-page mt-5">
+    <% elements.each_with_index do |item, index| %>
+      <% next_item_kind = elements[index + 1].kind if index + 1 < elements.length %>
+      <% if item.should_display_for?(about).present? %>
+        <% if item.kind == 'h2' && item.should_display_for?(about) %>
+          <%= section_closing_tags.html_safe if section_opened %>
+          <% section_opened = true %>
+            <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
+              <div class="container">
+                <div class="row py-5">
+                  <div class="col-md-6">
+                    <h2><%= item %></h2>
+                  </div>
+                  <% if next_item_kind != 'images' %>
+                    <div class="details col-md-6">
+                  <% else %>
+                    <div class="details col-md-12 mt-4">
+                  <% end %>
+        <% else %>
+                    <div class="structure__item__<%= item.kind %>">
+                      <% if item.should_display_for?(about) %>
+                        <%= render 'structure/items/label', label: item.to_s if item.show_label %>
+                        <%= render "structure/items/kinds/#{item.kind}", 
+                                    about: about, 
+                                    item: item, 
+                                    value: item.value_for(about),
+                                    text: item.text_for(about) %>
+                      <% end %>
+                    </div>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
   <%= section_closing_tags.html_safe if section_opened %>
-</div>
+<% end %>

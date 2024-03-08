@@ -15,11 +15,11 @@
     &::after
         content: attr(data-second-letter)
         transform: translate(50%, 10%)
-    .actors-show &,
-    .materials-show &,
-    .actors-show &,
-    .projects-show &,
-    .technics-show &
+    .actors-show .hero &,
+    .materials-show .hero &,
+    .actors-show .hero &,
+    .projects-show .hero &,
+    .technics-show .hero &
         &::before
             font-size: pxToRem(560)
             transform: translate(-40%, 30%)
@@ -48,4 +48,5 @@
         color: $technic-secondary
     @include media-breakpoint-up(md)
         section &
-            font-size: pxToRem(550)
+            .col-lg-4
+                font-size: pxToRem(550)
