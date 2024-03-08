@@ -8,6 +8,7 @@ class TechnicsController < ApplicationController
 
   def show
     @technic = Technic.find_by!(slug: params[:id])
+    @new_comment = User::Comment.new(about: @technic) if current_user
     breadcrumb
     add_breadcrumb @technic
   end

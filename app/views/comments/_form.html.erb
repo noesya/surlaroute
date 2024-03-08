@@ -1,0 +1,7 @@
+<%= simple_form_for comment do |f| %>
+  <%= f.input :about_id, as: :hidden %>
+  <%= f.input :about_type, as: :hidden %>
+  <%= f.input :title %>
+  <%= f.input :text %>
+  <%= submit f %>
+<% end %>
