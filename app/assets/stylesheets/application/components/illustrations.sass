@@ -15,15 +15,22 @@
     &::after
         content: attr(data-second-letter)
         transform: translate(50%, 10%)
-    .actors-index &
+    .actors-index &,
+    .actors &
         background-color: $ecosystem-primary
         color: $ecosystem-secondary
-    .materials-index &
+    .materials-index &,
+    .materials &
         background-color: $materials-primary
         color: $materials-secondary
-    .projects-index &
+    .projects-index &,
+    .projects &
         background-color: $projects-primary
         color: $projects-secondary
-    .technic-index &
+    .technic-index &,
+    .technic
         background-color: $technic-primary
         color: $technic-secondary
+    @include media-breakpoint-up(md)
+        section &
+            font-size: pxToRem(550)
