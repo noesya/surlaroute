@@ -47,4 +47,7 @@
   <% end %>
 
   <%= render 'projects/show/brezet_wheel', project: @project if @project.has_brezet_wheel? %>
+
+  <%= render 'structure/items/zones/lower_page', about: @project %>
+
 </main>
