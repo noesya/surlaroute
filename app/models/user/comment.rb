@@ -30,9 +30,17 @@ class User::Comment < ApplicationRecord
               class_name: 'User::Comment',
               optional: true
 
+  has_many :replies,
+            class_name: 'User::Comment',
+            foreign_key: :reply_to
+
   scope :ordered, -> { order(created_at: :desc) }
 
   validates_presence_of :title
+
+  def new_reply
+    User::Comment.new reply_to: self, about: about
+  end
 
   def to_s
     "#{title}"
