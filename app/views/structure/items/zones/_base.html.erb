@@ -14,29 +14,25 @@ section_closing_tags = '</div></div></div></section>'
                 <h2><%= item %></h2>
               </div>
     <% elsif item.kind != 'images' %>
-      <div class="col-md-6">
+      <div class="<% if item.kind == 'key_figure' %>col-md-3<% else %>col-md-6<% end %> structure__item__<%= item.kind %>">
         <% if item.should_display_for?(about) %>
-          <div class="structure__item__<%= item.kind %>">
             <%= render 'structure/items/label', label: item.to_s if item.show_label %>
             <%= render "structure/items/kinds/#{item.kind}", 
                         about: about, 
                         item: item, 
                         value: item.value_for(about),
                         text: item.text_for(about) %>
-          </div>
         <% end %>
       </div>
     <% elsif item.kind == 'images' %>
-      <div class="col-md-12">
+      <div class="col-md-12 structure__item__<%= item.kind %>">
         <% if item.should_display_for?(about) %>
-          <div class="structure__item__<%= item.kind %> mb-5 pt-4">
             <%= render 'structure/items/label', label: item.to_s if item.show_label %>
             <%= render "structure/items/kinds/#{item.kind}", 
                         about: about, 
                         item: item, 
                         value: item.value_for(about),
                         text: item.text_for(about) %>
-          </div>
         <% end %>
       </div>
     <% end %>
