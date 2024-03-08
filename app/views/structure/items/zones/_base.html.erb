@@ -1,40 +1,42 @@
 <%
 section_opened = false
-section_closing_tags = '</div></div></div></section>'
+section_closing_tags = '</div></div></section>'
 %>
 <div class="structure structure--zone-page mt-5">
   <% elements.each do |item| %>
-    <% if item.kind == 'h2' && item.should_display_for?(about) %>
-      <%= section_closing_tags.html_safe if section_opened %>
-      <% section_opened = true %>
-        <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
-          <div class="container">
-            <div class="row py-5">
-              <div class="col-md-6">
-                <h2><%= item %></h2>
-              </div>
-    <% elsif item.kind != 'images' %>
-      <div class="<% if item.kind == 'key_figure' %>col-md-3<% else %>col-md-6<% end %> structure__item__<%= item.kind %>">
-        <% if item.should_display_for?(about) %>
+    <% if item.should_display_for?(about).present? %>
+      <% if item.kind == 'h2' && item.should_display_for?(about) %>
+        <%= section_closing_tags.html_safe if section_opened %>
+        <% section_opened = true %>
+          <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
+            <div class="container">
+              <div class="row py-5">
+                <div class="col-md-6">
+                  <h2><%= item %></h2>
+                </div>
+      <% elsif item.kind != 'images' %>
+        <div class="<% if item.kind == 'key_figure' || item.kind == 'file' %>col-md-3<% else %>col-md-6<% end %> structure__item__<%= item.kind %>">
+          <% if item.should_display_for?(about) %>
             <%= render 'structure/items/label', label: item.to_s if item.show_label %>
             <%= render "structure/items/kinds/#{item.kind}", 
                         about: about, 
                         item: item, 
                         value: item.value_for(about),
                         text: item.text_for(about) %>
-        <% end %>
-      </div>
-    <% elsif item.kind == 'images' %>
-      <div class="col-md-12 structure__item__<%= item.kind %>">
-        <% if item.should_display_for?(about) %>
-            <%= render 'structure/items/label', label: item.to_s if item.show_label %>
-            <%= render "structure/items/kinds/#{item.kind}", 
-                        about: about, 
-                        item: item, 
-                        value: item.value_for(about),
-                        text: item.text_for(about) %>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
+      <% elsif item.kind == 'images' %>
+        <div class="col-md-12 structure__item__<%= item.kind %>">
+          <% if item.should_display_for?(about) %>
+              <%= render 'structure/items/label', label: item.to_s if item.show_label %>
+              <%= render "structure/items/kinds/#{item.kind}", 
+                          about: about, 
+                          item: item, 
+                          value: item.value_for(about),
+                          text: item.text_for(about) %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
   <%= section_closing_tags.html_safe if section_opened %>
