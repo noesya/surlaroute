@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
 
-  before_action :load_comment, except: :create
+  before_action :load_comment, except: [:index, :create]
+
+  def index
+    @comments = current_user.comments.ordered
+  end
 
   def edit
   end

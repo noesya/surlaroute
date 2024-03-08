@@ -3,12 +3,12 @@ if current_user && current_user.in_favorites?(about)
   path = favorites_path(about_id: about.id, about_type: about.class)
   method = :delete
   classes = 'btn btn-sm btn-light bg-white favorites__remove'
-  label = t('favorites.remove') 
+  label = t('account.favorites.remove') 
 else
   path = favorites_path(about_id: about.id, about_type: about.class)
   method = :put
   classes = 'btn btn-sm btn-light bg-white favorites__add'
-  label = t('favorites.add')
+  label = t('account.favorites.add')
 end
 %>
 <%= link_to path, method: method, class: classes do %>
