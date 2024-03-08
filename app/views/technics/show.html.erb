@@ -18,7 +18,7 @@
   <section class="bg-white py-5">
     <div class="container">
       <h2><%= t('ui.technic.actors', count: @technic.actors.count) %></h2>
-      <%= render 'projects/list', objects: @technic.actors %>
+      <%= render 'actors/list', objects: @technic.actors %>
     </div>
   </section>
 <% end %>
