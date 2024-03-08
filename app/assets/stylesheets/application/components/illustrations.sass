@@ -15,20 +15,34 @@
     &::after
         content: attr(data-second-letter)
         transform: translate(50%, 10%)
-    .actors-index &,
-    .actors &
+    .actors-show &,
+    .materials-show &,
+    .actors-show &,
+    .projects-show &,
+    .technics-show &
+        &::before
+            font-size: pxToRem(560)
+            transform: translate(-40%, 30%)
+        &::after
+            font-size: pxToRem(460)
+            transform: translate(60%, 45%)
+    .actors &,
+    .actors-show &
         background-color: $ecosystem-primary
         color: $ecosystem-secondary
     .materials-index &,
-    .materials &
+    .materials &,
+    .materials-show &
         background-color: $materials-primary
         color: $materials-secondary
     .projects-index &,
-    .projects &
+    .projects &,
+    .projects-show &
         background-color: $projects-primary
         color: $projects-secondary
-    .technic-index &,
-    .technic
+    .technics-index &,
+    .technics &,
+    .technics-show &
         background-color: $technic-primary
         color: $technic-secondary
     @include media-breakpoint-up(md)
