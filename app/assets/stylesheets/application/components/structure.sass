@@ -118,13 +118,13 @@
                     text-decoration: none
                     width: 100%
 
-.structure
+.structure:not(.structure--zone-header)
     .row > div
         &:not(:first-child, :nth-child(2), .structure__item__file:last-of-type, .structure__item__key_figure:last-of-type)
             @extend .offset-lg-6
         &:not(:first-child) + div
             margin-top: map-get($spacers, 4)
-    &__item__key_figure
+    .structure__item__key_figure
         display: flex
         flex-direction: column-reverse
         margin-top: map-get($spacers, 3)
