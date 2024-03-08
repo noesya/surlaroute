@@ -28,3 +28,135 @@
     </div>
   </div>
 </section>
+
+<section class="home-navigation actors">
+  <div class="container d-flex flex-column-reverse py-5 py-md-7">
+    <div class="row align-items-end mt-6 mt-md-8">
+      <div class="col-md-8 mb-2 mb-md-0">
+        <h2><%= t('ecosystem') %></h2>
+      </div>
+      <div class="home-navigation__link col-md-4 position-relative">
+        <%= link_to 'Identifier et localiser des acteur·rices de l’économie circulaire', actors_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
+      </div>
+    </div>
+    <div class="row align-items-start">
+      <div class="col-md-7">
+        <p>Des écosystèmes territoriaux favorisant l’économie circulaire, avec des acteur·rices du réemploi, de la mutualisation, du transport, de la conception, etc. Quel que soit le territoire, il existe des collaborations possibles à tous les niveaux de la chaîne de la scénographie pour contribuer ensemble à réduire les impacts environnementaux.</p>
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <dl class="text-lowercase">
+          <dt class="key-figure"><%= Actor.published.count %></dt>
+          <dd>Acteur·ices</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-navigation projects">
+  <div class="container d-flex flex-column-reverse py-5 py-md-7">
+    <div class="row align-items-end mt-6 mt-md-8">
+      <div class="col-md-8 mb-2 mb-md-0">
+        <h2><%= Project.model_name.human(count: 2) %></h2>
+      </div>
+      <div class="home-navigation__link col-md-4 position-relative">
+        <%= link_to 'Identifier et localiser des acteur·rices de l’économie circulaire', actors_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
+      </div>
+    </div>
+    <div class="row align-items-start">
+      <div class="col-md-7">
+        <p>Des matériaux dont la qualité a été vérifiée par la pratique et par la recherche, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie, afin de proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés.</p>
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <dl class="text-lowercase">
+          <dt class="key-figure"><%= Project.published.count %></dt>
+          <dd>Projets</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-navigation materials">
+  <div class="container d-flex flex-column-reverse py-5 py-md-7">
+    <div class="row align-items-end mt-6 mt-md-8">
+      <div class="col-md-8 mb-2 mb-md-0">
+        <h2><%= Material.model_name.human(count: 2) %></h2>
+      </div>
+      <div class="home-navigation__link col-md-4 position-relative">
+        <%= link_to 'Identifier et localiser des acteur·rices de l’économie circulaire', actors_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
+      </div>
+    </div>
+    <div class="row align-items-start">
+      <div class="col-md-7">
+        <p>Des produits, des techniques de mise en œuvre, de fabrication, et d’assemblage qui favorisent les pratiques low-tech, la réduction des besoins en quantité de matière, le réemploi et la réutilisation.</p>
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <dl class="text-lowercase">
+          <dt class="key-figure"><%= Material.published.count %></dt>
+          <dd>Matériaux</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-navigation technics">
+  <div class="container d-flex flex-column-reverse py-5 py-md-7">
+    <div class="row align-items-end mt-6 mt-md-8">
+      <div class="col-md-8 mb-2 mb-md-0">
+        <h2><%= Technic.model_name.human(count: 2) %></h2>
+      </div>
+      <div class="home-navigation__link col-md-4 position-relative">
+        <%= link_to 'Identifier et localiser des acteur·rices de l’économie circulaire', actors_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
+      </div>
+    </div>
+    <div class="row align-items-start">
+      <div class="col-md-7">
+        <p>Des produits, des techniques de mise en œuvre, de fabrication, et d’assemblage qui favorisent les pratiques low-tech, la réduction des besoins en quantité de matière, le réemploi et la réutilisation.</p>
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <dl class="text-lowercase">
+          <dt class="key-figure"><%= Technic.published.count %></dt>
+          <dd>Techniques</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-navigation toolbox">
+  <div class="container py-5 py-md-7">
+    <div class="row">
+      <div class="col">
+        <h2 class="h1">Boîte à outils</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Travaux du lab</a>
+      </div>
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Chartes et manifestes</a>
+      </div>
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Guides</a>
+      </div>
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Matériauthèques</a>
+      </div>
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Calculateurs</a>
+      </div>
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Recherches et conférences</a>
+      </div>
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Outils pratiques</a>
+      </div>
+      <div class="col-md-6 mt-4">
+        <a href="#" class="text-decoration-none fw-bold arrow-right">Centres ressources et annuaires</a>
+      </div>
+    </div>
+  </div>
+</section>

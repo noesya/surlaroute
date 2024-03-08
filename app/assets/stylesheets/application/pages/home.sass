@@ -13,3 +13,38 @@
         &::after
             font-size: pxToRem(12)
             margin-left: calc(#{map-get($spacers, 1)} / 2)
+
+.home-navigation
+    &.actors
+        background-color: $ecosystem-primary
+    &.materials
+        background-color: $materials-primary
+    &.projects
+        background-color: $projects-primary
+    &.technics
+        background-color: $technic-primary
+    &.materials
+        background-color: $materials-primary
+    &.toolbox
+        background-color: $toolbox-primary
+    &:not(.toolbox)
+        h2
+            @extend .large-title
+    &.toolbox
+        a
+            font-size: pxToRem(24)
+            &::after
+                font-size: pxToRem(18)
+                margin-left: map-get($spacers, 2)
+            @include media-breakpoint-up(md)
+                font-size: pxToRem(38)
+                &::after
+                    font-size: pxToRem(32)
+    &__link
+        @include icon(arrow-right)
+        &::before
+            font-size: pxToRem(28)
+            margin-bottom: map-get($spacers, 1)
+            @include media-breakpoint-up(md)
+                font-size: pxToRem(48)
+                margin-bottom: map-get($spacers, 2)
