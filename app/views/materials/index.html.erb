@@ -19,21 +19,26 @@
   </div>  
 </header>
 
-<div class="document-content bg-light py-5">
-  <div class="container">
+<div class="document-content bg-white py-5">
+  <div class="container directory">
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col d-flex gap-2">
+        <button class="toc-btn d-flex align-items-center gap-1"><span>Fermer les filtres</span></button>
+        <button class="d-flex align-items-center gap-1">Trier par</button>
+      </div>
+    </div>
+    <div class="row align-items-start position-relative mt-4">
+      <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
         <%= render 'faceted_search/facets', facets: @facets %>
       </div>
-      <div class="col-lg-9">
+      <div class="directory-container col-lg-9">
         <%= render 'materials/list', objects: @materials %>
         <%= paginate @materials, theme: "bootstrap-5" %>
       </div>
     </div>
   </div>
-</div>
 
-<div class="call-to-action">
+<div class="call-to-action bg-materials mt-5">
   <div class="container py-5">
     <div class="row align-items-center text-center text-md-start">
       <div class="col-lg-6">

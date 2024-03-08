@@ -17,22 +17,22 @@
   </div>  
 </header>
 
-<div class="document-content bg-light py-5">
+<div class="document-content bg-white py-5">
   <div class="container">
     <%= render 'technics/list', objects: @technics %>
     <%= paginate @technics, theme: "bootstrap-5" %>
   </div>
-</div>
 
-<div class="call-to-action">
-  <div class="container py-5">
-    <div class="row align-items-center text-center text-md-start">
-      <div class="col-lg-6">
-        <h3 class="cta-title">Vous souhaitez recommander une technique ?</h3>
-        <p class="mt-4 d-none d-md-block">L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech.</p>
-      </div>
-      <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
-        <a href="#" class="btn btn-dark">Référencer une technique</a>
+  <div class="call-to-action bg-technics mt-5">
+    <div class="container py-5">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-lg-6">
+          <h3 class="cta-title">Vous souhaitez recommander une technique ?</h3>
+          <p class="mt-4 d-none d-md-block">L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech.</p>
+        </div>
+        <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
+          <a href="#" class="btn btn-dark">Référencer une technique</a>
+        </div>
       </div>
     </div>
   </div>

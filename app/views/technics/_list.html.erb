@@ -4,7 +4,9 @@
       <article class="position-relative">
         <%= render 'illustration', source: technic, width: 400 %>
         <h2><%= link_to technic, technic, class: 'stretched-link' %></h2>
-        <%= render 'structure/items/in_list', about: technic %>
+        <div class="tags d-flex align-items-start flex-wrap">
+          <%= render 'structure/items/in_list', about: technic %>
+        </div>
       </article>
     </div>
   <% end %>

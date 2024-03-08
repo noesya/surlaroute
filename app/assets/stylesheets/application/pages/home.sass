@@ -35,11 +35,15 @@
             font-size: pxToRem(24)
             &::after
                 font-size: pxToRem(18)
+                margin-left: map-get($spacers, 1)
+            &:hover::after
                 margin-left: map-get($spacers, 2)
             @include media-breakpoint-up(md)
                 font-size: pxToRem(38)
                 &::after
                     font-size: pxToRem(32)
+                &:hover::after
+                    margin-left: map-get($spacers, 3)
     &__link
         @include icon(arrow-right)
         &::before
