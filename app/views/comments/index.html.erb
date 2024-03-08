@@ -1,0 +1,13 @@
+<%= content_for :title, t('account.comments.title') %>
+
+<div class="container">
+  <h1><%= t('account.comments.title') %></h1>
+  <% if @comments.none? %>
+    <p><%= t('account.comments.none') %></p>
+  <% else %>
+    <% @comments.each do |comment| %>
+      <p>À propos de "<%= link_to comment.about, comment.about %>"<p>
+      <%= render 'comments/comment', comment: comment %>
+    <% end %>
+  <% end %>
+</div>

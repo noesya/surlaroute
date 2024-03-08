@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   get 'offres' => 'offers#index', as: :offers
   get 'adhesion' => 'subscriptions#index', as: :subscriptions
 
-  get 'mon-compte/suivi' => 'favorites#index', as: :favorites
-  put 'mon-compte/suivi' => 'favorites#create'
-  delete 'mon-compte/suivi' => 'favorites#destroy'
+  scope 'mon-compte' do
+    get 'suivi' => 'favorites#index', as: :favorites
+    put 'suivi' => 'favorites#create'
+    delete 'suivi' => 'favorites#destroy'
+    resources :comments, path: 'commentaires', as: :user_comments
+  end
 
   # TODO: ca ne restera pas comme ça
-  get 'le-lab/les-members/:member' => 'members#show', as: :member
+  get 'le-lab/les-membres/:member' => 'members#show', as: :member
 
   draw 'admin'
 

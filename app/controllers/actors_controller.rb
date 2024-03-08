@@ -9,6 +9,7 @@ class ActorsController < ApplicationController
 
   def show
     @actor = Actor.find_by!(slug: params[:id])
+    @new_comment = User::Comment.new(about: @actor) if current_user
     breadcrumb
     add_breadcrumb @actor
   end
