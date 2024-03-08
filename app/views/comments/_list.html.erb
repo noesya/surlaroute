@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Commentaires</h2>
+  <%= render 'comments/form', comment: @new_comment if @new_comment.present? %>
+  <% about.comments.ordered.each do |comment| %>
+    <div>
+      <%= render 'comments/comment', comment: comment %>
+      <% if comment.replies.any? %>
+        <div class="ms-5">
+          Réponses 
+          <% comment.replies.each do |reply| %>
+            <%= render 'comments/comment', comment: reply %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="ms-5">
+        <% if current_user %>
+          Répondre à ce commentaire
+          <%= render 'comments/form', comment: comment.new_reply %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+

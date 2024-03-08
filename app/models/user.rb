@@ -49,6 +49,7 @@ class User < ApplicationRecord
   include WithRoles
 
   has_many :favorites
+  has_many :comments
 
   scope :ordered, -> { order(:last_name, :first_name) }
   

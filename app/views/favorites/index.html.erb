@@ -1,7 +1,8 @@
+<%= content_for :title, t('account.favorites.title') %>
 <div class="container">
-  <h1><%= t('favorites.title') %></h1>
+  <h1><%= t('account.favorites.title') %></h1>
   <% if @favorites.none? %>
-    <p><%= t('favorites.none') %></p>
+    <p><%= t('account.favorites.none') %></p>
   <% else %>
     <% @about_types.each do |about_type| %>
       <%

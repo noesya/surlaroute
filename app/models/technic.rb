@@ -22,6 +22,7 @@
 #  fk_rails_402a0ffef2  (published_by_id => users.id)
 #
 class Technic < ApplicationRecord
+  include Commentable
   include Favoritable
   include Publishable
   include Slugged

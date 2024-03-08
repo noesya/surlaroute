@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_161139) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_08_101200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -359,6 +359,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_161139) do
     t.index ["published_by_id"], name: "index_technics_on_published_by_id"
   end
 
+  create_table "user_comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "about_type", null: false
+    t.uuid "about_id", null: false
+    t.uuid "reply_to_id"
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["about_type", "about_id"], name: "index_user_comments_on_about"
+    t.index ["reply_to_id"], name: "index_user_comments_on_reply_to_id"
+    t.index ["user_id"], name: "index_user_comments_on_user_id"
+  end
+
   create_table "user_favorites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.string "about_type", null: false
@@ -421,5 +435,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_161139) do
   add_foreign_key "structure_value_files", "structure_values", column: "value_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"
   add_foreign_key "technics", "users", column: "published_by_id"
+  add_foreign_key "user_comments", "user_comments", column: "reply_to_id"
+  add_foreign_key "user_comments", "users"
   add_foreign_key "user_favorites", "users"
 end
