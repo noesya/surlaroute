@@ -46,10 +46,10 @@
             image: asset-url("menu/menu-ecosystem.svg")
             repeat: no-repeat
             position: 130% 340%
-        @include media-breakpoint-down(lg)
-            background-position: 154% 127%
         @include media-breakpoint-down(md)
             background-position: 154% 109%
+        @include media-breakpoint-down(lg)
+            background-position: 154% 127%
 .materials-index
     background-color: $materials-primary
     .hero
@@ -57,6 +57,16 @@
             image: asset-url("menu/menu-materials.svg")
             repeat: no-repeat
             position: 120% 900%
+        @include media-breakpoint-down(lg)
+            background-position: 156% -540%
+        @include media-breakpoint-down(md)
+            background-position: 144% 132%
+        @include media-breakpoint-down(sm)
+            background-position: 144% 116%
+        @include media-breakpoint-up(lg)
+            background-position: 182% -3450%
+        @include media-breakpoint-up(xxl)
+            background-position: 120% 720%
 .projects-index
     background-color: $projects-primary
     .hero
@@ -64,6 +74,12 @@
             image: asset-url("menu/menu-projects.svg")
             repeat: no-repeat
             position: 110%  -180%
+        @include media-breakpoint-down(lg)
+            background-position: 124% 380%
+        @include media-breakpoint-down(md)
+            background-position: 125% 195%
+        @include media-breakpoint-down(sm)
+            background-position: 125% 146%
 .technics-index
     background-color: $technic-primary
     .hero
@@ -72,9 +88,9 @@
             repeat: no-repeat
             position: 125%  670%
         @include media-breakpoint-down(lg)
-            background-position: 140% 154%
-        @include media-breakpoint-down(md)
             background-position: 140% 121%
+        @include media-breakpoint-up(lg)
+            background-position: 137% 411%
 
 @include media-breakpoint-down(lg)
     .actors-index,
