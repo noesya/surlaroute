@@ -1,6 +1,7 @@
 <%= content_for :title, t('account.favorites.title') %>
-<div class="container">
-  <h1><%= t('account.favorites.title') %></h1>
+<div class="container py-5">
+  <h1 class="mb-5 pb-5"><%= t('account.favorites.title') %></h1>
+
   <% if @favorites.none? %>
     <p><%= t('account.favorites.none') %></p>
   <% else %>
@@ -11,7 +12,7 @@
       objects = @favorites.for_about_type(about_type).collect(&:about)
       %>
       <div class="mt-5">
-        <h2><%= title %></h2>
+        <h2 class="mb-4"><%= title %></h2>
         <%= render partial, objects: objects %>
       </div>
     <% end %>

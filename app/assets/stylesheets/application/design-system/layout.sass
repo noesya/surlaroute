@@ -15,6 +15,9 @@ body
 .btn.rounded-pill
     padding: $badge-padding-y $badge-padding-x
 
+.img-fluid
+    width: 100%
+
 article
     .tags
         gap: pxToRem(12)
@@ -22,3 +25,16 @@ article
 .directory 
     button
         @include button-reset
+
+.accordion-button
+    width: auto
+    &::after
+        margin-left: map-get($spacers, 1)
+
+.sfpwh-password-toggle
+    .password_with_hints &
+        top: 36%
+    .password_with_hints.user_password &
+        top: 45%
+    .user_password_confirmation &
+        top: 44%

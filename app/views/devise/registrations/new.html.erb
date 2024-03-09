@@ -1,24 +1,35 @@
-<div class="container">
+<div class="container devise py-5">
   <%= content_for :title, t('.title', title: t('website')) %>
 
-  <h2 class="mb-4"><%= t(".sign_up") %></h2>
+  <h2 class="mb-5 pb-5"><%= t(".sign_up") %></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="row">
       <div class="col-lg-6">
-        <%= f.input :email,
-                    required: true,
-                    input_html: { autocomplete: "email" } %>
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "first_name" } %>
+      </div>
+      <div class="col-lg-6">
         <%= f.input :last_name,
                     required: true,
                     input_html: { autocomplete: "last_name" } %>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.input :email,
+                    required: true,
+                    input_html: { autocomplete: "email" } %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :mobile_phone %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-lg-6">
         <%= f.input :password,
                     as: :password_with_hints,
@@ -32,15 +43,16 @@
                       special_char: Rails.application.config.allowed_special_chars
                     },
                     input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="col-lg-6">
         <%= f.input :password_confirmation,
                     as: :password_with_sync,
                     required: true,
                     allow_password_uncloaking: true,
                     compare_with_field: :password,
                     input_html: { autocomplete: "new-password" } %>
-        <%= f.input :mobile_phone %>
       </div>
     </div>
-    <%= f.button :submit, t(".sign_up"), class: 'btn btn-primary' %>
+    <%= f.button :submit, t(".sign_up"), class: 'btn btn-dark mx-auto d-block mt-md-5' %>
   <% end %>
 </div>

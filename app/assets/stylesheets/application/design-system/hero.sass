@@ -1,4 +1,5 @@
 .hero
+    position: relative
     overflow: hidden
     z-index: 1
     .locations-list
@@ -13,89 +14,35 @@
 .projects-index,
 .technics-index
     .hero
-        height: 78vh
+        background:
+            repeat: no-repeat
+            size: 100%
+            position: right bottom
         hgroup 
             p
                 font-weight: 600
         dl
             dd
                 font-weight: 400
-        img
-            bottom: 0
-            pointer-events: none
-            position: absolute
-            right: 0
-            z-index: -1
         @include media-breakpoint-up(md)
             dl
                 dd
                     font-size: pxToRem(20)
-        @include media-breakpoint-down(lg)
-            height: 80vh
-            img
-                width: 70%
-        @include media-breakpoint-down(md)
-            height: 76vh
-
 
 // colors and images
 .actors-index
     background-color: $ecosystem-primary
     .hero
-        background:
-            image: asset-url("menu/menu-ecosystem.svg")
-            repeat: no-repeat
-            position: 130% 340%
-        @include media-breakpoint-down(md)
-            background-position: 154% 109%
-        @include media-breakpoint-down(lg)
-            background-position: 154% 127%
+        background-image: asset-url("letters/actors.svg")
 .materials-index
     background-color: $materials-primary
     .hero
-        background:
-            image: asset-url("menu/menu-materials.svg")
-            repeat: no-repeat
-            position: 120% 900%
-        @include media-breakpoint-down(lg)
-            background-position: 156% -540%
-        @include media-breakpoint-down(md)
-            background-position: 144% 132%
-        @include media-breakpoint-down(sm)
-            background-position: 144% 116%
-        @include media-breakpoint-up(lg)
-            background-position: 182% -3450%
-        @include media-breakpoint-up(xxl)
-            background-position: 120% 720%
+        background-image: asset-url("letters/materials.svg")
 .projects-index
     background-color: $projects-primary
     .hero
-        background:
-            image: asset-url("menu/menu-projects.svg")
-            repeat: no-repeat
-            position: 110%  -180%
-        @include media-breakpoint-down(lg)
-            background-position: 124% 380%
-        @include media-breakpoint-down(md)
-            background-position: 125% 195%
-        @include media-breakpoint-down(sm)
-            background-position: 125% 146%
+        background-image: asset-url("letters/projects.svg")
 .technics-index
     background-color: $technic-primary
     .hero
-        background:
-            image: asset-url("menu/menu-technics.svg")
-            repeat: no-repeat
-            position: 125%  670%
-        @include media-breakpoint-down(lg)
-            background-position: 140% 121%
-        @include media-breakpoint-up(lg)
-            background-position: 137% 411%
-
-@include media-breakpoint-down(lg)
-    .actors-index,
-    .materials-index,
-    .projects-index,
-    .technics-index
-        .hero
-            background-size: 70%
+        background-image: asset-url("letters/technics.svg")

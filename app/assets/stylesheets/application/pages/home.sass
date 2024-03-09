@@ -15,18 +15,25 @@
             margin-left: calc(#{map-get($spacers, 1)} / 2)
 
 .home-navigation
+    background:
+        repeat: no-repeat
+        size: 100%
+        position: right bottom
     &.actors
         background-color: $ecosystem-primary
+        background-image: asset-url("letters/home-actors.svg")
     &.materials
         background-color: $materials-primary
+        background-image: asset-url("letters/home-materials.svg")
     &.projects
         background-color: $projects-primary
+        background-image: asset-url("letters/home-projects.svg")
     &.technics
         background-color: $technic-primary
-    &.materials
-        background-color: $materials-primary
+        background-image: asset-url("letters/home-technics.svg")
     &.toolbox
         background-color: $toolbox-primary
+        background-image: asset-url("letters/home-toolbox.svg")
     &:not(.toolbox)
         h2
             @extend .large-title

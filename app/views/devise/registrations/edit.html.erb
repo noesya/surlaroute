@@ -1,5 +1,13 @@
-<div class="container">
+<div class="container devise py-5">
   <% content_for :title, resource %>
+  <div class="row">
+    <div class="col-lg-5">
+      <hgroup class="mb-5 pb-5">
+        <h2><%= t("account.title") %></h2>
+        <p class="mt-5"><%= t("account.subtitle") %></p>
+      </hgroup>
+    </div>
+  </div>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
@@ -25,7 +33,7 @@
     </div>
 
 
-    <h3 class="mt-5 mb-4"><%= t("devise.passwords.edit.new") %></h3>
+    <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
 
     <div class="row">
       <div class="col-lg-6">
@@ -61,11 +69,11 @@
     </div>
 
     <div class="mb-3">
-      <%= f.submit t('.update'), class: 'btn btn-primary' %>
+      <%= f.submit t('.update'), class: 'btn btn-dark' %>
     </div>
   <% end %>
 
-  <h3 class="mt-5 mb-4"><%= t(".cancel_my_account") %></h3>
+  <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
 
   <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
 

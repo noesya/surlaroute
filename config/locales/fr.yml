@@ -240,9 +240,11 @@ fr:
       none: Vous ne suivez pas encore de fiche.
       remove: Ne plus suivre
       title: Mes fiches suivies
+    title: Mon compte
+    subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
   login:
-    already_registered: Déjà inscrit ?
-    not_registered_yet: Pas encore inscrit ?
+    already_registered: Déjà inscrit·e ?
+    not_registered_yet: Pas encore inscrit·e ?
     not_registered_yet_details: Inscrivez-vous si vous n'avez pas encore de compte.
     or: ou bien
     sign_in_with_credentials: Se connecter avec ses identifiants
@@ -252,6 +254,9 @@ fr:
     yours: Cordialement.
   menu:
     my_account: Mon compte
+  comments:
+    title: Titre
+    text: Contenu du commentaire
   please_confirm: Merci de confirmer
   projects:
     brezet_wheel:
