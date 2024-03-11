@@ -5,6 +5,7 @@
         <%= link_to root_path, class: "footer-brand" do %>
           <%= image_tag 'logo.svg', alt: t('website') %>
         <% end %>
+
       </div>
       <ul class="col-lg-2 mt-4 mt-lg-0">
         <li><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
@@ -14,15 +15,15 @@
         <li class="mt-2 pt-md-1"><%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil) %></li>
       </ul>
       <ul class="col-lg-2 mt-4 mt-lg-0">
-        <li><strong>Boîte à outils</strong></li>
-        <li class="mt-2">Travaux du lab</li>
-        <li class="mt-2">Guides</li>
-        <li class="mt-2">Calculateurs</li>
-        <li class="mt-2">Outils pratiques</li>
-        <li class="mt-2">Chartes & manifestes</li>
-        <li class="mt-2">Matériauthèques</li>
-        <li class="mt-2">Recherches & conférences</li>
-        <li class="mt-2">Centres de ressources & annuaires</li>
+        <li>
+          <% page_tools = Page.find_by(internal_identifier: 'boite-a-outils') %>
+          <%= link_to page_tools, page_path(page_tools), class: "fw-bold" %>
+        </li>
+        <% page_tools.children.each do |child| %>
+          <li class="mt-2">
+            <%= link_to child, child_page_path(page_tools, child) %>
+          </li>
+        <% end %>
       </ul>
       <ul class="col-lg-2 mt-4 mt-lg-0">
         <li><strong>Le Lab</strong></li>
@@ -31,8 +32,14 @@
         <li class="mt-2">Nous rejoindre</li>
       </ul>
       <ul class="col-lg-2 mt-4 mt-lg-0">
-        <li><a class="fw-bold" href="#">Mentions légales</a></li>
-        <li><a href="#">Contact</a></li>
+        <li>
+          <% page_legal = Page.find_by(internal_identifier: 'mentions-legales') %>
+          <%= link_to page_legal, page_path(page_legal), class: "fw-bold" %>
+          </li>
+        <li>
+          <% page_contact = Page.find_by(internal_identifier: 'contact') %>
+          <%= link_to page_contact, page_path(page_contact) %>
+        </li>
         <li><a href="#" title="Linkedin - Lien externe" target="_blank">Linkedin</a></li>
         <li><a href="#" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
       </ul>
