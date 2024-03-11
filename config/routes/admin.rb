@@ -8,6 +8,7 @@ namespace :admin do
   resources :materials
   resources :projects
   resources :regions
+  resources :pages
   namespace :structure do
     scope ':about_class' do
       resources :items do
