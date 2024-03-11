@@ -1,4 +1,16 @@
 fr:
+  account:
+    comments:
+      none: Aucun commentaire pour l'instant.
+      title: Mes commentaires
+    favorites:
+      add: Suivre
+      none: Vous ne suivez pas encore de fiche.
+      remove: Ne plus suivre
+      title: Mes fiches suivies
+    my_account: Mon compte
+    subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
+    title: Mon compte
   activemodel:
     models:
       structure:
@@ -182,6 +194,7 @@ fr:
     successfully_duplicated_html: "<i>%{model}</i> a bien été dupliqué(e)."
     successfully_removed_html: "<i>%{model}</i> a bien été retiré(e)."
     successfully_updated_html: "<i>%{model}</i> a bien été mis(e) à jour."
+    title: Administration
   create: Créer
   default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
@@ -242,22 +255,12 @@ fr:
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
   false: Non
-  account:
-    comments:
-      title: Mes commentaires
-      none: Aucun commentaire pour l'instant.
-    favorites:
-      add: Suivre
-      none: Vous ne suivez pas encore de fiche.
-      remove: Ne plus suivre
-      title: Mes fiches suivies
-    title: Mon compte
-    subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
   login:
     already_registered: Déjà inscrit·e ?
     not_registered_yet: Pas encore inscrit·e ?
     not_registered_yet_details: Inscrivez-vous si vous n'avez pas encore de compte.
     or: ou bien
+    sign_in: Se connecter
     sign_in_with_credentials: Se connecter avec ses identifiants
     sign_in_with_sso: Se connecter en SSO
     subtitle: Vous devez être authentifié pour continuer
@@ -281,6 +284,9 @@ fr:
       step7: "7. Optimisation de la fin de vie du projet"
       title: Éco-responsabilité du projet
   save: Enregistrer
+  search: 
+    also: Vous pouvez également consulter nos annuaires
+    label: Rechercher
   show: Voir
   show_front: Voir sur le site
   simple_form:

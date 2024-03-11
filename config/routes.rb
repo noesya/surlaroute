@@ -22,8 +22,7 @@ Rails.application.routes.draw do
   draw 'admin'
 
   get ':page_path', to: 'pages#show', as: :page, constraints: lambda { |request| Page.where(path: request.params[:page_path]).exists? }
-  get ':parent_page_path/:page_path', to: 'pages#show', constraints: lambda { |request| Page.where(parent_id: Page.find_by(path: request.params[:parent_page_path]).id).where(path: request.params[:page_path]).exists? }
-
+  get ':parent_page_path/:page_path', to: 'pages#show', constraints: lambda { |request| (parent = Page.find_by(path: request.params[:parent_page_path])) && Page.where(parent_id: parent.id).where(path: request.params[:page_path]).exists? }
 
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]

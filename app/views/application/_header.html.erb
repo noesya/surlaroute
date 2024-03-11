@@ -27,15 +27,17 @@
                   <%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "nav-link" %>
                 </li>
                 <li class="nav-item dropdown">
-                  <a href="#" class="nav-link">Boîte à outils</a>
+                  <% page_tools = Page.find_by(internal_identifier: 'boite-a-outils') %>
+                  <%= link_to page_tools, page_path(page_tools), class: "nav-link" %>
                 </li>
               </ul>
               <ul class="col-12 col-md-4 d-flex flex-column flex-md-row gap-2 gap-md-3 align-items-md-center justify-content-end py-1">
                 <li class="nav-with-dropdowns nav-item dropdown position-static">
-                  <a href="#" class="nav-link">Le Lab</a>
+                   <% page_lab = Page.find_by(internal_identifier: 'le-lab') %>
+                  <%= link_to page_lab, page_path(page_lab), class: "nav-link" %>
                 </li>
                 <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
-                  <span>Recherche</span>
+                  <span><%= t('search.label') %></span>
                 </button>
                 <% if user_signed_in? %>
                   <li class="nav-item dropdown">
@@ -43,18 +45,18 @@
                       <%= current_user %>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg-end">
-                      <li><%= link_to "Mon compte", edit_user_registration_path, class: "dropdown-item" %></li>
+                      <li><%= link_to t('account.my_account'), edit_user_registration_path, class: "dropdown-item" %></li>
                       <li><%= link_to t('account.favorites.title'), favorites_path, class: "dropdown-item" %></li>
                       <li><%= link_to t('account.comments.title'), user_comments_path, class: "dropdown-item" %></li>
                       <% unless current_user.visitor? %>
-                        <li><%= link_to "Administration", admin_root_path, class: "dropdown-item" %></li>
+                        <li><%= link_to t('admin.title'), admin_root_path, class: "dropdown-item" %></li>
                       <% end %>
                       <li><hr class="dropdown-divider"></li>
-                      <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
+                      <li><%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
                     </ul>
                   </li>
                 <% else %>
-                  <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "btn-user rounded-pill" %></li>
+                  <li class="nav-item"><%= link_to ('login.sign_in'), new_user_session_path, class: "btn-user rounded-pill" %></li>
                 <% end %>
               </ul>
             </div>
