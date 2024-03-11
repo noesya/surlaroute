@@ -3,6 +3,8 @@ footer
     padding-top: map-get($spacers, 5)
     font-family: 'Work Sans', sans-serif
     font-weight: 400
+    a
+        text-decoration: none
     strong
         font-weight: 600
     ul
@@ -16,8 +18,6 @@ footer
             max-width: 100%
     .footer-social,
     nav
-        a
-            text-decoration: none
         ul:first-of-type
             font-weight: 600
         @include media-breakpoint-up(md)
@@ -38,20 +38,14 @@ footer
         li
             + li 
                 margin-top: calc(#{map-get($spacers, 1)} / 2)
-            &:last-of-type
-                margin-top: map-get($spacers, 3)
     .footer-supports
         display: flex
         gap: map-get($spacers, 3)
-        justify-content: space-between
         flex-wrap: wrap
     @include media-breakpoint-up(md)
         .container
             > .row + .row
                 align-items: flex-end
-        nav
-            display: flex
-            gap: map-get($spacers, 5)
         span.small
             display: block
             margin-bottom: map-get($spacers, 1)

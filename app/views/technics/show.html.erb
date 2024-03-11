@@ -18,24 +18,32 @@
   </div>
 </header>
 
-<%= render 'structure/items/zones/page', about: @technic %>
+<% if user_is_subscribed? %>
+  
+  <%= render 'structure/items/zones/page', about: @technic %>
 
-<% if @technic.actors.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= t('ui.technic.actors', count: @technic.actors.count) %></h2>
-      <%= render 'actors/list', objects: @technic.actors %>
-    </div>
-  </section>
+  <% if @technic.actors.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.technic.actors', count: @technic.actors.count) %></h2>
+        <%= render 'actors/list', objects: @technic.actors %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @technic.projects.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.technic.projects', count: @technic.projects.count) %></h2>
+        <%= render 'projects/list', objects: @technic.projects %>
+      </div>
+    </section>
+  <% end %>
+
+  <%= render 'comments/list', about: @technic %>
+
+<% else %>
+
+  <%= render 'paywall' %>
+
 <% end %>
-
-<% if @technic.projects.any? %>
-  <section class="bg-white py-5">
-    <div class="container">
-      <h2><%= t('ui.technic.projects', count: @technic.projects.count) %></h2>
-      <%= render 'projects/list', objects: @technic.projects %>
-    </div>
-  </section>
-<% end %>
-
-<%= render 'comments/list', about: @technic %>

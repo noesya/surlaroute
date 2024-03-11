@@ -13,7 +13,6 @@
           <dd>Projets</dd>
         </dl>
         <%= link_to 'Voir le glossaire', options_projects_path, class: 'small arrow-right' %>
-        </p>
       </div>
     </div>
   </div>  
@@ -24,7 +23,6 @@
     <div class="row">
       <div class="col d-flex gap-2">
         <button class="toc-btn d-flex align-items-center gap-1"><span>Fermer les filtres</span></button>
-        <button class="d-flex align-items-center gap-1">Trier par</button>
       </div>
     </div>
     <div class="row align-items-start position-relative mt-4">
@@ -38,15 +36,16 @@
     </div>
   </div>
 
-<div class="call-to-action bg-projects mt-5">
-  <div class="container py-5">
-    <div class="row align-items-center text-center text-md-start">
-      <div class="col-lg-6">
-        <h3 class="cta-title">Vous avez participé à un projet écoresponsable et vous souhaitez le partager ?</h3>
-        <p class="mt-4 d-none d-md-block">L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer ! </p>
-      </div>
-      <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
-        <a href="#" class="btn btn-dark">Référencer votre projet</a>
+  <div class="call-to-action bg-projects mt-5">
+    <div class="container py-5">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-lg-6">
+          <h3 class="cta-title"><%= t('projects.call_to_action.title') %></h3>
+          <p class="mt-4 d-none d-md-block"><%= t('projects.call_to_action.text') %></p>
+        </div>
+        <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
+          <a href="#" class="btn btn-dark"><%= t('projects.call_to_action.button') %></a>
+        </div>
       </div>
     </div>
   </div>

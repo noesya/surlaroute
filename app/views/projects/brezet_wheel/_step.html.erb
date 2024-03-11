@@ -4,7 +4,7 @@ step_values = fields.map { |attribute_name| @project.public_send("#{attribute_na
 step_has_values = step_values.any?(&:present?)
 %>
 <% if step_has_values %>
-  <h3 id="step-<%= step %>" class="h2 mt-7">
+  <h3 id="step-<%= step %>" class="h2 mt-4 mt-lg-5">
     <%= t("projects.brezet_wheel.step#{step}") %>
   </h3>
   <% fields.each_with_index do |attribute_name, index| %>

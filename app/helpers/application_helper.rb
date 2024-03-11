@@ -1,4 +1,17 @@
 module ApplicationHelper
+
+  def controller_class
+    "#{controller_name.gsub('/', '--')}"
+  end
+
+  def body_classes(additional_body_class = '')
+    classes = "controller-#{controller_class}"
+    classes += " action-#{action_name}"
+    classes += " #{controller_class}-#{action_name}"
+    classes += " #{additional_body_class}" if additional_body_class.present?
+    classes
+  end
+
   def masked_email(string)
     string.gsub(/(?<=.{2}).*@.*(?=\S{2})/, '****@****')
   end
@@ -37,5 +50,9 @@ module ApplicationHelper
     path_name = "option_#{resources_class_name}_path"
     # option_materials_path(item_slug: 'materiaux', option_slug: 'plastiques')
     public_send(path_name, item_slug: option.item.slug, option_slug: option.slug)
+  end
+
+  def user_is_subscribed?
+    user_signed_in? && !user.visitor?
   end
 end

@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-8">
       <%= f.input :name %>
-      <%= f.input :path,
+      <%= f.input :slug,
                   input_html: {
                     class: 'js-slug-input',
                     data: { source: '#page_name' }
@@ -13,6 +13,11 @@
       <%= f.input :description %>
     </div>
     <div class="col-lg-4">
+      <%= f.association :parent, 
+                        collection: collection_tree(Page.all, page),
+                        label_method: ->(p) { sanitize p[:label] },
+                        value_method: ->(p) { p[:id] } unless page.internal_identifier.present? %>
+      <%= f.input :position %>
     </div>
   </div>
 

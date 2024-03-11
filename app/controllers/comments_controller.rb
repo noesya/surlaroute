@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :load_comment, except: [:index, :create]
+  before_action :load_and_authorize_comment, except: [:index, :create]
 
   def index
     @comments = current_user.comments.ordered
@@ -29,9 +29,9 @@ class CommentsController < ApplicationController
   
   protected
 
-  def load_comment
+  def load_and_authorize_comment
     @comment = User::Comment.find params[:id]
-    raise_403_unless(@comment.user == current_user)
+    authorize! :destroy, @comment
     @about = @comment.about
   end
 

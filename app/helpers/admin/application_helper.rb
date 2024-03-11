@@ -1,16 +1,5 @@
 module Admin::ApplicationHelper
 
-  def controller_class
-    "#{controller_name.gsub('/', '--')}"
-  end
-
-  def body_classes
-    classes = "controller-#{controller_class}"
-    classes += " action-#{action_name}"
-    classes += " #{controller_class}-#{action_name}"
-    classes
-  end
-
   def button_classes(additional = '', **options)
     classes = "btn btn-dark btn-sm #{additional}"
     classes += ' disabled' if options[:disabled]
@@ -39,8 +28,8 @@ module Admin::ApplicationHelper
     'text-end pe-0'
   end
 
-  def show(object, property, type: nil)
-    value = object.public_send property
+  def show(object, property, type: nil, value: nil)
+    value ||= object.public_send property
     label = object.class.human_attribute_name property
     begin
       type ||= object.class.columns_hash[property.to_s].type
@@ -102,6 +91,15 @@ module Admin::ApplicationHelper
                 t('save'),
                 class: button_classes,
                 form: form.options.dig(:html, :id)
+  end
+
+  def collection_tree(list, except = nil)
+    collection = []
+    list.root.ordered.each do |object|
+      collection.concat(object.self_and_children(0))
+    end
+    collection = collection.reject { |o| o[:id] == except.id } unless except.nil?
+    collection
   end
 
   private

@@ -2,12 +2,16 @@
 
 <div class="row">
   <div class="col-lg-4">
-    <%= show @page, :calculated_path, type: :string %>
+    <%= show @page, :path, type: :string %>
+    <%= show @page, :parent, type: :string, value: link_to(@page.parent, [:admin, @page.parent]) if @page.parent %>
+    <%= show @page, :children, type: :list, value: @page.children.ordered_by_position if @page.children.any? %>
   </div>
   <div class="col-lg-8">
     <%= show @page, :description %>
   </div>
 </div>
+
+<%= link_to 'Ajouter un bloc', new_admin_page_block_path(@page), class: button_classes %>
 
 <% content_for :buttons do %>
   <%= destroy_link @page unless @page.internal_identifier.present? %>

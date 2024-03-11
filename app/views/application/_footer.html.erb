@@ -1,60 +1,75 @@
 <footer>
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-4 col-lg-6">
+    <nav class="row">
+      <div class="col-lg-4">
         <%= link_to root_path, class: "footer-brand" do %>
           <%= image_tag 'logo.svg', alt: t('website') %>
         <% end %>
-        <ul class="footer-social mt-1">
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#" title="Linkedin - Lien externe" target="_blank">Linkedin</a></li>
-          <li><a href="#" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
-        </ul>
       </div>
-      <div class="col-12 col-md-8 col-lg-6">
-        <nav>
-          <ul>
-            <li><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
-            <li class="mt-2 pt-md-1"><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil) %></li>
-            <li class="mt-2 pt-md-1"><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil) %></li>
-            <li class="mt-2 pt-md-1"><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil) %></li>
-            <li class="mt-2 pt-md-1"><%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil) %></li>
-          </ul>
-          <ul>
-            <li><strong>Boîte à outils</strong></li>
-            <li class="mt-2">Travaux du lab</li>
-            <li class="mt-2">Guides</li>
-            <li class="mt-2">Calculateurs</li>
-            <li class="mt-2">Outils pratiques</li>
-            <li class="mt-2">Chartes & manifestes</li>
-            <li class="mt-2">Matériauthèques</li>
-            <li class="mt-2">Recherches & conférences</li>
-            <li class="mt-2">Centres de ressources & annuaires</li>
-          </ul>
-          <ul>
-            <li><strong>Le Lab</strong></li>
-            <li class="mt-2">L’association</li>
-            <li class="mt-2">Les membres</li>
-            <li class="mt-2">Nous rejoindre</li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+      <ul class="col-lg-2 mt-4 mt-lg-0">
+        <li><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
+        <li class="mt-2 pt-md-1"><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil) %></li>
+        <li class="mt-2 pt-md-1"><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil) %></li>
+        <li class="mt-2 pt-md-1"><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil) %></li>
+        <li class="mt-2 pt-md-1"><%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil) %></li>
+      </ul>
+      <ul class="col-lg-2 mt-4 mt-lg-0">
+        <li>
+          <% page_tools = Page.find_by(internal_identifier: 'boite-a-outils') %>
+          <%= link_to page_tools, page_path(page_tools), class: "fw-bold" %>
+        </li>
+        <% page_tools.children.ordered_by_position.each do |child| %>
+          <li class="mt-2">
+            <%= link_to child, child_page_path(page_tools, child) %>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="col-lg-2 mt-4 mt-lg-0">
+        <li>
+          <% page_lab = Page.find_by(internal_identifier: 'le-lab') %>
+          <%= link_to page_lab, page_path(page_lab), class: "fw-bold" %>
+        </li>
+        <li class="mt-2">
+          <% page_asso = Page.find_by(internal_identifier: 'l-association') %>
+          <%= link_to page_asso, child_page_path(page_lab, page_asso) %>
+        </li>
+        <li class="mt-2">
+          <%= link_to t('footer.members'), '#TODO' %>
+        </li>
+        <li class="mt-2">
+          <%= link_to t('footer.rejoin'), '#TODO' %>
+        </li>
+      </ul>
+      <ul class="col-lg-2 mt-4 mt-lg-0">
+        <li>
+          <% page_legal = Page.find_by(internal_identifier: 'mentions-legales') %>
+          <%= link_to page_legal, page_path(page_legal), class: "fw-bold" %>
+          </li>
+        <li>
+          <% page_contact = Page.find_by(internal_identifier: 'contact') %>
+          <%= link_to page_contact, page_path(page_contact) %>
+        </li>
+        <li><a href="#" title="Linkedin - Lien externe" target="_blank">Linkedin</a></li>
+        <li><a href="#" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
+      </ul>
+    </nav>
     <div class="row mt-5">
-      <div class="col-12 col-md-4 col-md-6">
-        <span class="small">Réalisation</span>
+        <span class="small pb-2 pb-lg-0"><%= t('footer.implementation.title') %></span>
         <ul class="footer-credits small">
-          <li><a href="https://villettemakerz.com" target="_blank" rel="noreferrer">Villette Makerz</a> Assistance à maîtrise d’ouvrage</li>
-          <li><a href="https://www.dazd.fr" target="_blank" rel="noreferrer">studio dazd</a> Design graphique</li>
-          <li><a href="https://ctrls.studio" target="_blank" rel="noreferrer">Ctrl S</a> Écoconception</li>
-          <li><a href="https://www.noesya.coop" target="_blank" rel="noreferrer">noesya</a> Développement</li>
-          <li><%= image_tag('logos/logo-augureslab.svg', alt: 'Augures Lab', width: '171', height: '40') %></li>
+          <li class="row"><a class="col-lg-2" href="https://villettemakerz.com" target="_blank" rel="noreferrer">Villette Makerz</a> <span class="col"><%= t('footer.implementation.project_management') %></span></li>
+          <li class="row"><a class="col-lg-2" href="https://www.dazd.fr" target="_blank" rel="noreferrer">studio dazd</a> <span class="col"><%= t('footer.implementation.design') %></span></li>
+          <li class="row"><a class="col-lg-2" href="https://ctrls.studio" target="_blank" rel="noreferrer">Ctrl S</a> <span class="col"><%= t('footer.implementation.ecoconception') %></span></li>
+          <li class="row"><a class="col-lg-2" href="https://www.noesya.coop" target="_blank" rel="noreferrer">noesya</a> <span class="col"><%= t('footer.implementation.development') %></span></li>
         </ul>
+    </div>
+    <div class="row mt-3 align-items-end">
+      <div class="col-12 col-md-4 col-md-6 d-flex align-items-center">
+        <%= image_tag('logos/logo-augures.svg', alt: 'Augures Lab', width: '80', height: '80', class: 'me-3') %>
+        <%= image_tag('logos/logo-augureslab.svg', alt: 'Augures Lab', width: '171', height: '40') %>
       </div>
       <div class="col-12 col-md-8 col-lg-6">
-        <span class="small">Soutenu par</span>
-        <ul class="footer-supports">
+        <span class="small"><%= t('footer.implementation.sponsored') %></span>
+        <ul class="footer-supports justify-content-lg-between">
           <li><%= image_tag('logos/logo-france2030.svg', alt: 'France 2030', width: '80', height: '80') %></li>
           <li><%= image_tag('logos/logo-bdt.svg', alt: 'Banque des territoires', width: '80', height: '80') %></li>
           <li><%= image_tag('logos/logo-parisville.svg', alt: 'Ville de Paris', width: '80', height: '80') %></li>

@@ -3,11 +3,13 @@
 # Table name: pages
 #
 #  id                  :uuid             not null, primary key
+#  body_class          :string           default("")
 #  description         :text
 #  internal_identifier :string
 #  name                :string           not null
 #  path                :string           not null
 #  position            :integer
+#  slug                :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  parent_id           :uuid             indexed
@@ -21,18 +23,31 @@
 #  fk_rails_409bbac70a  (parent_id => pages.id)
 #
 class Page < ApplicationRecord
-  belongs_to :parent, class_name: 'Page', optional: true
 
-  validates :name, :path, presence: true
-  validates :path, uniqueness: { scope: :parent_id }
+  include WithTree
+
+  has_many :blocks
+  belongs_to :parent, class_name: 'Page', optional: true
+  has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
+
+  validates :name, :slug, presence: true
+  validates :slug, uniqueness: true
+
+  before_validation :set_body_class, :set_path
+  after_save :update_children_paths, if: :saved_change_to_path?
 
   scope :ordered, -> { order(:name) }
-  scope :ordered_by_position, -> { order(:position) }
+  scope :ordered_by_position, -> { order(:position, :name) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
     where("unaccent(pages.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
+
+  def generated_path
+    ancestors.any? ? "#{ancestors.pluck(:slug).join('/')}/#{slug}"
+                   : slug
+  end
 
   def to_s
     "#{name}"
@@ -42,8 +57,23 @@ class Page < ApplicationRecord
     path
   end
 
-  def calculated_path
-    parent.present? ? "#{parent.calculated_path}/#{path}" : "/#{path}"
+  private
+
+  def set_body_class
+    self.body_class = 'toolbox-index' if internal_identifier == 'boite-a-outils'
+    self.body_class = 'laboratory-index' if internal_identifier == 'le-lab'
+    self.body_class = 'toolbox-child' if ancestors.pluck(:internal_identifier).include?('boite-a-outils')
+    self.body_class = 'laboratory-child' if ancestors.pluck(:internal_identifier).include?('le-lab')
   end
+
+  def set_path
+    self.path = generated_path
+  end
+
+  def update_children_paths
+    descendants.each do |child|
+      child.update_column :path, child.generated_path
+    end
+    end
 
 end

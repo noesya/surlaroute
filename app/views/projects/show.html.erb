@@ -46,34 +46,30 @@
         <div class="row">
           <div class="brezet-wheel col-lg-12">
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-5 col-xxl-4">
                 <h2><%= t('projects.brezet_wheel.title') %></h2>
               </div>
             </div>
-            <div class="col-lg-6 mt-4">
+            <div class="col-xl-6 mt-4">
               <%= render 'projects/brezet_wheel/figure' %>
             </div>
           </div>
-          <div class="col-lg-6 brezet-details offset-lg-6 mt-5 mt-md-8 position-relative">
-          <div class="mt-7">
+          <div class="col-xl-6 brezet-details offset-lg-6 mt-5 mt-md-8 position-relative">
+          <div class="mt-6">
             <%= render 'projects/brezet_wheel/static_texts' %>
             <%= render 'projects/brezet_wheel/step', step: 0 %>
             <%= render 'projects/brezet_wheel/step', step: 1 %>
             <% if @project.materials.any? %>
-              <section class="bg-white pt-5">
-                <div class="container">
-                  <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
+              <section class="project-materials pt-3 pt-lg-5">
+                  <h2 class="mb-2"><%= t('ui.project.materials', count: @project.materials.count) %></h2>
                   <%= render 'materials/list', objects: @project.materials %>
-                </div>
               </section>
             <% end %>
             <%= render 'projects/brezet_wheel/step', step: 2 %>
             <% if @project.technics.any? %>
-              <section class="bg-white pt-5">
-                <div class="container">
-                  <h2><%= t('ui.project.technics', count: @project.technics.count) %></h2>
-                  <%= render 'technics/list', objects: @project.technics %>
-                </div>
+              <section class="project-technics pt-3 pt-lg-5">
+                <h2 class="mb-2"><%= t('ui.project.technics', count: @project.technics.count) %></h2>
+                <%= render 'technics/list', objects: @project.technics %>
               </section>
             <% end %>
             <%= render 'projects/brezet_wheel/step', step: 3 %>
