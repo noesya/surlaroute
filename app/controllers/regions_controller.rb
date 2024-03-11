@@ -7,7 +7,7 @@ class RegionsController < ApplicationController
   end
 
   def show
-    @region = Region.find_by!(slug: params[:id])
+    @region = Region.find_by!(slug: params[:region_slug])
     @materials = @region.materials.limit(4)
     @projects = @region.projects.limit(4)
     @actors = @region.actors.limit(4)
