@@ -28,4 +28,8 @@ class Page::Block < ApplicationRecord
     text: 1,
     quote: 2
   }, _prefix: :kind
+
+  def to_s
+    "#{name}"
+  end
 end

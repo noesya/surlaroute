@@ -55,6 +55,9 @@ fr:
         parent: Page parente
         path: Chemin
         slug: Chemin
+      page/block:
+        name: Nom
+        kind: Type de bloc
       project:
         actors: Acteurices
         description: Description
@@ -183,6 +186,7 @@ fr:
       button: Référencer une technique
   admin:
     dashboard: Tableau de bord
+    file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
       buttons:
         close: Fermer
@@ -257,6 +261,11 @@ fr:
   ecosystem: Écosystème
   edit: Modifier
   enums:
+    page:
+      block:
+        kind:
+          text: Texte
+          quote: Citation
     structure:
       item:
         kind:
