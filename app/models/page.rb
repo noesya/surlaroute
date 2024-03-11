@@ -3,6 +3,7 @@
 # Table name: pages
 #
 #  id                  :uuid             not null, primary key
+#  body_class          :string           default("")
 #  description         :text
 #  internal_identifier :string
 #  name                :string
@@ -22,8 +23,14 @@
 #  fk_rails_409bbac70a  (parent_id => pages.id)
 #
 class Page < ApplicationRecord
+
+  include WithTree
+
   has_many :blocks
   belongs_to :parent, class_name: 'Page', optional: true
+  has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
+
+  before_validation :set_body_class
   
   scope :ordered, -> { order(:name) }
   scope :ordered_by_position, -> { order(:position) }
@@ -47,6 +54,15 @@ class Page < ApplicationRecord
 
   def calculated_path
     parent.present? ? "#{parent.path}/#{path}" : path
+  end
+
+  private
+
+  def set_body_class
+    self.body_class = 'toolbox-index' if internal_identifier == 'boite-a-outils'
+    self.body_class = 'laboratory-index' if internal_identifier == 'le-lab'
+    self.body_class = 'toolbox-child' if ancestors.pluck(:internal_identifier).include?('boite-a-outils')
+    self.body_class = 'laboratory-child' if ancestors.pluck(:internal_identifier).include?('le-lab')
   end
 
 end

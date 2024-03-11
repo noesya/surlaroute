@@ -50,6 +50,7 @@ fr:
         slug: Identifiant
       page:
         calculated_path: Chemin
+        children: Pages enfants
         description: Description
         name: Nom
         parent: Page parente
