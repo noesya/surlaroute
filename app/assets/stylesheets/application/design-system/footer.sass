@@ -38,20 +38,14 @@ footer
         li
             + li 
                 margin-top: calc(#{map-get($spacers, 1)} / 2)
-            &:last-of-type
-                margin-top: map-get($spacers, 3)
     .footer-supports
         display: flex
         gap: map-get($spacers, 3)
-        justify-content: space-between
         flex-wrap: wrap
     @include media-breakpoint-up(md)
         .container
             > .row + .row
                 align-items: flex-end
-        nav
-            display: flex
-            gap: map-get($spacers, 5)
         span.small
             display: block
             margin-bottom: map-get($spacers, 1)
