@@ -1,4 +1,4 @@
-<%= simple_form_for comment do |f| %>
+<%= simple_form_for comment, html: { id: nil } do |f| %>
   <%= f.input :about_id, as: :hidden %>
   <%= f.input :about_type, as: :hidden %>
   <%= f.input :reply_to_id, as: :hidden if comment.reply_to %>
