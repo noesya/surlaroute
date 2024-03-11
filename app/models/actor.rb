@@ -36,6 +36,7 @@
 #  fk_rails_666a0f2abc  (published_by_id => users.id)
 #
 class Actor < ApplicationRecord
+  include Commentable
   include Favoritable
   include Publishable
   include Regional
@@ -52,11 +53,26 @@ class Actor < ApplicationRecord
   validates_presence_of :name
 
   scope :ordered, -> { order(:name) }
+  scope :premium, -> { where(premium: true) }
+  scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
+
+  def full_address
+    @full_address ||= [address, address_additional, city, zipcode, country].compact_blank.join(', ')
+  end
+
+  def has_any_contact_informations?
+    # match with_contact_informations scope
+    contact_name.present? || 
+      contact_email.present? || 
+      contact_phone.present? || 
+      contact_website.present? ||
+      contact_inventory_url.present? 
+  end
 
   def to_s
     "#{name}"

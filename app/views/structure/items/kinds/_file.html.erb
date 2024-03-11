@@ -1,15 +1,10 @@
 <% file = item.file_for(about) %>
 <% if file.present? && file.file.attached? %>
   <div class="position-relative">
-    <span class="filename">
-      <%= link_to file.file.filename,
-                  file.file,
-                  class: 'stretched-link',
-                  target: :_blank %>
-    </span>
-    <span class="filesize">
-      <%= number_to_human_size file.file.blob.byte_size %>
-    </span>
+    <%= link_to "#{file.file.filename} (#{number_to_human_size file.file.blob.byte_size})",
+              file.file,
+              class: 'filename',
+              target: :_blank %>
   </div>
 <% else %>
   <p class="text-muted"><%= t('admin.structure.not_set') %></p>

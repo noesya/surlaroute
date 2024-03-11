@@ -1,0 +1,45 @@
+<div class="container py-5">
+  <h2>Commentaires</h2>
+  <div class="row">
+    <div class="col-md-9 col-lg-6">
+      <%= render 'comments/form', comment: @new_comment if @new_comment.present? %>
+    </div>
+  </div>
+  <% about.comments.ordered.each do |comment| %>
+    <div class="row mt-5">
+      <%= render 'comments/comment', comment: comment %>
+    </div>
+    <% if comment.replies.any? %>
+      <div class="row">
+        <div class="col-lg-9 col-xl-10 offset-lg-3 offset-xl-2">
+          Réponses 
+          <% comment.replies.each do |reply| %>
+            <%= render 'comments/comment', comment: reply %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if current_user %>
+      <div class="row">
+        <div class="col-lg-7 offset-lg-3 offset-xl-2">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnwserForm" aria-expanded="false" aria-controls="collapseAnwserForm">
+                  Répondre à ce commentaire
+                </button>
+              </h2>
+              <div id="collapseAnwserForm" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <%= render 'comments/form', comment: comment.new_reply %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <hr class="opacity-25">
+  <% end %>
+</div>
+

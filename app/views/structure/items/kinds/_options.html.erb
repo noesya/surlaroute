@@ -3,11 +3,13 @@ options = item.options_for(about)
 text = item.text_for(about)
 %>
 <% if options.any? %>
-  <% options.each do |option| %>
-    <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>">
-      <%= option %>
-    </a>
-  <% end %>
+  <div class="d-flex align-items-start flex-wrap gap-2">
+    <% options.each do |option| %>
+      <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>">
+        <%= option %>
+      </a>
+    <% end %>
+  </div>
 <% else %>
   <span class="<%= tag_classes_disabled %>"><%= t('admin.structure.not_set') %></span>
 <% end %>

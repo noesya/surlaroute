@@ -1,5 +1,5 @@
 <%= content_for :title, t('ecosystem') %>
-<header class="hero">
+<header class="hero pb-5">
   <div class="container">
     <div class="row mt-md-4">
       <div class="col-lg-5">
@@ -13,36 +13,42 @@
         </dl>
         <%= link_to 'Voir le glossaire', options_actors_path, class: 'small arrow-right' %>
         </p>
-        <%= image_tag('menu/menu-ecosystem.svg', alt: '', width: '1061', class: 'menu-typo', height: '685', "aria-hidden" => "true") %>
       </div>
     </div>
   </div>  
 </header>
 
-<div class="document-content bg-light py-5">
-  <div class="container">
+<div class="document-content bg-white py-5">
+  <div class="container directory">
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col d-flex gap-2">
+        <button class="toc-btn d-flex align-items-center gap-1"><span>Fermer les filtres</span></button>
+        <button class="d-flex align-items-center gap-1">Trier par</button>
+      </div>
+    </div>
+    <div class="row align-items-start position-relative mt-4">
+      <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
         <%= render 'faceted_search/facets', facets: @facets %>
       </div>
-      <div class="col-lg-9">
+      <div class="directory-container col-lg-9">
         <%= render 'actors/list', objects: @actors %>
         <%= paginate @actors, theme: "bootstrap-5" %>
       </div>
     </div>
   </div>
-</div>
 
-<div class="call-to-action">
-  <div class="container py-5">
-    <div class="row align-items-center text-center text-md-start">
-      <div class="col-lg-6">
-        <h3 class="cta-title">Vous avez une bonne adresse à partager ?</h3>
-        <p class="mt-4 d-none d-md-block">L’écothèque référence des acteur·rices de l’économie circulaire: métiers de la conception, du réemploi, de la fabrication,  de la mutualisation, du transport… L’objectif :  identifier et faire émerger des écosystèmes territoriaux, pour favoriser les collaborations à tous les niveaux de la chaîne de la scénographie et réduire les impacts environnementaux.</p>
-      </div>
-      <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
-        <a href="#" class="btn btn-dark">Référencer un·e acteur·rice</a>
+  <div class="call-to-action bg-actors mt-5">
+    <div class="container py-5">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-lg-6">
+          <h3 class="cta-title">Vous avez une bonne adresse à partager ?</h3>
+          <p class="mt-4 d-none d-md-block">L’écothèque référence des acteur·rices de l’économie circulaire: métiers de la conception, du réemploi, de la fabrication,  de la mutualisation, du transport… L’objectif :  identifier et faire émerger des écosystèmes territoriaux, pour favoriser les collaborations à tous les niveaux de la chaîne de la scénographie et réduire les impacts environnementaux.</p>
+        </div>
+        <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
+          <a href="#" class="btn btn-dark">Référencer un·e acteur·rice</a>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

@@ -6,18 +6,19 @@
         <div class="position-absolute pt-3 ps-3">
           <%= render 'favorites/button', about: @project %>
         </div>
-        <%= kamifusen_tag @project.image,
-                          class: 'img-fluid rounded square',
-                          alt: @project.image_alt if @project.image.attached? %>
+        <%= render 'illustration', source: @project %>
       </div>
       <div class="col-lg-6">
         <div class="border-bottom pb-4 mb-4">
           <h1><%= @project %></h1>
-          <p class="mb-4"><%= sanitize @project.description %></p>
-          <%= render 'application/meta', about: @project %>
+          <% if @project.description.present? %>
+            <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
+            <p class="mb-4"><%= sanitize @project.description %></p>
+          <% end %>
+          <%= render 'meta', about: @project %>
         </div>
         <%= render 'structure/items/zones/header', about: @project %>
-        <%= render 'application/regions', about: @project %>
+        <%= render 'regions', about: @project %>
       </div>
     </div>
   </div>
@@ -27,17 +28,8 @@
 
   <%= render 'structure/items/zones/page', about: @project %>
 
-  <% if @project.materials.any? %>
-    <section class="bg-white py-5">
-      <div class="container">
-        <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
-        <%= render 'materials/list', objects: @project.materials %>
-      </div>
-    </section>
-  <% end %>
-
   <% if @project.actors.any? %>
-    <section class="bg-white py-5">
+    <section class="actors bg-white py-5">
       <div class="container">
         <h2><%= t('ui.project.actors', count: @project.actors.count) %></h2>
         <%= render 'actors/list', objects: @project.actors %>
@@ -48,5 +40,55 @@
     </section>
   <% end %>
 
-  <%= render 'projects/show/brezet_wheel', project: @project if @project.has_brezet_wheel? %>
+  <% if @project.has_brezet_wheel? %>
+    <section class="bg-light py-5 brezet-wheel-container">
+      <div class="container">
+        <div class="row">
+          <div class="brezet-wheel col-lg-12">
+            <div class="row">
+              <div class="col-lg-4">
+                <h2><%= t('projects.brezet_wheel.title') %></h2>
+              </div>
+            </div>
+            <div class="col-lg-6 mt-4">
+              <%= render 'projects/brezet_wheel/figure' %>
+            </div>
+          </div>
+          <div class="col-lg-6 brezet-details offset-lg-6 mt-5 mt-md-8 position-relative">
+          <div class="mt-7">
+            <%= render 'projects/brezet_wheel/static_texts' %>
+            <%= render 'projects/brezet_wheel/step', step: 0 %>
+            <%= render 'projects/brezet_wheel/step', step: 1 %>
+            <% if @project.materials.any? %>
+              <section class="bg-white pt-5">
+                <div class="container">
+                  <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
+                  <%= render 'materials/list', objects: @project.materials %>
+                </div>
+              </section>
+            <% end %>
+            <%= render 'projects/brezet_wheel/step', step: 2 %>
+            <% if @project.technics.any? %>
+              <section class="bg-white pt-5">
+                <div class="container">
+                  <h2><%= t('ui.project.technics', count: @project.technics.count) %></h2>
+                  <%= render 'technics/list', objects: @project.technics %>
+                </div>
+              </section>
+            <% end %>
+            <%= render 'projects/brezet_wheel/step', step: 3 %>
+            <%= render 'projects/brezet_wheel/step', step: 4 %>
+            <%= render 'projects/brezet_wheel/step', step: 5 %>
+            <%= render 'projects/brezet_wheel/step', step: 6 %>
+            <%= render 'projects/brezet_wheel/step', step: 7 %>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <%= render 'structure/items/zones/lower_page', about: @project %>
+
+  <%= render 'comments/list', about: @project %>
+
 </main>

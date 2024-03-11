@@ -12,6 +12,8 @@ h2
     line-height: $h2-line-height
     @include media-breakpoint-up(md)
         font-size: $h2-font-size
+    .devise &
+        font-family: $font-family-headings
 h1,
 h2,
 h3
@@ -23,11 +25,10 @@ body
     color: $color-text
 
 article
-    margin-top: 40px
     h2
-        font-size: 20px
-        margin-top: 20px
-
+        font-size: pxToRem(20)
+        line-height: pxToRem(27)
+        margin-top: map-get($spacers, 2)
 
 blockquote
     > p
@@ -66,6 +67,12 @@ blockquote
         &::after
             font-size: pxToRem(12)
             margin-left: map-get($spacers, 1)
+
+.large-title
+    @extend h1
+    @include media-breakpoint-up(md)
+        font-size: pxToRem(120)
+        line-height: pxToRem(108)
 
 %hero
     font-size: $hero-font-size

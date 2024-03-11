@@ -1,13 +1,12 @@
-<div class="row">
+<div class="row projects-list">
   <% objects.each do |project| %>
     <div class="col-lg-4 mb-4">
       <article class="position-relative">
-        <%= kamifusen_tag project.image,
-                          width: 400,
-                          class: 'img-fluid rounded square',
-                          alt: project.image_alt if project.image.attached? %>
+        <%= render 'illustration', source: project, width: 400 %>
         <h2><%= link_to project, project, class: 'stretched-link' %></h2>
-        <%= render 'structure/items/in_list', about: project %>
+        <div class="tags d-flex align-items-start flex-wrap">
+          <%= render 'structure/items/in_list', about: project %>
+        </div>
       </article>
     </div>
   <% end %>

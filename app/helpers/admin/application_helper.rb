@@ -12,7 +12,7 @@ module Admin::ApplicationHelper
   end
 
   def button_classes(additional = '', **options)
-    classes = "btn btn-primary btn-sm #{additional}"
+    classes = "btn btn-dark btn-sm #{additional}"
     classes += ' disabled' if options[:disabled]
     classes
   end
@@ -24,7 +24,7 @@ module Admin::ApplicationHelper
   end
 
   def button_classes_minor(**options)
-    classes = 'btn btn-outline-primary btn-sm'
+    classes = 'btn btn-outline-dark btn-sm'
     classes += ' disabled' if options[:disabled]
     classes
   end

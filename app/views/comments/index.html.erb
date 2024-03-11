@@ -1,0 +1,15 @@
+<%= content_for :title, t('account.comments.title') %>
+
+<div class="container py-5">
+  <h1 class="mb-5 pb-5"><%= t('account.comments.title') %></h1>
+  <% if @comments.none? %>
+    <p><%= t('account.comments.none') %></p>
+  <% else %>
+    <% @comments.each do |comment| %>
+      <div class="row mt-5">
+        <h2 class="h3 mb-4">À propos de “<%= link_to comment.about, comment.about, class: 'text-decoration-underline' %>”</h2>
+        <%= render 'comments/comment', comment: comment %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

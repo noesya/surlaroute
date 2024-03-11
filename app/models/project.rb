@@ -118,6 +118,8 @@ class Project < ApplicationRecord
       :step7_disassembly_five_stream_sorting
     ]
   ]
+
+  include Commentable
   include Favoritable
   include Publishable
   include Regional

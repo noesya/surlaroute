@@ -1,7 +1,12 @@
+
 .brezet-wheel-container
+    figure
+        figcaption
+            margin-bottom: -(map-get($spacers,6))
     .brezet-wheel-image
         max-width: 100%
     .brezet-steps
+        height: 100%
         aspect-ratio: 1
         > div 
             position: absolute
@@ -11,48 +16,53 @@
                 border-width: 2px
                 height: 36px
                 width: 36px
-            a.active
-                background: $color-bg
-                color: $color-text
+                &.is-disabled
+                    background: $gray-600
+                    border-color: $gray-600
+                    pointer-events: none
+                &.active
+                    background: $color-bg
+                    color: $color-text
             span
-                font-size: pxToRem(25)
                 transition: opacity 0.3 ease
+                @include media-breakpoint-up(xxl)
+                    font-size: pxToRem(22)
             &.step-0
-                left: 48%
-                top: -13%
+                left: 46%
+                top: -17%
             &.step-1
-                left: 82%
-                top: 2px
+                left: 76%
+                top: -1%
                 span
                     width: 35%
             &.step-2
-                left: 91%
+                left: 86%
                 top: 20%
                 span
                     width: 50%
             &.step-3
-                left: 96%
+                left: 89%
                 top: 53%
                 span
                     width: 50%
             &.step-4
-                left: 70%
-                top: 92%
+                left: 67%
+                top: 90%
                 span
                     width: 55%
             &.step-5
                 top: 92%
-                right: 69%
+                right: 65%
                 gap: map-get($spacers, 2)
                 span 
                     width: 45%
             &.step-6
-                right: 96%
+                right: 89%
                 top: 55%
                 span
                     width: 50%
             &.step-7
-                right: 87%
+                right: 82%
                 top: 15%
                 span
                     width: 50%
@@ -66,13 +76,14 @@
             top: 20px
             figure
                 max-width: 740px
-                height: 740px
+                max-height: 740px
+                height: 60vh
                 figcaption
                     white-space: nowrap
         .brezet-steps,
         .brezet-wheel-image
-            left: 50%
+            left: 57%
             position: absolute
             min-width: 550px
             top: 0
-
+            height: 100%

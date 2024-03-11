@@ -1,0 +1,24 @@
+<%
+fields = Project.fields_for_step(step)
+step_values = fields.map { |attribute_name| @project.public_send("#{attribute_name}") }
+step_has_values = step_values.any?(&:present?)
+%>
+<% if step_has_values %>
+  <h3 id="step-<%= step %>" class="h2 mt-7">
+    <%= t("projects.brezet_wheel.step#{step}") %>
+  </h3>
+  <% fields.each_with_index do |attribute_name, index| %>
+    <% 
+    value = step_values[index]
+    text = @project.public_send("#{attribute_name}_text")
+    %>
+    <% if value %>
+      <div class="mt-4">
+        <h4 class="label with-check"><%= Project.human_attribute_name(attribute_name) %></h4>
+        <p class="mt-2">
+          <%= sanitize text %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

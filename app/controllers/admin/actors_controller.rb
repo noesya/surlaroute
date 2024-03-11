@@ -22,6 +22,7 @@ class Admin::ActorsController < Admin::ApplicationController
   end
 
   def create
+    @actor.published_by = current_user if cannot?(:publish, @actor)
     if @actor.save
       redirect_to [:admin, @actor], notice: t('admin.successfully_created_html', model: @actor.to_s)
     else

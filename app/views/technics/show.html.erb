@@ -1,22 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6">
-      <%= kamifusen_tag @technic.image,
-                        class: 'img-fluid rounded square',
-                        alt: @technic.image_alt if @technic.image.attached? %>
-    </div>
-    <div class="col-lg-6">
-      <h1><%= @technic %></h1>
-      <p class="fw-bold"><%= sanitize @technic.description %></p>
-      <%= render 'application/meta', about: @technic %>
-      <hr class="my-5">
-      <%= render 'structure/items/zones/header', about: @technic %>
+<header class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= render 'illustration', source: @technic %>
+      </div>
+      <div class="col-lg-6">
+        <h1><%= @technic %></h1>
+        <% if @technic.description.present? %>
+          <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
+          <p class="fw-bold"><%= sanitize @technic.description %></p>
+        <% end %>
+        <%= render 'meta', about: @technic %>
+        <hr class="my-5">
+        <%= render 'structure/items/zones/header', about: @technic %>
+      </div>
     </div>
   </div>
-</div>
+</header>
 
 <% if user_is_subscribed? %>
+  
   <%= render 'structure/items/zones/page', about: @technic %>
+
+  <% if @technic.actors.any? %>
+    <section class="bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.technic.actors', count: @technic.actors.count) %></h2>
+        <%= render 'actors/list', objects: @technic.actors %>
+      </div>
+    </section>
+  <% end %>
 
   <% if @technic.projects.any? %>
     <section class="bg-white py-5">
@@ -26,6 +39,11 @@
       </div>
     </section>
   <% end %>
+
+  <%= render 'comments/list', about: @technic %>
+
 <% else %>
+
   <%= render 'paywall' %>
+
 <% end %>

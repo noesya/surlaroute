@@ -231,14 +231,20 @@ fr:
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
   false: Non
-  favorites:
-    add: Suivre
-    none: Vous ne suivez pas encore de fiche.
-    remove: Ne plus suivre
-    title: Mes fiches suivies
+  account:
+    comments:
+      title: Mes commentaires
+      none: Aucun commentaire pour l'instant.
+    favorites:
+      add: Suivre
+      none: Vous ne suivez pas encore de fiche.
+      remove: Ne plus suivre
+      title: Mes fiches suivies
+    title: Mon compte
+    subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
   login:
-    already_registered: Déjà inscrit ?
-    not_registered_yet: Pas encore inscrit ?
+    already_registered: Déjà inscrit·e ?
+    not_registered_yet: Pas encore inscrit·e ?
     not_registered_yet_details: Inscrivez-vous si vous n'avez pas encore de compte.
     or: ou bien
     sign_in_with_credentials: Se connecter avec ses identifiants
@@ -248,6 +254,9 @@ fr:
     yours: Cordialement.
   menu:
     my_account: Mon compte
+  comments:
+    title: Titre
+    text: Contenu du commentaire
   please_confirm: Merci de confirmer
   projects:
     brezet_wheel:
@@ -267,6 +276,9 @@ fr:
     error_notification:
       default_message: Veuillez renseigner correctement l’ensemble des champs
     hints:
+      actor: 
+        contact_inventory_url: Doit commencer par https://
+        contact_website: Doit commencer par https://
       structure_item:
         color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
@@ -280,25 +292,42 @@ fr:
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
   true: Oui
   ui:
+    global: 
+      hero: Le mot du comité écothèque
     actor:
+      address: Adresse
+      contact: Contact
+      informations: Informations pratiques
       materials:
-        one: Matériau fabriqué
-        other: Matériaux fabriqués
+        one: Matériau proposé par cet·te acteur·ice
+        other: Matériaux proposés par cet·te acteur·ice
+      owner: Vous êtes le.la propriétaire de cette structure ?
       projects:
-        one: Projet
-        other: Projets
+        one: Projet relié à cet·te acteur·ice
+        other: Projets reliés à cet·te acteur·ice
+      technics:
+        one: Technique proposée par cet·te acteur·ice
+        other: Techniques proposées par cet·te acteur·ice
     material:
+      actors: Fabriqué par
+      contact: Contact fournisseur
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
     project:
-      materials:
-        one: Matériau utilisé
-        other: Matériaux utilisés
       actors:
         one: Acteur·rice du projet
         other: Acteur·rices du projet
+      materials:
+        one: Matériau utilisé
+        other: Matériaux utilisés
+      technics:
+        one: Technique utilisée
+        other: Techniques utilisées
     technic:
+      actors:
+        one: Contact
+        other: Contacts
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent

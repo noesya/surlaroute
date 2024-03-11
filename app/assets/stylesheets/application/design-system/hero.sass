@@ -1,4 +1,6 @@
 .hero
+    position: relative
+    overflow: hidden
     z-index: 1
     .locations-list
         a.btn
@@ -12,62 +14,35 @@
 .projects-index,
 .technics-index
     .hero
-        height: 78vh
-        overflow: hidden
+        background:
+            repeat: no-repeat
+            size: 100%
+            position: right bottom
         hgroup 
             p
                 font-weight: 600
         dl
             dd
                 font-weight: 400
-        img
-            bottom: 0
-            pointer-events: none
-            position: absolute
-            right: 0
-            z-index: -1
         @include media-breakpoint-up(md)
             dl
                 dd
                     font-size: pxToRem(20)
-        @include media-breakpoint-down(lg)
-            height: 80vh
-            img
-                width: 70%
-        @include media-breakpoint-down(md)
-            height: 76vh
-
 
 // colors and images
 .actors-index
     background-color: $ecosystem-primary
-    .hero img
-        transform: translate(24%, 21%)
-        @include media-breakpoint-down(lg)
-            transform: translate(21%, 32%)
-        @include media-breakpoint-down(md)
-            transform: translate(21%, 38%)
+    .hero
+        background-image: asset-url("letters/actors.svg")
 .materials-index
     background-color: $materials-primary
-    .hero img
-        transform: translate(20%, 29%)
-        @include media-breakpoint-down(lg)
-            transform: translate(19%, 35%)
-        @include media-breakpoint-down(md)
-            transform: translate(20%, 46%)
+    .hero
+        background-image: asset-url("letters/materials.svg")
 .projects-index
     background-color: $projects-primary
-    .hero img
-        transform: translate(11%, 44%)
-        @include media-breakpoint-down(lg)
-            transform: translate(11%, 46%)
-        @include media-breakpoint-down(md)
-            transform: translate(11%, 48%)
+    .hero
+        background-image: asset-url("letters/projects.svg")
 .technics-index
     background-color: $technic-primary
-    .hero img
-        transform: translate(12%, 27%)
-        @include media-breakpoint-down(lg)
-            transform: translate(13%, 35%)
-        @include media-breakpoint-down(md)
-            transform: translate(12%, 44%)
+    .hero
+        background-image: asset-url("letters/technics.svg")

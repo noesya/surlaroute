@@ -22,6 +22,7 @@ class Admin::MaterialsController < Admin::ApplicationController
   end
 
   def create
+    @material.published_by = current_user if cannot?(:publish, @material)
     if @material.save
       redirect_to [:admin, @material], notice: t('admin.successfully_created_html', model: @material.to_s)
     else

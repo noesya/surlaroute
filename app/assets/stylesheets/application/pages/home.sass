@@ -13,3 +13,49 @@
         &::after
             font-size: pxToRem(12)
             margin-left: calc(#{map-get($spacers, 1)} / 2)
+
+.home-navigation
+    background:
+        repeat: no-repeat
+        size: 100%
+        position: right bottom
+    &.actors
+        background-color: $ecosystem-primary
+        background-image: asset-url("letters/home-actors.svg")
+    &.materials
+        background-color: $materials-primary
+        background-image: asset-url("letters/home-materials.svg")
+    &.projects
+        background-color: $projects-primary
+        background-image: asset-url("letters/home-projects.svg")
+    &.technics
+        background-color: $technic-primary
+        background-image: asset-url("letters/home-technics.svg")
+    &.toolbox
+        background-color: $toolbox-primary
+        background-image: asset-url("letters/home-toolbox.svg")
+    &:not(.toolbox)
+        h2
+            @extend .large-title
+    &.toolbox
+        a
+            font-size: pxToRem(24)
+            &::after
+                font-size: pxToRem(18)
+                margin-left: map-get($spacers, 1)
+            &:hover::after
+                margin-left: map-get($spacers, 2)
+            @include media-breakpoint-up(md)
+                font-size: pxToRem(38)
+                &::after
+                    font-size: pxToRem(32)
+                &:hover::after
+                    margin-left: map-get($spacers, 3)
+    &__link
+        @include icon(arrow-right)
+        &::before
+            font-size: pxToRem(28)
+            margin-bottom: map-get($spacers, 1)
+            @include media-breakpoint-up(md)
+                font-size: pxToRem(48)
+                margin-bottom: map-get($spacers, 2)

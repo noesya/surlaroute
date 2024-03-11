@@ -1,0 +1,13 @@
+.toc
+    @include media-breakpoint-up(md)
+        position: sticky
+        top: map-get($spacers, 3)
+        &.is-hidden
+            transform: translateX(-100%)
+            opacity: 0
+            position: absolute 
+
+.toc-btn
+    @include icon(settings)
+    &::before
+        font-size: pxToRem(12)

@@ -116,7 +116,6 @@ class Structure::Item < ApplicationRecord
   end
 
   def should_display_for?(object)
-    # byebug if kind_file?
     # règles :
     # - si l'objet est un auteurice, que c'est un champ premium et que l'objet n'est pas premium, on masque
     return false if premium? && object.respond_to?(:premium) && !object.premium?
@@ -126,6 +125,16 @@ class Structure::Item < ApplicationRecord
     return true if has_options?
     # - si c'est un autre critère on affiche si rempli
     text_for(object).present? || file_for(object)&.file&.attached?
+  end
+
+  def should_display_in_admin_for?(object)
+    # règles :
+    # - si l'objet est un auteurice, que c'est un champ premium et que l'objet n'est pas premium, on masque
+    return false if premium? && object.respond_to?(:premium) && !object.premium?
+    # - si c'est un titre et qu'aucun des enfants ne doit être affiché
+    return false if kind_h2? && children.none? { |child| child.should_display_in_admin_for?(object) }
+    # - sinon
+    return true
   end
 
   def to_s

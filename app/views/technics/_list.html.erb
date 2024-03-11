@@ -1,13 +1,12 @@
-<div class="row">
+<div class="row technics-list">
   <% objects.each do |technic| %>
     <div class="col-lg-3 mb-4">
       <article class="position-relative">
-        <%= kamifusen_tag technic.image,
-                          width: 400,
-                          class: 'img-fluid rounded square',
-                          alt: technic.image_alt if technic.image.attached? %>
+        <%= render 'illustration', source: technic, width: 400 %>
         <h2><%= link_to technic, technic, class: 'stretched-link' %></h2>
-        <%= render 'structure/items/in_list', about: technic %>
+        <div class="tags d-flex align-items-start flex-wrap">
+          <%= render 'structure/items/in_list', about: technic %>
+        </div>
       </article>
     </div>
   <% end %>

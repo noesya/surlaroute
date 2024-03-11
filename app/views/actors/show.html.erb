@@ -1,38 +1,74 @@
 <%= content_for :title, @actor %>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6">
-      <%= kamifusen_tag @actor.image,
-                        class: 'img-fluid rounded square mb-5',
-                        alt: @actor.image_alt if @actor.image.attached? %>
-    </div>
-    <div class="col-lg-6">
-      <h1><%= @actor %></h1>
-      <p class="fw-bold"><%= sanitize @actor.description %></p>
-      <%= render 'application/meta', about: @actor %>
-      <hr class="my-5">
-      <%= render 'structure/items/zones/header', about: @actor %>
-      <%= render 'application/regions', about: @actor %>
+
+<header class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= render 'illustration', source: @actor %>
+      </div>
+      <div class="col-lg-6">
+        <h1><%= @actor %></h1>
+        <p class="fw-bold"><%= sanitize @actor.description %></p>
+        <%= render 'meta', about: @actor %>
+        <hr class="my-5">
+        <%= render 'structure/items/zones/header', about: @actor %>
+        <%= render 'regions', about: @actor %>
+        <% unless @actor.premium? %>
+          <%= link_to t('ui.actor.owner'), offers_path %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+</header>
 
 <%= render 'structure/items/zones/page', about: @actor %>
 
-<% if @actor.materials.any? %>
-  <section class="bg-white py-5">
+<% if @actor.full_address.present? || @actor.has_any_contact_informations? %>
+  <section class="py-5">
     <div class="container">
-      <h2><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
-      <%= render 'materials/list', objects: @actor.materials %>
+      <div class="row">
+        <div class="col-lg-6">
+          <h2><%= t('ui.actor.informations') %></h2>
+        </div>
+        <% if @actor.full_address.present? %>
+          <div class="col-lg-6 structure__item__string mb-5">
+            <%= render 'structure/items/label', label: t('ui.actor.address') %>
+            <p><%= @actor.full_address %></p>
+          </div>
+        <% end %>
+        <%= render 'actors/contact', actor: @actor if @actor.has_any_contact_informations? %>
+      </div>
     </div>
   </section>
 <% end %>
+
+<%= render 'structure/items/zones/lower_page', about: @actor %>
 
 <% if @actor.projects.any? %>
   <section class="bg-white py-5">
     <div class="container">
       <h2><%= t('ui.actor.projects', count: @actor.projects.count) %></h2>
-      <%= render 'projects/list', objects: @actor.projects %>
+      <%= render 'projects/list', objects: @actor.projects.ordered %>
     </div>
   </section>
 <% end %>
+
+<% if @actor.materials.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
+      <%= render 'materials/list', objects: @actor.materials.ordered %>
+    </div>
+  </section>
+<% end %>
+
+<% if @actor.technics.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2><%= t('ui.actor.technics', count: @actor.technics.count) %></h2>
+      <%= render 'technics/list', objects: @actor.technics.ordered %>
+    </div>
+  </section>
+<% end %>
+
+<%= render 'comments/list', about: @actor %>
