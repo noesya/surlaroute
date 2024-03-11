@@ -255,6 +255,16 @@ fr:
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
   false: Non
+  footer:
+    implementation:
+      design: Design graphique
+      development: Développement
+      ecoconception: Écoconception
+      title: Réalisation
+      project_management: Assistance à maîtrise d’ouvrage
+      sponsored: Soutenu par
+    members: Les membres
+    rejoin: Nous rejoindre
   login:
     already_registered: Déjà inscrit·e ?
     not_registered_yet: Pas encore inscrit·e ?
