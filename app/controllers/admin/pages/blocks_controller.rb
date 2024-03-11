@@ -8,7 +8,6 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
   #                             through: :page
 
   def new
-    byebug
     @block = @page.blocks.new
     breadcrumb
   end
