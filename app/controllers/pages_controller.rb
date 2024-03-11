@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def show
-    @page = Page.find_by!(path: params[:page_path])
+    @page = Page.find_by!(path: params[:path])
     @parent = Page.find_by!(path: params[:parent_page_path]) if params.has_key?(:parent_page_path)
     breadcrumb
     add_breadcrumb @parent, page_path(@parent) if @parent

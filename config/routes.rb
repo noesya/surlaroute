@@ -21,9 +21,6 @@ Rails.application.routes.draw do
 
   draw 'admin'
 
-  get ':page_path', to: 'pages#show', as: :page, constraints: lambda { |request| Page.where(path: request.params[:page_path]).exists? }
-  get ':parent_page_path/:page_path', to: 'pages#show', as: :child_page, constraints: lambda { |request| (parent = Page.find_by(path: request.params[:parent_page_path])) && Page.where(parent_id: parent.id).where(path: request.params[:page_path]).exists? }
-
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
       region_slug.blank? || Region.where(slug: region_slug).exists?
@@ -56,6 +53,9 @@ Rails.application.routes.draw do
   get 'regions' => 'regions#index', as: :regions
   resources :regions, path: "", only: :show
 
+  match '*path', via: :all, to: 'pages#show', constraints: lambda { |req|
+    Page.find_by(path: req.path[1..-1]).present?
+  }
 
   root to: 'home#index'
 end
