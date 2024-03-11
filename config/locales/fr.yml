@@ -49,12 +49,15 @@ fr:
         regions: Lieu(x) de production
         slug: Identifiant
       page:
-        calculated_path: Chemin
         children: Pages enfants
         description: Description
         name: Nom
         parent: Page parente
         path: Chemin
+        slug: Chemin
+      page/block:
+        name: Nom
+        kind: Type de bloc
       project:
         actors: Acteurices
         description: Description
@@ -183,6 +186,7 @@ fr:
       button: Référencer une technique
   admin:
     dashboard: Tableau de bord
+    file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
       buttons:
         close: Fermer
@@ -257,6 +261,11 @@ fr:
   ecosystem: Écosystème
   edit: Modifier
   enums:
+    page:
+      block:
+        kind:
+          text: Texte
+          quote: Citation
     structure:
       item:
         kind:
@@ -326,7 +335,7 @@ fr:
     error_notification:
       default_message: Veuillez renseigner correctement l’ensemble des champs
     hints:
-      actor: 
+      actor:
         contact_inventory_url: Doit commencer par https://
         contact_website: Doit commencer par https://
       structure_item:
@@ -342,7 +351,7 @@ fr:
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
   true: Oui
   ui:
-    global: 
+    global:
       hero: Le mot du comité écothèque
     actor:
       address: Adresse
@@ -364,6 +373,8 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    offers:
+      title: Comment nous rejoindre ?
     project:
       actors:
         one: Acteur·rice du projet

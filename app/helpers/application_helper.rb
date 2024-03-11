@@ -51,4 +51,12 @@ module ApplicationHelper
     # option_materials_path(item_slug: 'materiaux', option_slug: 'plastiques')
     public_send(path_name, item_slug: option.item.slug, option_slug: option.slug)
   end
+
+  def user_is_subscribed?
+    user_signed_in? && !current_user.visitor?
+  end
+
+  def page_path(page)
+    "/#{page.path}"
+  end
 end

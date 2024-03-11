@@ -20,7 +20,7 @@
         </li>
         <% page_tools.children.ordered_by_position.each do |child| %>
           <li class="mt-2">
-            <%= link_to child, child_page_path(page_tools, child) %>
+            <%= link_to child, page_path(child) %>
           </li>
         <% end %>
       </ul>
@@ -31,7 +31,7 @@
         </li>
         <li class="mt-2">
           <% page_asso = Page.find_by(internal_identifier: 'l-association') %>
-          <%= link_to page_asso, child_page_path(page_lab, page_asso) %>
+          <%= link_to page_asso, page_path(page_asso) %>
         </li>
         <li class="mt-2">
           <%= link_to t('footer.members'), '#TODO' %>

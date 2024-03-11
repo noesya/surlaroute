@@ -1,1 +1,411 @@
-TODO les offers
+<%= content_for :title, t('ui.offers.title') %>
+
+<header class="hero pb-5">
+  <div class="container">
+    <div class="row mt-md-4">
+      <div class="col-lg-5">
+        <hgroup>
+          <h1><%= t('ui.offers.title') %></h1>
+          <p class="mt-3 mt-md-5">En vous inscrivant, vous abonnant, ou en devenant membre, vous bénéficierez d'un accès différencié à l'écothèque. Rejoignez-nous selon votre besoin ou votre envie !</p>
+        </hgroup>
+      </div>
+    </div>
+  </div>  
+  <%= image_tag('letters/lab.svg', alt: '', width: '1440', height: '564') %>
+</header>
+
+<div class="document-content bg-light">
+  <div class="container py-5">
+    <div class="row text-center text-md-start py-3">
+      <div class="col-lg-6">
+        <h2>Les offres</h2>
+      </div>
+      <div class="col-lg-6">
+        <p>L’écothèque est un projet de l’Augures Lab Scénogrrrraphie, le réseau professionnel, collaboratif et prospectif pour penser l’écoscénographie dans le secteur culturel. Il réunit acteur·rices indépendant·es et institutions culturelles, de différents corps de métiers liés à la chaîne de création et de production scénographique, et croise les disciplines artistiques, notamment les arts visuels et les arts vivants, à l’échelle nationale. Il vise à favoriser le développement du réemploi, de l’économie circulaire et de l’écologie culturelle territoriale autour des activités liées à la scénographie.</p>
+        <p>Retrouvez ci-dessous les différentes offres d’accès et de visibilité :</p>
+      </div>
+    </div>
+
+    <ul class="nav nav-underline mb-3" id="offersTabList" role="tablist">
+      <li class="nav-item">
+        <a  href="#"
+            class="nav-link active"
+            id="user-access-tab"
+            data-bs-toggle="tab"
+            data-bs-target=".first-tab-content"
+            type="button"
+            role="tab"
+            aria-controls="user-access-tab-pane user-access-tab-table"
+            aria-selected="true">Accès à l’écothèque</a>
+      </li>
+      <li class="nav-item">
+        <a  href="#"
+            class="nav-link"
+            id="actor-visibility-tab"
+            data-bs-toggle="tab"
+            data-bs-target=".second-tab-content"
+            type="button"
+            role="tab"
+            aria-controls="actor-visibility-tab-pane actor-visibility-tab-table"
+            aria-selected="false">Offres visibilité</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="offersTabContent">
+      <div  class="tab-pane fade show active first-tab-content"
+            id="user-access-tab-pane"
+            role="tabpanel"
+            aria-labelledby="user-access-tab" tabindex="0">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card border">
+              <div class="card-body">
+                <h5 class="card-title">S’inscrire</h5>
+                <p>Accès aux fiches Écosystème et Projets</p>
+                <hr>
+                <ul class="check-list">
+                  <li>Proposez des projets/matériaux/acteur·ices/techniques</li>
+                  <li>Inscription à la newsletter (max 6/an)</li>
+                </ul>
+                <hr>
+                <p>Gratuit</p>
+                <%= link_to "Créer un compte", new_user_session_path, class: "btn btn-dark" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card border">
+              <div class="card-body">
+                <h5 class="card-title">S’abonner</h5>
+                <p>Accès complet à l’écothèque</p>
+                <hr>
+                <p>Offres similaires au compte “inscrit·e”</p>
+                <ul class="check-list">
+                  <li>Accès complet à tous les annuaires</li>
+                  <li>Commentaires de fiches</li>
+                  <li>Bibliothèque de favoris</li>
+                </ul>
+                <hr>
+                <p class="small text-muted">Les tarifs varient selon votre statut</p>
+                <p>Entre 5€ et 1500€</p>
+                <%= link_to "Choisir cette offre", "#", class: "btn btn-dark" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-start">
+            <div class="card w-50 border rounded-0 rounded-start">
+              <div class="card-body">
+                <h5 class="card-title">Devenir membre</h5>
+                <p>Accès complet et contribution à l’écothèque</p>
+                <hr>
+                <p>Offres similaires au compte “abonné·e”</p>
+                <ul class="check-list">
+                  <li>Contribuez à l’évolution de la plateforme</li>
+                  <li>Participez au comité de validation de l’écothèque</li>
+                </ul>
+                <hr>
+                <p class="small text-muted">Les tarifs varient selon votre statut</p>
+                <p>Entre 20€ et 2000€</p>
+                <%= link_to "S’inscrire à une réunion d’information", "https://framaforms.org/reunion-dinformation-augures-lab-scenogrrrraphie-1668503578", class: "btn btn-dark" %>
+              </div>
+            </div>
+            <div class="card bg-light w-50 border rounded-0 rounded-end border-start-0">
+              <div class="card-body">
+                <h5 class="card-title">+ au-delà de l’écothèque</h5>
+                <p>Contribution au Lab Scénogrrrraphie</p>
+                <hr>
+                <ul class="check-list">
+                  <li>Participer aux groupes de recherche-action</li>
+                  <li>Accédez aux événements du réseau (rencontres inspirantes, visites de lieux, ...)</li>
+                  <li>Et bien d’autres choses à découvrir lors de la réunion d’information</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div  class="tab-pane fade second-tab-content"
+            id="actor-visibility-tab-pane"
+            role="tabpanel"
+            aria-labelledby="actor-visibility-tab"
+            tabindex="0">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card border">
+              <div class="card-body">
+                <h5 class="card-title">Essentiel</h5>
+                <p class="small">Rendre son activité plus visible auprès de la communauté écothèque</p>
+                <hr>
+                <ul class="check-list">
+                  <li>Complétez vos fiches acteur·rice, matériaux et techniques en ajoutant des photos et en complétant les informations</li>
+                  <li>Affichez vos coordonnées et un contact direct</li>
+                  <li>Droit de réponse aux commentaires</li>
+                </ul>
+                <hr>
+                <p>70€</p>
+                <%= link_to "Choisir cette offre", new_user_session_path, class: "btn btn-dark" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card border">
+              <div class="card-body">
+                <h5 class="card-title">Premium</h5>
+                <p class="small">Rendre son activité plus visible auprès des membres de l’Augures Lab Scénogrrrraphie</p>
+                <hr>
+                <p>Offre similaire au compte “Essentiel”</p>
+                <ul class="check-list">
+                  <li>Rencontres et présentation de vos matériaux / services / techniques auprès des membres</li>
+                  <li>Présentation de vos matériaux et/ou services lors de la journée annuelle du Lab</li>
+                  <li>Diffusion de liste de besoins ou de propositions de don /vente de matériaux /matériel auprès des membres</li>
+                </ul>
+                <hr>
+                <p>Tarifs sur demande</p>
+                <%= link_to "Demander un devis", "mailto:bienvenue@augureslab.org", class: "btn btn-dark" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <section class="bg-dark text-white py-5">
+    <div class="container">
+      <h2>Pourquoi nous rejoindre ?</h2>
+      <div class="row pt-3">
+        <div class="col-lg-3">
+          <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
+          <h3>S’inspirer et s’entourer</h3>
+          <p>Plongez dans un réseau d'inspiration où les idées se développent avec passion. Notre plateforme vous connecte avec des esprits créatifs et des innovateurs, favorisant ainsi un environnement propice à l'inspiration et à la collaboration.</p>
+        </div>
+        <div class="col-lg-3">
+          <%= image_tag "icons/offers/network.svg", class: "mb-2" %>
+          <h3>Se connecter avec un grand réseau acteur·ices de la culture</h3>
+          <p>Élargissez votre réseau professionnel en vous connectant avec XX acteur·ices de la culture, des scénographes aux décideurs. Ces connexions ouvrent la voie à des collaborations enrichissantes et à des opportunités de croissance professionnelle.</p>
+        </div>
+        <div class="col-lg-3">
+          <%= image_tag "icons/offers/share.svg", class: "mb-2" %>
+          <h3>Partager à un public ciblé</h3>
+          <p>Présentez votre travail à un public attentif et réceptif. Notre plateforme offre une tribune idéale pour partager vos projets, idées et conseils avec une audience intéressée, favorisant ainsi les échanges constructifs et l'inspiration mutuelle.</p>
+        </div>
+        <div class="col-lg-3">
+          <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
+          <h3>Bénéficier de ressources sélectionnées</h3>
+          <p>Accédez à une sélection précieuse de ressources pour nourrir votre pratique. Notre plateforme vous offre un accès facile à des outils, guides pratiques et études de cas spécialisés dans l'éco-conception, vous aidant à développer vos compétences et à innover de manière durable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<div class="tab-content" id="offersTabContent">
+  <div  class="tab-pane fade show active first-tab-content"
+        id="user-access-tab-table"
+        role="tabpanel"
+        tabindex="0">
+  <div class="container py-5">
+    <table class="table-responsive-responsive">
+      <thead>
+        <tr>
+          <th scope="col"><span class="fw-bold h5">Ressources Ecothèque</span></th>
+          <th scope="col"><span class="fw-bold h5">Inscrit·e</span></th>
+          <th scope="col"><span class="fw-bold h5">Abonné·e</span></th>
+          <th scope="col"><span class="fw-bold h5">Membre</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Accès à la boîte à outils</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Accès aux travaux finalisés du lab</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Accès aux fiches écosystème</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Accès aux fiches projets</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Accès aux fiches matériaux</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Accès aux fiches techniques</th>
+          <td class="table-light"></td>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table-responsive mt-5">
+      <thead>
+        <tr>
+          <th scope="col"><span class="fw-bold h5">Modalités de compte</span></th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Création d’un compte utilisateur·rice</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Création d’une bibliothèque de favoris</th>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table-responsive mt-5">
+      <thead>
+        <tr>
+          <th scope="col"><span class="fw-bold h5">Modalités de contribution</span></th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Accès à la liste des membres du Lab</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Proposition de bonnes adresses, projets, matériaux et techniques</th>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Droits de commentaires sur toutes les fiches</th>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Création et modification de fiches</th>
+          <td class="table-light"></td>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Validation collective de fiches avant publication</th>
+          <td class="table-light"></td>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table-responsive mt-5">
+      <thead>
+        <tr>
+          <th scope="col"><span class="fw-bold h5">+ au-delà de l’écothèque</span></th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Accès aux groupes de recherche-action</th>
+          <td class="table-light"></td>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">Accès aux événements du réseau </th>
+          <td class="table-light"></td>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+        <tr>
+          <th scope="row">...</th>
+          <td class="table-light"></td>
+          <td class="table-light"></td>
+          <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div  class="tab-pane fade second-tab-content"
+        id="actor-visibility-tab-table"
+        role="tabpanel"
+        tabindex="0">
+        tableau 2
+  </div>
+</div>
+  <%
+  images = [
+    {
+      source: "offers/image1.jpeg",
+      description: "Atelier lorem ipsum nec mergitur adam nut silam rosae luparum."
+    },
+    {
+      source: "offers/image2.jpeg",
+      description: "Présentation de nec loreat magicus poliem miam."
+    },
+    {
+      source: "offers/image1.jpeg",
+      description: "Atelier lorem ipsum nec mergitur adam nut silam rosae luparum."
+    },
+    {
+      source: "offers/image2.jpeg",
+      description: "Présentation de nec loreat magicus poliem miam."
+    }
+  ]
+  %>
+  <section class="py-5">
+    <div class="container">
+      <h2>L’Augures Lab Scénogrrrraphie en images</h2>
+      <div class="details mt-4">
+        <div class="structure__item__images">
+          <div class="splide" aria-label="Galerie">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <% images.each do |image| %>
+                  <li class="splide__slide col-md-3 col-lg-6">
+                    <figure>
+                      <%= image_tag image[:source], class: 'img-fluid', alt: image[:description] %>
+                      <figcaption class="mt-1 small"><%= image[:description] %></figcaption>
+                    </figure>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
