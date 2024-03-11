@@ -1,0 +1,17 @@
+<%= content_for :title, @page %>
+
+<div class="row">
+  <div class="col-lg-4">
+    <%= show @page, :calculated_path, type: :string %>
+    <%= show @page, :parent, type: :string if @page.parent %>
+    <%= show @page, :children, type: :list if @page.children.any? %>
+  </div>
+  <div class="col-lg-8">
+    <%= show @page, :description %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @page unless @page.internal_identifier.present? %>
+  <%= edit_link @page %>
+<% end %>
