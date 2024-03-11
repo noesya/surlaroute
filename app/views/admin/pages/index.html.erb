@@ -15,7 +15,7 @@
       <% @pages.each do |page| %>
         <tr>
           <td><%= link_to_if can?(:read, page), page, [:admin, page] %></td>
-          <td><%= page.calculated_path %></td>
+          <td><%= page.path %></td>
           <td class="text-end">
             <%= destroy_link page unless page.internal_identifier.present? %>
             <%= edit_link page %>

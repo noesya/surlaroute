@@ -3,12 +3,11 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
                               find_by: :slug,
                               id_param: :page_id
 
-  # load_and_authorize_resource find_by: :slug, 
+  # load_and_authorize_resource find_by: :slug,
   #                             class: Page::Block,
   #                             through: :page
 
   def new
-    byebug
     @block = @page.blocks.new
     breadcrumb
   end

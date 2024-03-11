@@ -21,33 +21,41 @@
   </div>
 </header>
 
-<%= render 'structure/items/zones/page', about: @material %>
+<% if user_is_subscribed? %>
 
-<% if actor = @material.actors.premium.with_contact_informations.first %>
-  <section class="py-5 actors">
-    <div class="container">
-      <h2><%= t('ui.material.contact') %></h2>
-      <%= render 'actors/contact', actor: actor %>
-    </div>
-  </section>
+  <%= render 'structure/items/zones/page', about: @material %>
+
+  <% if actor = @material.actors.premium.with_contact_informations.first %>
+    <section class="py-5 actors">
+      <div class="container">
+        <h2><%= t('ui.material.contact') %></h2>
+        <%= render 'actors/contact', actor: actor %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @material.actors.any? %>
+    <section class="bg-white py-5 actors">
+      <div class="container">
+        <h2><%= t('ui.material.actors') %></h2>
+        <%= render 'projects/list', objects: @material.actors %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @material.projects.any? %>
+    <section class="bg-white py-5 projects">
+      <div class="container">
+        <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>
+        <%= render 'projects/list', objects: @material.projects %>
+      </div>
+    </section>
+  <% end %>
+
+  <%= render 'comments/list', about: @material %>
+
+<% else %>
+
+  <%= render 'paywall' %>
+
 <% end %>
-
-<% if @material.actors.any? %>
-  <section class="bg-white py-5 actors">
-    <div class="container">
-      <h2><%= t('ui.material.actors') %></h2>
-      <%= render 'projects/list', objects: @material.actors %>
-    </div>
-  </section>
-<% end %>
-
-<% if @material.projects.any? %>
-  <section class="bg-white py-5 projects">
-    <div class="container">
-      <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>
-      <%= render 'projects/list', objects: @material.projects %>
-    </div>
-  </section>
-<% end %>
-
-<%= render 'comments/list', about: @material %>

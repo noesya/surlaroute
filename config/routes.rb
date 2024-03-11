@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
-  get 'offres' => 'offers#index', as: :offers
-  get 'adhesion' => 'subscriptions#index', as: :subscriptions
+  get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
 
   scope 'mon-compte' do
     get 'suivi' => 'favorites#index', as: :favorites

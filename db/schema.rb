@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_142911) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -215,8 +215,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_142911) do
   end
 
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
-    t.string "path"
+    t.string "name", null: false
+    t.string "path", null: false
     t.text "description"
     t.string "internal_identifier"
     t.integer "position"
