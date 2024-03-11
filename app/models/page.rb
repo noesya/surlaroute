@@ -5,8 +5,8 @@
 #  id                  :uuid             not null, primary key
 #  description         :text
 #  internal_identifier :string
-#  name                :string
-#  path                :string
+#  name                :string           not null
+#  path                :string           not null
 #  position            :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
@@ -22,7 +22,10 @@
 #
 class Page < ApplicationRecord
   belongs_to :parent, class_name: 'Page', optional: true
-  
+
+  validates :name, :path, presence: true
+  validates :path, uniqueness: { scope: :parent_id }
+
   scope :ordered, -> { order(:name) }
   scope :ordered_by_position, -> { order(:position) }
 
@@ -40,7 +43,7 @@ class Page < ApplicationRecord
   end
 
   def calculated_path
-    parent.present? ? "#{parent.path}/#{path}" : path
+    parent.present? ? "#{parent.calculated_path}/#{path}" : "/#{path}"
   end
 
 end
