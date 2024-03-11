@@ -55,6 +55,8 @@ fr:
         parent: Page parente
         path: Chemin
         slug: Chemin
+      page/block:
+        name: Nom
       project:
         actors: Acteurices
         description: Description
