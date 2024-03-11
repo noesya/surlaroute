@@ -1,9 +1,10 @@
 <%
-  if content_for?(:title)
-    title = raw("#{yield(:title)} - écothèque")
-  else
-    title = "écothèque"
-  end
+title = content_for?(:title)  ? "#{yield(:title)} • #{t('website')}"
+                              : t('website')
+icon = asset_path 'icons/favicons/favicon.svg'
+color = "#F2F3F4"
 %>
+<title><%= title %></title>
+<link rel="icon" href="<%= icon %>">
+<meta name="theme-color" content="<%= color %>">
 
-<title><%= content_for?(:title) ? raw("#{yield(:title)} • #{t('website')}") : t('website') %></title>
