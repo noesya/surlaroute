@@ -48,9 +48,12 @@ Rails.application.routes.draw do
         get ':item_slug/:option_slug' => 'technics#option', as: :option
       end
     end
-    get '' => 'regions#show', as: :region
   end
   get 'regions' => 'regions#index', as: :regions
+  get '/:id' => 'regions#show', as: :region, constraints: lambda { |request|
+    region_slug = request.params[:id]
+    Region.where(slug: region_slug).exists?
+  }
 
   match '*path', via: :all, to: 'pages#show', constraints: lambda { |req|
     Page.find_by(path: req.path[1..-1]).present?
