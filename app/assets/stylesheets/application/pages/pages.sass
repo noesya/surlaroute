@@ -1,0 +1,15 @@
+.pages-list
+    list-style: none
+    padding-left: 0
+    row-gap: space(8)
+    li
+        a
+            text-decoration: none
+            @include icon(arrow-right, after)
+                margin-left: space(2)
+
+.parent-page
+    .hero
+        &__description
+            @extend .display-6
+

@@ -36,22 +36,26 @@ $font-weight-bold: 600
 
 // Headings
 // h1
-$h1-font-size: 4rem
-$h1-font-size-sm: 2rem
+$h1-font-size: pxToRem(64)
+$h1-font-size-sm: pxToRem(32) // Pas implémenté 
 $h1-font-weight: bold
 $h1-line-height: 110%
 
 // h2
-$h2-font-size: 2.375rem
-$h2-font-size-sm: 1.5
+$h2-font-size: pxToRem(38)
+$h2-font-size-sm: pxToRem(24)
 $h2-font-weight: bold
 $h2-line-height: 110%
 
 // h3
-$h3-font-size: 1.25rem
-$h3-font-size-sm: $h3-font-size
+$h3-font-size: pxToRem(20)
+$h3-font-size-sm: $h3-font-size // Pas implémenté 
 $h3-font-weight: bold
 $h3-line-height: 135%
+
+// Display
+$display-font-sizes: (1: 5rem, 2: 4.5rem, 3: 4rem, 4: 3.5rem, 5: 3rem, 6: pxToRem(25))
+$display-line-height: 140%
 
 // hero
 $hero-font-size: pxToRem(25)
@@ -59,7 +63,7 @@ $hero-line-height: 140%
 
 // small
 $small-color: $color-text
-$small-font-size: 0.875rem
+$small-font-size: pxToRem(14)
 $small-font-weight: normal
 $small-line-height: 135%
 
@@ -130,6 +134,17 @@ $card-border-width: 0
 // SPACERS
 $spacers: (0: 0, 1: 0.5rem, 2: 0.938rem, 3: 1.875rem, 4: 3rem, 5: 4rem, 6: 7.5rem, 7: 10rem, 8: 16.25rem)
 
+// NAVLINK
+$nav-link-color: $color-text
+$nav-link-hover-color: $nav-link-color
+
+// TABLE
+$table-cell-padding-y: pxToRem(24)
+$table-cell-padding-x: 0
+$table-bg: $light
+$table-border-color: rgba(black, 0.15)
+$table-th-font-weight: 500
+$table-variants: ("success": #BEFFC1)
 
 // ICONS
 $icons: ()

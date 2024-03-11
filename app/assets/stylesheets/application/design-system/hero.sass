@@ -20,6 +20,9 @@
     .technics-options &,
     .technics-option &
         background-color: $technic-primary
+    .toolbox-index &,
+    .toolbox-child &
+        background-color: $toolbox-primary
 
 .actors-index,
 .materials-index,
@@ -46,22 +49,30 @@
 
 // colors and images
 .actors-index
+    --page-main-color: #{$ecosystem-primary}
     background-color: $ecosystem-primary
     .hero
         background-image: asset-url("letters/actors.svg")
 .materials-index
+    --page-main-color: #{$materials-primary}
     background-color: $materials-primary
     .hero
         background-image: asset-url("letters/materials.svg")
 .projects-index
+    --page-main-color: #{$projects-primary}
     background-color: $projects-primary
     .hero
         background-image: asset-url("letters/projects.svg")
 .technics-index
+    --page-main-color: #{$technic-primary}
     background-color: $technic-primary
     .hero
         background-image: asset-url("letters/technics.svg")
-.regions-index
+.toolbox-index, .toolbox-child
+    --page-main-color: #{$toolbox-primary}
+    background-color: $toolbox-primary
+
+.regions-index, .offers-index
     .hero
         overflow: unset
         z-index: 5
