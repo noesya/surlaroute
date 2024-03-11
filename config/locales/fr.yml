@@ -1,6 +1,7 @@
 fr:
   account:
     comments:
+      about_html: À propos de “%{title}”
       none: Aucun commentaire pour l'instant.
       title: Mes commentaires
     favorites:
@@ -195,6 +196,12 @@ fr:
     successfully_removed_html: "<i>%{model}</i> a bien été retiré(e)."
     successfully_updated_html: "<i>%{model}</i> a bien été mis(e) à jour."
     title: Administration
+  comments:
+    answer: Répondre à ce commentaire
+    answers: Réponses
+    date: Rédigé le %{date}
+    text: Contenu du commentaire
+    title: Commentaires
   create: Créer
   default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
@@ -278,9 +285,6 @@ fr:
     yours: Cordialement.
   menu:
     my_account: Mon compte
-  comments:
-    title: Titre
-    text: Contenu du commentaire
   please_confirm: Merci de confirmer
   projects:
     brezet_wheel:

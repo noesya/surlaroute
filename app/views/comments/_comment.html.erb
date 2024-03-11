@@ -6,12 +6,12 @@
   <hgroup>
     <h3 class="fw-bold">“<%= comment.title %>”</h3>
     <p class="small">
-      Rédigé le <%= l comment.created_at.to_date %>
+      <%= t('comments.date', date: l(comment.created_at.to_date)) %>
       <% if comment.user == current_user %>
         | 
-        <%= link_to 'Modifier', 
+        <%= link_to t('edit'), 
                     edit_user_comment_path(comment) %>
-        <%= link_to 'Supprimer', 
+        <%= link_to t('delete'), 
                     user_comment_path(comment), 
                     method: :delete,
                     data: { confirm: t('please_confirm') } %>
