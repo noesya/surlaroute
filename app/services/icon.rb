@@ -9,4 +9,10 @@ class Icon
   REGION = 'bi bi-geo-alt-fill'
   STRUCTURE = 'bi bi-gear-fill'
   USER = 'bi bi-person-fill'
+
+  FOLDER_CLOSED = 'bi bi-folder'
+  FOLDER_OPENED = 'bi bi-folder-symlink'
+  FOLDER_CLOSED_FULL = 'bi bi-folder-fill'
+  FOLDER_OPENED_FULL = 'bi bi-folder-symlink-fill'
+  SORT = 'bi bi-arrow-down-up'
 end

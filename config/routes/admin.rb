@@ -10,6 +10,12 @@ namespace :admin do
   resources :regions
   resources :pages do 
     resources :blocks, controller: 'pages/blocks', except: :index
+    collection do
+      post :reorder
+    end
+    member do
+        get :children
+    end
   end
   namespace :structure do
     scope ':about_class' do

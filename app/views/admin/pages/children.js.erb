@@ -1,0 +1,8 @@
+$branch = $('.js-treeview-element[data-id=<%= @page.id %>]');
+<% if @children.any? %>
+    $('.js-treeview-children', $branch).append("<%= escape_javascript(render 'treebranch', pages: @children) %>");
+<% else %>
+    $branch.addClass('treeview__element--empty');
+<% end %>
+$branch.addClass('treeview__element--loaded');
+window.ecotheque.treeView.initSortable();
