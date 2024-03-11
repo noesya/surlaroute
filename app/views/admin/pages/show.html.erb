@@ -11,6 +11,8 @@
   </div>
 </div>
 
+<%= link_to 'Ajouter un bloc', new_admin_page_block_path(@page), class: button_classes %>
+
 <% content_for :buttons do %>
   <%= destroy_link @page unless @page.internal_identifier.present? %>
   <%= edit_link @page %>

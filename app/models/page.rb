@@ -9,6 +9,7 @@
 #  name                :string
 #  path                :string
 #  position            :integer
+#  slug                :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  parent_id           :uuid             indexed
