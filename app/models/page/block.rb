@@ -4,7 +4,7 @@
 #
 #  id         :uuid             not null, primary key
 #  data       :jsonb
-#  kind       :integer          default(1)
+#  kind       :integer          default("text")
 #  position   :integer          default(1)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

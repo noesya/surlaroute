@@ -3,8 +3,8 @@
 <div class="row">
   <div class="col-lg-4">
     <%= show @page, :calculated_path, type: :string %>
-    <%= show @page, :parent, type: :string if @page.parent %>
-    <%= show @page, :children, type: :list if @page.children.any? %>
+    <%= show @page, :parent, type: :string, value: link_to(@page.parent, [:admin, @page.parent]) if @page.parent %>
+    <%= show @page, :children, type: :list, value: @page.children.ordered_by_position if @page.children.any? %>
   </div>
   <div class="col-lg-8">
     <%= show @page, :description %>

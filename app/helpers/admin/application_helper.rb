@@ -39,8 +39,8 @@ module Admin::ApplicationHelper
     'text-end pe-0'
   end
 
-  def show(object, property, type: nil)
-    value = object.public_send property
+  def show(object, property, type: nil, value: nil)
+    value ||= object.public_send property
     label = object.class.human_attribute_name property
     begin
       type ||= object.class.columns_hash[property.to_s].type
