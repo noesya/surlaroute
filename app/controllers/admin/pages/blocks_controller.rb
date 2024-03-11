@@ -10,11 +10,12 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
   def new
     @block = @page.blocks.new
     breadcrumb
+    add_breadcrumb 'Ajouter un bloc'
   end
 
   def edit
     breadcrumb
-    add_breadcrumb t('edit')
+    add_breadcrumb @block
   end
 
   def create
@@ -45,7 +46,8 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
 
   def breadcrumb
     super
-    breadcrumb_for @block
+    add_breadcrumb Page.model_name.human(count: 2), admin_pages_path
+    breadcrumb_for @block.page
   end
 
   def block_params
