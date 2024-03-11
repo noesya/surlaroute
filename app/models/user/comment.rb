@@ -35,6 +35,7 @@ class User::Comment < ApplicationRecord
             foreign_key: :reply_to
 
   scope :ordered, -> { order(created_at: :desc) }
+  scope :root, -> { where(reply_to_id: nil) }
 
   validates_presence_of :title
 

@@ -5,7 +5,7 @@
       <%= render 'comments/form', comment: @new_comment if @new_comment.present? %>
     </div>
   </div>
-  <% about.comments.ordered.each do |comment| %>
+  <% about.comments.root.ordered.each do |comment| %>
     <div class="row mt-5">
       <%= render 'comments/comment', comment: comment %>
     </div>
