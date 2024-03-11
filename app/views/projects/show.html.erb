@@ -60,14 +60,14 @@
             <%= render 'projects/brezet_wheel/step', step: 0 %>
             <%= render 'projects/brezet_wheel/step', step: 1 %>
             <% if @project.materials.any? %>
-              <section class="pt-3 pt-lg-5">
+              <section class="project-materials pt-3 pt-lg-5">
                   <h2 class="mb-2"><%= t('ui.project.materials', count: @project.materials.count) %></h2>
                   <%= render 'materials/list', objects: @project.materials %>
               </section>
             <% end %>
             <%= render 'projects/brezet_wheel/step', step: 2 %>
             <% if @project.technics.any? %>
-              <section class="pt-3 pt-lg-5">
+              <section class="project-technics pt-3 pt-lg-5">
                 <h2 class="mb-2"><%= t('ui.project.technics', count: @project.technics.count) %></h2>
                 <%= render 'technics/list', objects: @project.technics %>
               </section>

@@ -24,7 +24,8 @@
 .actors-index,
 .materials-index,
 .projects-index,
-.technics-index
+.technics-index,
+.regions-index
     .hero
         background:
             repeat: no-repeat
@@ -60,3 +61,17 @@
     background-color: $technic-primary
     .hero
         background-image: asset-url("letters/technics.svg")
+.regions-index
+    .hero
+        overflow: unset
+        z-index: 5
+        position: relative
+        > img 
+            bottom: 0
+            right: 0
+            position: absolute
+            pointer-events: none
+            width: auto
+            height: 30%
+            @include media-breakpoint-up(lg)
+                height: 130%
