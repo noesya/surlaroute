@@ -21,6 +21,7 @@
 #  fk_rails_409bbac70a  (parent_id => pages.id)
 #
 class Page < ApplicationRecord
+  has_many :blocks
   belongs_to :parent, class_name: 'Page', optional: true
   
   scope :ordered, -> { order(:name) }

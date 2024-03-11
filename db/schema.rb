@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_090433) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_11_132116) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -201,6 +201,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_090433) do
     t.uuid "region_id", null: false
     t.index ["material_id", "region_id"], name: "index_materials_regions_on_material_id_and_region_id"
     t.index ["region_id", "material_id"], name: "index_materials_regions_on_region_id_and_material_id"
+  end
+
+  create_table "page_blocks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "page_id", null: false
+    t.integer "kind", default: 1
+    t.integer "position", default: 1
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_page_blocks_on_page_id"
   end
 
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -440,6 +450,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_090433) do
   add_foreign_key "actors", "users", column: "published_by_id"
   add_foreign_key "materials", "actors"
   add_foreign_key "materials", "users", column: "published_by_id"
+  add_foreign_key "page_blocks", "pages"
   add_foreign_key "pages", "pages", column: "parent_id"
   add_foreign_key "projects", "users", column: "published_by_id"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
