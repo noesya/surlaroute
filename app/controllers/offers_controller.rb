@@ -8,7 +8,8 @@ class OffersController < ApplicationController
 
   def breadcrumb
     super
-    add_breadcrumb 'Le Lab', Page.find_by(internal_identifier: 'le-lab')&.calculated_path
+    lab_page = Page.find_by(internal_identifier: 'le-lab')
+    add_breadcrumb lab_page&.to_s, lab_page&.calculated_path
     add_breadcrumb 'Comment nous rejoindre ?'
   end
 
