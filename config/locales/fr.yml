@@ -39,6 +39,7 @@ fr:
         calculated_path: Chemin
         description: Description
         name: Nom
+        parent: Page parente
         path: Chemin
       project:
         actors: Acteurices

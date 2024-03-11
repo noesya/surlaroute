@@ -13,6 +13,8 @@
       <%= f.input :description %>
     </div>
     <div class="col-lg-4">
+      <%= f.input :parent, disabled: true if page.parent %>
+      <%= f.input :position %>
     </div>
   </div>
 

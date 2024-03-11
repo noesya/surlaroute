@@ -11,6 +11,7 @@ class Admin::PagesController < Admin::ApplicationController
   end
 
   def new
+    @page.parent = Page.find_by(internal_identifier: 'boite-a-outils')
     breadcrumb
   end
 
@@ -53,13 +54,16 @@ class Admin::PagesController < Admin::ApplicationController
   def breadcrumb
     super
     add_breadcrumb Page.model_name.human(count: 2), admin_pages_path
-    breadcrumb_for @page
+    if @page
+      breadcrumb_for @page.parent if @page.parent
+      breadcrumb_for @page
+    end
   end
 
   def page_params
     params.require(:page)
           .permit(
-            :name, :path, :description
+            :name, :path, :description, :position
           )
   end
 end

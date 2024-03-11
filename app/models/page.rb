@@ -31,6 +31,10 @@ class Page < ApplicationRecord
     where("unaccent(pages.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
 
+  def children
+    Page.where(parent_id: id).ordered_by_position
+  end
+
   def to_s
     "#{name}"
   end
