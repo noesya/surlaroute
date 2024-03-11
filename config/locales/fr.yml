@@ -321,6 +321,9 @@ fr:
       materials:
         one: Matériau utilisé
         other: Matériaux utilisés
+      technics:
+        one: Technique utilisée
+        other: Techniques utilisées
     technic:
       actors:
         one: Contact

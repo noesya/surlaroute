@@ -28,14 +28,54 @@
 
   <%= render 'structure/items/zones/page', about: @project %>
 
-  <% if @project.materials.any? %>
-    <section class="bg-white pt-5">
+  <% if @project.has_brezet_wheel? %>
+    <section class="bg-light py-5 brezet-wheel-container">
       <div class="container">
-        <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
-        <%= render 'materials/list', objects: @project.materials %>
+        <div class="row">
+          <div class="brezet-wheel col-lg-12">
+            <div class="row">
+              <div class="col-lg-4">
+                <h2><%= t('projects.brezet_wheel.title') %></h2>
+              </div>
+            </div>
+            <div class="col-lg-6 mt-4">
+              <%= render 'projects/brezet_wheel/figure' %>
+            </div>
+          </div>
+          <div class="col-lg-6 brezet-details offset-lg-6 mt-5 mt-md-8 position-relative">
+          <div class="mt-7">
+            <%= render 'projects/brezet_wheel/static_texts' %>
+            <%= render 'projects/brezet_wheel/step', step: 0 %>
+            <%= render 'projects/brezet_wheel/step', step: 1 %>
+            <% if @project.materials.any? %>
+              <section class="bg-white pt-5">
+                <div class="container">
+                  <h2><%= t('ui.project.materials', count: @project.materials.count) %></h2>
+                  <%= render 'materials/list', objects: @project.materials %>
+                </div>
+              </section>
+            <% end %>
+            <%= render 'projects/brezet_wheel/step', step: 2 %>
+            <% if @project.technics.any? %>
+              <section class="bg-white pt-5">
+                <div class="container">
+                  <h2><%= t('ui.project.technics', count: @project.technics.count) %></h2>
+                  <%= render 'technics/list', objects: @project.technics %>
+                </div>
+              </section>
+            <% end %>
+            <%= render 'projects/brezet_wheel/step', step: 3 %>
+            <%= render 'projects/brezet_wheel/step', step: 4 %>
+            <%= render 'projects/brezet_wheel/step', step: 5 %>
+            <%= render 'projects/brezet_wheel/step', step: 6 %>
+            <%= render 'projects/brezet_wheel/step', step: 7 %>
+          </div>
+        </div>
       </div>
     </section>
   <% end %>
+
+  <%= render 'structure/items/zones/lower_page', about: @project %>
 
   <% if @project.actors.any? %>
     <section class="actors bg-white py-5">
@@ -48,10 +88,6 @@
       </div>
     </section>
   <% end %>
-
-  <%= render 'projects/show/brezet_wheel', project: @project if @project.has_brezet_wheel? %>
-
-  <%= render 'structure/items/zones/lower_page', about: @project %>
 
   <%= render 'comments/list', about: @project %>
 
