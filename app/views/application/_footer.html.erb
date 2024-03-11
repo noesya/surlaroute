@@ -5,7 +5,6 @@
         <%= link_to root_path, class: "footer-brand" do %>
           <%= image_tag 'logo.svg', alt: t('website') %>
         <% end %>
-
       </div>
       <ul class="col-lg-2 mt-4 mt-lg-0">
         <li><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
@@ -55,7 +54,7 @@
       </ul>
     </nav>
     <div class="row mt-5">
-        <span class="small mb-2 mb-lg-0"><%= t('footer.implementation.title') %></span>
+        <span class="small pb-2 pb-lg-0"><%= t('footer.implementation.title') %></span>
         <ul class="footer-credits small">
           <li class="row"><a class="col-lg-2" href="https://villettemakerz.com" target="_blank" rel="noreferrer">Villette Makerz</a> <span class="col"><%= t('footer.implementation.project_management') %></span></li>
           <li class="row"><a class="col-lg-2" href="https://www.dazd.fr" target="_blank" rel="noreferrer">studio dazd</a> <span class="col"><%= t('footer.implementation.design') %></span></li>
