@@ -7,7 +7,7 @@
     <h3 class="fw-bold">“<%= comment.title %>”</h3>
     <p class="small">
       <%= t('comments.date', date: l(comment.created_at.to_date)) %>
-      <% if comment.user == current_user %>
+      <% if can?(:destroy, comment) %>
         | 
         <%= link_to t('edit'), 
                     edit_user_comment_path(comment) %>
