@@ -11,7 +11,7 @@ window.ecosystem.brezetWheel = {
         
         this.image = this.observedEl.querySelector('figure');
         this.texts = this.observedEl.querySelectorAll('.brezet-steps span');
-        this.breakpoint = 768;
+        this.breakpoint = 992;
 
         if(window.innerWidth >= this.breakpoint) {
             let options = {
