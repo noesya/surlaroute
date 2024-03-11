@@ -93,6 +93,15 @@ module Admin::ApplicationHelper
                 form: form.options.dig(:html, :id)
   end
 
+  def collection_tree(list, except = nil)
+    collection = []
+    list.root.ordered.each do |object|
+      collection.concat(object.self_and_children(0))
+    end
+    collection = collection.reject { |o| o[:id] == except.id } unless except.nil?
+    collection
+  end
+
   private
 
   def polymorphic_url_param(object_or_class, **options)

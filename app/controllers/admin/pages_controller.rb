@@ -11,7 +11,6 @@ class Admin::PagesController < Admin::ApplicationController
   end
 
   def new
-    @page.parent = Page.find_by(internal_identifier: 'boite-a-outils')
     breadcrumb
   end
 
@@ -21,7 +20,6 @@ class Admin::PagesController < Admin::ApplicationController
   end
 
   def create
-    @page.parent = Page.find_by(internal_identifier: 'boite-a-outils')
     if @page.save
       redirect_to [:admin, @page], notice: t('admin.successfully_created_html', model: @page.to_s)
     else
@@ -63,7 +61,7 @@ class Admin::PagesController < Admin::ApplicationController
   def page_params
     params.require(:page)
           .permit(
-            :name, :path, :description, :position
+            :name, :slug, :description, :parent_id, :position
           )
   end
 end

@@ -30,18 +30,23 @@ class Page < ApplicationRecord
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
 
-  before_validation :set_body_class
+  before_validation :set_body_class, :set_path
+  after_save :update_children_paths, if: :saved_change_to_path?
+
+  validates :name, :slug, presence: true
+  validates :slug, uniqueness: true
   
   scope :ordered, -> { order(:name) }
-  scope :ordered_by_position, -> { order(:position) }
+  scope :ordered_by_position, -> { order(:position, :name) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
     where("unaccent(pages.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
 
-  def children
-    Page.where(parent_id: id).ordered_by_position
+  def generated_path
+    ancestors.any? ? "#{ancestors.pluck(:slug).join('/')}/#{slug}"
+                   : slug
   end
 
   def to_s
@@ -52,10 +57,6 @@ class Page < ApplicationRecord
     path
   end
 
-  def calculated_path
-    parent.present? ? "#{parent.path}/#{path}" : path
-  end
-
   private
 
   def set_body_class
@@ -64,5 +65,15 @@ class Page < ApplicationRecord
     self.body_class = 'toolbox-child' if ancestors.pluck(:internal_identifier).include?('boite-a-outils')
     self.body_class = 'laboratory-child' if ancestors.pluck(:internal_identifier).include?('le-lab')
   end
+
+  def set_path
+    self.path = generated_path
+  end
+
+  def update_children_paths
+    descendants.each do |child|
+      child.update_column :path, child.generated_path
+    end
+    end
 
 end
