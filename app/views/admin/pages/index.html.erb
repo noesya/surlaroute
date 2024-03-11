@@ -1,0 +1,34 @@
+<%= content_for :title, Page.model_name.human(count: 2) %>
+
+<%= render 'filters', current_path: admin_pages_path %>
+
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Page.human_attribute_name('name') %></th>
+        <th><%= Page.human_attribute_name('path') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pages.each do |page| %>
+        <tr>
+          <td><%= link_to_if can?(:read, page), page, [:admin, page] %></td>
+          <td><%= page.calculated_path %></td>
+          <td class="text-end">
+            <%= destroy_link page unless page.internal_identifier.present? %>
+            <%= edit_link page %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<%= paginate @pages, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Page %>
+<% end %>

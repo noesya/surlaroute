@@ -35,6 +35,11 @@ fr:
         published_by: Fiche publiée par
         regions: Lieu(x) de production
         slug: Identifiant
+      page:
+        calculated_path: Chemin
+        description: Description
+        name: Nom
+        path: Chemin
       project:
         actors: Acteurices
         description: Description
@@ -127,6 +132,9 @@ fr:
       material:
         one: Matériau
         other: Matériaux
+      page:
+        one: Page
+        other: Pages
       project:
         one: Projet
         other: Projets
@@ -154,6 +162,8 @@ fr:
         submit: Filtrer
       search_field: Recherche
       title: Rechercher
+    pages:
+      cant_destroy: Impossible de supprimer la page %{name}
     projects:
       brezet_wheel:
         enabled: Actif ?
