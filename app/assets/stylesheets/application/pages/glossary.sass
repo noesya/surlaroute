@@ -1,0 +1,39 @@
+.actors-options
+    .hero
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        position: relative
+        overflow: hidden
+        min-height: pxToRem(365)
+        > .container
+            position: relative
+        &::before,
+        &::after
+            position: absolute
+            line-height: 1
+            font-size: pxToRem(300)
+            font-family: $font-family-headings
+            pointer-events: none
+            @include media-breakpoint-down(md)
+                bottom: 0
+            @include media-breakpoint-up(md)
+                font-size: pxToRem(600)
+            @include media-breakpoint-up(lg)
+                font-size: pxToRem(1000)
+        &::before
+            content: attr(data-first-letter)
+            transform: translate(-40%, 10%)
+            @include media-breakpoint-up(md)
+                transform: translate(-50%, -15%)
+            @include media-breakpoint-up(lg)
+                transform: translate(-50%, -25%)
+        &::after
+            content: attr(data-second-letter)
+            @include media-breakpoint-down(md)
+                transform: translateY(25%)
+.hero
+    .actors-options &
+        &::before,
+        &::after
+            color: $ecosystem-secondary
