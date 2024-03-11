@@ -172,17 +172,17 @@ fr:
   materials:
     call_to_action: 
       title: Vous souhaitez recommander un matériau ?
-      text: "L’écothèque référence des matériaux dont la qualité a été vérifiée par la pratique, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie. L’objectif : proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés, un outil à destination de tous les métiers de la chaîne de la scénographie."
+      text: "L’écothèque référence des matériaux dont la qualité a été vérifiée par la pratique, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie. L’objectif : proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés, un outil à destination de tous les métiers de la chaîne de la scénographie."
       button: Référencer un matériau
   projects:
     call_to_action: 
       title: Vous avez participé à un projet écoresponsable et vous souhaitez le partager ?
-      text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
+      text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
       button: Référencer votre projet
   technics:
     call_to_action: 
       title: Vous souhaitez recommander une technique ?
-      text: "L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech."
+      text: "L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech."
       button: Référencer une technique
   admin:
     dashboard: Tableau de bord
