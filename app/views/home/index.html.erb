@@ -133,30 +133,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Travaux du lab</a>
-      </div>
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Chartes et manifestes</a>
-      </div>
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Guides</a>
-      </div>
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Matériauthèques</a>
-      </div>
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Calculateurs</a>
-      </div>
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Recherches et conférences</a>
-      </div>
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Outils pratiques</a>
-      </div>
-      <div class="col-md-6 mt-4">
-        <a href="#" class="text-decoration-none fw-bold arrow-right">Centres ressources et annuaires</a>
-      </div>
+      <% @toolbox_page.children.each do |page| %>
+        <div class="col-md-6 mt-4">
+          <%= link_to page, page, class: "text-decoration-none fw-bold arrow-right" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>

@@ -15,6 +15,7 @@
         speak: never
         text-transform: none
         vertical-align: middle
+        @content
 
 @mixin rounded-icon
     @extend .rounded-pill
@@ -34,3 +35,7 @@
     border-radius: 0
     cursor: pointer
     user-select: none
+
+@function space($spaces: 1)
+    $space-unit: 4
+    @return #{$spaces * $space-unit / 16}rem
