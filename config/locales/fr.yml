@@ -183,6 +183,7 @@ fr:
       button: Référencer une technique
   admin:
     dashboard: Tableau de bord
+    file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
       buttons:
         close: Fermer

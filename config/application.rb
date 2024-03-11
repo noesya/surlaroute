@@ -62,7 +62,10 @@ module Ecotheque
     ]
 
     config.allowed_special_chars = '#?!,_@$%^&*+:;£µ-'
+
     config.default_images_formats = ['.jpg', '.jpeg', '.png', '.svg']
+    config.default_image_max_size = 5.megabytes
+
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid

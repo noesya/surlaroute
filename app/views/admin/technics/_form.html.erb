@@ -19,6 +19,8 @@
     <div class="col-lg-4">
       <%= render 'admin/application/form/publication', f: f %>
       <%= f.input :image,
+                  input_html: { accept: default_images_formats_accepted },
+                  hint: images_formats_accepted_hint,
                   as: :single_deletable_file,
                   preview: true %>
     </div>

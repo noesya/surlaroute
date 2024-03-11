@@ -8,6 +8,8 @@
         <div class="col-md-6">
           <%= f.input :file,
                       as: :single_deletable_file,
+                      input_html: { accept: default_images_formats_accepted },
+                      hint: images_formats_accepted_hint,
                       label: Structure::Value::File.human_attribute_name("image"),
                       label_html: { class: "small" } %>
         </div>
