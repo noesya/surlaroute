@@ -53,6 +53,10 @@ module ApplicationHelper
   end
 
   def user_is_subscribed?
-    user_signed_in? && !user.visitor?
+    user_signed_in? && !current_user.visitor?
+  end
+
+  def page_path(page)
+    "/#{page.path}"
   end
 end

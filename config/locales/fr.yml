@@ -328,7 +328,7 @@ fr:
     error_notification:
       default_message: Veuillez renseigner correctement l’ensemble des champs
     hints:
-      actor: 
+      actor:
         contact_inventory_url: Doit commencer par https://
         contact_website: Doit commencer par https://
       structure_item:
@@ -344,7 +344,7 @@ fr:
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
   true: Oui
   ui:
-    global: 
+    global:
       hero: Le mot du comité écothèque
     actor:
       address: Adresse
@@ -366,6 +366,8 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    offers:
+      title: Comment nous rejoindre ?
     project:
       actors:
         one: Acteur·rice du projet

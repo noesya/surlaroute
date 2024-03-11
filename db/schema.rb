@@ -215,8 +215,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
   end
 
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
-    t.string "path"
+    t.string "name", null: false
+    t.string "path", null: false
     t.text "description"
     t.string "internal_identifier"
     t.integer "position"

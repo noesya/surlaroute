@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
-  get 'offres' => 'offers#index', as: :offers
-  get 'adhesion' => 'subscriptions#index', as: :subscriptions
+  get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
 
   scope 'mon-compte' do
     get 'suivi' => 'favorites#index', as: :favorites
@@ -20,9 +19,6 @@ Rails.application.routes.draw do
   get 'le-lab/les-membres/:member' => 'members#show', as: :member
 
   draw 'admin'
-
-  get ':page_path', to: 'pages#show', as: :page, constraints: lambda { |request| Page.where(path: request.params[:page_path]).exists? }
-  get ':parent_page_path/:page_path', to: 'pages#show', as: :child_page, constraints: lambda { |request| (parent = Page.find_by(path: request.params[:parent_page_path])) && Page.where(parent_id: parent.id).where(path: request.params[:page_path]).exists? }
 
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
@@ -54,8 +50,14 @@ Rails.application.routes.draw do
     end
   end
   get 'regions' => 'regions#index', as: :regions
-  resources :regions, path: "", only: :show
+  get '/:id' => 'regions#show', as: :region, constraints: lambda { |request|
+    region_slug = request.params[:id]
+    Region.where(slug: region_slug).exists?
+  }
 
+  match '*path', via: :all, to: 'pages#show', constraints: lambda { |req|
+    Page.find_by(path: req.path[1..-1]).present?
+  }
 
   root to: 'home#index'
 end
