@@ -9,7 +9,7 @@
     <%= javascript_include_tag "application", defer: true %>
     <%= render "seo" %>
   </head>
-  <body class="<%= controller_name %>-<%= action_name %>">
+  <body class="<%= body_classes(yield(:additional_body_class)) %>">
     <main>
       <%= render "header" %>
       <%= render "notice" %>
