@@ -28,6 +28,18 @@
 
   <%= render 'structure/items/zones/page', about: @project %>
 
+  <% if @project.actors.any? %>
+    <section class="actors bg-white py-5">
+      <div class="container">
+        <h2><%= t('ui.project.actors', count: @project.actors.count) %></h2>
+        <%= render 'actors/list', objects: @project.actors %>
+        <div class="row">
+          <p class="small col-md-6">*Sont mis en avant les membres du Lab qui ont participé à la rédaction de cette fiche, mais l’équipe projet est plus vaste.<p>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
   <% if @project.has_brezet_wheel? %>
     <section class="bg-light py-5 brezet-wheel-container">
       <div class="container">
@@ -76,18 +88,6 @@
   <% end %>
 
   <%= render 'structure/items/zones/lower_page', about: @project %>
-
-  <% if @project.actors.any? %>
-    <section class="actors bg-white py-5">
-      <div class="container">
-        <h2><%= t('ui.project.actors', count: @project.actors.count) %></h2>
-        <%= render 'actors/list', objects: @project.actors %>
-        <div class="row">
-          <p class="small col-md-6">*Sont mis en avant les membres du Lab qui ont participé à la rédaction de cette fiche, mais l’équipe projet est plus vaste.<p>
-        </div>
-      </div>
-    </section>
-  <% end %>
 
   <%= render 'comments/list', about: @project %>
 
