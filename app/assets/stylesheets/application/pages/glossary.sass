@@ -1,4 +1,11 @@
-.actors-options
+.actors-options,
+.actors-option,
+.materials-options,
+.materials-option,
+.projects-options,
+.projects-option,
+.technics-options,
+.technics-option
     .hero
         display: flex
         align-items: center
@@ -10,6 +17,7 @@
             position: relative
         &::before,
         &::after
+            text-transform: lowercase
             position: absolute
             line-height: 1
             font-size: pxToRem(300)
@@ -32,8 +40,46 @@
             content: attr(data-second-letter)
             @include media-breakpoint-down(md)
                 transform: translateY(25%)
-.hero
-    .actors-options &
+
+.actors-options,
+.actors-option,
+.materials-options,
+.materials-option,
+.projects-options,
+.projects-option,
+.technics-options,
+.technics-option
+    .hero
         &::before,
         &::after
+            @include media-breakpoint-up(md)
+                font-size: pxToRem(600)
+            @include media-breakpoint-up(lg)
+                font-size: pxToRem(800)
+            @include media-breakpoint-up(xxl)
+                font-size: pxToRem(1000)
+        &::before
+            transform: translate(-50%, 0%)
+            @include media-breakpoint-up(md)
+                transform: translate(-50%, -30%)
+            @include media-breakpoint-up(xxl)
+                transform: translate(-75%, -30%)
+        &::after
+            transform: translate(15%, 25%)
+            @include media-breakpoint-down(md)
+                transform: translate(30%, 25%)
+.hero
+    &::before,
+    &::after
+        .actors-options &,
+        .actors-option &
             color: $ecosystem-secondary
+        .technics-options &,
+        .technics-option &
+            color: $technic-secondary
+        .materials-options &,
+        .materials-option &
+            color: $materials-secondary
+        .projects-options &,
+        .projects-option &
+            color: $projects-secondary
