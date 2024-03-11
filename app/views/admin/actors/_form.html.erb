@@ -11,7 +11,10 @@
                     data: { source: '#actor_name' }
                   } %>
       <%= f.input :description %>
-      <%= f.association :regions, as: :check_boxes %>
+      <%= f.association :regions,
+                        input_html: {
+                          class: 'select2'
+                        } %>
     </div>
     <div class="col-lg-4">
       <%= render 'admin/application/form/publication', f: f %>
