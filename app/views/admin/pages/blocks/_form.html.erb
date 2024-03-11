@@ -1,8 +1,13 @@
-<%= simple_form_for [:admin, block] do |f| %>
+<%
+url = block.persisted?  ? admin_page_block_path(page_id: @page.slug, id: block.id)
+                        : admin_page_blocks_path(page_id: @page.slug)
+%>
+<%= simple_form_for block, url: url do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%= f.input :name %>
+  <%= f.input :kind, include_blank: false %>
 
   <% content_for :buttons do %>
     <%= submit f %>
