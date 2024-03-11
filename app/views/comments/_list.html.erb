@@ -22,14 +22,14 @@
     <% if current_user %>
       <div class="row">
         <div class="col-lg-7 offset-lg-3 offset-xl-2">
-          <div class="accordion" id="accordionExample">
+          <div class="accordion" id="container-comment-<%= comment.id %>">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnwserForm" aria-expanded="false" aria-controls="collapseAnwserForm">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comment-<%= comment.id %>" aria-expanded="false" aria-controls="collapseAnwserForm">
                   <%= t('comments.answer') %>
                 </button>
               </h2>
-              <div id="collapseAnwserForm" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div id="comment-<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#container-comment-<%= comment.id %>">
                 <div class="accordion-body">
                   <%= render 'comments/form', comment: comment.new_reply %>
                 </div>
