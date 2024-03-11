@@ -1,35 +1,46 @@
-<div class="container">
-
-  <div class="row">
-    <div class="col-lg-8">
-      <h1><%= @region %></h1>
-      <p class="mb-5"><%= sanitize @region.description %></p>
+<header class="hero pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <hgroup class="mt-lg-5">
+          <h1><%= @region %></h1>
+          <p class="mt-3 mt-md-5"><%= sanitize @region.description %></p>
+        </hgroup>
+      </div>
+      <div class="col-lg-5 offset-2">
+        <%= kamifusen_tag @region.image, class: 'img-fluid rounded', alt: @region.image_alt if @region.image.attached? %>
+      </div>
     </div>
-    <div class="col-lg-4">
-      <%= kamifusen_tag @region.image, class: 'img-fluid rounded', alt: @region.image_alt if @region.image.attached? %>
+    <div class="row mt-4">
+      <dl class="col-2">
+        <dt class="key-figure"><%= @region.actors.count %></dt>
+        <dd><%= Actor.model_name.human(count: @region.actors.count).downcase %></dd>
+      </dl>
+      <dl class="col-2">
+        <dt class="key-figure"><%= @region.materials.count %></dt>
+        <dd><%= Material.model_name.human(count: @region.materials.count).downcase %></dd>
+      </dl>
+      <dl class="col-2">
+        <dt class="key-figure"><%= @region.projects.count %></dt>
+        <dd><%= Project.model_name.human(count: @region.projects.count).downcase %></dd>
+      </dl>
     </div>
+  </div>  
+</header>
+
+<div class="document-content">
+  <div class="container">
+    <% if @region.materials.any? %>
+      <h2 class="mb-4"><%= link_to Material.model_name.human(count: 2), materials_path(@region.slug) %></h2>
+      <%= render 'materials/list', objects: @materials %>
+    <% end %>
+    <% if @region.projects.any? %>
+      <h2 class="mb-4"><%= link_to Project.model_name.human(count: 2), projects_path(@region.slug) %></h2>
+      <%= render 'projects/list', objects: @projects %>
+    <% end %>
+    <% if @region.actors.any? %>
+      <h2 class="mb-4"><%= link_to t('ecosystem'), actors_path(@region.slug) %></h2>
+      <%= render 'actors/list', objects: @actors %>
+    <% end %>
   </div>
-
-  <div>
-    <%= @region.materials.count %>
-    <%= Material.model_name.human(count: @region.materials.count).downcase %>
-  </div>
-  <div>
-    <%= @region.actors.count %>
-    <%= Actor.model_name.human(count: @region.actors.count).downcase %>
-  </div>
-  <div>
-    <%= @region.projects.count %>
-    <%= Project.model_name.human(count: @region.projects.count).downcase %>
-  </div>
-
-  <h2><%= link_to Material.model_name.human(count: 2), materials_path(@region.slug) %></h2>
-  <%= render 'materials/list', objects: @materials %>
-
-  <h2><%= link_to Project.model_name.human(count: 2), projects_path(@region.slug) %></h2>
-  <%= render 'projects/list', objects: @projects %>
-
-  <h2><%= link_to t('ecosystem'), actors_path(@region.slug) %></h2>
-  <%= render 'actors/list', objects: @actors %>
-
 </div>
