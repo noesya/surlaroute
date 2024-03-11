@@ -6,8 +6,8 @@
 #  body_class          :string           default("")
 #  description         :text
 #  internal_identifier :string
-#  name                :string
-#  path                :string
+#  name                :string           not null
+#  path                :string           not null
 #  position            :integer
 #  slug                :string
 #  created_at          :datetime         not null
@@ -30,12 +30,12 @@ class Page < ApplicationRecord
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
 
+  validates :name, :slug, presence: true
+  validates :slug, uniqueness: true
+
   before_validation :set_body_class, :set_path
   after_save :update_children_paths, if: :saved_change_to_path?
 
-  validates :name, :slug, presence: true
-  validates :slug, uniqueness: true
-  
   scope :ordered, -> { order(:name) }
   scope :ordered_by_position, -> { order(:position, :name) }
 
