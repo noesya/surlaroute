@@ -8,7 +8,9 @@ namespace :admin do
   resources :materials
   resources :projects
   resources :regions
-  resources :pages
+  resources :pages do 
+    resources :blocks, controller: 'pages/blocks'
+  end
   namespace :structure do
     scope ':about_class' do
       resources :items do
