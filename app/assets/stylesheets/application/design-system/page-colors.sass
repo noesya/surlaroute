@@ -1,0 +1,55 @@
+\:root
+    --page-main-color: #{$color-bg}
+    // Blocks
+    --block-quote-background: white
+
+body
+    background: var(--page-main-color)
+
+.bg-actors
+    background-color: $ecosystem-primary
+.bg-materials
+    background-color: $materials-primary
+.bg-projects
+    background-color: $projects-primary
+.bg-technics
+    background-color: $technic-primary
+.bg-toolbox
+    background-color: $toolbox-primary
+
+// colors and hero images
+.actors-index,
+.actors-options,
+.actors-option
+    --page-main-color: #{$ecosystem-primary}
+.actors-index
+    .hero
+        background-image: asset-url("letters/actors.svg")
+
+.materials-index,
+.materials-options,
+.materials-option
+    --page-main-color: #{$materials-primary}
+.materials-index
+    .hero
+        background-image: asset-url("letters/materials.svg")
+
+.projects-index,
+.projects-options,
+.projects-option
+    --page-main-color: #{$projects-primary}
+.projects-index
+    .hero
+        background-image: asset-url("letters/projects.svg")
+
+.technics-index,
+.technics-options,
+.technics-option
+    --page-main-color: #{$technic-primary}
+.technics-index
+    .hero
+        background-image: asset-url("letters/technics.svg")
+
+.toolbox-index, .toolbox-child
+    --page-main-color: #{$toolbox-primary}
+    --block-quote-background: #{$toolbox-primary}
