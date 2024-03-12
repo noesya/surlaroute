@@ -1,0 +1,24 @@
+.map
+    width: 100%
+    aspect-ratio: 1
+    
+.leaflet
+    &-pane &-div-icon
+        background: transparent
+        border: none
+
+    &-marker-icon
+        .number
+            color: $white
+            font-size: px2rem(12)
+            line-height: px2rem(27)
+            position: absolute
+            text-align: center
+            top: 0
+            width: 100%
+
+    &-container &-control-attribution
+        color: $primary
+        font-size: px2rem(8)
+        a
+            color: $primary
