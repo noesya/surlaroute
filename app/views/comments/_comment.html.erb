@@ -1,7 +1,12 @@
-<div class="col-lg-3 col-xl-2 text-center">
-  <span class="fw-bold h3"><%= comment.user %></span>
-</div>
+<% if !comment.reply_to.present? %>
+  <div class="col-lg-3 col-xl-2 text-center">
+    <span class="fw-bold h3"><%= comment.user %></span>
+  </div>
+<% end %>
 <div class="col-lg-7">
+  <% if comment.reply_to.present? %>
+    <span class="fw-bold h3"><%= t('comments.from') %> <%= comment.user %></span>
+  <% end %>
   <h3 class="fw-bold">“<%= comment.title %>”</h3>
   <p class="small">
     <%= t('comments.date', date: l(comment.created_at.to_date)) %>

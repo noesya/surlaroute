@@ -35,7 +35,7 @@
   <% end %>
 
   <% if @material.actors.any? %>
-    <section class="bg-white py-5 actors">
+    <section class="bg-white pt-5 actors">
       <div class="container">
         <h2><%= t('ui.material.actors') %></h2>
         <%= render 'projects/list', objects: @material.actors %>
@@ -44,7 +44,7 @@
   <% end %>
 
   <% if @material.projects.any? %>
-    <section class="bg-white py-5 projects">
+    <section class="bg-white pt-5 projects">
       <div class="container">
         <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>
         <%= render 'projects/list', objects: @material.projects %>

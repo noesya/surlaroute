@@ -11,7 +11,6 @@ fr:
       about_html: À propos de “%{title}”
       none: Aucun commentaire pour l'instant.
       title: Mes commentaires
-      from: Réponse de
     favorites:
       add: Suivre
       none: Vous ne suivez pas encore de fiche.
@@ -225,10 +224,13 @@ fr:
     title: Administration
   comments:
     answer: Répondre à ce commentaire
-    answers: Réponses
     date: Rédigé le %{date}
     text: Contenu du commentaire
     title: Commentaires
+    from: Réponse de
+    answers:
+      one: réponse
+      other: réponses
   create: Créer
   default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
