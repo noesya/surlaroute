@@ -44,35 +44,35 @@
         <li>
           <% page_legal = Page.find_by(internal_identifier: 'mentions-legales') %>
           <%= link_to page_legal, page_path(page_legal), class: "fw-bold" %>
-          </li>
-        <li>
+        </li>
+        <li class="mt-2">
           <% page_contact = Page.find_by(internal_identifier: 'contact') %>
           <%= link_to page_contact, page_path(page_contact) %>
         </li>
-        <li><a href="#" title="Linkedin - Lien externe" target="_blank">Linkedin</a></li>
-        <li><a href="#" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
+        <li class="mt-2"><a href="#" title="Linkedin - Lien externe" target="_blank">Linkedin</a></li>
+        <li class="mt-2"><a href="#" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
       </ul>
     </nav>
     <div class="row mt-5">
         <span class="small pb-2 pb-lg-0"><%= t('footer.implementation.title') %></span>
         <ul class="footer-credits small">
-          <li class="row"><a class="col-lg-2" href="https://villettemakerz.com" target="_blank" rel="noreferrer">Villette Makerz</a> <span class="col"><%= t('footer.implementation.project_management') %></span></li>
-          <li class="row"><a class="col-lg-2" href="https://www.dazd.fr" target="_blank" rel="noreferrer">studio dazd</a> <span class="col"><%= t('footer.implementation.design') %></span></li>
-          <li class="row"><a class="col-lg-2" href="https://ctrls.studio" target="_blank" rel="noreferrer">Ctrl S</a> <span class="col"><%= t('footer.implementation.ecoconception') %></span></li>
-          <li class="row"><a class="col-lg-2" href="https://www.noesya.coop" target="_blank" rel="noreferrer">noesya</a> <span class="col"><%= t('footer.implementation.development') %></span></li>
+          <li class="row mt-1"><a class="col-lg-2" href="https://villettemakerz.com" target="_blank" rel="noreferrer">Villette Makerz</a> <span class="col"><%= t('footer.implementation.project_management') %></span></li>
+          <li class="row mt-1"><a class="col-lg-2" href="https://www.dazd.fr" target="_blank" rel="noreferrer">studio dazd</a> <span class="col"><%= t('footer.implementation.design') %></span></li>
+          <li class="row mt-1"><a class="col-lg-2" href="https://ctrls.studio" target="_blank" rel="noreferrer">Ctrl S</a> <span class="col"><%= t('footer.implementation.ecoconception') %></span></li>
+          <li class="row mt-1"><a class="col-lg-2" href="https://www.noesya.coop" target="_blank" rel="noreferrer">noesya</a> <span class="col"><%= t('footer.implementation.development') %></span></li>
         </ul>
     </div>
     <div class="row mt-3 align-items-end">
       <div class="col-12 col-md-4 col-md-6 d-flex align-items-center">
-        <%= image_tag('logos/logo-augures.svg', alt: 'Augures Lab', width: '80', height: '80', class: 'me-3') %>
+        <%= image_tag('logos/logo-augures.svg', alt: 'Augures Lab', width: '64', height: '64', class: 'me-3') %>
         <%= image_tag('logos/logo-augureslab.svg', alt: 'Augures Lab', width: '171', height: '40') %>
       </div>
       <div class="col-12 col-md-8 col-lg-6">
         <span class="small"><%= t('footer.implementation.sponsored') %></span>
         <ul class="footer-supports justify-content-lg-between">
           <li><%= image_tag('logos/logo-france2030.svg', alt: 'France 2030', width: '80', height: '80') %></li>
-          <li><%= image_tag('logos/logo-bdt.svg', alt: 'Banque des territoires', width: '80', height: '80') %></li>
-          <li><%= image_tag('logos/logo-parisville.svg', alt: 'Ville de Paris', width: '80', height: '80') %></li>
+          <li><%= image_tag('logos/logo-bdt.svg', alt: 'Banque des territoires', width: '170', height: '80') %></li>
+          <li><%= image_tag('logos/logo-parisville.svg', alt: 'Ville de Paris', width: '70', height: '80') %></li>
           <li><%= image_tag('logos/logo-ildefrance.svg', alt: 'Région Île de France', width: '80', height: '80') %></li>
           <li><%= image_tag('logos/logo-prefetidf.svg', alt: 'Préfet de la région Île de France', width: '80', height: '80') %></li>
         </ul>
