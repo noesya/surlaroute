@@ -30,6 +30,7 @@ class Page::Block < ApplicationRecord
   }, _prefix: :kind
 
   def to_s
-    "#{name}"
+    name.present? ? "#{name}"
+                  : "Bloc"
   end
 end

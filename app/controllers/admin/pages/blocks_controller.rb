@@ -20,7 +20,7 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
 
   def create
     if @block.save
-      redirect_to [:admin, @page], notice: t('admin.successfully_created_html', model: @block.to_s)
+      redirect_to edit_admin_page_block_path(page_id: @page.slug, id: @block.id), notice: t('admin.successfully_created_html', model: @block.to_s)
     else
       breadcrumb
       render :new, status: :unprocessable_entity
