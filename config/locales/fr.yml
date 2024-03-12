@@ -1,4 +1,11 @@
 fr:
+  views:
+    pagination:
+      first: "&laquo; Première page"
+      last: "Dernière page &raquo;"
+      previous: "&lsaquo; Précédente"
+      next: "Suivante &rsaquo;"
+      truncate: "&hellip;"
   account:
     comments:
       about_html: À propos de “%{title}”
