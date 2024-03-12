@@ -9,29 +9,35 @@
     <div class="row mt-5">
       <%= render 'comments/comment', comment: comment %>
     </div>
-    <% if comment.replies.any? %>
+    <% if comment.replies.any? || current_user %>
       <div class="row">
-        <div class="col-lg-9 col-xl-10 offset-lg-3 offset-xl-2">
-          <%= t('comments.answers') %> 
-          <% comment.replies.each do |reply| %>
-            <%= render 'comments/comment', comment: reply %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-    <% if current_user %>
-      <div class="row">
-        <div class="col-lg-7 offset-lg-3 offset-xl-2">
+        <div class="offset-lg-3 offset-xl-2">
           <div class="accordion" id="container-comment-<%= comment.id %>">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comment-<%= comment.id %>" aria-expanded="false" aria-controls="collapseAnwserForm">
-                  <%= t('comments.answer') %>
+                  <% if comment.replies.any? %><%= t('comments.answers') %><% elsif current_user %><%= t('comments.answer') %><% end %>
                 </button>
               </h2>
-              <div id="comment-<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#container-comment-<%= comment.id %>">
+              <div id="comment-<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= comment.id %>" data-bs-parent="#container-comment-<%= comment.id %>">
                 <div class="accordion-body">
-                  <%= render 'comments/form', comment: comment.new_reply %>
+                  <% if comment.replies.any? %>
+                    <div class="replies offset-lg-1">
+                      <% comment.replies.each do |reply| %>
+                        <div class="row mt-5 flex-column">
+                          <%= render 'comments/comment', comment: reply %>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <% if current_user %>
+                    <div class="commentary-form col-lg-6 offset-lg-1">
+                      <% if comment.replies.any? %>
+                        <h3><%= t('comments.answer') %></h3>
+                      <% end %>
+                      <%= render  'comments/form', comment: comment.new_reply %>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>

@@ -1,20 +1,22 @@
 <%= content_for :title, t('.title') %>
 
-<h2 class="mb-4"><%= t(".resend_unlock_instructions") %></h2>
+<div class="container py-5">
+  <h2 class="mb-4"><%= t(".resend_unlock_instructions") %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :unlock_token %>
-  <div class="row">
-    <div class="col-md-6">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
+  <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.full_error :unlock_token %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">&nbsp;</label><br>
+        <%= f.button :submit, t(".resend_unlock_instructions"), class: 'btn btn-primary' %>
+      </div>
     </div>
-    <div class="col-md-6">
-      <label class="form-label">&nbsp;</label><br>
-      <%= f.button :submit, t(".resend_unlock_instructions"), class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
