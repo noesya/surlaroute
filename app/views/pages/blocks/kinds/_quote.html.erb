@@ -1,7 +1,13 @@
-<div>
+<%
+text = block.data.dig('text')
+author = block.data.dig('author')
+%>
+<div class="container">
   <h2><%= block %></h2>
   <blockquote>
-    <%= simple_format block.data.dig('text') %>
-    <cite><%= block.data.dig('author') %></cite>
+    <%= simple_format text %>
+    <% if author.present? %>
+      <cite><%= author %></cite>
+    <% end %>
   </blockquote>
 </div>
