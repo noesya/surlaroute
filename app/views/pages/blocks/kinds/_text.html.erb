@@ -1,4 +1,10 @@
-<div class="container">
-  <h2><%= block %></h2>
-  <%= simple_format block.data.dig('text') %>
+<div class="container block block-text">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= block %></h2>
+    </div>
+    <div class="col-md-6">
+      <%= simple_format block.data.dig('text') %>
+    </div>
+  </div>
 </div>
