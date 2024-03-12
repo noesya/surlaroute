@@ -72,8 +72,9 @@ window.ecotheque.maps = {
             long = parseFloat(mapElement.dataset.longitude, 10),
             zoom = 15,
             markerIcon = null,
-            copyright = 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-            tile = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            copyright = 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu ©CartoDB',
+            // tile = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            tile = 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
             mymap;
 
         mymap = L.map(mapElement, { scrollWheelZoom: false, tap: false }).setView([lat, long], zoom);
