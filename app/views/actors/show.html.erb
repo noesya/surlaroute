@@ -8,9 +8,12 @@
       </div>
       <div class="col-lg-6">
         <h1><%= @actor %></h1>
-        <p class="fw-bold"><%= sanitize @actor.description %></p>
+        <% if @actor.description.present? %>
+          <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
+          <p class="fw-bold"><%= sanitize @actor.description %></p>
+        <% end %>
         <%= render 'meta', about: @actor %>
-        <hr class="my-5">
+        <hr class="my-4">
         <%= render 'structure/items/zones/header', about: @actor %>
         <%= render 'regions', about: @actor %>
         <% unless @actor.premium? %>
@@ -31,7 +34,7 @@
           <h2><%= t('ui.actor.informations') %></h2>
         </div>
         <% if @actor.full_address.present? %>
-          <div class="col-lg-6 structure__item__string mb-5">
+          <div class="col-lg-6 structure__item__string">
             <%= render 'structure/items/label', label: t('ui.actor.address') %>
             <p><%= @actor.full_address %></p>
           </div>
@@ -47,7 +50,7 @@
 <% if @actor.projects.any? %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2><%= t('ui.actor.projects', count: @actor.projects.count) %></h2>
+      <h2 class="mb-4"><%= t('ui.actor.projects', count: @actor.projects.count) %></h2>
       <%= render 'projects/list', objects: @actor.projects.ordered %>
     </div>
   </section>
@@ -56,7 +59,7 @@
 <% if @actor.materials.any? %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
+      <h2 class="mb-4"><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
       <%= render 'materials/list', objects: @actor.materials.ordered %>
     </div>
   </section>
@@ -65,7 +68,7 @@
 <% if @actor.technics.any? %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2><%= t('ui.actor.technics', count: @actor.technics.count) %></h2>
+      <h2 class="mb-4"><%= t('ui.actor.technics', count: @actor.technics.count) %></h2>
       <%= render 'technics/list', objects: @actor.technics.ordered %>
     </div>
   </section>
