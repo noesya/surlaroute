@@ -10,3 +10,13 @@
         gap: map-get($spacers, 1)
         li
             margin: 0 !important
+    > li:not(.accordion-item)
+        border-bottom: none
+        margin-bottom: 0
+        .faceted__facet__text.form-inline
+            margin-top: map-get($spacers, 2)
+            display: flex
+            gap: map-get($spacers, 1)
+            border-bottom: 1px solid black
+            input
+                @extend .search-input
