@@ -11,6 +11,7 @@ fr:
       about_html: À propos de “%{title}”
       none: Aucun commentaire pour l'instant.
       title: Mes commentaires
+      from: Réponse de
     favorites:
       add: Suivre
       none: Vous ne suivez pas encore de fiche.

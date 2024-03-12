@@ -1,22 +1,19 @@
-
 <div class="col-lg-3 col-xl-2 text-center">
   <span class="fw-bold h3"><%= comment.user %></span>
 </div>
 <div class="col-lg-7">
-  <hgroup>
-    <h3 class="fw-bold">“<%= comment.title %>”</h3>
-    <p class="small">
-      <%= t('comments.date', date: l(comment.created_at.to_date)) %>
-      <% if can?(:destroy, comment) %>
-        | 
-        <%= link_to t('edit'), 
-                    edit_user_comment_path(comment) %>
-        <%= link_to t('delete'), 
-                    user_comment_path(comment), 
-                    method: :delete,
-                    data: { confirm: t('please_confirm') } %>
-      <% end %>
-    </p>
-  </hgroup>
-  <p class="fw-bold"><%= comment.text %></p>
+  <h3 class="fw-bold">“<%= comment.title %>”</h3>
+  <p class="small">
+    <%= t('comments.date', date: l(comment.created_at.to_date)) %>
+    <% if can?(:destroy, comment) %>
+      | 
+      <%= link_to t('edit'), 
+                  edit_user_comment_path(comment) %>
+      <%= link_to t('delete'), 
+                  user_comment_path(comment), 
+                  method: :delete,
+                  data: { confirm: t('please_confirm') } %>
+    <% end %>
+  </p>
+  <p class="fw-bold mt-3"><%= comment.text %></p>
 </div>
