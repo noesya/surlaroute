@@ -2,7 +2,9 @@
 elements = block.data.dig('elements')
 %>
 <div class="container">
-  <h2><%= block %></h2>
+  <% if block.name.present? %>
+    <h2><%= block.name %></h2>
+  <% end %>
   <div class="row">
     <% elements.each do |element| %>
       <%

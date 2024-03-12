@@ -3,7 +3,9 @@ text = block.data.dig('text')
 author = block.data.dig('author')
 %>
 <div class="container">
-  <h2><%= block %></h2>
+  <% if block.name.present? %>
+    <h2><%= block.name %></h2>
+  <% end %>
   <blockquote>
     <%= simple_format text %>
     <% if author.present? %>

@@ -6,6 +6,13 @@
             transform: translateX(-100%)
             opacity: 0
             position: absolute 
+        .faceted__facets
+            height: 95vh
+            overflow: auto
+    .accordion-button
+        @include icon(chevron-down, after)
+        &::after
+            font-size: pxToRem(10)
 
 .toc-btn
     @include icon(settings)
