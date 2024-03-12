@@ -2,7 +2,7 @@ class TechnicsController < ApplicationController
   include ResourceWithStructure
 
   def index
-    @technics = Technic.published.ordered.page(params[:page])
+    @technics = Technic.published.ordered.page(params[:page]).per(6)
     breadcrumb
   end
 
