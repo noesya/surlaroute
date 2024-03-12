@@ -264,8 +264,9 @@ fr:
     page:
       block:
         kind:
-          text: Texte
+          keypoints: Points-clés
           quote: Citation
+          text: Texte
     structure:
       item:
         kind:

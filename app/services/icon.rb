@@ -15,4 +15,7 @@ class Icon
   FOLDER_CLOSED_FULL = 'bi bi-folder-fill'
   FOLDER_OPENED_FULL = 'bi bi-folder-symlink-fill'
   SORT = 'bi bi-arrow-down-up'
+  MOVE = 'bi bi-arrows-move'
+  EDIT = 'bi bi-pen'
+  DELETE = 'bi bi-trash'
 end

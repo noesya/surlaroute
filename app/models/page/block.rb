@@ -26,7 +26,8 @@ class Page::Block < ApplicationRecord
 
   enum kind: {
     text: 1,
-    quote: 2
+    quote: 2,
+    keypoints: 3
   }, _prefix: :kind
 
   def data=(value)
@@ -37,7 +38,7 @@ class Page::Block < ApplicationRecord
 
   def data
     attributes['data'].present? ? super
-                                : {}
+                                : { elements: [] }
   end
 
   def to_s
