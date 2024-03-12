@@ -14,6 +14,9 @@ namespace :admin do
         post :reorder
       end
     end
+    collection do
+      post :reorder
+    end
     member do
         get :children
     end

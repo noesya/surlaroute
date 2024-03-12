@@ -17,5 +17,6 @@ class Icon
   SORT = 'bi bi-arrow-down-up'
   MOVE = 'bi bi-arrows-move'
   EDIT = 'bi bi-pen'
+  ADD = 'bi bi-plus'
   DELETE = 'bi bi-trash'
 end

@@ -1,5 +1,6 @@
-<a  class="<%= button_classes('mb-4') %>"
+<a  class="btn btn-sm btn-light mb-4"
     v-on:click="data.elements.push({ title: '', text: '', icon: '' })">
+  <i class="<%= Icon::ADD %>"></i>
   Ajouter un point-clé
 </a>
 <draggable :list="data.elements" rowhandle=".dragHandle" class="row">
@@ -17,6 +18,13 @@
       </div>
       <div class="card-body">
         <div class="flex-fill">
+          <div class="mb-3">
+            <label class="form-label">Icône (svg)</label>
+            <input  class="form-control"
+                    type="file"
+                    accept="image/svg+xml"
+                    @change="onFileImageChange(element.icon)">
+          </div>
           <div class="mb-3">
             <label class="form-label">Titre</label>
             <input type="text" v-model="element.title" class="form-control" />
