@@ -1,0 +1,13 @@
+<li class=" faceted__facet-selected
+            list-inline-item">
+  <%= link_to path, class: 'btn btn-outline-dark btn-sm rounded-pill', rel: 'nofollow' do %>
+    <% unless title %>
+      <span class="faceted__facet-selected__title d-none">
+        <%= title %>
+      </span>
+    <% end %>
+    <span class="faceted__facet-selected__value">
+      <%= value %>
+    </span>
+  <% end %>
+</li>
