@@ -2,12 +2,12 @@
   <% blocks.ordered.each do |block| %>
     <div class="row mb-5" data-id="<%= block.id %>">
       <div class="col-lg-4">
-        <h2 class="h5"><%= block %></h2>
-        <div class="small mb-2">
+        <div class="small float-end">
           <span class="badge text-bg-secondary">
             <%= t("enums.page.block.kind.#{block.kind}") %>
           </span>
         </div>
+        <h2 class="h5"><%= block %></h2>
         <div class="small mb-2">
           <span class="handle py-2 me-3">
             <i class="bi bi-arrow-down-up"></i>
