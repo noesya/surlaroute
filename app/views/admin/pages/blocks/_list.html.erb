@@ -1,20 +1,34 @@
-<% blocks.each do |block| %>
-  <div class="row mb-4">
-    <div class="col-lg-4">
-    <h2 class="h5"><%= block %></h2>
-    <p class="small">
-      <%= t("enums.page.block.kind.#{block.kind}") %><br>
-      <%= link_to 'Modifier', 
-                  edit_admin_page_block_path(page_id: @page.slug, id: block.id) %>
-      <%= link_to 'Supprimer', 
-                  admin_page_block_path(page_id: @page.slug, id: block.id), 
-                  method: :delete, 
-                  class: 'text-danger',
-                  data: { confirm: t('please_confirm') } %>
-    </p>
+<div data-sortable data-sort-url="<%= reorder_admin_page_blocks_path(page_id: @page.slug) %>">
+  <% blocks.ordered.each do |block| %>
+    <div class="row mb-4" data-id="<%= block.id %>">
+      <div class="col-lg-4">
+      <h2 class="h5"><%= block %></h2>
+      <div class="small">
+        <span class="handle py-2 me-3">
+          <i class="bi bi-arrow-down-up"></i>
+          Déplacer
+        </span>
+        <%= link_to edit_admin_page_block_path(page_id: @page.slug, id: block.id),
+                    class: 'py-2 me-3' do %>
+          <i class="bi bi-pen"></i>
+          Modifier
+        <% end %>
+        <%= link_to admin_page_block_path(page_id: @page.slug, id: block.id), 
+                    method: :delete, 
+                    class: 'text-danger py-2',
+                    data: { confirm: t('please_confirm') } do %>
+          <i class="bi bi-trash"></i>
+          Supprimer
+        <% end %>
+      </div>
+      <div class="small">
+        <span class="badge text-bg-secondary mb-2">
+          <%= t("enums.page.block.kind.#{block.kind}") %>
+        </span>
+      </div>
+      <div class="col-lg-8">
+        <%= render "admin/pages/blocks/kinds/#{block.kind}/show", block: block %>
+      </div>
     </div>
-    <div class="col-lg-8">
-      <%= render "admin/pages/blocks/kinds/#{block.kind}/show", block: block %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
