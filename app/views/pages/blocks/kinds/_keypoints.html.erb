@@ -1,26 +1,28 @@
 <%
 elements = block.data.dig('elements')
 %>
-<div class="block block-keypoints container py-5">
-  <% if block.name.present? %>
-    <h2><%= block.name %></h2>
-  <% end %>
-  <div class="row">
-    <% elements.each do |element| %>
-      <%
-      title = element.dig('title')
-      text = element.dig('text')
-      icon = element.dig('icon')
-      %>
-      <div class="col-xl-3 col-lg-4 col-sm-6">
-        <% if icon %>
-          <%= image_tag icon, alt: "" %>
-        <% end %>
-        <% if title %>
-          <h3 class="fw-bold"><%= title %></h3>
-        <% end %>
-        <%= simple_format text %>
-      </div>
+<div class="block block-keypoints py-5">
+  <div class="container">
+    <% if block.name.present? %>
+      <h2><%= block.name %></h2>
     <% end %>
+    <div class="row">
+      <% elements.each do |element| %>
+        <%
+        title = element.dig('title')
+        text = element.dig('text')
+        icon = element.dig('icon')
+        %>
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+          <% if icon %>
+            <%= image_tag icon, alt: "" %>
+          <% end %>
+          <% if title %>
+            <h3 class="fw-bold"><%= title %></h3>
+          <% end %>
+          <%= simple_format text %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
