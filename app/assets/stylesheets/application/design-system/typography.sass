@@ -33,15 +33,10 @@ article
 
 blockquote
     > p
+        font-weight: bold
         font-size: pxToRem(56)
         @include media-breakpoint-down(md)
             font-size: pxToRem(32)
-    footer
-        cite
-            @include icon(arrow-right, after)
-            &::after
-                font-size: pxToRem(10)
-                margin-left: map-get($spacers, 0)
 
 .arrow-right
     @include icon(arrow-right, after)
