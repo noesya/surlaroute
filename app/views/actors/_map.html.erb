@@ -1,6 +1,38 @@
+<% content_for :with_leaflet, true %>
+
+<script type="text/javascript" nonce=<%= request.content_security_policy_nonce %>>
+  window.map = {
+    iconUrl : "<%= asset_path('icons/marker.svg') %>",
+    markers : {
+      "type": "FeatureCollection",
+      "features": []
+    },
+  }
+
+  <% objects.each_with_index do |actor, index| %>
+    <% if actor.latitude && actor.longitude %>
+      window.map.markers.features.push(
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [<%= actor.latitude %>, <%= actor.longitude %>]
+          },
+          "properties": {
+            "name": "<%= actor.to_s.html_safe %>",
+            "image": "<%= actor.image.url if actor.image.attached? %>"
+          }
+        }
+      );
+    <% end %>
+  <% end %>
+</script>
+
+<div class="map js-map" data-latitude="48.856614" data-longitude="2.3522219" data-markers="true"></div>
+
 <% objects.each do |actor| %>
   <article class="position-relative">
-    <%= render 'illustration', source: actor, width: 400 %>
+    <%#= render 'illustration', source: actor, width: 400 %>
     <h2><%= link_to actor, actor, class: 'stretched-link' %></h2>
     <%= actor.latitude %>
     <%= actor.longitude %>

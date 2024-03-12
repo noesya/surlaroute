@@ -21,4 +21,7 @@
       <%= render "footer" %>
     </main>
   </body>
+  <% if content_for? :with_leaflet %>
+    <%= javascript_include_tag 'leafletMap', defer: 'defer' %>
+  <% end %>
 </html>
