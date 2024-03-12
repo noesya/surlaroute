@@ -14,20 +14,20 @@
           </div>
         </form>
       </div>
-      <div class="container mt-4">
+      <div class="search-quick-links container mt-4">
         <p class="small"><%= t('search.also') %></p>
         <div class="row">
-          <div class="col">
-            <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "stretched-link" %>
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "stretched-link h2 w-100 square rounded bg-actors d-flex align-items-center justify-content-center" %>
           </div>
-          <div class="col">
-            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "stretched-link" %>
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "stretched-link h2 w-100 square rounded bg-projects d-flex align-items-center justify-content-center" %>
           </div>
-          <div class="col">
-            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "stretched-link" %>
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "stretched-link h2 w-100 square rounded bg-materials d-flex align-items-center justify-content-center" %>
           </div>
-          <div class="col">
-            <%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "stretched-link" %>
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "square rounded stretched-link h2 w-100 bg-technics d-flex align-items-center justify-content-center" %>
           </div>
         </div>
       </div>
