@@ -23,7 +23,7 @@
   <%= render 'structure/items/zones/page', about: @technic %>
 
   <% if @technic.actors.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2><%= t('ui.technic.actors', count: @technic.actors.count) %></h2>
         <%= render 'actors/list', objects: @technic.actors %>
@@ -32,7 +32,7 @@
   <% end %>
 
   <% if @technic.projects.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2><%= t('ui.technic.projects', count: @technic.projects.count) %></h2>
         <%= render 'projects/list', objects: @technic.projects %>
