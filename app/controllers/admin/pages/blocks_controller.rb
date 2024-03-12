@@ -18,6 +18,15 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
     add_breadcrumb @block
   end
 
+  def reorder
+    authorize!(:reorder, Page::Block)
+    ids = params[:ids] || []
+    ids.each.with_index do |id, index|
+      block = Page::Block.find(id)
+      block.update_column :position, index + 1
+    end
+  end
+
   def create
     if @block.save
       redirect_to edit_admin_page_block_path(page_id: @page.slug, id: @block.id), notice: t('admin.successfully_created_html', model: @block.to_s)

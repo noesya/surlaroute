@@ -9,9 +9,10 @@ namespace :admin do
   resources :projects
   resources :regions
   resources :pages do 
-    resources :blocks, controller: 'pages/blocks', except: :index
-    collection do
-      post :reorder
+    resources :blocks, controller: 'pages/blocks', except: [:index, :show] do
+      collection do
+        post :reorder
+      end
     end
     member do
         get :children

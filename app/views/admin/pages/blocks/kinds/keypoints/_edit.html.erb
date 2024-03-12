@@ -1,0 +1,32 @@
+<a  class="<%= button_classes('mb-4') %>"
+    v-on:click="data.elements.push({ title: '', text: '', icon: '' })">
+  Ajouter un point-clé
+</a>
+<draggable :list="data.elements" rowhandle=".dragHandle" class="row">
+  <div v-for="(element, index) in data.elements" class="col-lg-4 draggable-item">
+    <div class="card">
+      <div class="card-header bg-transparent pt-3">
+        <a  class="float-end btn text-danger pe-0"
+            v-on:click="data.elements.splice(data.elements.indexOf(element), 1)"
+            title="Delete">
+          <i class="<%= Icon::DELETE %>"></i>
+        </a>
+        <a class="btn ps-0 dragHandle" title="Drag and drop">
+          <i class="<%= Icon::MOVE %> handle"></i>
+        </a>
+      </div>
+      <div class="card-body">
+        <div class="flex-fill">
+          <div class="mb-3">
+            <label class="form-label">Titre</label>
+            <input type="text" v-model="element.title" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Texte</label>
+            <textarea class="form-control" v-model="element.text" rows="5"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</draggable>
