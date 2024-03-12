@@ -37,13 +37,64 @@
     },
     data() {
       return {
+        directUpload: {
+          url: "<%= rails_direct_uploads_url.html_safe %>",
+          blobUrlTemplate: "<%= medium_url(":signed_id", ":filename").html_safe %>"
+        },
         data: <%= @block.data.to_json.html_safe %>
       }
     },
     methods: {
+      onMultipleFileImageChange(event, key) {
+        var files = event.target.files || event.dataTransfer.files;
+        if (!files.length)
+          return;
+
+        var index = 0;
+        for(var i = 0; i < files.length; i += 1) {
+          index = this.data.elements.length;
+          this.data.elements.push(JSON.parse(JSON.stringify(this.defaultElement)));
+          this.uploadFile(event.target, files[i], this.data.elements[index], key);
+        }
+      },
+      onFileImageChange(event, object, key) {
+        var files = event.target.files || event.dataTransfer.files;
+        if (!files.length)
+          return;
+        this.uploadFile(event.target, files[0], object, key);
+      },
+      uploadFile(input, file, object, key) {
+        var size = Math.round(file.size / 1024 / 1024),
+            sizeLimit = <%= Rails.application.config.default_image_max_size %>,
+            sizeLimitMo = 0,
+            controller;
+        if (input.hasAttribute('data-size-limit')) {
+          sizeLimit = input.getAttribute('data-size-limit');
+        }
+        sizeLimitMo = Math.round(sizeLimit / 1024 / 1024);
+        controller = new Vue.DirectUploadController(input, file, this.directUpload.url);
+        if (file.size > sizeLimit) {
+          alert("Trop gros ! (" + size + " Mo > " + sizeLimitMo + " Mo)");
+          return;
+        }
+        controller.start(function (blob) {
+          object[key] = {
+              id: blob.id,
+              signed_id: blob.signed_id,
+              filename: blob.filename
+          };
+        });
+      },
+      getFileUrl(signed_id, filename) {
+        return this.directUpload.blobUrlTemplate
+          .replace(':signed_id', signed_id)
+          .replace(':filename', filename);
+      },
+      getImageUrl(data) {
+        return this.getFileUrl(data.signed_id, "image_1024x.jpg");
+      },
       handleSummernotes() {
         var $summernoteElements = $('.summernote-vue:not(.is-initialized)');
-
         $summernoteElements.each(function(index){
           $summernoteElements.get(index).classList.add('is-initialized');
           this.initSummernote($summernoteElements.get(index));
@@ -55,15 +106,12 @@
               element.value = content;
               element.dispatchEvent(new Event('input'))
           };
-
         $(element).summernote({
           lang: 'fr',
           followingToolbar: true,
           disableDragAndDrop: true,
-          codemirror: window.codemirrorManager.defaultConfig(),
           callbacks: {
-            onChange: onChangeCallback,
-            onChangeCodeview: onChangeCallback
+            onChange: onChangeCallback
           }
         });
       }

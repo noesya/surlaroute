@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     } do
     resources :actors, path: 'ecosysteme', only: [:index, :show] do
       collection do
+        get 'carte' => 'actors#index', as: :map, mode: 'map'
         get 'glossaire' => 'actors#options', as: :options
         get ':item_slug/:option_slug' => 'actors#option', as: :option
       end
@@ -58,6 +59,8 @@ Rails.application.routes.draw do
   match '*path', via: :all, to: 'pages#show', constraints: lambda { |req|
     Page.find_by(path: req.path[1..-1]).present?
   }
+
+  get '/media/:signed_id/:filename_with_transformations' => 'media#show', as: :medium
 
   root to: 'home#index'
 end

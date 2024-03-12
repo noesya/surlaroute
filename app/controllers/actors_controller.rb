@@ -2,6 +2,7 @@ class ActorsController < ApplicationController
   include ResourceWithStructure
 
   def index
+    @mode = params[:mode] || 'list'
     @facets = Actor::Facets.new params[:facets]
     @actors = @facets.results.ordered.page(params[:page]).per(6)
     paginate_actors

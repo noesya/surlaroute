@@ -1,0 +1,8 @@
+<% objects.each do |actor| %>
+  <article class="position-relative">
+    <%= render 'illustration', source: actor, width: 400 %>
+    <h2><%= link_to actor, actor, class: 'stretched-link' %></h2>
+    <%= actor.latitude %>
+    <%= actor.longitude %>
+  </article>
+<% end %>

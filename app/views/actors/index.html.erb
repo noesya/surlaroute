@@ -17,19 +17,23 @@
   </div>  
 </header>
 
-<div class="document-content bg-white py-5">
+<div class="document-content bg-white py-5" id="results">
   <div class="container directory">
     <div class="row">
       <div class="col d-flex gap-2">
-        <button class="toc-btn d-flex align-items-center gap-1"><span>Fermer les filtres</span></button>
+        <button class="toc-btn d-flex align-items-center gap-1">
+          <span>Fermer les filtres</span>
+        </button>
       </div>
     </div>
+    <%= link_to 'Liste', actors_path %>
+    <%= link_to 'Carte', map_actors_path %>
     <div class="row align-items-start position-relative mt-4">
       <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
-        <%= render 'faceted_search/facets', facets: @facets %>
+        <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
       </div>
       <div class="directory-container col-lg-9">
-        <%= render 'actors/list', objects: @actors %>
+        <%= render "actors/#{@mode}", objects: @actors %>
         <%= paginate @actors, theme: "bootstrap-5" %>
       </div>
     </div>

@@ -23,7 +23,7 @@
             <input  class="form-control"
                     type="file"
                     accept="image/svg+xml"
-                    @change="onFileImageChange(element.icon)">
+                    @change="onFileImageChange($event, element, 'icon')">
           </div>
           <div class="mb-3">
             <label class="form-label">Titre</label>
