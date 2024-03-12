@@ -1,20 +1,22 @@
 <% anchor ||= '' %>
 <% if facet.values.any? %>
-  <li>
-    <% unless facet.title.blank? %>
-      <p class="mb-2">
-        <b><%= facet.title %></b>
-      </p>
-    <% end %>
-    <ol class="faceted__facet__list list-inline">
-      <% facet.values.each do |value| %>
-        <li class="list-inline-item faceted__facet__list__value">
-          <%= render 'faceted_search/facets/item/item', 
-                      value: value,
-                      facet: facet,
-                      anchor: anchor %>
-        </li>
-      <% end %>
-    </ol>
+  <li class="accordion-item">
+      <h4 class="accordion-header" id="heading<%= facet.name %>">
+        <button class="accordion-button d-flex w-100 align-items-baseline justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= facet.name %>" aria-expanded="true" aria-controls="collapse<%= facet.name %>">
+          <% unless facet.title.blank? %><b><%= facet.title %></b><% end %>
+        </button>
+      </h4>
+      <div id="collapse<%= facet.name %>" class="accordion-collapse collapse" aria-labelledby="heading<%= facet.name %>">
+        <ol class="faceted__facet__list list-inline">
+          <% facet.values.each do |value| %>
+            <li class="list-inline-item faceted__facet__list__value pt-2">
+              <%= render 'faceted_search/facets/item/item', 
+                          value: value,
+                          facet: facet,
+                          anchor: anchor %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
   </li>
 <% end %>
