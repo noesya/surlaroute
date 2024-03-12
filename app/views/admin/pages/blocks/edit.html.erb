@@ -1,23 +1,102 @@
 <%= content_for :title, @block %>
 
-<%= simple_form_for @block, url: admin_page_block_path(page_id: @page.slug, id: @block.id) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="row">
-    <div class="col-lg-9">
-    <%= f.input :name %>
-    </div>
-    <div class="col-lg-3">
-      <label><%= t("enums.page.block.kind.#{@block.kind}") %></label>
-      <%= image_tag "admin/pages/blocks/kinds/#{@block.kind}.jpg", class: 'img-fluid border', alt: '' %>
-
-    </div>
+<div id="app" v-cloak>
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden"><%= t 'loading' %></span>
   </div>
+  <%= simple_form_for @block, url: admin_page_block_path(page_id: @page.slug, id: @block.id) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= render "admin/pages/blocks/kinds/#{@block.kind}/edit" %>
+    <div class="row">
+      <div class="col-lg-9">
+        <%= f.input :name %>
+        <%= render "admin/pages/blocks/kinds/#{@block.kind}/edit" %>
+      </div>
+      <div class="col-lg-3">
+        <label><%= t("enums.page.block.kind.#{@block.kind}") %></label>
+        <%= image_tag "admin/pages/blocks/kinds/#{@block.kind}.jpg", class: 'img-fluid border', alt: '' %>
+      </div>
+    </div>
 
-  <% content_for :buttons do %>
-    <%= submit f %>
+    <textarea name="page_block[data]" rows="20" class="d-none">{{ JSON.stringify(data) }}</textarea>
+
+    <% content_for :buttons do %>
+      <%= submit f %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<%# Include vue.js before call Vue.createApp %>
+<%= javascript_include_tag 'vue' %>
+
+<script nonce="<%= request.content_security_policy_nonce %>">
+  var app = Vue.createApp({
+    components: {
+      draggable: VueDraggableNext.VueDraggableNext,
+    },
+    data() {
+      return {
+        data: <%= @block.data.to_json.html_safe %>
+      }
+    },
+    methods: {
+      handleSummernotes() {
+        var $summernoteElements = $('.summernote-vue:not(.is-initialized)');
+
+        $summernoteElements.each(function(index){
+          $summernoteElements.get(index).classList.add('is-initialized');
+          this.initSummernote($summernoteElements.get(index));
+        }.bind(this));
+      },
+      initSummernote(element) {
+        var config = element.getAttribute('data-summernote-config') || 'default',
+          onChangeCallback = function(content) {
+              element.value = content;
+              element.dispatchEvent(new Event('input'))
+          };
+
+        $(element).summernote({
+          lang: 'fr',
+          followingToolbar: true,
+          disableDragAndDrop: true,
+          codemirror: window.codemirrorManager.defaultConfig(),
+          callbacks: {
+            onChange: onChangeCallback,
+            onChangeCodeview: onChangeCallback
+          }
+        });
+      }
+    },
+    updated: function() {
+      this.handleSummernotes();
+    },
+    mounted: function() {
+      this.handleSummernotes();
+    }
+  });
+
+  window.addEventListener('direct-upload:initialize', function (event) {
+    event.target.insertAdjacentHTML('afterend', `<progress value="0" max="100" style="width: 100%;"></progress>`)
+  });
+
+  window.addEventListener('direct-upload:progress', function (event) {
+    var progressBar = event.target.parentNode.querySelector('progress');
+    if (progressBar) {
+      progressBar.value = event.detail.progress;
+    }
+  });
+
+  window.addEventListener('direct-upload:end', function (event) {
+    var progressBar = event.target.parentNode.querySelector('progress');
+    if (progressBar) {
+      progressBar.parentNode.removeChild(progressBar);
+    }
+  });
+
+  window.addEventListener('load', function(){
+    setTimeout(function() {
+      app.mount('#app');
+    }, 1000);
+  });
+</script>

@@ -1,12 +1,20 @@
 <% blocks.each do |block| %>
-  <div class="mb-4">
+  <div class="row mb-4">
+    <div class="col-lg-4">
     <h2 class="h5"><%= block %></h2>
-    <%= link_to 'Modifier', 
-                edit_admin_page_block_path(page_id: @page.slug, id: block.id) %>
-    <%= link_to 'Supprimer', 
-                admin_page_block_path(page_id: @page.slug, id: block.id), 
-                method: :delete, 
-                class: 'text-danger',
-                data: { confirm: t('please_confirm') } %>
+    <p class="small">
+      <%= t("enums.page.block.kind.#{block.kind}") %><br>
+      <%= link_to 'Modifier', 
+                  edit_admin_page_block_path(page_id: @page.slug, id: block.id) %>
+      <%= link_to 'Supprimer', 
+                  admin_page_block_path(page_id: @page.slug, id: block.id), 
+                  method: :delete, 
+                  class: 'text-danger',
+                  data: { confirm: t('please_confirm') } %>
+    </p>
+    </div>
+    <div class="col-lg-8">
+      <%= render "admin/pages/blocks/kinds/#{block.kind}/show", block: block %>
+    </div>
   </div>
 <% end %>

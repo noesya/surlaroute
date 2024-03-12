@@ -53,7 +53,7 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
   def block_params
     params.require(:page_block)
           .permit(
-            :name, :kind
+            :name, :kind, :data
           )
   end
 end

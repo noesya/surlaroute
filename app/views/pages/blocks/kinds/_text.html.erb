@@ -1,4 +1,4 @@
 <div>
-  <%= block %><br>
-  Bloc de texte
+  <h2><%= block %></h2>
+  <%= simple_format block.data.dig('text') %>
 </div>

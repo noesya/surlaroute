@@ -29,6 +29,17 @@ class Page::Block < ApplicationRecord
     quote: 2
   }, _prefix: :kind
 
+  def data=(value)
+    data_hash = value.is_a?(Hash) ? value
+                                  : JSON.parse(value)
+    write_attribute :data, data_hash
+  end
+
+  def data
+    attributes['data'].present? ? super
+                                : {}
+  end
+
   def to_s
     name.present? ? "#{name}"
                   : "Bloc"

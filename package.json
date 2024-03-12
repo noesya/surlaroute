@@ -9,6 +9,8 @@
     "notyf": "^3.10.0",
     "select2": "^4.1.0-rc.0",
     "slug": "^8.2.3",
-    "sortablejs": "^1.15.1"
+    "sortablejs": "^1.15.1",
+    "vue": "^3.2.31",
+    "vue-draggable-next": "^2.1.1"
   }
 }
