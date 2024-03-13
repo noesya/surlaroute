@@ -32,7 +32,7 @@
       </div>
       <div class="directory-container col-lg-9">
         <%= render "actors/#{@mode}", objects: @actors %>
-        <%= paginate @actors, theme: "bootstrap-5" %>
+        <%= paginate @actors, theme: "bootstrap-5" if @mode == "list" %>
       </div>
     </div>
   </div>

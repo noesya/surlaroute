@@ -73,7 +73,6 @@ window.ecotheque.maps = {
             zoom = 15,
             markerIcon = null,
             copyright = 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu ©CartoDB',
-            // tile = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             tile = 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
             mymap;
 
