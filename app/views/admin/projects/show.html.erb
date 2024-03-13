@@ -20,8 +20,8 @@
         %>
         <% if answer.value %>
           <div class="mb-4">
-            <h4 class="h6"><%= criterion %></h4>
-            <%= answer.text %>
+            <label class="small text-muted"><%= criterion %></label>
+            <%= simple_format answer.text %>
           </div>
         <% end %>
       <% end %>
