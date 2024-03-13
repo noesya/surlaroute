@@ -1,4 +1,7 @@
 <article class="position-relative">
+  <div class="btn-favorites position-absolute pt-1 ps-1">
+    <%= render 'favorites/button', about: actor %>
+  </div>
   <%= render 'illustration', source: actor, width: 400 %>
   <div>
     <h2><%= link_to actor, actor, class: 'stretched-link' %></h2>

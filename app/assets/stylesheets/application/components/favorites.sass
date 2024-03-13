@@ -1,17 +1,19 @@
 .favorites
     &__add
-        &::before
-            content: "1"
-            font-family: "AuguresPicto"
+        @include icon(usaved)
     &__remove
-        &::before
-            content: "2"
-            font-family: "AuguresPicto"
+        @include icon(saved)
+
+.btn-favorites
+    z-index: 3
 
 .action-index
     .btn-favorites
         a
             @extend .rounded-pill
+            display: flex
+            align-items: center
+            justify-content: center
             font-size: 0
             aspect-ratio: 1
             span

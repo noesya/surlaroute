@@ -3,7 +3,10 @@
 <header class="hero">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 position-relative">
+        <div class="btn-favorites position-absolute pt-2 ps-2">
+          <%= render 'favorites/button', about: @material %>
+        </div>
         <%= render 'illustration', source: @material %>
       </div>
       <div class="col-lg-6">
