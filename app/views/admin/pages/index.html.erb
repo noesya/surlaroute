@@ -2,32 +2,42 @@
 
 <%= render 'filters', current_path: admin_pages_path %>
 
-<div class="table-responsive">
-  <table class="<%= table_classes %>">
-    <thead>
-      <tr>
-        <th><%= Page.human_attribute_name('name') %></th>
-        <th><%= Page.human_attribute_name('path') %></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @pages.each do |page| %>
+<% if active_filters_count > 0 %>
+
+  <div class="table-responsive">
+    <table class="<%= table_classes %>">
+      <thead>
         <tr>
-          <td><%= link_to_if can?(:read, page), page, [:admin, page] %></td>
-          <td><%= page.path %></td>
-          <td class="text-end">
-            <%= destroy_link page unless page.internal_identifier.present? %>
-            <%= edit_link page %>
-          </td>
+          <th><%= Page.human_attribute_name('name') %></th>
+          <th><%= Page.human_attribute_name('path') %></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @pages.each do |page| %>
+          <tr>
+            <td><%= link_to_if can?(:read, page), page, [:admin, page] %></td>
+            <td><%= page.path %></td>
+            <td class="text-end">
+              <%= destroy_link page unless page.internal_identifier.present? %>
+              <%= edit_link page %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
+  <%= paginate @pages, theme: 'bootstrap-5' %>
 
-<%= paginate @pages, theme: 'bootstrap-5' %>
+<% else %>
+
+  <ul class="list-unstyled treeview js-treeview <%= 'treeview--sortable js-treeview-sortable js-treeview-sortable-container' if can?(:reorder, Page) %>"
+      data-sort-url="<%= reorder_admin_pages_path %>">
+    <%= render 'treebranch', pages: @root_pages %>
+  </ul>
+
+<% end %>
 
 <% content_for :buttons do %>
   <%= create_link Page %>

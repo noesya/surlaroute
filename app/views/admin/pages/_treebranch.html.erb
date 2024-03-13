@@ -1,0 +1,30 @@
+<% pages.each do |page| %>
+  <li class="treeview__element js-treeview-element <%= 'treeview__element--empty' unless page.has_children? %>" data-id="<%= page.id %>" data-parent="<%= page.parent_id %>">
+    <div class="d-flex align-items-center treeview__label border-bottom p-1">
+      <%= link_to children_admin_page_path(page),
+                  class: 'js-treeview-openzone d-inline-block p-2 ps-0', style: 'width: 22px', remote: true do %>
+        <%= render 'admin/application/tree/folder' %>
+      <% end %>
+      <span class="leaf-title">
+        <%= link_to page, admin_page_path(page) %>
+      </span>
+      <%= render 'admin/application/tree/sort' %>
+      <%= link_to children_admin_page_path(page),
+                  class: 'js-treeview-openzone small ps-2', remote: true do %>
+        <span class="open_text"><%= t 'folder.open' %></span>
+        <span class="close_text"><%= t 'folder.close' %></span>
+      <% end %>
+      <div class="ms-auto align-items-center" role="group">
+       
+      </div>
+    </div>
+    <ul class="list-unstyled treeview__children js-treeview-children <%= 'js-treeview-sortable-container' if can?(:reorder, page) %> ms-4" data-id="<%= page.id %>">
+      <li class="treeview__empty">
+        <div class="d-flex align-items-center treeview__label border-bottom p-1">
+          <span class="p-2 ps-0"><%= t('folder.empty') %></span>
+        </div>
+      </li>
+      <li class="treeview__loading border-bottom p-1"><%= t('loading') %></li>
+    </ul>
+  </li>
+<% end %>

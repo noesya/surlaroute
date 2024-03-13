@@ -1,0 +1,29 @@
+// directory navigation between list and map
+.navigation-links
+    a
+        text-decoration: none
+    &__map,
+    &__list
+        border-bottom: 3px solid var(--page-main-color)
+        &::before
+            margin-right: map-get($spacers, 1)
+    &__list
+        @include icon(list)
+    &__map
+        @include icon(map)
+    &__map
+        border-width: 0
+        padding: 0
+    &__list
+        border-bottom-width: 3px
+        font-weight: 600
+        padding: 0 map-get($spacers, 1) map-get($spacers, 1)
+    .is-map &
+        &__map
+            border-bottom-width: 3px
+            font-weight: 600
+            padding: 0 map-get($spacers, 1) map-get($spacers, 1)
+        &__list
+            border-width: 0
+            font-weight: normal
+            padding: 0

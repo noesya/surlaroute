@@ -1,0 +1,35 @@
+<div data-sortable data-sort-url="<%= reorder_admin_page_blocks_path(page_id: @page.slug) %>">
+  <% blocks.ordered.each do |block| %>
+    <div class="row mb-5" data-id="<%= block.id %>">
+      <div class="col-lg-4">
+        <div class="small float-end">
+          <span class="badge text-bg-secondary">
+            <%= t("enums.page.block.kind.#{block.kind}") %>
+          </span>
+        </div>
+        <h2 class="h5"><%= block %></h2>
+        <div class="small mb-2">
+          <span class="handle py-2 me-3">
+            <i class="<%= Icon::SORT %>"></i>
+            Déplacer
+          </span>
+          <%= link_to edit_admin_page_block_path(page_id: @page.slug, id: block.id),
+                      class: 'py-2 me-3' do %>
+            <i class="<%= Icon::EDIT %>"></i>
+            Modifier
+          <% end %>
+          <%= link_to admin_page_block_path(page_id: @page.slug, id: block.id), 
+                      method: :delete, 
+                      class: 'text-danger py-2 me-3',
+                      data: { confirm: t('please_confirm') } do %>
+            <i class="<%= Icon::DELETE %>"></i>
+            Supprimer
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <%= render "admin/pages/blocks/kinds/#{block.kind}/show", block: block %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     @facets = Project::Facets.new params[:facets]
-    @projects = @facets.results.ordered.page params[:page]
+    @projects = @facets.results.ordered.page(params[:page]).per(6)
     breadcrumb
   end
 

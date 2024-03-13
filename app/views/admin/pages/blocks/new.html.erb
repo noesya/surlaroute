@@ -1,2 +1,17 @@
-<%= content_for :title, t('create') %>
-<%= render 'form', block: @block %>
+<%= content_for :title, 'Ajouter un bloc' %>
+<div class="row">
+  <% Page::Block.kinds.each do |kind| %>
+    <div class="col-lg-3">
+      <div class="card border">
+        <%= image_tag "admin/pages/blocks/kinds/#{kind.first}.jpg", class: 'card-img-top', alt: '' %>
+        <div class="card-body">
+          <h2 class="card-title h5"><%= t("enums.page.block.kind.#{kind.first}") %></h2>
+          <%= link_to 'Choisir ce type', 
+                      admin_page_blocks_path(page_id: @page.slug, page_block: { kind: kind.first }), 
+                      method: :post,
+                      class: button_classes('stretched-link float-end') %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

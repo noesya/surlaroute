@@ -1,9 +1,33 @@
 class Admin::PagesController < Admin::ApplicationController
-  load_and_authorize_resource find_by: :path
+  
+  load_and_authorize_resource find_by: :path, except: :reorder
+
+  include Admin::FiltersHelper
 
   def index
-    @pages = @pages.autofilter(params[:filters]).ordered.page(params[:page])
+    if active_filters_count > 0
+      @pages = @pages.autofilter(params[:filters]).ordered.page(params[:page])
+    else
+      @root_pages = @pages.root.ordered_by_position
+    end
     breadcrumb
+  end
+
+  def children
+    return unless request.xhr?
+    @children = @page.children.ordered_by_position
+  end
+
+  def reorder
+    authorize!(:reorder, Page)
+    parent_page = Page.find(params[:parentId])
+    old_parent_page = Page.find(params[:oldParentId])
+    ids = params[:ids] || []
+    ids.each.with_index do |id, index|
+      page = Page.find(id)
+      page.update_columns parent_id: parent_page.id,
+                          position: index + 1
+    end
   end
 
   def show

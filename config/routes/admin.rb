@@ -9,7 +9,17 @@ namespace :admin do
   resources :projects
   resources :regions
   resources :pages do 
-    resources :blocks, controller: 'pages/blocks'
+    resources :blocks, controller: 'pages/blocks', except: [:index, :show] do
+      collection do
+        post :reorder
+      end
+    end
+    collection do
+      post :reorder
+    end
+    member do
+        get :children
+    end
   end
   namespace :structure do
     scope ':about_class' do

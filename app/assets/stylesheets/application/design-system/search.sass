@@ -20,10 +20,14 @@
 
 .search-container
     form[role="search"]
-        padding-top: map-get($spacers, 6)
+        padding-top: map-get($spacers, 5)
+        @include media-breakpoint-up(md)
+            padding-top: map-get($spacers, 6)
         input
             @extend %hero
             border-bottom: 1px solid black
+    a
+        text-decoration: none
 
 // OVERIDE BOOTSTRAP
 .search-input

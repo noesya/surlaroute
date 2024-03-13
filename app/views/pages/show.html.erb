@@ -1,3 +1,29 @@
 <%= content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
+<%= content_for :additional_body_class, " parent-page" if @page.children %>
 
-TODO
+<header class="hero">
+  <div class="container">
+    <div class="row py-5">
+      <h1><%= @page %></h1>
+      <div class="col-lg-5">
+        <p class="hero__description"><%= @page.description %></p>
+      </div>
+      <% if @page.children %>
+        <div class="offset-lg-1 col-lg-6">
+          <ul class="pages-list row">
+            <% @page.children.each do |page| %>
+              <li class="col-lg-6">
+                <%= link_to page, page %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+
+<div class="document-content">
+  <%= render 'pages/blocks/list', blocks: @page.blocks.ordered %>
+</div>
+

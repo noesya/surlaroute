@@ -102,6 +102,14 @@ module Admin::ApplicationHelper
     collection
   end
 
+  def default_images_formats_accepted
+    Rails.application.config.default_images_formats.join(', ')
+  end
+
+  def images_formats_accepted_hint(formats: default_images_formats_accepted)
+    t('admin.file_hint_with_formats', filesize: number_to_human_size(Rails.application.config.default_image_max_size), formats: formats)
+  end
+
   private
 
   def polymorphic_url_param(object_or_class, **options)

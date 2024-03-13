@@ -26,6 +26,23 @@ class Page::Block < ApplicationRecord
 
   enum kind: {
     text: 1,
-    quote: 2
+    quote: 2,
+    keypoints: 3
   }, _prefix: :kind
+
+  def data=(value)
+    data_hash = value.is_a?(Hash) ? value
+                                  : JSON.parse(value)
+    write_attribute :data, data_hash
+  end
+
+  def data
+    attributes['data'].present? ? super
+                                : { elements: [] }
+  end
+
+  def to_s
+    name.present? ? "#{name}"
+                  : "Bloc"
+  end
 end

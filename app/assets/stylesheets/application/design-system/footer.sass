@@ -1,4 +1,5 @@
-footer
+footer.document-footer
+    background: white
     padding-bottom: map-get($spacers, 5)
     padding-top: map-get($spacers, 5)
     font-family: 'Work Sans', sans-serif
@@ -9,8 +10,6 @@ footer
         font-weight: 600
     ul
         list-style: none
-        margin: 0
-        padding: 0
     .footer-brand
         display: block
         width: 170px
@@ -42,6 +41,7 @@ footer
         display: flex
         gap: map-get($spacers, 3)
         flex-wrap: wrap
+        padding-left: 0
     @include media-breakpoint-up(md)
         .container
             > .row + .row

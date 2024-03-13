@@ -24,6 +24,8 @@
       <%= render 'admin/application/form/publication', f: f %>
       <%= f.input :image,
                   as: :single_deletable_file,
+                  input_html: { accept: default_images_formats_accepted },
+                  hint: images_formats_accepted_hint,
                   preview: true %>
     </div>
   </div>

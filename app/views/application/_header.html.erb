@@ -18,10 +18,10 @@
                   <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "nav-link" %>
+                  <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "nav-link" %>
+                  <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "nav-link" %>

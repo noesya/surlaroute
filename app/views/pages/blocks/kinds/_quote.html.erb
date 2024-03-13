@@ -1,0 +1,22 @@
+<%
+text = block.data.dig('text')
+author = block.data.dig('author')
+%>
+
+<div class="block block-quote">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-10 small offset-xl-1">
+        <% if block.name.present? %>
+          <h2><%= block %></h2>
+        <% end %>
+        <blockquote class="fw-bold">
+          <%= simple_format text %>
+          <% if author.present? %>
+            <footer class="p-0 mt-3 fw-normal"><cite><%= author %></cite></footer>
+          <% end %>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

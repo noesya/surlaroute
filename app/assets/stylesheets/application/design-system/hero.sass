@@ -2,24 +2,14 @@
     position: relative
     overflow: hidden
     z-index: 1
+    padding-top: map-get($spacers, 5)
+    background: var(--page-main-color)
     .locations-list
         a.btn
             @include icon(pin)
             &::before
                 font-size: 12px
                 margin-right: calc(#{map-get($spacers, 1)} / 2)
-    .actors-options &,
-    .actors-option &
-        background-color: $ecosystem-primary
-    .materials-options &,
-    .materials-option &
-        background-color: $materials-primary
-    .projects-options &,
-    .projects-option &
-        background-color: $projects-primary
-    .technics-options &,
-    .technics-option &
-        background-color: $technic-primary
 
 .actors-index,
 .materials-index,
@@ -44,24 +34,7 @@
         @include media-breakpoint-up(xxl)
             background-size: contain
 
-// colors and images
-.actors-index
-    background-color: $ecosystem-primary
-    .hero
-        background-image: asset-url("letters/actors.svg")
-.materials-index
-    background-color: $materials-primary
-    .hero
-        background-image: asset-url("letters/materials.svg")
-.projects-index
-    background-color: $projects-primary
-    .hero
-        background-image: asset-url("letters/projects.svg")
-.technics-index
-    background-color: $technic-primary
-    .hero
-        background-image: asset-url("letters/technics.svg")
-.regions-index
+.regions-index, .offers-index
     .hero
         overflow: unset
         z-index: 5

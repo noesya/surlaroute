@@ -1,4 +1,11 @@
 fr:
+  views:
+    pagination:
+      first: "&laquo; Première page"
+      last: "Dernière page &raquo;"
+      previous: "&lsaquo; Précédente"
+      next: "Suivante &rsaquo;"
+      truncate: "&hellip;"
   account:
     comments:
       about_html: À propos de “%{title}”
@@ -55,6 +62,9 @@ fr:
         parent: Page parente
         path: Chemin
         slug: Chemin
+      page/block:
+        name: Nom
+        kind: Type de bloc
       project:
         actors: Acteurices
         description: Description
@@ -183,6 +193,7 @@ fr:
       button: Référencer une technique
   admin:
     dashboard: Tableau de bord
+    file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
       buttons:
         close: Fermer
@@ -213,10 +224,13 @@ fr:
     title: Administration
   comments:
     answer: Répondre à ce commentaire
-    answers: Réponses
     date: Rédigé le %{date}
     text: Contenu du commentaire
     title: Commentaires
+    from: Réponse de
+    answers:
+      one: réponse
+      other: réponses
   create: Créer
   default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
@@ -257,6 +271,12 @@ fr:
   ecosystem: Écosystème
   edit: Modifier
   enums:
+    page:
+      block:
+        kind:
+          keypoints: Points-clés
+          quote: Citation
+          text: Texte
     structure:
       item:
         kind:
@@ -277,6 +297,10 @@ fr:
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
   false: Non
+  folder:
+    empty: Le dossier est vide
+    open: Ouvrir le dossier
+    close: Fermer le dossier
   footer:
     implementation:
       design: Design graphique

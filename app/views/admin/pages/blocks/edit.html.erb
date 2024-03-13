@@ -1,0 +1,150 @@
+<%= content_for :title, @block %>
+
+<div id="app" v-cloak>
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden"><%= t 'loading' %></span>
+  </div>
+  <%= simple_form_for @block, url: admin_page_block_path(page_id: @page.slug, id: @block.id) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="row">
+      <div class="col-lg-9">
+        <%= f.input :name %>
+        <%= render "admin/pages/blocks/kinds/#{@block.kind}/edit" %>
+      </div>
+      <div class="col-lg-3">
+        <label><%= t("enums.page.block.kind.#{@block.kind}") %></label>
+        <%= image_tag "admin/pages/blocks/kinds/#{@block.kind}.jpg", class: 'img-fluid border', alt: '' %>
+      </div>
+    </div>
+
+    <textarea name="page_block[data]" rows="20" class="d-none">{{ JSON.stringify(data) }}</textarea>
+
+    <% content_for :buttons do %>
+      <%= submit f %>
+    <% end %>
+  <% end %>
+</div>
+
+<%# Include vue.js before call Vue.createApp %>
+<%= javascript_include_tag 'vue' %>
+
+<script nonce="<%= request.content_security_policy_nonce %>">
+  var app = Vue.createApp({
+    components: {
+      draggable: VueDraggableNext.VueDraggableNext,
+    },
+    data() {
+      return {
+        directUpload: {
+          url: "<%= rails_direct_uploads_url.html_safe %>",
+          blobUrlTemplate: "<%= medium_url(":signed_id", ":filename").html_safe %>"
+        },
+        data: <%= @block.data.to_json.html_safe %>
+      }
+    },
+    methods: {
+      onMultipleFileImageChange(event, key) {
+        var files = event.target.files || event.dataTransfer.files;
+        if (!files.length)
+          return;
+
+        var index = 0;
+        for(var i = 0; i < files.length; i += 1) {
+          index = this.data.elements.length;
+          this.data.elements.push(JSON.parse(JSON.stringify(this.defaultElement)));
+          this.uploadFile(event.target, files[i], this.data.elements[index], key);
+        }
+      },
+      onFileImageChange(event, object, key) {
+        var files = event.target.files || event.dataTransfer.files;
+        if (!files.length)
+          return;
+        this.uploadFile(event.target, files[0], object, key);
+      },
+      uploadFile(input, file, object, key) {
+        var size = Math.round(file.size / 1024 / 1024),
+            sizeLimit = <%= Rails.application.config.default_image_max_size %>,
+            sizeLimitMo = 0,
+            controller;
+        if (input.hasAttribute('data-size-limit')) {
+          sizeLimit = input.getAttribute('data-size-limit');
+        }
+        sizeLimitMo = Math.round(sizeLimit / 1024 / 1024);
+        controller = new Vue.DirectUploadController(input, file, this.directUpload.url);
+        if (file.size > sizeLimit) {
+          alert("Trop gros ! (" + size + " Mo > " + sizeLimitMo + " Mo)");
+          return;
+        }
+        controller.start(function (blob) {
+          object[key] = {
+              id: blob.id,
+              signed_id: blob.signed_id,
+              filename: blob.filename
+          };
+        });
+      },
+      getFileUrl(signed_id, filename) {
+        return this.directUpload.blobUrlTemplate
+          .replace(':signed_id', signed_id)
+          .replace(':filename', filename);
+      },
+      getImageUrl(data) {
+        return this.getFileUrl(data.signed_id, "image_1024x.jpg");
+      },
+      handleSummernotes() {
+        var $summernoteElements = $('.summernote-vue:not(.is-initialized)');
+        $summernoteElements.each(function(index){
+          $summernoteElements.get(index).classList.add('is-initialized');
+          this.initSummernote($summernoteElements.get(index));
+        }.bind(this));
+      },
+      initSummernote(element) {
+        var config = element.getAttribute('data-summernote-config') || 'default',
+          onChangeCallback = function(content) {
+              element.value = content;
+              element.dispatchEvent(new Event('input'))
+          };
+        $(element).summernote({
+          lang: 'fr',
+          followingToolbar: true,
+          disableDragAndDrop: true,
+          callbacks: {
+            onChange: onChangeCallback
+          }
+        });
+      }
+    },
+    updated: function() {
+      this.handleSummernotes();
+    },
+    mounted: function() {
+      this.handleSummernotes();
+    }
+  });
+
+  window.addEventListener('direct-upload:initialize', function (event) {
+    event.target.insertAdjacentHTML('afterend', `<progress value="0" max="100" style="width: 100%;"></progress>`)
+  });
+
+  window.addEventListener('direct-upload:progress', function (event) {
+    var progressBar = event.target.parentNode.querySelector('progress');
+    if (progressBar) {
+      progressBar.value = event.detail.progress;
+    }
+  });
+
+  window.addEventListener('direct-upload:end', function (event) {
+    var progressBar = event.target.parentNode.querySelector('progress');
+    if (progressBar) {
+      progressBar.parentNode.removeChild(progressBar);
+    }
+  });
+
+  window.addEventListener('load', function(){
+    setTimeout(function() {
+      app.mount('#app');
+    }, 1000);
+  });
+</script>

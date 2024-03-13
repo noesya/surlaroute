@@ -2,8 +2,10 @@ class ActorsController < ApplicationController
   include ResourceWithStructure
 
   def index
+    @mode = params[:mode] || 'list'
     @facets = Actor::Facets.new params[:facets]
-    @actors = @facets.results.ordered.page params[:page]
+    @actors = @facets.results.ordered.page(params[:page]).per(6)
+    paginate_actors
     breadcrumb
   end
 
@@ -19,5 +21,15 @@ class ActorsController < ApplicationController
   def breadcrumb
     super
     add_breadcrumb t('ecosystem'), actors_path
+  end
+
+  def paginate_actors
+    first_page_count = 6
+    items_per_page = 6
+    if @actors.first_page?
+      @actors = @actors.per(first_page_count)
+    else
+      @actors = @actors.per(items_per_page).padding(first_page_count - items_per_page)
+    end
   end
 end

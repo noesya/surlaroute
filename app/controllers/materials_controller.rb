@@ -3,7 +3,7 @@ class MaterialsController < ApplicationController
 
   def index
     @facets = Material::Facets.new params[:facets]
-    @materials = @facets.results.ordered.page params[:page]
+    @materials = @facets.results.ordered.page(params[:page]).per(6)
     breadcrumb
   end
 
