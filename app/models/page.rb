@@ -49,12 +49,16 @@ class Page < ApplicationRecord
                    : slug
   end
 
-  def to_s
-    "#{name}"
-  end
-
   def to_param
     path
+  end
+
+  def is_lab?
+    slug == 'le-lab'
+  end
+
+  def to_s
+    "#{name}"
   end
 
   private

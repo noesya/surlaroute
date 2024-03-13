@@ -16,6 +16,14 @@
                 <%= link_to page, page %>
               </li>
             <% end %>
+            <% if @page.is_lab? %>
+              <li class="col-lg-6">
+                <%= link_to t('footer.members'), members_path %>
+              </li>
+              <li class="col-lg-6">
+                <%= link_to t('footer.rejoin'), offers_path %>
+              </li>
+            <% end %>
           </ul>
         </div>
       <% end %>
