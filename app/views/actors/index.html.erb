@@ -26,8 +26,8 @@
         </button>
       </div>
     </div>
-    <%= link_to 'Liste', actors_path %>
-    <%= link_to 'Carte', map_actors_path %>
+    <%= link_to 'Liste', actors_path(anchor: 'results') %>
+    <%= link_to 'Carte', map_actors_path(anchor: 'results') %>
     <div class="row align-items-start position-relative mt-4">
       <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
         <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
