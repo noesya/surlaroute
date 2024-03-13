@@ -1,7 +1,7 @@
 <%
 elements = block.data.dig('elements')
 %>
-<div class="block block-keypoints py-5">
+<div class="block block-keypoints pt-5">
   <div class="container">
     <% if block.name.present? %>
       <h2 class="mb-4"><%= block.name %></h2>
@@ -15,14 +15,16 @@ elements = block.data.dig('elements')
           icon_blob_id = element.dig('icon', 'id')
           icon_blob = ActiveStorage::Blob.find_by(id: icon_blob_id)
           %>
-          <div class="col-xl-3 col-lg-4 col-sm-6">
+          <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
             <% if icon_blob %>
-              <%= image_tag icon_blob, alt: "" %>
+              <%= image_tag icon_blob, alt: "", class: 'md-2' %>
             <% end %>
             <% if title %>
               <h3 class="fw-bold"><%= title %></h3>
             <% end %>
-            <%= simple_format text %>
+            <div class="mt-2">
+              <%= simple_format text %>
+            </div>
           </div>
         <% end %>
       </div>
