@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   end
 
   # TODO: ca ne restera pas comme ça
-  get 'le-lab/les-membres/:member' => 'members#show', as: :member
+  get 'le-lab/les-membres' => 'members#index', as: :members
+  get 'le-lab/les-membres/:id' => 'members#show', as: :member
 
   draw 'admin'
 
