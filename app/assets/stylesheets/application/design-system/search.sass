@@ -9,6 +9,11 @@
         font-size: pxToRem(12)
 
 .search-modal
+    .search-container
+        form[role="search"]
+            padding-top: map-get($spacers, 5)
+            @include media-breakpoint-up(md)
+                padding-top: map-get($spacers, 6)
     // OVERIDE BOOTSTRAP
     .modal-dialog
         max-width: unset
@@ -20,12 +25,12 @@
 
 .search-container
     form[role="search"]
-        padding-top: map-get($spacers, 5)
-        @include media-breakpoint-up(md)
-            padding-top: map-get($spacers, 6)
         input
             @extend %hero
             border-bottom: 1px solid black
+            &:focus,
+            &:focus-visible
+                background: none
     a
         text-decoration: none
 
@@ -44,7 +49,8 @@
         border-bottom: 1px solid black
 
 .home-index section,
-.search-modal
+.search-modal,
+.search-show
     .btn-search
         span
             font-size: 0
