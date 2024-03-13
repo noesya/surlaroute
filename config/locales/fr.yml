@@ -213,6 +213,35 @@ fr:
       brezet_wheel:
         enabled: Actif ?
         explanation_text: Texte d'explication
+      hints: 
+        step0_sustainable_program:
+        step0_low_tech:
+        step0_ecodesign_time:
+        step1_local_materials:
+        step1_recycled_materials: 
+        step1_reusable_materials:
+        step2_components_reduced_amount: 
+        step2_dismountable:
+        step2_renewable_energy:
+        step3_matter_reduced_amount_html:
+          Comment avez-vous réduit le volume et/ou le poids des matières utilisées ? <br>
+          Comment avez-vous fait des économies de matière des matières utilisées ? <br>
+          <br>
+          Si connu, indiquez le volume en m3 ou en L / le poids en Kg économisés <br>
+          Arrondissez au chiffre le plus proche.
+        step4_artists_travel_optimization:
+        step4_separate_packaging:
+        step4_transport_sharing:
+        step5_energy_efficient:
+        step5_low_power_consumption:
+        step5_public_area_sorting:
+        step5_public_awareness:
+        step5_water_efficient:
+        step5_zero_waste:
+        step6_extended_lifetime:
+        step7_closed_loop_recycling:
+        step7_composted_materials:
+        step7_disassembly_five_stream_sorting:
     structure:
       add_image: Ajouter une image
       add_option: Ajouter une option
