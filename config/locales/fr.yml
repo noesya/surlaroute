@@ -412,4 +412,14 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    members:
+      title: Les membres
+      meta: Membre depuis le
+      members:
+        one: Membre
+        other: Membres
+      ecosystem: Fiches écosystème publiées
+      projects: Fiches projets publiées
+      materials: Fiches matériaux publiées
+      technics: Fiches techniques publiées
   website: écothèque

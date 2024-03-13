@@ -1,1 +1,16 @@
-<%= @member %>
+
+<header class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        image
+      </div>
+      <div class="col-lg-6">
+        <h1><%= @member %></h1>
+        <p class="small text-muted m-0"><%= t('ui.members.meta') %> <%= l @member.created_at.to_date %></p>
+        <hr class="my-4">
+        Contact
+      </div>
+    </div>
+  </div>
+</header>
