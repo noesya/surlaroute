@@ -72,45 +72,45 @@ class Project < ApplicationRecord
   FIELDS = [
     # 0
     [
-      :step0_sustainable_program, 
-      :step0_low_tech, 
+      :step0_sustainable_program,
+      :step0_low_tech,
       :step0_ecodesign_time
-    ], 
+    ],
     # 1
     [
-      :step1_local_materials, 
-      :step1_recycled_materials, 
+      :step1_local_materials,
+      :step1_recycled_materials,
       :step1_reusable_materials
-    ], 
+    ],
     # 2
     [
-      :step2_components_reduced_amount, 
-      :step2_dismountable, 
+      :step2_components_reduced_amount,
+      :step2_dismountable,
       :step2_renewable_energy
-    ], 
+    ],
     # 3
     [
       :step3_matter_reduced_amount
-    ], 
+    ],
     # 4
     [
-      :step4_artists_travel_optimization, 
-      :step4_separate_packaging, 
+      :step4_artists_travel_optimization,
+      :step4_separate_packaging,
       :step4_transport_sharing
-    ], 
+    ],
     # 5
     [
-      :step5_energy_efficient, 
-      :step5_low_power_consumption, 
-      :step5_public_area_sorting, 
-      :step5_public_awareness, 
-      :step5_water_efficient, 
+      :step5_energy_efficient,
+      :step5_low_power_consumption,
+      :step5_public_area_sorting,
+      :step5_public_awareness,
+      :step5_water_efficient,
       :step5_zero_waste
-    ], 
+    ],
     # 6
     [
       :step6_extended_lifetime
-    ], 
+    ],
     # 7
     [
       :step7_closed_loop_recycling,
@@ -130,7 +130,9 @@ class Project < ApplicationRecord
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :technics
-  has_many :answers
+  has_many :answers, dependent: :destroy
+
+  accepts_nested_attributes_for :answers
 
   has_one_attached_deletable :image
 
