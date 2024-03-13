@@ -344,6 +344,26 @@ fr:
   search: 
     also: Vous pouvez également consulter nos annuaires
     label: Rechercher
+    results:
+      results: 
+        one: Résultat
+        other: Résultats
+      materials: 
+        one: Matériau
+        other: Matériaux
+      technics:
+        one: Technique 
+        other: Techniques
+      actors: 
+        one: Acteur·rice
+        other: Acteur·rices
+      projects: 
+        one: Projet
+        other: Projets
+      ressources:
+        one: Ressource
+        other: Ressources
+      article: Découvrir l'article
   show: Voir
   show_front: Voir sur le site
   simple_form:

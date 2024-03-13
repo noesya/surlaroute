@@ -12,7 +12,7 @@
     <% end %>
     <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
       <dt class="key-figure"><%= 34 %></dt>
-      <dd>Résultats</dd>
+      <dd><%= t('search.results.results.other') %></dd>
     </dl>
   </div>
 </header>
@@ -20,6 +20,18 @@
 <div class="document-content">
   <section class="bg-white">
     <div class="container pt-5">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2><%= t('search.results.materials.other') %></h2>
+        </div>
+        <% if @actor.full_address.present? %>
+          <div class="col-lg-6 structure__item__string">
+            <%= render 'structure/items/label', label: t('ui.actor.address') %>
+            <p><%= @actor.full_address %></p>
+          </div>
+        <% end %>
+        render 'materials'
+      </div>
     </div>
   </div>
 </div>
