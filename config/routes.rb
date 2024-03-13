@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
+  draw 'admin'
+
   get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
 
   scope 'mon-compte' do
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   # TODO: ca ne restera pas comme ça
   get 'le-lab/les-membres/:member' => 'members#show', as: :member
 
-  draw 'admin'
+  get 'recherche' => 'search#show', as: :search
 
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]

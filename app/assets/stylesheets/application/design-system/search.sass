@@ -7,7 +7,7 @@
     &::before
         @include rounded-icon
         font-size: pxToRem(12)
-    
+
 .search-modal
     // OVERIDE BOOTSTRAP
     .modal-dialog
@@ -17,6 +17,8 @@
         margin-top: $container-padding-x
     .col
         position: relative
+
+.search-container
     form[role="search"]
         padding-top: map-get($spacers, 6)
         input
@@ -39,7 +41,7 @@
 
 .home-index section,
 .search-modal
-    .btn-search 
+    .btn-search
         span
             font-size: 0
             transform: scale(0)

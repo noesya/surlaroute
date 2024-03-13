@@ -5,14 +5,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="container search-container">
-        <form class="row align-items-end" role="search">
+        <%= form_tag search_path, method: :get, class: "row align-items-end", role: "search" do %>
           <div class="col-10 col-md-5">
-            <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+            <input name="term" class="form-control search-input" type="search" placeholder="Recherche" aria-label="Recherche">
           </div>
           <div class="col-2 col-md-7">
-            <button class="btn-search rounded-pill" type="submit"><span><%= t('search.label') %></span></button>
+            <button class="btn-search rounded-pill" type="submit">
+              <span><%= t('search.label') %></span>
+            </button>
           </div>
-        </form>
+        <% end %>
       </div>
       <div class="container mt-4">
         <p class="small"><%= t('search.also') %></p>
