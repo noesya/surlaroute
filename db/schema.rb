@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_13_161944) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -223,9 +223,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
     t.uuid "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "body_class", default: ""
     t.string "slug"
+    t.string "body_class", default: ""
     t.index ["parent_id"], name: "index_pages_on_parent_id"
+  end
+
+  create_table "project_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "criterion_id", null: false
+    t.uuid "project_id", null: false
+    t.boolean "value"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["criterion_id"], name: "index_project_answers_on_criterion_id"
+    t.index ["project_id"], name: "index_project_answers_on_project_id"
+  end
+
+  create_table "project_criterions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "step"
+    t.string "name"
+    t.text "hint"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position", default: 1
+    t.text "if_you_check"
   end
 
   create_table "projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -455,6 +476,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
   add_foreign_key "materials", "users", column: "published_by_id"
   add_foreign_key "page_blocks", "pages"
   add_foreign_key "pages", "pages", column: "parent_id"
+  add_foreign_key "project_answers", "project_criterions", column: "criterion_id"
+  add_foreign_key "project_answers", "projects"
   add_foreign_key "projects", "users", column: "published_by_id"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_options_values", "structure_options", column: "option_id"

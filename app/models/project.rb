@@ -130,6 +130,7 @@ class Project < ApplicationRecord
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :technics
+  has_many :answers
 
   has_one_attached_deletable :image
 

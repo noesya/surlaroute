@@ -1,0 +1,27 @@
+<%
+url = criterion.persisted?  ? admin_projects_criterion_path(criterion)
+                            : admin_projects_criterions_path
+%>
+<%= simple_form_for criterion, url: url do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-lg-10">
+      <%= f.input :name %>
+    </div>
+    <div class="col-lg-2">
+      <%= f.input :step, collection: Project::Criterion::STEPS, include_blank: false %>
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :if_you_check, input_html: { rows: 5 } %>
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :hint, input_html: { rows: 5 } %>
+    </div>
+  </div>
+
+  <% content_for :buttons do %>
+    <%= submit f %>
+  <% end %>
+<% end %>
