@@ -1,10 +1,12 @@
-<% files = item.files_for(about) %>
+<% images = item.files_for(about) %>
 <div class="mb-4">
   <label class="small text-muted"><%= item %></label>
-  <ul>
-    <% files.each do |file| %>
-      <% next unless file.file.attached? %>
-      <li><%= link_to file.file.filename, file.file, target: :_blank %></li>
+  <div class="row">
+    <% images.each do |image| %>
+      <% next unless image.file.attached? %>
+      <div class="col-lg-3">
+        <%= kamifusen_tag image.file, width: 200, class: 'img-fluid img-thumbnail' %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
