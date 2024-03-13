@@ -3,6 +3,14 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
+    <div class="col-lg-4">
+      <%= f.input :image,
+                  input_html: { accept: default_images_formats_accepted },
+                  hint: images_formats_accepted_hint,
+                  as: :single_deletable_file,
+                  preview: true %>
+      <%= render 'admin/application/form/publication', f: f %>
+    </div>
     <div class="col-lg-8">
       <%= f.input :name %>
       <%= f.input :slug,
@@ -15,14 +23,6 @@
                         input_html: {
                           class: 'select2'
                         } %>
-    </div>
-    <div class="col-lg-4">
-      <%= render 'admin/application/form/publication', f: f %>
-      <%= f.input :image,
-                  input_html: { accept: default_images_formats_accepted },
-                  hint: images_formats_accepted_hint,
-                  as: :single_deletable_file,
-                  preview: true %>
     </div>
   </div>
   <%= render 'admin/structure/items/kinds/edit', f: f %>
