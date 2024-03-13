@@ -1,37 +1,20 @@
 <%
-# TODO check with answers instead
-fields = Project.fields_for_step(step)
-step_values = fields.map { |attribute_name| @project.public_send("#{attribute_name}") }
-step_has_values = step_values.any?(&:present?)
+criterions = Project::Criterion.for_step(step)
+step_has_values = Project::Answer.where(criterion: criterions, value: true).any?
 %>
 <% if step_has_values %>
   <h3 id="step-<%= step %>" class="h2 mt-4 mt-lg-5">
     <%= t("projects.brezet_wheel.step#{step}") %>
   </h3>
-  <% Project::Criterion.for_step(step).each do |criterion| %>
+  <% criterions.each do |criterion| %>
     <% 
-    value = true # TODO get in answer
-    text = 'Réponse à brancher'
+    answer = Project::Answer.where(criterion: criterion, project: @project).first_or_initialize
     %>
-    <% if value %>
+    <% if answer.value %>
       <div class="mt-4">
         <h4 class="label with-check"><%= criterion.name %></h4>
         <p class="mt-2">
-          <%= sanitize text %>
-        </p>
-      </div>
-    <% end %>
-  <% end %>
-  <% fields.each_with_index do |attribute_name, index| %>
-    <% 
-    value = step_values[index]
-    text = @project.public_send("#{attribute_name}_text")
-    %>
-    <% if value %>
-      <div class="mt-4">
-        <h4 class="label with-check"><%= Project.human_attribute_name(attribute_name) %></h4>
-        <p class="mt-2">
-          <%= sanitize text %>
+          <%= sanitize answer.text %>
         </p>
       </div>
     <% end %>
