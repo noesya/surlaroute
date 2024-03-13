@@ -1,0 +1,11 @@
+.members-show
+    .contact-list
+        a
+            text-decoration: none
+            border-bottom: 1px solid $border-color
+            &[target="_blank"]
+                @include icon(arrow-right, after)
+                &::after
+                    font-size: pxToRem(12)
+                    transform: rotate(-45deg)
+                    margin-left: pxToRem(5)

@@ -5,11 +5,11 @@
   <div class="container">
     <div class="row py-5">
       <h1><%= @page %></h1>
-      <div class="col-lg-5">
+      <div class="col-lg-5 mt-5">
         <p class="hero__description"><%= @page.description %></p>
       </div>
       <% if @page.children %>
-        <div class="offset-lg-1 col-lg-6">
+        <div class="offset-lg-1 col-lg-6 mt-5">
           <ul class="pages-list row">
             <% @page.children.each do |page| %>
               <li class="col-lg-6">

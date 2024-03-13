@@ -49,6 +49,11 @@ body
 .toolbox-index, .toolbox-child
     --page-main-color: #{$toolbox-primary}
     --block-quote-background: #{$toolbox-primary}
+.hero
+    .toolbox-index &
+        background-image: asset-url("letters/toolbox.svg")
+    .toolbox-child &
+        background-image: asset-url("letters/toolbox-expanded.svg")
 
 .hero
     .actors-options &,
