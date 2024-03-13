@@ -1,0 +1,19 @@
+<div class="modal cta-modal" id="redirectionModal" tabindex="-1" aria-labelledby="redirectionTitle" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content py-md-5 px-md-6">
+      <div class="modal-header">
+        <h2 class="modal-title mx-auto text-center" id="redirectionTitle"><%= t('account.cta.title') %></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center p-0">
+        <%= t('account.cta.text') %>
+      </div>
+      <div class="d-flex flew-wrap justify-content-center gap-4 mt-5">
+        <%= link_to t("account.cta.create"),
+                    new_user_registration_path,
+                    class: 'btn btn-light btn-lg px-4 py-2 fw-bold' %>
+        <a href="#" class="btn btn-outline-light btn-lg px-4 py-2 fw-bold"><%= t('account.cta.offers') %></a>
+      </div>
+    </div>
+  </div>
+</div>

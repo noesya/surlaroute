@@ -19,6 +19,11 @@ fr:
     my_account: Mon compte
     subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
     title: Mon compte
+    cta: 
+      title: Rejoignez la communauté écothèque !
+      text: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu. 
+      create: Créer un compte gratuit
+      offers: Découvrir les offres
   activemodel:
     models:
       structure:

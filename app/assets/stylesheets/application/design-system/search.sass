@@ -9,10 +9,17 @@
         font-size: pxToRem(12)
     
 .search-modal
-    // OVERIDE BOOTSTRAP
+    background: $color-bg
+    border: none
     .modal-dialog
         max-width: unset
         margin: 0
+        height: 100%
+    .modal-content
+        border-radius: 0
+        background: $color-bg
+        border: none
+        height: 100%
     .btn-close
         margin-top: $container-padding-x
     .col
