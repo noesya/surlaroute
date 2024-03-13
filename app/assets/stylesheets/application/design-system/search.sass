@@ -15,9 +15,18 @@
             @include media-breakpoint-up(md)
                 padding-top: map-get($spacers, 6)
     // OVERIDE BOOTSTRAP
+    background: $color-bg
+    border: none
     .modal-dialog
         max-width: unset
         margin: 0
+        height: 100%
+    .modal-content
+        border-radius: 0
+        background: $color-bg
+        border: none
+        height: 100%
+        color: $color-text
     .btn-close
         margin-top: $container-padding-x
     .col

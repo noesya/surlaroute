@@ -1,6 +1,6 @@
 class Admin::PagesController < Admin::ApplicationController
   
-  load_and_authorize_resource find_by: :path, except: :reorder
+  load_and_authorize_resource
 
   include Admin::FiltersHelper
 

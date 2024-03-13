@@ -19,6 +19,11 @@ fr:
     my_account: Mon compte
     subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
     title: Mon compte
+    cta: 
+      title: Rejoignez la communauté écothèque !
+      text: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu. 
+      create: Créer un compte gratuit
+      offers: Découvrir les offres
   activemodel:
     models:
       structure:
@@ -208,6 +213,35 @@ fr:
       brezet_wheel:
         enabled: Actif ?
         explanation_text: Texte d'explication
+      hints: 
+        step0_sustainable_program:
+        step0_low_tech:
+        step0_ecodesign_time:
+        step1_local_materials:
+        step1_recycled_materials: 
+        step1_reusable_materials:
+        step2_components_reduced_amount: 
+        step2_dismountable:
+        step2_renewable_energy:
+        step3_matter_reduced_amount_html:
+          Comment avez-vous réduit le volume et/ou le poids des matières utilisées ? <br>
+          Comment avez-vous fait des économies de matière des matières utilisées ? <br>
+          <br>
+          Si connu, indiquez le volume en m3 ou en L / le poids en Kg économisés <br>
+          Arrondissez au chiffre le plus proche.
+        step4_artists_travel_optimization:
+        step4_separate_packaging:
+        step4_transport_sharing:
+        step5_energy_efficient:
+        step5_low_power_consumption:
+        step5_public_area_sorting:
+        step5_public_awareness:
+        step5_water_efficient:
+        step5_zero_waste:
+        step6_extended_lifetime:
+        step7_closed_loop_recycling:
+        step7_composted_materials:
+        step7_disassembly_five_stream_sorting:
     structure:
       add_image: Ajouter une image
       add_option: Ajouter une option
@@ -232,7 +266,7 @@ fr:
       one: réponse
       other: réponses
   create: Créer
-  default_images_hint: "5 Mo max, %{formats}"
+  default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
   devise:
     already_registered:
@@ -274,6 +308,7 @@ fr:
     page:
       block:
         kind:
+          gallery: Galerie d'images
           keypoints: Points-clés
           quote: Citation
           text: Texte
@@ -427,4 +462,22 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    members:
+      title: Les membres
+      meta: Membre depuis le
+      members:
+        one: Membre
+        other: Membres
+      ecosystem: 
+        one: Fiche écosystème publiée
+        other: Fiches écosystème publiées
+      projects: 
+        one: Fiche projets publiée
+        other: Fiches projets publiées
+      materials:
+        one: Fiche matériaux publiée
+        other: Fiches matériaux publiées
+      technics:
+        one: Fiche techniques publiée
+        other: Fiches techniques publiées
   website: écothèque

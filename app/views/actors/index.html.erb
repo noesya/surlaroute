@@ -22,8 +22,8 @@
     <div class="row">
       <%= render 'application/toc-cta' %>
       <div class="col d-flex gap-2 justify-content-md-end navigation-links">
-        <%= link_to 'Vue catalogue', actors_path(anchor: 'results'), class: 'navigation-links__list' %>
-        <%= link_to 'Vue carte', map_actors_path(action: 'map', anchor: 'results'), class: 'navigation-links__map' %>
+        <%= link_to 'Vue catalogue', actors_path(request.query_parameters.to_hash.merge({anchor: 'results'})), class: 'navigation-links__list' %>
+        <%= link_to 'Vue carte', map_actors_path(request.query_parameters.to_hash.merge({anchor: 'results'})), class: 'navigation-links__map' %>
       </div>
     </div>
     <div class="row align-items-start position-relative mt-4">
@@ -32,7 +32,7 @@
       </div>
       <div class="directory-container col-lg-9">
         <%= render "actors/#{@mode}", objects: @actors %>
-        <%= paginate @actors, theme: "bootstrap-5" %>
+        <%= paginate @actors, theme: "bootstrap-5" if @mode == "list" %>
       </div>
     </div>
   </div>
@@ -45,10 +45,16 @@
           <p class="mt-4 d-none d-md-block"><%= t('actors.call_to_action.text') %></p>
         </div>
         <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
-          <a href="#" class="btn btn-dark"><%= t('actors.call_to_action.button') %></a>
+          <% if current_user %>
+            <a href="#" class="btn btn-dark"><%= t('actors.call_to_action.button') %></a>
+          <% else %>
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#redirectionModal"><%= t('actors.call_to_action.button') %></button>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+<% if !current_user %>
+  <%= render 'application/redirection-modale' %>
+<% end %>

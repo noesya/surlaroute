@@ -20,8 +20,8 @@
             "coordinates": [<%= actor.latitude %>, <%= actor.longitude %>]
           },
           "properties": {
-            "name": "<%= actor.to_s.html_safe %>",
-            "image": "<%= actor.image.url if actor.image.attached? %>"
+            "name": "<%= j(actor.to_s.html_safe) %>",
+            "popinContent": "<%= j(render("actors/actor", actor: actor)) %>"
           }
         }
       );

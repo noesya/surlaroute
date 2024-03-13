@@ -15,7 +15,10 @@
 .materials-index,
 .projects-index,
 .technics-index,
-.regions-index
+.regions-index,
+.members-index,
+.toolbox-index,
+.toolbox-child
     .hero
         background:
             repeat: no-repeat
@@ -34,7 +37,11 @@
         @include media-breakpoint-up(xxl)
             background-size: contain
 
-.regions-index, .offers-index
+.offers-index
+    .hero
+        background: white
+.regions-index, 
+.offers-index
     .hero
         overflow: unset
         z-index: 5

@@ -1,0 +1,57 @@
+
+<header class="hero pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        image
+      </div>
+      <div class="col-lg-6">
+        <h1><%= @member %></h1>
+        <p class="small text-muted m-0"><%= t('ui.members.meta') %> <%= l @member.created_at.to_date %></p>
+        <hr class="my-4">
+        <p class="small mb-2"><%= t('ui.members.contact') %></p>
+        <ul class="contact-list list-unstyled">
+          <%# TODO BRANCHER LES DONNEES %>
+          <li><a href="mailto:mail@mail.com">mail@mail.com</a></li>
+          <li class="mt-1">06 48 58 43 39</li>
+          <li class="mt-1"><a href="#" target="_blank" class="external-link">Site internet</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="document-content">
+  <%# TODO CONDITION%>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2 class="mb-4"><%= t('ui.members.ecosystem.one') %></h2><%# TODO COUNT SUR LE TITRE%>
+      render actors/list
+    </div>
+  </section>
+
+  <%# TODO CONDITION%>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2 class="mb-4"><%= t('ui.members.projects.one') %></h2><%# TODO COUNT SUR LE TITRE%>
+      render projects/list
+    </div>
+  </section>
+
+  <%# TODO CONDITION%>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2 class="mb-4"><%= t('ui.members.materials.one') %></h2><%# TODO COUNT SUR LE TITRE%>
+      render materials/list
+    </div>
+  </section>
+
+  <%# TODO CONDITION%>
+  <section class="bg-white py-5">
+    <div class="container">
+      <h2 class="mb-4"><%= t('ui.members.technics.one') %></h2><%# TODO COUNT SUR LE TITRE%>
+      render technics/list
+    </div>
+  </section>
+
+</div>

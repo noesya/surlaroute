@@ -24,6 +24,8 @@
 #
 class Page < ApplicationRecord
 
+  LABEL_INTERNAL_IDENTIFIER = 'le-lab'
+
   include WithTree
 
   has_many :blocks
@@ -44,17 +46,21 @@ class Page < ApplicationRecord
     where("unaccent(pages.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
 
+  def self.lab
+    find_by(internal_identifier: LABEL_INTERNAL_IDENTIFIER)
+  end
+
   def generated_path
     ancestors.any? ? "#{ancestors.pluck(:slug).join('/')}/#{slug}"
                    : slug
   end
 
-  def to_s
-    "#{name}"
+  def is_lab?
+  internal_identifier == LABEL_INTERNAL_IDENTIFIER
   end
 
-  def to_param
-    path
+  def to_s
+    "#{name}"
   end
 
   private

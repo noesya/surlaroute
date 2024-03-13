@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   draw 'admin'
 
   get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
+  get 'le-lab/les-membres' => 'members#index', as: :members
+  get 'le-lab/les-membres/:id' => 'members#show', as: :member
 
   scope 'mon-compte' do
     get 'suivi' => 'favorites#index', as: :favorites
@@ -17,10 +19,6 @@ Rails.application.routes.draw do
     resources :comments, path: 'commentaires', as: :user_comments
   end
 
-  # TODO: ca ne restera pas comme ça
-  get 'le-lab/les-membres/:member' => 'members#show', as: :member
-
-  get 'recherche' => 'search#show', as: :search
 
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]

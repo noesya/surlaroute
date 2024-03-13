@@ -18,41 +18,56 @@ body
     background-color: $toolbox-primary
 
 // colors and hero images
-.actors-index,
-.actors-options,
-.actors-option
+.actors-index
     --page-main-color: #{$ecosystem-primary}
 .actors-index
     .hero
         background-image: asset-url("letters/actors.svg")
 
-.materials-index,
-.materials-options,
-.materials-option
+.materials-index
     --page-main-color: #{$materials-primary}
 .materials-index
     .hero
         background-image: asset-url("letters/materials.svg")
 
-.projects-index,
-.projects-options,
-.projects-option
+.projects-index
     --page-main-color: #{$projects-primary}
 .projects-index
     .hero
         background-image: asset-url("letters/projects.svg")
 
-.technics-index,
-.technics-options,
-.technics-option
+.technics-index
     --page-main-color: #{$technic-primary}
 .technics-index
     .hero
         background-image: asset-url("letters/technics.svg")
 
+.members-index
+    .hero
+        background-image: asset-url("letters/members.svg")
+
 .toolbox-index, .toolbox-child
     --page-main-color: #{$toolbox-primary}
     --block-quote-background: #{$toolbox-primary}
+.hero
+    .toolbox-index &
+        background-image: asset-url("letters/toolbox.svg")
+    .toolbox-child &
+        background-image: asset-url("letters/toolbox-expanded.svg")
+
+.hero
+    .actors-options &,
+    .actors-option &
+        background: $ecosystem-primary
+    .materials-options &,
+    .materials-option &
+        background: $materials-primary
+    .projects-options &,
+    .projects-option &
+        background: $projects-primary
+    .technics-options &,
+    .technics-option &
+        background: $technic-primary
 
 // search colored links
         

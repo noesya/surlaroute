@@ -46,3 +46,4 @@
 # Scalingo DB backup
 /db/scalingo-dump.tar.gz
 /db/*.dump
+*.pgsql

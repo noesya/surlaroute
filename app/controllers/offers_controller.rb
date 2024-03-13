@@ -1,5 +1,7 @@
 class OffersController < ApplicationController
 
+  include ApplicationHelper
+
   def index
     breadcrumb
   end
@@ -8,8 +10,8 @@ class OffersController < ApplicationController
 
   def breadcrumb
     super
-    lab_page = Page.find_by(internal_identifier: 'le-lab')
-    add_breadcrumb lab_page&.to_s, lab_page&.slug
+    page_lab = Page.find_by(internal_identifier: 'le-lab')
+    add_breadcrumb page_lab, page_path(page_lab)
     add_breadcrumb t('ui.offers.title')
   end
 

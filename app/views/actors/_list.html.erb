@@ -1,13 +1,7 @@
 <div class="row actors-list">
   <% objects.each do |actor| %>
     <div class="col-lg-4 mb-5">
-      <article class="position-relative">
-        <%= render 'illustration', source: actor, width: 400 %>
-        <h2><%= link_to actor, actor, class: 'stretched-link' %></h2>
-        <div class="tags d-flex align-items-start flex-wrap">
-          <%= render 'structure/items/in_list', about: actor %>
-        </div>
-      </article>
+      <%= render "actors/actor", actor: actor %>
     </div>
   <% end %>
 </div>
