@@ -1,8 +1,6 @@
 class Admin::Pages::BlocksController < Admin::ApplicationController
   load_and_authorize_resource :page, 
-                              class: Page,
-                              find_by: :slug,
-                              id_param: :page_id
+                              class: Page
 
   load_and_authorize_resource class: Page::Block,
                               through: :page
@@ -29,7 +27,7 @@ class Admin::Pages::BlocksController < Admin::ApplicationController
 
   def create
     if @block.save
-      redirect_to edit_admin_page_block_path(page_id: @page.slug, id: @block.id), notice: t('admin.successfully_created_html', model: @block.to_s)
+      redirect_to edit_admin_page_block_path(page_id: @page.id, id: @block.id), notice: t('admin.successfully_created_html', model: @block.to_s)
     else
       breadcrumb
       render :new, status: :unprocessable_entity
