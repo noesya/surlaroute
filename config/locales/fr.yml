@@ -378,6 +378,7 @@ fr:
   save: Enregistrer
   search: 
     also: Vous pouvez également consulter nos annuaires
+    no_result: 'Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :'
     label: Rechercher
     results:
       results: 
