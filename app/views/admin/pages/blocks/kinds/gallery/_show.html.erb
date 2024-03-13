@@ -1,0 +1,21 @@
+<%
+elements = block.data.dig('elements') || []
+%>
+<div class="row">
+  <% elements.each do |element| %>
+    <%
+    alt = element.dig('alt')
+    caption = element.dig('caption')
+    image_blob_id = element.dig('image', 'id')
+    image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
+    %>
+    <figure class="col-lg-4">
+      <%= kamifusen_tag image_blob, 
+                        width: 300, 
+                        class: 'img-fluid', 
+                        alt: alt if image_blob %>
+      <figcaption><%= caption %></figcaption>
+      <b><%= alt %></b></br>
+    </figure>
+  <% end %>
+</div>

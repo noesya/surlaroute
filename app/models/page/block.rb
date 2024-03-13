@@ -24,10 +24,13 @@ class Page::Block < ApplicationRecord
 
   scope :ordered, -> { order(:position) }
 
+  before_create :set_initial_position
+
   enum kind: {
     text: 1,
     quote: 2,
-    keypoints: 3
+    keypoints: 3,
+    gallery: 4
   }, _prefix: :kind
 
   def data=(value)
@@ -44,5 +47,11 @@ class Page::Block < ApplicationRecord
   def to_s
     name.present? ? "#{name}"
                   : "Bloc"
+  end
+
+  protected
+
+  def set_initial_position
+    self.position = page.blocks.count + 1
   end
 end

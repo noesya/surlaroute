@@ -237,7 +237,7 @@ fr:
       one: réponse
       other: réponses
   create: Créer
-  default_images_hint: "5 Mo max, %{formats}"
+  default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
   devise:
     already_registered:
@@ -279,6 +279,7 @@ fr:
     page:
       block:
         kind:
+          gallery: Galerie d'images
           keypoints: Points-clés
           quote: Citation
           text: Texte
