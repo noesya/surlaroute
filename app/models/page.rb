@@ -55,10 +55,6 @@ class Page < ApplicationRecord
                    : slug
   end
 
-  def to_param
-    path
-  end
-
   def is_lab?
   internal_identifier == LABEL_INTERNAL_IDENTIFIER
   end
