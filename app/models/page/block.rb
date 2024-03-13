@@ -22,9 +22,7 @@
 class Page::Block < ApplicationRecord
   belongs_to :page
 
-  scope :ordered, -> { order(:position) }
-
-  before_create :set_initial_position
+  include Positionable
 
   enum kind: {
     text: 1,
