@@ -1,9 +1,9 @@
 <%
-elements = block.data.dig('elements')
+elements = block.data.dig('elements') || []
 %>
 <ul class="list-unstyled">
   <% elements.each do |element| %>
-    <% 
+    <%
     title = element.dig('title')
     text = element.dig('text')
     %>
