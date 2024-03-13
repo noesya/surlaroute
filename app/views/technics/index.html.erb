@@ -16,10 +16,24 @@
   </div>  
 </header>
 
-<div class="document-content bg-white py-5">
-  <div class="container">
-    <%= render 'technics/list', objects: @technics %>
-    <%= paginate @technics, theme: "bootstrap-5" %>
+<div class="document-content bg-white py-5" id="results">
+  <div class="container directory">
+    <div class="row">
+      <div class="col d-flex gap-2">
+        <button class="toc-btn d-flex align-items-center gap-1">
+          <span>Fermer les filtres</span>
+        </button>
+      </div>
+    </div>
+    <div class="row align-items-start position-relative mt-4">
+      <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
+        <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
+      </div>
+      <div class="directory-container col-lg-9">
+        <%= render "technics/list", objects: @technics %>
+        <%= paginate @technics, theme: "bootstrap-5" %>
+      </div>
+    </div>
   </div>
 
   <div class="call-to-action bg-technics mt-5">
