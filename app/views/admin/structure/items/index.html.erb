@@ -8,9 +8,13 @@
 <% end %>
 
 <% if @about_class == 'Project' %>
-  <h2 class="h5">Roue de Brezet</h2>
-  <%= link_to 'Créer', new_admin_projects_criterion_path, class: button_classes %>
-  <%= render 'admin/projects/criterions/list' %>
+  <div>
+    <div class="mb-4">
+      <h2 class="h5 float-start me-4">Roue de Brezet</h2>
+      <%= link_to 'Créer', new_admin_projects_criterion_path, class: button_classes %>
+    </div>
+    <%= render 'admin/projects/criterions/list' %>
+  </div>
 <% end %>
 
 <% content_for :buttons do %>

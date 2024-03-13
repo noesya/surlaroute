@@ -1,24 +1,29 @@
-<div class="table-responsive">
-  <table class="<%= table_classes %>">
-    <thead>
-      <tr>
-        <th width="20"></th>
-        <th><%= Project::Criterion.human_attribute_name('name') %></th>
-        <th><%= Project::Criterion.human_attribute_name('step') %></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody data-sortable data-sort-url="<%= reorder_admin_projects_criterions_path %>">
-      <% Project::Criterion.all.ordered.each do |criterion| %>
-        <tr data-id="<%= criterion.id %>">
-          <td class="ps-0"><i class="bi bi-arrow-down-up handle"></i></td>
-          <td><%= criterion %></td>
-          <td><%= criterion.step %></td>
-          <td class="text-end">
-            <%= link_to t('edit'), edit_admin_projects_criterion_path(criterion), class: button_classes %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<% Project::Criterion::STEPS.each do |step| %>
+  <div class="mb-4">
+    <h3 class="h6">
+      <%= t("projects.brezet_wheel.step#{step}") %>
+    </h3>
+    <div class="table-responsive">
+      <table class="<%= table_classes %>">
+        <thead>
+          <tr>
+            <th width="20"></th>
+            <th><%= Project::Criterion.human_attribute_name('name') %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody data-sortable data-sort-url="<%= reorder_admin_projects_criterions_path %>">
+          <% Project::Criterion.for_step(step).ordered.each do |criterion| %>
+            <tr data-id="<%= criterion.id %>">
+              <td class="ps-0"><i class="bi bi-arrow-down-up handle"></i></td>
+              <td><%= criterion %></td>
+              <td class="text-end">
+                <%= link_to t('edit'), edit_admin_projects_criterion_path(criterion), class: button_classes %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
