@@ -7,3 +7,14 @@
         &::before
             content: "2"
             font-family: "AuguresPicto"
+
+.action-index
+    .btn-favorites
+        a
+            @extend .rounded-pill
+            font-size: 0
+            aspect-ratio: 1
+            span
+                display: none
+            &::before
+                font-size: $font-size-base

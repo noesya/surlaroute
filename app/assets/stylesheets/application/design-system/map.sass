@@ -3,22 +3,49 @@
     aspect-ratio: 1
     
 .leaflet
+    &-container
+        font-family: inherit
+
     &-pane &-div-icon
         background: transparent
         border: none
-
-    &-marker-icon
-        .number
-            color: $white
-            font-size: px2rem(12)
-            line-height: px2rem(27)
-            position: absolute
-            text-align: center
-            top: 0
-            width: 100%
 
     &-container &-control-attribution
         color: $primary
         font-size: px2rem(8)
         a
             color: $primary
+
+    &-popup-content-wrapper
+        box-shadow: none
+        border-radius: space(2)
+        overflow: hidden
+        padding: 0
+
+    &-popup-content
+        --bs-border-radius: 0
+        margin: 0
+        min-width: min-content
+        article
+            a::after // Cancel stretched link
+                display: none
+            h2
+                margin-top: 0
+            > div
+                padding: space(4)
+                min-width: space(60)
+            .tags
+                a, span
+                    white-space: nowrap
+    &-popup-tip
+        display: none
+    @include media-breakpoint-up(md)
+        &-popup-content
+            article
+                display: flex
+                picture, .placeholder-illustration
+                    width: space(48)
+                    flex-shrink: 0
+                > div
+                    min-width: space(54)
+
