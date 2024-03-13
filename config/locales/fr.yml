@@ -103,6 +103,11 @@ fr:
         step7_composted_materials: Matériaux compostés
         step7_closed_loop_recycling: Recyclage en boucle fermée
         technics: Techniques
+      project/criterion:
+        hint: Vous devez alors expliquer ce point (ce qui sera ensuite visible en front) 
+        if_you_check: Si vous cochez cette case, cela veut dire...
+        name: Nom
+        step: Étape
       region:
         description: Description
         name: Nom

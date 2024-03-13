@@ -1,5 +1,38 @@
 <h2 class="h4 mt-5"><%= t('projects.brezet_wheel.title') %></h2>
 
+<% Project::Criterion::STEPS.each do |step| %>
+  <h3 class="h5"><%= t("projects.brezet_wheel.step#{step}") %></h3>
+  <div class="row">
+    <div class="offset-lg-4 col-lg-8">
+      <% Project::Criterion.for_step(step).each do |criterion| %>
+        <div class="mt-3">
+          <%= criterion %>
+
+          <% if criterion.if_you_check.present? %>
+            <div class="alert alert-light">
+              <i class="bi bi-question-circle float-end"></i>
+              <b>Si vous cochez cette case, cela veut dire...</b>
+              <%= simple_format criterion.if_you_check %>
+            </div>
+          <% end %>
+
+          <%# TODO afficher seulement si coché %>
+          <% if criterion.hint.present? %>
+            <div class="alert alert-light">
+              <i class="bi bi-lightbulb float-end"></i> 
+              <b>Vous devez alors expliquer ce point (ce qui sera ensuite visible en ligne)</b> 
+              <%= simple_format criterion.hint %>
+            </div>
+          <% end %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+Les champs ci-dessous sont dépréciés.
+
 <h3 class="h5"><%= t('projects.brezet_wheel.step0') %></h3>
 <div class="row">
   <div class="offset-lg-4 col-lg-8">
