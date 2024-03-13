@@ -20,8 +20,8 @@ elements = block.data.dig('elements')
               <%= kamifusen_tag image_blob, 
                                 width: 600, 
                                 alt: alt,
-                                class: 'img-fluid' if image_blob %>
-              <figcaption><%= caption %></figcaption>
+                                class: 'img-fluid rounded' if image_blob %>
+              <figcaption class="small mt-2"><%= caption %></figcaption>
             </figure>
           </div>
         <% end %>
