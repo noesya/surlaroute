@@ -2,8 +2,10 @@
   <div class="card">
     <div class="fields card-body">
       <div class="row">
-        <div class="col-lg-1 align-self-center">
+        <div class="col-lg-1 d-flex flex-column justify-content-between">
           <i class="<%= Icon::SORT %> handle"></i>
+
+          <%= link_to_remove_association '<i class="bi bi-trash"></i>'.html_safe, f, class: 'text-danger' %>
         </div>
         <div class="col-lg-6">
           <%= f.input :file,
@@ -15,11 +17,6 @@
                       preview: true %>
         </div>
         <div class="col-lg-5">
-          <div class="mb-4">
-            <%= link_to_remove_association t('delete'),
-                        f,
-                        class: 'text-danger float-end' %>
-          </div>
           <%= f.input :alt, label_html: { class: "small" } %>
           <%= f.input :text, label_html: { class: "small" } %>
           <%= f.input :credit, label_html: { class: "small" } %>
