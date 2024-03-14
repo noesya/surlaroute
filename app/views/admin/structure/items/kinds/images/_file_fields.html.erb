@@ -2,7 +2,10 @@
   <div class="card">
     <div class="fields card-body">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-1 align-self-center">
+          <i class="<%= Icon::SORT %> handle"></i>
+        </div>
+        <div class="col-lg-6">
           <%= f.input :file,
                       as: :single_deletable_file,
                       input_html: { accept: default_images_formats_accepted },
@@ -11,9 +14,9 @@
                       label_html: { class: "small" },
                       preview: true %>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-5">
           <div class="mb-4">
-            <i class="<%= Icon::SORT %> handle"></i>
+            
             <%= link_to_remove_association t('delete'), 
                         f, 
                         class: 'text-danger float-end' %>
