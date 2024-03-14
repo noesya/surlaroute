@@ -8,14 +8,10 @@
                     class: 'img-fluid rounded square',
                     alt: source.image_alt %>
 <% else %>
-
-  <% if source.is_a?(User)
-      first_letter = source.first_name.first[0]
-      second_letter = source.last_name.first[0]
-  else
+  <%
     name_elements = source.name.strip.split(' ')
     first_letter = name_elements.first[0]
     second_letter = name_elements.many? ? name_elements.second[0] : name_elements.first[1]
-  end %>
+  %>
   <div class="placeholder-illustration rounded square overflow-hidden position-relative" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>"></div>
 <% end %>
