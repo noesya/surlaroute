@@ -1,6 +1,6 @@
 <% value.files.build if value.files.empty? %>
 <div class="js-nested-cocoon" id="files" data-sortable="inputs">
-  <%= f.simple_fields_for :files, value.files.sort_by(&:position) do |file_f| %>
+  <%= f.simple_fields_for :files, value.files.sort_by(&:position), html: { class: 'row' } do |file_f| %>
     <%= render 'admin/structure/items/kinds/images/file_fields', f: file_f %>
   <% end %>
 </div>

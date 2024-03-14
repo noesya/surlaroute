@@ -78,6 +78,7 @@ class Admin::ProjectsController < Admin::ApplicationController
             :step7_composted_materials_text, :step7_closed_loop_recycling, :step7_closed_loop_recycling_text,
             actor_ids: [], material_ids: [], technic_ids: [],
             region_ids: [],
+            answers_attributes: [:id, :criterion_id, :value, :text],
             structure_values_attributes: structure_values_permitted_attributes
           )
   end

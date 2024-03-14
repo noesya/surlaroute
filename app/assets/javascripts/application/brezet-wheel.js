@@ -11,6 +11,7 @@ window.ecosystem.brezetWheel = {
         
         this.image = this.observedEl.querySelector('figure');
         this.texts = this.observedEl.querySelectorAll('.brezet-steps span');
+        this.content = this.observedEl.querySelector('.brezet-details')
         this.breakpoint = 992;
 
         if(window.innerWidth >= this.breakpoint) {
@@ -23,7 +24,6 @@ window.ecosystem.brezetWheel = {
             let observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        console.log('animation');
                         this.scrollAnimation();
                         observer.unobserve(entry.target);
                     }
@@ -40,25 +40,32 @@ window.ecosystem.brezetWheel = {
             this.triggerPosition = this.observedEl.getBoundingClientRect().top + window.scrollY + 100;
             this.maxImageWidth = 0;
 
-            window.addEventListener("scroll", () => {
-                if (this.scrollPosition > this.triggerPosition) {
-                    this.percentage = Math.min(1, (this.scrollPosition - this.triggerPosition) / (window.innerHeight));
-                    this.imageWidth = this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth);
-                    this.opacityTransition = (this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth)) * 0.15;
-    
-                    this.image.style.width = this.imageWidth + "%";
-                    
-                    this.texts.forEach((text) => {
-                        text.style.opacity = this.opacityTransition + "%";
-                    });
-                } else {
-                    this.image.style.width = "100%";
-                    
-                    this.texts.forEach((text) => {
-                        text.style.opacity = "1";
-                    });
-                }
-            });
+            var distance = (this.content.offsetTop - this.triggerPosition) / 2;
+
+            console.log(this.content.offsetTop, this.triggerPosition, distance)
+            
+            if (this.scrollPosition > this.triggerPosition) {
+                this.percentage = Math.min(1, (this.scrollPosition - this.triggerPosition) / (window.innerHeight));
+                this.imageWidth = this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth);
+                // this.opacityTransition = (this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth)) * 0.15;
+
+                var ratio = Math.min(1, (this.scrollPosition - this.triggerPosition) / distance);
+                var opacity = 1 - ratio;
+
+                console.log('opacité =' + opacity)
+
+                this.image.style.width = this.imageWidth + "%";
+                
+                this.texts.forEach((text) => {
+                    text.style.opacity = opacity;
+                });
+            } else {
+                this.image.style.width = "100%";
+                
+                this.texts.forEach((text) => {
+                    text.style.opacity = "1";
+                });
+            }
         };
 
         window.addEventListener("scroll", this.scrollListener);

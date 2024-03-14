@@ -12,12 +12,13 @@
 #  updated_at   :datetime         not null
 #
 class Project::Criterion < ApplicationRecord
-
+  
   STEPS = (0..7)
+  
+  include Positionable
 
   has_many :answers
 
-  scope :ordered, -> {  order(:step, :position) }
   scope :for_step, -> (step) { where(step: step).ordered }
 
   def to_s

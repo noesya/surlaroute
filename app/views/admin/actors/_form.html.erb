@@ -3,6 +3,17 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
+    <div class="col-lg-4">
+      <%= f.input :image,
+                  as: :single_deletable_file,
+                  input_html: { accept: default_images_formats_accepted },
+                  hint: images_formats_accepted_hint,
+                  preview: true %>
+      <%= render 'admin/application/form/publication', f: f %>
+      <% if can?(:premium, actor) %>
+        <%= f.input :premium %>
+      <% end %>
+    </div>
     <div class="col-lg-8">
       <%= f.input :name %>
       <%= f.input :slug,
@@ -15,17 +26,6 @@
                         input_html: {
                           class: 'select2'
                         } %>
-    </div>
-    <div class="col-lg-4">
-      <%= render 'admin/application/form/publication', f: f %>
-      <% if can?(:premium, actor) %>
-        <%= f.input :premium %>
-      <% end %>
-      <%= f.input :image,
-                  as: :single_deletable_file,
-                  input_html: { accept: default_images_formats_accepted },
-                  hint: images_formats_accepted_hint,
-                  preview: true %>
     </div>
   </div>
 
