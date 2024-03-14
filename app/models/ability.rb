@@ -13,7 +13,6 @@ class Ability
     cannot [:publish, :premium], Actor
     can :manage, Project, published_by_id: @user.id
     cannot :publish, Project
-    can :manage, User::Comment, user_id: @user.id
   end
   
   def subscriber
@@ -22,6 +21,7 @@ class Ability
     cannot :publish, Material
     can :manage, Technic, published_by_id: @user.id
     cannot :publish, Technic
+    can :manage, User::Comment, user_id: @user.id
   end
 
   def lab_member

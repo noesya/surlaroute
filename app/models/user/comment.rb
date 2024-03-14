@@ -32,7 +32,8 @@ class User::Comment < ApplicationRecord
 
   has_many :replies,
             class_name: 'User::Comment',
-            foreign_key: :reply_to
+            foreign_key: :reply_to,
+            dependent: :destroy
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :root, -> { where(reply_to_id: nil) }
