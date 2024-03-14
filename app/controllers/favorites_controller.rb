@@ -32,7 +32,7 @@ class FavoritesController < ApplicationController
   end
 
   def load_about
-     @about =  params[:about_type].constantize.find_by(id: params[:about_id])
+     @about = params[:about_type].constantize.find_by(id: params[:about_id])
      redirect_back(fallback_location: root_path) unless @about
   end
 
