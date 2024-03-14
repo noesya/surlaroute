@@ -14,7 +14,11 @@ class ActorsController < ApplicationController
 
   def show
     @actor = Actor.find_by!(slug: params[:id])
+    @materials = @actor.materials.published.ordered
+    @projects = @actor.projects.published.ordered
+    @technics = @actor.technics.published.ordered
     @new_comment = User::Comment.new(about: @actor) if can?(:create, User::Comment)
+
     breadcrumb
     add_breadcrumb @actor
   end

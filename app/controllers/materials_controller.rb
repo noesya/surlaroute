@@ -11,6 +11,8 @@ class MaterialsController < ApplicationController
 
   def show
     @material = Material.find_by!(slug: params[:id])
+    @actors = @material.actors.published.ordered
+    @projects = @material.projects.published.ordered
     @new_comment = User::Comment.new(about: @material) if can?(:create, User::Comment)
     breadcrumb
     add_breadcrumb @material

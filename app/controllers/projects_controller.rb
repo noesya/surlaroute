@@ -11,6 +11,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by!(slug: params[:id])
+    @actors = @project.actors.published.ordered
+    @materials = @project.materials.published.ordered
+    @technics = @project.technics.published.ordered
     @new_comment = User::Comment.new(about: @project) if can?(:create, User::Comment)
     breadcrumb
     add_breadcrumb @project

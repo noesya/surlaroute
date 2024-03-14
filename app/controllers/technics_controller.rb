@@ -11,6 +11,8 @@ class TechnicsController < ApplicationController
 
   def show
     @technic = Technic.find_by!(slug: params[:id])
+    @actors = @technic.actors.published.ordered
+    @projects = @technic.projects.published.ordered
     @new_comment = User::Comment.new(about: @technic) if can?(:create, User::Comment)
     breadcrumb
     add_breadcrumb @technic

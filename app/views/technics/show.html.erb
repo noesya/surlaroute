@@ -26,20 +26,20 @@
 
   <%= render 'structure/items/zones/page', about: @technic %>
 
-  <% if @technic.actors.any? %>
+  <% if @actors.any? %>
     <section class="bg-white pt-5">
       <div class="container">
-        <h2><%= t('ui.technic.actors', count: @technic.actors.count) %></h2>
-        <%= render 'actors/list', objects: @technic.actors %>
+        <h2><%= t('ui.technic.actors', count: @actors.count) %></h2>
+        <%= render 'actors/list', objects: @actors %>
       </div>
     </section>
   <% end %>
 
-  <% if @technic.projects.any? %>
+  <% if @projects.any? %>
     <section class="bg-white pt-5">
       <div class="container">
-        <h2><%= t('ui.technic.projects', count: @technic.projects.count) %></h2>
-        <%= render 'projects/list', objects: @technic.projects %>
+        <h2><%= t('ui.technic.projects', count: @projects.count) %></h2>
+        <%= render 'projects/list', objects: @projects %>
       </div>
     </section>
   <% end %>

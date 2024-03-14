@@ -28,7 +28,7 @@
 
   <%= render 'structure/items/zones/page', about: @material %>
 
-  <% if actor = @material.actors.premium.with_contact_informations.first %>
+  <% if actor = @actors.premium.with_contact_informations.first %>
     <section class="py-5 actors-list">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.material.contact') %></h2>
@@ -37,20 +37,20 @@
     </section>
   <% end %>
 
-  <% if @material.actors.any? %>
+  <% if @actors.any? %>
     <section class="bg-white pt-5 actors-list">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.material.actors') %></h2>
-        <%= render 'actors/list', objects: @material.actors %>
+        <%= render 'actors/list', objects: @actors %>
       </div>
     </section>
   <% end %>
 
-  <% if @material.projects.any? %>
+  <% if @projects.any? %>
     <section class="bg-white pt-5 projects-list">
       <div class="container">
-        <h2 class="mb-4"><%= t('ui.material.projects', count: @material.projects.count) %></h2>
-        <%= render 'projects/list', objects: @material.projects %>
+        <h2 class="mb-4"><%= t('ui.material.projects', count: @projects.count) %></h2>
+        <%= render 'projects/list', objects: @projects %>
       </div>
     </section>
   <% end %>
