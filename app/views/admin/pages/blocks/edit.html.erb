@@ -4,7 +4,7 @@
   <div class="spinner-border text-primary" role="status">
     <span class="visually-hidden"><%= t 'loading' %></span>
   </div>
-  <%= simple_form_for @block, url: admin_page_block_path(page_id: @page.slug, id: @block.id) do |f| %>
+  <%= simple_form_for @block, url: admin_page_block_path(page_id: @page.id, id: @block.id) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -42,6 +42,14 @@
           blobUrlTemplate: "<%= medium_url(":signed_id", ":filename").html_safe %>"
         },
         data: <%= @block.data.to_json.html_safe %>
+      }
+    },
+    watch: {
+      data: {
+        handler (newData, oldData) {
+          window.warnBeforeUnload.lock();
+        },
+        deep: true
       }
     },
     methods: {
@@ -108,13 +116,35 @@
           };
         $(element).summernote({
           lang: 'fr',
+          toolbar: window.SUMMERNOTE_CONFIGS[config].toolbar,
+          styleTags: window.SUMMERNOTE_CONFIGS[config].styleTags,
           followingToolbar: true,
           disableDragAndDrop: true,
           callbacks: {
             onChange: onChangeCallback
           }
         });
-      }
+        this.monkeyPatchDropdownButtons();
+        this.monkeyPatchDropdownClosing();
+      },
+      monkeyPatchDropdownButtons: function () {
+        'use strict';
+        // https://github.com/summernote/summernote/issues/4170
+        $('button[data-toggle="dropdown"]').each(function () {
+          $(this).removeAttr('data-toggle')
+                 .attr('data-bs-toggle', 'dropdown');
+        });
+      },
+
+      monkeyPatchDropdownClosing: function () {
+        'use strict';
+        $(document).on('click', '.note-dropdown-menu .dropdown-item', function (e) {
+          var dropdownMenu = e.currentTarget.parentNode,
+              dropdownBtn = dropdownMenu.previousElementSibling;
+          dropdownMenu.classList.remove('show');
+          dropdownBtn.classList.remove('show');
+        });
+      },
     },
     updated: function() {
       this.handleSummernotes();

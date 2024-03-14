@@ -1,4 +1,5 @@
 <% if can?(:publish, f.object) %>
+  <h5>Publication</h5>
   <%= f.input :published %>
   <%= f.association :published_by,
                     collection: User.possible_authors(f.object.published_by_id).ordered %>

@@ -1,8 +1,8 @@
-<% 
+<%
   display_image = source.is_a?(Actor) ? source.premium? : true
   width ||= nil
 %>
-<% if source.image.attached? && display_image %>
+<% if source.respond_to?(:image) && source.image.attached? && display_image %>
   <%= kamifusen_tag source.image,
                     width: width,
                     class: 'img-fluid rounded square',

@@ -8,10 +8,10 @@
       <div class="col-lg-5 mt-5">
         <p class="hero__description"><%= @page.description %></p>
       </div>
-      <% if @page.children %>
+      <% if @page.children.any? %>
         <div class="offset-lg-1 col-lg-6 mt-5">
           <ul class="pages-list row">
-            <% @page.children.each do |page| %>
+            <% @page.children.ordered.each do |page| %>
               <li class="col-lg-6">
                 <%= link_to page, page %>
               </li>

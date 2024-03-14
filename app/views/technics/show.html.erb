@@ -16,13 +16,14 @@
         <%= render 'meta', about: @technic %>
         <hr class="my-4">
         <%= render 'structure/items/zones/header', about: @technic %>
+        <%= render 'regions', about: @technic %>
       </div>
     </div>
   </div>
 </header>
 
 <% if user_is_subscribed? %>
-  
+
   <%= render 'structure/items/zones/page', about: @technic %>
 
   <% if @technic.actors.any? %>

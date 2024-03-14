@@ -42,6 +42,9 @@ fr:
         contact_website: Site web
         country: Pays
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         materials: Matériaux fabriqués
         name: Nom
         premium: Fiche premium
@@ -54,6 +57,9 @@ fr:
       material:
         actors: Fabriqué par
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         name: Nom
         projects: Projets qui l'utilisent
         published: Fiche publiée
@@ -73,6 +79,9 @@ fr:
       project:
         actors: Acteurices
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         materials: Matériaux employés
         name: Nom
         published: Fiche publiée
@@ -113,6 +122,9 @@ fr:
         step: Étape
       region:
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         name: Nom
         slug: Identifiant
       structure/item:
@@ -139,10 +151,14 @@ fr:
       technic:
         actors: Contacts
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         materials: Matériaux utilisés
         name: Nom
         published: Fiche publiée
         published_by: Fiche publiée par
+        regions: Provenance
         slug: Identifiant
       user:
         email: Email
@@ -407,6 +423,7 @@ fr:
       mark: "*"
     "yes": Oui
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
+  sort: Déplacer
   true: Oui
   ui:
     global:
