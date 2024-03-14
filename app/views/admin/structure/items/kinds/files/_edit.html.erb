@@ -1,15 +1,15 @@
 <% value.files.build if value.files.empty? %>
 <div class="js-nested-cocoon" id="files-<%= item.id %>" data-sortable="inputs">
   <%= f.simple_fields_for :files, value.files.sort_by(&:position), html: { class: 'row' } do |file_f| %>
-    <%= render 'admin/structure/items/kinds/images/file_fields', f: file_f %>
+    <%= render 'admin/structure/items/kinds/files/file_fields', f: file_f %>
   <% end %>
 </div>
 <p>
-  <%= link_to_add_association t('admin.structure.add_image'),
+  <%= link_to_add_association t('admin.structure.add_file'),
                               f,
                               :files,
                               class: "btn btn-sm btn-primary",
-                              partial: "admin/structure/items/kinds/images/file_fields",
+                              partial: "admin/structure/items/kinds/files/file_fields",
                               data: {
                                 'association-insertion-method': 'append',
                                 'association-insertion-node':   "#files-#{item.id}",

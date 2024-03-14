@@ -1,0 +1,13 @@
+<div class="row">
+  <% files = item.files_for(about) %>
+  <% files.each do |file| %>
+    <% next unless file.file.attached? %>
+    <div class="col-lg-4">
+      <p><%= file.text %></p>
+      <%= link_to "#{file.file.filename} (#{number_to_human_size file.file.blob.byte_size})",
+                file.file,
+                class: 'filename',
+                target: :_blank %>
+    </div>
+  <% end %>
+</div>

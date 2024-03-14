@@ -148,6 +148,7 @@ fr:
         file: Fichier
         image: Image
         text: Texte
+        title: Titre
       technic:
         actors: Contacts
         description: Description
@@ -267,6 +268,7 @@ fr:
         step7_composted_materials:
         step7_disassembly_five_stream_sorting:
     structure:
+      add_file: Ajouter un fichier
       add_image: Ajouter une image
       add_option: Ajouter une option
       title: Structure
@@ -340,7 +342,8 @@ fr:
       item:
         kind:
           colors: Choix de couleurs
-          file: Fichier
+          file: Fichier unique
+          files: Fichiers multiples
           h2: Titre
           h3: Sous-titre
           images: Galerie d'images
