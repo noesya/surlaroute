@@ -2,7 +2,7 @@
 option = item.option_for(about)
 %>
 <% if option %>
-  <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>">
+  <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>" title="<%= option %>">
     <%= option %>
   </a>
 <% else %>
