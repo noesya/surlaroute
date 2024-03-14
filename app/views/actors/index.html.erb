@@ -8,13 +8,13 @@
           <p class="mt-3 mt-md-5">Des écosystèmes territoriaux favorisant l’économie circulaire, avec des acteur·rices du réemploi, de la mutualisation, du transport, de la conception, etc. Quel que soit le territoire, il existe des collaborations possibles à tous les niveaux de la chaîne de la scénographie pour contribuer ensemble à réduire les impacts environnementaux.</p>
         </hgroup>
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= Actor.published.count %></dt>
+          <dt class="key-figure"><%= @all_actors.count %></dt>
           <dd>Acteur·ices</dd>
         </dl>
         <%= link_to 'Voir le glossaire', options_actors_path, class: 'small arrow-right' %>
       </div>
     </div>
-  </div>  
+  </div>
 </header>
 
 <div class="document-content bg-white py-5" id="results">

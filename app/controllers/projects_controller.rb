@@ -2,8 +2,9 @@ class ProjectsController < ApplicationController
   include ResourceWithStructure
 
   def index
-    facets_model = @region.present? ? @region.projects : Project.all
-    @facets = Project::Facets.new(params[:facets], model: facets_model)
+    base_scope = @region.present? ? @region.projects : Project.all
+    @all_projects = base_scope.published
+    @facets = Project::Facets.new(params[:facets], model: @all_projects)
     @projects = @facets.results.ordered.page(params[:page]).per(6)
     breadcrumb
   end

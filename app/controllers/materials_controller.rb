@@ -2,8 +2,9 @@ class MaterialsController < ApplicationController
   include ResourceWithStructure
 
   def index
-    facets_model = @region.present? ? @region.materials : Material.all
-    @facets = Material::Facets.new(params[:facets], model: facets_model)
+    base_scope = @region.present? ? @region.materials : Material.all
+    @all_materials = base_scope.published
+    @facets = Material::Facets.new(params[:facets], model: @all_materials)
     @materials = @facets.results.ordered.page(params[:page]).per(6)
     breadcrumb
   end
