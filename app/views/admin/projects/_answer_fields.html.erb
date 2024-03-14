@@ -16,14 +16,9 @@ answer ||= f.object.answers.new(criterion_id: criterion.id)
     <% end %>
 
     <div class="js-checked-answer-fields">
-      <% if criterion.hint.present? %>
-        <div class="alert alert-light">
-          <i class="bi bi-lightbulb float-end"></i>
-          <b>Vous devez alors expliquer ce point (ce qui sera ensuite visible en ligne)</b>
-          <%= simple_format criterion.hint %>
-        </div>
-      <% end %>
-      <%= answer_f.input :text %>
+      <%= answer_f.input  :text, 
+                          label: 'Vous devez alors expliquer ce point (ce qui sera ensuite visible en ligne)', 
+                          hint: criterion.hint %>
     </div>
   <% end %>
 </div>
