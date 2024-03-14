@@ -12,12 +12,11 @@
 #  updated_at   :datetime         not null
 #
 class Project::Criterion < ApplicationRecord
-  
   STEPS = (0..7)
-  
+
   include Positionable
 
-  has_many :answers
+  has_many :answers, dependent: :destroy
 
   scope :for_step, -> (step) { where(step: step).ordered }
 
