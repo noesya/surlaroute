@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_13_161944) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_114410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -332,6 +332,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_161944) do
     t.string "image_alt"
     t.string "image_credit"
     t.index ["slug"], name: "index_regions_on_slug", unique: true
+  end
+
+  create_table "regions_technics", id: false, force: :cascade do |t|
+    t.uuid "region_id", null: false
+    t.uuid "technic_id", null: false
+    t.index ["region_id", "technic_id"], name: "index_regions_technics_on_region_id_and_technic_id"
+    t.index ["technic_id", "region_id"], name: "index_regions_technics_on_technic_id_and_region_id"
   end
 
   create_table "structure_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

@@ -30,6 +30,7 @@ class Technic < ApplicationRecord
 
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :projects
+  has_and_belongs_to_many :regions
 
   has_one_attached_deletable :image
 
