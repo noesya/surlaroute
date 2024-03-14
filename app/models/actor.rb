@@ -44,6 +44,8 @@ class Actor < ApplicationRecord
   include Structured
   include WithGeolocation
 
+  attr_accessor :sort_order
+
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :technics
@@ -52,6 +54,7 @@ class Actor < ApplicationRecord
 
   validates_presence_of :name
 
+  scope :sort_order, -> { order(:name) }
   scope :ordered, -> { order(:name) }
   scope :premium, -> { where(premium: true) }
   scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
