@@ -1,0 +1,4 @@
+var element = document.body.querySelector('.btn-favorites[data-about-type="<%= params[:about_type] %>"][data-about-id="<%= params[:about_id] %>"]');
+var parser = new DOMParser();
+var html = parser.parseFromString("<%= escape_javascript render('favorites/button', about: @about) %>", 'text/html');
+element.replaceWith(html)
