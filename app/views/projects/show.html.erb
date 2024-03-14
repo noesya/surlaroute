@@ -29,7 +29,7 @@
   <%= render 'structure/items/zones/page', about: @project %>
 
   <% if @project.actors.any? %>
-    <section class="actors bg-white pt-5">
+    <section class="actors bg-white py-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.project.actors', count: @project.actors.count) %></h2>
         <%= render 'actors/list', objects: @project.actors %>
@@ -44,7 +44,7 @@
     <section class="bg-light py-5 brezet-wheel-container position-relative">
       <div class="container">
         <div class="row">
-          <div class="brezet-wheel position-sticky">
+          <div class="brezet-wheel position-lg-sticky">
             <div class="row">
               <div class="col-lg-5 col-xxl-4">
                 <h2><%= t('projects.brezet_wheel.title') %></h2>
@@ -56,8 +56,8 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 brezet-details offset-lg-6 mt-5 mt-md-8 position-relative">
-            <div class="mt-6">
+          <div class="col-lg-6 brezet-details offset-lg-6 mt-4 mt-lg-8 position-relative">
+            <div class="mt-lg-6">
               <%= render 'projects/brezet_wheel/static_texts' %>
               <%= render 'projects/brezet_wheel/step', step: 0 %>
               <%= render 'projects/brezet_wheel/step', step: 1 %>

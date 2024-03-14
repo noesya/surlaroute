@@ -10,6 +10,8 @@
         max-width: calc(100% - #{$grid-gutter-width})
     .brezet-steps
         max-width: calc(100% - #{$grid-gutter-width})
+    .brezet-steps,
+    .brezet-mobile-navigation
         > div a
             &.is-disabled
                 background: $gray-600
@@ -26,82 +28,91 @@
     //             position: relative
     //             margin-top: map-get($spacers, 2)
     //             gap: map-get($spacers, 1)
-    @include media-breakpoint-up(lg)
-        // .brezet-steps,
-        // .brezet-wheel-image
-        //     transform: translateX(calc(50% + #{$grid-gutter-width}))
-        .brezet-wheel
-            top: 20px
-        .brezet-steps
+    .brezet-wheel
+        top: 20px
+    .brezet-steps
+        position: absolute
+        top: 0
+        width: 100%
+        left: 0
+        height: 100%
+        > div 
             position: absolute
-            top: 0
-            width: 100%
-            left: 0
-            height: 100%
-            > div 
-                position: absolute
-                width: max-content
-                gap: pxToRem(27)
-                display: flex
-                a
-                    border-width: 2px
-                    height: 36px
-                    width: 36px
+            width: max-content
+            gap: pxToRem(27)
+            display: flex
+            a
+                border-width: 2px
+                height: 36px
+                width: 36px
+            span
+                transition: opacity 0.3 ease
+                @include media-breakpoint-up(xxl)
+                    font-size: pxToRem(22)
+            &.step-0
+                left: 47%
+                top: -3%
+            &.step-1
+                align-items: center
+                left: 84%
+                top: 11%
                 span
-                    transition: opacity 0.3 ease
-                    @include media-breakpoint-up(xxl)
-                        font-size: pxToRem(22)
-                &.step-0
-                    left: 47%
-                    top: -3%
-                &.step-1
-                    align-items: center
-                    left: 84%
-                    top: 11%
-                    span
-                        width: 35%
-                &.step-2
-                    left: 91%
-                    top: 27%
-                    span
-                        width: 50%
-                &.step-3
-                    align-items: center
-                    left: 94%
-                    top: 57%
-                    span
-                        width: 50%
-                &.step-4
-                    flex-direction: column
-                    left: 68%
-                    top: 91%
-                    gap: map-get($spacers, 2)
-                    span
-                        width: 55%
-                &.step-5
-                    top: 91%
-                    right: 69%
-                    gap: map-get($spacers, 2)
-                    flex-direction: column
-                    text-align: right
-                    align-items: flex-end
-                    span 
-                        width: 45%
-                &.step-6
-                    right: 95%
-                    top: 55%
-                    flex-direction: row-reverse
-                    text-align: right
-                    justify-content: right
-                    align-items: flex-end
-                    span
-                        width: 50%
-                &.step-7
-                    right: 86%
-                    top: 15%
-                    flex-direction: row-reverse
-                    text-align: right
-                    justify-content: right
-                    align-items: flex-end
-                    span
-                        width: 50%
+                    width: 35%
+            &.step-2
+                left: 91%
+                top: 27%
+                span
+                    width: 50%
+            &.step-3
+                align-items: center
+                left: 94%
+                top: 57%
+                span
+                    width: 50%
+            &.step-4
+                flex-direction: column
+                left: 68%
+                top: 91%
+                gap: map-get($spacers, 2)
+                span
+                    width: 55%
+            &.step-5
+                top: 91%
+                right: 69%
+                gap: map-get($spacers, 2)
+                flex-direction: column
+                text-align: right
+                align-items: flex-end
+                span 
+                    width: 45%
+            &.step-6
+                right: 95%
+                top: 55%
+                flex-direction: row-reverse
+                text-align: right
+                justify-content: right
+                align-items: flex-end
+                span
+                    width: 50%
+            &.step-7
+                right: 86%
+                top: 15%
+                flex-direction: row-reverse
+                text-align: right
+                justify-content: right
+                align-items: flex-end
+                span
+                    width: 50%
+    @include media-breakpoint-down(lg)
+        #brezet-navigation
+            opacity: 1 !important
+            .brezet-steps
+                span
+                    display: none
+        figure
+            .brezet-wheel-image
+                margin-left: calc(#{$grid-gutter-width / 2})
+            .brezet-steps
+                left: calc(#{$grid-gutter-width / 2})
+            figcaption
+                bottom: map-get($spacers, 5)

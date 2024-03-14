@@ -9,7 +9,7 @@ window.ecosystem.brezetNavigation = {
             return;
         }
 
-        this.navigation = this.dom.querySelector('#brezet-navigation');
+        this.navigations = this.dom.querySelectorAll('#brezet-navigation, .brezet-mobile-navigation');
         this.activeSections = this.dom.querySelectorAll('h3[id^="step-"]');
 
         this.initIntersectionObserver();
@@ -19,12 +19,14 @@ window.ecosystem.brezetNavigation = {
     disableLinks: function () {
         const sectionIds = Array.from(this.activeSections).map(section => section.getAttribute('id'));
 
-        this.navigation.querySelectorAll('a').forEach(link => {
-            const href = link.getAttribute('href').substring(1);
-
-            if (!sectionIds.includes(href)) {
-                link.classList.add('is-disabled');
-            }
+        this.navigations.forEach(navigation => {
+            navigation.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+    
+                if (!sectionIds.includes(href)) {
+                    link.classList.add('is-disabled');
+                }
+            });
         });
 
     },
