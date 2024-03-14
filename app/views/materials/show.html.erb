@@ -29,27 +29,27 @@
   <%= render 'structure/items/zones/page', about: @material %>
 
   <% if actor = @material.actors.premium.with_contact_informations.first %>
-    <section class="py-5 actors">
+    <section class="py-5 actors-list">
       <div class="container">
-        <h2><%= t('ui.material.contact') %></h2>
+        <h2 class="mb-4"><%= t('ui.material.contact') %></h2>
         <%= render 'actors/contact', actor: actor %>
       </div>
     </section>
   <% end %>
 
   <% if @material.actors.any? %>
-    <section class="bg-white pt-5 actors">
+    <section class="bg-white pt-5 actors-list">
       <div class="container">
-        <h2><%= t('ui.material.actors') %></h2>
-        <%= render 'projects/list', objects: @material.actors %>
+        <h2 class="mb-4"><%= t('ui.material.actors') %></h2>
+        <%= render 'actors/list', objects: @material.actors %>
       </div>
     </section>
   <% end %>
 
   <% if @material.projects.any? %>
-    <section class="bg-white pt-5 projects">
+    <section class="bg-white pt-5 projects-list">
       <div class="container">
-        <h2><%= t('ui.material.projects', count: @material.projects.count) %></h2>
+        <h2 class="mb-4"><%= t('ui.material.projects', count: @material.projects.count) %></h2>
         <%= render 'projects/list', objects: @material.projects %>
       </div>
     </section>
