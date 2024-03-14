@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by!(slug: params[:id])
-    @new_comment = User::Comment.new(about: @project) if current_user
+    @new_comment = User::Comment.new(about: @project) if can?(:create, User::Comment)
     breadcrumb
     add_breadcrumb @project
   end
