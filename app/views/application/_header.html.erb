@@ -13,7 +13,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="row align-items-center nav-container">
-              <ul class="nav-with-dropdowns header-nav d-flex flex-column flex-md-row gap-2 col justify-content-around py-1">
+              <ul class="nav-with-dropdowns header-nav d-md-flex flex-column flex-md-row gap-2 col justify-content-around pt-2 pt-md-1 py-md-1">
                 <li class="nav-item">
                   <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "nav-link" %>
                 </li>
@@ -31,14 +31,16 @@
                   <%= link_to page_tools, page_path(page_tools), class: "nav-link" %>
                 </li>
               </ul>
-              <ul class="col-12 col-md-4 d-flex flex-column flex-md-row gap-2 gap-md-3 align-items-md-center justify-content-end py-1">
+              <ul class="col-12 col-md-4 d-flex flex-column flex-md-row gap-2 gap-md-3 align-items-md-center justify-content-end py-md-1">
                 <li class="nav-with-dropdowns nav-item dropdown position-static">
-                   <% page_lab = Page.find_by(internal_identifier: 'le-lab') %>
+                  <% page_lab = Page.find_by(internal_identifier: 'le-lab') %>
                   <%= link_to page_lab, page_path(page_lab), class: "nav-link" %>
                 </li>
-                <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
-                  <span><%= t('search.label') %></span>
-                </button>
+                <li>
+                  <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <span><%= t('search.label') %></span>
+                  </button>
+                </li>
                 <% if user_signed_in? %>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle btn-user rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
