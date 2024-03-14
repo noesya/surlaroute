@@ -422,6 +422,7 @@ fr:
       mark: "*"
     "yes": Oui
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
+  sort: Déplacer
   true: Oui
   ui:
     global:
