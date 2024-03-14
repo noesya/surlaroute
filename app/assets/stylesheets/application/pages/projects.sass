@@ -3,9 +3,13 @@
     figure
         figcaption
             margin-bottom: -(map-get($spacers,6))
+            position: absolute
+            bottom: 0
+            left: 0
     .brezet-wheel-image
-        max-width: 100%
+        max-width: calc(100% - #{$grid-gutter-width})
     .brezet-steps
+        max-width: calc(100% - #{$grid-gutter-width})
         > div a
             &.is-disabled
                 background: $gray-600
@@ -14,38 +18,31 @@
             &.active
                 background: $color-bg
                 color: $color-text
-    @include media-breakpoint-down(xl)
-        .brezet-steps
-            margin-top: map-get($spacers, 4)
-            p
-                display: none
-            > div
-                position: relative
-                margin-top: map-get($spacers, 2)
-                gap: map-get($spacers, 1)
-    @include media-breakpoint-up(xl)
+    // @include media-breakpoint-down(xl)
+    //     .brezet-steps
+    //         p
+    //             display: none
+    //         > div
+    //             position: relative
+    //             margin-top: map-get($spacers, 2)
+    //             gap: map-get($spacers, 1)
+    @include media-breakpoint-up(lg)
+        // .brezet-steps,
+        // .brezet-wheel-image
+        //     transform: translateX(calc(50% + #{$grid-gutter-width}))
         .brezet-wheel
-            position: sticky
             top: 20px
-            figure
-                max-width: 740px
-                max-height: 740px
-                height: 60vh
-                figcaption
-                    white-space: nowrap
-        .brezet-steps,
-        .brezet-wheel-image
-            left: 57%
-            position: absolute
-            min-width: 500px
-            top: 0
-            height: 100%    
-            aspect-ratio: 20 / 23
         .brezet-steps
+            position: absolute
+            top: 0
+            width: 100%
+            left: 0
+            height: 100%
             > div 
                 position: absolute
                 width: max-content
-                gap: pxToRem(40)
+                gap: pxToRem(27)
+                display: flex
                 a
                     border-width: 2px
                     height: 36px
@@ -55,49 +52,56 @@
                     @include media-breakpoint-up(xxl)
                         font-size: pxToRem(22)
                 &.step-0
-                    left: 46%
-                    top: -14%
+                    left: 47%
+                    top: -3%
                 &.step-1
-                    left: 79%
-                    top: 1%
+                    align-items: center
+                    left: 84%
+                    top: 11%
                     span
                         width: 35%
                 &.step-2
                     left: 91%
-                    top: 22%
+                    top: 27%
                     span
                         width: 50%
                 &.step-3
-                    left: 95%
-                    top: 53%
+                    align-items: center
+                    left: 94%
+                    top: 57%
                     span
                         width: 50%
                 &.step-4
+                    flex-direction: column
                     left: 68%
                     top: 91%
+                    gap: map-get($spacers, 2)
                     span
                         width: 55%
                 &.step-5
-                    top: 92%
-                    right: 65%
+                    top: 91%
+                    right: 69%
                     gap: map-get($spacers, 2)
+                    flex-direction: column
+                    text-align: right
+                    align-items: flex-end
                     span 
                         width: 45%
                 &.step-6
                     right: 95%
                     top: 55%
+                    flex-direction: row-reverse
+                    text-align: right
+                    justify-content: right
+                    align-items: flex-end
                     span
                         width: 50%
                 &.step-7
                     right: 86%
                     top: 15%
+                    flex-direction: row-reverse
+                    text-align: right
+                    justify-content: right
+                    align-items: flex-end
                     span
                         width: 50%
-    @include media-breakpoint-up(xxl)
-        .brezet-steps,
-        .brezet-wheel-image
-            left: 57%
-            position: absolute
-            min-width: 550px
-        .step-0
-            top: -12%

@@ -158,6 +158,7 @@ fr:
         name: Nom
         published: Fiche publiée
         published_by: Fiche publiée par
+        regions: Provenance
         slug: Identifiant
       user:
         email: Email

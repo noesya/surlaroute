@@ -11,6 +11,7 @@ class RegionsController < ApplicationController
     @materials = @region.materials.limit(4)
     @projects = @region.projects.limit(4)
     @actors = @region.actors.limit(4)
+    @technics = @region.technics.limit(4)
     breadcrumb
   end
 
