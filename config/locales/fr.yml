@@ -321,6 +321,8 @@ fr:
       sponsored: Soutenu par
     members: Les membres
     rejoin: Nous rejoindre
+  glossary:
+    title: Glossaire
   login:
     already_registered: Déjà inscrit·e ?
     not_registered_yet: Pas encore inscrit·e ?

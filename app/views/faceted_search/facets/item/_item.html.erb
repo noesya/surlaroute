@@ -5,6 +5,6 @@ selected = facet.value_selected?(identifier)
 %>
 <%= link_to path do %>
   <span class="btn <%= selected ? 'btn-dark' : 'btn-outline-dark' %> btn-sm rounded-pill " title="<%= value.to_s %>">
-    <%= selected ? '× ' : '+ ' %><%= value.to_s.truncate(25) %>
+    <%= value.to_s.truncate(25) %><%= selected ? ' ×' : '' %>
   </span>
 <% end %>
