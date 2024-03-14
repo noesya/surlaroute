@@ -50,29 +50,29 @@
 
 <%= render 'structure/items/zones/lower_page', about: @actor %>
 
-<% if @actor.projects.any? %>
+<% if @projects.any? %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2 class="mb-4"><%= t('ui.actor.projects', count: @actor.projects.count) %></h2>
-      <%= render 'projects/list', objects: @actor.projects.ordered %>
+      <h2 class="mb-4"><%= t('ui.actor.projects', count: @projects.count) %></h2>
+      <%= render 'projects/list', objects: @projects.ordered %>
     </div>
   </section>
 <% end %>
 
-<% if @actor.materials.any? %>
+<% if @materials.any? %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2 class="mb-4"><%= t('ui.actor.materials', count: @actor.materials.count) %></h2>
-      <%= render 'materials/list', objects: @actor.materials.ordered %>
+      <h2 class="mb-4"><%= t('ui.actor.materials', count: @materials.count) %></h2>
+      <%= render 'materials/list', objects: @materials.ordered %>
     </div>
   </section>
 <% end %>
 
-<% if @actor.technics.any? %>
+<% if @technics.any? %>
   <section class="bg-white py-5">
     <div class="container">
-      <h2 class="mb-4"><%= t('ui.actor.technics', count: @actor.technics.count) %></h2>
-      <%= render 'technics/list', objects: @actor.technics.ordered %>
+      <h2 class="mb-4"><%= t('ui.actor.technics', count: @technics.count) %></h2>
+      <%= render 'technics/list', objects: @technics.ordered %>
     </div>
   </section>
 <% end %>
