@@ -27,7 +27,7 @@
       <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
         <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
       </div>
-      <div class="directory-container col-lg-9">
+      <div class="directory-container col-lg-9 technics-list">
         <%= render "technics/list", objects: @technics %>
         <%= paginate @technics, theme: "bootstrap-5" %>
       </div>
