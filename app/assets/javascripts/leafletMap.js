@@ -102,7 +102,9 @@ window.ecotheque.maps = {
                     });
                 }
             }).addTo(mymap);
+
             mymap.fitBounds(this.geojsonLayer.getBounds());
+            mymap.zoomOut();
         }
     },
 
