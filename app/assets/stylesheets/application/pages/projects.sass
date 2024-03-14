@@ -1,5 +1,12 @@
+.brezet-wheel
+    @include media-breakpoint-up(lg)
+        position: sticky
+        top: 20px
 
 .brezet-wheel-container
+    .project-materials
+        .col-lg-4
+            @extend .col-lg-6
     figure
         figcaption
             margin-bottom: -(map-get($spacers,6))
@@ -20,16 +27,6 @@
             &.active
                 background: $color-bg
                 color: $color-text
-    // @include media-breakpoint-down(xl)
-    //     .brezet-steps
-    //         p
-    //             display: none
-    //         > div
-    //             position: relative
-    //             margin-top: map-get($spacers, 2)
-    //             gap: map-get($spacers, 1)
-    .brezet-wheel
-        top: 20px
     .brezet-steps
         position: absolute
         top: 0

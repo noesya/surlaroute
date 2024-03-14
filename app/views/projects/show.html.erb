@@ -8,7 +8,7 @@
         </div>
         <%= render 'illustration', source: @project %>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 mt-4 mt-md-0">
         <div class="border-bottom pb-4 mb-4">
           <h1><%= @project %></h1>
           <% if @project.description.present? %>
@@ -44,7 +44,7 @@
     <section class="bg-light py-5 brezet-wheel-container position-relative">
       <div class="container">
         <div class="row">
-          <div class="brezet-wheel position-lg-sticky">
+          <div class="brezet-wheel">
             <div class="row">
               <div class="col-lg-5 col-xxl-4">
                 <h2><%= t('projects.brezet_wheel.title') %></h2>
