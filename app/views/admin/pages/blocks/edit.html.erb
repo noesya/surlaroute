@@ -4,7 +4,7 @@
   <div class="spinner-border text-primary" role="status">
     <span class="visually-hidden"><%= t 'loading' %></span>
   </div>
-  <%= simple_form_for @block, url: admin_page_block_path(page_id: @page.slug, id: @block.id) do |f| %>
+  <%= simple_form_for @block, url: admin_page_block_path(page_id: @page.id, id: @block.id) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
