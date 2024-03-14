@@ -88,29 +88,6 @@ fr:
         published_by: Fiche publiée par
         regions: Régions
         slug: Identifiant
-        step0_sustainable_program: Programmation engagée
-        step0_low_tech: Low tech
-        step0_ecodesign_time: Temps adapté à l’écoconception
-        step1_reusable_materials: Matériaux issus du réemploi ou de la réutilisation
-        step1_recycled_materials: Matériaux recyclés
-        step1_local_materials: Matériaux fabriqués localement
-        step2_dismountable: Démontable
-        step2_components_reduced_amount: Réduction du nombre de composants
-        step2_renewable_energy: Energie renouvelable
-        step3_matter_reduced_amount: Réduction de la quantité de matière
-        step4_artists_travel_optimization: Déplacement des artistes optimisé
-        step4_transport_sharing: Mutualisation des transports
-        step4_separate_packaging: Emballage séparable et triable
-        step5_energy_efficient: Econome en énergie
-        step5_water_efficient: Econome en eau
-        step5_low_power_consumption: Projet à très faible consommation énergétique
-        step5_zero_waste: Projet ne produisant pas de déchet
-        step5_public_awareness: Sensibilisation des publics
-        step5_public_area_sorting: Tri dans les espaces publics
-        step6_extended_lifetime: Durée de vie du projet allongée
-        step7_disassembly_five_stream_sorting: Désassemblé et trié en 5 flux
-        step7_composted_materials: Matériaux compostés
-        step7_closed_loop_recycling: Recyclage en boucle fermée
         technics: Techniques
       project/answer:
         text: Explication
@@ -238,35 +215,6 @@ fr:
       brezet_wheel:
         enabled: Actif ?
         explanation_text: Texte d'explication
-      hints:
-        step0_sustainable_program:
-        step0_low_tech:
-        step0_ecodesign_time:
-        step1_local_materials:
-        step1_recycled_materials:
-        step1_reusable_materials:
-        step2_components_reduced_amount:
-        step2_dismountable:
-        step2_renewable_energy:
-        step3_matter_reduced_amount_html:
-          Comment avez-vous réduit le volume et/ou le poids des matières utilisées ? <br>
-          Comment avez-vous fait des économies de matière des matières utilisées ? <br>
-          <br>
-          Si connu, indiquez le volume en m3 ou en L / le poids en Kg économisés <br>
-          Arrondissez au chiffre le plus proche.
-        step4_artists_travel_optimization:
-        step4_separate_packaging:
-        step4_transport_sharing:
-        step5_energy_efficient:
-        step5_low_power_consumption:
-        step5_public_area_sorting:
-        step5_public_awareness:
-        step5_water_efficient:
-        step5_zero_waste:
-        step6_extended_lifetime:
-        step7_closed_loop_recycling:
-        step7_composted_materials:
-        step7_disassembly_five_stream_sorting:
     structure:
       add_file: Ajouter un fichier
       add_image: Ajouter une image
