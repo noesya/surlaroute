@@ -12,19 +12,19 @@
       </div>
     </div>
     <div class="row mt-4">
-      <dl class="col-2">
+      <dl class="col-6 col-lg-2">
         <dt class="key-figure"><%= @region.actors.count %></dt>
         <dd><%= Actor.model_name.human(count: @region.actors.count).downcase %></dd>
       </dl>
-      <dl class="col-2">
+      <dl class="col-6 col-lg-2">
         <dt class="key-figure"><%= @region.materials.count %></dt>
         <dd><%= Material.model_name.human(count: @region.materials.count).downcase %></dd>
       </dl>
-      <dl class="col-2">
+      <dl class="col-6 col-lg-2">
         <dt class="key-figure"><%= @region.projects.count %></dt>
         <dd><%= Project.model_name.human(count: @region.projects.count).downcase %></dd>
       </dl>
-      <dl class="col-2">
+      <dl class="col-6 col-lg-2">
         <dt class="key-figure"><%= @region.technics.count %></dt>
         <dd><%= Technic.model_name.human(count: @region.technics.count).downcase %></dd>
       </dl>

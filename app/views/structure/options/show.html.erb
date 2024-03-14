@@ -3,7 +3,7 @@
   first_letter = name_elements.first[0]
   second_letter = name_elements.many? ? name_elements.second[0] : name_elements.first[1]
 %>
-<div class="hero" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>">
+<div class="hero mt-4" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>">
   <div class="container">
   <h1><%= @option %></h1>
   </div>
@@ -21,7 +21,7 @@
           <p class="mt-4 d-none d-md-block"><%= t(@resources_slug + '.call_to_action.text') %></p>
         </div>
         <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
-          <a href="#" class="btn btn-dark"><%= t(@resources_slug + '.call_to_action.button') %></a>
+          <a href="#TODO" class="btn btn-dark"><%= t(@resources_slug + '.call_to_action.button') %></a>
         </div>
       </div>
     </div>
