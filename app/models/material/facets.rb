@@ -3,6 +3,7 @@ class Material::Facets < FacetedSearch::FacetsWithItems
     super(params)
     @model = options[:model].published
     @class_name = 'Material'
+    add_facets_for_order
     filter_with_text :name, {
       title: Material.human_attribute_name('name'),
       placeholder: I18n.t('search.search_in_name')

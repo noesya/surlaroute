@@ -3,6 +3,7 @@ class Actor::Facets < FacetedSearch::FacetsWithItems
     super(params)
     @model = options[:model].published
     @class_name = 'Actor'
+    add_facets_for_order
     filter_with_text :name, {
       title: Actor.human_attribute_name('name'),
       placeholder: I18n.t('search.search_in_name')

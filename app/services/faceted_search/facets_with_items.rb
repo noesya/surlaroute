@@ -8,6 +8,18 @@ class FacetedSearch::FacetsWithItems < FacetedSearch::Facets
     end
   end
 
+  def add_facets_for_order
+    add_facet ::FacetedSearch::Facets::Order, :order_by, {
+      title: "Trier par",
+      source: [
+        ["Ordre alphabétique", "name:asc"],
+        ["Ordre alphabétique inversé", "name:desc"],
+        ["Plus récents", "date:desc"],
+        ["Plus anciens", "date:asc"]
+      ]
+    }
+  end
+
   def items
     @items ||= Structure::Item.where(about_class: @class_name ).with_options.ordered
   end
