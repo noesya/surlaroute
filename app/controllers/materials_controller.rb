@@ -9,7 +9,7 @@ class MaterialsController < ApplicationController
 
   def show
     @material = Material.find_by!(slug: params[:id])
-    @new_comment = User::Comment.new(about: @material) if current_user
+    @new_comment = User::Comment.new(about: @material) if can?(:create, User::Comment)
     breadcrumb
     add_breadcrumb @material
   end
