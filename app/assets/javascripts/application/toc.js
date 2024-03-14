@@ -35,6 +35,8 @@ window.ecosystem.toc = {
         } else {
             this.hideToc();
         }
+        // Déclenche un resize pour ajuster la carte
+        window.dispatchEvent(new Event('resize'));
     },
     showToc: function () {
         'use strict';

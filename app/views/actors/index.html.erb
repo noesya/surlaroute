@@ -19,7 +19,7 @@
 
 <div class="document-content bg-white py-5" id="results">
   <div class="container directory actors-list">
-    <div class="directory-filters row">
+    <div class="directory-filters row align-items-baseline">
       <%= render 'application/toc-cta' %>
       <div class="col d-flex gap-2 justify-content-md-end navigation-links">
         <%= link_to 'Vue catalogue', actors_path(request.query_parameters.to_hash.merge({anchor: 'results'})), class: 'navigation-links__list' %>
