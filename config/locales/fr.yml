@@ -141,6 +141,7 @@ fr:
       user:
         email: Email
         first_name: Prénom
+        image: Photo de profil
         language: Langue préférée
         last_name: Nom
         mobile_phone: Téléphone portable
