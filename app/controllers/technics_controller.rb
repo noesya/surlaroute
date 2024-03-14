@@ -2,7 +2,8 @@ class TechnicsController < ApplicationController
   include ResourceWithStructure
 
   def index
-    @facets = Technic::Facets.new params[:facets]
+    facets_model = @region.present? ? @region.technics : Technic.all
+    @facets = Technic::Facets.new(params[:facets], model: facets_model)
     @technics = @facets.results.ordered.page(params[:page]).per(24)
     breadcrumb
   end
