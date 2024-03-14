@@ -54,7 +54,8 @@ class Admin::Structure::ItemsController < Admin::Structure::ApplicationControlle
   def breadcrumb
     super
     add_breadcrumb Structure.model_name.human(count: 2)
-    add_breadcrumb about_class.constantize.model_name.human(count: 2), admin_structure_items_path(about_class: about_class)
+    breadcrumb_label = about_class == 'Actor' ? t('ecosystem') : about_class.constantize.model_name.human(count: 2)
+    add_breadcrumb breadcrumb_label, admin_structure_items_path(about_class: about_class)
     breadcrumb_for @item
   end
 
