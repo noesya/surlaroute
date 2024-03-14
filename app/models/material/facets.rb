@@ -1,7 +1,7 @@
 class Material::Facets < FacetedSearch::FacetsWithItems
-  def initialize(params)
-    super
-    @model = Material.published.ordered
+  def initialize(params, **options)
+    super(params)
+    @model = options[:model].published
     @class_name = 'Material'
     filter_with_text :name, {
       title: Material.human_attribute_name('name'),

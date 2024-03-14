@@ -13,20 +13,20 @@
     </div>
     <div class="row mt-4">
       <dl class="col-6 col-lg-2">
-        <dt class="key-figure"><%= @region.actors.count %></dt>
-        <dd><%= Actor.model_name.human(count: @region.actors.count).downcase %></dd>
+        <dt class="key-figure"><%= @all_actors.size %></dt>
+        <dd><%= Actor.model_name.human(count: @all_actors.size).downcase %></dd>
       </dl>
       <dl class="col-6 col-lg-2">
-        <dt class="key-figure"><%= @region.materials.count %></dt>
-        <dd><%= Material.model_name.human(count: @region.materials.count).downcase %></dd>
+        <dt class="key-figure"><%= @all_materials.size %></dt>
+        <dd><%= Material.model_name.human(count: @all_materials.size).downcase %></dd>
       </dl>
       <dl class="col-6 col-lg-2">
-        <dt class="key-figure"><%= @region.projects.count %></dt>
-        <dd><%= Project.model_name.human(count: @region.projects.count).downcase %></dd>
+        <dt class="key-figure"><%= @all_projects.size %></dt>
+        <dd><%= Project.model_name.human(count: @all_projects.size).downcase %></dd>
       </dl>
       <dl class="col-6 col-lg-2">
-        <dt class="key-figure"><%= @region.technics.count %></dt>
-        <dd><%= Technic.model_name.human(count: @region.technics.count).downcase %></dd>
+        <dt class="key-figure"><%= @all_technics.size %></dt>
+        <dd><%= Technic.model_name.human(count: @all_technics.size).downcase %></dd>
       </dl>
     </div>
   </div>
@@ -34,7 +34,7 @@
 
 <div class="document-content">
 
-  <% if @region.actors.any? %>
+  <% if @all_actors.size > 0 %>
     <div class="container pb-3">
       <h2 class="mb-4"><%= link_to t('ecosystem'), actors_path(@region.slug) %></h2>
       <%= render 'actors/list', objects: @actors %>
@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <% if @region.projects.any? %>
+  <% if @all_projects.size > 0 %>
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Project.model_name.human(count: 2), projects_path(@region.slug) %></h2>
       <%= render 'projects/list', objects: @projects %>
@@ -76,7 +76,7 @@
     </div>
   </div>
 
-  <% if @region.materials.any? %>
+  <% if @all_materials.size > 0 %>
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Material.model_name.human(count: 2), materials_path(@region.slug) %></h2>
       <%= render 'materials/list', objects: @materials %>
@@ -97,7 +97,7 @@
     </div>
   </div>
 
-  <% if @region.technics.any? %>
+  <% if @all_technics.size > 0 %>
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Technic.model_name.human(count: 2), technics_path(@region.slug) %></h2>
       <%= render 'technics/list', objects: @technics %>

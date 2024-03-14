@@ -1,7 +1,7 @@
 class Project::Facets < FacetedSearch::FacetsWithItems
-  def initialize(params)
-    super
-    @model = Project.published.ordered
+  def initialize(params, **options)
+    super(params)
+    @model = options[:model].published
     @class_name = 'Project'
     filter_with_text :name, {
       title: Project.human_attribute_name('name'),

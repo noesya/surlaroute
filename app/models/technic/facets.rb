@@ -1,7 +1,7 @@
 class Technic::Facets < FacetedSearch::FacetsWithItems
-  def initialize(params)
-    super
-    @model = Technic.published.ordered
+  def initialize(params, **options)
+    super(params)
+    @model = options[:model].published
     @class_name = 'Technic'
     filter_with_text :name, {
       title: Technic.human_attribute_name('name'),
