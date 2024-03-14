@@ -14,16 +14,19 @@ window.ecosystem.toc = {
         // }
 
         // TODO : nettoyer "toc"
-        this.button = this.dom.querySelector('.toc-btn');
+        this.buttonsContainer = this.dom.querySelector('.js-toc-cta-container');
+        this.button = this.buttonsContainer.querySelector('.toc-btn');
         this.toc = this.dom.querySelector('.toc');
         this.directoryContent = this.dom.querySelector('.directory-container');
         this.btnText = this.button.querySelector('span');
+        this.orderByFacet = this.toc.querySelector('.js-facet-order-by');
 
         this.hiddenTocClass = 'is-hidden';
         this.expandedContent = 'col-lg-12';
         this.reducedContent = 'col-lg-9';
 
         this.button.addEventListener('click', this.toggleToc.bind(this));
+        this.cloneOrderByFacet();
     },
     toggleToc: function () {
         'use strict';
@@ -46,6 +49,15 @@ window.ecosystem.toc = {
         this.directoryContent.classList.remove(this.reducedContent);
         this.directoryContent.classList.add(this.expandedContent);
         this.btnText.innerHTML = 'Ouvrir les filtres';
+    },
+    cloneOrderByFacet: function () {
+        'use strict';
+        var clonedOrderByFacet;
+        if (!this.orderByFacet) {
+            return;
+        }
+        clonedOrderByFacet = this.orderByFacet.cloneNode(true);
+        this.buttonsContainer.appendChild(clonedOrderByFacet);
     }
 };
 
