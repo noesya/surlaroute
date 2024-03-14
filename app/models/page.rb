@@ -28,7 +28,7 @@ class Page < ApplicationRecord
 
   include WithTree
 
-  has_many :blocks
+  has_many :blocks, dependent: :destroy
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
 

@@ -7,7 +7,7 @@ step_has_values = Project::Answer.where(criterion: criterions, value: true).any?
     <%= t("projects.brezet_wheel.step#{step}") %>
   </h3>
   <% criterions.each do |criterion| %>
-    <% 
+    <%
     answer = Project::Answer.where(criterion: criterion, project: @project).first_or_initialize
     %>
     <% if answer.value %>

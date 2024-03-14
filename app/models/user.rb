@@ -48,13 +48,13 @@ class User < ApplicationRecord
   include WithAuthentication
   include WithRoles
 
-  has_many :favorites
-  has_many :comments
+  has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_one_attached_deletable :image
 
   scope :ordered, -> { order(:last_name, :first_name) }
-  
+
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_role, -> (role) { where(role: role) }
   scope :autofilter_search, -> (term) {
@@ -76,7 +76,7 @@ class User < ApplicationRecord
     first_name.present? ? "#{first_name} #{last_name}"
                         : "#{email}"
   end
-  
+
   def name
     "#{first_name} #{last_name}"
   end
