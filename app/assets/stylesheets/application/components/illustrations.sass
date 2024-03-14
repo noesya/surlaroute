@@ -23,10 +23,15 @@
     .technics-show .hero &
         &::before
             font-size: pxToRem(560)
-            transform: translate(-40%, 30%)
+            transform: translate(-40%, 20%)
         &::after
             font-size: pxToRem(460)
-            transform: translate(60%, 45%)
+            transform: translate(60%, 25%)
+        @include media-breakpoint-up(md)
+            &::before
+                transform: translate(-40%, 30%)
+            &::after
+                transform: translate(60%, 45%)
     .actors-show .hero &
         background-color: $ecosystem-primary
         color: $ecosystem-secondary

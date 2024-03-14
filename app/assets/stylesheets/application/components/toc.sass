@@ -1,11 +1,11 @@
 .toc
+    &.is-hidden
+        transform: translateX(-100%)
+        opacity: 0
+        position: absolute 
     @include media-breakpoint-up(lg)
         position: sticky
         top: map-get($spacers, 3)
-        &.is-hidden
-            transform: translateX(-100%)
-            opacity: 0
-            position: absolute 
         .faceted__facets
             max-height: 95vh
             overflow: auto
@@ -16,6 +16,8 @@
         &[aria-expanded="true"]
             &::after
                 transform: rotate(180deg)
+    @include media-breakpoint-down(lg)
+        background: $light
 
 .toc-btn
     @include icon(settings)

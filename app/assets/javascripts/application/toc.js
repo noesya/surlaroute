@@ -6,9 +6,9 @@ window.ecosystem.toc = {
         this.dom = document.querySelector('.directory');
         this.breakpoint = 768;
         
-        if(window.innerWidth <= this.breakpoint || !this.dom) {
-            return;
-        }
+        // if(window.innerWidth <= this.breakpoint || !this.dom) {
+        //     return;
+        // }
 
         this.button = this.dom.querySelector('.toc-btn');
         this.toc = this.dom.querySelector('.toc');
