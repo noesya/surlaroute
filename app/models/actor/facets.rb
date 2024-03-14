@@ -1,7 +1,7 @@
 class Actor::Facets < FacetedSearch::FacetsWithItems
-  def initialize(params)
-    super
-    @model = Actor.published.ordered
+  def initialize(params, **options)
+    super(params)
+    @model = options[:model].published
     @class_name = 'Actor'
     filter_with_text :name, {
       title: Actor.human_attribute_name('name'),

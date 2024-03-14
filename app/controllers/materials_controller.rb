@@ -2,7 +2,8 @@ class MaterialsController < ApplicationController
   include ResourceWithStructure
 
   def index
-    @facets = Material::Facets.new params[:facets]
+    facets_model = @region.present? ? @region.materials : Material.all
+    @facets = Material::Facets.new(params[:facets], model: facets_model)
     @materials = @facets.results.ordered.page(params[:page]).per(6)
     breadcrumb
   end

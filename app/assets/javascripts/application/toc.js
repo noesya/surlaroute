@@ -5,11 +5,15 @@ window.ecosystem.toc = {
         'use strict';
         this.dom = document.querySelector('.directory');
         this.breakpoint = 768;
-        
-        if(window.innerWidth <= this.breakpoint || !this.dom) {
+
+        if (!this.dom) {
             return;
         }
+        // if(window.innerWidth <= this.breakpoint || !this.dom) {
+        //     return;
+        // }
 
+        // TODO : nettoyer "toc"
         this.button = this.dom.querySelector('.toc-btn');
         this.toc = this.dom.querySelector('.toc');
         this.directoryContent = this.dom.querySelector('.directory-container');
@@ -20,7 +24,6 @@ window.ecosystem.toc = {
         this.reducedContent = 'col-lg-9';
 
         this.button.addEventListener('click', this.toggleToc.bind(this));
-
     },
     toggleToc: function () {
         'use strict';
