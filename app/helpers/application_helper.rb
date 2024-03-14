@@ -36,7 +36,7 @@ module ApplicationHelper
   end
 
   def tag_classes(classes = '')
-    "btn btn-outline-dark btn-sm rounded-pill #{classes}"
+    "tag btn btn-outline-dark btn-sm rounded-pill #{classes}"
   end
 
   def tag_classes_disabled(classes = '')

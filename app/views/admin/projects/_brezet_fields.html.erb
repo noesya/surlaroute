@@ -3,7 +3,7 @@
 <% Project::Criterion::STEPS.each do |step| %>
   <h3 class="h5"><%= t("projects.brezet_wheel.step#{step}") %></h3>
   <div class="row">
-    <div class="offset-lg-4 col-lg-8">
+    <div class="offset-lg-3 col-lg-9">
       <% Project::Criterion.for_step(step).each do |criterion| %>
         <%= render 'admin/projects/answer_fields', f: f, criterion: criterion %>
       <% end %>
