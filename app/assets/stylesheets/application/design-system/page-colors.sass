@@ -1,7 +1,7 @@
 \:root
-    --page-main-color: #{$color-bg}
+    #{--page-main-color}: #{$color-bg}
     // Blocks
-    --block-quote-background: white
+    #{--block-quote-background}: white
 
 body
     background: var(--page-main-color)
@@ -19,25 +19,25 @@ body
 
 // colors and hero images
 .actors-index
-    --page-main-color: #{$ecosystem-primary}
+    #{--page-main-color}: #{$ecosystem-primary}
 .actors-index
     .hero
         background-image: asset-url("letters/actors.svg")
 
 .materials-index
-    --page-main-color: #{$materials-primary}
+    #{--page-main-color}: #{$materials-primary}
 .materials-index
     .hero
         background-image: asset-url("letters/materials.svg")
 
 .projects-index
-    --page-main-color: #{$projects-primary}
+    #{--page-main-color}: #{$projects-primary}
 .projects-index
     .hero
         background-image: asset-url("letters/projects.svg")
 
 .technics-index
-    --page-main-color: #{$technic-primary}
+    #{--page-main-color}: #{$technic-primary}
 .technics-index
     .hero
         background-image: asset-url("letters/technics.svg")
@@ -47,8 +47,8 @@ body
         background-image: asset-url("letters/members.svg")
 
 .toolbox-index, .toolbox-child
-    --page-main-color: #{$toolbox-primary}
-    --block-quote-background: #{$toolbox-primary}
+    #{--page-main-color}: #{$toolbox-primary}
+    #{--block-quote-background}: #{$toolbox-primary}
 .hero
     .toolbox-index &
         background-image: asset-url("letters/toolbox.svg")
@@ -70,7 +70,7 @@ body
         background: $technic-primary
 
 // search colored links
-        
+
 .search-quick-links
     a
         background-size: cover
