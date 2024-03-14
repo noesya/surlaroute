@@ -1,5 +1,5 @@
 @function pxToRem($size)
-    $remSize: $size / 16
+    $remSize: calc($size / 16)
     @return #{$remSize}rem
 
 // ICONS
@@ -38,4 +38,4 @@
 
 @function space($spaces: 1)
     $space-unit: 4
-    @return #{$spaces * $space-unit / 16}rem
+    @return #{calc($spaces * $space-unit / 16)}rem
