@@ -406,6 +406,7 @@ fr:
   search:
     also: Vous pouvez également consulter nos annuaires
     label: Rechercher
+    search_in_name: Rechercher dans le nom
   show: Voir
   show_front: Voir sur le site
   simple_form:
