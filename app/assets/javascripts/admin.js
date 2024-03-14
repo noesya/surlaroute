@@ -17,6 +17,7 @@
 //= require select2/dist/js/i18n/fr
 //= require summernote/summernote-bs5
 //= require summernote/lang/summernote-fr-FR.js
+//= require jquery-warn-before-unload/jquery.warnBeforeUnload
 //= require_self
 //= require_tree ./commons
 //= require_tree ./admin
