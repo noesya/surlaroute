@@ -51,6 +51,8 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :comments
 
+  has_one_attached_deletable :image
+
   scope :ordered, -> { order(:last_name, :first_name) }
   
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
