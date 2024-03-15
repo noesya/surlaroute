@@ -1,6 +1,7 @@
+<% col_number ||= '3' %>
 <div class="row projects-list">
   <% objects.each do |project| %>
-    <div class="col-6 col-lg-3 mb-5">
+    <div class="col-6 col-lg-<%= col_number %> mb-5">
       <article class="position-relative">
         <div class="btn-favorites position-absolute pt-1 ps-1">
           <%= render 'favorites/button', about: project %>
