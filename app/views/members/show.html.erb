@@ -54,7 +54,7 @@
     <section class="bg-white py-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.materials', count: @materials.count) %></h2>
-        <%= render 'materials/list', objects: @materials.ordered %>
+        <%= render 'list', objects: @materials.ordered %>
         <%= paginate @materials, theme: "bootstrap-5", param_name: :materials_page %>
       </div>
     </section>
@@ -64,7 +64,7 @@
     <section class="bg-white py-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.technics', count: @technics.count) %></h2>
-        <%= render 'technics/list', objects: @technics.ordered %>
+        <%= render 'list', objects: @technics.ordered %>
         <%= paginate @technics, theme: "bootstrap-5", param_name: :technics_page %>
       </div>
     </section>

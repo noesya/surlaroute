@@ -54,7 +54,7 @@
   <section class="bg-white py-5">
     <div class="container">
       <h2 class="mb-4"><%= t('ui.actor.projects', count: @projects.count) %></h2>
-      <%= render 'projects/list', objects: @projects.ordered %>
+      <%= render 'list', objects: @projects.ordered %>
     </div>
   </section>
 <% end %>
@@ -63,7 +63,7 @@
   <section class="bg-white py-5">
     <div class="container">
       <h2 class="mb-4"><%= t('ui.actor.materials', count: @materials.count) %></h2>
-      <%= render 'materials/list', objects: @materials.ordered %>
+      <%= render 'list', objects: @materials.ordered %>
     </div>
   </section>
 <% end %>
@@ -72,7 +72,7 @@
   <section class="bg-white py-5">
     <div class="container">
       <h2 class="mb-4"><%= t('ui.actor.technics', count: @technics.count) %></h2>
-      <%= render 'technics/list', objects: @technics.ordered %>
+      <%= render 'list', objects: @technics.ordered %>
     </div>
   </section>
 <% end %>

@@ -1,0 +1,19 @@
+<% col_number ||= '3' %>
+<% if objects.any? %>
+  <div class="row <%= objects.first.class.name.downcase.pluralize %>-list">
+    <% objects.each do |object| %>
+      <div class="col-6 col-lg-<%= col_number %> mb-5">
+        <article class="position-relative">
+          <div class="btn-favorites position-absolute pt-1 ps-1">
+            <%= render 'favorites/button', about: object %>
+          </div>
+          <%= render 'illustration', source: object, width: 400 %>
+          <h2><%= link_to object, object, class: 'stretched-link' %></h2>
+          <div class="tags d-flex align-items-start flex-wrap">
+            <%= render 'structure/items/in_list', about: object %>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </div>
+<% end %>
