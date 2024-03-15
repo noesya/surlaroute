@@ -139,6 +139,7 @@ fr:
         regions: Provenance
         slug: Identifiant
       user:
+        description: Présentation
         email: Email
         first_name: Prénom
         image: Photo de profil

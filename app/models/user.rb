@@ -8,6 +8,7 @@
 #  confirmed_at                  :datetime
 #  current_sign_in_at            :datetime
 #  current_sign_in_ip            :string
+#  description                   :text
 #  direct_otp                    :string
 #  direct_otp_delivery_method    :string
 #  direct_otp_sent_at            :datetime

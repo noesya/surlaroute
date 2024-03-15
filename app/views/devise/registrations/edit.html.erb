@@ -9,12 +9,14 @@
     </div>
   </div>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p class="mb-5"><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
+  <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
-    <% end %>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    
+    <%= f.error_notification %>
 
     <div class="row">
       <div class="col-lg-6">
@@ -35,6 +37,11 @@
                     input_html: { autocomplete: "first_name" } %>
         <%= f.input :mobile_phone %>
         <%= f.input :email, required: true %>
+
+        <% if resource.lab_member? %>
+          <%= f.input :description %>
+
+        <% end %>
 
         <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
 
@@ -71,25 +78,6 @@
 
     </div>
 
-
-    
-
-    <div class="row">
-      <div class="col-lg-6">
-        
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6">
-        
-      </div>
-      <div class="col-lg-6">
-        
-      </div>
-    </div>
-
-    
   <% end %>
 
   <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
