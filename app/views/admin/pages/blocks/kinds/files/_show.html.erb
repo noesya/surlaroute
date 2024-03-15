@@ -1,0 +1,29 @@
+<%
+elements = block.data.dig('elements') || []
+%>
+<ul class="list-unstyled">
+  <% elements.each do |element| %>
+    <%
+    title = element.dig('title')
+    files = element.dig('files') || []
+    %>
+    <li>
+      <b><%= title %></b>
+      <ul>
+        <% files.each do |file| %>
+          <%
+          file_title = file.dig('title')
+          blob_id = file.dig('blob', 'id')
+          blob = ActiveStorage::Blob.find_by(id: blob_id)
+          %>
+          <li>
+            <%- if file_title.present? -%>
+            <%= file_title %> :
+            <%- end -%>
+            <%= link_to blob.filename, blob, target: :_blank %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

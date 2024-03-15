@@ -1,0 +1,43 @@
+<%
+elements = block.data.dig('elements')
+%>
+<div class="block block-files py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <% if block.name.present? %>
+          <h2><%= block %></h2>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <% elements.each do |element| %>
+          <%
+          title = element.dig('title')
+          files = element.dig('files') || []
+          %>
+          <div class="block-files__element">
+            <h3><%= title %></h3>
+            <% files.each do |file| %>
+              <%
+              file_title = file.dig('title')
+              blob_id = file.dig('blob', 'id')
+              blob = ActiveStorage::Blob.find_by(id: blob_id)
+              %>
+              <div class="block-files__element__file">
+                <%= link_to blob,
+                            class: 'filename',
+                            target: :_blank do %>
+                  <%- if file_title.present? -%>
+                  <strong><%= file_title %></strong><br>
+                  <%- end -%>
+                  <%= blob.filename %><br>
+                  <small>(<%= number_to_human_size blob.byte_size %>)</small>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end if elements %>
+      </div>
+    </div>
+  </div>
+</div>

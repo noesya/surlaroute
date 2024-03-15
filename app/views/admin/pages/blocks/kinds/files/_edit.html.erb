@@ -1,0 +1,68 @@
+<a  class="btn btn-sm btn-light mb-4"
+    v-on:click="data.elements.push({ title: '', files: [] })">
+  <i class="<%= Icon::ADD %>"></i>
+  Ajouter un élément
+</a>
+<draggable :list="data.elements" rowhandle=".dragHandle">
+  <div v-for="(element, index) in data.elements" class="draggable-item">
+    <div class="card">
+      <div class="card-header bg-transparent pt-3">
+        <a  class="float-end btn text-danger pe-0"
+            v-on:click="data.elements.splice(data.elements.indexOf(element), 1)"
+            title="Delete">
+          <i class="<%= Icon::DELETE %>"></i>
+        </a>
+        <a class="btn ps-0 dragHandle" title="Drag and drop">
+          <i class="<%= Icon::MOVE %> handle"></i>
+        </a>
+      </div>
+      <div class="card-body">
+        <div class="flex-fill">
+          <div class="mb-3">
+            <label class="form-label">Titre</label>
+            <input type="text" v-model="element.title" class="form-control" />
+          </div>
+          <a  class="btn btn-sm bg-white mb-4"
+              v-on:click="element.files.push({ title: '', blob: {} })">
+            <i class="<%= Icon::ADD %>"></i>
+            Ajouter un fichier
+          </a>
+
+          <draggable :list="element.files" rowhandle=".dragHandle">
+            <div v-for="(file, fileIndex) in element.files" class="draggable-item">
+              <div class="card bg-white">
+                <div class="card-header pt-1">
+                  <a  class="float-end btn text-danger pe-0"
+                      v-on:click="element.files.splice(element.files.indexOf(file), 1)"
+                      title="Delete">
+                    <i class="<%= Icon::DELETE %>"></i>
+                  </a>
+                  <a class="btn ps-0 dragHandle" title="Drag and drop">
+                    <i class="<%= Icon::MOVE %> handle"></i>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Titre du fichier</label>
+                        <input type="text" v-model="file.title" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <%= render  'admin/pages/blocks/components/file/edit',
+                                    model: 'file',
+                                    property: 'blob' %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </draggable>
+        </div>
+      </div>
+    </div>
+  </div>
+</draggable>
