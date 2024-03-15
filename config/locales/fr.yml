@@ -433,12 +433,12 @@ fr:
         one: Fiche écosystème publiée
         other: Fiches écosystème publiées
       projects:
-        one: Fiche projets publiée
+        one: Fiche projet publiée
         other: Fiches projets publiées
       materials:
-        one: Fiche matériaux publiée
+        one: Fiche matériau publiée
         other: Fiches matériaux publiées
       technics:
-        one: Fiche techniques publiée
+        one: Fiche technique publiée
         other: Fiches techniques publiées
   website: écothèque
