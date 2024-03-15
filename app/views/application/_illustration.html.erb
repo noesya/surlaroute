@@ -6,7 +6,7 @@
   <%= kamifusen_tag source.image,
                     width: width,
                     class: 'img-fluid rounded square',
-                    alt: (source.respond_to?(:image_alt) && sourcesource.image_alt.present?) ?  sourcesource.image_alt : '' %>
+                    alt: (source.respond_to?(:image_alt) && source.image_alt.present?) ?  source.image_alt : '' %>
 <% else %>
   <%
     name_elements = source.name.strip.split(' ')
