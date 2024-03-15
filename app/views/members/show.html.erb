@@ -29,39 +29,43 @@
 </header>
 
 <div class="document-content">
-  
-  <% if @member.actors.any? %>
+
+  <% if @actors.any? %>
     <section class="bg-white py-5">
       <div class="container">
-        <h2 class="mb-4"><%= t('ui.members.ecosystem', count: @member.actors.count) %></h2>
-        <%= render 'actors/list', objects: @member.actors.ordered %>
+        <h2 class="mb-4"><%= t('ui.members.ecosystem', count: @actors.count) %></h2>
+        <%= render 'actors/list', objects: @actors.ordered %>
+        <%= paginate @actors, theme: "bootstrap-5", param_name: :actors_page %>
       </div>
     </section>
   <% end %>
 
-  <% if @member.projects.any? %>
+  <% if @projects.any? %>
     <section class="bg-white py-5">
       <div class="container">
-        <h2 class="mb-4"><%= t('ui.members.projects', count: @member.projects.count) %></h2>
-        <%= render 'projects/list', objects: @member.projects.ordered %>
+        <h2 class="mb-4"><%= t('ui.members.projects', count: @projects.count) %></h2>
+        <%= render 'list', objects: @projects.ordered %>
+        <%= paginate @projects, theme: "bootstrap-5", param_name: :projects_page %>
       </div>
     </section>
   <% end %>
 
-  <% if @member.materials.any? %>
+  <% if @materials.any? %>
     <section class="bg-white py-5">
       <div class="container">
-        <h2 class="mb-4"><%= t('ui.members.materials', count: @member.materials.count) %></h2>
-        <%= render 'materials/list', objects: @member.materials.ordered %>
+        <h2 class="mb-4"><%= t('ui.members.materials', count: @materials.count) %></h2>
+        <%= render 'list', objects: @materials.ordered %>
+        <%= paginate @materials, theme: "bootstrap-5", param_name: :materials_page %>
       </div>
     </section>
   <% end %>
 
-  <% if @member.technics.any? %>
+  <% if @technics.any? %>
     <section class="bg-white py-5">
       <div class="container">
-        <h2 class="mb-4"><%= t('ui.members.technics', count: @member.technics.count) %></h2>
-        <%= render 'technics/list', objects: @member.technics.ordered %>
+        <h2 class="mb-4"><%= t('ui.members.technics', count: @technics.count) %></h2>
+        <%= render 'list', objects: @technics.ordered %>
+        <%= paginate @technics, theme: "bootstrap-5", param_name: :technics_page %>
       </div>
     </section>
   <% end %>

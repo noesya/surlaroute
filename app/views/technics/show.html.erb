@@ -39,7 +39,7 @@
     <section class="bg-white pt-5">
       <div class="container">
         <h2><%= t('ui.technic.projects', count: @projects.count) %></h2>
-        <%= render 'projects/list', objects: @projects %>
+        <%= render 'list', objects: @projects %>
       </div>
     </section>
   <% end %>

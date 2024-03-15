@@ -28,7 +28,7 @@
         <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
       </div>
       <div class="directory-container col-lg-9 technics-list mt-4 mt-lg-0">
-        <%= render "technics/list", objects: @technics %>
+        <%= render 'list', objects: @technics, col_number: 4 %>
         <%= paginate @technics, theme: "bootstrap-5" %>
       </div>
     </div>

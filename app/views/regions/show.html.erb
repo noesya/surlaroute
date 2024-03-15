@@ -58,7 +58,7 @@
   <% if @all_projects.count > 0 %>
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Project.model_name.human(count: 2), projects_path(@region.slug) %></h2>
-      <%= render 'projects/list', objects: @projects %>
+      <%= render 'list', objects: @projects %>
     </div>
   <% end %>
 
@@ -79,7 +79,7 @@
   <% if @all_materials.count > 0 %>
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Material.model_name.human(count: 2), materials_path(@region.slug) %></h2>
-      <%= render 'materials/list', objects: @materials %>
+      <%= render 'list', objects: @materials %>
     </div>
   <% end %>
 
@@ -100,7 +100,7 @@
   <% if @all_technics.count > 0 %>
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Technic.model_name.human(count: 2), technics_path(@region.slug) %></h2>
-      <%= render 'technics/list', objects: @technics %>
+      <%= render 'list', objects: @technics %>
     </div>
   <% end %>
 
