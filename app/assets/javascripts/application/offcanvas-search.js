@@ -28,10 +28,10 @@ window.ecosystem.offcanvasSearch = {
         this.expandedContent = 'col-lg-12';
         this.reducedContent = 'col-lg-9';
 
-        this.button.addEventListener('click', this.toggleToc.bind(this));
+        this.button.addEventListener('click', this.listen.bind(this));
         this.cloneOrderByFacet();
     },
-    toggleToc: function () {
+    listen: function () {
         'use strict';
 
         this.isOpened = !this.isOpened;
