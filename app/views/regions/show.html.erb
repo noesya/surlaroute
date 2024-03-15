@@ -58,7 +58,7 @@
   <% if @all_projects.count > 0 %>
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Project.model_name.human(count: 2), projects_path(@region.slug) %></h2>
-      <%= render 'projects/list', objects: @projects %>
+      <%= render 'list', objects: @projects %>
     </div>
   <% end %>
 

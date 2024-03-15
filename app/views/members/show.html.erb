@@ -44,7 +44,7 @@
     <section class="bg-white py-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.projects', count: @projects.count) %></h2>
-        <%= render 'projects/list', objects: @projects.ordered %>
+        <%= render 'list', objects: @projects.ordered %>
         <%= paginate @projects, theme: "bootstrap-5", param_name: :projects_page %>
       </div>
     </section>
