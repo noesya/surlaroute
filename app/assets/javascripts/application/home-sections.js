@@ -1,6 +1,6 @@
 window.ecosystem = window.ecosystem || {};
 
-window.ecosystem.brezetNavigation = {
+window.ecosystem.homeAnimation = {
     init: function () {
         'use strict';
         this.sections = document.querySelectorAll('.home-navigation');
@@ -31,4 +31,4 @@ window.ecosystem.brezetNavigation = {
     }
 };
 
-window.ecosystem.brezetNavigation.init();
+window.ecosystem.homeAnimation.init();
