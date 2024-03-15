@@ -31,7 +31,7 @@
 <div class="document-content">
 
   <% if @actors.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.ecosystem', count: @actors.count) %></h2>
         <%= render 'actors/list', objects: @actors.ordered %>
@@ -41,30 +41,30 @@
   <% end %>
 
   <% if @projects.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.projects', count: @projects.count) %></h2>
-        <%= render 'list', objects: @projects.ordered %>
+        <%= render 'application/list', objects: @projects.ordered %>
         <%= paginate @projects, theme: "bootstrap-5", param_name: :projects_page %>
       </div>
     </section>
   <% end %>
 
   <% if @materials.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.materials', count: @materials.count) %></h2>
-        <%= render 'list', objects: @materials.ordered %>
+        <%= render 'application/list', objects: @materials.ordered %>
         <%= paginate @materials, theme: "bootstrap-5", param_name: :materials_page %>
       </div>
     </section>
   <% end %>
 
   <% if @technics.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.technics', count: @technics.count) %></h2>
-        <%= render 'list', objects: @technics.ordered %>
+        <%= render 'application/list', objects: @technics.ordered %>
         <%= paginate @technics, theme: "bootstrap-5", param_name: :technics_page %>
       </div>
     </section>
