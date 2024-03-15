@@ -35,9 +35,10 @@ window.ecosystem.offcanvasSearch = {
         'use strict';
 
         this.isOpened = !this.isOpened;
+
         this.toggleSearch();
         this.changeBtn(this.isOpened);
-        
+
         // Déclenche un resize pour ajuster la carte
         window.dispatchEvent(new Event('resize'));
     },
