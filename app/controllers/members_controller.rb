@@ -9,10 +9,10 @@ class MembersController < ApplicationController
 
   def show
     @member = User.lab_member.find_by!(id: params[:id])
-    @actors = @member.actors.ordered.page(params[:actors_page]).per(6)
-    @projects = @member.projects.ordered.page(params[:projects_page]).per(6)
-    @technics = @member.technics.ordered.page(params[:technics_page]).per(6)
-    @materials = @member.materials.ordered.page(params[:materials_page]).per(6)
+    @actors = @member.actors.ordered.page(params[:actors_page]).per(8)
+    @projects = @member.projects.ordered.page(params[:projects_page]).per(8)
+    @technics = @member.technics.ordered.page(params[:technics_page]).per(8)
+    @materials = @member.materials.ordered.page(params[:materials_page]).per(8)
     breadcrumb
     add_breadcrumb @member
   end
