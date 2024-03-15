@@ -20,6 +20,9 @@ window.ecosystem.offcanvasSearch = {
         this.directoryContent = this.dom.querySelector('.directory-container');
         this.btnText = this.button.querySelector('span');
         this.orderByFacet = this.offcanvas.querySelector('.js-facet-order-by');
+        this.btnOpenedText = 'Fermer les filtres';
+        this.btnClosedText = 'Ouvrir les filtres';
+        this.isOpened = true;
 
         this.hiddenTocClass = 'is-hidden';
         this.expandedContent = 'col-lg-12';
@@ -30,27 +33,24 @@ window.ecosystem.offcanvasSearch = {
     },
     toggleToc: function () {
         'use strict';
-        if (this.offcanvas.classList.contains(this.hiddenTocClass)) {
-            this.showToc();
-        } else {
-            this.hideToc();
-        }
+
+        this.isOpened = !this.isOpened;
+
+        this.toggleSearch();
+        this.changeBtn(this.isOpened);
+        
         // Déclenche un resize pour ajuster la carte
         window.dispatchEvent(new Event('resize'));
     },
-    showToc: function () {
+    toggleSearch: function () {
         'use strict';
-        this.offcanvas.classList.remove(this.hiddenTocClass);
-        this.directoryContent.classList.remove(this.expandedContent);
-        this.directoryContent.classList.add(this.reducedContent);
-        this.btnText.innerHTML = 'Fermer les filtres';
+        this.offcanvas.classList.toggle(this.hiddenTocClass);
+        this.directoryContent.classList.toggle(this.expandedContent);
+        this.directoryContent.classList.toggle(this.reducedContent);
     },
-    hideToc: function () {
+    changeBtn: function (status) {
         'use strict';
-        this.offcanvas.classList.add(this.hiddenTocClass);
-        this.directoryContent.classList.remove(this.reducedContent);
-        this.directoryContent.classList.add(this.expandedContent);
-        this.btnText.innerHTML = 'Ouvrir les filtres';
+        this.btnText.innerHTML = (status == true) ? this.btnOpenedText : this.btnClosedText;
     },
     cloneOrderByFacet: function () {
         'use strict';
