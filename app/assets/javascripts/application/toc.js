@@ -1,6 +1,6 @@
 window.ecosystem = window.ecosystem || {};
 
-window.ecosystem.toc = {
+window.ecosystem.offcanvasSearch = {
     init: function () {
         'use strict';
         this.dom = document.querySelector('.directory');
@@ -14,12 +14,12 @@ window.ecosystem.toc = {
         // }
 
         // TODO : nettoyer "toc"
-        this.buttonsContainer = this.dom.querySelector('.js-toc-cta-container');
-        this.button = this.buttonsContainer.querySelector('.toc-btn');
-        this.toc = this.dom.querySelector('.toc');
+        this.buttonsContainer = this.dom.querySelector('.js-offcanvas-cta-container');
+        this.button = this.buttonsContainer.querySelector('.offcanvas-search-btn');
+        this.offcanvas = this.dom.querySelector('.offcanvas-search');
         this.directoryContent = this.dom.querySelector('.directory-container');
         this.btnText = this.button.querySelector('span');
-        this.orderByFacet = this.toc.querySelector('.js-facet-order-by');
+        this.orderByFacet = this.offcanvas.querySelector('.js-facet-order-by');
 
         this.hiddenTocClass = 'is-hidden';
         this.expandedContent = 'col-lg-12';
@@ -30,7 +30,7 @@ window.ecosystem.toc = {
     },
     toggleToc: function () {
         'use strict';
-        if (this.toc.classList.contains(this.hiddenTocClass)) {
+        if (this.offcanvas.classList.contains(this.hiddenTocClass)) {
             this.showToc();
         } else {
             this.hideToc();
@@ -40,14 +40,14 @@ window.ecosystem.toc = {
     },
     showToc: function () {
         'use strict';
-        this.toc.classList.remove(this.hiddenTocClass);
+        this.offcanvas.classList.remove(this.hiddenTocClass);
         this.directoryContent.classList.remove(this.expandedContent);
         this.directoryContent.classList.add(this.reducedContent);
         this.btnText.innerHTML = 'Fermer les filtres';
     },
     hideToc: function () {
         'use strict';
-        this.toc.classList.add(this.hiddenTocClass);
+        this.offcanvas.classList.add(this.hiddenTocClass);
         this.directoryContent.classList.remove(this.reducedContent);
         this.directoryContent.classList.add(this.expandedContent);
         this.btnText.innerHTML = 'Ouvrir les filtres';
@@ -63,4 +63,4 @@ window.ecosystem.toc = {
     }
 };
 
-window.ecosystem.toc.init();
+window.ecosystem.offcanvasSearch.init();
