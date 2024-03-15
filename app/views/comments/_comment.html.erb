@@ -1,5 +1,11 @@
 <% if !comment.reply_to.present? %>
   <div class="col-lg-3 col-xl-2 text-center">
+    <% if comment.user.image.attached? %>
+      <%= kamifusen_tag comment.user.image,
+                        width: 192,
+                        class: 'img-fluid rounded-circle square mb-2',
+                        alt: '' %>
+    <% end %>
     <span class="fw-bold h3"><%= comment.user %></span>
   </div>
 <% end %>
