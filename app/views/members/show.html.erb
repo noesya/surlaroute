@@ -5,22 +5,22 @@
       <div class="col-lg-6">
         <%= render 'illustration', source: @member %>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 mt-4 mt-lg-0">
         <h1><%= @member %></h1>
         <% if @member.description.present? %>
-          <p class="small text-muted m-0"><%= t('ui.members.description') %></p>
-          <%= simple_format @member.description %>
+          <p class="small text-muted m-0 mt-4 pb-1"><%= t('ui.members.description') %></p>
+          <p class="fw-bold"><%= simple_format @member.description %></p>
         <% end %>
-        <p class="small text-muted m-0"><%= t('ui.members.meta', date: l(@member.created_at.to_date)) %></p>
+        <p class="small m-0"><%= t('ui.members.meta', date: l(@member.created_at.to_date)) %></p>
         <hr class="my-4">
         <p class="small mb-2"><%= t('ui.members.contact') %></p>
         <ul class="contact-list list-unstyled">
           <li><%= link_to @member.email, "mailto:#{@member.email}", target: '_blank' %></li>
           <% if @member.mobile_phone.present? %>
-            <li class="mt-1"><%= link_to @member.mobile_phone, "tel:#{@member.mobile_phone}", target: '_blank' %></li>
+            <li class="mt-1"><%= link_to @member.mobile_phone, "tel:#{@member.mobile_phone}", target: '_blank', class: 'link-phone' %></li>
           <% end %>
           <% if @member.website.present? %>
-            <li class="mt-1"><%= link_to t('ui.members.website'), @member.website, target: '_blank' %></li>
+            <li class="mt-1"><%= link_to t('ui.members.website'), @member.website, target: '_blank', class: 'link-website' %></li>
           <% end %>
         </ul>
       </div>
@@ -31,7 +31,7 @@
 <div class="document-content">
 
   <% if @actors.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.ecosystem', count: @actors.count) %></h2>
         <%= render 'actors/list', objects: @actors.ordered %>
@@ -41,30 +41,30 @@
   <% end %>
 
   <% if @projects.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.projects', count: @projects.count) %></h2>
-        <%= render 'list', objects: @projects.ordered %>
+        <%= render 'application/list', objects: @projects.ordered %>
         <%= paginate @projects, theme: "bootstrap-5", param_name: :projects_page %>
       </div>
     </section>
   <% end %>
 
   <% if @materials.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.materials', count: @materials.count) %></h2>
-        <%= render 'list', objects: @materials.ordered %>
+        <%= render 'application/list', objects: @materials.ordered %>
         <%= paginate @materials, theme: "bootstrap-5", param_name: :materials_page %>
       </div>
     </section>
   <% end %>
 
   <% if @technics.any? %>
-    <section class="bg-white py-5">
+    <section class="bg-white pt-5">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.members.technics', count: @technics.count) %></h2>
-        <%= render 'list', objects: @technics.ordered %>
+        <%= render 'application/list', objects: @technics.ordered %>
         <%= paginate @technics, theme: "bootstrap-5", param_name: :technics_page %>
       </div>
     </section>

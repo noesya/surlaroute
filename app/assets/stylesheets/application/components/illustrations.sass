@@ -34,6 +34,12 @@
                 transform: translate(-40%, 30%)
             &::after
                 transform: translate(60%, 45%)
+    .members-index &
+        @include media-breakpoint-up(md)
+            &::before
+                transform: translate(-55%, 30%)
+            &::after
+                transform: translate(60%, 55%)
     .actors-show .hero &
         background-color: $ecosystem-primary
         color: $ecosystem-secondary
