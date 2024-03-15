@@ -50,7 +50,7 @@ window.ecosystem.offcanvasSearch = {
     },
     changeBtn: function (status) {
         'use strict';
-        this.btnText.innerHTML = (status == true) ? this.btnOpenedText : this.btnClosedText;
+        this.btnText.innerHTML = status === true ? this.btnOpenedText : this.btnClosedText;
     },
     cloneOrderByFacet: function () {
         'use strict';
