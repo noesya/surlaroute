@@ -34,6 +34,7 @@
 #  totp_timestamp                :datetime
 #  unconfirmed_email             :string
 #  unlock_token                  :string           indexed
+#  website                       :string
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
 #
@@ -51,6 +52,11 @@ class User < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  has_many :projects, foreign_key: :published_by_id
+  has_many :technics, foreign_key: :published_by_id
+  has_many :materials, foreign_key: :published_by_id
+  has_many :actors, foreign_key: :published_by_id
 
   has_one_attached_deletable :image
 

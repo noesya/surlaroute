@@ -153,6 +153,7 @@ fr:
           subscriber: Abonné·e
           superadmin: Superadmin
           visitor: Visiteur
+        website: Site internet
     errors:
       models:
         user:
@@ -424,21 +425,23 @@ fr:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
     members:
-      title: Les membres
-      meta: Membre depuis le
-      members:
-        one: Membre
-        other: Membres
+      description: Présentation du membre
       ecosystem:
         one: Fiche écosystème publiée
         other: Fiches écosystème publiées
-      projects:
-        one: Fiche projets publiée
-        other: Fiches projets publiées
       materials:
         one: Fiche matériaux publiée
         other: Fiches matériaux publiées
+      members:
+        one: Membre
+        other: Membres
+      meta: Membre depuis le %{date}
+      projects:
+        one: Fiche projets publiée
+        other: Fiches projets publiées
       technics:
         one: Fiche techniques publiée
         other: Fiches techniques publiées
+      title: Les membres
+      website: Site internet
   website: écothèque

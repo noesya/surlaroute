@@ -39,8 +39,8 @@
         <%= f.input :email, required: true %>
 
         <% if resource.lab_member? %>
+          <%= f.input :website %>
           <%= f.input :description %>
-
         <% end %>
 
         <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
