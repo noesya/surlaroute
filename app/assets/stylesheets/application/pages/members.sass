@@ -2,9 +2,9 @@
     .contact-list
         a
             text-decoration: none
-            border-bottom: 1px solid $border-color
-        li.link-website
-            a
+            &:not(.link-phone)
+                border-bottom: 1px solid $border-color
+            &.link-website
                 @include icon(arrow-right, after)
                 &::after
                     font-size: pxToRem(12)

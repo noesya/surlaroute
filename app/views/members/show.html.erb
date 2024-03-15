@@ -20,7 +20,7 @@
             <li class="mt-1"><%= link_to @member.mobile_phone, "tel:#{@member.mobile_phone}", target: '_blank', class: 'link-phone' %></li>
           <% end %>
           <% if @member.website.present? %>
-            <li class="mt-1 link-website"><%= link_to t('ui.members.website'), @member.website, target: '_blank' %></li>
+            <li class="mt-1"><%= link_to t('ui.members.website'), @member.website, target: '_blank', class: 'link-website' %></li>
           <% end %>
         </ul>
       </div>
