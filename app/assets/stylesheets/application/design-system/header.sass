@@ -51,8 +51,22 @@ header#document-header
             width: calc(100% + 16px)
             > ul:last-of-type
                 padding-right: 0
+        .dropdown-menu
+            margin-top: map-get($spacers, 2)
     @include media-breakpoint-down(md)
         .navbar-logo
             position: absolute
         .navbar-nav-content
             position: relative
+        .nav-secondary
+            .dropdown-menu
+                border: none
+                margin-top: map-get($spacers, 1)
+                .dropdown-item
+                    padding-left: 0
+                    padding-right: 0
+                &.show
+                    position: relative
+            .dropdown-toggle[aria-expanded="true"]
+                &::after
+                    transform: rotate(180deg)

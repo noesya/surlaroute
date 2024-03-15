@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container d-block">
       <div class="row align-items-md-center">
-        <div class="navbar-logo col col-md-3">
+        <div class="navbar-logo col col-md-3 col-xl-3">
           <%= link_to root_path, class: "navbar-brand" do %>
             <%= image_tag 'logo.svg', alt: t('website') %>
           <% end %>
@@ -31,7 +31,7 @@
                   <%= link_to page_tools, page_path(page_tools), class: "nav-link" %>
                 </li>
               </ul>
-              <ul class="col-12 col-md-4 d-flex flex-column flex-md-row gap-2 gap-md-3 align-items-md-center justify-content-end py-md-1">
+              <ul class="nav-secondary col-12 col-md-3 col-xl-4 d-flex flex-column flex-md-row gap-2 gap-xl-3 align-items-md-center justify-content-end py-md-1">
                 <li class="nav-with-dropdowns nav-item dropdown position-static">
                   <% page_lab = Page.find_by(internal_identifier: 'le-lab') %>
                   <%= link_to page_lab, page_path(page_lab), class: "nav-link" %>
