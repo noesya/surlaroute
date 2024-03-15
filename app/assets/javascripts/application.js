@@ -1,5 +1,6 @@
 //= require jquery3
 //= require jquery_ujs
+//= require activestorage
 //= require popper
 //= require bootstrap-sprockets
 //= require simple_form_password_with_hints
