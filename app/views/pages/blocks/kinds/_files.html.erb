@@ -1,7 +1,7 @@
 <%
 elements = block.data.dig('elements')
 %>
-<div class="block block-files py-5">
+<div class="block block-files bg-white py-5">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -16,16 +16,18 @@ elements = block.data.dig('elements')
           files = element.dig('files') || []
           %>
           <div class="block-files__element">
-            <h3><%= title %></h3>
+            <% if title.present? %>
+              <h3 class="small"><%= title %></h3>
+            <% end %>
             <% files.each do |file| %>
               <%
               file_title = file.dig('title')
               blob_id = file.dig('blob', 'id')
               blob = ActiveStorage::Blob.find_by(id: blob_id)
               %>
-              <div class="block-files__element__file">
+              <div class="block-files__element__file is-file">
                 <%= link_to blob,
-                            class: 'filename',
+                            class: 'text-decoration-none filename',
                             target: :_blank do %>
                   <%- if file_title.present? -%>
                   <strong><%= file_title %></strong><br>

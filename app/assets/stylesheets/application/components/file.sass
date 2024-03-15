@@ -1,0 +1,38 @@
+.is-file
+    &:hover
+        .filename::before
+            background: black
+            color: white
+    .filename
+        padding-top: 5px
+        color: black
+        text-decoration: none
+        display: block
+        word-break: break-all
+        &::before
+            aspect-ratio: 1
+            content: "D"
+            font-family: "AuguresPicto"
+            display: block
+            float: left
+            font-size: 60px
+            display: flex
+            align-items: center
+            justify-content: center
+            height: 80px
+            width: 80px
+            margin-right: 20px
+            border: 1px solid black
+            border-radius: $border-radius
+            transition: background 0.25s ease, color 0.25s ease
+    .filesize
+        text-decoration: none
+        font-size: $small-font-size
+
+// in block
+.block-files__element
+    + .block-files__element
+        margin-top: calc(map-get($spacers, 4) + 15px)
+.block-files__element__file
+    + .block-files__element__file
+        margin-top: map-get($spacers, 2)
