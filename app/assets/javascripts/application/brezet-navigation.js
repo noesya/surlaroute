@@ -24,7 +24,7 @@ window.ecosystem.brezetNavigation = {
                 const href = link.getAttribute('href').substring(1);
     
                 if (!sectionIds.includes(href)) {
-                    link.classList.add('is-disabled');
+                    link.parentNode.classList.add('is-disabled');
                 }
             });
         });

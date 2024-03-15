@@ -19,14 +19,17 @@
         max-width: calc(100% - #{$grid-gutter-width})
     .brezet-steps,
     .brezet-mobile-navigation
-        > div a
+        > div
             &.is-disabled
-                background: $gray-600
-                border-color: $gray-600
-                pointer-events: none
+                color: $gray-600
+                a
+                    background: $gray-600
+                    border-color: $gray-600
+                    pointer-events: none
             &.active
-                background: $color-bg
-                color: $color-text
+                a
+                    background: $color-bg
+                    color: $color-text
     .brezet-steps
         position: absolute
         top: 0
@@ -47,12 +50,16 @@
                 @include media-breakpoint-up(xxl)
                     font-size: pxToRem(22)
             &.step-0
+                flex-direction: column-reverse
                 left: 47%
-                top: -3%
+                top: -15%
+                gap: map-get($spacers, 2)
+                span
+                    width: 50%
             &.step-1
-                align-items: center
+                align-items: flex-end
                 left: 84%
-                top: 11%
+                top: 5%
                 span
                     width: 35%
             &.step-2
@@ -92,7 +99,7 @@
                 span
                     width: 50%
             &.step-7
-                right: 86%
+                right: 88%
                 top: 15%
                 flex-direction: row-reverse
                 text-align: right

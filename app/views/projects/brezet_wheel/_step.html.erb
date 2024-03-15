@@ -4,7 +4,7 @@ step_has_values = Project::Answer.where(criterion: criterions, value: true).any?
 %>
 <% if step_has_values %>
   <h3 id="step-<%= step %>" class="h2 mt-4 mt-lg-5">
-    <%= t("projects.brezet_wheel.step#{step}") %>
+    <%= step%>. <%= t("projects.brezet_wheel.step#{step}") %>
   </h3>
   <% criterions.each do |criterion| %>
     <%

@@ -344,14 +344,14 @@ fr:
       text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
       button: Référencer votre projet
     brezet_wheel:
-      step0: "0. Concevoir ensemble"
-      step1: "1. Sélection des matériaux ayant le moins d’impact"
-      step2: "2. Réduction de la quantité de matière"
-      step3: "3. Optimisation des techniques de production"
-      step4: "4. Optimisation de la logistique"
-      step5: "5. Réduction de l’impact environnemental de la phase d’utilisation"
-      step6: "6. Optimisation de la durée de vie du projet"
-      step7: "7. Optimisation de la fin de vie du projet"
+      step0: "Concevoir ensemble"
+      step1: "Sélection des matériaux ayant le moins d’impact"
+      step2: "Réduction de la quantité de matière"
+      step3: "Optimisation des techniques de production"
+      step4: "Optimisation de la logistique"
+      step5: "Réduction de l’impact environnemental de la phase d’utilisation"
+      step6: "Optimisation de la durée de vie du projet"
+      step7: "Optimisation de la fin de vie du projet"
       title: Éco-responsabilité du projet
   save: Enregistrer
   search:
