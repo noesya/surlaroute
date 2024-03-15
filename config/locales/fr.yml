@@ -425,6 +425,7 @@ fr:
     members:
       title: Les membres
       meta: Membre depuis le
+      hero: Présentation du membre
       members:
         one: Membre
         other: Membres
