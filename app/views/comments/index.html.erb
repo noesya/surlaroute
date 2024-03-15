@@ -6,7 +6,7 @@
     <p><%= t('account.comments.none') %></p>
   <% else %>
     <% @comments.each do |comment| %>
-      <div class="row mt-5">
+      <div class="row mt-4">
         <h2 class="h3 mb-4"><%= t('account.comments.about_html', title: link_to(comment.about, comment.about, class: 'text-decoration-underline')) %></h2>
         <%= render 'comments/comment', comment: comment %>
       </div>

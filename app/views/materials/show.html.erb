@@ -50,7 +50,7 @@
     <section class="bg-white pt-5 projects-list">
       <div class="container">
         <h2 class="mb-4"><%= t('ui.material.projects', count: @projects.count) %></h2>
-        <%= render 'projects/list', objects: @projects %>
+        <%= render 'list', objects: @projects %>
       </div>
     </section>
   <% end %>

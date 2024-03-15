@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def breadcrumb
-    add_breadcrumb t('website'), root_path(region_slug: nil)
+    add_breadcrumb t('home'), root_path(region_slug: nil)
     add_breadcrumb @region, region_path(@region, region_slug: nil) if @region.present?
   end
 

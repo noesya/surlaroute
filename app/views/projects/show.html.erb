@@ -64,14 +64,14 @@
               <% if @materials.any? %>
                 <section class="project-materials pt-3 pt-lg-5">
                     <h2 class="mb-2"><%= t('ui.project.materials', count: @materials.count) %></h2>
-                    <%= render 'materials/list', objects: @materials %>
+                    <%= render 'list', objects: @materials %>
                 </section>
               <% end %>
               <%= render 'projects/brezet_wheel/step', step: 2 %>
               <% if @technics.any? %>
                 <section class="project-technics pt-3 pt-lg-5">
                   <h2 class="mb-2"><%= t('ui.project.technics', count: @technics.count) %></h2>
-                  <%= render 'technics/list', objects: @technics %>
+                  <%= render 'list', objects: @technics %>
                 </section>
               <% end %>
               <%= render 'projects/brezet_wheel/step', step: 3 %>

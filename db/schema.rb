@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_14_142903) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_15_140328) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -223,8 +223,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_142903) do
     t.uuid "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
     t.string "body_class", default: ""
+    t.string "slug"
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 
@@ -423,6 +423,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_14_142903) do
     t.datetime "direct_otp_sent_at"
     t.string "direct_otp_delivery_method"
     t.datetime "totp_timestamp", precision: nil
+    t.text "description"
+    t.string "website"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["encrypted_otp_secret_key"], name: "index_users_on_encrypted_otp_secret_key", unique: true

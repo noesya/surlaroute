@@ -3,17 +3,37 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
-    <div class="col-lg-6">
-      <%= f.input :email %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
+    <div class="col-lg-4">
+      <%= f.input :image,
+                  as: :single_deletable_file,
+                  input_html: { accept: default_images_formats_accepted },
+                  hint: images_formats_accepted_hint,
+                  resize: 1,
+                  preview: true %>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
+      <%= f.input :last_name %>
+      <%= f.input :first_name %>
+      <%= f.input :mobile_phone %>
+      <%= f.input :email %>
+    </div>
+    <div class="col-lg-4">
       <%= f.input :role,
                   include_blank: false,
                   collection: current_user.managed_roles,
-                  label_method: lambda { |k| t("activerecord.attributes.user.roles.#{k[1]}")} %>
-      <%= f.input :mobile_phone %>
+                  label_method: lambda { |k| t("activerecord.attributes.user.roles.#{k[1]}")},
+                  input_html: { 
+                    data: { conditional: true }, 
+                    id: "user_role"
+                  }
+                  %>
+      <div class="d-none"
+           data-conditional-source="user_role"
+           data-conditional-value="lab_member"
+           >
+        <%= f.input :website %>
+        <%= f.input :description %>
+      </div>
     </div>
   </div>
 

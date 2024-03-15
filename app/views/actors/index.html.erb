@@ -31,7 +31,7 @@
         <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
       </div>
       <div class="directory-container col-lg-9 actors-list mt-4 mt-lg-0">
-        <%= render "actors/#{@mode}", objects: @actors %>
+        <%= render "actors/#{@mode}", objects: @actors, col_number: 4 %>
         <%= paginate @actors, theme: "bootstrap-5" if @mode == "list" %>
       </div>
     </div>
