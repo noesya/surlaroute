@@ -8,14 +8,14 @@
       </div>
     </div>
     <% about.comments.root.ordered.each do |comment| %>
-      <div class="row mt-4">
+      <div class="row mt-4 mt-md-5">
         <%= render 'comments/comment', comment: comment %>
       </div>
       <% if comment.replies.any? || current_user %>
         <div class="row">
           <div class="offset-lg-3 offset-xl-2">
-            <div class="accordion pb-3" id="container-comment-<%= comment.id %>">
-              <div class="accordion-item mt-4">
+            <div class="accordion pb-2 pb-md-3" id="container-comment-<%= comment.id %>">
+              <div class="accordion-item mt-3 mt-md-4">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button collapsed py-0 lh-1" type="button" data-bs-toggle="collapse" data-bs-target="#comment-<%= comment.id %>" aria-expanded="false" aria-controls="collapseAnwserForm">
                     <% if comment.replies.any? %><%= comment.replies.count %> <%= t('comments.answers', count: comment.replies.count) %><% elsif current_user %><%= t('comments.answer') %><% end %>
@@ -26,7 +26,7 @@
                     <% if comment.replies.any? %>
                       <div class="replies offset-lg-1">
                         <% comment.replies.each do |reply| %>
-                          <div class="row mt-5 flex-column border-start pb-3">
+                          <div class="row mt-3 mt-md-5 flex-column border-start pb-3">
                             <%= render 'comments/comment', comment: reply %>
                           </div>
                         <% end %>

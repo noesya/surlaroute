@@ -128,13 +128,6 @@
         h3
             color: $color-text !important
             font-size: $font-size-base
-    .structure__item__file,
-    .structure__item__key_figure
-        display: inline-block
-        width: 50%
-        + .structure__item__file,
-        + .structure__item__key_figure
-            float: right
     .structure__item__richtext
         h3
             margin-top: map-get($spacers, 4)
@@ -144,3 +137,14 @@
             display: block
         .details
             width: 100%
+    @include media-breakpoint-up(md)
+        .structure__item__file,
+        .structure__item__key_figure
+            display: inline-block
+            width: 50%
+            + .structure__item__file,
+            + .structure__item__key_figure
+                float: right
+        .structure__item__richtext
+            > p:first-of-type
+                margin-top: map-get($spacers, 2)

@@ -21,10 +21,10 @@
 <div class="document-content bg-white py-5">
   <div class="container directory">
     <div class="row">
-      <%= render 'application/toc-cta' %>
+      <%= render 'application/offcanvas-search-cta' %>
     </div>
     <div class="row align-items-start position-relative mt-lg-4">
-      <div class="toc col-lg-3 mt-3 mt-lg-0 pt-3 pt-lg-0" tabindex="-1" id="offcanvasScrolling">
+      <div class="offcanvas-search col-lg-3 mt-3 mt-lg-0 pt-3 pt-lg-0" tabindex="-1" id="offcanvasScrolling">
         <%= render 'faceted_search/facets', facets: @facets %>
       </div>
       <div class="directory-container col-lg-9 projects-list mt-4 mt-lg-0">
