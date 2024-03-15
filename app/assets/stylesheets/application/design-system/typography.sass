@@ -47,8 +47,10 @@ blockquote
     > p
         font-weight: bold
         font-size: pxToRem(56)
-        @include media-breakpoint-down(md)
+        @include media-breakpoint-down(lg)
             font-size: pxToRem(32)
+        @include media-breakpoint-down(md)
+            font-size: pxToRem(28)
 
 .arrow-right
     @include icon(arrow-right, after)

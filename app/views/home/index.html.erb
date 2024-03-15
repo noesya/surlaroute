@@ -32,20 +32,20 @@
 </section>
 
 <section class="home-navigation actors">
-  <div class="container d-flex flex-column-reverse py-5 py-lg-7">
-    <div class="row align-items-end mt-6 mt-xl-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+    <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-lg-0">
         <h2><%= t('ecosystem') %></h2>
       </div>
-      <div class="home-navigation__link col col-md-4 position-relative">
+      <div class="home-navigation__link col col-lg-4 position-relative">
         <%= link_to 'Identifier et localiser des acteur·rices de l’économie circulaire', actors_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
       </div>
     </div>
-    <div class="row align-items-start">
+    <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-7">
         <p class="fw-bold">Des écosystèmes territoriaux favorisant l’économie circulaire, avec des acteur·rices du réemploi, de la mutualisation, du transport, de la conception, etc. Quel que soit le territoire, il existe des collaborations possibles à tous les niveaux de la chaîne de la scénographie pour contribuer ensemble à réduire les impacts environnementaux.</p>
       </div>
-      <div class="col-lg-4 offset-lg-1">
+      <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @actors_count %></dt>
           <dd>Acteur·ices</dd>
@@ -56,20 +56,20 @@
 </section>
 
 <section class="home-navigation projects">
-  <div class="container d-flex flex-column-reverse py-5 py-lg-7">
-    <div class="row align-items-end mt-6 mt-xl-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+    <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-lg-0">
         <h2><%= Project.model_name.human(count: 2) %></h2>
       </div>
-      <div class="home-navigation__link col col-md-4 position-relative">
+      <div class="home-navigation__link col col-lg-4 position-relative">
         <%= link_to 'Découvrir des projets d’écoscénographie au travers de leur démarche de réduction d’impacts environnementaux', projects_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
       </div>
     </div>
-    <div class="row align-items-start">
+    <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-7">
         <p class="fw-bold">Des projets d’écoproduction représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire ; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brézet pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux.</p>
       </div>
-      <div class="col-lg-4 offset-lg-1">
+      <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @projects_count %></dt>
           <dd>Projets</dd>
@@ -80,20 +80,20 @@
 </section>
 
 <section class="home-navigation materials">
-  <div class="container d-flex flex-column-reverse py-5 py-lg-7">
-    <div class="row align-items-end mt-6 mt-xl-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+    <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-lg-0">
         <h2><%= Material.model_name.human(count: 2) %></h2>
       </div>
-      <div class="home-navigation__link col col-md-4 position-relative">
+      <div class="home-navigation__link col col-lg-4 position-relative">
         <%= link_to 'Découvrir des matériaux recommandés par la communauté écothèque', materials_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
       </div>
     </div>
-    <div class="row align-items-start">
+    <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-7">
         <p class="fw-bold">Des matériaux dont la qualité a été vérifiée par la pratique et par la recherche, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie, afin de proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés</p>
       </div>
-      <div class="col-lg-4 offset-lg-1">
+      <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @materials_count %></dt>
           <dd>Matériaux</dd>
@@ -104,20 +104,20 @@
 </section>
 
 <section class="home-navigation technics">
-  <div class="container d-flex flex-column-reverse py-5 py-lg-7">
-    <div class="row align-items-end mt-6 mt-xl-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+    <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-xl-0">
         <h2><%= Technic.model_name.human(count: 2) %></h2>
       </div>
-      <div class="home-navigation__link col col-md-4 position-relative">
+      <div class="home-navigation__link col col-lg-4 position-relative">
         <%= link_to 'Découvrir des produits, des techniques et des assemblages', technics_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
       </div>
     </div>
-    <div class="row align-items-start">
+    <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-7">
         <p class="fw-bold">Des produits, des techniques de mise en œuvre, de fabrication, et d’assemblage qui favorisent les pratiques low-tech, la réduction des besoins en quantité de matière, le réemploi et la réutilisation.</p>
       </div>
-      <div class="col-lg-4 offset-lg-1">
+      <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @technics_count %></dt>
           <dd>Techniques</dd>
