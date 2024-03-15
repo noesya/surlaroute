@@ -35,7 +35,6 @@ window.ecosystem.offcanvasSearch = {
         'use strict';
 
         this.isOpened = !this.isOpened;
-
         this.toggleSearch();
         this.changeBtn(this.isOpened);
         
