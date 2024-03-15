@@ -1,10 +1,10 @@
 // jQuery before everything
 //= require jquery3
-//= require jquery-cropper/dist/jquery-cropper
 //= require jquery_ujs
 //= require activestorage
 //= require cocoon
 //= require cropperjs/dist/cropper
+//= require jquery-cropper/dist/jquery-cropper
 //= require mazer/initTheme
 //= require mazer/bootstrap
 //= require mazer/app

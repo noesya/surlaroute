@@ -3,32 +3,32 @@
 <%= render 'lock' %>
 
 <div class="row">
-  <div class="col-md-6">
-    <%= show @user, :first_name %>
-  </div>
-  <div class="col-md-6">
+  <% if @user.image.attached? %>
+    <div class="col-md-4">
+      <%= kamifusen_tag @user.image, class: 'img-fluid' %>
+    </div>
+  <% end %>
+  <div class="col-md-5">
     <%= show @user, :last_name %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
+    <%= show @user, :first_name %>
+    <%= show @user, :mobile_phone %>
     <div class="mb-5">
       <label class="small text-muted"><%= User.human_attribute_name :email %></label>
       <p><%= link_to @user.email, "mailto:#{@user.email}" %></p>
     </div>
-  </div>
-  <div class="col-md-6">
-    <%= show @user, :mobile_phone %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
     <div class="mb-5">
       <label class="small text-muted"><%= User.human_attribute_name :role %></label>
       <p><%= t("activerecord.attributes.user.roles.#{@user.role}") %></p>
     </div>
+    <% if @user.lab_member? && @user.description.present? %>
+      <div class="mb-5">
+        <label class="small text-muted"><%= User.human_attribute_name :description %></label>
+        <%= simple_format @user.description %>
+      </div>
+    <% end %>
   </div>
 </div>
+
 
 <% content_for :buttons do %>
   <%= destroy_link @user %>
