@@ -8,19 +8,19 @@
       <div class="col-lg-6">
         <h1><%= @member %></h1>
         <% if @member.description.present? %>
-          <p class="small text-muted m-0"><%= t('ui.members.description') %></p>
-          <%= simple_format @member.description %>
+          <p class="small text-muted m-0 mt-4 pb-1"><%= t('ui.members.description') %></p>
+          <p class="fw-bold"><%= simple_format @member.description %></p>
         <% end %>
-        <p class="small text-muted m-0"><%= t('ui.members.meta', date: l(@member.created_at.to_date)) %></p>
+        <p class="small m-0"><%= t('ui.members.meta', date: l(@member.created_at.to_date)) %></p>
         <hr class="my-4">
         <p class="small mb-2"><%= t('ui.members.contact') %></p>
         <ul class="contact-list list-unstyled">
           <li><%= link_to @member.email, "mailto:#{@member.email}", target: '_blank' %></li>
           <% if @member.mobile_phone.present? %>
-            <li class="mt-1"><%= link_to @member.mobile_phone, "tel:#{@member.mobile_phone}", target: '_blank' %></li>
+            <li class="mt-1"><%= link_to @member.mobile_phone, "tel:#{@member.mobile_phone}", target: '_blank', class: 'link-phone' %></li>
           <% end %>
           <% if @member.website.present? %>
-            <li class="mt-1"><%= link_to t('ui.members.website'), @member.website, target: '_blank' %></li>
+            <li class="mt-1 link-website"><%= link_to t('ui.members.website'), @member.website, target: '_blank' %></li>
           <% end %>
         </ul>
       </div>
