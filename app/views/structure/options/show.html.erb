@@ -2,6 +2,8 @@
   name_elements = @option.name.strip.split(' ')
   first_letter = name_elements.first[0]
   second_letter = name_elements.many? ? name_elements.second[0] : name_elements.first[1]
+
+  partial = @resources_slug == 'actors' ? 'actors/list' : 'application/list'
 %>
 <div class="hero mt-4" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>">
   <div class="container">
@@ -10,7 +12,7 @@
 </div>
 <div class="document-content bg-white py-5">
   <div class="container">
-    <%= render "#{@resources_slug}/list", objects: @objects %>
+    <%= render partial, objects: @objects %>
   </div>
 
   <div class="call-to-action bg-<%= @resources_slug %> mt-2">
