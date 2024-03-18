@@ -17,19 +17,8 @@
     <% end %>
 
     <div class="row">
-      <div class="col-md-4 col-xl-6">
-        <div class="row">
-          <div class="col col-xl-6">
-            <%= f.input :image,
-                      as: :single_deletable_file,
-                      input_html: { accept: default_images_formats_accepted },
-                      hint: images_formats_accepted_hint,
-                      resize: 1,
-                      preview: true %>
-            </div>
-          </div>
-        </div>
-      <div class="col-md-8 col-xl-6">
+      <div class="col-lg-4">
+        <%= f.input :email, required: true %>
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
@@ -37,13 +26,34 @@
         <%= f.input :last_name,
                     required: true,
                     input_html: { autocomplete: "last_name" } %>
+      </div>
+      <div class="col-lg-4">
         <%= f.input :mobile_phone %>
-        <%= f.input :email, required: true %>
+      </div>
+      <div class="col-lg-4">
+        <%= f.input :image,
+                    as: :single_deletable_file,
+                    input_html: { accept: default_images_formats_accepted },
+                    hint: images_formats_accepted_hint,
+                    resize: 1,
+                    preview: true %>
 
-        <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
+      </div>
+    </div>
+
+
+    <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
+
+    <div class="row">
+      <div class="col-lg-6">
         <%= f.input :current_password,
                     as: :password,
                     input_html: { autocomplete: "current-password" } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
         <%= f.input :password,
                     as: :password_with_hints,
                     allow_password_uncloaking: true,
@@ -57,20 +67,23 @@
                     label: t('devise.passwords.edit.new_password'),
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="col-lg-6">
         <%= f.input :password_confirmation,
                     as: :password_with_sync,
                     allow_password_uncloaking: true,
                     compare_with_field: :password,
                     input_html: { autocomplete: "new-password" } %>
-        <div class="mb-3">
-          <%= f.submit t('.update'), class: 'btn btn-dark' %>
-        </div>
-        <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
-
-        <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
-
       </div>
     </div>
+
+    <div class="mb-3">
+      <%= f.submit t('.update'), class: 'btn btn-dark' %>
+    </div>
   <% end %>
+
+  <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
+
+  <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
 
 </div>
