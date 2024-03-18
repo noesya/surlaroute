@@ -21,12 +21,10 @@
       data-bs-toggle="offcanvas" 
       data-bs-target="#filters" 
       aria-controls="filters">
-    <% if active_filters_count > 0 %>
-      <span class="badge bg-dark">
-        <%= active_filters_count %>
-      </span>
-    <% end %>
     <%= t('admin.filters.buttons.expand') %>
+    <% if active_filters_count > 0 %>
+      (<%= active_filters_count %> filtre<%= 's' if active_filters_count > 1 %> actif<%= 's' if active_filters_count > 1 %>)
+    <% end %>
     <i class="bi bi-search"></i>
   </a>
 </div>
