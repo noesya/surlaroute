@@ -11,7 +11,7 @@
       <% if @page.children.any? %>
         <div class="offset-lg-1 col-lg-6 mt-5">
           <ul class="pages-list row">
-            <% @page.children.ordered.each do |page| %>
+            <% @page.children.ordered_by_position.each do |page| %>
               <li class="col-lg-6">
                 <%= link_to page, page %>
               </li>

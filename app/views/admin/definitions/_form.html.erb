@@ -1,0 +1,46 @@
+<%= simple_form_for [:admin, definition] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <h5><%= t('admin.infos') %></h5>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :title %>
+
+      <h6><%= Definition::Alias.model_name.human(count: 2) %></h6>
+      <div class="form-text"><%= t('admin.definitions_hint') %></div>
+      <div class="table-responsive">
+        <table class="table table-borderless table-small">
+          <tbody id="aliases">
+            <%= f.simple_fields_for :aliases, definition.aliases.sort_by(&:title) do |alias_form| %>
+              <%= render 'alias_fields', f: alias_form %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <%= link_to_add_association t('add'),
+                                  f,
+                                  :aliases,
+                                  class: "#{button_classes}",
+                                  "data-association-insertion-node": '#aliases',
+                                  "data-association-insertion-method": 'append' %>
+
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :text %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+      
+    <div class="col-lg-6">
+      
+      
+    </div>
+  </div>
+
+  <% content_for :buttons do %>
+    <%= submit f %>
+  <% end %>
+<% end %>
