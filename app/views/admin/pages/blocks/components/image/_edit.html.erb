@@ -7,7 +7,7 @@ remove ||= "Supprimer l'image"
 images_formats_accepted ||= default_images_formats_accepted
 hint ||= images_formats_accepted_hint(formats: images_formats_accepted)
 %>
-<%= render "admin/pages/components/file/edit",
+<%= render "admin/pages/blocks/components/file/edit",
     model: model,
     property: property,
     label: label,

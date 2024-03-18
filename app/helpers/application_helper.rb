@@ -59,4 +59,30 @@ module ApplicationHelper
   def page_path(page)
     "/#{page.path}"
   end
+
+  def add_definitions(text)
+    return '' unless text.present?
+    all_mapping = definitions_mapping
+    if all_mapping.any?
+      regexp = Regexp.union(all_mapping.keys)
+      text.gsub(regexp, all_mapping)
+    else
+      text
+    end
+  end
+
+  private
+
+  def definitions_mapping
+    @definitions_mapping ||= begin
+      definitions_mapping = Definition.all.pluck(:title, :text).map { |title, text| [title, definition_html(title, text)] }.to_h
+      aliases_mapping = Definition.all.joins(:aliases).pluck("definition_aliases.title", "definitions.text").map { |title, text| [title, definition_html(title, text)] }.to_h
+      all_mapping = definitions_mapping.merge(aliases_mapping).sort.reverse.to_h
+    end
+  end
+
+  def definition_html(title, text)
+    "<a href=\"#\" data-bs-toggle=\"tooltip\" title=\"#{text}\">#{title}</a>"
+  end
+
 end
