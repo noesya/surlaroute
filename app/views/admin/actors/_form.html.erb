@@ -19,7 +19,7 @@
       <% end %>
     </div>
     <div class="col-lg-9">
-      <h5>Informations</h5>
+      <h5><%= t('admin.infos') %></h5>
       <%= f.input :name %>
       <%= f.input :slug,
                   input_html: actor.persisted? ? {} : {

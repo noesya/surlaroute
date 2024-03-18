@@ -1,11 +1,4 @@
 fr:
-  views:
-    pagination:
-      first: "&laquo; Première page"
-      last: "Dernière page &raquo;"
-      previous: "&lsaquo; Précédente"
-      next: "Suivante &rsaquo;"
-      truncate: "&hellip;"
   account:
     comments:
       about_html: À propos de “%{title}”
@@ -55,6 +48,9 @@ fr:
         slug: Identifiant
         zipcode: Code postal
       definition:
+        text: Texte
+        title: Titre
+      definition/alias:
         text: Texte
         title: Titre
       material:
@@ -164,6 +160,11 @@ fr:
             title:
               taken: n'est pas disponible (il existe déjà une autre définition avec ce titre)
               taken_by_alias: n'est pas disponible (il existe déjà un alias avec ce titre)
+        definition/alias:
+          attributes:
+            title:
+              taken: n'est pas disponible (il existe déjà un autre alias avec ce titre)
+              taken_by_definition: n'est pas disponible (il existe déjà une définition avec ce titre)
         user:
           attributes:
             password:
@@ -175,6 +176,9 @@ fr:
       definition:
         one: Définition
         other: Définitions
+      definition/alias:
+        one: Alias
+        other: Aliases
       material:
         one: Matériau
         other: Matériaux
@@ -202,8 +206,10 @@ fr:
       button: Référencer un·e acteur·rice
       text: "L’écothèque référence des acteur·rices de l’économie circulaire: métiers de la conception, du réemploi, de la fabrication, de la mutualisation, du transport… L’objectif : identifier et faire émerger des écosystèmes territoriaux, pour favoriser les collaborations à tous les niveaux de la chaîne de la scénographie et réduire les impacts environnementaux."
       title: Vous avez une bonne adresse à partager ?
+  add: Ajouter
   admin:
     dashboard: Tableau de bord
+    definitions_hint: Des variantes du titre qui seront recherchées également dans les articles pour afficher le texte.
     file_hint_with_formats: "Fichiers %{formats} uniquement."
     file_hint_with_formats_and_filesize: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
@@ -214,6 +220,7 @@ fr:
         submit: Filtrer
       search_field: Recherche
       title: Rechercher
+    infos: Informations
     pages:
       cant_destroy: Impossible de supprimer la page %{name}
     projects:
@@ -403,6 +410,8 @@ fr:
       actor:
         contact_inventory_url: Doit commencer par https://
         contact_website: Doit commencer par https://
+      definition:
+        title: Le texte qui sera recherché dans l'article
       structure_item:
         color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
@@ -483,4 +492,11 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+  views:
+    pagination:
+      first: "&laquo; Première page"
+      last: "Dernière page &raquo;"
+      next: "Suivante &rsaquo;"
+      previous: "&lsaquo; Précédente"
+      truncate: "&hellip;"
   website: écothèque

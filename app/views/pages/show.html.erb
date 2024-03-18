@@ -6,12 +6,12 @@
     <div class="row pb-5 pb-md-7">
       <div class="col-lg-5 mt-lg-5">
         <h1><%= @page %></h1>
-        <p class="hero__description mt-4"><%= @page.description %></p>
+        <p class="hero__description mt-4"><%= sanitize add_definitions(@page.description) %></p>
       </div>
       <% if @page.children.any? %>
         <div class="offset-lg-1 col-lg-6 mt-5">
           <ul class="pages-list row">
-            <% @page.children.ordered.each do |page| %>
+            <% @page.children.ordered_by_position.each do |page| %>
               <li class="col-lg-6">
                 <%= link_to page, page %>
               </li>

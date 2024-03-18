@@ -29,7 +29,7 @@
           <% page_lab = Page.lab %>
           <%= link_to page_lab, page_path(page_lab), class: "fw-bold" %>
         </li>
-        <% page_lab.children.ordered.each do |child| %>
+        <% page_lab.children.ordered_by_position.each do |child| %>
           <li class="mt-2">
             <%= link_to child, page_path(child) %>
           </li>

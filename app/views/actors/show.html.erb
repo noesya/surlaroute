@@ -16,7 +16,7 @@
         <h1><%= @actor %></h1>
         <% if @actor.description.present? %>
           <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
-          <p class="fw-bold"><%= sanitize @actor.description %></p>
+          <p class="fw-bold"><%= sanitize add_definitions(@actor.description) %></p>
         <% end %>
         <%= render 'meta', about: @actor %>
         <hr class="my-4">

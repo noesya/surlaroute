@@ -96,6 +96,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_110821) do
     t.index ["technic_id", "actor_id"], name: "index_actors_technics_on_technic_id_and_actor_id"
   end
 
+  create_table "definition_aliases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "definition_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["definition_id"], name: "index_definition_aliases_on_definition_id"
+  end
+
+  create_table "definitions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false
+    t.text "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -437,6 +452,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_110821) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "actors", "users", column: "published_by_id"
+  add_foreign_key "definition_aliases", "definitions"
   add_foreign_key "materials", "actors"
   add_foreign_key "materials", "users", column: "published_by_id"
   add_foreign_key "page_blocks", "pages"

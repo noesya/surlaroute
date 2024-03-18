@@ -58,7 +58,7 @@ module Ecotheque
       "h3", "a", "b", "br", "em", "i", "img", "li", "ol", "p", "strong", "sub", "sup", "ul"
     ]
     config.action_view.sanitized_allowed_attributes = [
-      "href", "target", "title"
+      "href", "target", "title", "data-bs-toggle"
     ]
 
     config.allowed_special_chars = '#?!,_@$%^&*+:;£µ-'
