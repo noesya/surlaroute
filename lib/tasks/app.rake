@@ -9,6 +9,7 @@ namespace :app do
     desc 'Reindex models for search'
     task reindex: :environment do
       [Actor, Material, Page, Project, Technic].each do |model|
+        puts "Reindexing #{model.count} #{model.model_name.human(count: 2)}"
         model.reindex
       end
     end

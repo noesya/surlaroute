@@ -45,3 +45,9 @@ Puis relancer ElasticSearch.
 Pour lancer le processus ElasticSearch, il suffit d'exécuter `elasticsearch` dans le Terminal. Pour l'arrêter, il suffit de faire Ctrl+C.
 
 Pour lancer ElasticSearch en arrière-plan, exécuter `elasticsearch -d -p $ES_HOME/pid`. Pour l'arrêter, exécuter `pkill -F $ES_HOME/pid`.
+
+## Réindexer les modèles recherchables
+
+```bash
+rails app:search:reindex
+```
