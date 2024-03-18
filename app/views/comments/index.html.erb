@@ -7,8 +7,11 @@
   <% else %>
     <% @comments.each do |comment| %>
       <div class="row mt-4">
-        <h2 class="h3 mb-4"><%= t('account.comments.about_html', title: link_to(comment.about, comment.about, class: 'text-decoration-underline')) %></h2>
-        <%= render 'comments/comment', comment: comment %>
+        <h2 class="h3 mb-3"><%= t('account.comments.about_html', title: link_to(comment.about, comment.about, class: 'text-decoration-underline')) %></h2>
+        <%= render 'comments/comment', comment: comment, is_index: true %>
+        <div class="col-12">
+          <hr class="opacity-25 mt-5">
+        </div>
       </div>
     <% end %>
   <% end %>

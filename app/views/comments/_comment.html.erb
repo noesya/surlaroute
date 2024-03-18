@@ -1,4 +1,6 @@
-<% if !comment.reply_to.present? %>
+<% is_index ||= false %>
+
+<% if !comment.reply_to.present? && !is_index %>
   <div class="col-lg-3 col-xl-2 text-lg-center">
     <% if comment.user.image.attached? %>
       <%= kamifusen_tag comment.user.image,
@@ -9,11 +11,11 @@
     <span class="fw-bold h3"><%= comment.user %></span>
   </div>
 <% end %>
-<div class="col-lg-7">
-  <% if comment.reply_to.present? %>
-    <span class="fw-bold h3"><%= t('comments.from') %> <%= comment.user %></span>
-  <% end %>
-  <h3 class="fw-bold">“<%= comment.title %>”</h3>
+<div class="<% if is_index %>col-lg-9<% else %>col-lg-7<% end %>">
+  <h3 class="fw-bold <% if is_index %>h6<% end %>">
+    <% if comment.reply_to.present? && !is_index%><span class="fw-bold h3"><%= t('comments.from') %> <%= comment.user %></span> : <% end %>
+    “<%= comment.title %>”
+  </h3>
   <p class="small">
     <%= t('comments.date', date: l(comment.created_at.to_date)) %>
     <% if can?(:destroy, comment) %>
