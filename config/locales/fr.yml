@@ -204,7 +204,8 @@ fr:
       title: Vous avez une bonne adresse à partager ?
   admin:
     dashboard: Tableau de bord
-    file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
+    file_hint_with_formats: "Fichiers %{formats} uniquement."
+    file_hint_with_formats_and_filesize: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
       buttons:
         close: Fermer
@@ -286,6 +287,8 @@ fr:
     page:
       block:
         kind:
+          collapse: Accordéon
+          files: Fichiers
           gallery: Galerie d'images
           keypoints: Points-clés
           quote: Citation
