@@ -54,6 +54,9 @@ fr:
         service_access_terms: Conditions d'accès au service
         slug: Identifiant
         zipcode: Code postal
+      definition:
+        text: Texte
+        title: Titre
       material:
         actors: Fabriqué par
         description: Description
@@ -156,6 +159,11 @@ fr:
         website: Site internet
     errors:
       models:
+        definition:
+          attributes:
+            title:
+              taken: n'est pas disponible (il existe déjà une autre définition avec ce titre)
+              taken_by_alias: n'est pas disponible (il existe déjà un alias avec ce titre)
         user:
           attributes:
             password:
@@ -164,6 +172,9 @@ fr:
       actor:
         one: Acteur·ice
         other: Acteur·ices
+      definition:
+        one: Définition
+        other: Définitions
       material:
         one: Matériau
         other: Matériaux
@@ -188,19 +199,9 @@ fr:
   actors:
     information: Informations pratiques
     call_to_action:
-      title: Vous avez une bonne adresse à partager ?
-      text: "L’écothèque référence des acteur·rices de l’économie circulaire: métiers de la conception, du réemploi, de la fabrication, de la mutualisation, du transport… L’objectif : identifier et faire émerger des écosystèmes territoriaux, pour favoriser les collaborations à tous les niveaux de la chaîne de la scénographie et réduire les impacts environnementaux."
       button: Référencer un·e acteur·rice
-  materials:
-    call_to_action:
-      title: Vous souhaitez recommander un matériau ?
-      text: "L’écothèque référence des matériaux dont la qualité a été vérifiée par la pratique, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie. L’objectif : proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés, un outil à destination de tous les métiers de la chaîne de la scénographie."
-      button: Référencer un matériau
-  technics:
-    call_to_action:
-      title: Vous souhaitez recommander une technique ?
-      text: "L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech."
-      button: Référencer une technique
+      text: "L’écothèque référence des acteur·rices de l’économie circulaire: métiers de la conception, du réemploi, de la fabrication, de la mutualisation, du transport… L’objectif : identifier et faire émerger des écosystèmes territoriaux, pour favoriser les collaborations à tous les niveaux de la chaîne de la scénographie et réduire les impacts environnementaux."
+      title: Vous avez une bonne adresse à partager ?
   admin:
     dashboard: Tableau de bord
     file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
@@ -222,11 +223,11 @@ fr:
       add_file: Ajouter un fichier
       add_image: Ajouter une image
       add_option: Ajouter une option
-      title: Structure
-      option: Option
-      options: Options
       explanation: Texte d'explication
       not_set: Non renseigné
+      option: Option
+      options: Options
+      title: Structure
     successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
     successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
     successfully_duplicated_html: "<i>%{model}</i> a bien été dupliqué(e)."
@@ -235,13 +236,13 @@ fr:
     title: Administration
   comments:
     answer: Répondre à ce commentaire
-    date: Rédigé le %{date}
-    text: Contenu du commentaire
-    title: Commentaires
-    from: Réponse de
     answers:
       one: réponse
       other: réponses
+    date: Rédigé le %{date}
+    from: Réponse de
+    text: Contenu du commentaire
+    title: Commentaires
   create: Créer
   default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
@@ -255,8 +256,8 @@ fr:
     login: Je me connecte
     logout: Déconnexion
     not_yet_registered:
-      title: Pas encore inscrit ?
       text: Inscrivez-vous si vous n'avez pas encore de compte.
+      title: Pas encore inscrit ?
     profile: Mon profil
     register: Je crée mon compte
     sessions:
@@ -311,9 +312,9 @@ fr:
           page: Page (zone par défaut)
   false: Non
   folder:
+    close: Fermer le dossier
     empty: Le dossier est vide
     open: Ouvrir le dossier
-    close: Fermer le dossier
   footer:
     implementation:
       design: Design graphique
@@ -338,14 +339,19 @@ fr:
     subtitle: Vous devez être authentifié pour continuer
   mailers:
     yours: Cordialement.
+  materials:
+    call_to_action:
+      button: Référencer un matériau
+      text: "L’écothèque référence des matériaux dont la qualité a été vérifiée par la pratique, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie. L’objectif : proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés, un outil à destination de tous les métiers de la chaîne de la scénographie."
+      title: Vous souhaitez recommander un matériau ?
   menu:
     my_account: Mon compte
   please_confirm: Merci de confirmer
   projects:
     call_to_action:
-      title: Vous avez participé à un projet écoresponsable et vous souhaitez le partager ?
-      text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
       button: Référencer votre projet
+      text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
+      title: Vous avez participé à un projet écoresponsable et vous souhaitez le partager ?
     brezet_wheel:
       step0: "Concevoir ensemble"
       step1: "Sélection des matériaux ayant le moins d’impact"
@@ -382,10 +388,13 @@ fr:
     "yes": Oui
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
   sort: Déplacer
+  technics:
+    call_to_action:
+      button: Référencer une technique
+      text: "L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech."
+      title: Vous souhaitez recommander une technique ?
   true: Oui
   ui:
-    global:
-      hero: Le mot du comité écothèque
     actor:
       address: Adresse
       contact: Contact
@@ -400,28 +409,11 @@ fr:
       technics:
         one: Technique proposée par cet·te acteur·ice
         other: Techniques proposées par cet·te acteur·ice
+    global:
+      hero: Le mot du comité écothèque
     material:
       actors: Fabriqué par
       contact: Contact fournisseur
-      projects:
-        one: Projet qui l'utilise
-        other: Projets qui l'utilisent
-    offers:
-      title: Comment nous rejoindre ?
-    project:
-      actors:
-        one: Acteur·rice du projet
-        other: Acteur·rices du projet
-      materials:
-        one: Matériau utilisé
-        other: Matériaux utilisés
-      technics:
-        one: Technique utilisée
-        other: Techniques utilisées
-    technic:
-      actors:
-        one: Contact
-        other: Contacts
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
@@ -445,4 +437,23 @@ fr:
         other: Fiches techniques publiées
       title: Les membres
       website: Site internet
+    offers:
+      title: Comment nous rejoindre ?
+    project:
+      actors:
+        one: Acteur·rice du projet
+        other: Acteur·rices du projet
+      materials:
+        one: Matériau utilisé
+        other: Matériaux utilisés
+      technics:
+        one: Technique utilisée
+        other: Techniques utilisées
+    technic:
+      actors:
+        one: Contact
+        other: Contacts
+      projects:
+        one: Projet qui l'utilise
+        other: Projets qui l'utilisent
   website: écothèque
