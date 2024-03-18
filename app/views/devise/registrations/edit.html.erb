@@ -70,15 +70,22 @@
                     input_html: { autocomplete: "new-password" } %>
 
 
-      <div class="mb-3">
-        <%= f.submit t('.update'), class: 'btn btn-dark' %>
-      </div>
+        <div class="mb-3">
+          <%= f.submit t('.update'), class: 'btn btn-dark' %>
+        </div>
 
       </div>
 
     </div>
 
   <% end %>
+
+  Mon offre actuelle
+  Voici les modalités de parcours sur le site écothèque que vous permet votre offre actuelle :
+
+  <%= render "offers/#{current_user.role}", hide_cta: true %>
+
+  <%= render 'offers/join', title: "Vous souhaitez changer d'offre ?" %>
 
   <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
 

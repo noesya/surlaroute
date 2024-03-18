@@ -1,0 +1,32 @@
+<% hide_cta ||= false %>
+
+<div class="offers-group col-lg-6 d-lg-flex align-items-start mt-3 mt-lg-0">
+  <div class="card w-50 border rounded-0 rounded-start">
+    <div class="card-body">
+      <h5 class="card-title">Devenir membre</h5>
+      <p>Accès complet et contribution à l’écothèque</p>
+      <hr>
+      <p>Offres similaires au compte “abonné·e”</p>
+      <ul class="check-list">
+        <li>Contribuez à l’évolution de la plateforme</li>
+        <li>Participez au comité de validation de l’écothèque</li>
+      </ul>
+      <hr>
+      <p class="small text-muted">Les tarifs varient selon votre statut</p>
+      <p>Entre 20€ et 2000€</p>
+      <%= link_to "S’inscrire à une réunion d’information", "https://framaforms.org/reunion-dinformation-augures-lab-scenogrrrraphie-1668503578", class: "btn btn-dark" unless hide_cta %>
+    </div>
+  </div>
+  <div class="card bg-light w-50 border rounded-0 rounded-end border-start-0">
+    <div class="card-body">
+      <h5 class="card-title">+ au-delà de l’écothèque</h5>
+      <p>Contribution au Lab Scénogrrrraphie</p>
+      <hr>
+      <ul class="check-list">
+        <li>Participer aux groupes de recherche-action</li>
+        <li>Accédez aux événements du réseau (rencontres inspirantes, visites de lieux, ...)</li>
+        <li>Et bien d’autres choses à découvrir lors de la réunion d’information</li>
+      </ul>
+    </div>
+  </div>
+</div>
