@@ -15,6 +15,7 @@ elements = block.data.dig('elements') || []
           file_title = file.dig('title')
           blob_id = file.dig('blob', 'id')
           blob = ActiveStorage::Blob.find_by(id: blob_id)
+          next if blob.nil?
           %>
           <li>
             <%- if file_title.present? -%>
