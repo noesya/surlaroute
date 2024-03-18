@@ -16,7 +16,7 @@
           <h1><%= @project %></h1>
           <% if @project.description.present? %>
             <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
-            <p class="mb-4"><%= sanitize @project.description %></p>
+            <p class="mb-4"><%= sanitize add_definitions(@project.description) %></p>
           <% end %>
           <%= render 'meta', about: @project %>
         </div>
