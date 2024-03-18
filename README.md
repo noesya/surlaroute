@@ -4,6 +4,12 @@ Porté par *Villette Makerz*
 
 ## Setup
 
+### Pré-requis
+
+- ElasticSearch (voir la [doc](docs/elasticsearch.md))
+
+### Récupération du projet
+
 ```
 git clone git@github.com:noesya/ecotheque.git
 cd ecotheque
