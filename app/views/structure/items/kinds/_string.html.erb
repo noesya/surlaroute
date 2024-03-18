@@ -1,5 +1,5 @@
 <% if value.to_s.present? %>
-  <p><%= value %></p>
+  <p><%= sanitize add_definitions(value) %></p>
 <% else %>
   <p class="text-muted"><%= t('admin.structure.not_set') %></p>
 <% end %>

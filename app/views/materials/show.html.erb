@@ -16,7 +16,7 @@
         <h1><%= @material %></h1>
         <% if @material.description.present? %>
           <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
-          <p class="fw-bold"><%= sanitize @material.description %></p>
+          <p class="fw-bold"><%= sanitize add_definitions(@material.description) %></p>
         <% end %>
         <%= render 'meta', about: @material %>
         <hr class="my-4">
