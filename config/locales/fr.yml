@@ -393,6 +393,7 @@ fr:
         other: Techniques
       toolbox: "Résultats - Boîte à outils"
     search_in_name: Rechercher dans le nom
+    title: Recherche
   show: Voir
   show_front: Voir sur le site
   simple_form:

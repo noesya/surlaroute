@@ -1,8 +1,9 @@
+<% content_for :title, t('search.title') %>
 <header class="hero pb-5">
   <div class="container search-container">
     <%= form_tag search_path, method: :get, class: "row align-items-end", role: "search" do %>
       <div class="col-10 col-md-5">
-        <input name="term" class="form-control search-input" type="search" placeholder="Recherche" aria-label="Recherche" value="<%= @term %>">
+        <input name="term" class="form-control search-input" type="search" placeholder="<%= t('search.label') %>" aria-label="<%= t('search.label') %>" value="<%= @term %>">
       </div>
       <div class="col-2 col-md-7">
         <button class="btn-search rounded-pill" type="submit">
@@ -10,111 +11,160 @@
         </button>
       </div>
     <% end %>
-    <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-      <dt class="key-figure"><%= 34 %></dt>
-      <dd><%= t('search.results.results.other') %></dd>
-    </dl>
+    <div class="row">
+      <div class="col-lg-2">
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= @actors.total_count %></dt>
+          <dd><%= Actor.model_name.human(count: @actors.total_count) %></dd>
+        </dl>
+      </div>
+      <div class="col-lg-2">
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= @projects.total_count %></dt>
+          <dd><%= Project.model_name.human(count: @projects.total_count) %></dd>
+        </dl>
+      </div>
+      <div class="col-lg-2">
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= @materials.total_count %></dt>
+          <dd><%= Material.model_name.human(count: @materials.total_count) %></dd>
+        </dl>
+      </div>
+      <div class="col-lg-2">
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= @technics.total_count %></dt>
+          <dd><%= Technic.model_name.human(count: @technics.total_count) %></dd>
+        </dl>
+      </div>
+      <div class="col-lg-2">
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= @toolbox_pages.total_count %></dt>
+          <dd><%= Page.model_name.human(count: @toolbox_pages.total_count) %> <%= Page.toolbox.name %></dd>
+        </dl>
+      </div>
+      <div class="col-lg-2">
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= @lab_pages.total_count %></dt>
+          <dd><%= Page.model_name.human(count: @lab_pages.total_count) %> <%= Page.lab.name %></dd>
+        </dl>
+      </div>
+    </div>
   </div>
 </header>
 
 <div class="document-content">
-  <section class="bg-white pt-5">
-    <div class="container">
-      <h2 class="mb-4"><%= t('search.results.actors.other') %></h2>
-      <%= render 'actors/list', objects: @actors %>
-      <%= paginate @actors, theme: 'bootstrap-5', param_name: :actors_page %>
-    </div>
-  </section>
+  <% if @actors.any? %>
+    <section class="bg-white pt-5">
+      <div class="container">
+        <h2 class="mb-4"><%= t('search.results.actors.other') %></h2>
+        <%= render 'actors/list', objects: @actors %>
+        <%= paginate @actors, theme: 'bootstrap-5', param_name: :actors_page %>
+      </div>
+    </section>
+  <% end %>
 
-  <section class="bg-white pt-5">
-    <div class="container">
-      <h2 class="mb-4"><%= t('search.results.projects.other') %></h2>
-      <%= render 'application/list', objects: @projects %>
-      <%= paginate @projects, theme: 'bootstrap-5', param_name: :projects_page %>
-    </div>
-  </section>
+  <% if @projects.any? %>
+    <section class="bg-white pt-5">
+      <div class="container">
+        <h2 class="mb-4"><%= t('search.results.projects.other') %></h2>
+        <%= render 'application/list', objects: @projects %>
+        <%= paginate @projects, theme: 'bootstrap-5', param_name: :projects_page %>
+      </div>
+    </section>
+  <% end %>
 
-  <section class="bg-white pt-5">
-    <div class="container">
-      <h2 class="mb-4"><%= t('search.results.materials.other') %></h2>
-      <%= render 'application/list', objects: @materials %>
-      <%= paginate @materials, theme: 'bootstrap-5', param_name: :materials_page %>
-    </div>
-  </section>
+  <% if @materials.any? %>
+    <section class="bg-white pt-5">
+      <div class="container">
+        <h2 class="mb-4"><%= t('search.results.materials.other') %></h2>
+        <%= render 'application/list', objects: @materials %>
+        <%= paginate @materials, theme: 'bootstrap-5', param_name: :materials_page %>
+      </div>
+    </section>
+  <% end %>
 
-  <section class="bg-white pt-5">
-    <div class="container">
-      <h2 class="mb-4"><%= t('search.results.technics.other') %></h2>
-      <%= render 'application/list', objects: @technics %>
-      <%= paginate @technics, theme: 'bootstrap-5', param_name: :technics_page %>
-    </div>
-  </section>
+  <% if @technics.any? %>
+    <section class="bg-white pt-5">
+      <div class="container">
+        <h2 class="mb-4"><%= t('search.results.technics.other') %></h2>
+        <%= render 'application/list', objects: @technics %>
+        <%= paginate @technics, theme: 'bootstrap-5', param_name: :technics_page %>
+      </div>
+    </section>
+  <% end %>
 
-  <section class="pt-5 pb-5 bg-toolbox">
-    <div class="container">
-      <h2 class="mb-4"><%= t('search.results.toolbox') %></h2>
-      <ul class="ressources-list list-unstyled">
-        <% @toolbox_pages.each do |page| %>
-          <li class="row position-relative">
-            <div class="col-md-6">
-              <h3 class="fw-700 mb-2"><%= page %></h3>
-              <p>Aperçu du contenu de la page...</p>
-            </div>
-            <div class="col-md-6 d-flex align-items-end justify-content-end">
-              <%= link_to page, class: "stretched-link text-decoration-none" do %>
-                <span class="arrow-right">Découvrir l'article</span>
-              <% end %>
-            </div>
-          </li>
-          <hr class="my-3">
-        <% end %>
+  <% if @toolbox_pages.any? %>
+    <section class="pt-5 pb-5 bg-toolbox">
+      <div class="container">
+        <h2 class="mb-4"><%= t('search.results.results.other') %> - <%= Page.toolbox.name %></h2>
+        <ul class="ressources-list list-unstyled">
+          <% @toolbox_pages.each do |page| %>
+            <li class="row position-relative">
+              <div class="col-md-6">
+                <h3 class="fw-700 mb-2"><%= page %></h3>
+                <p>Aperçu du contenu de la page...</p>
+              </div>
+              <div class="col-md-6 d-flex align-items-end justify-content-end">
+                <%= link_to page, class: "stretched-link text-decoration-none" do %>
+                  <span class="arrow-right">Découvrir l'article</span>
+                <% end %>
+              </div>
+            </li>
+            <hr class="my-3">
+          <% end %>
+        </ul>
+        <%= paginate @toolbox_pages, theme: 'bootstrap-5', param_name: :toolbox_pages_page %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @lab_pages.any? %>
+    <section class="pt-5 pb-5 bg-white">
+      <div class="container">
+        <h2 class="mb-4"><%= t('search.results.results.other') %> - <%= Page.lab.name %></h2>
+        <ul class="ressources-list list-unstyled">
+          <% @lab_pages.each do |page| %>
+            <li class="row position-relative">
+              <div class="col-md-6">
+                <h3 class="fw-700 mb-2"><%= page %></h3>
+                <p>Aperçu du contenu de la page...</p>
+              </div>
+              <div class="col-md-6 d-flex align-items-end justify-content-end">
+                <%= link_to page, class: "stretched-link text-decoration-none" do %>
+                  <span class="arrow-right">Découvrir l'article</span>
+                <% end %>
+              </div>
+            </li>
+            <hr class="my-3">
+          <% end %>
+        </ul>
+        <%= paginate @lab_pages, theme: 'bootstrap-5', param_name: :lab_pages_page %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @no_results %>
+    <div class="search-quick-links py-5 bg-white">
+      <div class="container">
+        <div class="row">
+          <p class="col-lg-5 fw-bold h3"><%= t('search.no_result') %></p>
+        </div>
+        <div class="row mt-4">
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-actors d-flex align-items-center justify-content-center" %>
+          </div>
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-projects d-flex align-items-center justify-content-center" %>
+          </div>
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-materials d-flex align-items-center justify-content-center" %>
+          </div>
+          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
+            <%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "square rounded text-decoration-none stretched-link h2 w-100 bg-technics d-flex align-items-center justify-content-center" %>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="pt-5 pb-5 bg-white">
-    <div class="container">
-      <h2 class="mb-4"><%= t('search.results.lab') %></h2>
-      <ul class="ressources-list list-unstyled">
-        <% @toolbox_pages.each do |page| %>
-          <li class="row position-relative">
-            <div class="col-md-6">
-              <h3 class="fw-700 mb-2"><%= page %></h3>
-              <p>Aperçu du contenu de la page...</p>
-            </div>
-            <div class="col-md-6 d-flex align-items-end justify-content-end">
-              <%= link_to page, class: "stretched-link text-decoration-none" do %>
-                <span class="arrow-right">Découvrir l'article</span>
-              <% end %>
-            </div>
-          </li>
-          <hr class="my-3">
-        <% end %>
-      </div>
-    </div>
-  </section>
-
-  <%# SI PAS DE RÉSULTATS : %>
-  <div class="search-quick-links py-5 bg-white">
-    <div class="container">
-      <div class="row">
-        <p class="col-lg-5 fw-bold h3"><%= t('search.no_result') %></p>
-      </div>
-      <div class="row mt-4">
-        <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
-          <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-actors d-flex align-items-center justify-content-center" %>
-        </div>
-        <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
-          <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-projects d-flex align-items-center justify-content-center" %>
-        </div>
-        <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
-          <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-materials d-flex align-items-center justify-content-center" %>
-        </div>
-        <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
-          <%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "square rounded text-decoration-none stretched-link h2 w-100 bg-technics d-flex align-items-center justify-content-center" %>
-        </div>
-      </div>
-    </div>
-  </div>
+  <% end %>
 
 </div>

@@ -5,6 +5,8 @@
 #  id                  :uuid             not null, primary key
 #  body_class          :string           default("")
 #  description         :text
+#  in_lab_tree         :boolean          default(FALSE)
+#  in_toolbox_tree     :boolean          default(FALSE)
 #  internal_identifier :string
 #  name                :string           not null
 #  path                :string           not null
@@ -37,7 +39,7 @@ class Page < ApplicationRecord
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true
 
-  before_validation :set_body_class, :set_path
+  before_validation :set_body_class, :set_path, :check_ancestor_tree
   after_save :update_children_paths, if: :saved_change_to_path?
 
   scope :ordered, -> { order(:name) }
@@ -49,11 +51,11 @@ class Page < ApplicationRecord
   }
 
   def self.lab
-    find_by(internal_identifier: LAB_INTERNAL_IDENTIFIER)
+    @@lab ||= find_by(internal_identifier: LAB_INTERNAL_IDENTIFIER)
   end
 
   def self.toolbox
-    find_by(internal_identifier: TOOLBOX_INTERNAL_IDENTIFIER)
+    @@toolbox ||= find_by(internal_identifier: TOOLBOX_INTERNAL_IDENTIFIER)
   end
 
   def generated_path
@@ -86,6 +88,11 @@ class Page < ApplicationRecord
     descendants.each do |child|
       child.update_column :path, child.generated_path
     end
-    end
+  end
+
+  def check_ancestor_tree
+    in_lab_tree = ancestors_and_self.detect { |ancestor| ancestor == Page.lab }
+    in_toolbox_tree = ancestors_and_self.detect { |ancestor| ancestor == Page.toolbox }
+  end
 
 end
