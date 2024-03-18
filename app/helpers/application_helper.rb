@@ -79,7 +79,6 @@ module ApplicationHelper
       aliases_mapping = Definition.all.joins(:aliases).pluck("definition_aliases.title", "definitions.text").map { |title, text| [title, definition_html(title, text)] }.to_h
       all_mapping = definitions_mapping.merge(aliases_mapping).sort.reverse.to_h
     end
-    
   end
 
   def definition_html(title, text)
