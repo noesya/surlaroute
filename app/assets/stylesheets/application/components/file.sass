@@ -31,8 +31,7 @@
 
 // in block
 .block-files__element
+    > .row
+        row-gap: map-get($spacers, 2)
     + .block-files__element
         margin-top: calc(map-get($spacers, 4) + 15px)
-.block-files__element__file
-    + .block-files__element__file
-        margin-top: map-get($spacers, 2)
