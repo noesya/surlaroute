@@ -28,7 +28,9 @@ class Page::Block < ApplicationRecord
     text: 1,
     quote: 2,
     keypoints: 3,
-    gallery: 4
+    gallery: 4,
+    collapse: 5,
+    files: 6
   }, _prefix: :kind
 
   def data=(value)

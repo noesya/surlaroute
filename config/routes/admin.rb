@@ -28,6 +28,7 @@ namespace :admin do
         get :children
     end
   end
+  resources :definitions
   namespace :structure do
     scope ':about_class' do
       resources :items do

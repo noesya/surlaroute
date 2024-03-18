@@ -1,0 +1,41 @@
+<% content_for :title, "#{Definition.model_name.human(count: @definitions.total_count)} (#{@definitions.total_count})" %>
+
+<%= render 'filters', current_path: admin_definitions_path %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= Definition.human_attribute_name(:title) %></th>
+        <th><%= Definition::Alias.model_name.human(count: 2) %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @definitions.each do |definition| %>
+        <tr>
+          <td><%= link_to_if can?(:read, definition), definition, [:admin, definition] %></td>
+          <td>
+            <ul class="list-unstyled mb-0">
+              <% definition.aliases.ordered.each do |definition_alias| %>
+                <li><%= definition_alias %></li>
+              <% end %>
+            </ul>
+          </td>
+          <td class="text-end">
+            <div class="btn-group" role="group">
+              <%= destroy_link definition %>
+              <%= edit_link definition %>
+            </div>
+          </td>
+        </tr>     
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @definitions, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Definition %>
+<% end %>

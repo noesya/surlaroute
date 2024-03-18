@@ -1,0 +1,13 @@
+<%= simple_form_for :filters, url: current_path, method: :get do |f| %>
+
+  <%= filters_panel current_path: current_path, active_filters_count: active_filters_count do |form| %>
+
+    <%= render_filter f, 
+                      :string, 
+                      :search, 
+                      label: t('admin.filters.search_field')
+                      %>
+
+  <% end %>
+
+<% end %>

@@ -107,7 +107,12 @@ module Admin::ApplicationHelper
   end
 
   def images_formats_accepted_hint(formats: default_images_formats_accepted)
-    t('admin.file_hint_with_formats', filesize: number_to_human_size(Rails.application.config.default_image_max_size), formats: formats)
+    t('admin.file_hint_with_formats_and_filesize', filesize: number_to_human_size(Rails.application.config.default_image_max_size), formats: formats)
+  end
+
+  def file_formats_accepted_hint(formats: '')
+    return if formats.blank?
+    t('admin.file_hint_with_formats', formats: formats)
   end
 
   private
