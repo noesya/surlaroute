@@ -1,17 +1,17 @@
 <% is_index ||= false %>
 
 <% if !comment.reply_to.present? && !is_index %>
-  <div class="col-lg-3 col-xl-2 text-lg-center">
+  <div class="col-md-3 col-xl-2 text-lg-center">
     <% if comment.user.image.attached? %>
       <%= kamifusen_tag comment.user.image,
                         width: 192,
-                        class: 'img-fluid rounded-circle square mb-2',
+                        class: 'avatar img-fluid rounded-circle square mb-2',
                         alt: '' %>
     <% end %>
     <span class="fw-bold h3"><%= comment.user %></span>
   </div>
 <% end %>
-<div class="<% if is_index %>col-lg-9<% else %>col-lg-7<% end %>">
+<div class="<% if is_index %>col-md-9<% else %>col-md-7<% end %>">
   <h3 class="fw-bold <% if is_index %>h6<% end %>">
     <% if comment.reply_to.present? && !is_index%><span class="fw-bold h3"><%= t('comments.from') %> <%= comment.user %></span> : <% end %>
     “<%= comment.title %>”
