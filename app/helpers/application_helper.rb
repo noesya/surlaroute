@@ -63,8 +63,12 @@ module ApplicationHelper
   def add_definitions(text)
     return '' unless text.present?
     all_mapping = definitions_mapping
-    regexp = Regexp.union(all_mapping.keys)
-    text.gsub(regexp, all_mapping)
+    if all_mapping.any?
+      regexp = Regexp.union(all_mapping.keys)
+      text.gsub(regexp, all_mapping)
+    else
+      text
+    end
   end
 
   private
