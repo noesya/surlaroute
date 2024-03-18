@@ -1,5 +1,7 @@
 <%= content_for :title, Region.model_name.human(count: 2) %>
 
+<%= render 'filters', current_path: admin_regions_path %>
+
 <%= render 'admin/regions/list', regions: @regions %>
 <%= paginate @regions, theme: 'bootstrap-5' %>
 
