@@ -8,6 +8,9 @@
           <%= render 'favorites/button', about: @actor %>
         </div>
         <%= render 'illustration', source: @actor %>
+        <% if @actor.image_credit %>
+          <p class="small credit mt-1"><%= @actor.image_credit %></p>
+        <% end %>
       </div>
       <div class="col-lg-6 mt-4 mt-md-0">
         <h1><%= @actor %></h1>

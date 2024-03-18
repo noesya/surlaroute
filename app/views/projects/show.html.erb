@@ -7,6 +7,9 @@
           <%= render 'favorites/button', about: @project %>
         </div>
         <%= render 'illustration', source: @project %>
+        <% if @project.image_credit %>
+          <p class="small credit mt-1"><%= @project.image_credit %></p>
+        <% end %>
       </div>
       <div class="col-lg-6 mt-4 mt-md-0">
         <div class="border-bottom pb-4 mb-4">

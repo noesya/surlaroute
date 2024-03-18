@@ -6,6 +6,9 @@
           <%= render 'favorites/button', about: @technic %>
         </div>
         <%= render 'illustration', source: @technic %>
+        <% if @technic.image_credit %>
+          <p class="small credit mt-1"><%= @technic.image_credit %></p>
+        <% end %>
       </div>
       <div class="col-lg-6">
         <h1><%= @technic %></h1>
