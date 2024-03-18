@@ -9,6 +9,9 @@
       </div>
       <div class="col-lg-5 offset-lg-2">
         <%= kamifusen_tag @region.image, class: 'img-fluid rounded', alt: @region.image_alt if @region.image.attached? %>
+        <% if @region.image_credit %>
+          <p class="small credit mt-1 text-end"><%= @region.image_credit %></p>
+        <% end %>
       </div>
     </div>
     <div class="row mt-4">
