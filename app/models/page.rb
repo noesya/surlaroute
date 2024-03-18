@@ -24,8 +24,10 @@
 #
 class Page < ApplicationRecord
 
-  LABEL_INTERNAL_IDENTIFIER = 'le-lab'
+  LAB_INTERNAL_IDENTIFIER = 'le-lab'
+  TOOLBOX_INTERNAL_IDENTIFIER = 'boite-a-outils'
 
+  include Searchable
   include WithTree
 
   has_many :blocks, dependent: :destroy
@@ -47,7 +49,11 @@ class Page < ApplicationRecord
   }
 
   def self.lab
-    find_by(internal_identifier: LABEL_INTERNAL_IDENTIFIER)
+    find_by(internal_identifier: LAB_INTERNAL_IDENTIFIER)
+  end
+
+  def self.toolbox
+    find_by(internal_identifier: TOOLBOX_INTERNAL_IDENTIFIER)
   end
 
   def generated_path
@@ -56,7 +62,7 @@ class Page < ApplicationRecord
   end
 
   def is_lab?
-  internal_identifier == LABEL_INTERNAL_IDENTIFIER
+    internal_identifier == LAB_INTERNAL_IDENTIFIER
   end
 
   def to_s

@@ -21,28 +21,32 @@
   <section class="bg-white pt-5">
     <div class="container">
       <h2 class="mb-4"><%= t('search.results.actors.other') %></h2>
-      <%= render 'actors/list', objects: Actor.limit(4) %>
+      <%= render 'actors/list', objects: @actors %>
+      <%= paginate @actors, theme: 'bootstrap-5', param_name: :actors_page %>
     </div>
   </section>
 
   <section class="bg-white pt-5">
     <div class="container">
       <h2 class="mb-4"><%= t('search.results.projects.other') %></h2>
-      <%#= render 'projects/list', objects: Project.limit(4) %>
+      <%= render 'application/list', objects: @projects %>
+      <%= paginate @projects, theme: 'bootstrap-5', param_name: :projects_page %>
     </div>
   </section>
 
   <section class="bg-white pt-5">
     <div class="container">
       <h2 class="mb-4"><%= t('search.results.materials.other') %></h2>
-      <%#= render 'materials/list', objects: Material.limit(4) %>
+      <%= render 'application/list', objects: @materials %>
+      <%= paginate @materials, theme: 'bootstrap-5', param_name: :materials_page %>
     </div>
   </section>
 
   <section class="bg-white pt-5">
     <div class="container">
       <h2 class="mb-4"><%= t('search.results.technics.other') %></h2>
-      <%#= render 'technics/list', objects: Technic.limit(4) %>
+      <%= render 'application/list', objects: @technics %>
+      <%= paginate @technics, theme: 'bootstrap-5', param_name: :technics_page %>
     </div>
   </section>
 
@@ -50,16 +54,20 @@
     <div class="container">
       <h2 class="mb-4"><%= t('search.results.toolbox') %></h2>
       <ul class="ressources-list list-unstyled">
-        <li class="row position-relative">
-          <div class="col-md-6">
-            <h3 class="fw-700 mb-2">Titre page</h3>
-            <p>Aperçu du contenu de la page...</p>
-          </div>
-          <div class="col-md-6 d-flex align-items-end justify-content-end">
-            <a href="#" class="stretched-link text-decoration-none"><span class="arrow-right">Découvrir l'article</span></a>
-          </div>
-        </li>
-        <hr class="my-3">
+        <% @toolbox_pages.each do |page| %>
+          <li class="row position-relative">
+            <div class="col-md-6">
+              <h3 class="fw-700 mb-2"><%= page %></h3>
+              <p>Aperçu du contenu de la page...</p>
+            </div>
+            <div class="col-md-6 d-flex align-items-end justify-content-end">
+              <%= link_to page, class: "stretched-link text-decoration-none" do %>
+                <span class="arrow-right">Découvrir l'article</span>
+              <% end %>
+            </div>
+          </li>
+          <hr class="my-3">
+        <% end %>
       </div>
     </div>
   </section>
@@ -68,16 +76,20 @@
     <div class="container">
       <h2 class="mb-4"><%= t('search.results.lab') %></h2>
       <ul class="ressources-list list-unstyled">
-        <li class="row position-relative">
-          <div class="col-md-6">
-            <h3 class="fw-700 mb-2">Titre page</h3>
-            <p>Aperçu du contenu de la page...</p>
-          </div>
-          <div class="col-md-6 d-flex align-items-end justify-content-end">
-            <a href="#" class="stretched-link text-decoration-none"><span class="arrow-right">Découvrir l'article</span></a>
-          </div>
-        </li>
-        <hr class="my-3">
+        <% @toolbox_pages.each do |page| %>
+          <li class="row position-relative">
+            <div class="col-md-6">
+              <h3 class="fw-700 mb-2"><%= page %></h3>
+              <p>Aperçu du contenu de la page...</p>
+            </div>
+            <div class="col-md-6 d-flex align-items-end justify-content-end">
+              <%= link_to page, class: "stretched-link text-decoration-none" do %>
+                <span class="arrow-right">Découvrir l'article</span>
+              <% end %>
+            </div>
+          </li>
+          <hr class="my-3">
+        <% end %>
       </div>
     </div>
   </section>
