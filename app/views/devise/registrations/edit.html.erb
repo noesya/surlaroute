@@ -1,89 +1,109 @@
-<div class="container devise py-5">
-  <% content_for :title, resource %>
-  <div class="row">
-    <div class="col-lg-5">
-      <hgroup class="mb-5 pb-5">
-        <h2><%= t("account.title") %></h2>
-        <p class="mt-5"><%= t("account.subtitle") %></p>
-      </hgroup>
+<div class="document-content">
+  <section>
+    <div class="container py-5">
+      <% content_for :title, resource %>
+      <div class="row">
+        <div class="col-lg-5">
+          <hgroup class="mb-5 pb-5">
+            <h1><%= t("account.title") %></h1>
+            <p class="mt-5"><%= t("account.subtitle") %></p>
+          </hgroup>
+        </div>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p class="mb-5"><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
+      <% end %>
+
+      <h2 class="mb-4">Mes informations de compte</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        
+        <%= f.error_notification %>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <%= f.input :image,
+                        as: :single_deletable_file,
+                        input_html: { accept: default_images_formats_accepted },
+                        hint: images_formats_accepted_hint,
+                        resize: 1,
+                        preview: true %>
+          </div>
+          <div class="col-lg-6">
+            <%= f.input :last_name,
+                        required: true,
+                        input_html: { autocomplete: "last_name" } %>
+            <%= f.input :first_name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "first_name" } %>
+            <%= f.input :mobile_phone %>
+            <%= f.input :email, required: true %>
+
+            <% if resource.lab_member? %>
+              <%= f.input :website %>
+              <%= f.input :description %>
+            <% end %>
+
+            <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
+
+            <%= f.input :current_password,
+                        as: :password,
+                        input_html: { autocomplete: "current-password" } %>
+
+            <%= f.input :password,
+                        as: :password_with_hints,
+                        allow_password_uncloaking: true,
+                        validators: {
+                          length: Devise.password_length.first,
+                          uppercase_char: true,
+                          lowercase_char: true,
+                          numeric_char: true,
+                          special_char: Rails.application.config.allowed_special_chars
+                        },
+                        label: t('devise.passwords.edit.new_password'),
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+
+            <%= f.input :password_confirmation,
+                        as: :password_with_sync,
+                        allow_password_uncloaking: true,
+                        compare_with_field: :password,
+                        input_html: { autocomplete: "new-password" } %>
+
+
+            <div class="mb-3">
+              <%= f.submit t('.update'), class: 'btn btn-dark' %>
+            </div>
+
+          </div>
+
+        </div>
+
+      <% end %>
     </div>
-  </div>
+  </section>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
-    <% end %>
-
-    <div class="row">
-      <div class="col-lg-4">
-        <%= f.input :email, required: true %>
-        <%= f.input :first_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "first_name" } %>
-        <%= f.input :last_name,
-                    required: true,
-                    input_html: { autocomplete: "last_name" } %>
+  <section>
+    <div class="container pb-5">
+      <div class="row mb-3">
+        <div class="col-lg-5">
+          <h2 class="mb-1 pb-1 h3 fw-bold">Mon offre actuelle</h2>
+          <p>Voici les modalités de parcours sur le site écothèque que vous permet votre offre actuelle :</p>
+        </div>
       </div>
-      <div class="col-lg-4">
-        <%= f.input :mobile_phone %>
-      </div>
-      <div class="col-lg-4">
-        <%= f.input :image,
-                    as: :single_deletable_file,
-                    input_html: { accept: default_images_formats_accepted },
-                    hint: images_formats_accepted_hint,
-                    resize: 1,
-                    preview: true %>
-
-      </div>
+      <%= render "offers/#{current_user.role}", hide_cta: true %>
     </div>
+  </section>
 
+  <%= render 'offers/join', title: "Vous souhaitez changer d'offre ?" %>
 
-    <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
+  <section>
+    <div class="container pb-5">
+      <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <%= f.input :current_password,
-                    as: :password,
-                    input_html: { autocomplete: "current-password" } %>
-      </div>
+      <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
     </div>
-
-    <div class="row">
-      <div class="col-lg-6">
-        <%= f.input :password,
-                    as: :password_with_hints,
-                    allow_password_uncloaking: true,
-                    validators: {
-                      length: Devise.password_length.first,
-                      uppercase_char: true,
-                      lowercase_char: true,
-                      numeric_char: true,
-                      special_char: Rails.application.config.allowed_special_chars
-                    },
-                    label: t('devise.passwords.edit.new_password'),
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-      </div>
-      <div class="col-lg-6">
-        <%= f.input :password_confirmation,
-                    as: :password_with_sync,
-                    allow_password_uncloaking: true,
-                    compare_with_field: :password,
-                    input_html: { autocomplete: "new-password" } %>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <%= f.submit t('.update'), class: 'btn btn-dark' %>
-    </div>
-  <% end %>
-
-  <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
-
-  <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
-
+  </section>
 </div>

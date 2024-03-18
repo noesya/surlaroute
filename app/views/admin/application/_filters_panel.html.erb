@@ -22,12 +22,10 @@
       data-bs-target="#filters" 
       aria-controls="filters">
     <%= t('admin.filters.buttons.expand') %>
-    <i class="bi bi-search"></i>
     <% if active_filters_count > 0 %>
-      <span class="badge bg-white text-primary">
-        <%= active_filters_count %>
-      </span>
+      (<%= active_filters_count %> filtre<%= 's' if active_filters_count > 1 %> actif<%= 's' if active_filters_count > 1 %>)
     <% end %>
+    <i class="bi bi-search"></i>
   </a>
 </div>
 

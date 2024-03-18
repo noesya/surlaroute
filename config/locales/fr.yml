@@ -218,6 +218,8 @@ fr:
         expand: Rechercher
         reset: Réinitialiser
         submit: Filtrer
+      premium: Premium ?
+      published: Publié ?
       search_field: Recherche
       title: Rechercher
     infos: Informations

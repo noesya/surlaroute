@@ -39,73 +39,9 @@
       <div  class="tab-pane fade show active first-tab-content" tabindex="0">
 
         <div class="row">
-          <div class="col-lg-3">
-            <div class="card border">
-              <div class="card-body">
-                <h5 class="card-title">S’inscrire</h5>
-                <p>Accès aux fiches Écosystème et Projets</p>
-                <hr>
-                <ul class="check-list">
-                  <li>Proposez des projets/matériaux/acteur·ices/techniques</li>
-                  <li>Inscription à la newsletter (max 6/an)</li>
-                </ul>
-                <hr>
-                <p>Gratuit</p>
-                <%= link_to "Créer un compte", new_user_session_path, class: "btn btn-dark w-100" %>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 mt-3 mt-lg-0">
-            <div class="card border">
-              <div class="card-body">
-                <h5 class="card-title">S’abonner</h5>
-                <p>Accès complet à l’écothèque</p>
-                <hr>
-                <p>Offres similaires au compte “inscrit·e”</p>
-                <ul class="check-list">
-                  <li>Accès complet à tous les annuaires</li>
-                  <li>Commentaires de fiches</li>
-                  <li>Bibliothèque de favoris</li>
-                </ul>
-                <hr>
-                <p class="small text-muted">Les tarifs varient selon votre statut</p>
-                <p>Entre 5€ et 1500€</p>
-                <%= link_to "Choisir cette offre", "#TODO", class: "btn btn-dark w-100" %>
-              </div>
-            </div>
-          </div>
-
-          <div class="offers-group col-lg-6 d-lg-flex align-items-start mt-3 mt-lg-0">
-            <div class="card w-50 border rounded-0 rounded-start">
-              <div class="card-body">
-                <h5 class="card-title">Devenir membre</h5>
-                <p>Accès complet et contribution à l’écothèque</p>
-                <hr>
-                <p>Offres similaires au compte “abonné·e”</p>
-                <ul class="check-list">
-                  <li>Contribuez à l’évolution de la plateforme</li>
-                  <li>Participez au comité de validation de l’écothèque</li>
-                </ul>
-                <hr>
-                <p class="small text-muted">Les tarifs varient selon votre statut</p>
-                <p>Entre 20€ et 2000€</p>
-                <%= link_to "S’inscrire à une réunion d’information", "https://framaforms.org/reunion-dinformation-augures-lab-scenogrrrraphie-1668503578", class: "btn btn-dark" %>
-              </div>
-            </div>
-            <div class="card bg-light w-50 border rounded-0 rounded-end border-start-0">
-              <div class="card-body">
-                <h5 class="card-title">+ au-delà de l’écothèque</h5>
-                <p>Contribution au Lab Scénogrrrraphie</p>
-                <hr>
-                <ul class="check-list">
-                  <li>Participer aux groupes de recherche-action</li>
-                  <li>Accédez aux événements du réseau (rencontres inspirantes, visites de lieux, ...)</li>
-                  <li>Et bien d’autres choses à découvrir lors de la réunion d’information</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <%= render 'visitor' %>
+          <%= render 'subscriber' %>
+          <%= render 'lab-member' %>
         </div>
 
       </div>
@@ -434,7 +370,7 @@
     }
   ]
   %>
-  <section class="py-5">
+  <section class="py-5 overflow-hidden">
     <div class="container">
       <h2>L’Augures Lab Scénogrrrraphie en images</h2>
       <div class="details mt-4">

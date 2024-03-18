@@ -8,6 +8,34 @@
                       label: t('admin.filters.search_field')
                       %>
 
+    <%= render_filter f, 
+                      :select, 
+                      :published, 
+                      label: t('admin.filters.published'),
+                      collection: [
+                        { to_s: I18n.t('true'), id: 'true' },
+                        { to_s: I18n.t('false'), id: 'false' }
+                      ]
+                      %>
+
+    <%= render_filter f, 
+                      :select, 
+                      :premium, 
+                      label: t('admin.filters.premium'),
+                      collection: [
+                        { to_s: I18n.t('true'), id: 'true' },
+                        { to_s: I18n.t('false'), id: 'false' }
+                      ]
+                      %>
+
+    <%= render_filter f, 
+                      :select, 
+                      :region, 
+                      label:Region.model_name.human,
+                      multiple: true,
+                      collection: Region.ordered
+                      %>
+
   <% end %>
 
 <% end %>

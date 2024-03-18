@@ -78,6 +78,8 @@ class Actor < ApplicationRecord
   scope :autofilter_search, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
+  scope :autofilter_published, -> (status) { where(published: status) }
+  scope :autofilter_premium, -> (status) { where(premium: status) }
 
   def full_address
     @full_address ||= [address, address_additional, city, zipcode, country].compact_blank.join(', ')

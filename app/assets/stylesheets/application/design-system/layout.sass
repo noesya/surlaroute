@@ -2,7 +2,8 @@ html
     scroll-behavior: auto
 
 main
-    overflow-x: hidden
+    @include media-breakpoint-down(lg)
+        overflow: hidden
 
 .btn.rounded-pill
     padding: $badge-padding-y $badge-padding-x

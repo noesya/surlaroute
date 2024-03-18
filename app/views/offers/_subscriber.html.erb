@@ -1,0 +1,21 @@
+<% hide_cta ||= false %>
+
+<div class="col-lg-3 mt-3 mt-lg-0">
+    <div class="card border">
+      <div class="card-body">
+        <h5 class="card-title">S’abonner</h5>
+        <p>Accès complet à l’écothèque</p>
+        <hr>
+        <p>Offres similaires au compte “inscrit·e”</p>
+        <ul class="check-list">
+          <li>Accès complet à tous les annuaires</li>
+          <li>Commentaires de fiches</li>
+          <li>Bibliothèque de favoris</li>
+        </ul>
+        <hr>
+        <p class="small text-muted">Les tarifs varient selon votre statut</p>
+        <p>Entre 5€ et 1500€</p>
+        <%= link_to "Choisir cette offre", "#TODO", class: "btn btn-dark w-100" unless hide_cta %>
+      </div>
+    </div>
+  </div>
