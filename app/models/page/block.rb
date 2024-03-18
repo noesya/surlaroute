@@ -22,15 +22,15 @@
 class Page::Block < ApplicationRecord
   belongs_to :page
 
-  scope :ordered, -> { order(:position) }
-
-  before_create :set_initial_position
+  include Positionable
 
   enum kind: {
     text: 1,
     quote: 2,
     keypoints: 3,
-    gallery: 4
+    gallery: 4,
+    collapse: 5,
+    files: 6
   }, _prefix: :kind
 
   def data=(value)

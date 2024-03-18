@@ -24,32 +24,8 @@
             position: sticky
             top: 20px
     &__item
-        &__file
-            &:hover
-                .filename::before
-                    background: black
-                    color: white
-            .filename
-                &::before
-                    content: "D"
-                    font-family: "AuguresPicto"
-                    display: block
-                    float: left
-                    font-size: 35px
-                    line-height: 10px
-                    padding: 20px 20px 25px 20px
-                    margin-right: 20px
-                    border: 1px solid black
-                    border-radius: $border-radius
-                    transition: background 0.25s ease, color 0.25s ease
-                a
-                    padding-top: 5px
-                    color: black
-                    text-decoration: none
-                    display: block
-            .filesize
-                text-decoration: none
-                font-size: $small-font-size
+        &__file, &__files__file
+            @extend .is-file
         &__colors
             .swatches
                 margin-left: -32px
@@ -128,13 +104,6 @@
         h3
             color: $color-text !important
             font-size: $font-size-base
-    .structure__item__file,
-    .structure__item__key_figure
-        display: inline-block
-        width: 50%
-        + .structure__item__file,
-        + .structure__item__key_figure
-            float: right
     .structure__item__richtext
         h3
             margin-top: map-get($spacers, 4)
@@ -144,3 +113,17 @@
             display: block
         .details
             width: 100%
+    @include media-breakpoint-up(md)
+        .structure__item__file,
+        .structure__item__key_figure
+            display: inline-block
+            width: 50%
+            + .structure__item__file,
+            + .structure__item__key_figure
+                float: right
+        .structure__item__richtext
+            > p:first-of-type
+                margin-top: map-get($spacers, 2)
+
+.hero + .structure
+    margin-top: map-get($spacers, 5)

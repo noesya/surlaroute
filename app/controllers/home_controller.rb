@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
-    breadcrumb
     @toolbox_page = Page.find_by(internal_identifier: 'boite-a-outils')
+    @actors_count = Actor.published.count
+    @materials_count = Material.published.count
+    @projects_count = Project.published.count
+    @technics_count = Technic.published.count
+    breadcrumb
   end
 end

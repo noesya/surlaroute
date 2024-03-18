@@ -25,69 +25,14 @@ header#document-header
                 text-underline-offset: 2px
         li
             position: static
-        .nav-item-expanded
-            top: 0
-            padding-top: map-get($spacers, 6)
-            left: 0
-            width: 100%
-            height: 100vh
-            border-radius: 0
-            z-index: -1
-            border: none
-            overflow: hidden
-            &.show
-                margin: 0
-                top: 0
-                border: none
-                z-index: -2
-            .menu-typo
-                bottom: 0
-                position: absolute
-                pointer-events: none
-                right: 0
-                z-index: -1
-            &.ecosystem
-                background: $ecosystem-primary
-                .menu-typo
-                    transform: translate(16%, 36%)
-            &.material
-                background: $materials-primary
-                .menu-typo
-                    transform: translate(8%, 28%)
-            &.technic
-                background: $technic-primary
-                .menu-typo
-                    transform: translate(12%, 33%)
-            &.project
-                background: $projects-primary
-                .menu-typo
-                    transform: translate(12%, 47%)
-            &.toolbox
-                background: $toolbox-primary
-                .menu-typo
-                    transform: translate(9%, 40%)
-            &.lab
-                background: white
-                .menu-typo
-                    transform: translate(11%, 41%)
-                ul 
-                    li.arrow-right
-                        font-weight: 500
-            .row
-                @extend .container
-                > p:first-of-type
-                    @extend %hero
-                    padding-left: 0
-            dl
-                dt
-                    @extend .key-figure
-                    @include media-breakpoint-down(md)
-                        font-size: $key-figures-font-size
-            ul
-                li
-                    font-weight: bold
-                li + li
-                    margin-top: map-get($spacers, 3)
+        @include media-breakpoint-down(md)
+            li
+                border-bottom: 1px solid currentColor
+            a.nav-link
+                font-size: $h2-font-size-sm
+                font-weight: bold
+                padding-bottom: space(6)
+                padding-top: space(6)
     .btn-user
         @include icon(user)
         display: flex
@@ -102,12 +47,26 @@ header#document-header
         .btn-user,
         .btn-search
             font-size: 0
-    .nav-container
-        width: calc(100% + 16px)
-        > ul:last-of-type
-            padding-right: 0
+        .nav-container
+            width: calc(100% + 16px)
+            > ul:last-of-type
+                padding-right: 0
+        .dropdown-menu
+            margin-top: map-get($spacers, 2)
     @include media-breakpoint-down(md)
         .navbar-logo
             position: absolute
         .navbar-nav-content
             position: relative
+        .nav-secondary
+            .dropdown-menu
+                border: none
+                margin-top: map-get($spacers, 1)
+                .dropdown-item
+                    padding-left: 0
+                    padding-right: 0
+                &.show
+                    position: relative
+            .dropdown-toggle[aria-expanded="true"]
+                &::after
+                    transform: rotate(180deg)

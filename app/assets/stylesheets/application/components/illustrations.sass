@@ -1,10 +1,13 @@
 .placeholder-illustration
-    font-size: pxToRem(390)
+    font-size: pxToRem(190)
     font-family: $font-family-headings
     display: flex
     align-items: center
     justify-content: center
     pointer-events: none
+    z-index: 1
+    @include media-breakpoint-up(md)
+        font-size: pxToRem(390)
     &::before,
     &::after
         position: absolute
@@ -15,41 +18,60 @@
     &::after
         content: attr(data-second-letter)
         transform: translate(50%, 10%)
+        text-transform: lowercase
     .actors-show .hero &,
     .materials-show .hero &,
     .actors-show .hero &,
     .projects-show .hero &,
-    .technics-show .hero &
+    .technics-show .hero &,
+    .members-show .hero &
         &::before
             font-size: pxToRem(560)
-            transform: translate(-40%, 30%)
+            transform: translate(-40%, 20%)
         &::after
             font-size: pxToRem(460)
-            transform: translate(60%, 45%)
-    .actors-index &,
-    .actors &,
-    .actors-show &,
+            transform: translate(60%, 25%)
+        @include media-breakpoint-up(md)
+            &::before
+                transform: translate(-40%, 30%)
+            &::after
+                transform: translate(60%, 45%)
+    .members-index &
+        @include media-breakpoint-up(md)
+            &::before
+                transform: translate(-55%, 30%)
+            &::after
+                transform: translate(60%, 55%)
+    .actors-show .hero &
+        background-color: $ecosystem-primary
+        color: $ecosystem-secondary
+    .materials-show .hero &
+        background-color: $materials-primary
+        color: $materials-secondary
+    .projects-show .hero &
+        background-color: $projects-primary
+        color: $projects-secondary
+    .technics-show .hero &
+        background-color: $technic-primary
+        color: $technic-secondary
+    .members-show .hero &
+        background-color: white
+        color: $color-text
+
     .actors-list &
         background-color: $ecosystem-primary
         color: $ecosystem-secondary
-    .materials-index &,
-    .materials &,
-    .materials-show &,
     .materials-list &
         background-color: $materials-primary
         color: $materials-secondary
-    .projects-index &,
-    .projects &,
-    .projects-show &,
-    .projects-left &
+    .projects-list &
         background-color: $projects-primary
         color: $projects-secondary
-    .technics-index &,
-    .technics &,
-    .technics-show &,
     .technics-list &
         background-color: $technic-primary
         color: $technic-secondary
+    .members-list &
+        background-color: white
     @include media-breakpoint-up(md)
         section &
             .col-lg-4

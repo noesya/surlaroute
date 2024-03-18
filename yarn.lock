@@ -121,6 +121,11 @@ jquery-cropper@^1.0.1:
   resolved "https://registry.yarnpkg.com/jquery-cropper/-/jquery-cropper-1.0.1.tgz#6ba9faf1c2c86c0ac3c648d40554ba53673113cf"
   integrity sha512-KGlY8b0IJQi2Bxe3lqMKmd5Z2Ce4GrnDE5O8Iciza9xCzXISkL6EqX/jFHwnLL1H6Q4FGjoRguuv3lxezsbKJQ==
 
+jquery-warn-before-unload@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/jquery-warn-before-unload/-/jquery-warn-before-unload-1.0.5.tgz#2de338b29ea5e525b9de652f6feb58a3b84498d5"
+  integrity sha512-CDgdSORnNq5SVtAqnCPumYs/D30njXyh0juaM1ZfTuXc5fhLNjGdZP2TnXIO1ROc1IIQqDRd4EKyoauO0LbBeg==
+
 leaflet@^1.9.4:
   version "1.9.4"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.9.4.tgz#23fae724e282fa25745aff82ca4d394748db7d8d"

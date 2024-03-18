@@ -7,8 +7,13 @@
   <% else %>
     <% @about_types.each do |about_type| %>
       <%
-      title = about_type.constantize.model_name.human(count: 2)
-      partial = "#{about_type.downcase.pluralize}/list"
+      if about_type == 'Actor'
+        title = t('ecosystem')
+        partial = 'actors/list'
+      else
+        title = about_type.constantize.model_name.human(count: 2)
+        partial = 'list'
+      end
       objects = @favorites.for_about_type(about_type).collect(&:about)
       %>
       <div class="mt-5">

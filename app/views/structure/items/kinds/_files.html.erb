@@ -1,0 +1,19 @@
+<div class="row">
+  <% files = item.files_for(about) %>
+  <% files.each do |file| %>
+    <% next unless file.file.attached? %>
+    <div class="col-lg-6">
+      <div class="structure__item__files__file">
+        <%= link_to file.file,
+                    class: 'filename',
+                    target: :_blank do %>
+          <%- if file.text.present? -%>
+          <strong><%= file.text %></strong><br>
+          <%- end -%>
+          <%= file.file.filename %><br>
+          <small>(<%= number_to_human_size file.file.blob.byte_size %>)</small>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -9,26 +9,26 @@
           <p class="mt-3 mt-md-5">Des matériaux dont la qualité a été vérifiée par la pratique et par la recherche, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie, afin de proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés.</p>
         </hgroup>
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= Material.published.count %></dt>
+          <dt class="key-figure"><%= @all_materials.count %></dt>
           <dd>Matériaux</dd>
         </dl>
         <%= link_to 'Voir le glossaire', options_materials_path, class: 'small arrow-right' %>
       </div>
     </div>
-  </div>  
+  </div>
 </header>
 
 <div class="document-content bg-white py-5">
   <div class="container directory">
     <div class="row">
-      <%= render 'application/toc-cta' %>
+      <%= render 'application/offcanvas-search-cta' %>
     </div>
-    <div class="row align-items-start position-relative mt-4">
-      <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
+    <div class="row align-items-start position-relative mt-lg-4">
+      <div class="offcanvas-search col-lg-3 mt-3 mt-lg-0 pt-3 pt-lg-0" tabindex="-1" id="offcanvasScrolling">
         <%= render 'faceted_search/facets', facets: @facets %>
       </div>
-      <div class="directory-container col-lg-9">
-        <%= render 'materials/list', objects: @materials %>
+      <div class="directory-container col-lg-9 materials-list mt-4 mt-lg-0">
+        <%= render 'list', objects: @materials, col_number: 4 %>
         <%= paginate @materials, theme: "bootstrap-5" %>
       </div>
     </div>
@@ -43,7 +43,7 @@
         </div>
         <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
           <% if current_user %>
-            <a href="#" class="btn btn-dark"><%= t('materials.call_to_action.button') %></a>
+            <a href="#TODO" class="btn btn-dark"><%= t('materials.call_to_action.button') %></a>
           <% else %>
             <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#redirectionModal"><%= t('actors.call_to_action.button') %></button>
           <% end %>

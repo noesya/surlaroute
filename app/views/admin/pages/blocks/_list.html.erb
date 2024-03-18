@@ -1,4 +1,4 @@
-<div data-sortable data-sort-url="<%= reorder_admin_page_blocks_path(page_id: @page.slug) %>">
+<div data-sortable data-sort-url="<%= reorder_admin_page_blocks_path(page_id: @page.id) %>">
   <% blocks.ordered.each do |block| %>
     <div class="row mb-5" data-id="<%= block.id %>">
       <div class="col-lg-4">
@@ -11,19 +11,19 @@
         <div class="small mb-2">
           <span class="handle py-2 me-3">
             <i class="<%= Icon::SORT %>"></i>
-            Déplacer
+            <%= t('sort') %>
           </span>
-          <%= link_to edit_admin_page_block_path(page_id: @page.slug, id: block.id),
+          <%= link_to edit_admin_page_block_path(page_id: @page.id, id: block.id),
                       class: 'py-2 me-3' do %>
             <i class="<%= Icon::EDIT %>"></i>
-            Modifier
+            <%= t('edit') %>
           <% end %>
-          <%= link_to admin_page_block_path(page_id: @page.slug, id: block.id), 
-                      method: :delete, 
+          <%= link_to admin_page_block_path(page_id: @page.id, id: block.id),
+                      method: :delete,
                       class: 'text-danger py-2 me-3',
                       data: { confirm: t('please_confirm') } do %>
             <i class="<%= Icon::DELETE %>"></i>
-            Supprimer
+            <%= t('delete') %>
           <% end %>
         </div>
       </div>

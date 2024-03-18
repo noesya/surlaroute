@@ -1,7 +1,12 @@
 <article class="position-relative">
+  <div class="btn-favorites position-absolute pt-1 ps-1">
+    <%= render 'favorites/button', about: actor %>
+  </div>
   <%= render 'illustration', source: actor, width: 400 %>
-  <h2><%= link_to actor, actor, class: 'stretched-link' %></h2>
-  <div class="tags d-flex align-items-start flex-wrap">
-    <%= render 'structure/items/in_list', about: actor %>
+  <div class="actor-content">
+    <h2><%= link_to actor, actor, class: 'stretched-link' %></h2>
+    <div class="tags d-flex align-items-start flex-wrap">
+      <%= render 'structure/items/in_list', about: actor %>
+    </div>
   </div>
 </article>

@@ -1,0 +1,27 @@
+<div class="nested-fields">
+  <div class="card">
+    <div class="fields card-body">
+      <div class="row">
+        <div class="col-lg-1 align-self-center">
+          <i class="<%= Icon::SORT %> handle"></i>
+        </div>
+        <div class="col-lg-4">
+          <%= f.input :text,
+                      label: Structure::Value::File.human_attribute_name("title"),
+                      label_html: { class: "small" } %>
+        </div>
+        <div class="col-lg-5">
+          <%= f.input :file,
+                      as: :single_deletable_file,
+                      label: Structure::Value::File.human_attribute_name("file"),
+                      label_html: { class: "small" } %>
+        </div>
+        <div class="col-lg-2">
+          <%= link_to_remove_association t('delete'),
+                      f,
+                      class: 'text-danger float-end' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

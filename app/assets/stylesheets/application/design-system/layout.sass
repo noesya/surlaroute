@@ -1,16 +1,8 @@
-body
-    overflow-x: hidden
+html 
+    scroll-behavior: auto
 
-.technics-show,
-.actors-show,
-.projects-show,
-.materials-show
-    .actors-list,
-    .project-list,
-    .materials-list,
-    .technics-list
-        > div
-            @extend .col-lg-3
+main
+    overflow-x: hidden
 
 .btn.rounded-pill
     padding: $badge-padding-y $badge-padding-x
@@ -25,6 +17,8 @@ body
 article
     .tags
         gap: pxToRem(12)
+        position: relative
+        z-index: 2
 
 .directory 
     button

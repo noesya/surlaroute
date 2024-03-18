@@ -8,30 +8,30 @@
           <p class="mt-3 mt-md-5">Des écosystèmes territoriaux favorisant l’économie circulaire, avec des acteur·rices du réemploi, de la mutualisation, du transport, de la conception, etc. Quel que soit le territoire, il existe des collaborations possibles à tous les niveaux de la chaîne de la scénographie pour contribuer ensemble à réduire les impacts environnementaux.</p>
         </hgroup>
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= Actor.published.count %></dt>
+          <dt class="key-figure"><%= @all_actors.count %></dt>
           <dd>Acteur·ices</dd>
         </dl>
         <%= link_to 'Voir le glossaire', options_actors_path, class: 'small arrow-right' %>
       </div>
     </div>
-  </div>  
+  </div>
 </header>
 
 <div class="document-content bg-white py-5" id="results">
-  <div class="container directory">
-    <div class="row">
-      <%= render 'application/toc-cta' %>
+  <div class="container directory actors-list">
+    <div class="directory-filters row align-items-baseline">
+      <%= render 'application/offcanvas-search-cta' %>
       <div class="col d-flex gap-2 justify-content-md-end navigation-links">
         <%= link_to 'Vue catalogue', actors_path(request.query_parameters.to_hash.merge({anchor: 'results'})), class: 'navigation-links__list' %>
         <%= link_to 'Vue carte', map_actors_path(request.query_parameters.to_hash.merge({anchor: 'results'})), class: 'navigation-links__map' %>
       </div>
     </div>
-    <div class="row align-items-start position-relative mt-4">
-      <div class="toc col-lg-3" tabindex="-1" id="offcanvasScrolling">
+    <div class="row align-items-start position-relative mt-lg-4">
+      <div class="offcanvas-search col-lg-3 mt-3 mt-lg-0 pt-3 pt-lg-0" tabindex="-1" id="offcanvasScrolling">
         <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
       </div>
-      <div class="directory-container col-lg-9">
-        <%= render "actors/#{@mode}", objects: @actors %>
+      <div class="directory-container col-lg-9 actors-list mt-4 mt-lg-0">
+        <%= render "actors/#{@mode}", objects: @actors, col_number: 4 %>
         <%= paginate @actors, theme: "bootstrap-5" if @mode == "list" %>
       </div>
     </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="col-lg-3 offset-lg-2 mt-3 mt-md-0">
           <% if current_user %>
-            <a href="#" class="btn btn-dark"><%= t('actors.call_to_action.button') %></a>
+            <a href="#TODO" class="btn btn-dark"><%= t('actors.call_to_action.button') %></a>
           <% else %>
             <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#redirectionModal"><%= t('actors.call_to_action.button') %></button>
           <% end %>

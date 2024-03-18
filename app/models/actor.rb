@@ -44,6 +44,8 @@ class Actor < ApplicationRecord
   include Structured
   include WithGeolocation
 
+  attr_accessor :sort_order
+
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :technics
@@ -52,9 +54,24 @@ class Actor < ApplicationRecord
 
   validates_presence_of :name
 
+  scope :sort_order, -> { order(:name) }
   scope :ordered, -> { order(:name) }
   scope :premium, -> { where(premium: true) }
   scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
+  scope :order_by, -> (order_param) {
+    case order_param
+    when "name:asc"
+      order(name: :asc)
+    when "name:desc"
+      order(name: :desc)
+    when "date:asc"
+      order(created_at: :asc)
+    when "date:desc"
+      order(created_at: :desc)
+    else
+      all
+    end
+  }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
@@ -67,11 +84,11 @@ class Actor < ApplicationRecord
 
   def has_any_contact_informations?
     # match with_contact_informations scope
-    contact_name.present? || 
-      contact_email.present? || 
-      contact_phone.present? || 
+    contact_name.present? ||
+      contact_email.present? ||
+      contact_phone.present? ||
       contact_website.present? ||
-      contact_inventory_url.present? 
+      contact_inventory_url.present?
   end
 
   def to_s

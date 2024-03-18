@@ -10,7 +10,9 @@
             &::before
                 font-size: 12px
                 margin-right: calc(#{map-get($spacers, 1)} / 2)
-
+    .credit
+        &::before
+            content: '© '
 .actors-index,
 .materials-index,
 .projects-index,
@@ -18,7 +20,8 @@
 .regions-index,
 .members-index,
 .toolbox-index,
-.toolbox-child
+.toolbox-child,
+.laboratory-index,
     .hero
         background:
             repeat: no-repeat
@@ -53,5 +56,10 @@
             pointer-events: none
             width: auto
             height: 30%
+            @include media-breakpoint-up(md)
+                
+            height: 50%
             @include media-breakpoint-up(lg)
+                height: 100%
+            @include media-breakpoint-up(xl)
                 height: 130%

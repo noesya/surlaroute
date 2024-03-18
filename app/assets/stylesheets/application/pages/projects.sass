@@ -1,103 +1,152 @@
+.brezet-wheel
+    @include media-breakpoint-up(lg)
+        position: sticky
+        top: 20px
 
 .brezet-wheel-container
+    .project-materials
+        .col-lg-4
+            @extend .col-lg-6
     figure
         figcaption
             margin-bottom: -(map-get($spacers,6))
+            position: absolute
+            bottom: 0
+            left: 0
     .brezet-wheel-image
-        max-width: 100%
+        max-width: calc(100% - #{$grid-gutter-width})
     .brezet-steps
-        > div a
+        max-width: calc(100% - #{$grid-gutter-width})
+    .brezet-steps,
+    .brezet-mobile-navigation
+        > div
             &.is-disabled
-                background: $gray-600
-                border-color: $gray-600
-                pointer-events: none
+                color: $gray-600
+                a
+                    background: $gray-600
+                    border-color: $gray-600
+                    pointer-events: none
             &.active
-                background: $color-bg
-                color: $color-text
+                a
+                    background: $color-bg
+                    color: $color-text
+    .brezet-steps
+        position: absolute
+        top: 0
+        width: 100%
+        left: 0
+        height: 100%
+        > div 
+            position: absolute
+            width: max-content
+            gap: pxToRem(27)
+            display: flex
+            a
+                border-width: 2px
+                height: 36px
+                width: 36px
+            span
+                transition: opacity 0.3 ease
+                @include media-breakpoint-up(xxl)
+                    font-size: pxToRem(22)
+            &.step-0
+                left: 47%
+                top: -3%
+                gap: map-get($spacers, 2)
+                span
+                    width: 50%
+                @include media-breakpoint-up(lg)
+                    flex-direction: column-reverse
+                    top: -15%
+            &.step-1
+                left: 83%
+                top: 13%
+                span
+                    width: 35%
+                @include media-breakpoint-up(lg)
+                    top: 5%
+                    align-items: flex-end
+            &.step-2
+                left: 92%
+                top: 27%
+                span
+                    width: 50%
+            &.step-3
+                align-items: center
+                left: 94%
+                top: 57%
+                span
+                    width: 50%
+            &.step-4
+                flex-direction: column
+                left: 68%
+                top: 91%
+                gap: map-get($spacers, 2)
+                span
+                    width: 55%
+            &.step-5
+                top: 91%
+                right: 69%
+                gap: map-get($spacers, 2)
+                flex-direction: column
+                text-align: right
+                align-items: flex-end
+                span 
+                    width: 45%
+            &.step-6
+                right: 95%
+                top: 55%
+                flex-direction: row-reverse
+                text-align: right
+                justify-content: right
+                align-items: flex-end
+                span
+                    width: 50%
+            &.step-7
+                right: 88%
+                top: 15%
+                flex-direction: row-reverse
+                text-align: right
+                justify-content: right
+                align-items: flex-end
+                span
+                    width: 50%
     @include media-breakpoint-down(xl)
         .brezet-steps
-            margin-top: map-get($spacers, 4)
-            p
-                display: none
             > div
-                position: relative
-                margin-top: map-get($spacers, 2)
-                gap: map-get($spacers, 1)
-    @include media-breakpoint-up(xl)
-        .brezet-wheel
-            position: sticky
-            top: 20px
-            figure
-                max-width: 740px
-                max-height: 740px
-                height: 60vh
-                figcaption
-                    white-space: nowrap
-        .brezet-steps,
-        .brezet-wheel-image
-            left: 57%
-            position: absolute
-            min-width: 500px
-            top: 0
-            height: 100%    
-            aspect-ratio: 20 / 23
-        .brezet-steps
-            > div 
-                position: absolute
-                width: max-content
-                gap: pxToRem(40)
                 a
-                    border-width: 2px
-                    height: 36px
-                    width: 36px
+                    height: pxToRem(28)
+                    width: pxToRem(28)
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    padding: 0
+    @include media-breakpoint-down(lg)
+        #brezet-navigation
+            opacity: 1 !important
+            .brezet-steps
                 span
-                    transition: opacity 0.3 ease
-                    @include media-breakpoint-up(xxl)
-                        font-size: pxToRem(22)
-                &.step-0
-                    left: 46%
-                    top: -14%
-                &.step-1
-                    left: 79%
-                    top: 1%
-                    span
-                        width: 35%
-                &.step-2
-                    left: 91%
-                    top: 22%
-                    span
-                        width: 50%
-                &.step-3
-                    left: 95%
-                    top: 53%
-                    span
-                        width: 50%
-                &.step-4
-                    left: 68%
-                    top: 91%
-                    span
-                        width: 55%
-                &.step-5
-                    top: 92%
-                    right: 65%
-                    gap: map-get($spacers, 2)
-                    span 
-                        width: 45%
-                &.step-6
-                    right: 95%
-                    top: 55%
-                    span
-                        width: 50%
-                &.step-7
-                    right: 86%
-                    top: 15%
-                    span
-                        width: 50%
-    @include media-breakpoint-up(xxl)
-        .brezet-steps,
-        .brezet-wheel-image
-            left: 57%
-            position: absolute
-            min-width: 550px
-        .step-0
-            top: -12%
+                    display: none
+        figure
+            .brezet-wheel-image
+                margin-left: calc(#{$grid-gutter-width / 2})
+            .brezet-steps
+                left: calc(#{$grid-gutter-width / 2})
+            figcaption
+                bottom: map-get($spacers, 5)
+        .brezet-steps
+            > div
+                a
+                    height: pxToRem(36)
+                    width: pxToRem(36)
+    @include media-breakpoint-down(md)
+        .brezet-steps
+            > div
+                a
+                    height: pxToRem(26)
+                    width: pxToRem(26)
+                    padding: 0
+
+.brezet-details
+    h3
+        scroll-margin-top: map-get($spacers, 3)

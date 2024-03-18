@@ -27,3 +27,15 @@
             border-width: 0
             font-weight: normal
             padding: 0
+@include media-breakpoint-down(lg)
+    .directory-filters
+        flex-direction: column-reverse
+        gap: map-get($spacers, 3)
+
+// map
+.leaflet
+    &-container
+        a
+            color: $color-text
+    &-popup
+        @extend .shadow-sm

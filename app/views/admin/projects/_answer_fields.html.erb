@@ -1,0 +1,24 @@
+<%-
+answer = f.object.answers.detect { |answer| answer.criterion_id == criterion.id }
+answer ||= f.object.answers.new(criterion_id: criterion.id)
+-%>
+<div class="mt-5 pb-4 js-answer-fields">
+  <%= f.simple_fields_for :answers, answer do |answer_f| %>
+    <%= answer_f.hidden_field :criterion_id %>
+    <%= answer_f.input :value, label: criterion.to_s %>
+
+    <% if criterion.if_you_check.present? %>
+      <div class="alert alert-light">
+        <i class="bi bi-question-circle float-end"></i>
+        <b>Si vous cochez cette case, cela veut dire...</b>
+        <%= simple_format criterion.if_you_check %>
+      </div>
+    <% end %>
+
+    <div class="js-checked-answer-fields">
+      <%= answer_f.input  :text, 
+                          label: 'Vous devez alors expliquer ce point (ce qui sera ensuite visible en ligne)', 
+                          hint: criterion.hint %>
+    </div>
+  <% end %>
+</div>

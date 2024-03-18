@@ -11,7 +11,7 @@
         value ||= about.structure_values.new(item_id: item.id)
         %>
         <div class="row mb-4">
-          <div class="offset-lg-4 col-lg-8">
+          <div class="offset-lg-3 col-lg-9">
             <label class="form-label" for="<%= dom_id(item) %>"><%= item %></label>
             <%= f.simple_fields_for :structure_values, value do |value_f| %>
               <%= value_f.hidden_field :item_id %>

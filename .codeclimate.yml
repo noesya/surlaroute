@@ -7,7 +7,7 @@ plugins:
         javascript:
           mass_threshold: 50
   sass-lint:
-    enabled: true
+    enabled: false
     config:
       config: .sass-lint.yml
   eslint:

@@ -3,7 +3,12 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-3">
+      <%= f.input :image, as: :single_deletable_file %>
+      <%= f.input :image_alt %>
+      <%= f.input :image_credit %>
+    </div>
+    <div class="col-lg-9">
       <%= f.input :name %>
       <%= f.input :slug,
                   input_html: region.persisted? ? {} : {
@@ -11,9 +16,6 @@
                     data: { source: '#region_name' }
                   } %>
       <%= f.input :description %>
-    </div>
-    <div class="col-lg-4">
-      <%= f.input :image %>
     </div>
   </div>
 

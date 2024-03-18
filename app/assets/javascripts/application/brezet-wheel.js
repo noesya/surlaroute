@@ -3,71 +3,63 @@ window.ecosystem = window.ecosystem || {};
 window.ecosystem.brezetWheel = {
     init: function () {
         'use strict';
-        this.observedEl = document.querySelector('.brezet-wheel-container');
+        // brezet-wheel-container comprend à la fois la figure avec l'image et les points
+        // et le texte qui s'affiche en-dessous
+        this.brezetContainer = document.querySelector('.brezet-wheel-container');
         
-        if (!this.observedEl) {
+        if (!this.brezetContainer) {
             return;
         }
         
-        this.image = this.observedEl.querySelector('figure');
-        this.texts = this.observedEl.querySelectorAll('.brezet-steps span');
+        // la figure contient l'image + les points
+        this.figure = this.brezetContainer.querySelector('figure');
+        // les intilutés qui ne doivent pas s'afficher au scroll
+        this.texts = this.brezetContainer.querySelectorAll('.brezet-steps span');
+        // le texte qui remonte à côté du sticky
+        this.content = this.brezetContainer.querySelector('.brezet-details');
         this.breakpoint = 992;
 
         if(window.innerWidth >= this.breakpoint) {
-            let options = {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.5
-            };
-
-            let observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        console.log('animation');
-                        this.scrollAnimation();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, options);
-
-            observer.observe(this.image);
-            
+            this.scrollAnimation();
         }
     },
     scrollAnimation: function () {
         this.scrollListener = () => {
-            this.scrollPosition = window.scrollY;
-            this.triggerPosition = this.observedEl.getBoundingClientRect().top + window.scrollY + 100;
-            this.maxImageWidth = 0;
+            // on récupère la hauteur de container Top dans la page par rapport au scroll : 
+            // quand brezetContainer n'est pas visible : valeur positive
+            // quand c'est visible : 0 ou valeur positive
+            var containerTop = this.brezetContainer.getBoundingClientRect().top;
 
-            window.addEventListener("scroll", () => {
-                if (this.scrollPosition > this.triggerPosition) {
-                    this.percentage = Math.min(1, (this.scrollPosition - this.triggerPosition) / (window.innerHeight));
-                    this.imageWidth = this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth);
-                    this.opacityTransition = (this.maxImageWidth + (1 - this.percentage) * (100 - this.maxImageWidth)) * 0.15;
-    
-                    this.image.style.width = this.imageWidth + "%";
-                    
-                    this.texts.forEach((text) => {
-                        text.style.opacity = this.opacityTransition + "%";
-                    });
-                } else {
-                    this.image.style.width = "100%";
-                    
-                    this.texts.forEach((text) => {
-                        text.style.opacity = "1";
-                    });
-                }
+            // on récupère la distance entre le haut brezet-details et le haut de son parent (brezet-wheel-container)
+            // on divise par 2 pour ajuster la valeur désirée
+            var distance = this.content.offsetTop / 2;
+
+            // on détermine un ratio compris entre 0 et 1 -> il va de 1 à 0 donc il faut l'inverser avce 1 - ...
+            // même si notre ratio est écouté pdt tout le scroll, il ne prendra ses bonnes valeurs qu'une fois entre 1 et 0
+            // on divise containerTop par distance pour avoir le temps de scroll désiré pour l'animation
+            // on ajoute un - car on est à l'inverse
+            var ratio =1 - Math.max(0, Math.min(1,  -containerTop / distance));
+
+            // pour que notre élément reste centré, on lui ajoute la valeur des gouttières bootstrap
+            // on multiplie le tout par le ratio pour obtenir une valeur décroissante entre 50% et 0%
+            this.figure.style.transform = `translateX(calc( (50% + var(--bs-gutter-x)) * ${ratio}))`;
+
+            // pour chaque texte, on utilise le ratio pour faire diminuer l'opacité des textes
+            // pas besoin de plus de valeur car on va de 1 à 0
+            this.texts.forEach((text) => {
+                text.style.opacity = ratio;
             });
         };
 
+        // on écoute le scroll
         window.addEventListener("scroll", this.scrollListener);
-    },
-    removeScrollListener: function () {
-        if (this.scrollListener) {
-            window.removeEventListener("scroll", this.scrollListener);
-            this.scrollListener = null;
-        }
+
+        // pour éviter le saut de la figure au rechargement :
+        // 1) de base figure est en opacity 0
+        // 2) on vient exécuter le javascript au chargement de la page
+        // 3) on passe la figure en opacity 1
+        this.scrollListener();
+        this.figure.style.opacity = 1;
     }
 };
 

@@ -3,7 +3,9 @@ class ActorsController < ApplicationController
 
   def index
     @mode = params[:mode] || 'list'
-    @facets = Actor::Facets.new params[:facets]
+    base_scope = @region.present? ? @region.actors : Actor.all
+    @all_actors = base_scope.published
+    @facets = Actor::Facets.new(params[:facets], model: @all_actors)
     @actors = @facets.results.ordered
     @actors = @actors.page(params[:page]).per(6) if @mode == "list"
 
@@ -12,7 +14,11 @@ class ActorsController < ApplicationController
 
   def show
     @actor = Actor.find_by!(slug: params[:id])
-    @new_comment = User::Comment.new(about: @actor) if current_user
+    @materials = @actor.materials.published.ordered
+    @projects = @actor.projects.published.ordered
+    @technics = @actor.technics.published.ordered
+    @new_comment = User::Comment.new(about: @actor) if can?(:create, User::Comment)
+
     breadcrumb
     add_breadcrumb @actor
   end

@@ -19,9 +19,9 @@ fr:
     my_account: Mon compte
     subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
     title: Mon compte
-    cta: 
+    cta:
       title: Rejoignez la communauté écothèque !
-      text: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu. 
+      text: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu.
       create: Créer un compte gratuit
       offers: Découvrir les offres
   activemodel:
@@ -42,6 +42,9 @@ fr:
         contact_website: Site web
         country: Pays
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         materials: Matériaux fabriqués
         name: Nom
         premium: Fiche premium
@@ -51,9 +54,15 @@ fr:
         service_access_terms: Conditions d'accès au service
         slug: Identifiant
         zipcode: Code postal
+      definition:
+        text: Texte
+        title: Titre
       material:
         actors: Fabriqué par
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         name: Nom
         projects: Projets qui l'utilisent
         published: Fiche publiée
@@ -73,38 +82,29 @@ fr:
       project:
         actors: Acteurices
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         materials: Matériaux employés
         name: Nom
         published: Fiche publiée
         published_by: Fiche publiée par
         regions: Régions
         slug: Identifiant
-        step0_sustainable_program: Programmation engagée
-        step0_low_tech: Low tech
-        step0_ecodesign_time: Temps adapté à l’écoconception
-        step1_reusable_materials: Matériaux issus du réemploi ou de la réutilisation
-        step1_recycled_materials: Matériaux recyclés
-        step1_local_materials: Matériaux fabriqués localement
-        step2_dismountable: Démontable
-        step2_components_reduced_amount: Réduction du nombre de composants
-        step2_renewable_energy: Energie renouvelable
-        step3_matter_reduced_amount: Réduction de la quantité de matière
-        step4_artists_travel_optimization: Déplacement des artistes optimisé
-        step4_transport_sharing: Mutualisation des transports
-        step4_separate_packaging: Emballage séparable et triable
-        step5_energy_efficient: Econome en énergie
-        step5_water_efficient: Econome en eau
-        step5_low_power_consumption: Projet à très faible consommation énergétique
-        step5_zero_waste: Projet ne produisant pas de déchet
-        step5_public_awareness: Sensibilisation des publics
-        step5_public_area_sorting: Tri dans les espaces publics
-        step6_extended_lifetime: Durée de vie du projet allongée
-        step7_disassembly_five_stream_sorting: Désassemblé et trié en 5 flux
-        step7_composted_materials: Matériaux compostés
-        step7_closed_loop_recycling: Recyclage en boucle fermée
         technics: Techniques
+      project/answer:
+        text: Explication
+        value: Conforme ?
+      project/criterion:
+        hint: Vous devez alors expliquer ce point (ce qui sera ensuite visible en front)
+        if_you_check: Si vous cochez cette case, cela veut dire...
+        name: Nom
+        step: Étape
       region:
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         name: Nom
         slug: Identifiant
       structure/item:
@@ -128,17 +128,24 @@ fr:
         file: Fichier
         image: Image
         text: Texte
+        title: Titre
       technic:
         actors: Contacts
         description: Description
+        image: Image
+        image_alt: Texte alternatif
+        image_credit: Crédit
         materials: Matériaux utilisés
         name: Nom
         published: Fiche publiée
         published_by: Fiche publiée par
+        regions: Provenance
         slug: Identifiant
       user:
+        description: Présentation
         email: Email
         first_name: Prénom
+        image: Photo de profil
         language: Langue préférée
         last_name: Nom
         mobile_phone: Téléphone portable
@@ -149,16 +156,25 @@ fr:
           subscriber: Abonné·e
           superadmin: Superadmin
           visitor: Visiteur
+        website: Site internet
     errors:
       models:
+        definition:
+          attributes:
+            title:
+              taken: n'est pas disponible (il existe déjà une autre définition avec ce titre)
+              taken_by_alias: n'est pas disponible (il existe déjà un alias avec ce titre)
         user:
           attributes:
             password:
               password_strength: ne répond pas aux critères de sécurité
     models:
       actor:
-        one: Écosystème
-        other: Écosystème
+        one: Acteur·ice
+        other: Acteur·ices
+      definition:
+        one: Définition
+        other: Définitions
       material:
         one: Matériau
         other: Matériaux
@@ -182,23 +198,14 @@ fr:
         other: Utilisateur·rice·s
   actors:
     information: Informations pratiques
-    call_to_action: 
-      title: Vous avez une bonne adresse à partager ?
-      text: "L’écothèque référence des acteur·rices de l’économie circulaire: métiers de la conception, du réemploi, de la fabrication, de la mutualisation, du transport… L’objectif : identifier et faire émerger des écosystèmes territoriaux, pour favoriser les collaborations à tous les niveaux de la chaîne de la scénographie et réduire les impacts environnementaux."
+    call_to_action:
       button: Référencer un·e acteur·rice
-  materials:
-    call_to_action: 
-      title: Vous souhaitez recommander un matériau ?
-      text: "L’écothèque référence des matériaux dont la qualité a été vérifiée par la pratique, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie. L’objectif : proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés, un outil à destination de tous les métiers de la chaîne de la scénographie."
-      button: Référencer un matériau
-  technics:
-    call_to_action: 
-      title: Vous souhaitez recommander une technique ?
-      text: "L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech."
-      button: Référencer une technique
+      text: "L’écothèque référence des acteur·rices de l’économie circulaire: métiers de la conception, du réemploi, de la fabrication, de la mutualisation, du transport… L’objectif : identifier et faire émerger des écosystèmes territoriaux, pour favoriser les collaborations à tous les niveaux de la chaîne de la scénographie et réduire les impacts environnementaux."
+      title: Vous avez une bonne adresse à partager ?
   admin:
     dashboard: Tableau de bord
-    file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
+    file_hint_with_formats: "Fichiers %{formats} uniquement."
+    file_hint_with_formats_and_filesize: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
       buttons:
         close: Fermer
@@ -213,43 +220,15 @@ fr:
       brezet_wheel:
         enabled: Actif ?
         explanation_text: Texte d'explication
-      hints: 
-        step0_sustainable_program:
-        step0_low_tech:
-        step0_ecodesign_time:
-        step1_local_materials:
-        step1_recycled_materials: 
-        step1_reusable_materials:
-        step2_components_reduced_amount: 
-        step2_dismountable:
-        step2_renewable_energy:
-        step3_matter_reduced_amount_html:
-          Comment avez-vous réduit le volume et/ou le poids des matières utilisées ? <br>
-          Comment avez-vous fait des économies de matière des matières utilisées ? <br>
-          <br>
-          Si connu, indiquez le volume en m3 ou en L / le poids en Kg économisés <br>
-          Arrondissez au chiffre le plus proche.
-        step4_artists_travel_optimization:
-        step4_separate_packaging:
-        step4_transport_sharing:
-        step5_energy_efficient:
-        step5_low_power_consumption:
-        step5_public_area_sorting:
-        step5_public_awareness:
-        step5_water_efficient:
-        step5_zero_waste:
-        step6_extended_lifetime:
-        step7_closed_loop_recycling:
-        step7_composted_materials:
-        step7_disassembly_five_stream_sorting:
     structure:
+      add_file: Ajouter un fichier
       add_image: Ajouter une image
       add_option: Ajouter une option
-      title: Structure
-      option: Option
-      options: Options
       explanation: Texte d'explication
       not_set: Non renseigné
+      option: Option
+      options: Options
+      title: Structure
     successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
     successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
     successfully_duplicated_html: "<i>%{model}</i> a bien été dupliqué(e)."
@@ -258,13 +237,13 @@ fr:
     title: Administration
   comments:
     answer: Répondre à ce commentaire
-    date: Rédigé le %{date}
-    text: Contenu du commentaire
-    title: Commentaires
-    from: Réponse de
     answers:
       one: réponse
       other: réponses
+    date: Rédigé le %{date}
+    from: Réponse de
+    text: Contenu du commentaire
+    title: Commentaires
   create: Créer
   default_images_hint: "5 Mo max, %{formats}"
   delete: Supprimer
@@ -275,15 +254,15 @@ fr:
       two_factor_authentication_code:
         subject: "Code d'authentification à deux facteurs"
         text_html: "Votre code d'authentification est :<br><br><b>%{code}</b><br><br>Il expirera dans %{duration}."
-    sessions:
-      signed_in: ""
     login: Je me connecte
     logout: Déconnexion
     not_yet_registered:
-      title: Pas encore inscrit ?
       text: Inscrivez-vous si vous n'avez pas encore de compte.
+      title: Pas encore inscrit ?
     profile: Mon profil
     register: Je crée mon compte
+    sessions:
+      signed_in: ""
     shared:
       links:
         sign_out: Se déconnecter
@@ -308,6 +287,8 @@ fr:
     page:
       block:
         kind:
+          collapse: Accordéon
+          files: Fichiers
           gallery: Galerie d'images
           keypoints: Points-clés
           quote: Citation
@@ -316,7 +297,8 @@ fr:
       item:
         kind:
           colors: Choix de couleurs
-          file: Fichier
+          file: Fichier unique
+          files: Fichiers multiples
           h2: Titre
           h3: Sous-titre
           images: Galerie d'images
@@ -333,9 +315,9 @@ fr:
           page: Page (zone par défaut)
   false: Non
   folder:
+    close: Fermer le dossier
     empty: Le dossier est vide
     open: Ouvrir le dossier
-    close: Fermer le dossier
   footer:
     implementation:
       design: Design graphique
@@ -346,6 +328,9 @@ fr:
       sponsored: Soutenu par
     members: Les membres
     rejoin: Nous rejoindre
+  glossary:
+    title: Glossaire
+  home: Accueil
   login:
     already_registered: Déjà inscrit·e ?
     not_registered_yet: Pas encore inscrit·e ?
@@ -357,49 +342,57 @@ fr:
     subtitle: Vous devez être authentifié pour continuer
   mailers:
     yours: Cordialement.
+  materials:
+    call_to_action:
+      button: Référencer un matériau
+      text: "L’écothèque référence des matériaux dont la qualité a été vérifiée par la pratique, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie. L’objectif : proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés, un outil à destination de tous les métiers de la chaîne de la scénographie."
+      title: Vous souhaitez recommander un matériau ?
   menu:
     my_account: Mon compte
   please_confirm: Merci de confirmer
   projects:
-    call_to_action: 
-      title: Vous avez participé à un projet écoresponsable et vous souhaitez le partager ?
-      text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
+    call_to_action:
       button: Référencer votre projet
+      text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
+      title: Vous avez participé à un projet écoresponsable et vous souhaitez le partager ?
     brezet_wheel:
-      step0: "0. Concevoir ensemble"
-      step1: "1. Sélection des matériaux ayant le moins d’impact"
-      step2: "2. Réduction de la quantité de matière"
-      step3: "3. Optimisation des techniques de production"
-      step4: "4. Optimisation de la logistique"
-      step5: "5. Réduction de l’impact environnemental de la phase d’utilisation"
-      step6: "6. Optimisation de la durée de vie du projet"
-      step7: "7. Optimisation de la fin de vie du projet"
+      step0: "Concevoir ensemble"
+      step1: "Sélection des matériaux ayant le moins d’impact"
+      step2: "Réduction de la quantité de matière"
+      step3: "Optimisation des techniques de production"
+      step4: "Optimisation de la logistique"
+      step5: "Réduction de l’impact environnemental de la phase d’utilisation"
+      step6: "Optimisation de la durée de vie du projet"
+      step7: "Optimisation de la fin de vie du projet"
       title: Éco-responsabilité du projet
   save: Enregistrer
-  search: 
+  search:
     also: Vous pouvez également consulter nos annuaires
-    no_result: 'Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :'
     label: Rechercher
+    no_result: 'Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :'
     results:
-      results: 
-        one: Résultat
-        other: Résultats
-      materials: 
-        one: Matériau
-        other: Matériaux
-      technics:
-        one: Technique 
-        other: Techniques
-      actors: 
+      actors:
         one: Acteur·rice
         other: Acteur·rices
-      projects: 
+      article: Découvrir l'article
+      lab: "Résultats - Le Lab"
+      materials:
+        one: Matériau
+        other: Matériaux
+      projects:
         one: Projet
         other: Projets
       ressources:
         one: Ressource
         other: Ressources
-      article: Découvrir l'article
+      results:
+        one: Résultat
+        other: Résultats
+      technics:
+        one: Technique
+        other: Techniques
+      toolbox: "Résultats - Boîte à outils"
+    search_in_name: Rechercher dans le nom
   show: Voir
   show_front: Voir sur le site
   simple_form:
@@ -420,10 +413,14 @@ fr:
       mark: "*"
     "yes": Oui
   slug_error: ne peut contenir que des lettres minuscules, des chiffres et des traits d'union.
+  sort: Déplacer
+  technics:
+    call_to_action:
+      button: Référencer une technique
+      text: "L’écothèque référence des produits, des techniques de fabrication et d’assemblage favorisant le réemploi et la réutilisation. L’objectif : favoriser la réduction des besoins, le réemploi et la réutilisation et diffuser les pratiques low-tech."
+      title: Vous souhaitez recommander une technique ?
   true: Oui
   ui:
-    global:
-      hero: Le mot du comité écothèque
     actor:
       address: Adresse
       contact: Contact
@@ -438,12 +435,34 @@ fr:
       technics:
         one: Technique proposée par cet·te acteur·ice
         other: Techniques proposées par cet·te acteur·ice
+    global:
+      hero: Le mot du comité écothèque
     material:
       actors: Fabriqué par
       contact: Contact fournisseur
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    members:
+      description: Présentation du membre
+      ecosystem:
+        one: Fiche écosystème publiée
+        other: Fiches écosystème publiées
+      materials:
+        one: Fiche matériau publiée
+        other: Fiches matériaux publiées
+      members:
+        one: Membre
+        other: Membres
+      meta: Membre depuis le %{date}
+      projects:
+        one: Fiche projets publiée
+        other: Fiches projets publiées
+      technics:
+        one: Fiche technique publiée
+        other: Fiches techniques publiées
+      title: Les membres
+      website: Site internet
     offers:
       title: Comment nous rejoindre ?
     project:
@@ -463,22 +482,4 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
-    members:
-      title: Les membres
-      meta: Membre depuis le
-      members:
-        one: Membre
-        other: Membres
-      ecosystem: 
-        one: Fiche écosystème publiée
-        other: Fiches écosystème publiées
-      projects: 
-        one: Fiche projets publiée
-        other: Fiches projets publiées
-      materials:
-        one: Fiche matériaux publiée
-        other: Fiches matériaux publiées
-      technics:
-        one: Fiche techniques publiée
-        other: Fiches techniques publiées
   website: écothèque

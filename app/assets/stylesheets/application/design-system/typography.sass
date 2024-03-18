@@ -4,10 +4,13 @@ body
 a
     color: $color-text
     
-h1
+h1, .h1
     font-family: $font-family-headings
+    font-size: $h1-font-size-sm
+    @include media-breakpoint-up(md)
+        font-size: $h1-font-size
 
-h2
+h2, .h2
     font-size: $h2-font-size-sm
     font-weight: $h2-font-weight
     line-height: $h2-line-height
@@ -15,6 +18,12 @@ h2
         font-size: $h2-font-size
     .devise &
         font-family: $font-family-headings
+
+h3, .h3
+    font-size: $h3-font-size-sm
+    @include media-breakpoint-up(md)
+        font-size: $h3-font-size
+
 h1,
 h2,
 h3
@@ -38,8 +47,10 @@ blockquote
     > p
         font-weight: bold
         font-size: pxToRem(56)
-        @include media-breakpoint-down(md)
+        @include media-breakpoint-down(lg)
             font-size: pxToRem(32)
+        @include media-breakpoint-down(md)
+            font-size: pxToRem(28)
 
 .arrow-right
     @include icon(arrow-right, after)

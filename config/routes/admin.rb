@@ -7,6 +7,13 @@ namespace :admin do
   resources :technics
   resources :materials
   resources :projects
+  namespace :projects do 
+    resources :criterions do
+      collection do
+        post :reorder
+      end
+    end
+  end
   resources :regions
   resources :pages do 
     resources :blocks, controller: 'pages/blocks', except: [:index, :show] do

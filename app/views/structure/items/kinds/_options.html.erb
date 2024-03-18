@@ -5,7 +5,7 @@ text = item.text_for(about)
 <% if options.any? %>
   <div class="d-flex align-items-start flex-wrap gap-2">
     <% options.each do |option| %>
-      <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>">
+      <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>" title="<%= option %>">
         <%= option %>
       </a>
     <% end %>

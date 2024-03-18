@@ -1,0 +1,23 @@
+<% anchor ||= '' %>
+<% if facet.values.any? %>
+  <li class="d-none">
+    <div class="dropdown order-facet-dropdown js-facet-order-by">
+      <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= facet.title %>
+      </button>
+      <ul class="dropdown-menu">
+        <% facet.values.each do |value| %>
+          <%
+          label = value.first
+          identifier = value.last
+          path = facet.facets.path_for(facet, identifier) + anchor
+          selected = facet.value_selected?(identifier)
+          %>
+          <li>
+            <%= link_to label, path, class: class_names("dropdown-item", "dropdown-item--selected": selected) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </li>
+<% end %>

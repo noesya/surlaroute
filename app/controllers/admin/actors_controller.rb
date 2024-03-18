@@ -50,7 +50,7 @@ class Admin::ActorsController < Admin::ApplicationController
 
   def breadcrumb
     super
-    add_breadcrumb Actor.model_name.human(count: 2), admin_actors_path
+    add_breadcrumb t('ecosystem'), admin_actors_path
     breadcrumb_for @actor
   end
 

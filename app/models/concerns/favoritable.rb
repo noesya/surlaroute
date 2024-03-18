@@ -2,9 +2,10 @@ module Favoritable
   extend ActiveSupport::Concern
 
   included do
-    has_many  :favorites, 
+    has_many  :user_favorites,
               class_name: 'User::Favorite',
-              foreign_key: :about
+              as: :about,
+              dependent: :destroy
   end
 
 end

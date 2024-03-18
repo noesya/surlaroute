@@ -2,9 +2,10 @@ module Commentable
   extend ActiveSupport::Concern
 
   included do
-    has_many  :comments, 
+    has_many  :comments,
               class_name: 'User::Comment',
-              foreign_key: :about
+              as: :about,
+              dependent: :destroy
   end
 
 end

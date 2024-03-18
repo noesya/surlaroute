@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_18_092913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -94,6 +94,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
     t.uuid "actor_id", null: false
     t.uuid "technic_id", null: false
     t.index ["technic_id", "actor_id"], name: "index_actors_technics_on_technic_id_and_actor_id"
+  end
+
+  create_table "definition_alisases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "definition_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["definition_id"], name: "index_definition_alisases_on_definition_id"
+  end
+
+  create_table "definitions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false
+    t.text "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -228,6 +243,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 
+  create_table "project_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "criterion_id", null: false
+    t.uuid "project_id", null: false
+    t.boolean "value"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["criterion_id"], name: "index_project_answers_on_criterion_id"
+    t.index ["project_id"], name: "index_project_answers_on_project_id"
+  end
+
+  create_table "project_criterions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "step"
+    t.string "name"
+    t.text "hint"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position", default: 1
+    t.text "if_you_check"
+  end
+
   create_table "projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -238,52 +274,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
-    t.boolean "step0_sustainable_program", default: false
-    t.text "step0_sustainable_program_text"
-    t.boolean "step0_low_tech", default: false
-    t.text "step0_low_tech_text"
-    t.boolean "step0_ecodesign_time", default: false
-    t.text "step0_ecodesign_time_text"
-    t.boolean "step1_reusable_materials", default: false
-    t.text "step1_reusable_materials_text"
-    t.boolean "step1_recycled_materials", default: false
-    t.text "step1_recycled_materials_text"
-    t.boolean "step1_local_materials", default: false
-    t.text "step1_local_materials_text"
-    t.boolean "step2_dismountable", default: false
-    t.text "step2_dismountable_text"
-    t.boolean "step2_components_reduced_amount", default: false
-    t.text "step2_components_reduced_amount_text"
-    t.boolean "step2_renewable_energy", default: false
-    t.text "step2_renewable_energy_text"
-    t.boolean "step3_matter_reduced_amount", default: false
-    t.text "step3_matter_reduced_amount_text"
-    t.boolean "step4_artists_travel_optimization", default: false
-    t.text "step4_artists_travel_optimization_text"
-    t.boolean "step4_transport_sharing", default: false
-    t.text "step4_transport_sharing_text"
-    t.boolean "step4_separate_packaging", default: false
-    t.text "step4_separate_packaging_text"
-    t.boolean "step5_energy_efficient", default: false
-    t.text "step5_energy_efficient_text"
-    t.boolean "step5_water_efficient", default: false
-    t.text "step5_water_efficient_text"
-    t.boolean "step5_low_power_consumption", default: false
-    t.text "step5_low_power_consumption_text"
-    t.boolean "step5_zero_waste", default: false
-    t.text "step5_zero_waste_text"
-    t.boolean "step5_public_awareness", default: false
-    t.text "step5_public_awareness_text"
-    t.boolean "step5_public_area_sorting", default: false
-    t.text "step5_public_area_sorting_text"
-    t.boolean "step6_extended_lifetime", default: false
-    t.text "step6_extended_lifetime_text"
-    t.boolean "step7_disassembly_five_stream_sorting", default: false
-    t.text "step7_disassembly_five_stream_sorting_text"
-    t.boolean "step7_composted_materials", default: false
-    t.text "step7_composted_materials_text"
-    t.boolean "step7_closed_loop_recycling", default: false
-    t.text "step7_closed_loop_recycling_text"
     t.index ["published_by_id"], name: "index_projects_on_published_by_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
@@ -311,6 +301,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
     t.string "image_alt"
     t.string "image_credit"
     t.index ["slug"], name: "index_regions_on_slug", unique: true
+  end
+
+  create_table "regions_technics", id: false, force: :cascade do |t|
+    t.uuid "region_id", null: false
+    t.uuid "technic_id", null: false
+    t.index ["region_id", "technic_id"], name: "index_regions_technics_on_region_id_and_technic_id"
+    t.index ["technic_id", "region_id"], name: "index_regions_technics_on_technic_id_and_region_id"
   end
 
   create_table "structure_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -441,6 +438,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
     t.datetime "direct_otp_sent_at"
     t.string "direct_otp_delivery_method"
     t.datetime "totp_timestamp", precision: nil
+    t.text "description"
+    t.string "website"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["encrypted_otp_secret_key"], name: "index_users_on_encrypted_otp_secret_key", unique: true
@@ -451,10 +450,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_144617) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "actors", "users", column: "published_by_id"
+  add_foreign_key "definition_alisases", "definitions"
   add_foreign_key "materials", "actors"
   add_foreign_key "materials", "users", column: "published_by_id"
   add_foreign_key "page_blocks", "pages"
   add_foreign_key "pages", "pages", column: "parent_id"
+  add_foreign_key "project_answers", "project_criterions", column: "criterion_id"
+  add_foreign_key "project_answers", "projects"
   add_foreign_key "projects", "users", column: "published_by_id"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_options_values", "structure_options", column: "option_id"
