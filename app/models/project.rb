@@ -61,6 +61,7 @@ class Project < ApplicationRecord
   scope :autofilter_search, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
+  scope :autofilter_published, -> (status) { where(published: status) }
 
   def has_brezet_wheel?
     answers.where(value: true).exists?
