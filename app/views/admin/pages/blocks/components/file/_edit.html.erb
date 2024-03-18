@@ -1,0 +1,41 @@
+<%
+# "model" can be "element", fallback to "data" if not set
+model ||= "data"
+# "property" is the key where to store the image data
+dom_id = model == 'data' ? "'#{property}'" : "'element-' + index + '-#{property}'"
+label ||= "Fichier"
+remove ||= "Supprimer le fichier"
+formats_accepted ||= ""
+hint ||= file_formats_accepted_hint(formats: formats_accepted)
+preview ||= false
+%>
+<div class="mb-3">
+  <div v-if="!<%= model %>.<%= property %>.id">
+    <label  class="form-label"
+            :for="<%= dom_id.html_safe %>">
+      <%= label %>
+    </label>
+    <input  class="form-control"
+            type="file"
+            accept="<%= formats_accepted %>"
+            @change="onFileChange( $event, <%= model %>, '<%= property %>' )"
+            :id="<%= dom_id.html_safe %>"
+            >
+  </div>
+    <div v-if="<%= model %>.<%= property %>.id">
+    <% if preview %>
+      <img :src="getImageUrl(<%= model %>.<%= property %>)" class="img-fluid mb-3" />
+    <% else %>
+      {{ <%= model %>.<%= property %>.filename }}
+    <% end %>
+    </div>
+  <a  class="btn btn-sm text-danger px-0"
+      v-on:click="<%= model %>.<%= property %>={}"
+      v-if="<%= model %>.<%= property %>.id">
+      <i class="<%= Icon::DELETE %>"></i>
+    <%= remove %>
+  </a>
+  <div v-if="!<%= model %>.<%= property %>.id" class="form-text">
+    <%= hint %>
+  </div>
+</div>

@@ -210,7 +210,8 @@ fr:
   admin:
     dashboard: Tableau de bord
     definitions_hint: Des variantes du titre qui seront recherchées également dans les articles pour afficher le texte.
-    file_hint_with_formats: "Fichiers %{formats} uniquement. %{filesize} max."
+    file_hint_with_formats: "Fichiers %{formats} uniquement."
+    file_hint_with_formats_and_filesize: "Fichiers %{formats} uniquement. %{filesize} max."
     filters:
       buttons:
         close: Fermer
@@ -293,6 +294,8 @@ fr:
     page:
       block:
         kind:
+          collapse: Accordéon
+          files: Fichiers
           gallery: Galerie d'images
           keypoints: Points-clés
           quote: Citation

@@ -53,19 +53,7 @@
       }
     },
     methods: {
-      onMultipleFileImageChange(event, key) {
-        var files = event.target.files || event.dataTransfer.files;
-        if (!files.length)
-          return;
-
-        var index = 0;
-        for(var i = 0; i < files.length; i += 1) {
-          index = this.data.elements.length;
-          this.data.elements.push(JSON.parse(JSON.stringify(this.defaultElement)));
-          this.uploadFile(event.target, files[i], this.data.elements[index], key);
-        }
-      },
-      onFileImageChange(event, object, key) {
+      onFileChange(event, object, key) {
         var files = event.target.files || event.dataTransfer.files;
         if (!files.length)
           return;
@@ -150,6 +138,7 @@
       this.handleSummernotes();
     },
     mounted: function() {
+      window.warnBeforeUnload.init();
       this.handleSummernotes();
     }
   });

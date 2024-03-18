@@ -1,0 +1,14 @@
+.paywall
+    position: relative
+    &::before
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%)
+        bottom: 0
+        content: ''
+        pointer-events: none
+        position: absolute
+        left: 0
+        right: 0
+        height: 150%
+        top: 0
+        transform: translateY(-100%)
+        z-index: 9
