@@ -25,6 +25,7 @@ class Technic < ApplicationRecord
   include Commentable
   include Favoritable
   include Publishable
+  include Searchable
   include Slugged
   include Structured
 

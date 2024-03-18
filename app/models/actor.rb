@@ -40,6 +40,7 @@ class Actor < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
   include WithGeolocation

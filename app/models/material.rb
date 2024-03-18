@@ -30,6 +30,7 @@ class Material < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
 
