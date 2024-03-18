@@ -2,14 +2,15 @@
 #
 # Table name: page_blocks
 #
-#  id         :uuid             not null, primary key
-#  data       :jsonb
-#  kind       :integer          default("text")
-#  name       :string
-#  position   :integer          default(1)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  page_id    :uuid             not null, indexed
+#  id                        :uuid             not null, primary key
+#  data                      :jsonb
+#  kind                      :integer          default("text")
+#  name                      :string
+#  position                  :integer          default(1)
+#  searchable_text_from_data :text
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#  page_id                   :uuid             not null, indexed
 #
 # Indexes
 #
@@ -20,8 +21,6 @@
 #  fk_rails_611934c7ce  (page_id => pages.id)
 #
 class Page::Block < ApplicationRecord
-  belongs_to :page
-
   include Positionable
 
   enum kind: {
@@ -32,6 +31,10 @@ class Page::Block < ApplicationRecord
     collapse: 5,
     files: 6
   }, _prefix: :kind
+
+  belongs_to :page
+
+  after_commit :denormalize_searchable_text_from_data, on: [:create, :update]
 
   def data=(value)
     data_hash = value.is_a?(Hash) ? value
@@ -53,5 +56,13 @@ class Page::Block < ApplicationRecord
 
   def set_initial_position
     self.position = page.blocks.count + 1
+  end
+
+  def denormalize_searchable_text_from_data
+    raw_searchable_text_from_data = ActionController::Base.render(
+      partial: "admin/pages/blocks/kinds/#{kind}/searchable",
+      locals: { data: data }
+    )
+    update_column :searchable_text_from_data, CustomSanitizer.sanitize(raw_searchable_text_from_data, 'string')
   end
 end

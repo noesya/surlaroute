@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_110821) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_18_161414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -226,6 +226,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_110821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.text "searchable_text_from_data"
     t.index ["page_id"], name: "index_page_blocks_on_page_id"
   end
 

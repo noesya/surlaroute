@@ -5,6 +5,15 @@ namespace :app do
   task fix: :environment do
   end
 
+  namespace :search do
+    desc 'Reindex models for search'
+    task reindex: :environment do
+      [Actor, Material, Page, Project, Technic].each do |model|
+        model.reindex
+      end
+    end
+  end
+
   namespace :bucket do
     desc 'Sync bucket to dev from Scaleway'
     task :staging do

@@ -65,4 +65,14 @@ class Material < ApplicationRecord
   def to_s
     "#{name}"
   end
+
+  protected
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      structure_values: searchable_text_from_structure_values
+    }
+  end
 end

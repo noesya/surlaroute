@@ -95,4 +95,18 @@ class Page < ApplicationRecord
     in_toolbox_tree = ancestors_and_self.detect { |ancestor| ancestor == Page.toolbox }
   end
 
+  def search_data
+    {
+      name: name,
+      description: description,
+      blocks: searchable_text_from_blocks,
+      in_lab_tree: in_lab_tree?,
+      in_toolbox_tree: in_toolbox_tree?
+    }
+  end
+
+  def searchable_text_from_blocks
+    blocks.pluck(:searchable_text_from_data).compact.join(' ')
+  end
+
 end
