@@ -15,12 +15,15 @@
 .toolbox-index
     .block-files
         background: $toolbox-primary !important
+    .block-gallery
+        background: $light
+
+.toolbox-child,
+.toolbox-index
+    .block-gallery
+        background: white
 
 .block
-    &:not(.block-keypoints, .block-gallery)
-        h2
-            position: sticky
-            top: 20px
-    &:not(.block-files, .block-keypoints)
-        + .block:not(.block-files, .block-keypoints)
+    &:not(.block-files, .block-keypoints, .block-gallery)
+        + .block:not(.block-gallery, .block-keypoints, .block-files)
             padding-top: 0 !important

@@ -11,7 +11,7 @@
               <%= kamifusen_tag file.file,
                                 class: 'img-fluid rounded',
                                 alt: file.alt %>
-              <% if file.text? %>
+              <% if file.text.present? %>
                 <figcaption class="mt-1 small"><%= file.text %></figcaption>
               <% end %>
             </figure>
