@@ -24,6 +24,6 @@
         background: white
 
 .block
-    &:not(.block-files, .block-keypoints, .block-gallery)
-        + .block:not(.block-gallery, .block-keypoints, .block-files)
+    &:not(.block-files, .block-keypoints, .block-gallery, .block-quote)
+        + .block:not(.block-gallery, .block-keypoints, .block-files, .block-quote)
             padding-top: 0 !important
