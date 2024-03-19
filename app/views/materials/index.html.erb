@@ -18,14 +18,14 @@
   </div>
 </header>
 
-<div class="document-content bg-white py-5">
+<div class="document-content bg-white py-5" id="results">
   <div class="container directory">
     <div class="row">
       <%= render 'application/offcanvas-search-cta' %>
     </div>
     <div class="row align-items-start position-relative mt-lg-4">
       <div class="offcanvas-search col-lg-3 mt-3 mt-lg-0 pt-3 pt-lg-0" tabindex="-1" id="offcanvasScrolling">
-        <%= render 'faceted_search/facets', facets: @facets %>
+        <%= render 'faceted_search/facets', facets: @facets, anchor: "#results" %>
       </div>
       <div class="directory-container col-lg-9 materials-list mt-4 mt-lg-0">
         <%= render 'list', objects: @materials, col_number: 4 %>
