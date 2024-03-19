@@ -1,28 +1,34 @@
 <%
 elements = block.data.dig('elements')
 %>
-<div class="block block-collapse py-5">
+<div class="block block-collapse bg-light py-5">
   <div class="container">
-    <% if block.name.present? %>
-      <h2 class="mb-4"><%= block.name %></h2>
-    <% end %>
-    <% elements.each_with_index do |element, index| %>
-      <%
-      collapse_id = "collapse-#{block.id}-#{index}"
-      title = element.dig('title')
-      text = element.dig('text')
-      %>
-      <div class="block-collapse__item">
-        <h3>
-          <a class="block-collapse__item__toggle" data-bs-toggle="collapse" href="#<%= collapse_id %>" role="button" aria-expanded="false" aria-controls="<%= collapse_id %>">
-            <%= title %>
-          </a>
-        </h3>
-        <div class="collapse pb-1" id="<%= collapse_id %>">
-          <%= simple_format text %>
-        </div>
-        <hr>
+    <div class="row">
+      <div class="col-lg-6">
+        <% if block.name.present? %>
+          <h2 class="mb-4"><%= block.name %></h2>
+        <% end %>
       </div>
-    <% end if elements %>
+      <div class="col-lg-6">
+        <% elements.each_with_index do |element, index| %>
+          <%
+          collapse_id = "collapse-#{block.id}-#{index}"
+          title = element.dig('title')
+          text = element.dig('text')
+          %>
+          <div class="block-collapse__item">
+            <h3>
+              <a class="block-collapse__item__toggle" data-bs-toggle="collapse" href="#<%= collapse_id %>" role="button" aria-expanded="false" aria-controls="<%= collapse_id %>">
+                <%= title %>
+              </a>
+            </h3>
+            <div class="collapse pb-1" id="<%= collapse_id %>">
+              <%= simple_format text %>
+            </div>
+            <hr>
+          </div>
+        <% end if elements %>
+      </div>
+    </div>
   </div>
 </div>

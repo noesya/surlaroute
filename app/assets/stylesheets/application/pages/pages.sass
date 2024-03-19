@@ -11,8 +11,15 @@
             &:hover::after
                 margin-left: space(3)
 
-.parent-page
-    .hero
-        &__description
-            @extend .display-6
+.toolbox-child,
+.toolbox-index
+    .block-files
+        background: $toolbox-primary !important
 
+.block
+    h2
+        position: sticky
+        top: 20px
+    &:not(.block-files)
+        + .block:not(.block-files)
+            padding-top: 0 !important
