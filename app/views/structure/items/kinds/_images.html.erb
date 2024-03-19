@@ -11,8 +11,15 @@
               <%= kamifusen_tag file.file,
                                 class: 'img-fluid rounded',
                                 alt: file.alt %>
-              <% if file.text.present? %>
-                <figcaption class="mt-1 small"><%= file.text %></figcaption>
+              <% if file.text.present? || file.credit.present? %>
+                <figcaption class="mt-1 small">
+                  <% if file.text.present? %>
+                    <p class="small mb-0"><%= file.text %></p>
+                  <% end %>
+                  <% if file.credit.present? %>
+                    <p class="small text-muted"><%= file.credit %></p>
+                  <% end %>
+                </figcaption>
               <% end %>
             </figure>
           </li>
@@ -29,8 +36,15 @@
           <%= kamifusen_tag file.file,
                             class: 'img-fluid rounded',
                             alt: file.alt %>
-          <% if file.text? %>
-            <figcaption class="mt-1 small"><%= file.text %></figcaption>
+          <% if file.text.present? || file.credit.present? %>
+            <figcaption class="mt-1 small">
+              <% if file.text.present? %>
+                <p class="small mb-0"><%= file.text %></p>
+              <% end %>
+              <% if file.credit.present? %>
+                <p class="small text-muted"><%= file.credit %></p>
+              <% end %>
+            </figcaption>
           <% end %>
         </figure>
       </div>
