@@ -33,26 +33,5 @@
       </div>
     </div>
   </div>
-
-  <div class="call-to-action bg-materials mt-5">
-    <div class="container py-5">
-      <div class="row align-items-center text-center text-md-start">
-        <div class="col-lg-6">
-          <h3 class="cta-title"><%= t('materials.call_to_action.title') %></h3>
-          <p class="mt-4 d-none d-md-block"><%= t('materials.call_to_action.text') %></p>
-        </div>
-        <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
-          <% if current_user %>
-            <a href="#TODO" class="btn btn-dark"><%= t('materials.call_to_action.button') %></a>
-          <% else %>
-            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#redirectionModal"><%= t('actors.call_to_action.button') %></button>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'reference-cta', objects: @materials %>
 </div>
-
-<% if !current_user %>
-  <%= render 'application/redirection-modale' %>
-<% end %>
