@@ -42,6 +42,7 @@ class Project < ApplicationRecord
   validates_presence_of :name
 
   scope :ordered, -> { order(:name) }
+  scope :ordered_by_creation_date, -> { order(created_at: :desc) }
   scope :order_by, -> (order_param) {
     case order_param
     when "name:asc"

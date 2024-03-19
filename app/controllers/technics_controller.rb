@@ -5,7 +5,7 @@ class TechnicsController < ApplicationController
     base_scope = @region.present? ? @region.technics : Technic.all
     @all_technics = base_scope.published
     @facets = Technic::Facets.new(params[:facets], model: @all_technics)
-    @technics = @facets.results.ordered.page(params[:page]).per(24)
+    @technics = @facets.results.ordered_by_creation_date.page(params[:page]).per(24)
     breadcrumb
   end
 
