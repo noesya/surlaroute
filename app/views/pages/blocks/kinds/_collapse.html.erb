@@ -23,7 +23,7 @@ elements = block.data.dig('elements')
               </a>
             </h3>
             <div class="collapse pb-1" id="<%= collapse_id %>">
-              <%= simple_format text %>
+              <%= sanitize text %>
             </div>
             <hr>
           </div>
