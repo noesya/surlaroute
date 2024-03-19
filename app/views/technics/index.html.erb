@@ -8,7 +8,7 @@
         </hgroup>
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
           <dt class="key-figure"><%= @all_technics.count %></dt>
-          <dd>Techniques</dd>
+          <dd><%= Technic.model_name.human(count: Technic.all.count) %></dd>
         </dl>
         <%= link_to 'Voir le glossaire', options_technics_path, class: 'small arrow-right' %>
       </div>

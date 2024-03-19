@@ -56,13 +56,16 @@
             pointer-events: none
             width: auto
             height: 30%
-            @include media-breakpoint-up(md)
-                
-            height: 50%
-            @include media-breakpoint-up(lg)
+            @include media-breakpoint-down(xxl)
                 height: 100%
-            @include media-breakpoint-up(xl)
+            @include media-breakpoint-down(lg)
+                height: 80%
+            @include media-breakpoint-down(sm)
+                height: 40%
+            @include media-breakpoint-up(xxl)
                 height: 130%
+.regions-index
+    .hero > img 
 .structure--zone-header
     > .row
         row-gap: map-get($spacers, 4)

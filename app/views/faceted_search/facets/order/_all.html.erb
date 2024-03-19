@@ -8,13 +8,13 @@
       <ul class="dropdown-menu">
         <% facet.values.each do |value| %>
           <%
-          label = value.first
-          identifier = value.last
-          path = facet.facets.path_for(facet, identifier) + anchor
-          selected = facet.value_selected?(identifier)
+            label = value.first
+            identifier = value.last
+            path = facet.facets.path_for(facet, identifier) + anchor
+            selected = facet.value_selected?(identifier)
           %>
           <li>
-            <%= link_to label, path, class: class_names("dropdown-item", "dropdown-item--selected": selected) %>
+          <%= link_to label, path, class: class_names("dropdown-item", "dropdown-item--selected": selected) %>
           </li>
         <% end %>
       </ul>

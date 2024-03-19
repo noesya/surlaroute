@@ -13,7 +13,6 @@ window.ecosystem.offcanvasSearch = {
         //     return;
         // }
 
-        // TODO : nettoyer "toc"
         this.buttonsContainer = this.dom.querySelector('.js-offcanvas-cta-container');
         this.button = this.buttonsContainer.querySelector('.offcanvas-search-btn');
         this.offcanvas = this.dom.querySelector('.offcanvas-search');
