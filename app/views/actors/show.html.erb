@@ -12,7 +12,7 @@
           <h2><%= t('ui.actor.informations') %></h2>
         </div>
         <% if @actor.full_address.present? %>
-          <div class="col-lg-6 structure__item__string">
+          <div class="actor-adress col-lg-6 structure__item__string">
             <%= render 'structure/items/label', label: t('ui.actor.address') %>
             <p><%= @actor.full_address %></p>
           </div>
