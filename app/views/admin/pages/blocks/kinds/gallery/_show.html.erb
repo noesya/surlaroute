@@ -1,3 +1,4 @@
+<%= simple_format block.data.dig('text') if block.data.dig('text').present? %>
 <%
 elements = block.data.dig('elements') || []
 %>
@@ -6,6 +7,7 @@ elements = block.data.dig('elements') || []
     <%
     alt = element.dig('alt')
     caption = element.dig('caption')
+    credits = element.dig('credits')
     image_blob_id = element.dig('image', 'id')
     image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
     %>
@@ -16,6 +18,7 @@ elements = block.data.dig('elements') || []
                         alt: alt if image_blob %>
       <figcaption><%= caption %></figcaption>
       <b><%= alt %></b></br>
+      <%= credits %>
     </figure>
   <% end %>
 </div>

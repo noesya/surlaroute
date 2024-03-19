@@ -22,7 +22,8 @@
                       model: 'element',
                       property: 'icon',
                       label: 'Icône (svg)',
-                      images_formats_accepted: '.svg' %>
+                      images_formats_accepted: '.svg',
+                      hint: "#{images_formats_accepted_hint(formats: '.svg')}<br>Veiller à n'utiliser que des icones blanches et de taille 48x48px.".html_safe %>
           <div class="mb-3">
             <label class="form-label">Titre</label>
             <input type="text" v-model="element.title" class="form-control" />
