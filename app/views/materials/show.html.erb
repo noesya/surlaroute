@@ -1,31 +1,6 @@
 <%= content_for :title, @material %>
 
-<header class="hero">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 position-relative">
-        <div class="btn-favorites position-absolute pt-2 ps-2">
-          <%= render 'favorites/button', about: @material %>
-        </div>
-        <%= render 'illustration', source: @material %>
-        <% if @material.image_credit.present? %>
-          <p class="small credit mt-1"><%= @material.image_credit %></p>
-        <% end %>
-      </div>
-      <div class="col-lg-6 mt-4 mt-md-0">
-        <h1><%= @material %></h1>
-        <% if @material.description.present? %>
-          <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
-          <p class="fw-bold"><%= sanitize add_definitions(@material.description) %></p>
-        <% end %>
-        <%= render 'meta', about: @material %>
-        <hr class="my-4">
-        <%= render 'structure/items/zones/header', about: @material %>
-        <%= render 'regions', about: @material %>
-      </div>
-    </div>
-  </div>
-</header>
+<%= render 'hero', object: @material %>
 
 <% if user_is_subscribed? %>
 

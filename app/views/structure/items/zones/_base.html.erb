@@ -22,13 +22,13 @@ next_item_kind = nil
             <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
               <div class="container">
                 <div class="row py-5">
-                  <div class="col-md-6">
-                    <h2><%= item %></h2>
+                  <div class="col-lg-6">
+                    <h2 class="mb-4 mb-lg-0"><%= item %></h2>
                   </div>
                   <% if next_item_kind != 'images' %>
-                    <div class="details col-md-6">
+                    <div class="details col-lg-6">
                   <% else %>
-                    <div class="details col-md-12 mt-4">
+                    <div class="details col-lg-12 mt-4">
                   <% end %>
         <% else %>
                     <div class="structure__item__<%= item.kind %>">
