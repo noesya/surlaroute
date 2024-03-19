@@ -22,7 +22,7 @@
         <%= render 'regions', about: object %>
         <% if object.class.name.downcase === 'actor' %>
           <% unless object.premium? %>
-            <%= link_to t("ui.actor.owner"), offers_path %>
+            <%= link_to t("ui.actor.owner"), offers_path, class: 'mt-4 d-block' %>
           <% end %>
         <% end %>
       </div>
