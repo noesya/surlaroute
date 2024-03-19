@@ -43,12 +43,12 @@
     </div>
     <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-7">
-        <p class="fw-bold">Des écosystèmes territoriaux favorisant l’économie circulaire, avec des acteur·rices du réemploi, de la mutualisation, du transport, de la conception, etc. Quel que soit le territoire, il existe des collaborations possibles à tous les niveaux de la chaîne de la scénographie pour contribuer ensemble à réduire les impacts environnementaux.</p>
+        <p class="fw-bold"><%= t('actors.description') %></p>
       </div>
       <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @actors_count %></dt>
-          <dd>Acteur·ices</dd>
+          <dd><%= Actor.model_name.human(count: Actor.all.count).downcase %></dd>
         </dl>
       </div>
     </div>
@@ -72,7 +72,7 @@
       <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @projects_count %></dt>
-          <dd>Projets</dd>
+          <dd><%= Project.model_name.human(count: Project.all.count).downcase %></dd>
         </dl>
       </div>
     </div>
@@ -91,12 +91,12 @@
     </div>
     <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-7">
-        <p class="fw-bold">Des matériaux dont la qualité a été vérifiée par la pratique et par la recherche, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie, afin de proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés</p>
+        <p class="fw-bold"><%= t('materials.description') %></p>
       </div>
       <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @materials_count %></dt>
-          <dd>Matériaux</dd>
+          <dd><%= Material.model_name.human(count: Material.all.count).downcase %></dd>
         </dl>
       </div>
     </div>
@@ -115,12 +115,12 @@
     </div>
     <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-7">
-        <p class="fw-bold">Des produits, des techniques de mise en œuvre, de fabrication, et d’assemblage qui favorisent les pratiques low-tech, la réduction des besoins en quantité de matière, le réemploi et la réutilisation.</p>
+        <p class="fw-bold"><%= t('technics.description') %></p>
       </div>
       <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= @technics_count %></dt>
-          <dd>Techniques</dd>
+          <dd><%= Technic.model_name.human(count: Technic.all.count).downcase %></dd>
         </dl>
       </div>
     </div>
