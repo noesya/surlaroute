@@ -487,6 +487,9 @@ fr:
         other: Projets qui l'utilisent
     users:
       title: Communauté
+      users:
+        one: Personne
+        other: Personnes
   views:
     pagination:
       first: "&laquo; Première page"
