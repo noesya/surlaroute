@@ -4,3 +4,13 @@
     gap: map-get($spacers, 1)
     a
         border-radius: $pagination-border-radius
+    @include media-breakpoint-down(md)
+        align-items: baseline
+        flex-wrap: wrap
+        .page-item
+            &:not(.active)
+                a
+                    padding: 0
+            &.active
+                a
+                    padding: pxToRem(3) pxToRem(6)
