@@ -13,7 +13,7 @@ L.NumberedDivIcon = L.Icon.extend({
         iconSize: new L.Point(25, 41),
         iconAnchor: new L.Point(13, 41),
         popupAnchor: new L.Point(0, -33),
-        className: 'leaflet-div-icon'
+        className: 'leaflet-div-icon',
     },
 
     createIcon: function () {
@@ -106,6 +106,24 @@ window.ecotheque.maps = {
             mymap.fitBounds(this.geojsonLayer.getBounds());
             mymap.zoomOut();
         }
+
+        function updateMarkerIcon(e, selected) {
+            'use strict';
+            var iconSelectedPath = '<%= asset_path("icons/marker.svg") %>',
+                iconUnselectedPath = '<%= asset_path("icons/marker-unselected.svg") %>';
+            
+            var marker = e.popup._source._icon,
+                icon = marker.querySelector('img'),
+                iconPath = selected ? iconSelectedPath : iconUnselectedPath;
+            icon.setAttribute("src", iconPath);
+        }
+
+        mymap.on('popupopen', function (e) {
+            updateMarkerIcon(e, true);
+        });
+        mymap.on('popupclose', function (e) {
+            updateMarkerIcon(e, false);
+        });
     },
 
     bindFeaturePopin: function (feature, layer) {
