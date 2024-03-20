@@ -3,21 +3,23 @@ elements = block.data.dig('elements')
 %>
 <div class="block block-gallery py-5 overflow-hidden">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
+    <% if block.name.present? || block.data.dig('text').present? %>
+      <div class="row mb-4">
         <% if block.name.present? %>
-          <h2 class="m-0"><%= block.name %></h2>
+          <div class="col-lg-6">
+              <h2 class="m-0"><%= block.name %></h2>
+          </div>
         <% end %>
-      </div>
-      <div class="col-lg-6 mt-3 mt-lg-0">
         <% if block.data.dig('text').present? %>
-          <%= simple_format block.data.dig('text') %>
+          <div class="col-lg-6 mt-3 mt-lg-0">
+            <%= simple_format block.data.dig('text') %>
+          </div>
         <% end %>
       </div>
-    </div>
+    <% end %>
     <% if elements %>
       <% if elements.count > 2 %>
-        <div class="splide mt-4" aria-label="Galerie">
+        <div class="splide" aria-label="Galerie">
           <div class="splide__track">
             <ul class="splide__list">
               <% elements.each do |element| %>
@@ -52,7 +54,7 @@ elements = block.data.dig('elements')
           </div>
         </div>
       <% else %>
-        <div class="row mt-4">
+        <div class="row">
           <% elements.each do |element| %>
             <%
             alt = element.dig('alt')
@@ -61,7 +63,7 @@ elements = block.data.dig('elements')
             image_blob_id = element.dig('image', 'id')
             image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
             %>
-            <div class="col-lg-6 mt-3 mt-lg-0">
+            <div class="block-gallery__item col-lg-6">
               <figure>
                 <%= kamifusen_tag image_blob, 
                                   width: 600, 
