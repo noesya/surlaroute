@@ -9,7 +9,7 @@ elements = block.data.dig('elements')
           <h2 class="m-0"><%= block.name %></h2>
         <% end %>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 mt-3 mt-lg-0">
         <% if block.data.dig('text').present? %>
           <%= simple_format block.data.dig('text') %>
         <% end %>
@@ -61,7 +61,7 @@ elements = block.data.dig('elements')
             image_blob_id = element.dig('image', 'id')
             image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
             %>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mt-3 mt-lg-0">
               <figure>
                 <%= kamifusen_tag image_blob, 
                                   width: 600, 
