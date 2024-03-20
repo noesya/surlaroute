@@ -416,6 +416,8 @@ fr:
     actor:
       address: Adresse
       contact: Contact
+      glossary:
+        title: Glossaire des acteur·ice·s
       informations: Informations pratiques
       materials:
         one: Matériau proposé par cet·te acteur·ice
@@ -432,6 +434,8 @@ fr:
     material:
       actors: Fabriqué par
       contact: Contact fournisseur
+      glossary:
+        title: Glossaire des matériaux
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
@@ -462,6 +466,8 @@ fr:
       actors:
         one: Acteur·rice du projet
         other: Acteur·rices du projet
+      glossary:
+        title: Glossaire des projets
       materials:
         one: Matériau utilisé
         other: Matériaux utilisés
@@ -472,6 +478,8 @@ fr:
       actors:
         one: Contact
         other: Contacts
+      glossary:
+        title: Glossaire des techniques
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent

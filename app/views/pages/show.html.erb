@@ -1,3 +1,4 @@
+<%= content_for :title, @page %>
 <%= content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
 <%= content_for :additional_body_class, " parent-page" if @page.children %>
 
