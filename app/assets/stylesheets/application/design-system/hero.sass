@@ -5,11 +5,18 @@
     padding-top: map-get($spacers, 5)
     background: var(--page-main-color)
     .locations-list
+        display: flex
+        gap: map-get($spacers, 1)
+        flex-wrap: wrap
+        > h3
+            width: 100%
+            margin-bottom: pxToRem(3) !important
         a.btn
             @include icon(pin)
             &::before
                 font-size: 12px
                 margin-right: calc(#{map-get($spacers, 1)} / 2)
+        
     .credit
         &::before
             content: '© '
