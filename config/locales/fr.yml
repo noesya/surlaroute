@@ -38,6 +38,7 @@ fr:
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
+        lab_member: Membre du Lab
         materials: Matériaux fabriqués
         name: Nom
         premium: Fiche premium
@@ -442,6 +443,7 @@ fr:
     members:
       description: Présentation du membre
       index: L’écothèque est un projet de l’Augures Lab Scénogrrrraphie, le réseau professionnel, collaboratif et prospectif pour penser l’écoscénographie dans le secteur culturel. Il réunit acteur·rices indépendant·es et institutions culturelles, de différents corps de métiers liés à la chaîne de création et de production scénographique, et croise les disciplines artistiques, notamment les arts visuels et les arts vivants, à l’échelle nationale. Il vise à favoriser le développement du réemploi, de l’économie circulaire et de l’écologie culturelle territoriale autour des activités liées à la scénographie.
+      section: Le Lab
       ecosystem:
         one: Fiche écosystème publiée
         other: Fiches écosystème publiées
@@ -483,6 +485,8 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    users:
+      title: Communauté
   views:
     pagination:
       first: "&laquo; Première page"
