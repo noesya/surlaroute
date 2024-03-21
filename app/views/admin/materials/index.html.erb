@@ -1,4 +1,4 @@
-<%= content_for :title, Material.model_name.human(count: 2) %>
+<%= content_for :title, "#{Material.model_name.human(count: 2)} (#{@materials.total_count})" %>
 
 <%= render 'filters', current_path: admin_materials_path %>
 

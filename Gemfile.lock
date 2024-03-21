@@ -178,6 +178,14 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     drb (2.2.1)
+    elasticsearch (7.17.10)
+      elasticsearch-api (= 7.17.10)
+      elasticsearch-transport (= 7.17.10)
+    elasticsearch-api (7.17.10)
+      multi_json
+    elasticsearch-transport (7.17.10)
+      faraday (>= 1, < 3)
+      multi_json
     encryptor (3.0.0)
     enum_help (0.0.19)
       activesupport (>= 3.0.0)
@@ -190,6 +198,13 @@ GEM
     faceted_search (3.6.2)
       font-awesome-sass
       rails (>= 5.2.0)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
+    faraday-typhoeus (1.1.0)
+      faraday (~> 2.0)
+      typhoeus (~> 1.4)
     ffi (1.16.3)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
@@ -215,6 +230,7 @@ GEM
       rake (>= 13)
     google-protobuf (4.26.0-x86_64-linux)
       rake (>= 13)
+    hashie (5.0.0)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -265,7 +281,10 @@ GEM
     mini_mime (1.1.5)
     minitest (5.22.3)
     msgpack (1.7.2)
+    multi_json (1.15.0)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.10)
       date
       net-protocol
@@ -357,6 +376,9 @@ GEM
       ffi (~> 1.9)
     sassc-embedded (1.70.1)
       sass-embedded (~> 1.70)
+    searchkick (5.3.1)
+      activemodel (>= 6.1)
+      hashie
     selenium-webdriver (4.18.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -393,6 +415,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unaccent (0.4.0)
+    uri (0.13.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -433,8 +456,10 @@ DEPENDENCIES
   devise-bootstrap5 (~> 0)
   devise-i18n (~> 1)
   dotenv-rails (~> 2)
+  elasticsearch (~> 7)
   enum_help (~> 0)
   faceted_search
+  faraday-typhoeus (~> 1.1)
   gdpr (~> 1)
   geocoder (~> 1.8)
   good_job (~> 3)
@@ -449,6 +474,7 @@ DEPENDENCIES
   puma (~> 6)
   rails (~> 7.1)
   rails-i18n (~> 7)
+  searchkick (~> 5.3)
   selenium-webdriver
   sib-api-v3-sdk (~> 9)
   simple-navigation (~> 4)

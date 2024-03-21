@@ -41,6 +41,7 @@ class Actor < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
   include WithGeolocation
@@ -50,6 +51,7 @@ class Actor < ApplicationRecord
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :technics
+  has_and_belongs_to_many :authors, class_name: 'User', join_table: "actors_users", association_foreign_key: :user_id
 
   has_one_attached_deletable :image
 
@@ -78,7 +80,7 @@ class Actor < ApplicationRecord
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
-    where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+    where("unaccent(actors.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
   scope :autofilter_published, -> (status) { where(published: status) }
   scope :autofilter_premium, -> (status) { where(premium: status) }
@@ -98,5 +100,22 @@ class Actor < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      full_address: full_address,
+      contact_email: contact_email,
+      contact_inventory_url: contact_inventory_url,
+      contact_name: contact_name,
+      contact_phone: contact_phone,
+      contact_website: contact_website,
+      service_access_terms: service_access_terms,
+      structure_values: searchable_text_from_structure_values
+    }
   end
 end

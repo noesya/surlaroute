@@ -22,7 +22,7 @@ class Admin::ActorsController < Admin::ApplicationController
   end
 
   def create
-    @actor.published_by = current_user if cannot?(:publish, @actor)
+    @actor.authors << current_user if cannot?(:publish, @actor)
     if @actor.save
       redirect_to [:admin, @actor], notice: t('admin.successfully_created_html', model: @actor.to_s)
     else
@@ -64,7 +64,7 @@ class Admin::ActorsController < Admin::ApplicationController
       region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes
     ]
-    allowed_params += [:published, :published_by_id] if can?(:publish, Actor)
+    allowed_params += [:published, author_ids: []] if can?(:publish, Actor)
     allowed_params << :premium if can?(:premium, Actor)
     allowed_params << :lab_member if can?(:lab_member, Actor)
     params.require(:actor)

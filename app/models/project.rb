@@ -27,12 +27,14 @@ class Project < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
 
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :technics
+  has_and_belongs_to_many :authors, class_name: 'User', join_table: "projects_users", association_foreign_key: :user_id
 
   has_many :answers, dependent: :destroy
   accepts_nested_attributes_for :answers
@@ -60,7 +62,7 @@ class Project < ApplicationRecord
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
-    where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+    where("unaccent(projects.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
   scope :autofilter_published, -> (status) { where(published: status) }
 
@@ -70,5 +72,21 @@ class Project < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      structure_values: searchable_text_from_structure_values,
+      answers: searchable_text_from_answers
+    }
+  end
+
+  def searchable_text_from_answers
+    raw_texts_from_answers = answers.where(value: true).pluck(:text).compact
+    CustomSanitizer.sanitize(raw_texts_from_answers.join(' '), 'string')
   end
 end

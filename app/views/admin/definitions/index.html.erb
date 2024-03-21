@@ -1,4 +1,4 @@
-<% content_for :title, "#{Definition.model_name.human(count: @definitions.total_count)} (#{@definitions.total_count})" %>
+<%= content_for :title, "#{Definition.model_name.human(count:2)} (#{@definitions.total_count})" %>
 
 <%= render 'filters', current_path: admin_definitions_path %>
 

@@ -26,12 +26,13 @@ class Technic < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
 
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :projects
- 
+  has_and_belongs_to_many :authors, class_name: 'User', join_table: "technics_users", association_foreign_key: :user_id
 
   has_one_attached_deletable :image
 
@@ -56,11 +57,21 @@ class Technic < ApplicationRecord
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
-    where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+    where("unaccent(technics.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
   scope :autofilter_published, -> (status) { where(published: status) }
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      structure_values: searchable_text_from_structure_values
+    }
   end
 end

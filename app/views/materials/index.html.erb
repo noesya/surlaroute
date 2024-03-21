@@ -9,7 +9,7 @@
           <p class="mt-3 mt-md-5"><%= t('materials.description') %></p>
         </hgroup>
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @all_materials.count %></dt>
+          <dt class="key-figure"><%= @materials.total_count %></dt>
           <dd>Matériaux</dd>
         </dl>
         <%= link_to 'Voir le glossaire', options_materials_path, class: 'small arrow-right' %>
@@ -29,7 +29,7 @@
       </div>
       <div class="directory-container col-lg-9 materials-list mt-4 mt-lg-0">
         <%= render 'list', objects: @materials, col_number: 4 %>
-        <%= paginate @materials, theme: "bootstrap-5" %>
+        <%= paginate @materials, theme: "bootstrap-5", params: { anchor: "results" } %>
       </div>
     </div>
   </div>

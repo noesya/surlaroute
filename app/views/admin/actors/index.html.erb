@@ -1,4 +1,4 @@
-<%= content_for :title, t('ecosystem') %>
+<%= content_for :title, "#{t('ecosystem')} (#{@actors.total_count})" %>
 
 <%= render 'filters', current_path: admin_actors_path %>
 

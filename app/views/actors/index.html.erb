@@ -8,7 +8,7 @@
           <p class="mt-3 mt-md-5"><%= t('actors.description') %></p>
         </hgroup>
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @all_actors.count %></dt>
+          <dt class="key-figure"><%= @actors.total_count %></dt>
           <dd>Acteur·ices</dd>
         </dl>
         <%= link_to 'Voir le glossaire', options_actors_path, class: 'small arrow-right' %>
@@ -32,7 +32,7 @@
       </div>
       <div class="directory-container col-lg-9 actors-list mt-4 mt-lg-0">
         <%= render "actors/#{@mode}", objects: @actors, col_number: 4 %>
-        <%= paginate @actors, theme: "bootstrap-5" if @mode == "list" %>
+        <%= paginate @actors, theme: "bootstrap-5", params: { anchor: "results" } if @mode == "list" %>
       </div>
     </div>
   </div>
