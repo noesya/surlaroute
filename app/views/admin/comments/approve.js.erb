@@ -1,0 +1,5 @@
+if (document.body.classList.contains('comments-pending')) {
+    document.querySelector("tr[data-comment-id='<%= @comment.id %>']").remove();
+} else {
+    document.querySelector("tr[data-comment-id='<%= @comment.id %>'] .js-status").innerHTML = '<%= @comment.status_i18n %>';
+}
