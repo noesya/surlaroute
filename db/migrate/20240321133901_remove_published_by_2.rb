@@ -1,4 +1,4 @@
-class RemovePublishedBy < ActiveRecord::Migration[7.1]
+class RemovePublishedBy2 < ActiveRecord::Migration[7.1]
   def change
     remove_column :actors, :published_by_id
     remove_column :projects, :published_by_id
