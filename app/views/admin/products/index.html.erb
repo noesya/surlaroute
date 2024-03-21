@@ -1,0 +1,7 @@
+<%= content_for :title, "#{Product.model_name.human(count: 2)} (#{@products.count})" %>
+
+<%= render 'admin/products/list', products: @products %>
+
+<% content_for :buttons do %>
+  <%= create_link Product %>
+<% end %>

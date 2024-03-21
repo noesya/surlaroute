@@ -2,6 +2,7 @@ class SubscriptionsController < ApplicationController
   include ApplicationHelper
 
   def new
+    @products = Product.all.ordered
     breadcrumb
   end
 

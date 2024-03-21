@@ -76,6 +76,10 @@ fr:
       page/block:
         name: Nom
         kind: Type de bloc
+      product:
+        description: Description
+        name: Nom
+        price: Prix
       project:
         actors: Acteurices
         authors: Fiche publiée par
@@ -187,6 +191,9 @@ fr:
       page:
         one: Page
         other: Pages
+      product:
+        one: Produit
+        other: Produits
       project:
         one: Projet
         other: Projets
@@ -362,6 +369,11 @@ fr:
       title: Vous souhaitez recommander un matériau ?
   menu:
     my_account: Mon compte
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
   please_confirm: Merci de confirmer
   projects:
     description: Des projets écoresponsables représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire ; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brézet pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux.

@@ -1,0 +1,15 @@
+<%= content_for :title, @product %>
+
+<div class="row">
+  <div class="col-lg-8">
+    <%= show @product, :description %>
+  </div>
+  <div class="col-lg-4">
+    <%= show @product, :price, type: :currency %>
+  </div>
+</div>
+
+<% content_for :buttons do %>
+  <%= destroy_link @product %>
+  <%= edit_link @product %>
+<% end %>

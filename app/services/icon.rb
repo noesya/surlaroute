@@ -6,6 +6,7 @@ class Icon
   MATERIAL = 'bi bi-box-fill'
   PAGE = 'bi bi-file-earmark-fill'
   DEFINITION = 'bi bi-body-text'
+  PRODUCT = 'bi bi-tag-fill'
   PROJECT = 'bi bi-star-fill'
   REGION = 'bi bi-geo-alt-fill'
   STRUCTURE = 'bi bi-gear-fill'

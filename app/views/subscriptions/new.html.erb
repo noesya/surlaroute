@@ -27,14 +27,14 @@
           <li>Récapitulatif</li>
         </ol>
 
-        <% 2.times do %>
+        <% @products.each do |product| %>
           <div class="row align-items-center my-3">
             <div class="col-lg-7">
-              <h3>Étudiant·e</h3>
-              <p>Ce tarif est applicable pour tout étudiant·e sous réserve d'envoi d'un justificatif à bienvenue@augureslab.org.</p>
+              <h3><%= product %></h3>
+              <p><%= product.description %></p>
             </div>
             <div class="col-lg-2 offset-lg-1">
-              <p class="h2">5€</p>
+              <p class="h2"><%= number_to_currency(product.price, precision: 0) %></p>
             </div>
             <div class="col-lg-2 text-end">
               <button type="button" class="btn btn-outline-primary">Choisir</button>
@@ -43,6 +43,7 @@
           <hr>
         <% end %>
       </div>
+
       <div class="col-lg-3">
         <div class="card border mb-3">
           <div class="card-body">
