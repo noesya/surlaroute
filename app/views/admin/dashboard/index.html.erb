@@ -1,8 +1,19 @@
 <%= content_for :title, t('admin.dashboard') %>
 
-<p class="display-5 mb-5">
-  Bienvenue sur l'écothèque !
-</p>
+<% if @comments_pending > 0 %>
+  <div class="card bg-primary">
+    <div class="card-body text-center px-4 py-4-5">
+      <p class="h2 text-white mb-0">
+        <%= link_to todo_admin_comments_path, class: 'text-white stretched-link' do %>
+          <i class="<%= Icon::COMMENT %>"></i><br>
+          <%= @comments_pending %>
+          <%= User::Comment.model_name.human(count: @comments_pending).downcase %>
+          <%= t('admin.comments.todo').downcase %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+<% end %>
 
 <div class="row">
   <% @metrics.each do |metric| %>

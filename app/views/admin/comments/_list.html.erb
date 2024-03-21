@@ -2,21 +2,33 @@
   <table class="<%= table_classes %>">
     <thead>
       <tr>
-        <th><%= User::Comment.human_attribute_name('title') %></th>
-        <th><%= User::Comment.human_attribute_name('text') %></th>
+        <th><%= User::Comment.model_name.human(count: 2) %></th>
         <th><%= User::Comment.human_attribute_name('user') %></th>
-        <th><%= User::Comment.human_attribute_name('date') %></th>
-        <th></th>
+        <th><%= User::Comment.human_attribute_name('about') %></th>
+        <th><%= User::Comment.human_attribute_name('status') %></th>
       </tr>
     </thead>
     <tbody>
       <% comments.each do |comment| %>
         <tr>
-          <td><%= comment.title %></td>
-          <td><%= comment.text %></td>
-          <td><%= comment.user %></td>
-          <td><%= l comment.created_at %></td>
-          <td></td>
+          <td>
+            <b><%= comment.title %></b><br>
+            <%= comment.text %>
+          </td>
+          <td>
+            <%= comment.user %><br>
+            <span class="small"><%= l comment.created_at %></span>
+          </td>
+          <td><%= link_to comment.about, [:admin, comment.about] %></td>
+          <td>
+            <%= link_to approve_admin_comment_path(comment), method: :post, class: 'text-success btn' do %>
+              <i class="bi bi-check-circle-fill"></i>
+            <% end %>
+            <%= comment.status_i18n %>
+            <%= link_to reject_admin_comment_path(comment), method: :post, class: 'text-danger btn' do %>
+              <i class="bi bi-x-circle-fill"></i>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

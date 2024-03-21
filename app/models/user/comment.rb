@@ -4,6 +4,7 @@
 #
 #  id          :uuid             not null, primary key
 #  about_type  :string           not null, indexed => [about_id]
+#  status      :integer
 #  text        :text
 #  title       :string
 #  created_at  :datetime         not null
@@ -37,13 +38,21 @@ class User::Comment < ApplicationRecord
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :root, -> { where(reply_to_id: nil) }
+  scope :published, -> { where(status: [:pending, :approved]) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
-    where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+    where("unaccent(user_comments.title) ILIKE unaccent(:term) OR user_comments.text ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
 
   validates_presence_of :title
+
+  enum status: {
+    rejected: 0,
+    pending: 1,
+    approved: 2
+  }
+  
 
   def new_reply
     User::Comment.new reply_to: self, about: about

@@ -160,6 +160,7 @@ fr:
         text: Texte
         user: Écrit par...
         date: Le...
+        status: Statut
     errors:
       models:
         definition:
@@ -207,6 +208,9 @@ fr:
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s
+      user/comment:
+        one: Commentaire
+        other: Commentaires
   actors:
     description: Des écosystèmes territoriaux favorisant l’économie circulaire, avec des acteur·rices du réemploi, de la mutualisation, du transport, de la conception, etc. Quel que soit le territoire, il existe des collaborations possibles à tous les niveaux de la chaîne de la scénographie pour contribuer ensemble à réduire les impacts environnementaux.
     information: Informations pratiques
@@ -216,7 +220,9 @@ fr:
       title: Vous avez une bonne adresse à partager ?
   add: Ajouter
   admin:
-    comments: Modération
+    comments: 
+      title: Modération
+      todo: À traiter
     dashboard: Tableau de bord
     definitions_hint: Des variantes du titre qui seront recherchées également dans les articles pour afficher le texte.
     file_hint_with_formats: "Fichiers %{formats} uniquement."
@@ -331,6 +337,12 @@ fr:
           header: Header
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
+    user:
+      comment:
+        status:
+          pending: En attente de modération
+          approved: Approuvé
+          rejected: Rejeté
   false: Non
   folder:
     close: Fermer le dossier
