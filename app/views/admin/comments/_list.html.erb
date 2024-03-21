@@ -21,9 +21,13 @@
           </td>
           <td><%= link_to comment.about, [:admin, comment.about] %></td>
           <td class="js-status">
-            <span class="me-3"><%= comment.status_i18n %></span>
-            <%= link_to t('admin.comments.approve'), approve_admin_comment_path(comment), method: :post, remote: true, class: 'btn-success btn btn-sm' if comment.pending? %>
-            <%= link_to t('admin.comments.reject'), reject_admin_comment_path(comment), method: :post, remote: true, class: 'btn-danger btn btn-sm' if comment.pending? %>
+            <% if comment.pending? %>
+              <span class="me-3"><%= comment.status_i18n %></span>
+              <%= link_to t('admin.comments.approve'), approve_admin_comment_path(comment), method: :post, remote: true, class: 'btn-success btn btn-sm' %>
+              <%= link_to t('admin.comments.reject'), reject_admin_comment_path(comment), method: :post, remote: true, class: 'btn-danger btn btn-sm' %>
+            <% else %>
+              <%= comment.status_i18n %>
+            <% end %>
           </td>
         </tr>
       <% end %>
