@@ -28,24 +28,25 @@ is_lower_page ||= false
                   </div>
                   <% if next_item_kind != 'images' %>
                     <div class="details col-lg-6">
-                  <% else %>
-                    <div class="details col-lg-12 mt-lg-4">
                   <% end %>
         <% else %>
-                    <div class="structure__item__<%= item.kind %>">
-                      <% if item.should_display_for?(about) %>
-                        <%= render 'structure/items/label', label: item.to_s if item.show_label %>
-                        <%= render "structure/items/kinds/#{item.kind}", 
-                                    about: about, 
-                                    item: item, 
-                                    value: item.value_for(about),
-                                    text: item.text_for(about) %>
-                      <% end %>
-                    </div>
+          <% if item.should_display_for?(about) %>
+            <% if item.kind != 'images' %>
+              <div class="structure__item__<%= item.kind %>">
+            <% end %>
+            <%= render 'structure/items/label', label: item.to_s if item.show_label %>
+            <%= render "structure/items/kinds/#{item.kind}", 
+                        about: about, 
+                        item: item, 
+                        value: item.value_for(about),
+                        text: item.text_for(about) %>
+            <% if item.kind != 'images' %>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
-  </div>
   </div>
   <%= section_closing_tags.html_safe if section_opened %>
 <% end %>

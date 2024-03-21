@@ -1,55 +1,58 @@
 <% files = item.files_for(about) %>
 
-<div><%= simple_format item.text_for(about) %></div>
-
-<% if files.count > 2 %>
-  <div class="splide" aria-label="Galerie">
-    <div class="splide__track">
-      <ul class="splide__list">
-        <% files.each do |file| %>
-          <% next unless file.file.attached? %>
-          <li class="splide__slide col-md-6">
-            <figure>
-              <%= kamifusen_tag file.file,
-                                class: 'img-fluid rounded',
-                                alt: file.alt %>
-              <% if file.text.present? || file.credit.present? %>
-                <figcaption class="mt-1 small">
-                  <% if file.text.present? %>
-                    <p class="small mb-0"><%= file.text %></p>
-                  <% end %>
-                  <% if file.credit.present? %>
-                    <p class="small text-muted"><%= file.credit %></p>
-                  <% end %>
-                </figcaption>
-              <% end %>
-            </figure>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-<% else %>
-  <div class="row">
-    <% files.each do |file| %>
-      <% next unless file.file.attached? %>
-      <div class="col-md-6">
-        <figure>
-          <%= kamifusen_tag file.file,
-                            class: 'img-fluid rounded',
-                            alt: file.alt %>
-          <% if file.text.present? || file.credit.present? %>
-            <figcaption class="mt-1 small">
-              <% if file.text.present? %>
-                <p class="small mb-0"><%= file.text %></p>
-              <% end %>
-              <% if file.credit.present? %>
-                <p class="small text-muted"><%= file.credit %></p>
-              <% end %>
-            </figcaption>
-          <% end %>
-        </figure>
-      </div>
-    <% end %>
-  </div>
+<% if item.text_for(about).present? %>
+<div class="col-lg-6 mb-4 mb-lg-0"><%= simple_format item.text_for(about) %></div>
 <% end %>
+<div class="details col-lg-12 mt-lg-4">
+  <% if files.count > 2 %>
+    <div class="splide" aria-label="Galerie">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <% files.each do |file| %>
+            <% next unless file.file.attached? %>
+            <li class="splide__slide col-md-6">
+              <figure>
+                <%= kamifusen_tag file.file,
+                                  class: 'img-fluid rounded',
+                                  alt: file.alt %>
+                <% if file.text.present? || file.credit.present? %>
+                  <figcaption class="mt-1 small">
+                    <% if file.text.present? %>
+                      <p class="small mb-0"><%= file.text %></p>
+                    <% end %>
+                    <% if file.credit.present? %>
+                      <p class="small text-muted"><%= file.credit %></p>
+                    <% end %>
+                  </figcaption>
+                <% end %>
+              </figure>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <% files.each do |file| %>
+        <% next unless file.file.attached? %>
+        <div class="col-md-6">
+          <figure>
+            <%= kamifusen_tag file.file,
+                              class: 'img-fluid rounded',
+                              alt: file.alt %>
+            <% if file.text.present? || file.credit.present? %>
+              <figcaption class="mt-1 small">
+                <% if file.text.present? %>
+                  <p class="small mb-0"><%= file.text %></p>
+                <% end %>
+                <% if file.credit.present? %>
+                  <p class="small text-muted"><%= file.credit %></p>
+                <% end %>
+              </figcaption>
+            <% end %>
+          </figure>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

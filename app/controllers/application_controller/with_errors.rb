@@ -10,6 +10,10 @@ module ApplicationController::WithErrors
       render_not_found
     end
 
+    rescue_from ActionController::UnknownFormat do |exception|
+      render_not_found
+    end
+
     rescue_from ActiveRecord::RecordNotFound do |exception|
       render_not_found
     end

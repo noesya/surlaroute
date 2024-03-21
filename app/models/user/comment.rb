@@ -4,6 +4,7 @@
 #
 #  id          :uuid             not null, primary key
 #  about_type  :string           not null, indexed => [about_id]
+#  status      :integer          default("pending")
 #  text        :text
 #  title       :string
 #  created_at  :datetime         not null
@@ -37,8 +38,21 @@ class User::Comment < ApplicationRecord
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :root, -> { where(reply_to_id: nil) }
+  scope :published, -> { where(status: [:pending, :approved]) }
+
+  scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
+  scope :autofilter_search, -> (term) {
+    where("unaccent(user_comments.title) ILIKE unaccent(:term) OR unaccent(user_comments.text) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+  }
+  scope :autofilter_status, -> (value) { where(status: value) }
 
   validates_presence_of :title
+
+  enum status: {
+    pending: 0,
+    approved: 1,
+    rejected: 2
+  }
 
   def new_reply
     User::Comment.new reply_to: self, about: about

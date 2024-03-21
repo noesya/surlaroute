@@ -1,0 +1,7 @@
+<%= content_for :title, t('admin.comments.pending') %>
+
+<%= render 'filters_pending', current_path: pending_admin_comments_path %>
+
+<%= render 'admin/comments/list', comments: @comments %>
+<%= paginate @comments, theme: 'bootstrap-5' %>
+

@@ -26,15 +26,6 @@
 #  zipcode               :string
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  published_by_id       :uuid             indexed
-#
-# Indexes
-#
-#  index_actors_on_published_by_id  (published_by_id)
-#
-# Foreign Keys
-#
-#  fk_rails_666a0f2abc  (published_by_id => users.id)
 #
 class Actor < ApplicationRecord
   include Commentable
