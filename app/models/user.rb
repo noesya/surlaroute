@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                            :uuid             not null, primary key
+#  allow_listing                 :boolean          default(TRUE)
 #  confirmation_sent_at          :datetime
 #  confirmation_token            :string           indexed
 #  confirmed_at                  :datetime

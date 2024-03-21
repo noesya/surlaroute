@@ -139,6 +139,7 @@ fr:
         regions: Provenance
         slug: Identifiant
       user:
+        allow_listing: Accepter d'apparaître comme auteur·rice
         description: Présentation
         email: Email
         first_name: Prénom
@@ -149,7 +150,7 @@ fr:
         role: Rôle
         roles:
           admin: Administrateur
-          lab_member: Membre du lab
+          lab_member: Membre
           subscriber: Abonné·e
           superadmin: Superadmin
           visitor: Visiteur

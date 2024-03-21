@@ -46,6 +46,10 @@
               <%= f.input :description %>
             <% end %>
 
+            <% if resource.lab_member? || resource.subscriber? %>
+              <%= f.input :allow_listing %>
+            <% end %>
+
             <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
 
             <%= f.input :current_password,

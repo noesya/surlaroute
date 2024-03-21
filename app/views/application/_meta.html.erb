@@ -1,6 +1,6 @@
 <p class="small text-muted m-0">
 Publié 
-<% if author = about.published_by %>
+<% if (author = about.published_by) && author.allow_listing? %>
   par <%= link_to author, user_path(author), class: 'text-muted' %></a> 
 <% end %>
 le <%= l about.created_at.to_date %>, 
