@@ -5,7 +5,7 @@ class CreateJoinTableTechnicsUsers < ActiveRecord::Migration[7.1]
     end
 
     Technic.where.not(published_by_id: nil).each do |technic|
-      technic.authors << technic.published_by
+      technic.authors << User.find(technic.published_by_id)
     end
 
   end

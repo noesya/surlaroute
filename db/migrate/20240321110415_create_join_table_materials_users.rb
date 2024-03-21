@@ -5,7 +5,7 @@ class CreateJoinTableMaterialsUsers < ActiveRecord::Migration[7.1]
     end
 
     Material.where.not(published_by_id: nil).each do |material|
-      material.authors << material.published_by
+      material.authors << User.find(material.published_by_id)
     end
 
   end

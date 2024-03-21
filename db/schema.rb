@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -49,7 +49,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "published_by_id"
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
@@ -68,7 +67,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
     t.string "contact_website"
     t.string "contact_inventory_url"
     t.boolean "lab_member", default: false
-    t.index ["published_by_id"], name: "index_actors_on_published_by_id"
   end
 
   create_table "actors_materials", id: false, force: :cascade do |t|
@@ -202,12 +200,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.uuid "actor_id"
-    t.uuid "published_by_id"
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
     t.index ["actor_id"], name: "index_materials_on_actor_id"
-    t.index ["published_by_id"], name: "index_materials_on_published_by_id"
     t.index ["slug"], name: "index_materials_on_slug"
   end
 
@@ -283,11 +279,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "published_by_id"
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
-    t.index ["published_by_id"], name: "index_projects_on_published_by_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
@@ -391,13 +385,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
     t.string "name"
     t.string "slug"
     t.text "description"
-    t.uuid "published_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
-    t.index ["published_by_id"], name: "index_technics_on_published_by_id"
   end
 
   create_table "technics_users", id: false, force: :cascade do |t|
@@ -475,21 +467,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "actors", "users", column: "published_by_id"
   add_foreign_key "definition_aliases", "definitions"
   add_foreign_key "materials", "actors"
-  add_foreign_key "materials", "users", column: "published_by_id"
   add_foreign_key "page_blocks", "pages"
   add_foreign_key "pages", "pages", column: "parent_id"
   add_foreign_key "project_answers", "project_criterions", column: "criterion_id"
   add_foreign_key "project_answers", "projects"
-  add_foreign_key "projects", "users", column: "published_by_id"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_options_values", "structure_options", column: "option_id"
   add_foreign_key "structure_options_values", "structure_values", column: "value_id"
   add_foreign_key "structure_value_files", "structure_values", column: "value_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"
-  add_foreign_key "technics", "users", column: "published_by_id"
   add_foreign_key "user_comments", "user_comments", column: "reply_to_id"
   add_foreign_key "user_comments", "users"
   add_foreign_key "user_favorites", "users"
