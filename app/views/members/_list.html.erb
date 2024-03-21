@@ -1,9 +1,9 @@
 <div class="row members-list">
-  <% @members.each do |member| %>
+  <% objects.each do |member| %>
     <div class="col-6 col-lg-4 mb-5">
       <article class="position-relative">
         <%= render 'illustration', source: member, width: 400 %>
-        <h2><%= link_to member, member_path(member), class: 'stretched-link' %></h2>
+        <h2><%= link_to member, actor_path(member), class: 'stretched-link' %></h2>
       </article>
     </div>
   <% end %>

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
   get 'le-lab/les-membres' => 'members#index', as: :members
-  get 'le-lab/les-membres/:id' => 'members#show', as: :member
+
+  get 'communaute' => 'users#index', as: :users
+  get 'communaute/:id' => 'users#show', as: :user
 
   scope 'mon-compte' do
     get 'suivi' => 'favorites#index', as: :favorites
