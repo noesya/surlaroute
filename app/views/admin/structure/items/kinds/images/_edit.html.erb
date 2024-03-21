@@ -1,3 +1,4 @@
+<%= f.input :text, label: false %>
 <% value.files.build if value.files.empty? %>
 <div class="js-nested-cocoon" id="files-<%= item.id %>" data-sortable="inputs">
   <%= f.simple_fields_for :files, value.files.sort_by(&:position), html: { class: 'row' } do |file_f| %>
