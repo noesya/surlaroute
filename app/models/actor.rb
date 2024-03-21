@@ -79,7 +79,7 @@ class Actor < ApplicationRecord
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
-    where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+    where("unaccent(actors.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
   scope :autofilter_published, -> (status) { where(published: status) }
   scope :autofilter_premium, -> (status) { where(premium: status) }
