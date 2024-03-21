@@ -9,7 +9,10 @@
       </div>
       <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
         <% if current_user %>
-          <a href="#TODO" class="btn btn-dark"><%= t("#{objects}.call_to_action.button") %></a>
+          <%# TODO: que fait-on si le user n'a pas les droits : exemple : création d'une technique et user simple inscrit %>
+          <%= link_to t("#{objects}.call_to_action.button"),
+                      public_send("new_admin_#{objects.singularize}_path"),
+                      class: 'btn btn-dark' %>
         <% else %>
           <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#redirectionModal"><%= t("#{objects}.call_to_action.button") %></button>
         <% end %>

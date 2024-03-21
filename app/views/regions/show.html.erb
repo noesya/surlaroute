@@ -46,19 +46,7 @@
     </div>
   <% end %>
 
-  <div class="call-to-action bg-actors">
-    <div class="container py-5">
-      <div class="row align-items-center text-center text-md-start">
-        <div class="col-lg-6">
-          <h3 class="cta-title"><%= t('actors.call_to_action.title') %></h3>
-          <p class="mt-4 d-none d-md-block"><%= t('actors.call_to_action.text') %></p>
-        </div>
-        <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
-          <a href="#TODO" class="btn btn-dark"><%= t('actors.call_to_action.button') %></a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'reference-cta', objects: @actors %>
 
   <% if @all_projects.count > 0 %>
     <div class="container pb-3 pt-5">
@@ -67,19 +55,7 @@
     </div>
   <% end %>
 
-  <div class="call-to-action bg-projects">
-    <div class="container py-5">
-      <div class="row align-items-center text-center text-md-start">
-        <div class="col-lg-6">
-          <h3 class="cta-title"><%= t('projects.call_to_action.title') %></h3>
-          <p class="mt-4 d-none d-md-block"><%= t('projects.call_to_action.text') %></p>
-        </div>
-        <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
-          <a href="#TODO" class="btn btn-dark"><%= t('projects.call_to_action.button') %></a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'reference-cta', objects: @projects %>
 
   <% if @all_materials.count > 0 %>
     <div class="container pb-3 pt-5">
@@ -88,19 +64,7 @@
     </div>
   <% end %>
 
-  <div class="call-to-action bg-materials">
-    <div class="container py-5">
-      <div class="row align-items-center text-center text-md-start">
-        <div class="col-lg-6">
-          <h3 class="cta-title"><%= t('materials.call_to_action.title') %></h3>
-          <p class="mt-4 d-none d-md-block"><%= t('materials.call_to_action.text') %></p>
-        </div>
-        <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
-          <a href="#TODO" class="btn btn-dark"><%= t('materials.call_to_action.button') %></a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'reference-cta', objects: @materials %>
 
   <% if @all_technics.count > 0 %>
     <div class="container pb-3 pt-5">
@@ -109,18 +73,7 @@
     </div>
   <% end %>
 
-  <div class="call-to-action bg-technics">
-    <div class="container py-5">
-      <div class="row align-items-center text-center text-md-start">
-        <div class="col-lg-6">
-          <h3 class="cta-title"><%= t('technics.call_to_action.title') %></h3>
-          <p class="mt-4 d-none d-md-block"><%= t('technics.call_to_action.text') %></p>
-        </div>
-        <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
-          <a href="#TODO" class="btn btn-dark"><%= t('technics.call_to_action.button') %></a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'reference-cta', objects: @technics %>
+
 
 </div>

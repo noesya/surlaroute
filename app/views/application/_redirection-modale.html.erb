@@ -12,7 +12,9 @@
         <%= link_to t("account.cta.create"),
                     new_user_registration_path,
                     class: 'btn btn-light btn-lg px-4 py-2 fw-bold' %>
-        <a href="#TODO" class="btn btn-outline-light btn-lg px-4 py-2 fw-bold"><%= t('account.cta.offers') %></a>
+        <%= link_to t('account.cta.offers'),
+                    offers_path,
+                    class: 'btn btn-outline-light btn-lg px-4 py-2 fw-bold' %>
       </div>
     </div>
   </div>
