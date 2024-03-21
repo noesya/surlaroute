@@ -9,21 +9,23 @@ class Ability
   end
 
   def visitor
-    can :manage, Actor, published_by_id: @user.id
+    can :manage, Actor, id: @user.actor_ids
     cannot [:publish, :premium], Actor
-    can :manage, Project, published_by_id: @user.id
+    can :create, Actor
+    can :manage, Project, id: @user.project_ids
     cannot :publish, Project
+    can :create, Project
   end
   
   def subscriber
     visitor
     can :read, Actor
     can :read, Project
-    can :manage, Material, published_by_id: @user.id
-    can :read, Material
+    can :manage, Material, id: @user.material_ids
+    can [:read, :create], Material
     cannot :publish, Material
-    can :manage, Technic, published_by_id: @user.id
-    can :read, Technic
+    can :manage, Technic, id: @user.technic_ids
+    can [:read, :create], Technic
     cannot :publish, Technic
     can :manage, User::Comment, user_id: @user.id
   end
