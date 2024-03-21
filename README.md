@@ -6,7 +6,7 @@ Porté par *Villette Makerz*
 
 ### Pré-requis
 
-- ElasticSearch (voir la [doc](docs/elasticsearch.md))
+- ElasticSearch (voir la [doc](https://docs.ecotheque.fr/docs/recherche/))
 
 ### Récupération du projet
 
