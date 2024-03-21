@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_101538) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_21_110415) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -95,6 +95,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_101538) do
     t.uuid "actor_id", null: false
     t.uuid "technic_id", null: false
     t.index ["technic_id", "actor_id"], name: "index_actors_technics_on_technic_id_and_actor_id"
+  end
+
+  create_table "actors_users", id: false, force: :cascade do |t|
+    t.uuid "actor_id", null: false
+    t.uuid "user_id", null: false
+    t.index ["actor_id", "user_id"], name: "index_actors_users_on_actor_id_and_user_id"
   end
 
   create_table "definition_aliases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -219,6 +225,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_101538) do
     t.index ["region_id", "material_id"], name: "index_materials_regions_on_region_id_and_material_id"
   end
 
+  create_table "materials_users", id: false, force: :cascade do |t|
+    t.uuid "material_id", null: false
+    t.uuid "user_id", null: false
+    t.index ["material_id", "user_id"], name: "index_materials_users_on_material_id_and_user_id"
+  end
+
   create_table "page_blocks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "page_id", null: false
     t.integer "kind", default: 1
@@ -291,6 +303,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_101538) do
     t.uuid "project_id", null: false
     t.index ["project_id", "technic_id"], name: "index_projects_technics_on_project_id_and_technic_id"
     t.index ["technic_id", "project_id"], name: "index_projects_technics_on_technic_id_and_project_id"
+  end
+
+  create_table "projects_users", id: false, force: :cascade do |t|
+    t.uuid "project_id", null: false
+    t.uuid "user_id", null: false
+    t.index ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id"
   end
 
   create_table "regions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -380,6 +398,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_101538) do
     t.string "image_alt"
     t.string "image_credit"
     t.index ["published_by_id"], name: "index_technics_on_published_by_id"
+  end
+
+  create_table "technics_users", id: false, force: :cascade do |t|
+    t.uuid "technic_id", null: false
+    t.uuid "user_id", null: false
+    t.index ["technic_id", "user_id"], name: "index_technics_users_on_technic_id_and_user_id"
   end
 
   create_table "user_comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

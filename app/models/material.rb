@@ -35,6 +35,7 @@ class Material < ApplicationRecord
 
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :projects
+  has_and_belongs_to_many :authors, class_name: 'User', join_table: "materials_users", association_foreign_key: :user_id
 
   has_one_attached_deletable :image
 
