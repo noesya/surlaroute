@@ -35,7 +35,7 @@ fr:
         contact_phone: Téléphone de contact
         contact_website: Site web
         country: Pays
-        description: Description
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
@@ -57,7 +57,7 @@ fr:
       material:
         actors: Fabriqué par
         authors: Fiche publiée par
-        description: Description
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
@@ -79,7 +79,7 @@ fr:
       project:
         actors: Acteurices
         authors: Fiche publiée par
-        description: Description
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
@@ -129,7 +129,7 @@ fr:
       technic:
         actors: Contacts
         authors: Fiche publiée par
-        description: Description
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
