@@ -1,6 +1,9 @@
 <% if can?(:publish, f.object) %>
   <h5>Publication</h5>
   <%= f.input :published %>
-  <%= f.association :published_by,
-                    collection: User.possible_authors(f.object.published_by_id).ordered %>
+  <%= f.association :authors,
+                    collection: User.possible_authors(f.object.author_ids).ordered,
+                    input_html: {
+                      class: 'select2'
+                    } %>
 <% end %>

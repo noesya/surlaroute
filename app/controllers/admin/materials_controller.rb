@@ -22,7 +22,7 @@ class Admin::MaterialsController < Admin::ApplicationController
   end
 
   def create
-    @material.published_by = current_user if cannot?(:publish, @material)
+    @material.authors << current_user if cannot?(:publish, @material)
     if @material.save
       redirect_to [:admin, @material], notice: t('admin.successfully_created_html', model: @material.to_s)
     else
@@ -55,14 +55,15 @@ class Admin::MaterialsController < Admin::ApplicationController
   end
 
   def material_params
+    allowed_params = [
+      :name, :slug, :description,
+      :image, :image_delete, :image_infos, :image_alt, :image_credit,
+      actor_ids: [], project_ids: [],
+      region_ids: [],
+      structure_values_attributes: structure_values_permitted_attributes
+    ]
+    allowed_params += [:published, author_ids: []] if can?(:publish, Material)
     params.require(:material)
-          .permit(
-            :name, :slug, :description,
-            :image, :image_delete, :image_infos, :image_alt, :image_credit,
-            :published, :published_by_id,
-            actor_ids: [], project_ids: [],
-            region_ids: [],
-            structure_values_attributes: structure_values_permitted_attributes
-          )
+          .permit(allowed_params)
   end
 end

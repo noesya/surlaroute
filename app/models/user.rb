@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                            :uuid             not null, primary key
+#  allow_listing                 :boolean          default(TRUE)
 #  confirmation_sent_at          :datetime
 #  confirmation_token            :string           indexed
 #  confirmed_at                  :datetime
@@ -53,14 +54,15 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  has_many :projects, foreign_key: :published_by_id
-  has_many :technics, foreign_key: :published_by_id
-  has_many :materials, foreign_key: :published_by_id
-  has_many :actors, foreign_key: :published_by_id
+  has_and_belongs_to_many :projects
+  has_and_belongs_to_many :technics
+  has_and_belongs_to_many :materials
+  has_and_belongs_to_many :actors
 
   has_one_attached_deletable :image
 
   scope :ordered, -> { order(:last_name, :first_name) }
+  scope :allowing_listing, -> { where(allow_listing: true) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_role, -> (role) { where(role: role) }

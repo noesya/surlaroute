@@ -15,6 +15,7 @@
 #  description           :text
 #  image_alt             :string
 #  image_credit          :string
+#  lab_member            :boolean          default(FALSE)
 #  latitude              :decimal(, )
 #  longitude             :decimal(, )
 #  name                  :string
@@ -50,6 +51,7 @@ class Actor < ApplicationRecord
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :technics
+  has_and_belongs_to_many :authors, class_name: 'User', join_table: "actors_users", association_foreign_key: :user_id
 
   has_one_attached_deletable :image
 
@@ -59,6 +61,7 @@ class Actor < ApplicationRecord
   scope :ordered, -> { order(:name) }
   scope :ordered_by_creation_date, -> { order(created_at: :desc) }
   scope :premium, -> { where(premium: true) }
+  scope :lab_member, -> { where(lab_member: true) }
   scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
   scope :order_by, -> (order_param) {
     case order_param

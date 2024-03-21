@@ -27,6 +27,7 @@ fr:
       actor:
         address: Adresse
         address_additional: Complément d'adresse
+        authors: Fiche publiée par
         city: Ville
         contact_email: Email de contact
         contact_inventory_url: Inventaire du fabricant
@@ -38,11 +39,11 @@ fr:
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
+        lab_member: Membre du Lab
         materials: Matériaux fabriqués
         name: Nom
         premium: Fiche premium
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Localisation(s)
         service_access_terms: Conditions d'accès au service
         slug: Identifiant
@@ -55,6 +56,7 @@ fr:
         title: Titre
       material:
         actors: Fabriqué par
+        authors: Fiche publiée par
         description: Description
         image: Image
         image_alt: Texte alternatif
@@ -62,7 +64,6 @@ fr:
         name: Nom
         projects: Projets qui l'utilisent
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Lieu(x) de production
         slug: Identifiant
       page:
@@ -77,6 +78,7 @@ fr:
         kind: Type de bloc
       project:
         actors: Acteurices
+        authors: Fiche publiée par
         description: Description
         image: Image
         image_alt: Texte alternatif
@@ -84,7 +86,6 @@ fr:
         materials: Matériaux employés
         name: Nom
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Régions
         slug: Identifiant
         technics: Techniques
@@ -127,6 +128,7 @@ fr:
         title: Titre
       technic:
         actors: Contacts
+        authors: Fiche publiée par
         description: Description
         image: Image
         image_alt: Texte alternatif
@@ -134,10 +136,10 @@ fr:
         materials: Matériaux utilisés
         name: Nom
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Provenance
         slug: Identifiant
       user:
+        allow_listing: Accepter d'apparaître comme auteur·rice
         description: Présentation
         email: Email
         first_name: Prénom
@@ -148,7 +150,7 @@ fr:
         role: Rôle
         roles:
           admin: Administrateur
-          lab_member: Membre du lab
+          lab_member: Membre
           subscriber: Abonné·e
           superadmin: Superadmin
           visitor: Visiteur
@@ -466,22 +468,11 @@ fr:
     members:
       description: Présentation du membre
       index: L’écothèque est un projet de l’Augures Lab Scénogrrrraphie, le réseau professionnel, collaboratif et prospectif pour penser l’écoscénographie dans le secteur culturel. Il réunit acteur·rices indépendant·es et institutions culturelles, de différents corps de métiers liés à la chaîne de création et de production scénographique, et croise les disciplines artistiques, notamment les arts visuels et les arts vivants, à l’échelle nationale. Il vise à favoriser le développement du réemploi, de l’économie circulaire et de l’écologie culturelle territoriale autour des activités liées à la scénographie.
-      ecosystem:
-        one: Fiche écosystème publiée
-        other: Fiches écosystème publiées
-      materials:
-        one: Fiche matériau publiée
-        other: Fiches matériaux publiées
+      section: Le Lab
       members:
         one: Membre
         other: Membres
       meta: Membre depuis le %{date}
-      projects:
-        one: Fiche projets publiée
-        other: Fiches projets publiées
-      technics:
-        one: Fiche technique publiée
-        other: Fiches techniques publiées
       title: Les membres
       website: Site internet
     offers:
@@ -507,6 +498,27 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    users:
+      title: Communauté
+      ecosystem:
+        one: Fiche écosystème publiée
+        other: Fiches écosystème publiées
+      materials:
+        one: Fiche matériau publiée
+        other: Fiches matériaux publiées
+      members:
+        one: Membre
+        other: Membres
+      meta: Membre depuis le %{date}
+      projects:
+        one: Fiche projets publiée
+        other: Fiches projets publiées
+      technics:
+        one: Fiche technique publiée
+        other: Fiches techniques publiées
+      users:
+        one: Personne
+        other: Personnes
   views:
     pagination:
       first: "&laquo; Première page"

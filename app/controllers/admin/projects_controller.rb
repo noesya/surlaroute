@@ -22,7 +22,7 @@ class Admin::ProjectsController < Admin::ApplicationController
   end
 
   def create
-    @project.published_by = current_user if cannot?(:publish, @project)
+    @project.authors << current_user if cannot?(:publish, @project)
     if @project.save
       redirect_to [:admin, @project], notice: t('admin.successfully_created_html', model: @project.to_s)
     else
@@ -55,15 +55,16 @@ class Admin::ProjectsController < Admin::ApplicationController
   end
 
   def project_params
+    allowed_params = [
+      :name, :slug, :description,
+      :image, :image_delete, :image_infos, :image_alt, :image_credit,
+      actor_ids: [], material_ids: [], technic_ids: [],
+      region_ids: [],
+      answers_attributes: [:id, :criterion_id, :value, :text],
+      structure_values_attributes: structure_values_permitted_attributes
+    ]
+    allowed_params += [:published, author_ids: []] if can?(:publish, Project)
     params.require(:project)
-          .permit(
-            :name, :slug, :description,
-            :image, :image_delete, :image_infos, :image_alt, :image_credit,
-            :published, :published_by_id,
-            actor_ids: [], material_ids: [], technic_ids: [],
-            region_ids: [],
-            answers_attributes: [:id, :criterion_id, :value, :text],
-            structure_values_attributes: structure_values_permitted_attributes
-          )
+          .permit(allowed_params)
   end
 end

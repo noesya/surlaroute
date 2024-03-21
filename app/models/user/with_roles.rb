@@ -14,7 +14,7 @@ module User::WithRoles
     scope :for_role, -> (role) { where(role: role) }
     # "Or" condition in incoming scope is because someone might have been set as author when subscriber, and is now only a visitor. 
     # We don't want to lose the actual author even if he's not subscriber anymore
-    scope :possible_authors, -> (author_id) { not_visitor.or(where(id: author_id)) }
+    scope :possible_authors, -> (author_ids) { not_visitor.or(where(id: author_ids)) }
 
     def managed_roles
       User.roles.map do |role_name, role_id|
