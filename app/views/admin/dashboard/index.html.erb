@@ -1,5 +1,9 @@
 <%= content_for :title, t('admin.dashboard') %>
 
+<p class="display-5 mb-5">
+  Bienvenue sur l'écothèque !
+</p>
+
 <% if @comments_pending_count > 0 && can?(:update, User::Comment) %>
   <div class="card bg-primary">
     <div class="card-body text-center px-4 py-4-5">
