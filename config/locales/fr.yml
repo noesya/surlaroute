@@ -383,7 +383,31 @@ fr:
   search:
     also: Vous pouvez également consulter nos annuaires
     label: Rechercher
+    no_result: 'Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :'
+    results:
+      actors:
+        one: Acteur·rice
+        other: Acteur·rices
+      article: Découvrir l'article
+      lab: "Résultats - Le Lab"
+      materials:
+        one: Matériau
+        other: Matériaux
+      projects:
+        one: Projet
+        other: Projets
+      ressources:
+        one: Ressource
+        other: Ressources
+      results:
+        one: Résultat
+        other: Résultats
+      technics:
+        one: Technique
+        other: Techniques
+      toolbox: "Résultats - Boîte à outils"
     search_in_name: Rechercher dans le nom
+    title: Recherche
   show: Voir
   show_front: Voir sur le site
   simple_form:

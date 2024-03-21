@@ -3,6 +3,7 @@
 # Table name: pages
 #
 #  id                  :uuid             not null, primary key
+#  ancestor_kind       :integer          default("neutral")
 #  body_class          :string           default("")
 #  description         :text
 #  internal_identifier :string
@@ -24,9 +25,13 @@
 #
 class Page < ApplicationRecord
 
-  LABEL_INTERNAL_IDENTIFIER = 'le-lab'
+  LAB_INTERNAL_IDENTIFIER = 'le-lab'
+  TOOLBOX_INTERNAL_IDENTIFIER = 'boite-a-outils'
 
+  include Searchable
   include WithTree
+
+  enum ancestor_kind: { neutral: 0, lab: 10, toolbox: 20 }
 
   has_many :blocks, dependent: :destroy
   belongs_to :parent, class_name: 'Page', optional: true
@@ -35,7 +40,7 @@ class Page < ApplicationRecord
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true
 
-  before_validation :set_body_class, :set_path
+  before_validation :set_body_class, :set_path, :set_ancestor_kind
   after_save :update_children_paths, if: :saved_change_to_path?
 
   scope :ordered, -> { order(:name) }
@@ -47,7 +52,11 @@ class Page < ApplicationRecord
   }
 
   def self.lab
-    find_by(internal_identifier: LABEL_INTERNAL_IDENTIFIER)
+    @@lab ||= find_by(internal_identifier: LAB_INTERNAL_IDENTIFIER)
+  end
+
+  def self.toolbox
+    @@toolbox ||= find_by(internal_identifier: TOOLBOX_INTERNAL_IDENTIFIER)
   end
 
   def generated_path
@@ -56,7 +65,7 @@ class Page < ApplicationRecord
   end
 
   def is_lab?
-  internal_identifier == LABEL_INTERNAL_IDENTIFIER
+    internal_identifier == LAB_INTERNAL_IDENTIFIER
   end
 
   def to_s
@@ -80,6 +89,29 @@ class Page < ApplicationRecord
     descendants.each do |child|
       child.update_column :path, child.generated_path
     end
+  end
+
+  def set_ancestor_kind
+    if ancestors_and_self.detect { |ancestor| ancestor == Page.lab }
+      self.ancestor_kind = 'lab'
+    elsif ancestors_and_self.detect { |ancestor| ancestor == Page.toolbox }
+      self.ancestor_kind = 'toolbox'
+    else
+      self.ancestor_kind = 'neutral'
     end
+  end
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      blocks: searchable_text_from_blocks,
+      ancestor_kind: ancestor_kind
+    }
+  end
+
+  def searchable_text_from_blocks
+    blocks.pluck(:searchable_text_from_data).compact.join(' ')
+  end
 
 end

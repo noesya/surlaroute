@@ -1,0 +1,12 @@
+<%-
+searchable_text_parts = []
+elements = data.dig('elements') || []
+elements.each do |element|
+  searchable_text_parts << element.dig('title')
+  files = element.dig('files') || []
+  files.each do |file|
+    searchable_text_parts << file.dig('title')
+  end
+end
+-%>
+<%= searchable_text_parts.compact.join(' ') %>

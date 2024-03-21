@@ -7,7 +7,7 @@ module Structured
               as: :about,
               dependent: :destroy
     accepts_nested_attributes_for :structure_values
-    
+
     has_many  :structure_options,
               through: :structure_values,
               source: :options,
@@ -29,5 +29,13 @@ module Structured
     structure_options.each do |option|
       option.denormalize_in_use!
     end
+  end
+
+  def searchable_text_from_structure_values
+    CustomSanitizer.sanitize(raw_searchable_text_from_structure_values, 'string')
+  end
+
+  def raw_searchable_text_from_structure_values
+    structure_values.pluck(:text).compact.join(' ')
   end
 end

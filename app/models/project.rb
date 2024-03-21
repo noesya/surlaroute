@@ -27,6 +27,7 @@ class Project < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
 
@@ -71,5 +72,21 @@ class Project < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      structure_values: searchable_text_from_structure_values,
+      answers: searchable_text_from_answers
+    }
+  end
+
+  def searchable_text_from_answers
+    raw_texts_from_answers = answers.where(value: true).pluck(:text).compact
+    CustomSanitizer.sanitize(raw_texts_from_answers.join(' '), 'string')
   end
 end

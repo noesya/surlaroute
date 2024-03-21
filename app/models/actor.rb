@@ -41,6 +41,7 @@ class Actor < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
   include WithGeolocation
@@ -99,5 +100,22 @@ class Actor < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      full_address: full_address,
+      contact_email: contact_email,
+      contact_inventory_url: contact_inventory_url,
+      contact_name: contact_name,
+      contact_phone: contact_phone,
+      contact_website: contact_website,
+      service_access_terms: service_access_terms,
+      structure_values: searchable_text_from_structure_values
+    }
   end
 end

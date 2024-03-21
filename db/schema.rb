@@ -235,6 +235,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.text "searchable_text_from_data"
     t.index ["page_id"], name: "index_page_blocks_on_page_id"
   end
 
@@ -249,6 +250,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
     t.datetime "updated_at", null: false
     t.string "body_class", default: ""
     t.string "slug"
+    t.integer "ancestor_kind", default: 0
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 
