@@ -8,7 +8,6 @@ delete L.Icon.Default.prototype._getIconUrl;
 L.NumberedDivIcon = L.Icon.extend({
     options: {
         iconUrl: window.map ? window.map.iconUrl : '',
-        number: '',
         shadowUrl: null,
         iconSize: new L.Point(25, 41),
         iconAnchor: new L.Point(13, 41),
@@ -103,27 +102,24 @@ window.ecotheque.maps = {
                 }
             }).addTo(mymap);
 
-            mymap.fitBounds(this.geojsonLayer.getBounds());
+            mymap.fitBounds(this.geojsonLayer.getBounds(), { animate: false });
             mymap.zoomOut();
         }
 
-        function updateMarkerIcon(e, selected) {
-            'use strict';
-            var iconSelectedPath = '<%= asset_path("icons/marker.svg") %>',
-                iconUnselectedPath = '<%= asset_path("icons/marker-unselected.svg") %>';
-            
-            var marker = e.popup._source._icon,
-                icon = marker.querySelector('img'),
-                iconPath = selected ? iconSelectedPath : iconUnselectedPath;
-            icon.setAttribute("src", iconPath);
-        }
-
         mymap.on('popupopen', function (e) {
-            updateMarkerIcon(e, true);
-        });
+            this.updateMarkerIcon(e, true);
+        }.bind(this));
         mymap.on('popupclose', function (e) {
-            updateMarkerIcon(e, false);
-        });
+            this.updateMarkerIcon(e, false);
+        }.bind(this));
+    },
+
+    updateMarkerIcon: function(e, selected) {
+        'use strict';
+        var marker = e.popup._source._icon,
+            icon = marker.querySelector('img'),
+            iconPath = selected ? window.map.iconSelectedUrl : window.map.iconUrl;
+        icon.setAttribute('src', iconPath);
     },
 
     bindFeaturePopin: function (feature, layer) {
