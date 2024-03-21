@@ -7,8 +7,14 @@
     &::before
         @include rounded-icon
         font-size: pxToRem(12)
-    
+
 .search-modal
+    .search-container
+        form[role="search"]
+            padding-top: map-get($spacers, 5)
+            @include media-breakpoint-up(md)
+                padding-top: map-get($spacers, 6)
+    // OVERIDE BOOTSTRAP
     background: $color-bg
     border: none
     .modal-dialog
@@ -25,13 +31,15 @@
         margin-top: $container-padding-x
     .col
         position: relative
+
+.search-container
     form[role="search"]
-        padding-top: map-get($spacers, 5)
-        @include media-breakpoint-up(md)
-            padding-top: map-get($spacers, 6)
         input
             @extend %hero
             border-bottom: 1px solid black
+            &:focus,
+            &:focus-visible
+                background: none
     a
         text-decoration: none
 
@@ -50,8 +58,16 @@
         border-bottom: 1px solid black
 
 .home-index section,
-.search-modal
-    .btn-search 
+.search-modal,
+.search-show
+    .btn-search
         span
             font-size: 0
             transform: scale(0)
+
+.search-show
+    .pages-results
+        h3
+            font-weight: 700
+        .arrow-right::after
+            font-size: pxToRem(24)

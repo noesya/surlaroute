@@ -27,6 +27,7 @@ fr:
       actor:
         address: Adresse
         address_additional: Complément d'adresse
+        authors: Fiche publiée par
         city: Ville
         contact_email: Email de contact
         contact_inventory_url: Inventaire du fabricant
@@ -34,7 +35,7 @@ fr:
         contact_phone: Téléphone de contact
         contact_website: Site web
         country: Pays
-        description: Description
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
@@ -43,7 +44,6 @@ fr:
         name: Nom
         premium: Fiche premium
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Localisation(s)
         service_access_terms: Conditions d'accès au service
         slug: Identifiant
@@ -56,14 +56,14 @@ fr:
         title: Titre
       material:
         actors: Fabriqué par
-        description: Description
+        authors: Fiche publiée par
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
         name: Nom
         projects: Projets qui l'utilisent
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Lieu(x) de production
         slug: Identifiant
       page:
@@ -78,14 +78,14 @@ fr:
         kind: Type de bloc
       project:
         actors: Acteurices
-        description: Description
+        authors: Fiche publiée par
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
         materials: Matériaux employés
         name: Nom
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Régions
         slug: Identifiant
         technics: Techniques
@@ -128,14 +128,14 @@ fr:
         title: Titre
       technic:
         actors: Contacts
-        description: Description
+        authors: Fiche publiée par
+        description: Le mot du comité écothèque
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
         materials: Matériaux utilisés
         name: Nom
         published: Fiche publiée
-        published_by: Fiche publiée par
         regions: Provenance
         slug: Identifiant
       user:
@@ -401,7 +401,31 @@ fr:
   search:
     also: Vous pouvez également consulter nos annuaires
     label: Rechercher
+    no_result: 'Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :'
+    results:
+      actors:
+        one: Acteur·rice
+        other: Acteur·rices
+      article: Découvrir l'article
+      lab: "Résultats - Le Lab"
+      materials:
+        one: Matériau
+        other: Matériaux
+      projects:
+        one: Projet
+        other: Projets
+      ressources:
+        one: Ressource
+        other: Ressources
+      results:
+        one: Résultat
+        other: Résultats
+      technics:
+        one: Technique
+        other: Techniques
+      toolbox: "Résultats - Boîte à outils"
     search_in_name: Rechercher dans le nom
+    title: Recherche
   show: Voir
   show_front: Voir sur le site
   simple_form:

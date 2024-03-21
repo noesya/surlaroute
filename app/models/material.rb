@@ -30,11 +30,13 @@ class Material < ApplicationRecord
   include Favoritable
   include Publishable
   include Regional
+  include Searchable
   include Slugged
   include Structured
 
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :projects
+  has_and_belongs_to_many :authors, class_name: 'User', join_table: "materials_users", association_foreign_key: :user_id
 
   has_one_attached_deletable :image
 
@@ -65,5 +67,15 @@ class Material < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def search_data
+    {
+      name: name,
+      description: description,
+      structure_values: searchable_text_from_structure_values
+    }
   end
 end

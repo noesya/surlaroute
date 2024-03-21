@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     resources :comments, path: 'commentaires', as: :user_comments
   end
 
-
+  get 'recherche' => 'search#show', as: :search
+  
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
       region_slug.blank? || Region.where(slug: region_slug).exists?

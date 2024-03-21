@@ -22,7 +22,7 @@ class Admin::TechnicsController < Admin::ApplicationController
   end
 
   def create
-    @technic.published_by = current_user if cannot?(:publish, @technic)
+    @technic.authors << current_user if cannot?(:publish, @technic)
     if @technic.save
       redirect_to [:admin, @technic], notice: t('admin.successfully_created_html', model: @technic.to_s)
     else
@@ -55,13 +55,14 @@ class Admin::TechnicsController < Admin::ApplicationController
   end
 
   def technic_params
+    allowed_params = [
+      :name, :slug, :description,
+      :image, :image_delete, :image_infos, :image_alt, :image_credit,
+      actor_ids: [], region_ids: [],
+      structure_values_attributes: structure_values_permitted_attributes
+    ]
+    allowed_params += [:published, author_ids: []] if can?(:publish, Technic)
     params.require(:technic)
-          .permit(
-            :name, :slug, :description,
-            :image, :image_delete, :image_infos, :image_alt, :image_credit,
-            :published, :published_by_id,
-            actor_ids: [], region_ids: [],
-            structure_values_attributes: structure_values_permitted_attributes
-          )
+          .permit(allowed_params)
   end
 end
