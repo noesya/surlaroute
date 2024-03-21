@@ -3,10 +3,9 @@
 # Table name: pages
 #
 #  id                  :uuid             not null, primary key
+#  ancestor_kind       :integer          default("neutral")
 #  body_class          :string           default("")
 #  description         :text
-#  in_lab_tree         :boolean          default(FALSE)
-#  in_toolbox_tree     :boolean          default(FALSE)
 #  internal_identifier :string
 #  name                :string           not null
 #  path                :string           not null
@@ -32,6 +31,8 @@ class Page < ApplicationRecord
   include Searchable
   include WithTree
 
+  enum ancestor_kind: { neutral: 0, lab: 10, toolbox: 20 }
+
   has_many :blocks, dependent: :destroy
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
@@ -39,7 +40,7 @@ class Page < ApplicationRecord
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true
 
-  before_validation :set_body_class, :set_path, :check_ancestor_tree
+  before_validation :set_body_class, :set_path, :check_ancestor_kind
   after_save :update_children_paths, if: :saved_change_to_path?
 
   scope :ordered, -> { order(:name) }
@@ -90,9 +91,14 @@ class Page < ApplicationRecord
     end
   end
 
-  def check_ancestor_tree
-    in_lab_tree = ancestors_and_self.detect { |ancestor| ancestor == Page.lab }
-    in_toolbox_tree = ancestors_and_self.detect { |ancestor| ancestor == Page.toolbox }
+  def check_ancestor_kind
+    if ancestors_and_self.detect { |ancestor| ancestor == Page.lab }
+      self.ancestor_kind = 'lab'
+    elsif ancestors_and_self.detect { |ancestor| ancestor == Page.toolbox }
+      self.ancestor_kind = 'toolbox'
+    else
+      self.ancestor_kind = 'neutral'
+    end
   end
 
   def search_data
@@ -100,8 +106,7 @@ class Page < ApplicationRecord
       name: name,
       description: description,
       blocks: searchable_text_from_blocks,
-      in_lab_tree: in_lab_tree?,
-      in_toolbox_tree: in_toolbox_tree?
+      ancestor_kind: ancestor_kind
     }
   end
 

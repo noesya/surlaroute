@@ -241,8 +241,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_161414) do
     t.datetime "updated_at", null: false
     t.string "body_class", default: ""
     t.string "slug"
-    t.boolean "in_lab_tree", default: false
-    t.boolean "in_toolbox_tree", default: false
+    t.integer "ancestor_kind", default: 0
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
 
