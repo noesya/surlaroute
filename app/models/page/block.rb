@@ -64,51 +64,60 @@ class Page::Block < ApplicationRecord
   end
 
   def to_search
-    # micmac avec factos
     send("to_search_for_#{kind}")
   end
 
   def to_search_for_text
-    texts_from_data_to_search(data, keys: ['text'])
+    concatenate_properties(data, keys: ['text'])
   end
 
   def to_search_for_quote
-    texts_from_data_to_search(data, keys: ['text', 'author'])
+    concatenate_properties(data, keys: ['text', 'author'])
   end
 
   def to_search_for_keypoints
-    texts_from_elements_to_search(data['elements'], keys: ['title', 'text'])
+    concatenate_elements(data['elements'], element_keys: ['title', 'text'])
   end
 
   def to_search_for_gallery
-    texts_from_elements_to_search(data['elements'], keys: ['caption'])
+    concatenate_elements(data['elements'], element_keys: ['caption'])
   end
 
   def to_search_for_collapse
-    texts_from_elements_to_search(data['elements'], keys: ['title', 'text'])
+    concatenate_elements(data['elements'], element_keys: ['title', 'text'])
   end
 
   def to_search_for_files
-    texts_from_elements_to_search(data['elements'], keys: ['title', 'text']) do |texts, element|
-      texts << texts_from_elements_to_search(element['fields'], keys: ['title'])
-    end
-  end
-
-  def texts_from_data_to_search(data, keys: [])
-    texts = []
-    keys.each do |key|
-      texts << data.dig(key)
-    end
-    texts.compact_blank.join(' ')
-  end
-
-  def texts_from_elements_to_search(elements, keys: [], &block)
     elements ||= []
-    texts = []
+    pieces = []
     elements.each do |element|
-      texts << texts_from_data_to_search(element, keys: keys)
-      block.call(texts, element) if block.present?
+      pieces << concatenate_properties(element, keys: element_keys)
+      block.call(pieces, element) if block.present?
     end
-    texts.compact_blank.join(' ')
+    # concatenate_array pieces
+    # concatenate_elements(data['elements'], keys: ['title', 'text']) do |pieces, element|
+    #   pieces << concatenate_elements(element['files'], keys: ['title'])
+    # end
+  end
+
+  def concatenate_properties(source, keys: [])
+    # ["bla bla bla", "blo blo blo"]
+    pieces = keys.map { |key| source.dig(key) }
+    # "bla bla bla blo blo blo
+    concatenate_array pieces
+  end
+
+  def concatenate_elements(elements, element_keys: [])
+    elements ||= []
+    # ["bla bla blo blo", "bla bla blu blu"]
+    pieces = elements.map do |element|
+      concatenate_properties(element, keys: element_keys)
+    end
+    # "bla bla blo blo bla bla blu blu"
+    concatenate_array pieces
+  end
+
+  def concatenate_array(array)
+    array.compact_blank.join(' ')
   end
 end
