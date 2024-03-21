@@ -38,6 +38,11 @@ class User::Comment < ApplicationRecord
   scope :ordered, -> { order(created_at: :desc) }
   scope :root, -> { where(reply_to_id: nil) }
 
+  scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
+  scope :autofilter_search, -> (term) {
+    where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+  }
+
   validates_presence_of :title
 
   def new_reply

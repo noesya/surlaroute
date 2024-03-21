@@ -155,6 +155,11 @@ fr:
           superadmin: Superadmin
           visitor: Visiteur
         website: Site internet
+      user/comment:
+        title: Titre
+        text: Texte
+        user: Écrit par...
+        date: Le...
     errors:
       models:
         definition:
@@ -211,6 +216,7 @@ fr:
       title: Vous avez une bonne adresse à partager ?
   add: Ajouter
   admin:
+    comments: Modération
     dashboard: Tableau de bord
     definitions_hint: Des variantes du titre qui seront recherchées également dans les articles pour afficher le texte.
     file_hint_with_formats: "Fichiers %{formats} uniquement."

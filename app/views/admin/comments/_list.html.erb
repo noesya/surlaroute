@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= User::Comment.human_attribute_name('title') %></th>
+        <th><%= User::Comment.human_attribute_name('text') %></th>
+        <th><%= User::Comment.human_attribute_name('user') %></th>
+        <th><%= User::Comment.human_attribute_name('date') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% comments.each do |comment| %>
+        <tr>
+          <td><%= comment.title %></td>
+          <td><%= comment.text %></td>
+          <td><%= comment.user %></td>
+          <td><%= l comment.created_at %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

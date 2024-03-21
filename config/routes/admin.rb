@@ -4,9 +4,10 @@ namespace :admin do
     patch 'unlock' => 'users#unlock', on: :member
   end
   resources :actors
-  resources :technics
+  resources :comments
   resources :materials
   resources :projects
+  resources :technics
   namespace :projects do 
     resources :criterions do
       collection do
