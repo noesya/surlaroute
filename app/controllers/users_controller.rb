@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   include ApplicationHelper
 
   def index
-    @users = User.ordered.page(params[:page])
-    breadcrumb
+    redirect_to root_path
   end
 
   def show
@@ -15,12 +14,5 @@ class UsersController < ApplicationController
     @materials = @user.materials.ordered.page(params[:materials_page]).per(8)
     breadcrumb
     add_breadcrumb @user
-  end
-
-  protected
-
-  def breadcrumb
-    super
-    add_breadcrumb t('ui.users.title'), users_path
   end
 end
