@@ -1,3 +1,7 @@
 Geocoder.configure(
-  lookup: :ban_data_gouv_fr
+  # We use Nominatim or Base Adresse Nationale FR based on country.
+  # See app/models/actor/with_geolocation.rb for details.
+  nominatim: {
+    http_headers: { "User-Agent" => "contact@ecotheque.fr" }
+  }
 )
