@@ -10,7 +10,7 @@ class Admin::DashboardController < Admin::ApplicationController
       Region,
       User,
     ]
-    @comments_pending = User::Comment.pending.count
+    @comments_pending_count = User::Comment.pending.count
     breadcrumb
   end
 end
