@@ -59,10 +59,14 @@ class Page::Block < ApplicationRecord
   end
 
   def denormalize_searchable_text_from_data
-    raw_searchable_text_from_data = ActionController::Base.render(
+    update_column :searchable_text_from_data,
+                  CustomSanitizer.sanitize(raw_searchable_text_from_data, 'string')
+  end
+
+  def raw_searchable_text_from_data
+    ActionController::Base.render(
       partial: "admin/pages/blocks/kinds/#{kind}/searchable",
       locals: { data: data }
     )
-    update_column :searchable_text_from_data, CustomSanitizer.sanitize(raw_searchable_text_from_data, 'string')
   end
 end

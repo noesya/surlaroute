@@ -32,7 +32,10 @@ module Structured
   end
 
   def searchable_text_from_structure_values
-    raw_texts_from_structure_values = structure_values.pluck(:text).compact
-    CustomSanitizer.sanitize(raw_texts_from_structure_values.join(' '), 'string')
+    CustomSanitizer.sanitize(raw_searchable_text_from_structure_values, 'string')
+  end
+
+  def raw_searchable_text_from_structure_values
+    structure_values.pluck(:text).compact.join(' ')
   end
 end

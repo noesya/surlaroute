@@ -85,7 +85,7 @@ class Project < ApplicationRecord
   end
 
   def searchable_text_from_answers
-    raw_texts_from_answers = answers.enabled.pluck(:text).compact
+    raw_texts_from_answers = answers.where(value: true).pluck(:text).compact
     CustomSanitizer.sanitize(raw_texts_from_answers.join(' '), 'string')
   end
 end

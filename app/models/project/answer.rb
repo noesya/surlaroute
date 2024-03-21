@@ -23,6 +23,4 @@
 class Project::Answer < ApplicationRecord
   belongs_to :criterion
   belongs_to :project
-
-  scope :enabled, -> { where(value: true) }
 end
