@@ -35,6 +35,7 @@ class Page::Block < ApplicationRecord
   belongs_to :page
 
   after_commit :denormalize_searchable_text_from_data, on: [:create, :update]
+  after_commit :reindex_page
 
   def data=(value)
     data_hash = value.is_a?(Hash) ? value
@@ -88,16 +89,20 @@ class Page::Block < ApplicationRecord
   end
 
   def to_search_for_files
-    elements ||= []
-    pieces = []
-    elements.each do |element|
-      pieces << concatenate_properties(element, keys: element_keys)
-      block.call(pieces, element) if block.present?
+    elements = data['elements'] || []
+    # ["bla bla bli bli blo blo blu blu", "bla bla bli bli blo blo blu blu"]
+    # We can't use concatenate_elements because we also need to loop in each element's files.
+    pieces = elements.map do |element|
+      element_pieces = []
+      # ["bla bla", "bli bli"]
+      element_pieces << concatenate_properties(element, keys: ['title', 'text'])
+      # ["bla bla", "bli bli", "blo blo", "blu blu"]
+      element_pieces << concatenate_elements(element['files'], element_keys: ['title'])
+      # "bla bla bli bli blo blo blu blu"
+      concatenate_array(element_pieces)
     end
-    # concatenate_array pieces
-    # concatenate_elements(data['elements'], keys: ['title', 'text']) do |pieces, element|
-    #   pieces << concatenate_elements(element['files'], keys: ['title'])
-    # end
+    # "bla bla bli bli blo blo blu blu bla bla bli bli blo blo blu blu"
+    concatenate_array pieces
   end
 
   def concatenate_properties(source, keys: [])
@@ -119,5 +124,9 @@ class Page::Block < ApplicationRecord
 
   def concatenate_array(array)
     array.compact_blank.join(' ')
+  end
+
+  def reindex_page
+    page.reindex
   end
 end
