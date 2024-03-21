@@ -40,7 +40,7 @@ class Page < ApplicationRecord
   validates :name, :slug, presence: true
   validates :slug, uniqueness: true
 
-  before_validation :set_body_class, :set_path, :check_ancestor_kind
+  before_validation :set_body_class, :set_path, :set_ancestor_kind
   after_save :update_children_paths, if: :saved_change_to_path?
 
   scope :ordered, -> { order(:name) }
@@ -91,7 +91,7 @@ class Page < ApplicationRecord
     end
   end
 
-  def check_ancestor_kind
+  def set_ancestor_kind
     if ancestors_and_self.detect { |ancestor| ancestor == Page.lab }
       self.ancestor_kind = 'lab'
     elsif ancestors_and_self.detect { |ancestor| ancestor == Page.toolbox }
