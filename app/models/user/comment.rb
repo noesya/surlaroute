@@ -42,7 +42,7 @@ class User::Comment < ApplicationRecord
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {
-    where("unaccent(user_comments.title) ILIKE unaccent(:term) OR user_comments.text ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+    where("unaccent(user_comments.title) ILIKE unaccent(:term) OR unaccent(user_comments.text) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
   scope :autofilter_status, -> (value) { where(status: value) }
 
