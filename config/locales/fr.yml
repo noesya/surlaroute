@@ -157,11 +157,10 @@ fr:
         website: Site internet
       user/comment:
         about: À propos de
-        date: Le...
         status: Statut
         text: Texte
         title: Titre
-        user: Écrit par...
+        user: Auteur·ice
     errors:
       models:
         definition:
