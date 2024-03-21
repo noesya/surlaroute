@@ -11,7 +11,7 @@ module ResourceWithStructure
   def option
     @item = Structure::Item.find_by(slug: params[:item_slug], about_class: resources_class_string)
     @option = @item.options.find_by(slug: params[:option_slug])
-    @objects = @option.objects
+    @objects = @option.objects.published.ordered
     @objects = @objects.where(region: @region) if @region.present?
     breadcrumb
     add_breadcrumb t('glossary.title'), public_send("options_#{ resources_class_string.downcase.pluralize}_path")
