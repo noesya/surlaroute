@@ -62,40 +62,53 @@ class Page::Block < ApplicationRecord
     update_column :searchable_text_from_data,
                   CustomSanitizer.sanitize(to_search, 'string')
   end
-  
+
   def to_search
     # micmac avec factos
-    send "to_search_for_#{kind}"
+    send("to_search_for_#{kind}")
   end
 
   def to_search_for_text
-
+    texts_from_data_to_search(data, keys: ['text'])
   end
 
   def to_search_for_quote
-
+    texts_from_data_to_search(data, keys: ['text', 'author'])
   end
 
   def to_search_for_keypoints
-
+    texts_from_elements_to_search(data['elements'], keys: ['title', 'text'])
   end
 
   def to_search_for_gallery
-
+    texts_from_elements_to_search(data['elements'], keys: ['caption'])
   end
 
   def to_search_for_collapse
-
+    texts_from_elements_to_search(data['elements'], keys: ['title', 'text'])
   end
 
   def to_search_for_files
-
+    texts_from_elements_to_search(data['elements'], keys: ['title', 'text']) do |texts, element|
+      texts << texts_from_elements_to_search(element['fields'], keys: ['title'])
+    end
   end
 
-  def raw_searchable_text_from_data
-    ActionController::Base.render(
-      partial: "admin/pages/blocks/kinds/#{kind}/searchable",
-      locals: { data: data }
-    )
+  def texts_from_data_to_search(data, keys: [])
+    texts = []
+    keys.each do |key|
+      texts << data.dig(key)
+    end
+    texts.compact_blank.join(' ')
+  end
+
+  def texts_from_elements_to_search(elements, keys: [], &block)
+    elements ||= []
+    texts = []
+    elements.each do |element|
+      texts << texts_from_data_to_search(element, keys: keys)
+      block.call(texts, element) if block.present?
+    end
+    texts.compact_blank.join(' ')
   end
 end
