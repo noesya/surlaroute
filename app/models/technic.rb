@@ -25,19 +25,21 @@ class Technic < ApplicationRecord
   include Commentable
   include Favoritable
   include Publishable
+  include Regional
   include Searchable
   include Slugged
   include Structured
 
   has_and_belongs_to_many :actors
   has_and_belongs_to_many :projects
-  has_and_belongs_to_many :regions
+
 
   has_one_attached_deletable :image
 
   validates_presence_of :name
 
   scope :ordered, -> { order(:name) }
+  scope :ordered_by_creation_date, -> { order(created_at: :desc) }
   scope :order_by, -> (order_param) {
     case order_param
     when "name:asc"
@@ -57,6 +59,7 @@ class Technic < ApplicationRecord
   scope :autofilter_search, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
+  scope :autofilter_published, -> (status) { where(published: status) }
 
   def to_s
     "#{name}"

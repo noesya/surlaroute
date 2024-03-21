@@ -1,10 +1,12 @@
 <%
 options = item.options_for(about)
 text = item.text_for(about)
+limit ||= Float::INFINITY
 %>
 <% if options.any? %>
   <div class="d-flex align-items-start flex-wrap gap-2">
-    <% options.each do |option| %>
+    <% options.each_with_index do |option, index| %>
+      <% next if index + 1 > limit %>
       <a href="<%= polymorphic_option_path(option) %>" class="<%= tag_classes %>" title="<%= option %>">
         <%= option %>
       </a>
@@ -14,5 +16,5 @@ text = item.text_for(about)
   <span class="<%= tag_classes_disabled %>"><%= t('admin.structure.not_set') %></span>
 <% end %>
 <% if text.present? %>
-  <p><%= text %></p>
+  <p class="mt-2"><%= text %></p>
 <% end %>

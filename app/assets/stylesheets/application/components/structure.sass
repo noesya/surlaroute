@@ -29,12 +29,15 @@
             @extend .is-file
         &__colors
             .swatches
-                margin-left: -32px
+                @include media-breakpoint-up(md)
+                    margin-left: -32px
             .swatch
                 display: inline-block
                 position: relative
-                width: 128px
                 margin-bottom: 15px
+                width: 110px
+                @include media-breakpoint-up(md)
+                    width: 128px
                 &__color
                     border-radius: 100%
                     display: block
@@ -109,12 +112,17 @@
         h3
             margin-top: map-get($spacers, 4)
             font-weight: 400
-    .block-images
-        > .row
-            display: block
-        .details
-            width: 100%
-    @include media-breakpoint-up(md)
+    @include media-breakpoint-down(lg)
+        .structure__item__file + .structure__item__file
+            margin-top: 80px
+        .structure__item__images
+            figure
+                margin: 0
+            .row
+                > div + div
+                    margin-top: map-get($spacers, 4)
+                    
+    @include media-breakpoint-up(lg)
         .structure__item__file,
         .structure__item__key_figure
             display: inline-block
@@ -125,6 +133,3 @@
         .structure__item__richtext
             > p:first-of-type
                 margin-top: map-get($spacers, 2)
-
-.hero + .structure
-    margin-top: map-get($spacers, 5)

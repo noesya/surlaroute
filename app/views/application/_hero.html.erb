@@ -1,0 +1,31 @@
+<header class="hero">
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-lg-6 position-relative">
+        <div class="btn-favorites position-absolute pt-2 ps-2">
+          <%= render 'favorites/button', about: object %>
+        </div>
+        <%= render 'illustration', source: object %>
+        <% if object.image_credit.present? %>
+          <p class="small credit mt-1"><%= object.image_credit %></p>
+        <% end %>
+      </div>
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <h1><%= object %></h1>
+        <% if object.description.present? %>
+          <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
+          <p class="fw-bold"><%= sanitize add_definitions(object.description) %></p>
+        <% end %>
+        <%= render 'meta', about: object %>
+        <hr class="my-4">
+        <%= render 'structure/items/zones/header', about: object %>
+        <%= render 'regions', about: object %>
+        <% if object.class.name.downcase === 'actor' %>
+          <% unless object.premium? %>
+            <%= link_to t("ui.actor.owner"), offers_path, class: 'mt-4 d-block' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>

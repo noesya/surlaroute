@@ -1,46 +1,18 @@
 <%= content_for :title, @actor %>
 
-<header class="hero">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 position-relative">
-        <div class="btn-favorites position-absolute pt-2 ps-2">
-          <%= render 'favorites/button', about: @actor %>
-        </div>
-        <%= render 'illustration', source: @actor %>
-        <% if @actor.image_credit.present? %>
-          <p class="small credit mt-1"><%= @actor.image_credit %></p>
-        <% end %>
-      </div>
-      <div class="col-lg-6 mt-4 mt-md-0">
-        <h1><%= @actor %></h1>
-        <% if @actor.description.present? %>
-          <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
-          <p class="fw-bold"><%= sanitize add_definitions(@actor.description) %></p>
-        <% end %>
-        <%= render 'meta', about: @actor %>
-        <hr class="my-4">
-        <%= render 'structure/items/zones/header', about: @actor %>
-        <%= render 'regions', about: @actor %>
-        <% unless @actor.premium? %>
-          <%= link_to t('ui.actor.owner'), offers_path %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</header>
+<%= render 'hero', object: @actor %>
 
 <%= render 'structure/items/zones/page', about: @actor %>
 
 <% if @actor.full_address.present? || @actor.has_any_contact_informations? %>
-  <section class="py-5">
+  <section class="actor-informations pt-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
           <h2><%= t('ui.actor.informations') %></h2>
         </div>
         <% if @actor.full_address.present? %>
-          <div class="col-lg-6 structure__item__string">
+          <div class="actor-adress col-lg-6 structure__item__string">
             <%= render 'structure/items/label', label: t('ui.actor.address') %>
             <p><%= @actor.full_address %></p>
           </div>

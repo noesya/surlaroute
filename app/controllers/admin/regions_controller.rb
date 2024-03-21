@@ -2,7 +2,7 @@ class Admin::RegionsController < Admin::ApplicationController
   load_and_authorize_resource find_by: :slug
 
   def index
-    @regions = @regions.ordered.page(params[:page])
+    @regions = @regions.autofilter(params[:filters]).ordered.page(params[:page])
     breadcrumb
   end
 

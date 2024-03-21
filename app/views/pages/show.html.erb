@@ -1,4 +1,4 @@
-<%= content_for :title, @page.to_s %>
+<%= content_for :title, @page %>
 <%= content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
 <%= content_for :additional_body_class, " parent-page" if @page.children %>
 
@@ -7,7 +7,7 @@
     <div class="row pb-5 pb-md-7">
       <div class="col-lg-5 mt-lg-5">
         <h1><%= @page %></h1>
-        <p class="hero__description mt-4"><%= sanitize add_definitions(@page.description) %></p>
+        <p class="fw-bold mt-4"><%= sanitize add_definitions(@page.description) %></p>
       </div>
       <% if @page.children.any? %>
         <div class="offset-lg-1 col-lg-6 mt-5">

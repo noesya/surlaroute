@@ -9,7 +9,7 @@ elements = block.data.dig('elements') || []
     %>
     <li>
       <b><%= title %></b></br>
-      <%= simple_format text %>
+      <%= sanitize text %>
     </li>
   <% end %>
 </ul>

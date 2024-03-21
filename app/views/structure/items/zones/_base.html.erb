@@ -3,6 +3,7 @@ section_opened = false
 section_closing_tags = '</div></div></section>'
 is_present = false
 next_item_kind = nil
+is_lower_page ||= false
 %>
 
 <% elements.each do |item| %>
@@ -12,23 +13,23 @@ next_item_kind = nil
 <% end %>
 
 <% if is_present %>
-  <div class="structure structure--zone-page">
+  <div class="structure structure--zone-page<% if is_lower_page %> lower_page<% end %>">
     <% elements.each_with_index do |item, index| %>
       <% next_item_kind = elements[index + 1].kind if index + 1 < elements.length %>
       <% if item.should_display_for?(about).present? %>
         <% if item.kind == 'h2' && item.should_display_for?(about) %>
           <%= section_closing_tags.html_safe if section_opened %>
           <% section_opened = true %>
-            <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %>>
+            <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %> class="py-5">
               <div class="container">
-                <div class="row py-5">
-                  <div class="col-md-6">
-                    <h2><%= item %></h2>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h2 class="mb-4 mb-lg-0"><%= item %></h2>
                   </div>
                   <% if next_item_kind != 'images' %>
-                    <div class="details col-md-6">
+                    <div class="details col-lg-6">
                   <% else %>
-                    <div class="details col-md-12 mt-4">
+                    <div class="details col-lg-12 mt-lg-4">
                   <% end %>
         <% else %>
                     <div class="structure__item__<%= item.kind %>">

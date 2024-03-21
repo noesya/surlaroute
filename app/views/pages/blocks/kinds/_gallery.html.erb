@@ -3,29 +3,85 @@ elements = block.data.dig('elements')
 %>
 <div class="block block-gallery py-5 overflow-hidden">
   <div class="container">
-    <% if block.name.present? %>
-      <h2><%= block.name %></h2>
-    <% end %>
-    <% if elements %>
-      <div class="row">
-        <% elements.each do |element| %>
-          <%
-          alt = element.dig('alt')
-          caption = element.dig('caption')
-          image_blob_id = element.dig('image', 'id')
-          image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
-          %>
+    <% if block.name.present? || block.data.dig('text').present? %>
+      <div class="row mb-4">
+        <% if block.name.present? %>
           <div class="col-lg-6">
-            <figure>
-              <%= kamifusen_tag image_blob, 
-                                width: 600, 
-                                alt: alt,
-                                class: 'img-fluid rounded' if image_blob %>
-              <figcaption class="small mt-2"><%= caption %></figcaption>
-            </figure>
+              <h2 class="m-0"><%= block.name %></h2>
+          </div>
+        <% end %>
+        <% if block.data.dig('text').present? %>
+          <div class="col-lg-6 mt-3 mt-lg-0">
+            <%= simple_format block.data.dig('text') %>
           </div>
         <% end %>
       </div>
+    <% end %>
+    <% if elements %>
+      <% if elements.count > 2 %>
+        <div class="splide" aria-label="Galerie">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <% elements.each do |element| %>
+                <%
+                alt = element.dig('alt')
+                caption = element.dig('caption')
+                credit = element.dig('credits')
+                image_blob_id = element.dig('image', 'id')
+                image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
+                %>
+                <% next unless image_blob %>
+                <li class="splide__slide col-md-6">
+                  <figure>
+                    <%= kamifusen_tag image_blob, 
+                                      width: 600, 
+                                      alt: alt,
+                                      class: 'img-fluid rounded' if image_blob %>
+                    <% if credit.present? || caption.present? %>
+                      <figcaption class="mt-1 small">
+                        <% if caption.present? %>
+                          <p class="small mb-0"><%= caption %></p>
+                        <% end %>
+                        <% if credit.present? %>
+                          <p class="small text-muted"><%= credit %></p>
+                        <% end %>
+                      </figcaption>
+                    <% end %>
+                  </figure>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <div class="row">
+          <% elements.each do |element| %>
+            <%
+            alt = element.dig('alt')
+            credit = element.dig('credits')
+            caption = element.dig('caption')
+            image_blob_id = element.dig('image', 'id')
+            image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
+            %>
+            <div class="block-gallery__item col-lg-6">
+              <figure>
+                <%= kamifusen_tag image_blob, 
+                                  width: 600, 
+                                  alt: alt,
+                                  class: 'img-fluid rounded' if image_blob %>
+                <figcaption class="small mt-1">
+                  <% if caption.present? %>
+                    <p class="small mb-0"><%= caption %></p>
+                  <% end %>
+                  <% if credit.present? %>
+                    <p class="small text-muted"><%= credit %></p>
+                  <% end %>
+                </figcaption>
+              </figure>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

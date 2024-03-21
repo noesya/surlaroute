@@ -22,14 +22,15 @@
                       model: 'element',
                       property: 'icon',
                       label: 'Icône (svg)',
-                      images_formats_accepted: '.svg' %>
+                      images_formats_accepted: '.svg',
+                      hint: "#{images_formats_accepted_hint(formats: '.svg')}<br>Veiller à n'utiliser que des icones blanches et de taille 48x48px.".html_safe %>
           <div class="mb-3">
             <label class="form-label">Titre</label>
             <input type="text" v-model="element.title" class="form-control" />
           </div>
           <div class="mb-3">
             <label class="form-label">Texte</label>
-            <textarea class="form-control" v-model="element.text" rows="5"></textarea>
+            <textarea class="form-control summernote-vue" v-model="element.text" rows="5"></textarea>
           </div>
         </div>
       </div>

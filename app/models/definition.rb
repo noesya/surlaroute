@@ -19,7 +19,7 @@ class Definition < ApplicationRecord
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (search) { 
-    joins(:aliases).where("unaccent(definitions.title) ILIKE unaccent(:term) OR unaccent(definition_aliases.title) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(search)}%").distinct
+    left_joins(:aliases).where("unaccent(definitions.title) ILIKE unaccent(:term) OR unaccent(definition_aliases.title) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(search)}%").distinct
   }
 
   validates :title, :text, presence: true

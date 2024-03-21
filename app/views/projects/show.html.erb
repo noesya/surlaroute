@@ -1,31 +1,6 @@
 <%= content_for :title, @project %>
-<header class="hero pb-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 position-relative">
-        <div class="position-absolute pt-3 ps-3">
-          <%= render 'favorites/button', about: @project %>
-        </div>
-        <%= render 'illustration', source: @project %>
-        <% if @project.image_credit.present? %>
-          <p class="small credit mt-1"><%= @project.image_credit %></p>
-        <% end %>
-      </div>
-      <div class="col-lg-6 mt-4 mt-md-0">
-        <div class="border-bottom pb-4 mb-4">
-          <h1><%= @project %></h1>
-          <% if @project.description.present? %>
-            <p class="small text-muted mt-4"><%= t('ui.global.hero') %></p>
-            <p class="mb-4"><%= sanitize add_definitions(@project.description) %></p>
-          <% end %>
-          <%= render 'meta', about: @project %>
-        </div>
-        <%= render 'structure/items/zones/header', about: @project %>
-        <%= render 'regions', about: @project %>
-      </div>
-    </div>
-  </div>
-</header>
+
+<%= render 'hero', object: @project %>
 
 <div class="document-content">
 
@@ -66,15 +41,15 @@
               <%= render 'projects/brezet_wheel/step', step: 1 %>
               <% if @materials.any? %>
                 <section class="project-materials pt-3 pt-lg-5">
-                    <h2 class="mb-2"><%= t('ui.project.materials', count: @materials.count) %></h2>
-                    <%= render 'list', objects: @materials %>
+                    <h2 class="h3 fw-bold mb-2 pb-1"><%= t('ui.project.materials', count: @materials.count) %></h2>
+                    <%= render 'list', objects: @materials, col_number: 6 %>
                 </section>
               <% end %>
               <%= render 'projects/brezet_wheel/step', step: 2 %>
               <% if @technics.any? %>
                 <section class="project-technics pt-3 pt-lg-5">
-                  <h2 class="mb-2"><%= t('ui.project.technics', count: @technics.count) %></h2>
-                  <%= render 'list', objects: @technics %>
+                  <h2 class="h3 fw-bold mb-2 pb-1"><%= t('ui.project.technics', count: @technics.count) %></h2>
+                  <%= render 'list', objects: @technics, col_number: 6 %>
                 </section>
               <% end %>
               <%= render 'projects/brezet_wheel/step', step: 3 %>

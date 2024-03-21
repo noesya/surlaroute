@@ -11,7 +11,7 @@
     <span class="fw-bold h3"><%= comment.user %></span>
   </div>
 <% end %>
-<div class="<% if is_index %>col-md-9<% else %>col-md-7<% end %>">
+<div class="col <% if is_index %>col-lg-9<% else %>col-lg-7<% end %>">
   <h3 class="fw-bold <% if is_index %>h6<% end %>">
     <% if comment.reply_to.present? && !is_index%><span class="fw-bold h3"><%= t('comments.from') %> <%= comment.user %></span> : <% end %>
     “<%= comment.title %>”

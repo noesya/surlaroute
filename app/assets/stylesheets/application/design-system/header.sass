@@ -53,6 +53,9 @@ header#document-header
                 padding-right: 0
         .dropdown-menu
             margin-top: map-get($spacers, 2)
+    @include media-breakpoint-down(lg)
+        .nav-secondary
+            width: 100%
     @include media-breakpoint-down(md)
         .navbar-logo
             position: absolute

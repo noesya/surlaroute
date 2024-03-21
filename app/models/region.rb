@@ -29,6 +29,11 @@ class Region < ApplicationRecord
 
   scope :ordered, -> { order(:name) }
 
+  scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
+  scope :autofilter_search, -> (term) {
+    where("unaccent(regions.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
+  }
+
   def empty?
     actors.none? && materials.none? && projects.none?
   end

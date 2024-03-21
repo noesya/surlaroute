@@ -42,6 +42,7 @@ class Material < ApplicationRecord
   validates_presence_of :name
 
   scope :ordered, -> { order(:name) }
+  scope :ordered_by_creation_date, -> { order(created_at: :desc) }
   scope :order_by, -> (order_param) {
     case order_param
     when "name:asc"
@@ -61,6 +62,7 @@ class Material < ApplicationRecord
   scope :autofilter_search, -> (term) {
     where("unaccent(materials.name) ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
+  scope :autofilter_published, -> (status) { where(published: status) }
 
   def to_s
     "#{name}"

@@ -1,3 +1,8 @@
+<div class="mb-3">
+  <label class="form-label">Texte</label>
+  <textarea class="form-control" v-model="data.text" rows="3"></textarea>
+</div>
+
 <a  class="btn btn-sm btn-light mb-4"
     v-on:click="data.elements.push({ alt: '', caption: '', image: {} })">
   <i class="<%= Icon::ADD %>"></i>
@@ -30,6 +35,10 @@
           <div class="mb-3">
             <label class="form-label">Légende</label>
             <input type="text" v-model="element.caption" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Crédits</label>
+            <input type="text" v-model="element.credits" class="form-control" />
           </div>
         </div>
       </div>

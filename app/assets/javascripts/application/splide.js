@@ -6,7 +6,13 @@ if (sliders) {
         new Splide(sliders[i], {
             pagination: false,
             perPage: 2,
-            autoHeight: true
+            autoHeight: true,
+            breakpoints: {
+                768: {
+                    perPage: 1,
+                    padding: { right: '20%'}
+                }
+            }
         }).mount();
     }
 }

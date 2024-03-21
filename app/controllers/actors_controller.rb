@@ -6,8 +6,8 @@ class ActorsController < ApplicationController
     base_scope = @region.present? ? @region.actors : Actor.all
     @all_actors = base_scope.published
     @facets = Actor::Facets.new(params[:facets], model: @all_actors)
-    @actors = @facets.results.ordered
-    @actors = @actors.page(params[:page]).per(6) if @mode == "list"
+    @actors = @facets.results.ordered_by_creation_date
+    @actors = @actors.page(params[:page]) if @mode == "list"
 
     breadcrumb
   end

@@ -1,3 +1,5 @@
+<%= content_for :title, t('ui.members.title') %>
+
 <header class="hero pb-5 bg-white mt-4 pt-0">
   <div class="container">
     <div class="row mt-4">
@@ -12,9 +14,21 @@
   </div>  
 </header>
 
-<div class="document-content pt-5">
-  <div class="container members-list">
-    <%= render 'members/list', objects: @members %>
-    <%= paginate @members, theme: "bootstrap-5" %>
+<div class="document-content">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Titre de section</h2>
+      </div>
+      <div class="col-lg-6 mt-3 mt-lg-0">
+        <p><%= t('ui.members.index') %></p>
+      </div>
+    </div>
   </div>
+  <section class="members-list bg-white">
+    <div class="container pt-5">
+      <%= render 'members/list', objects: @members %>
+      <%= paginate @members, theme: "bootstrap-5" %>
+    </div>
+  </section>
 </div>
