@@ -1,8 +1,8 @@
-<%= content_for :title, Page.model_name.human(count: 2) %>
-
 <%= render 'filters', current_path: admin_pages_path %>
 
 <% if active_filters_count > 0 %>
+
+  <%= content_for :title, "#{Page.model_name.human(count: 2)} (#{@pages.total_count})" %>
 
   <div class="table-responsive">
     <table class="<%= table_classes %>">
@@ -31,6 +31,8 @@
   <%= paginate @pages, theme: 'bootstrap-5' %>
 
 <% else %>
+
+  <%= content_for :title, "#{Page.model_name.human(count: 2)} (#{@pages.count})" %>
 
   <ul class="list-unstyled treeview js-treeview <%= 'treeview--sortable js-treeview-sortable js-treeview-sortable-container' if can?(:reorder, Page) %>"
       data-sort-url="<%= reorder_admin_pages_path %>">

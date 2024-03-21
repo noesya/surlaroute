@@ -1,4 +1,4 @@
-<%= content_for :title, Region.model_name.human(count: 2) %>
+<%= content_for :title, "#{Region.model_name.human(count: 2)} (#{@regions.total_count})" %>
 
 <%= render 'filters', current_path: admin_regions_path %>
 
