@@ -6,8 +6,8 @@
       <div class="col-lg-5">
         <h1><%= t('ui.members.title') %></h1>
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @members.count %></dt>
-          <dd><%= t('ui.members.members', count: @members.count) %></dd>
+          <dt class="key-figure"><%= @members.total_count %></dt>
+          <dd><%= t('ui.members.members', count: @members.total_count) %></dd>
         </dl>
       </div>
     </div>
@@ -18,7 +18,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-lg-6">
-        <h2>Titre de section</h2>
+        <h2><%= t('ui.members.section') %></h2>
       </div>
       <div class="col-lg-6 mt-3 mt-lg-0">
         <p><%= t('ui.members.index') %></p>

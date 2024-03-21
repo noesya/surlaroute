@@ -1,7 +1,7 @@
 <p class="small text-muted m-0">
 Publié 
 <% if author = about.published_by %>
-  par <%= link_to_if author.lab_member?, author, member_path(author), class: 'text-muted' %></a> 
+  par <%= link_to author, user_path(author), class: 'text-muted' %></a> 
 <% end %>
 le <%= l about.created_at.to_date %>, 
 mis à jour le <%= l about.updated_at.to_date %>
