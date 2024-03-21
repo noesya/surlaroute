@@ -5,7 +5,7 @@ class CreateJoinTableActorsUsers < ActiveRecord::Migration[7.1]
     end
 
     Actor.where.not(published_by_id: nil).each do |actor|
-      actor.authors << actor.published_by
+      actor.authors << User.find(actor.published_by_id)
     end
 
   end
