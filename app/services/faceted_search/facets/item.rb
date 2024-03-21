@@ -24,7 +24,7 @@ module FacetedSearch
 
     def add_scope(scope)
       return scope if params_array.blank?
-      # TODO limiter aux résultats
+      # TODO limiter à ceux qui résultats
       scope.joins(:structure_options).where(structure_options: { id: structure_options_selected })
     end
 
