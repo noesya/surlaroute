@@ -14,38 +14,50 @@
     <div class="row">
       <div class="col-lg-2">
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @actors.total_count %></dt>
-          <dd><%= Actor.model_name.human(count: @actors.total_count) %></dd>
+          <% if @actors.any? %><a href="#actors"><% end %>
+            <dt class="key-figure"><%= @actors.total_count %></dt>
+            <dd><%= Actor.model_name.human(count: @actors.total_count) %></dd>
+          <% if @actors.any? %></a><% end %>
         </dl>
       </div>
       <div class="col-lg-2">
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @projects.total_count %></dt>
-          <dd><%= Project.model_name.human(count: @projects.total_count) %></dd>
+          <% if @projects.any? %><a href="#projects"><% end %>
+            <dt class="key-figure"><%= @projects.total_count %></dt>
+            <dd><%= Project.model_name.human(count: @projects.total_count) %></dd>
+          <% if @projects.any? %></a><% end %>
         </dl>
       </div>
       <div class="col-lg-2">
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @materials.total_count %></dt>
-          <dd><%= Material.model_name.human(count: @materials.total_count) %></dd>
+          <% if @materials.any? %><a href="#materials"><% end %>
+            <dt class="key-figure"><%= @materials.total_count %></dt>
+            <dd><%= Material.model_name.human(count: @materials.total_count) %></dd>
+          <% if @materials.any? %></a><% end %>
         </dl>
       </div>
       <div class="col-lg-2">
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @technics.total_count %></dt>
-          <dd><%= Technic.model_name.human(count: @technics.total_count) %></dd>
+          <% if @technics.any? %><a href="#technics"><% end %>
+            <dt class="key-figure"><%= @technics.total_count %></dt>
+            <dd><%= Technic.model_name.human(count: @technics.total_count) %></dd>
+          <% if @technics.any? %></a><% end %>
         </dl>
       </div>
       <div class="col-lg-2">
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @toolbox_pages.total_count %></dt>
-          <dd><%= Page.model_name.human(count: @toolbox_pages.total_count) %> <%= Page.toolbox.name %></dd>
+          <% if @toolbox_pages.any? %><a href="#toolbox-pages"><% end %>
+            <dt class="key-figure"><%= @toolbox_pages.total_count %></dt>
+            <dd><%= Page.model_name.human(count: @toolbox_pages.total_count) %> <%= Page.toolbox.name %></dd>
+          <% if @toolbox_pages.any? %></a><% end %>
         </dl>
       </div>
       <div class="col-lg-2">
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <dt class="key-figure"><%= @lab_pages.total_count %></dt>
-          <dd><%= Page.model_name.human(count: @lab_pages.total_count) %> <%= Page.lab.name %></dd>
+          <% if @lab_pages.any? %><a href="#lab-pages"><% end %>
+            <dt class="key-figure"><%= @lab_pages.total_count %></dt>
+            <dd><%= Page.model_name.human(count: @lab_pages.total_count) %> <%= Page.lab.name %></dd>
+          <% if @lab_pages.any? %></a><% end %>
         </dl>
       </div>
     </div>
@@ -54,47 +66,47 @@
 
 <div class="document-content">
   <% if @actors.any? %>
-    <section class="bg-white pt-5">
+    <section class="bg-white pt-5" id="actors">
       <div class="container">
         <h2 class="mb-4"><%= t('search.results.actors.other') %></h2>
         <%= render 'actors/list', objects: @actors %>
-        <%= paginate @actors, theme: 'bootstrap-5', param_name: :actors_page %>
+        <%= paginate @actors, theme: 'bootstrap-5', param_name: :actors_page, params: { anchor: "actors" } %>
       </div>
     </section>
   <% end %>
 
   <% if @projects.any? %>
-    <section class="bg-white pt-5">
+    <section class="bg-white pt-5" id="projects">
       <div class="container">
         <h2 class="mb-4"><%= t('search.results.projects.other') %></h2>
         <%= render 'application/list', objects: @projects %>
-        <%= paginate @projects, theme: 'bootstrap-5', param_name: :projects_page %>
+        <%= paginate @projects, theme: 'bootstrap-5', param_name: :projects_page, params: { anchor: "projects" } %>
       </div>
     </section>
   <% end %>
 
   <% if @materials.any? %>
-    <section class="bg-white pt-5">
+    <section class="bg-white pt-5" id="materials">
       <div class="container">
         <h2 class="mb-4"><%= t('search.results.materials.other') %></h2>
         <%= render 'application/list', objects: @materials %>
-        <%= paginate @materials, theme: 'bootstrap-5', param_name: :materials_page %>
+        <%= paginate @materials, theme: 'bootstrap-5', param_name: :materials_page, params: { anchor: "materials" } %>
       </div>
     </section>
   <% end %>
 
   <% if @technics.any? %>
-    <section class="bg-white pt-5">
+    <section class="bg-white pt-5" id="technics">
       <div class="container">
         <h2 class="mb-4"><%= t('search.results.technics.other') %></h2>
         <%= render 'application/list', objects: @technics %>
-        <%= paginate @technics, theme: 'bootstrap-5', param_name: :technics_page %>
+        <%= paginate @technics, theme: 'bootstrap-5', param_name: :technics_page, params: { anchor: "technics" } %>
       </div>
     </section>
   <% end %>
 
   <% if @toolbox_pages.any? %>
-    <section class="pt-5 pb-5 bg-toolbox">
+    <section class="pt-5 pb-5 bg-toolbox" id="toolbox-pages">
       <div class="container">
         <h2 class="mb-4"><%= t('search.results.results.other') %> - <%= Page.toolbox.name %></h2>
         <ul class="pages-list list-unstyled">
@@ -117,13 +129,13 @@
             <hr class="my-3">
           <% end %>
         </ul>
-        <%= paginate @toolbox_pages, theme: 'bootstrap-5', param_name: :toolbox_pages_page %>
+        <%= paginate @toolbox_pages, theme: 'bootstrap-5', param_name: :toolbox_pages_page, params: { anchor: "toolbox-pages" } %>
       </div>
     </section>
   <% end %>
 
   <% if @lab_pages.any? %>
-    <section class="pt-5 pb-5 bg-white">
+    <section class="pt-5 pb-5 bg-white" id="lab-pages">
       <div class="container">
         <h2 class="mb-4"><%= t('search.results.results.other') %> - <%= Page.lab.name %></h2>
         <ul class="pages-results list-unstyled">
@@ -146,7 +158,7 @@
             <hr class="my-3">
           <% end %>
         </ul>
-        <%= paginate @lab_pages, theme: 'bootstrap-5', param_name: :lab_pages_page %>
+        <%= paginate @lab_pages, theme: 'bootstrap-5', param_name: :lab_pages_page, params: { anchor: "lab-pages" } %>
       </div>
     </section>
   <% end %>
