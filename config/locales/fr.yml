@@ -489,6 +489,9 @@ fr:
       technics:
         one: Technique utilisée
         other: Techniques utilisées
+    subscriptions:
+      new:
+        title: Abonnement annuel
     technic:
       actors:
         one: Contact

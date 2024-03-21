@@ -1,0 +1,82 @@
+<%= content_for :title, t('ui.subscriptions.new.title') %>
+
+<header class="hero pb-6 pb-md-5">
+  <div class="container">
+    <div class="row mt-md-4">
+      <div class="col-lg-5">
+        <hgroup>
+          <h1><%= t('ui.subscriptions.new.title') %></h1>
+          <p class="mt-3 mt-md-5 col-md-6 col-lg-12 mb-6 mb-md-0">
+            L'écothèque de l'Augures Lab Scénogrrrraphie est une plateforme collaborative dédiée à l'écoscénographie par et pour les professionnel·les du secteur culturel.
+            Par le référencement d'écosystèmes d'acteur·rices de l'économie circulaire, de projets engagés dans une démarche d'écoconception, de matériaux alternatifs et de techniques d'assemblage ingénieuses, l'écothèque vise à apporter des solutions écoresponsables concrètes pour les acteur·rices de la chaîne de la scénographie.
+          </p>
+        </hgroup>
+      </div>
+    </div>
+  </div>
+  <%= image_tag('letters/lab.svg', alt: '', width: '1440', height: '564') %>
+</header>
+
+<div class="document-content bg-light">
+  <div class="container py-5">
+    <div class="row text-md-start py-3">
+      <div class="col-lg-9">
+        <ol>
+          <li>Choix d'abonnement</li>
+          <li>Paiement</li>
+          <li>Récapitulatif</li>
+        </ol>
+
+        <% 2.times do %>
+          <div class="row align-items-center my-3">
+            <div class="col-lg-7">
+              <h3>Étudiant·e</h3>
+              <p>Ce tarif est applicable pour tout étudiant·e sous réserve d'envoi d'un justificatif à bienvenue@augureslab.org.</p>
+            </div>
+            <div class="col-lg-2 offset-lg-1">
+              <p class="h2">5€</p>
+            </div>
+            <div class="col-lg-2 text-end">
+              <button type="button" class="btn btn-outline-primary">Choisir</button>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      </div>
+      <div class="col-lg-3">
+        <div class="card border mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Plateforme sécurisée</h5>
+            <p class="small">Paiement via HelloAsso</p>
+            <hr>
+            <p>Toutes les informations bancaires pour traiter ce paiement sont totalement sécurisées. Grâce au cryptage SSL de vos données bancaires assuré par HelloAsso Checkout, vous êtes assurés de la fiabilité de vos transactions.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <%= image_tag "subscriptions/cards/visa.png" %>
+              <%= image_tag "subscriptions/cards/cb.png" %>
+              <%= image_tag "subscriptions/cards/mastercard.png" %>
+              <%= image_tag "subscriptions/cards/pci.png" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border">
+          <div class="card-body">
+            <h5 class="card-title">Montant total</h5>
+            <div class="row align-items-end">
+              <div class="col-md-8">
+                <p class="js-product-name">Association ou Structure &lt; 5 salarié·es</p>
+              </div>
+              <div class="col-md-3 offset-md-1">
+                <p class="js-product-price">150€</p>
+              </div>
+            </div>
+            <hr>
+            <div class="h2 text-end js-cart-price">
+              150€
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

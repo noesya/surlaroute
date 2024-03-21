@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   draw 'admin'
 
   get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement' => 'subscriptions#new', as: :new_subscription
+
   get 'le-lab/les-membres' => 'members#index', as: :members
 
   get 'communaute' => 'users#index', as: :users
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   get 'recherche' => 'search#show', as: :search
-  
+
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
       region_slug.blank? || Region.where(slug: region_slug).exists?
