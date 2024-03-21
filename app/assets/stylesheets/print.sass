@@ -1,0 +1,207 @@
+$enable-important-utilities: false
+
+@import "@splidejs/splide/dist/css/splide-core.min"
+@import "application/design-system/fonts"
+@import "application/utils"
+@import "application/variables"
+@import "bootstrap"
+@import "simple_form_password_with_hints"
+@import "simple_form_bs5_file_input"
+@import "notyf/notyf.min"
+@import 'cropperjs/dist/cropper'
+@import 'leaflet/dist/leaflet'
+
+
+@import "application/design-system/layout"
+@import "application/design-system/typography"
+@import "application/design-system/header"
+@import "application/design-system/hero"
+@import "application/design-system/map"
+@import "application/design-system/page-colors"
+@import "application/design-system/footer"
+@import "application/design-system/search"
+@import "application/blocks/blocks"
+@import "application/blocks/collapse"
+@import "application/blocks/keypoints"
+@import "application/blocks/quote"
+@import "application/blocks/text"
+@import "application/components/breadcrumbs"
+@import "application/components/call-to-actions"
+@import "application/components/commentaries"
+@import "application/components/favorites"
+@import "application/components/file"
+@import "application/components/illustrations"
+@import "application/components/modal"
+@import "application/components/nav"
+@import "application/components/offcanvas-search"
+@import "application/components/pagination"
+@import "application/components/paywall"
+@import "application/components/structure"
+@import "application/components/style"
+@import "application/components/table"
+@import "application/components/tag"
+@import "application/components/tooltip"
+
+@import "application/pages/actors"
+@import "application/pages/home"
+@import "application/pages/glossary"
+@import "application/pages/offers"
+@import "application/pages/members"
+@import "application/pages/pages"
+@import "application/pages/projects"
+
+
+@import "application/dependencies/splide"
+@import "application/dependencies/facets"
+
+@media print
+    h1,
+    h2
+        page-break-before: avoid
+    body,
+    section
+        background-color: unset !important
+        background: unset !important
+    header#document-header,
+    footer.document-footer,
+    .breadcrumb,
+    .btn-favorites
+        display: none
+    header.hero,
+    .hero
+        margin-top: 0
+        background: none !important
+        background-image: none !important
+        > img
+            display: none
+        &::before,
+        &::after
+            display: none !important
+        hr
+            margin: map-get($spacers, 3) 0
+        .structure--zone-header > .row
+            row-gap: map-get($spacers, 3)
+        .locations-list
+            margin-top: map-get($spacers, 3)
+        dl 
+            margin-bottom: 0
+            + a 
+                display: none
+    .bg-light,
+    .bg-dark
+        background: none
+    .text-white
+        color: $color-text
+    dl
+        display: flex
+        align-items: baseline
+        gap: map-get($spacers, 1)
+        dt
+            font-size: $hero-font-size
+    .simple_form
+        display: none
+    // HOME
+    .home-navigation
+        background-color: unset !important
+        background-image: none !important
+        height: auto !important
+        > .container
+            padding-bottom: 0
+            padding-top: map-get($spacers, 4)
+            .row 
+                &:first-of-type
+                    margin-top: 0
+                + .row
+                    margin-top: 0
+        .home-navigation__link
+            display: none
+        &.toolbox
+            display: none
+    .call-to-action
+        display: none
+    .home-quote
+        padding: 0
+        background: none !important
+        color: $color-text !important
+        footer
+            background: none !important
+            color: $color-text !important
+    .home-about
+        .col-lg-6:nth-child(even)
+            margin-top: map-get($spacers, 2)
+        h3
+            page-break-before: avoid
+    blockquote
+        > p
+            font-size: $h2-font-size-sm
+            font-weight: $h2-font-weight
+            line-height: $h2-line-height
+
+    // DIRECTORIES
+    .directory-filters,
+    .offcanvas-search
+        display: none
+    .actors-index,
+    .materials-index,
+    .projects-index,
+    .technics-index
+        .directory
+            > .row:first-of-type
+                display: none
+        .document-content
+            padding-top: 0
+        .directory-container
+            margin-top: 0
+
+    // SHOW
+    .structure
+        section
+            padding-top: 0
+    .actor-informations
+        padding-bottom: map-get($spacers, 5)
+    .swatch__color
+        display: none !important
+    .swatch
+        width: auto !important
+
+    // GLOSSARIES
+    .action-options
+        .hero
+            min-height: unset !important
+            > .container
+                padding-bottom: 0
+                padding-top: 0
+        .document-content
+            padding-top: 0
+
+    // REGIONS
+    .regions-index
+        .document-content
+            margin-top: 0
+    .regions-show
+        .actors-list
+            > div
+                margin-bottom: 0
+
+    // OFFERS
+    .offers-index
+        .hero
+            padding-bottom: 0
+        .document-content
+            > .container
+                > .row:first-of-type
+                    padding-top: 0
+
+    // PAGES
+    .parent-page
+        .hero
+            .container
+                > .row
+                    div + div
+                        display: none
+    // BLOCKS
+    .block-keypoints,
+    .block-text
+        background: none
+        color: $color-text
+        padding-top: 0
