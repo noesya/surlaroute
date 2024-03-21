@@ -76,7 +76,7 @@ window.ecotheque.maps = {
             tile = 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
             mymap;
 
-        mymap = L.map(mapElement, { scrollWheelZoom: false, tap: false }).setView([lat, long], zoom);
+        mymap = L.map(mapElement, { tap: false }).setView([lat, long], zoom);
 
         this.maps.push(mymap);
         L.tileLayer(tile, {
