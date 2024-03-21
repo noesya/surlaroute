@@ -60,7 +60,36 @@ class Page::Block < ApplicationRecord
 
   def denormalize_searchable_text_from_data
     update_column :searchable_text_from_data,
-                  CustomSanitizer.sanitize(raw_searchable_text_from_data, 'string')
+                  CustomSanitizer.sanitize(to_search, 'string')
+  end
+  
+  def to_search
+    # micmac avec factos
+    send "to_search_for_#{kind}"
+  end
+
+  def to_search_for_text
+
+  end
+
+  def to_search_for_quote
+
+  end
+
+  def to_search_for_keypoints
+
+  end
+
+  def to_search_for_gallery
+
+  end
+
+  def to_search_for_collapse
+
+  end
+
+  def to_search_for_files
+
   end
 
   def raw_searchable_text_from_data
