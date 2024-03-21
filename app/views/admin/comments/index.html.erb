@@ -5,3 +5,6 @@
 <%= render 'admin/comments/list', comments: @comments %>
 <%= paginate @comments, theme: 'bootstrap-5' %>
 
+<% content_for :buttons do %>
+  <%= link_to t('admin.comments.pending'), pending_admin_comments_path, class: button_classes if can?(:update, User::Comment) %>
+<% end %>

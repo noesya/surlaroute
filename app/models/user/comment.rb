@@ -44,15 +44,15 @@ class User::Comment < ApplicationRecord
   scope :autofilter_search, -> (term) {
     where("unaccent(user_comments.title) ILIKE unaccent(:term) OR user_comments.text ILIKE unaccent(:term)", term: "%#{sanitize_sql_like(term)}%")
   }
+  scope :autofilter_status, -> (value) { where(status: value) }
 
   validates_presence_of :title
 
   enum status: {
-    rejected: 0,
-    pending: 1,
-    approved: 2
+    pending: 0,
+    approved: 1,
+    rejected: 2
   }
-  
 
   def new_reply
     User::Comment.new reply_to: self, about: about

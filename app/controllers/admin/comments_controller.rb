@@ -1,29 +1,28 @@
 class Admin::CommentsController < Admin::ApplicationController
-  load_and_authorize_resource class: User::Comment
+  load_and_authorize_resource class: "User::Comment"
 
   def index
     @comments = @comments.autofilter(params[:filters])
-                          .ordered
-                          .page(params[:page])
+                         .ordered
+                         .page(params[:page])
     breadcrumb
   end
 
-  def todo
-    @comments = User::Comment.pending.ordered.page(params[:page])
+  def pending
+    @comments = User::Comment.pending
+                             .autofilter(params[:filters])
+                             .ordered
+                             .page(params[:page])
     breadcrumb
-    add_breadcrumb t('admin.comments.todo')
+    add_breadcrumb t('admin.comments.pending')
   end
 
   def approve
-    @comment.status = :approved
-    @comment.save
-    redirect_to todo_admin_comments_path
+    @comment.approved!
   end
 
   def reject
-    @comment.status = :rejected
-    @comment.save
-    redirect_to todo_admin_comments_path
+    @comment.rejected!
   end
 
   protected

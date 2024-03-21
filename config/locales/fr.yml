@@ -156,11 +156,12 @@ fr:
           visitor: Visiteur
         website: Site internet
       user/comment:
-        title: Titre
-        text: Texte
-        user: Écrit par...
+        about: À propos de
         date: Le...
         status: Statut
+        text: Texte
+        title: Titre
+        user: Écrit par...
     errors:
       models:
         definition:
@@ -221,8 +222,10 @@ fr:
   add: Ajouter
   admin:
     comments: 
+      approve: Approuver
+      pending: À traiter
+      reject: Rejeter
       title: Modération
-      todo: À traiter
     dashboard: Tableau de bord
     definitions_hint: Des variantes du titre qui seront recherchées également dans les articles pour afficher le texte.
     file_hint_with_formats: "Fichiers %{formats} uniquement."
@@ -340,8 +343,8 @@ fr:
     user:
       comment:
         status:
-          pending: En attente de modération
           approved: Approuvé
+          pending: En attente de modération
           rejected: Rejeté
   false: Non
   folder:

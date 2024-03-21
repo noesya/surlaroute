@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_131157) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -248,8 +248,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_131157) do
     t.uuid "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
     t.string "body_class", default: ""
+    t.string "slug"
     t.integer "ancestor_kind", default: 0
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
@@ -409,7 +409,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_131157) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 1
+    t.integer "status", default: 0
     t.index ["about_type", "about_id"], name: "index_user_comments_on_about"
     t.index ["reply_to_id"], name: "index_user_comments_on_reply_to_id"
     t.index ["user_id"], name: "index_user_comments_on_user_id"

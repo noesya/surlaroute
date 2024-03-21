@@ -6,7 +6,7 @@ namespace :admin do
   resources :actors
   resources :comments, only: :index do
     collection do
-      get :todo
+      get :pending
     end
     member do
       post :approve
