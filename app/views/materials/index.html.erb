@@ -29,7 +29,7 @@
       </div>
       <div class="directory-container col-lg-9 materials-list mt-4 mt-lg-0">
         <%= render 'list', objects: @materials, col_number: 4 %>
-        <%= paginate @materials, theme: "bootstrap-5" %>
+        <%= paginate @materials, theme: "bootstrap-5", params: { anchor: "results" } %>
       </div>
     </div>
   </div>

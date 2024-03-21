@@ -31,7 +31,7 @@
       </div>
       <div class="directory-container col-lg-9 technics-list mt-4 mt-lg-0">
         <%= render 'list', objects: @technics, col_number: 4 %>
-        <%= paginate @technics, theme: "bootstrap-5" %>
+        <%= paginate @technics, theme: "bootstrap-5", params: { anchor: "results" } %>
       </div>
     </div>
   </div>
