@@ -178,13 +178,13 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     drb (2.2.1)
-    elastic-transport (8.3.2)
-      faraday (< 3)
+    elasticsearch (7.17.10)
+      elasticsearch-api (= 7.17.10)
+      elasticsearch-transport (= 7.17.10)
+    elasticsearch-api (7.17.10)
       multi_json
-    elasticsearch (8.12.2)
-      elastic-transport (~> 8.3)
-      elasticsearch-api (= 8.12.2)
-    elasticsearch-api (8.12.2)
+    elasticsearch-transport (7.17.10)
+      faraday (>= 1, < 3)
       multi_json
     encryptor (3.0.0)
     enum_help (0.0.19)
@@ -453,7 +453,7 @@ DEPENDENCIES
   devise-bootstrap5 (~> 0)
   devise-i18n (~> 1)
   dotenv-rails (~> 2)
-  elasticsearch (~> 8.12)
+  elasticsearch (~> 7)
   enum_help (~> 0)
   faceted_search
   gdpr (~> 1)
