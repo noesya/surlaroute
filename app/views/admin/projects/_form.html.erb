@@ -19,11 +19,6 @@
     <div class="col-lg-8">
       <h5>Informations</h5>
       <%= f.input :name %>
-      <%= f.input :slug,
-                  input_html: project.persisted? ? {} : {
-                    class: 'js-slug-input',
-                    data: { source: '#project_name' }
-                  } %>
       <%= f.association :materials,
                         input_html: {
                           class: 'select2'
