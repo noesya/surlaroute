@@ -135,7 +135,7 @@
       </div>
     </div>
     <div class="row">
-      <% @toolbox_page.children.ordered.each do |page| %>
+      <% @toolbox_page.children.ordered_by_position.each do |page| %>
         <div class="col-md-6 mt-4">
           <%= link_to page, page, class: "text-decoration-none fw-bold arrow-right" %>
         </div>
