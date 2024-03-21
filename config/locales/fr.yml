@@ -439,6 +439,8 @@ fr:
         contact_website: Doit commencer par https://
       definition:
         title: Le texte qui sera recherché dans l'article
+      material:
+        actors: Vous devez créer une fiche dans écosystème en choissisant "fabricant" dans "métier".<br>Cette fiche ne sera pas publiée.
       structure_item:
         color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
