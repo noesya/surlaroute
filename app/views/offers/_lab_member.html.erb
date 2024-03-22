@@ -14,7 +14,13 @@
       <hr>
       <p class="small text-muted">Les tarifs varient selon votre statut</p>
       <p>Entre 20€ et 2000€</p>
-      <%= link_to "S’inscrire à une réunion d’information", "https://framaforms.org/reunion-dinformation-augures-lab-scenogrrrraphie-1668503578", title: 'S’inscrire à une réunion d’information - Lien externe', class: "btn btn-dark" unless hide_cta %>
+
+      <% if !current_user || current_user.visitor? || current_user.subscriber? %>
+        <%= link_to "S’inscrire à une réunion d’information", "https://framaforms.org/reunion-dinformation-augures-lab-scenogrrrraphie-1668503578", title: 'S’inscrire à une réunion d’information - Lien externe', class: "btn btn-dark" unless hide_cta %>
+      <% elsif current_user.lab_member? %>
+        <span class="btn btn-dark w-100 disabled">C'est votre formule actuelle</span>
+      <% end %>
+
     </div>
   </div>
   <div class="card bg-light w-50 border rounded-0 rounded-end border-start-0">

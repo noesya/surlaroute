@@ -12,7 +12,13 @@
       </ul>
       <hr>
       <p>Gratuit</p>
-      <%= link_to "Créer un compte", new_user_session_path, class: "btn btn-dark w-100" unless hide_cta %>
+      <% unless hide_cta %>
+        <% if !current_user %>
+          <%= link_to "Créer un compte", new_user_session_path, class: "btn btn-dark w-100" %>
+        <% elsif current_user.visitor? %>
+          <span class="btn btn-dark w-100 disabled">C'est votre formule actuelle</span>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -15,7 +15,11 @@
         <hr>
         <p class="small text-muted">Les tarifs varient selon votre statut</p>
         <p>Entre 5€ et 1500€</p>
-        <%= link_to "Choisir cette offre", "#TODOHELLOASSOS", class: "btn btn-dark w-100" unless hide_cta %>
+        <% if !current_user || current_user.visitor? %>
+          <%= link_to "Choisir cette offre", "#TODOHELLOASSOS", class: "btn btn-dark w-100" unless hide_cta %>
+        <% elsif current_user.subscriber? %>
+          <span class="btn btn-dark w-100 disabled">C'est votre formule actuelle</span>
+        <% end %>
       </div>
     </div>
   </div>
