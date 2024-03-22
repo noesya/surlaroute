@@ -5,6 +5,10 @@ module User::WithSubscriptions
     has_many :subscriptions, dependent: :destroy
   end
 
+  def active_subscription
+    @active_subscription ||= subscriptions.active.first
+  end
+
   def update_role_from_subscriptions!
     # We don't change the role for lab members or (super)admins.
     if visitor? || subscriber?

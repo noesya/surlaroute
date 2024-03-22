@@ -4,6 +4,7 @@
       <tr>
         <th><%= Subscription.human_attribute_name('reference') %></th>
         <th><%= Subscription.human_attribute_name('user') %></th>
+        <th><%= User.human_attribute_name('email') %> (<%= Subscription.human_attribute_name('user') %>)</th>
         <th><%= Subscription.human_attribute_name('product') %></th>
         <th><%= Subscription.human_attribute_name('paid_amount') %></th>
         <th><%= Subscription.human_attribute_name('paid_at') %></th>
@@ -14,6 +15,7 @@
         <tr>
           <td><%= link_to_if can?(:read, subscription), subscription.reference, [:admin, subscription] %></td>
           <td><%= link_to_if can?(:read, subscription.user), subscription.user, [:admin, subscription.user] %></td>
+          <td><%= subscription.user.email %></td>
           <td><%= link_to_if can?(:read, subscription.product), subscription.product, [:admin, subscription.product] %></td>
           <td><%= number_to_currency(subscription.paid_amount) if subscription.paid_amount.present? %></td>
           <td><%= l(subscription.paid_at, format: :long) if subscription.paid_at.present? %></td>

@@ -152,6 +152,7 @@ fr:
         regions: Provenance
         slug: Identifiant
       user:
+        active_subscription: Abonnement en cours
         allow_listing: Accepter d'apparaître comme auteur·rice
         description: Présentation
         email: Email
