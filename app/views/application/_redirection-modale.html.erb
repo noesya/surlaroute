@@ -1,3 +1,5 @@
+<% show_create_account =  ['Actor', 'Project'].include?(context) %>
+
 <div class="modal cta-modal" id="redirectionModal" tabindex="-1" aria-labelledby="redirectionTitle" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content py-md-5 px-md-6">
@@ -6,12 +8,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center p-0">
-        <%= t('account.cta.text') %>
+        <% if show_create_account %>
+          <%= t('account.cta.text_with_account_creation') %>
+        <% else %>
+          <%= t('account.cta.text_without_account_creation') %>
+        <% end %>
       </div>
       <div class="d-flex flew-wrap justify-content-center gap-4 mt-5">
-        <%= link_to t("account.cta.create"),
-                    new_user_registration_path,
-                    class: 'btn btn-light btn-lg px-4 py-2 fw-bold' %>
+        <% if show_create_account %>
+          <%= link_to t("account.cta.create"),
+                      new_user_registration_path,
+                      class: 'btn btn-light btn-lg px-4 py-2 fw-bold' %>
+          <% end %>
         <%= link_to t('account.cta.offers'),
                     offers_path,
                     class: 'btn btn-outline-light btn-lg px-4 py-2 fw-bold' %>

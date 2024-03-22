@@ -12,7 +12,7 @@
           <i class="<%= Icon::COMMENT %>"></i><br>
           <%= @comments_pending_count %>
           <%= User::Comment.model_name.human(count: @comments_pending_count).downcase %>
-          <%= t('admin.comments.todo').downcase %>
+          <%= t('admin.comments.pending').downcase %>
         <% end %>
       </p>
     </div>
