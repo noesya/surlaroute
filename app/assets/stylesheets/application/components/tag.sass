@@ -1,9 +1,10 @@
 .tags
-
     @include media-breakpoint-down(md)
         display: none !important
+    > *
+        max-width: 100%
 .tag
-    max-width: pxToRem(250)
+    max-width: Min(100%, pxToRem(250))
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
