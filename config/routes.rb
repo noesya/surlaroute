@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
   draw 'admin'
 
+  # Tunnel d'abo
   get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
-  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement' => 'subscriptions#new', as: :new_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement'               => 'subscriptions#new', as: :new_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/recapitulatif' => 'subscriptions#summary', as: :summary_subscription
+  post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/paiement'     => 'subscriptions#payment', as: :payment_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/confirmation'  => 'subscriptions#confirmation', as: :confirmation_subscription
 
   get 'le-lab/les-membres' => 'members#index', as: :members
 

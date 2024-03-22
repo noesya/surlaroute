@@ -502,6 +502,8 @@ fr:
         one: Technique utilisée
         other: Techniques utilisées
     subscriptions:
+      errors:
+        please_select_a_product: Veuillez sélectionner une formule d'abonnement.
       new:
         title: Abonnement annuel
     technic:

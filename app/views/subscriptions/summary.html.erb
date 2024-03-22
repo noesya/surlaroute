@@ -22,26 +22,31 @@
     <div class="row text-md-start py-3">
       <div class="col-lg-9">
         <ol>
-          <li><b>Choix d'abonnement</b></li>
-          <li>Récapitulatif</li>
+          <li>Choix d'abonnement</li>
+          <li><b>Récapitulatif</b></li>
           <li>Paiement</li>
           <li>Confirmation</li>
         </ol>
 
-        <% @products.each do |product| %>
-          <div class="row align-items-center my-3">
-            <div class="col-lg-7">
-              <h3><%= product %></h3>
-              <p><%= product.description %></p>
+        <%= form_tag payment_subscription_path do |f| %>
+          <div class="row align-items-end  my-3">
+            <div class="col-lg-9">
+              <h3><%= @product %></h3>
+              <p><%= @product.description %></p>
             </div>
-            <div class="col-lg-2 offset-lg-1">
-              <p class="h2"><%= number_to_currency(product.price, precision: 0) %></p>
-            </div>
-            <div class="col-lg-2 text-end">
-              <%= link_to "Choisir", summary_subscription_path(product_id: product.id), class: "btn btn-outline-primary" %>
+            <div class="col-lg-2 offset-lg-1 text-end">
+              <%= hidden_field_tag :product_id, @product.id %>
+              <p><%= number_to_currency(@product.price, precision: 0) %></p>
             </div>
           </div>
           <hr>
+          <div class="row align-items-center my-3">
+            <div class="col-lg-3 offset-lg-9 text-end">
+              <p>Montant total</p>
+              <p class="h2 mb-4"><%= number_to_currency(@product.price, precision: 0) %></p>
+              <%= submit_tag "Paiement via HelloAsso", class: "btn btn-primary py-2" %>
+            </div>
+          </div>
         <% end %>
       </div>
 
