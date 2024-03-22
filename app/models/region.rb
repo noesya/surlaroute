@@ -35,7 +35,9 @@ class Region < ApplicationRecord
   }
 
   def empty?
-    actors.none? && materials.none? && projects.none?
+    actors.published.none? && 
+    materials.published.none? && 
+    projects.published.none?
   end
 
   def to_s
