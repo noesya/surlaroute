@@ -1,3 +1,5 @@
+/* global Splide */
+
 var sliders = document.querySelectorAll('.splide'),
     i = 0;
 
@@ -10,7 +12,7 @@ if (sliders) {
             breakpoints: {
                 768: {
                     perPage: 1,
-                    padding: { right: '20%'}
+                    padding: { right: '20%' }
                 }
             }
         }).mount();
