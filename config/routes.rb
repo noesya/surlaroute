@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
+  authenticate :user, -> (user) { user.superadmin? } do
+    mount GoodJob::Engine => 'good_job'
+  end
+
   draw 'admin'
 
   # Tunnel d'abo
