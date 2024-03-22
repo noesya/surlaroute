@@ -15,39 +15,30 @@ is_lower_page ||= false
 <% if is_present %>
   <div class="structure structure--zone-page<% if is_lower_page %> lower_page<% end %>">
     <% elements.each_with_index do |item, index| %>
-      <% next_item = elements[index + 1] if index + 1 < elements.length %>
-      <% next_item_kind = next_item.kind if next_item %>
-      <% if item.should_display_for?(about).present? %>
-        <% if item.kind == 'h2' && item.should_display_for?(about) %>
+      <% if item.should_display_for?(about) %>
+        <% if item.kind == 'h2' %>
           <%= section_closing_tags.html_safe if section_opened %>
           <% section_opened = true %>
             <section id="<%= item.slug %>" <% if item.color.present? %> style="background: #<%= item.color %>"<% end %> class="py-5">
               <div class="container">
                 <div class="row">
-                  <div class="col-lg-6">
+                  <div class="item item--title">
                     <h2 class="mb-4 mb-lg-0"><%= item %></h2>
                   </div>
-                  <% if next_item_kind != 'images' && next_item %>
-                    <div class="details col-lg-6">
-                  <% end %>
         <% else %>
           <% if item.should_display_for?(about) %>
-            <% if item.kind != 'images' %>
-              <div class="structure__item__<%= item.kind %>">
-            <% end %>
-            <%= render 'structure/items/label', label: item.to_s if item.show_label %>
-            <%= render "structure/items/kinds/#{item.kind}", 
-                        about: about, 
-                        item: item, 
-                        value: item.value_for(about),
-                        text: item.text_for(about) %>
-            <% if item.kind != 'images' %>
-              </div>
-            <% end %>
+            <div class="structure__item__<%= item.kind %>">
+              <%= render 'structure/items/label', label: item.to_s if item.show_label %>
+              <%= render "structure/items/kinds/#{item.kind}", 
+                          about: about, 
+                          item: item, 
+                          value: item.value_for(about),
+                          text: item.text_for(about) %>
+            </div>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
+    <%= section_closing_tags.html_safe if section_opened %>
   </div>
-  <%= section_closing_tags.html_safe if section_opened %>
 <% end %>
