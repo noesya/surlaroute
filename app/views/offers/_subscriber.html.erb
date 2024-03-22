@@ -1,4 +1,7 @@
-<% hide_cta ||= false %>
+<%
+hide_price ||= false
+hide_cta ||= false
+%>
 
 <div class="col-lg-3 mt-3 mt-lg-0">
   <div class="card border">
@@ -12,9 +15,13 @@
         <li>Commentaires de fiches</li>
         <li>Bibliothèque de favoris</li>
       </ul>
-      <hr>
-      <p class="small text-muted">Les tarifs varient selon votre statut</p>
-      <p>Entre 5€ et 1500€</p>
+      <% unless hide_price && hide_cta %>
+        <hr>
+      <% end %>
+      <% unless hide_price %>
+        <p class="small text-muted">Les tarifs varient selon votre statut</p>
+        <p>Entre 5€ et 1500€</p>
+      <% end %>
       <%= link_to "Choisir cette offre", new_subscription_path, class: "btn btn-dark w-100" unless hide_cta %>
     </div>
   </div>

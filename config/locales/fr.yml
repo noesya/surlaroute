@@ -395,7 +395,7 @@ fr:
   search:
     also: Vous pouvez également consulter nos annuaires
     label: Rechercher
-    no_result: 'Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :'
+    no_result: "Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :"
     results:
       actors:
         one: Acteur·rice
@@ -503,9 +503,13 @@ fr:
         other: Techniques utilisées
     subscriptions:
       errors:
+        generic_payment_error: Une erreur est survenue lors du paiement. Veuillez réessayer.
+        helloasso_payment_error: "Une erreur est survenue lors du paiement avec HelloAsso. Message : %{error}"
         please_select_a_product: Veuillez sélectionner une formule d'abonnement.
       new:
         title: Abonnement annuel
+      notices:
+        already_subscribed: Vous êtes déjà abonné·e.
     technic:
       actors:
         one: Contact

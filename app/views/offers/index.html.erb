@@ -39,9 +39,9 @@
       <div  class="tab-pane fade show active first-tab-content" tabindex="0">
 
         <div class="row">
-          <%= render 'visitor' %>
-          <%= render 'subscriber' %>
-          <%= render 'lab_member' %>
+          <%= render 'visitor', hide_cta: user_signed_in? %>
+          <%= render 'subscriber', hide_cta: user_signed_in? && !current_user.visitor? %>
+          <%= render 'lab_member', hide_cta: user_signed_in? && !(current_user.visitor? || current_user.subscriber?) %>
         </div>
 
       </div>

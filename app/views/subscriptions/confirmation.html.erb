@@ -1,0 +1,41 @@
+<%= content_for :title, t('ui.subscriptions.new.title') %>
+
+<header class="hero pb-6 pb-md-5">
+  <div class="container">
+    <div class="row mt-md-4">
+      <div class="col-lg-5">
+        <hgroup>
+          <h1><%= t('ui.subscriptions.new.title') %></h1>
+          <p class="mt-3 mt-md-5 col-md-6 col-lg-12 mb-6 mb-md-0">
+            L'écothèque de l'Augures Lab Scénogrrrraphie est une plateforme collaborative dédiée à l'écoscénographie par et pour les professionnel·les du secteur culturel.
+            Par le référencement d'écosystèmes d'acteur·rices de l'économie circulaire, de projets engagés dans une démarche d'écoconception, de matériaux alternatifs et de techniques d'assemblage ingénieuses, l'écothèque vise à apporter des solutions écoresponsables concrètes pour les acteur·rices de la chaîne de la scénographie.
+          </p>
+        </hgroup>
+      </div>
+    </div>
+  </div>
+  <%= image_tag('letters/lab.svg', alt: '', width: '1440', height: '564') %>
+</header>
+
+<div class="document-content bg-light">
+  <div class="container py-5">
+    <ol>
+      <li>Choix d'abonnement</li>
+      <li>Récapitulatif</li>
+      <li>Paiement</li>
+      <li><b>Confirmation</b></li>
+    </ol>
+
+    <div class="row col-lg-6 py-4">
+      <h2>Félicitations et merci, vous êtes désormais abonné·e !</h2>
+      <p class="mb-4">Si vous souhaitez ajouter un ou plusieurs comptes additionnels à cet abonnement, merci de contacter directement notre équipe à l’adresse <%= mail_to "bienvenue@augureslab.org" %></p>
+
+      <h3>Mon offre actuelle</h3>
+      <p>Voici les modalités de parcours sur le site écothèque que vous permet votre offre actuelle :</p>
+    </div>
+
+    <div class="row">
+      <%= render 'offers/subscriber', hide_price: true, hide_cta: true %>
+    </div>
+  </div>
+</div>

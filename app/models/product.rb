@@ -12,6 +12,11 @@
 class Product < ApplicationRecord
   scope :ordered, -> { order(:price) }
 
+  # 5,00€ => 500
+  def helloasso_price
+    (price * 100).to_i
+  end
+
   def to_s
     "#{name}"
   end

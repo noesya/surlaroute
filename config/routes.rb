@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'le-lab/comment-nous-rejoindre/nouvel-abonnement'               => 'subscriptions#new', as: :new_subscription
   get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/recapitulatif' => 'subscriptions#summary', as: :summary_subscription
   post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/paiement'     => 'subscriptions#payment', as: :payment_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/retour'        => 'subscriptions#helloasso_callback', as: :helloasso_callback_subscription
   get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/confirmation'  => 'subscriptions#confirmation', as: :confirmation_subscription
 
   get 'le-lab/les-membres' => 'members#index', as: :members
