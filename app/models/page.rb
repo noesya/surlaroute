@@ -29,6 +29,7 @@ class Page < ApplicationRecord
   TOOLBOX_INTERNAL_IDENTIFIER = 'boite-a-outils'
 
   include Searchable
+  include Slugged
   include WithTree
 
   enum ancestor_kind: { neutral: 0, lab: 10, toolbox: 20 }
@@ -37,8 +38,7 @@ class Page < ApplicationRecord
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
 
-  validates :name, :slug, presence: true
-  validates :slug, uniqueness: true
+  validates :name, presence: true
 
   before_validation :set_body_class, :set_path, :set_ancestor_kind
   after_save :update_children_paths, if: :saved_change_to_path?
@@ -70,6 +70,10 @@ class Page < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  def to_param
+    id
   end
 
   private

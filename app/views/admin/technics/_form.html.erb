@@ -19,11 +19,6 @@
     <div class="col-lg-8">
       <h5>Informations</h5>
       <%= f.input :name %>
-      <%= f.input :slug,
-                  input_html: technic.persisted? ? {} : {
-                    class: 'js-slug-input',
-                    data: { source: '#technic_name' }
-                  } %>
       <%= f.input :description %>
       <%= f.association :actors,
                         input_html: {

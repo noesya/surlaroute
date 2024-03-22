@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
   before_action :ensure_xhr, :load_about, only: [:create, :destroy]
 
   def index
+    redirect_to root_path unless can?(:create, User::Favorite) 
     @favorites = current_user.favorites
     @about_types = @favorites.pluck(:about_type)
                              .compact

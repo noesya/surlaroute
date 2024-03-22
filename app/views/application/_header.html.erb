@@ -48,7 +48,9 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg-end">
                       <li><%= link_to t('account.my_account'), edit_user_registration_path, class: "dropdown-item" %></li>
-                      <li><%= link_to t('account.favorites.title'), favorites_path, class: "dropdown-item" %></li>
+                      <% if can?(:create, User::Favorite) %>
+                        <li><%= link_to t('account.favorites.title'), favorites_path, class: "dropdown-item" %></li>
+                      <% end %>
                       <li><%= link_to t('account.comments.title'), user_comments_path, class: "dropdown-item" %></li>
                       <% unless current_user.visitor? %>
                         <li><%= link_to t('admin.title'), admin_root_path, class: "dropdown-item" %></li>

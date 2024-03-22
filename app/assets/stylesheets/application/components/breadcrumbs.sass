@@ -7,7 +7,11 @@
         &.active
             color: black
             font-weight: bold
-        + .breadcrumb-item::before
-            content: "→"
-            font-weight: normal
-            color: black
+        &::before
+            display: none
+        &:not(:last-child)
+            &::after
+                content: " →"
+                font-weight: normal
+                color: black
+                margin-right: space(2)

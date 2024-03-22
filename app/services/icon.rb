@@ -1,5 +1,6 @@
 class Icon
   ANALYTICS = 'bi bi-activity'
+  COMMENT = 'bi bi-chat-fill'
   DASHBOARD = 'bi bi-grid-fill'
   TECHNIC = 'bi bi-pencil-fill'
   ACTOR = 'bi bi-people-fill'

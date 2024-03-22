@@ -438,6 +438,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_164617) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["about_type", "about_id"], name: "index_user_comments_on_about"
     t.index ["reply_to_id"], name: "index_user_comments_on_reply_to_id"
     t.index ["user_id"], name: "index_user_comments_on_user_id"

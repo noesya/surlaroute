@@ -10,11 +10,6 @@
     </div>
     <div class="col-lg-8">
       <%= f.input :name %>
-      <%= f.input :slug,
-                  input_html: region.persisted? ? {} : {
-                    class: 'js-slug-input',
-                    data: { source: '#region_name' }
-                  } %>
       <%= f.input :description %>
     </div>
   </div>

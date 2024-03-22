@@ -4,6 +4,12 @@ fr:
       about_html: À propos de “%{title}”
       none: Aucun commentaire pour l'instant.
       title: Mes commentaires
+    cta:
+      create: Créer un compte gratuit
+      offers: Découvrir les offres
+      title: Rejoignez la communauté écothèque !
+      text_with_account_creation: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu.
+      text_without_account_creation: Pour proposer une fiche de ce type vous devez être abonné à l'écothèque.
     favorites:
       add: Suivre
       none: Vous ne suivez pas encore de fiche.
@@ -12,11 +18,6 @@ fr:
     my_account: Mon compte
     subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
     title: Mon compte
-    cta:
-      title: Rejoignez la communauté écothèque !
-      text: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu.
-      create: Créer un compte gratuit
-      offers: Découvrir les offres
   activemodel:
     models:
       structure:
@@ -64,7 +65,7 @@ fr:
         name: Nom
         projects: Projets qui l'utilisent
         published: Fiche publiée
-        regions: Lieu(x) de production
+        regions: Région
         slug: Identifiant
       page:
         children: Pages enfants
@@ -169,6 +170,12 @@ fr:
           superadmin: Superadmin
           visitor: Visiteur
         website: Site internet
+      user/comment:
+        about: À propos de
+        status: Statut
+        text: Texte
+        title: Titre
+        user: Auteur·ice
     errors:
       models:
         definition:
@@ -222,6 +229,9 @@ fr:
       user:
         one: Utilisateur·rice
         other: Utilisateur·rice·s
+      user/comment:
+        one: Commentaire
+        other: Commentaires
   actors:
     description: Des écosystèmes territoriaux favorisant l’économie circulaire, avec des acteur·rices du réemploi, de la mutualisation, du transport, de la conception, etc. Quel que soit le territoire, il existe des collaborations possibles à tous les niveaux de la chaîne de la scénographie pour contribuer ensemble à réduire les impacts environnementaux.
     information: Informations pratiques
@@ -231,6 +241,11 @@ fr:
       title: Vous avez une bonne adresse à partager ?
   add: Ajouter
   admin:
+    comments:
+      approve: Approuver
+      pending: À traiter
+      reject: Rejeter
+      title: Modération
     dashboard: Tableau de bord
     definitions_hint: Des variantes du titre qui seront recherchées également dans les articles pour afficher le texte.
     file_hint_with_formats: "Fichiers %{formats} uniquement."
@@ -345,6 +360,12 @@ fr:
           header: Header
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
+    user:
+      comment:
+        status:
+          approved: Approuvé
+          pending: En attente de modération
+          rejected: Rejeté
   false: Non
   folder:
     close: Fermer le dossier
@@ -444,6 +465,8 @@ fr:
         contact_website: Doit commencer par https://
       definition:
         title: Le texte qui sera recherché dans l'article
+      material:
+        actors: Vous devez créer une fiche dans écosystème en choissisant "fabricant" dans "métier".<br>Cette fiche ne sera pas publiée.
       product:
         redirect_url: Si renseignée, l'utilisateur sera redirigé sur cette adresse à la place du tunnel classique d'abonnement.
       structure_item:

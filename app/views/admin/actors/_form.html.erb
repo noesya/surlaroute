@@ -21,11 +21,6 @@
     <div class="col-lg-8">
       <h5><%= t('admin.infos') %></h5>
       <%= f.input :name %>
-      <%= f.input :slug,
-                  input_html: actor.persisted? ? {} : {
-                    class: 'js-slug-input',
-                    data: { source: '#actor_name' }
-                  } %>
       <%= f.input :description %>
       <%= f.association :regions,
                         input_html: {
