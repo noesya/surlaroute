@@ -4,6 +4,12 @@ fr:
       about_html: À propos de “%{title}”
       none: Aucun commentaire pour l'instant.
       title: Mes commentaires
+    cta:
+      create: Créer un compte gratuit
+      offers: Découvrir les offres
+      title: Rejoignez la communauté écothèque !
+      text_with_account_creation: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu.
+      text_without_account_creation: Pour proposer une fiche de ce type vous devez être abonné à l'écothèque.
     favorites:
       add: Suivre
       none: Vous ne suivez pas encore de fiche.
@@ -12,11 +18,6 @@ fr:
     my_account: Mon compte
     subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
     title: Mon compte
-    cta:
-      title: Rejoignez la communauté écothèque !
-      text: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit. Vous pouvez également consulter nos offres si vous souhaitez nous soutenir et accéder à davantage de contenu.
-      create: Créer un compte gratuit
-      offers: Découvrir les offres
   activemodel:
     models:
       structure:

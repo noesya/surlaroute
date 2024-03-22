@@ -1,4 +1,7 @@
-<% objects = objects.name.downcase.pluralize %>
+<% 
+  klass = objects.klass
+  objects = objects.name.downcase.pluralize 
+%>
 
 <div class="call-to-action bg-<%= objects %> mt-5">
   <div class="container py-5">
@@ -8,8 +11,7 @@
         <p class="mt-4 d-none d-md-block"><%= t("#{objects}.call_to_action.text") %></p>
       </div>
       <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
-        <% if current_user %>
-          <%# TODO: que fait-on si le user n'a pas les droits : exemple : création d'une technique et user simple inscrit %>
+        <% if current_user && can?(:create, klass) %>
           <%= link_to t("#{objects}.call_to_action.button"),
                       public_send("new_admin_#{objects.singularize}_path"),
                       class: 'btn btn-dark' %>
@@ -20,6 +22,6 @@
     </div>
   </div>
 </div>
-<% if !current_user %>
-  <%= render 'application/redirection-modale' %>
+<% unless current_user && can?(:create, klass) %>
+  <%= render 'application/redirection-modale', context: klass.name %>
 <% end %>
