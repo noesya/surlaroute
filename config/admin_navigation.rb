@@ -13,6 +13,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :technics, Technic.model_name.human(count: 2), admin_technics_path, { icon: Icon::TECHNIC } if can?(:read, Technic)
     primary.item :pages, Page.model_name.human(count: 2), admin_pages_path, { icon: Icon::PAGE } if can?(:read, Page)
     primary.item :definitions, Definition.model_name.human(count: 2), admin_definitions_path, { icon: Icon::DEFINITION } if can?(:read, Definition)
+    primary.item :comments, t('admin.comments.title'), pending_admin_comments_path, { icon: Icon::COMMENT, highlights_on: /admin\/comments/ } if can?(:update, User::Comment)
     primary.item :regions, Region.model_name.human(count: 2), admin_regions_path, { icon: Icon::REGION } if can?(:read, Region)
     primary.item :users, User.model_name.human(count: 2), admin_users_path, { icon: Icon::USER } if can?(:read, User)
     primary.item :structure, t('admin.structure.title'), nil, { icon: Icon::STRUCTURE } do |secondary|

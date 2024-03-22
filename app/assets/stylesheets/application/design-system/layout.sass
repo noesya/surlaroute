@@ -21,9 +21,11 @@ article
         position: relative
         z-index: 2
 
-.directory 
+.directory
     button
         @include button-reset
+        &:first-child
+            padding-left: 0
 
 .accordion-button
     width: auto

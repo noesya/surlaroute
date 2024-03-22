@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= User::Comment.model_name.human(count: 2) %></th>
+        <th><%= User::Comment.human_attribute_name('user') %></th>
+        <th><%= User::Comment.human_attribute_name('about') %></th>
+        <th><%= User::Comment.human_attribute_name('status') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% comments.each do |comment| %>
+        <tr data-comment-id="<%= comment.id %>">
+          <td>
+            <b><%= comment.title %></b><br>
+            <%= comment.text %>
+          </td>
+          <td>
+            <%= comment.user %><br>
+            <span class="small"><%= l comment.created_at %></span>
+          </td>
+          <td><%= link_to comment.about, [:admin, comment.about] %></td>
+          <td class="js-status">
+            <% if comment.pending? %>
+              <span class="me-3"><%= comment.status_i18n %></span>
+              <%= link_to t('admin.comments.approve'), approve_admin_comment_path(comment), method: :post, remote: true, class: 'btn-success btn btn-sm' %>
+              <%= link_to t('admin.comments.reject'), reject_admin_comment_path(comment), method: :post, remote: true, class: 'btn-danger btn btn-sm' %>
+            <% else %>
+              <%= comment.status_i18n %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

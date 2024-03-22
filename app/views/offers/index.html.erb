@@ -6,7 +6,7 @@
       <div class="col-lg-5">
         <hgroup>
           <h1><%= t('ui.offers.title') %></h1>
-          <p class="mt-3 mt-md-5 col-md-6 col-lg-12 mb-6 mb-md-0">En vous inscrivant, vous abonnant, ou en devenant membre, vous bénéficierez d'un accès différencié à l'écothèque. Rejoignez-nous selon votre besoin ou votre envie !</p>
+          <p class="mt-3 mt-md-5 col-md-6 col-lg-12 mb-6 mb-md-0">S'inscrire, s'abonner, devenir membre ou rendre son activité plus visible : nos différentes offres s'adaptent à chaque besoin et envie de contribuer.</p>
         </hgroup>
       </div>
     </div>
@@ -56,13 +56,13 @@
                 <p class="small">Rendre son activité plus visible auprès de la communauté écothèque</p>
                 <hr>
                 <ul class="check-list">
-                  <li>Complétez vos fiches acteur·rice, matériaux et techniques en ajoutant des photos et en complétant les informations</li>
+                  <li>Complétez vos fiches acteur·rice, matériaux et techniques en ajoutant des photos et des informations compémentaires</li>
                   <li>Affichez vos coordonnées et un contact direct</li>
                   <li>Droit de réponse aux commentaires</li>
                 </ul>
                 <hr>
-                <p>70€</p>
-                <%= link_to "Choisir cette offre", new_user_session_path, class: "btn btn-dark w-100" %>
+                <p>70€ / an</p>
+                <%= link_to "Choisir cette offre", "https://www.helloasso.com/associations/association-les-augures/paiements/abonnement-annuel-a-l-ecotheque", class: "btn btn-dark w-100" %>
               </div>
             </div>
           </div>
@@ -73,11 +73,11 @@
                 <h5 class="card-title">Premium</h5>
                 <p class="small">Rendre son activité plus visible auprès des membres de l’Augures Lab Scénogrrrraphie</p>
                 <hr>
-                <p>Offre similaire au compte “Essentiel”</p>
+                <p>Offre “Essentiel” avec en plus :</p>
                 <ul class="check-list">
-                  <li>Rencontres et présentation de vos matériaux / services / techniques auprès des membres</li>
+                  <li>Rencontres et présentation de vos matériaux / services / techniques auprès des membres</li>
                   <li>Présentation de vos matériaux et/ou services lors de la journée annuelle du Lab</li>
-                  <li>Diffusion de liste de besoins ou de propositions de don /vente de matériaux /matériel auprès des membres</li>
+                  <li>Diffusion de liste de besoins ou de propositions de don / vente de matériaux / matériel auprès des membres</li>
                 </ul>
                 <hr>
                 <p>Tarifs sur demande</p>
@@ -90,6 +90,261 @@
       </div>
     </div>
   </div>
+  
+  <div class="tab-content bg-white" id="offersTabContent">
+    <div  class="tab-pane fade show active first-tab-content" role="tabpanel" tabindex="0">
+      <div class="container py-5">
+        <div class="table-responsive">
+          <table class="table mt-2">
+            <thead>
+              <tr>
+                <th scope="col"><span class="fw-bold h5">Ressources écothèque</span></th>
+                <th scope="col"><span class="fw-bold h5 px-2">Inscrit·e</span></th>
+                <th scope="col"><span class="fw-bold h5 px-2">Abonné·e</span></th>
+                <th scope="col"><span class="fw-bold h5 px-2">Membre</span></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <th scope="row">Accès aux travaux finalisés du lab</th>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Accès à la boîte à outils</th>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              
+              <tr>
+                <th scope="row">Accès aux fiches écosystème</th>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Accès aux fiches projets</th>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Accès aux fiches matériaux</th>
+                <td class="bg-light"></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+
+              <tr>
+                <th scope="row">Accès aux fiches techniques</th>
+                <td class="bg-light"></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+
+              <tr>
+                <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de compte</span></th>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <th scope="row">Création d’un compte utilisateur·rice</th>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Création d’une bibliothèque de favoris</th>
+                <td class="bg-light"></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de contribution</span></th>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <th scope="row">Accès à la liste des membres du Lab</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Proposition de fiches écosystème</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Proposition de fiches projets</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Proposition de fiches matériaux</th>
+                <td class="bg-light"></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Proposition de fiches techniques</th>
+                <td class="bg-light"></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Droits de commentaires sur toutes les fiches</th>
+                <td class="bg-light"></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              
+              <tr>
+                <th scope="col"><span class="fw-bold h5 pt-5 d-block">Au-delà de l’écothèque</span></th>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <th scope="row">Accès aux groupes de recherche-action</th>
+                <td class="bg-light"></td>
+                <td class="bg-light"></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Accès aux événements du réseau </th>
+                <td class="bg-light"></td>
+                <td class="bg-light"></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Participation à la vie du Lab</th>
+                <td class="bg-light"></td>
+                <td class="bg-light"></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade second-tab-content" role="tabpanel" tabindex="0">
+      <div class="container py-5">
+        <div class="table-responsive">
+          <table class="table mt-2 w-100">
+            <thead>
+              <tr>
+                <th scope="col"><span class="fw-bold h5 px-2">Ressources écothèque</span></th>
+                <th scope="col"><span class="fw-bold h5 px-2">Essentiel</span></th>
+                <th scope="col"><span class="fw-bold h5 px-2">Premium</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Accès aux travaux finalisés du lab</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Accès à la boîte à outils</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>              
+              <tr>
+                <th scope="row">Accès aux fiches écosystème</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>              
+              <tr>
+                <th scope="row">Accès aux fiches projets </th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Accès aux fiches matériaux</th>
+                <td class="bg-light"></td>
+                <td class="bg-light"></td>
+              </tr>
+              <tr>
+                <th scope="row">Accès aux fiches techniques</th>
+                <td class="bg-light"></td>
+                <td class="bg-light"></td>
+              </tr>
+              <tr>
+                <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de compte</span></th>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <th scope="row">Création d’un compte fournisseur, prestataire ou fabricant</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+
+              <tr>
+                <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de contribution</span></th>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <th scope="row">Accès à la liste des membres du Lab</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Sur vos fiches matériaux et/ou techniques : droit de complétions, mise à jour et précisions, ajout de photos</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Sur votre fiche écosystème : droit de complétions, mise à jour et précisions, ajout de photos</th>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Droit de commentaires</th>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+
+              <tr>
+                <th scope="col"><span class="fw-bold h5 pt-5 d-block">Au-delà de l'écothèque</span></th>
+                <td scope="col">&nbsp;</td>
+                <td scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <th scope="row">Diffusion de liste de besoins ou de propositions de don /vente de matériaux /matériel auprès des membres</th>
+                <td class="bg-light"></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Organiser une rencontre</th>
+                <td class="bg-light"></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+              <tr>
+                <th scope="row">Rencontres et présentation de vos matériaux / services / techniques auprès des membres</th>
+                <td class="bg-light"></td>
+                <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="bg-dark text-white py-5">
     <div class="container">
       <h2>Pourquoi nous rejoindre ?</h2>
@@ -117,238 +372,6 @@
       </div>
     </div>
   </section>
-
-
-<div class="tab-content bg-white" id="offersTabContent">
-  <div  class="tab-pane fade show active first-tab-content" role="tabpanel" tabindex="0">
-    <div class="container py-5">
-      <div class="table-responsive">
-        <table class="table mt-2">
-          <thead>
-            <tr>
-              <th scope="col"><span class="fw-bold h5">Ressources Ecothèque</span></th>
-              <th scope="col"><span class="fw-bold h5 px-2">Inscrit·e</span></th>
-              <th scope="col"><span class="fw-bold h5 px-2">Abonné·e</span></th>
-              <th scope="col"><span class="fw-bold h5 px-2">Membre</span></th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-              <th scope="row">Accès à la boîte à outils</th>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            
-            <tr>
-              <th scope="row">Création d’un compte utilisateur·rice</th>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            
-            <tr>
-              <th scope="row">Accès à la liste des membres du Lab</th>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-
-            <tr>
-              <th scope="row">Accès aux groupes de recherche-action</th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de compte</span></th>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-            </tr>
-            <tr>
-              <th scope="row">Création d’un compte utilisateur·rice</th>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Création d’une bibliothèque de favoris</th>
-              <td class="bg-light"></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de contribution</span></th>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-            </tr>
-            <tr>
-              <th scope="row">Accès à la liste des membres du Lab</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Proposition de bonnes adresses, projets, matériaux et techniques</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Droits de commentaires sur toutes les fiches</th>
-              <td class="bg-light"></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Création et modification de fiches</th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Validation collective de fiches avant publication</th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="col"><span class="fw-bold h5 pt-5 d-block">+ au-delà de l’écothèque</span></th>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-            </tr>
-            <tr>
-              <th scope="row">Accès aux groupes de recherche-action</th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Accès aux événements du réseau </th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">...</th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="tab-pane fade second-tab-content" role="tabpanel" tabindex="0">
-    <div class="container py-5">
-      <div class="table-responsive">
-        <table class="table mt-2 w-100">
-          <thead>
-            <tr>
-              <th scope="col"><span class="fw-bold h5 px-2">Ressources Ecothèque</span></th>
-              <th scope="col"><span class="fw-bold h5 px-2">Essentiel</span></th>
-              <th scope="col"><span class="fw-bold h5 px-2">Premium</span></th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-              <th scope="row">Accès à la boîte à outils</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-
-            <tr>
-              <th scope="row">Accès aux travaux finalisés du lab</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            
-            <tr>
-              <th scope="row">Accès aux fiches écosystème</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            
-            <tr>
-              <th scope="row">Accès aux fiches projets </th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-
-            <tr>
-              <th scope="row">Accès aux fiches matériaux</th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-            </tr>
-            <tr>
-              <th scope="row">Accès aux fiches techniques</th>
-              <td class="bg-light"></td>
-              <td class="bg-light"></td>
-            </tr>
-            <tr>
-              <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de compte</span></th>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-            </tr>
-            <tr>
-              <th scope="row">Création d’un compte fournisseur, prestataire ou fabricant</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-
-            <tr>
-              <th scope="col"><span class="fw-bold h5 pt-5 d-block">Modalités de contribution</span></th>
-              <td scope="col">&nbsp;</td>
-              <td scope="col">&nbsp;</td>
-            </tr>
-            <tr>
-              <th scope="row">Accès à la liste des membres du Lab</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Sur votre fiche matériau : droit de complétions, mise à jour et précisions sur sa fiche, ajout de photos</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Sur votre fiche écosystème : droit de complétions, mise à jour et précisions sur sa fiche, ajout de photos</th>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Droit de réponse aux commentaires</th>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Diffusion de liste de besoins ou de propositions de don /vente de matériaux /matériel auprès des membres</th>
-              <td class="bg-light"></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Organiser une rencontre</th>
-              <td class="bg-light"></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-            <tr>
-              <th scope="row">Rencontres et présentation de vos matériaux / services / techniques auprès des membres</th>
-              <td class="bg-light"></td>
-              <td valign="middle" class="table-success text-center"><%= image_tag "icons/offers/check.svg" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
 
   <%
   images = [

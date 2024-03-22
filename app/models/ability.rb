@@ -28,6 +28,7 @@ class Ability
     can [:read, :create], Technic
     cannot :publish, Technic
     can :manage, User::Comment, user_id: @user.id
+    can :manage, User::Favorite, user_id: @user.id
   end
 
   def lab_member
