@@ -1,21 +1,23 @@
-<%
-if current_user && current_user.in_favorites?(about)
-  path = favorites_path(about_id: about.id, about_type: about.class)
-  method = :delete
-  classes = 'btn btn-sm btn-light bg-white btn-favorites favorites__remove'
-  label = t('account.favorites.remove')
-else
-  path = favorites_path(about_id: about.id, about_type: about.class)
-  method = :put
-  classes = 'btn btn-sm btn-light bg-white btn-favorites favorites__add'
-  label = t('account.favorites.add')
-end
-%>
-<%= link_to path, method: method, class: classes, data: { about_id: about.id, about_type: about.class.to_s }, remote: true do %>
-  <%= label %>
-  <% if about.user_favorites.any? %>
-    <span class="badge rounded-pill text-bg-dark">
-      <%= about.user_favorites.count %>
-    </span>
+<% if can?(:create, User::Favorite) %>
+  <%
+  if current_user && current_user.in_favorites?(about)
+    path = favorites_path(about_id: about.id, about_type: about.class)
+    method = :delete
+    classes = 'btn btn-sm btn-light bg-white btn-favorites favorites__remove'
+    label = t('account.favorites.remove')
+  else
+    path = favorites_path(about_id: about.id, about_type: about.class)
+    method = :put
+    classes = 'btn btn-sm btn-light bg-white btn-favorites favorites__add'
+    label = t('account.favorites.add')
+  end
+  %>
+  <%= link_to path, method: method, class: classes, data: { about_id: about.id, about_type: about.class.to_s }, remote: true do %>
+    <%= label %>
+    <% if about.user_favorites.any? %>
+      <span class="badge rounded-pill text-bg-dark">
+        <%= about.user_favorites.count %>
+      </span>
+    <% end %>
   <% end %>
 <% end %>
