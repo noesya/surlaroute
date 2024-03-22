@@ -24,7 +24,7 @@ class Admin::ActorsController < Admin::ApplicationController
   def create
     @actor.authors << current_user if cannot?(:publish, @actor)
     if @actor.save
-      redirect_to [:admin, @actor], notice: t('admin.successfully_created_html', model: @actor.to_s)
+      redirect_to [:edit, :admin, @actor], notice: t('admin.successfully_created_html', model: @actor.to_s)
     else
       breadcrumb
       render :new, status: :unprocessable_entity
@@ -33,7 +33,7 @@ class Admin::ActorsController < Admin::ApplicationController
 
   def update
     if @actor.update(actor_params)
-      redirect_to [:admin, @actor], notice: t('admin.successfully_updated_html', model: @actor.to_s)
+      redirect_to [:edit, :admin, @actor], notice: t('admin.successfully_updated_html', model: @actor.to_s)
     else
       breadcrumb
       add_breadcrumb t('edit')

@@ -24,7 +24,7 @@ class Admin::MaterialsController < Admin::ApplicationController
   def create
     @material.authors << current_user if cannot?(:publish, @material)
     if @material.save
-      redirect_to [:admin, @material], notice: t('admin.successfully_created_html', model: @material.to_s)
+      redirect_to [:edit, :admin, @material], notice: t('admin.successfully_created_html', model: @material.to_s)
     else
       breadcrumb
       render :new, status: :unprocessable_entity
@@ -33,7 +33,7 @@ class Admin::MaterialsController < Admin::ApplicationController
 
   def update
     if @material.update(material_params)
-      redirect_to [:admin, @material], notice: t('admin.successfully_updated_html', model: @material.to_s)
+      redirect_to [:edit, :admin, @material], notice: t('admin.successfully_updated_html', model: @material.to_s)
     else
       breadcrumb
       add_breadcrumb t('edit')

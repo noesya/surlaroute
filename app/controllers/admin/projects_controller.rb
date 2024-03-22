@@ -24,7 +24,7 @@ class Admin::ProjectsController < Admin::ApplicationController
   def create
     @project.authors << current_user if cannot?(:publish, @project)
     if @project.save
-      redirect_to [:admin, @project], notice: t('admin.successfully_created_html', model: @project.to_s)
+      redirect_to [:edit, :admin, @project], notice: t('admin.successfully_created_html', model: @project.to_s)
     else
       breadcrumb
       render :new, status: :unprocessable_entity
@@ -33,7 +33,7 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to [:admin, @project], notice: t('admin.successfully_updated_html', model: @project.to_s)
+      redirect_to [:edit, :admin, @project], notice: t('admin.successfully_updated_html', model: @project.to_s)
     else
       breadcrumb
       add_breadcrumb t('edit')
