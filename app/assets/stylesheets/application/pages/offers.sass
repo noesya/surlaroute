@@ -1,5 +1,28 @@
 .offers-index
     background-color: white
+    .card
+        &-body
+            padding: space(6)
+        &-title
+            margin-bottom: space(6)
+            font-weight: 600
+        hr
+            margin-top: space(6)
+            margin-bottom: space(6)
+        .btn
+            @extend .btn-lg
+            @extend .py-2
+            @extend .fw-bold
+
+@include media-breakpoint-up(lg)
+    .offers-group
+        .card:first-child
+            border-top-right-radius: 0
+            border-bottom-right-radius: 0
+        .card + .card
+            margin-left: -1px
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
 
 @include media-breakpoint-down(lg)
     .offers-group

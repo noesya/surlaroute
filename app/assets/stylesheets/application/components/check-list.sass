@@ -1,0 +1,9 @@
+.check-list
+    @extend .list-unstyled
+    li 
+        display: flex
+        align-items: center
+        gap: space(3)
+        @include icon(check)
+        + li
+            margin-top: space(6)
