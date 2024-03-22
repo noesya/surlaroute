@@ -5,6 +5,7 @@
 #  id                                   :uuid             not null, primary key
 #  helloasso_checkout_intent_identifier :bigint
 #  helloasso_order_identifier           :bigint
+#  paid_amount                          :decimal(, )
 #  paid_at                              :datetime
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
