@@ -109,7 +109,7 @@
     <section class="pt-5 pb-5 bg-toolbox" id="toolbox-pages">
       <div class="container">
         <h2 class="mb-4"><%= t('search.results.results.other') %> - <%= Page.toolbox.name %></h2>
-        <ul class="pages-list pages-list--no-arrow list-unstyled">
+        <ul class="pages-results list-unstyled">
           <% @toolbox_pages.each do |page| %>
             <li class="row position-relative">
               <div class="col-md-6">
@@ -122,7 +122,7 @@
               </div>
               <div class="col-md-6 d-flex align-items-end justify-content-end">
                 <%= link_to page, class: "stretched-link text-decoration-none" do %>
-                  <span class="arrow-right">Découvrir l'article</span>
+                  <span class="arrow-right"></span>
                 <% end %>
               </div>
             </li>
