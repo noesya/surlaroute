@@ -140,6 +140,7 @@ fr:
         regions: Provenance
         slug: Identifiant
       user:
+        accepts_terms_of_service: "Conditions d'utilisation"
         allow_listing: Accepter d'apparaître comme auteur·rice
         description: Présentation
         email: Email
@@ -148,6 +149,7 @@ fr:
         language: Langue préférée
         last_name: Nom
         mobile_phone: Téléphone portable
+        optin_tos_html: "J'accepte les <a href=\"%{link}\" target=\"_blank\">conditions générales d'utilisation</a>"
         role: Rôle
         roles:
           admin: Administrateur

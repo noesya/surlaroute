@@ -53,6 +53,12 @@
                     input_html: { autocomplete: "new-password" } %>
       </div>
     </div>
+    <% page_cgu = Page.find_by(internal_identifier: 'cgu') %>
+    <%= f.input :accepts_terms_of_service,
+                as: :boolean,
+                required: true,
+                label: t('activerecord.attributes.user.optin_tos_html', link: page_path(page_cgu)) %>
+
     <%= f.button :submit, t(".sign_up"), class: 'btn btn-dark mx-auto d-block mt-md-5' %>
   <% end %>
 </div>
