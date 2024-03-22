@@ -9,6 +9,7 @@
 #  name         :string
 #  published    :boolean          default(FALSE)
 #  slug         :string           indexed
+#  status       :integer          default("draft")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

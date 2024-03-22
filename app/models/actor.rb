@@ -23,6 +23,7 @@
 #  published             :boolean          default(FALSE)
 #  service_access_terms  :text
 #  slug                  :string
+#  status                :integer          default("draft")
 #  zipcode               :string
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
@@ -75,6 +76,7 @@ class Actor < ApplicationRecord
   }
   scope :autofilter_published, -> (status) { where(published: status) }
   scope :autofilter_premium, -> (status) { where(premium: status) }
+  scope :autofilter_lab_member, -> (status) { where(lab_member: status) }
 
   def full_address
     @full_address ||= [address, address_additional, city, zipcode, country].compact_blank.join(', ')

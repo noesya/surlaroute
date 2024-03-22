@@ -61,7 +61,7 @@ class Admin::TechnicsController < Admin::ApplicationController
       actor_ids: [], region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes
     ]
-    allowed_params += [:published, author_ids: []] if can?(:publish, Technic)
+    allowed_params += [:published, :status, author_ids: []] if can?(:publish, Technic)
     params.require(:technic)
           .permit(allowed_params)
   end

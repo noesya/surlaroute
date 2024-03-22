@@ -5,6 +5,17 @@
     <%= show @actor, :image, type: :image %>
   </div>
   <div class="col-lg-8">
+    <% if can?(:publish, @actor) %>
+      <%= show @actor, :published %>
+      <%= show @actor, :authors, type: :list %>
+      <%= show @actor, :status %>
+    <% end %>
+    <% if can?(:premium, @actor) %>
+      <%= show @actor, :premium %>
+    <% end %>
+    <% if can?(:lab_member, @actor) %>
+      <%= show @actor, :lab_member %>
+    <% end %>
     <%= show @actor, :description %>
     <%= show @actor, :regions, type: :list %>
     <%= render 'admin/structure/items/kinds/show', about: @actor %>

@@ -4,7 +4,10 @@
       <tr>
         <th><%= Material.human_attribute_name('name') %></th>
         <th><%= Material.human_attribute_name('image') %></th>
-        <th><%= Material.human_attribute_name('published') %></th>
+        <% if can?(:publish, Material) %>
+          <th><%= Material.human_attribute_name('published') %></th>
+          <th><%= Material.human_attribute_name('status') %></th>
+        <% end %>
         <th></th>
       </tr>
     </thead>
@@ -13,7 +16,10 @@
         <tr>
           <td><%= link_to_if can?(:read, material), material, [:admin, material] %></td>
           <td><%= kamifusen_tag material.image, width: 100 if material.image.attached? %></td>
-          <td><%= t material.published %></td>
+          <% if can?(:publish, Material) %>
+            <td><%= t(material.published?) %></td>
+            <td><%= material.status_i18n %></td>
+          <% end %>
           <td class="text-end">
             <%= edit_link material %>
           </td>

@@ -64,7 +64,7 @@ class Admin::ActorsController < Admin::ApplicationController
       region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes
     ]
-    allowed_params += [:published, author_ids: []] if can?(:publish, Actor)
+    allowed_params += [:published, :status, author_ids: []] if can?(:publish, Actor)
     allowed_params << :premium if can?(:premium, Actor)
     allowed_params << :lab_member if can?(:lab_member, Actor)
     params.require(:actor)

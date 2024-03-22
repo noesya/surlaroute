@@ -62,7 +62,7 @@ class Admin::MaterialsController < Admin::ApplicationController
       region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes
     ]
-    allowed_params += [:published, author_ids: []] if can?(:publish, Material)
+    allowed_params += [:published, :status, author_ids: []] if can?(:publish, Material)
     params.require(:material)
           .permit(allowed_params)
   end

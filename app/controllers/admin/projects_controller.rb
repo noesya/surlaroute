@@ -63,7 +63,7 @@ class Admin::ProjectsController < Admin::ApplicationController
       answers_attributes: [:id, :criterion_id, :value, :text],
       structure_values_attributes: structure_values_permitted_attributes
     ]
-    allowed_params += [:published, author_ids: []] if can?(:publish, Project)
+    allowed_params += [:published, :status, author_ids: []] if can?(:publish, Project)
     params.require(:project)
           .permit(allowed_params)
   end

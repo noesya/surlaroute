@@ -48,6 +48,7 @@ fr:
         regions: Localisation(s)
         service_access_terms: Conditions d'accès au service
         slug: Identifiant
+        status: Statut
         zipcode: Code postal
       definition:
         text: Texte
@@ -67,6 +68,7 @@ fr:
         published: Fiche publiée
         regions: Région
         slug: Identifiant
+        status: Statut
       page:
         children: Pages enfants
         description: Description
@@ -89,6 +91,7 @@ fr:
         published: Fiche publiée
         regions: Régions
         slug: Identifiant
+        status: Statut
         technics: Techniques
       project/answer:
         text: Explication
@@ -139,6 +142,7 @@ fr:
         published: Fiche publiée
         regions: Provenance
         slug: Identifiant
+        status: Statut
       user:
         accepts_terms_of_service: "Conditions d'utilisation"
         allow_listing: Accepter d'apparaître comme auteur·rice
@@ -238,9 +242,11 @@ fr:
         expand: Rechercher
         reset: Réinitialiser
         submit: Filtrer
-      premium: Premium ?
-      published: Publié ?
+      lab_member: Membre du Lab
+      premium: Premium ?
+      published: Publié ?
       search_field: Recherche
+      status: Statut
       title: Rechercher
     infos: Informations
     pages:
@@ -313,6 +319,12 @@ fr:
   ecosystem: Écosystème
   edit: Modifier
   enums:
+    actor:
+      status:
+        draft: Brouillon
+    material:
+      status:
+        draft: Brouillon
     page:
       block:
         kind:
@@ -322,6 +334,9 @@ fr:
           keypoints: Points-clés
           quote: Citation
           text: Texte
+    project:
+      status:
+        draft: Brouillon
     structure:
       item:
         kind:
@@ -342,6 +357,9 @@ fr:
           header: Header
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
+    technic:
+      status:
+        draft: Brouillon
     user:
       comment:
         status:
