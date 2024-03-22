@@ -10,6 +10,7 @@ class Icon
   PROJECT = 'bi bi-star-fill'
   REGION = 'bi bi-geo-alt-fill'
   STRUCTURE = 'bi bi-gear-fill'
+  SUBSCRIPTION = 'bi bi-coin'
   USER = 'bi bi-person-fill'
 
   FOLDER_CLOSED = 'bi bi-folder'

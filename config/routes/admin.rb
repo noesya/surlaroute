@@ -44,5 +44,6 @@ namespace :admin do
     end
   end
   resources :products
+  resources :subscriptions, only: [:index, :show]
   root to: "dashboard#index"
 end

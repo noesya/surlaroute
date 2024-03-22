@@ -80,6 +80,7 @@ fr:
         description: Description
         name: Nom
         price: Prix
+        redirect_url: URL de redirection
       project:
         actors: Acteurices
         authors: Fiche publiée par
@@ -130,6 +131,14 @@ fr:
         image: Image
         text: Texte
         title: Titre
+      subscription:
+        helloasso_checkout_intent_identifier: Référence de session de paiement HelloAsso
+        helloasso_order_identifier: Référence de commande HelloAsso
+        paid_amount: Montant payé
+        paid_at: Payé le
+        product: Produit
+        reference: Référence
+        user: Utilisateur
       technic:
         actors: Contacts
         authors: Fiche publiée par
@@ -203,6 +212,9 @@ fr:
       structure/item:
         one: Élément
         other: Éléments
+      subscription:
+        one: Abonnement
+        other: Abonnements
       technic:
         one: Technique
         other: Techniques
@@ -431,6 +443,8 @@ fr:
         contact_website: Doit commencer par https://
       definition:
         title: Le texte qui sera recherché dans l'article
+      product:
+        redirect_url: Si renseignée, l'utilisateur sera redirigé sur cette adresse à la place du tunnel classique d'abonnement.
       structure_item:
         color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
@@ -506,6 +520,7 @@ fr:
         generic_payment_error: Une erreur est survenue lors du paiement. Veuillez réessayer.
         helloasso_payment_error: "Une erreur est survenue lors du paiement avec HelloAsso. Message : %{error}"
         please_select_a_product: Veuillez sélectionner une formule d'abonnement.
+        refused_payment_error: Le paiement a été refusé. Veuillez réessayer.
       new:
         title: Abonnement annuel
       notices:

@@ -1,7 +1,8 @@
 class SubscriptionsController < ApplicationController
   include ApplicationHelper
 
-  before_action :authenticate_user!, :ensure_user_is_not_subscribed
+  before_action :authenticate_user!
+  before_action :ensure_user_is_not_subscribed, except: :confirmation
   before_action :load_product, only: [:summary, :payment]
 
   # Étape 1 : Choix d'abonnement
@@ -36,10 +37,11 @@ class SubscriptionsController < ApplicationController
       payments = checkout_intent_data.dig('order', 'payments') || []
       payment = payments.first
       paid_at = Time.parse(payment['date'])
+      paid_amount = checkout_intent_data.dig('order', 'amount', 'total') / 100.0
       Subscription.create(
-        user_id: user_id, product_id: product_id, paid_at: paid_at,
-        checkout_intent_identifier: checkout_intent_identifier,
-        order_identifier: params[:orderId]
+        user_id: user_id, product_id: product_id, paid_amount: paid_amount, paid_at: paid_at,
+        helloasso_checkout_intent_identifier: checkout_intent_identifier,
+        helloasso_order_identifier: params[:orderId]
       )
       redirect_to confirmation_subscription_path
     else
@@ -65,7 +67,7 @@ class SubscriptionsController < ApplicationController
 
   def get_payment_error(return_type, code)
     if return_type == 'return' && code == 'refused'
-      t('ui.subscriptions.error.refused_payment_error')
+      t('ui.subscriptions.errors.refused_payment_error')
     elsif return_type == 'error'
       t('ui.subscriptions.errors.helloasso_payment_error', error: params[:error])
     else

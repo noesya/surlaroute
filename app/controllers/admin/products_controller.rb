@@ -54,7 +54,7 @@ class Admin::ProductsController < Admin::ApplicationController
   def product_params
     params.require(:product)
           .permit(
-            :name, :description, :price
+            :name, :description, :price, :redirect_url
           )
   end
 end
