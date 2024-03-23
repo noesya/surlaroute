@@ -18,7 +18,7 @@
           <td><%= kamifusen_tag actor.image, width: 100 if actor.image.attached? %></td>
           <% if can?(:publish, Actor) %>
             <td><%= t(actor.published?) %></td>
-            <td><%= actor.status_i18n %></td>
+            <td><%= t("admin.publication_statuses.#{actor.status}") %></td>
           <% end %>
           <td class="text-end">
             <%= edit_link actor %>

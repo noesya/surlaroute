@@ -8,7 +8,7 @@
     <% if can?(:publish, @material) %>
       <%= show @material, :published %>
       <%= show @material, :authors, type: :list %>
-      <%= show @material, :status %>
+      <%= show @material, :status, type: :enum, value: t("admin.publication_statuses.#{@material.status}") %>
     <% end %>
     <%= show @material, :description %>
     <%= show @material, :actors, type: :list %>

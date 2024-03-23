@@ -255,6 +255,16 @@ fr:
       brezet_wheel:
         enabled: Actif ?
         explanation_text: Texte d'explication
+    publication_statuses:
+      draft: "Brouillon"
+      manufacturer: "Fabricant"
+      missing_informations: "Infos manquantes"
+      published: "Publiée"
+      redaction_in_progress: "En cours d'écriture"
+      rejected: "Rejetée"
+      validated: "Validée"
+      waiting_for_approval: "En attente de validation"
+      waiting_for_attribution: "En attente d'attribution"
     structure:
       add_file: Ajouter un fichier
       add_image: Ajouter une image
@@ -319,12 +329,6 @@ fr:
   ecosystem: Écosystème
   edit: Modifier
   enums:
-    actor:
-      status:
-        draft: Brouillon
-    material:
-      status:
-        draft: Brouillon
     page:
       block:
         kind:
@@ -334,9 +338,6 @@ fr:
           keypoints: Points-clés
           quote: Citation
           text: Texte
-    project:
-      status:
-        draft: Brouillon
     structure:
       item:
         kind:
@@ -357,9 +358,6 @@ fr:
           header: Header
           lower_page: Bas de la page (après les éléments en dur)
           page: Page (zone par défaut)
-    technic:
-      status:
-        draft: Brouillon
     user:
       comment:
         status:

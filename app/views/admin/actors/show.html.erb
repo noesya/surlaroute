@@ -8,7 +8,7 @@
     <% if can?(:publish, @actor) %>
       <%= show @actor, :published %>
       <%= show @actor, :authors, type: :list %>
-      <%= show @actor, :status %>
+      <%= show @actor, :status, type: :enum, value: t("admin.publication_statuses.#{@actor.status}") %>
     <% end %>
     <% if can?(:premium, @actor) %>
       <%= show @actor, :premium %>

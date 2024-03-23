@@ -8,7 +8,7 @@
     <% if can?(:publish, @technic) %>
       <%= show @technic, :published %>
       <%= show @technic, :authors, type: :list %>
-      <%= show @technic, :status %>
+      <%= show @technic, :status, type: :enum, value: t("admin.publication_statuses.#{@technic.status}") %>
     <% end %>
     <%= show @technic, :description %>
     <%= render 'admin/structure/items/kinds/show', about: @technic %>

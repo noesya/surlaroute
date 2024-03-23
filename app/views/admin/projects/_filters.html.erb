@@ -13,7 +13,7 @@
                         :select, 
                         :status, 
                         label: t('admin.filters.status'),
-                        collection: Project.statuses.map { |r, v| { to_s: I18n.t("enums.project.status.#{r}"), id: r } }
+                        collection: Project.statuses.map { |r, v| { to_s: I18n.t("admin.publication_statuses.#{r}"), id: r } }
                         %>
 
       <%= render_filter f, 

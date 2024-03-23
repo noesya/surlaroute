@@ -31,13 +31,15 @@ module Admin::ApplicationHelper
   def show(object, property, type: nil, value: nil)
     value ||= object.public_send property
     label = object.class.human_attribute_name property
-    begin
-      type ||= object.class.columns_hash[property.to_s].type
-    rescue
-    end
-    if object.respond_to?("#{property}_i18n")
-      type = 'enum'
-      value = object.send("#{property}_i18n")
+    if type.nil?
+      begin
+        type ||= object.class.columns_hash[property.to_s].type
+      rescue
+      end
+      if object.respond_to?("#{property}_i18n")
+        type = 'enum'
+        value = object.send("#{property}_i18n")
+      end
     end
     # return if value.blank?
     html = '<div class="mb-5">'

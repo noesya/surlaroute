@@ -18,7 +18,7 @@
           <td><%= kamifusen_tag technic.image, width: 100 if technic.image.attached? %></td>
           <% if can?(:publish, Technic) %>
             <td><%= t(technic.published?) %></td>
-            <td><%= technic.status_i18n %></td>
+            <td><%= t("admin.publication_statuses.#{technic.status}") %></td>
           <% end %>
           <td class="text-end">
             <%= edit_link technic %>
