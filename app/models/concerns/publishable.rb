@@ -11,8 +11,8 @@ module Publishable
       waiting_for_approval: 50,
       validated: 60,
       manufacturer: 70,
-      published: 80
-    }
+      ready_for_publication: 80
+    }, _prefix: :status
     scope :published, -> { where(published: true) }
     scope :draft, -> { where(published: false) }
     scope :autofilter_status, -> (status) { where(status: status) }
