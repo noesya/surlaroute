@@ -7,7 +7,7 @@
         <% end %>
       </div>
       <div class="col-md-6">
-        <%= simple_format block.data.dig('text') %>
+        <%= sanitize block.data.dig('text') %>
       </div>
     </div>
   </div>

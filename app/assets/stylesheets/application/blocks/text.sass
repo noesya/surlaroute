@@ -1,2 +1,7 @@
 .block-text
     background: $color-bg
+    h3
+        margin-bottom: map-get($spacers, 2)
+        font-weight: bold
+        * + &
+            margin-top: map-get($spacers, 4)
