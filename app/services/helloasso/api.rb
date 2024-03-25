@@ -31,7 +31,8 @@ class Helloasso::Api
       },
       metadata: {
         product_id: product.id,
-        user_id: user.id
+        user_id: user.id,
+        source: "abonnement-ecotheque"
       }
     }
 
