@@ -5,6 +5,11 @@
     <%= show @technic, :image, type: :image %>
   </div>
   <div class="col-lg-8">
+    <% if can?(:publish, @technic) %>
+      <%= show @technic, :published %>
+      <%= show @technic, :authors, type: :list %>
+      <%= show @technic, :status, type: :enum, value: t("admin.publication_statuses.#{@technic.status}") %>
+    <% end %>
     <%= show @technic, :description %>
     <%= render 'admin/structure/items/kinds/show', about: @technic %>
   </div>

@@ -8,16 +8,25 @@
                       label: t('admin.filters.search_field')
                       %>
 
-    <%= render_filter f, 
-                      :select, 
-                      :published, 
-                      label: t('admin.filters.published'),
-                      collection: [
-                        { to_s: I18n.t('true'), id: 'true' },
-                        { to_s: I18n.t('false'), id: 'false' }
-                      ]
-                      %>
+    <% if can?(:publish, Project) %>
+      <%= render_filter f, 
+                        :select, 
+                        :status, 
+                        label: t('admin.filters.status'),
+                        collection: Project.statuses.map { |r, v| { to_s: I18n.t("admin.publication_statuses.#{r}"), id: r } }
+                        %>
 
+      <%= render_filter f, 
+                        :select, 
+                        :published, 
+                        label: t('admin.filters.published'),
+                        collection: [
+                          { to_s: I18n.t('true'), id: 'true' },
+                          { to_s: I18n.t('false'), id: 'false' }
+                        ]
+                        %>
+    <% end %>
+    
     <%= render_filter f, 
                       :select, 
                       :region, 

@@ -3,10 +3,21 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <h1 class="text-center mt-5">La plateforme collaborative de l'écoscénographie</h1>
-        <p class="mt-3 text-center home-placeholder mb-0">
-          Inauguration de la plateforme le 29 mars 2024 à 14h à l'Hôtel de Ville de Paris <br>
-          Ouvert à tous·tes, en présentiel et uniquement <a href="https://www.helloasso.com/associations/association-les-augures/evenements/lancement-de-l-ecotheque-augures-lab-scenogrrrraphie" target="_blank">sur inscription</a>
-        </p>
+        <div class="mt-3 text-center home-placeholder mb-0">
+          <%= form_tag search_path, method: :get, class: "row align-items-end", role: "search" do %>
+            <div class="col-10 col-md-5">
+              <input name="term" class="form-control search-input" type="search" placeholder="Cherchez ici un·e acteur·rice, un projet, un matériau ou une technique écoresponsables" aria-label="<%= t('search.label') %>">
+            </div>
+            <div class="col-2 col-md-7">
+              <button class="btn-search rounded-pill" type="submit">
+                <span><%= t('search.label') %></span>
+              </button>
+            </div>
+          <% end %>  
+        </div>
+        <div>
+          <%= link_to 'Ou explorez nos annuaires', '#section-actors' %>
+        </div>
       </div>
     </div>
     <div class="row mt-5">
@@ -31,7 +42,7 @@
   </div>
 </section>
 
-<section class="home-navigation actors">
+<section id="section-actors" class="home-navigation actors">
   <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
     <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-lg-0">
@@ -147,45 +158,5 @@
 <%= render 'offers/join' %>
 
 <section class="home-about bg-light">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col">
-      <h2>À propos</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 mt-4">
-        <h3 class="fw-bold">Un projet de l'Augures Lab Scénogrrrraphie</h3>
-      </div>
-      <div class="col-lg-6 mt-4">
-        <p>L’écothèque est un projet de l’Augures Lab Scénogrrrraphie, le réseau professionnel, collaboratif et prospectif pour penser l’écoscénographie dans le secteur culturel. Il réunit acteur·rices indépendant·es et institutions culturelles, de différents corps de métiers liés à la chaîne de création et de production scénographique, et croise les disciplines artistiques, notamment les arts visuels et les arts vivants, à l’échelle nationale. Il vise à favoriser le développement du réemploi, de l’économie circulaire et de l’écologie culturelle territoriale autour des activités liées à la scénographie.</p>
-      </div>
-      <div class="col-lg-6 mt-4">
-        <h3 class="fw-bold">Notre définition de l’écoscénographie</h3>
-      </div>
-      <div class="col-lg-6 mt-4">
-        <p>
-          Nous définissons l’écoscénographie comme une pratique écoresponsable de la scénographie, intégrant une approche cycle de vie. Elle suppose une démarche écosystémique informée, structurée et outillée d’un point de vue artistique, technique, administratif et logistique. Sa mise en œuvre est assurée par l’intelligence collective à une échelle interprofessionnelle. Dans un cadre soutenable voire régénératif, elle tend à réduire ses impacts socio-environnementaux et participe à l’équilibre du vivant.
-          <br><br>
-          Cette définition a été proposée dans le cadre des travaux de recherche-action du Lab sur l’écoscénographie.
-        </p>
-      </div>
-      <div class="col-lg-6 mt-4">
-        <h3 class="fw-bold">Notre constat</h3>
-      </div>
-      <div class="col-lg-6 mt-4">
-        <p>
-          L'écothèque de l’Augures Lab Scénogrrrraphie est née du constat d’une pratique scénographique et d’une formation encore trop peu engagées en matière d’écologie. Si de nombreuses initiatives sont menées pour favoriser la circularité des matières, l'accès des concepteur·ices et institutions à des solutions adaptées à leurs pratiques est loin d'être facile. Comment réduire l'impact environnemental d'une scénographie ? À quoi être vigilant ? Comment augmenter les coopérations territoriales ? À qui puis-je m'adresser ? Ces questions se posent à toute la chaîne de travail d'un projet culturel. Outil par et pour les professionnel·le·s, l'écothèque vise à apporter des réponses.
-          <br><br>
-          Il est urgent de changer le mode opératoire de création scénographique et d’en interroger les formes expressives au regard des crises écologiques que nous traversons, et des défis qu’elles adressent à nos manières de faire et de penser. Nous sommes convaincu·es que les arts vivants et les arts visuels, à travers la scénographie, peuvent se constituer comme un espace de création artistique écologique.
-        </p>
-      </div>
-      <div class="col-lg-6 mt-4">
-        <h3 class="fw-bold">Notre but</h3>
-      </div>
-      <div class="col-lg-6 mt-4">
-        <p>L’écothèque n’a pas vocation à fournir des échantillons de matières (matériauthèque) ni à gérer des flux (ressourcerie), mais vise à identifier des solutions variées pour répondre aux enjeux de l’écoscénographie. Avec elle, nous souhaitons contribuer à la mise en place de démarches d'écoconception qui réduisent les impacts environnementaux en proposant aux professionnel·les de s’informer, d’expérimenter, et de collaborer.</p>
-      </div>
-    </div>
-  </div>
+  <%= render 'pages/blocks/list', blocks: @home_page.blocks.ordered %>
 </section>

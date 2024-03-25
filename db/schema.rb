@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_22_202301) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
     t.string "contact_website"
     t.string "contact_inventory_url"
     t.boolean "lab_member", default: false
+    t.integer "status", default: 0
   end
 
   create_table "actors_materials", id: false, force: :cascade do |t|
@@ -203,6 +204,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
+    t.integer "status", default: 0
     t.index ["actor_id"], name: "index_materials_on_actor_id"
     t.index ["slug"], name: "index_materials_on_slug"
   end
@@ -284,6 +286,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
+    t.integer "status", default: 0
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
@@ -392,6 +395,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_133901) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
+    t.integer "status", default: 0
   end
 
   create_table "technics_users", id: false, force: :cascade do |t|
