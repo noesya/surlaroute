@@ -26,23 +26,11 @@ class SubscriptionsController < ApplicationController
   def helloasso_callback
     return_type = params[:type]
     code = params[:code]
-
     checkout_intent_identifier = params[:checkoutIntentId]
     checkout_intent_data = Helloasso::Api.new.get_checkout_intent(checkout_intent_identifier)
-    user_id = checkout_intent_data.dig('metadata', 'user_id')
     product_id = checkout_intent_data.dig('metadata', 'product_id')
     product = Product.find_by(id: product_id)
-
     if return_type == 'return' && code == 'succeeded'
-      payments = checkout_intent_data.dig('order', 'payments') || []
-      payment = payments.first
-      paid_at = Time.parse(payment['date'])
-      paid_amount = checkout_intent_data.dig('order', 'amount', 'total') / 100.0
-      Subscription.create(
-        user_id: user_id, product_id: product_id, paid_amount: paid_amount, paid_at: paid_at,
-        helloasso_checkout_intent_identifier: checkout_intent_identifier,
-        helloasso_order_identifier: params[:orderId]
-      )
       redirect_to confirmation_subscription_path
     else
       redirect_to summary_subscription_path(product_id: product&.id),

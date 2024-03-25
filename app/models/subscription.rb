@@ -3,6 +3,7 @@
 # Table name: subscriptions
 #
 #  id                                   :uuid             not null, primary key
+#  expiration_date                      :date
 #  helloasso_checkout_intent_identifier :bigint
 #  helloasso_order_identifier           :bigint
 #  paid_amount                          :decimal(, )
