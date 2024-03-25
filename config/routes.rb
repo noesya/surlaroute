@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     mount GoodJob::Engine => 'good_job'
   end
 
+  post 'webhooks/helloasso' => 'webhooks#helloasso', as: :helloasso_webhook
+
   draw 'admin'
 
   # Tunnel d'abo
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
   get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/recapitulatif' => 'subscriptions#summary', as: :summary_subscription
   post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/paiement'     => 'subscriptions#payment', as: :payment_subscription
   get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/retour'        => 'subscriptions#helloasso_callback', as: :helloasso_callback_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/verification'  => 'subscriptions#verification', as: :verification_subscription
+  post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/verification' => 'subscriptions#async_verification'
   get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/confirmation'  => 'subscriptions#confirmation', as: :confirmation_subscription
 
   get 'le-lab/les-membres' => 'members#index', as: :members

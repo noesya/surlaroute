@@ -1,5 +1,6 @@
 class WebhooksController < ApplicationController
-  skip_before_action :http_basic_authentication
+  skip_before_action  :verify_authenticity_token,
+                      :http_basic_authentication
 
   def helloasso
     payload = request.body.read
@@ -8,22 +9,16 @@ class WebhooksController < ApplicationController
       data = JSON.parse(payload, symbolize_names: true) || {}
     rescue JSON::ParserError => e
       # Invalid payload
-      status 400
-      return
+      head :bad_request and return
     end
 
     # Skip if the event is not an Order from subscriptions
-    unless is_subscription_order?(data)
-      head 200
-      return
-    end
+    head :ok and return unless is_subscription_order?(data)
     # Verify the authenticity of the request
-    unless request_from_helloasso?(data)
-      status 403
-      return
-    end
+    head :forbidden and return unless request_from_helloasso?(data)
 
     HelloassoEvent.create(data: data)
+    head :ok
   end
 
   protected

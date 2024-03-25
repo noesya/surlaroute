@@ -23,21 +23,12 @@
       <li>Choix d'abonnement</li>
       <li>Récapitulatif</li>
       <li>Paiement</li>
-      <li>Vérification</li>
-      <li><b>Confirmation</b></li>
+      <li><b>Vérification</b></li>
+      <li>Confirmation</li>
     </ol>
 
-    <div class="row col-lg-6 py-4">
-      <h2>Félicitations et merci, vous êtes désormais abonné·e !</h2>
-      <p class="mb-4">Si vous souhaitez ajouter un ou plusieurs comptes additionnels à cet abonnement, merci de contacter directement notre équipe à l’adresse <%= mail_to "bienvenue@augureslab.org" %></p>
-
-      <h3>Mon offre actuelle</h3>
-      <p>Votre abonnement prendra fin le <%= l(@subscription.expiration_date, format: :long) %>.</p>
-      <p>Voici les modalités de parcours sur le site écothèque que vous permet votre offre actuelle :</p>
-    </div>
-
-    <div class="row">
-      <%= render 'offers/subscriber', hide_price: true, hide_cta: true %>
-    </div>
+    <h2>Paiement en cours de traitement</h2>
+    <p>Veuillez patienter, vous allez être automatiquement redirigé·e lorsque votre paiement sera traité.</p>
+    <div id="js-subscription-verification" data-checkout-intent-id="<%= params[:checkout_intent_id] %>" data-url="<%= verification_subscription_path %>"></div>
   </div>
 </div>
