@@ -32,7 +32,8 @@ class Helloasso::Api
       metadata: {
         product_id: product.id,
         user_id: user.id,
-        source: "abonnement-ecotheque"
+        source: "abonnement-ecotheque",
+        secret: ENV["HELLOASSO_WEBHOOK_SECRET"]
       }
     }
 
