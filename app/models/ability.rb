@@ -41,6 +41,7 @@ class Ability
     cannot :manage, User, role: :superadmin
     can :read, User, role: :superadmin
     cannot :manage, Structure::Item
+    cannot :manage, Product
   end
 
   def superadmin
