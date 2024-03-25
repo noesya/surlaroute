@@ -79,6 +79,11 @@ fr:
       page/block:
         name: Nom
         kind: Type de bloc
+      product:
+        description: Description
+        name: Nom
+        price: Prix
+        redirect_url: URL de redirection
       project:
         actors: Acteurices
         authors: Fiche publiée par
@@ -130,6 +135,15 @@ fr:
         image: Image
         text: Texte
         title: Titre
+      subscription:
+        expiration_date: Date d'expiration
+        helloasso_checkout_intent_identifier: Référence de session de paiement HelloAsso
+        helloasso_order_identifier: Référence de commande HelloAsso
+        paid_amount: Montant payé
+        paid_at: Payé le
+        product: Produit
+        reference: Référence
+        user: Utilisateur
       technic:
         actors: Contacts
         authors: Fiche publiée par
@@ -145,6 +159,7 @@ fr:
         status: Statut
       user:
         accepts_terms_of_service: "Conditions d'utilisation"
+        active_subscription: Abonnement en cours
         allow_listing: Accepter d'apparaître comme auteur·rice
         description: Présentation
         email: Email
@@ -200,6 +215,9 @@ fr:
       page:
         one: Page
         other: Pages
+      product:
+        one: Produit
+        other: Produits
       project:
         one: Projet
         other: Projets
@@ -209,6 +227,9 @@ fr:
       structure/item:
         one: Élément
         other: Éléments
+      subscription:
+        one: Abonnement
+        other: Abonnements
       technic:
         one: Technique
         other: Techniques
@@ -227,7 +248,7 @@ fr:
       title: Vous avez une bonne adresse à partager ?
   add: Ajouter
   admin:
-    comments: 
+    comments:
       approve: Approuver
       pending: À traiter
       reject: Rejeter
@@ -401,6 +422,11 @@ fr:
       title: Vous souhaitez recommander un matériau ?
   menu:
     my_account: Mon compte
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
   please_confirm: Merci de confirmer
   projects:
     description: Des projets écoresponsables représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire ; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brézet pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux.
@@ -422,7 +448,7 @@ fr:
   search:
     also: Vous pouvez également consulter nos annuaires
     label: Rechercher
-    no_result: 'Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :'
+    no_result: "Vous pourriez trouver ce que vous cherchez au sein de nos annuaires :"
     results:
       actors:
         one: Acteur·rice
@@ -460,6 +486,8 @@ fr:
         title: Le texte qui sera recherché dans l'article
       material:
         actors: Vous devez créer une fiche dans écosystème en choissisant "fabricant" dans "métier".<br>Cette fiche ne sera pas publiée.
+      product:
+        redirect_url: Si renseignée, l'utilisateur sera redirigé sur cette adresse à la place du tunnel classique d'abonnement.
       structure_item:
         color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
@@ -530,6 +558,16 @@ fr:
       technics:
         one: Technique utilisée
         other: Techniques utilisées
+    subscriptions:
+      errors:
+        generic_payment_error: Une erreur est survenue lors du paiement. Veuillez réessayer.
+        helloasso_payment_error: "Une erreur est survenue lors du paiement avec HelloAsso. Message : %{error}"
+        please_select_a_product: Veuillez sélectionner une formule d'abonnement.
+        refused_payment_error: Le paiement a été refusé. Veuillez réessayer.
+      new:
+        title: Abonnement annuel
+      notices:
+        already_subscribed: Vous êtes déjà abonné·e.
     technic:
       actors:
         one: Contact
