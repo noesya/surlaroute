@@ -99,12 +99,9 @@
                     width: 100%
 
 .structure:not(.structure--zone-header)
-    .details > div + div
-        margin-top: map-get($spacers, 4)
     .structure__item__key_figure
         display: flex
         flex-direction: column-reverse
-        margin-top: map-get($spacers, 3)
         h3
             color: $color-text !important
             font-size: $font-size-base
@@ -122,25 +119,32 @@
             .row
                 > div + div
                     margin-top: map-get($spacers, 4)
-                    
     @include media-breakpoint-up(lg)
-        .structure__item__file,
+        // .structure__item__file,
         .structure__item__key_figure
-            display: inline-block
-            width: 50%
-            + .structure__item__file,
+            display: flex
+            align-items: center
+            flex-direction: row
+            justify-content: space-between
+            .small
+                margin-bottom: 0 !important
+            .key-figure
+                order: -1
             + .structure__item__key_figure
-                float: right
+                
+            // width: 50%
+            // + .structure__item__file,
+            // + .structure__item__key_figure
+            //     float: right
         .structure__item__richtext
             > p:first-of-type
                 margin-top: map-get($spacers, 2)
+        .structure__items-list
+            row-gap: map-get($spacers, 4)
+        .structure__item:not(.structure__item__images)
+            @include make-col(6)
+        .structure__item:not(.structure__item--title)
+            @include make-col-offset(6)
+        .structure__item--title + .structure__item
+            @include make-col-offset(0)
 
-// .structure
-//     .item
-//         @include col-6
-//         @include offset-6
-//     .item-title + .item
-//         @include offset: 0
-//     .item-images
-//         @include col-12
-//         @include offset-0
