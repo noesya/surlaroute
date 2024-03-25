@@ -41,6 +41,11 @@ class Subscription < ApplicationRecord
     "##{helloasso_order_identifier}"
   end
 
+  def expiration_date_to_display
+    return nil if expiration_date.nil?
+    expiration_date - 1.day
+  end
+
   def to_s
     "#{reference} - #{user} - #{product}"
   end
