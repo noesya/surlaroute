@@ -16,7 +16,19 @@ class Helloasso::Api
   end
 
   def create_checkout_intent(user, product)
-    checkout_params = {
+    params = build_checkout_intent_params(user, product)
+    response = connection.post(
+      "/v5/organizations/#{ENV["HELLOASSO_ORGANIZATION_SLUG"]}/checkout-intents",
+      params.to_json,
+      { "Content-Type": "application/json" }.merge(authorization_header)
+    )
+    response.body
+  end
+
+  private
+
+  def build_checkout_intent_params(user, product)
+    {
       totalAmount: product.helloasso_price,
       initialAmount: product.helloasso_price,
       itemName: "#{ENV["HELLOASSO_SUBSCRIPTION_NAME"]} - #{product.name}",
@@ -36,16 +48,7 @@ class Helloasso::Api
         secret: ENV["HELLOASSO_WEBHOOK_SECRET"]
       }
     }
-
-    response = connection.post(
-      "/v5/organizations/#{ENV["HELLOASSO_ORGANIZATION_SLUG"]}/checkout-intents",
-      checkout_params.to_json,
-      { "Content-Type": "application/json" }.merge(authorization_header)
-    )
-    response.body
   end
-
-  private
 
   def authorization_header
     { "Authorization" => "Bearer #{@token.access_token}" }
