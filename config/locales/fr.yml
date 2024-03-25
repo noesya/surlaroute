@@ -48,6 +48,7 @@ fr:
         regions: Localisation(s)
         service_access_terms: Conditions d'accès au service
         slug: Identifiant
+        status: Statut
         zipcode: Code postal
       definition:
         text: Texte
@@ -67,6 +68,7 @@ fr:
         published: Fiche publiée
         regions: Région
         slug: Identifiant
+        status: Statut
       page:
         children: Pages enfants
         description: Description
@@ -94,6 +96,7 @@ fr:
         published: Fiche publiée
         regions: Régions
         slug: Identifiant
+        status: Statut
         technics: Techniques
       project/answer:
         text: Explication
@@ -153,7 +156,9 @@ fr:
         published: Fiche publiée
         regions: Provenance
         slug: Identifiant
+        status: Statut
       user:
+        accepts_terms_of_service: "Conditions d'utilisation"
         active_subscription: Abonnement en cours
         allow_listing: Accepter d'apparaître comme auteur·rice
         description: Présentation
@@ -163,6 +168,7 @@ fr:
         language: Langue préférée
         last_name: Nom
         mobile_phone: Téléphone portable
+        optin_tos_html: "J'accepte les <a href=\"%{link}\" target=\"_blank\">conditions générales d'utilisation</a>"
         role: Rôle
         roles:
           admin: Administrateur
@@ -257,9 +263,11 @@ fr:
         expand: Rechercher
         reset: Réinitialiser
         submit: Filtrer
-      premium: Premium ?
-      published: Publié ?
+      lab_member: Membre du Lab
+      premium: Premium ?
+      published: Publié ?
       search_field: Recherche
+      status: Statut
       title: Rechercher
     infos: Informations
     pages:
@@ -268,6 +276,16 @@ fr:
       brezet_wheel:
         enabled: Actif ?
         explanation_text: Texte d'explication
+    publication_statuses:
+      draft: "Brouillon"
+      manufacturer: "Fabricant"
+      missing_informations: "Infos manquantes"
+      ready_for_publication: "Prêt pour la publication"
+      redaction_in_progress: "En cours d'écriture"
+      rejected: "Rejetée"
+      validated: "Validée"
+      waiting_for_approval: "En attente de validation"
+      waiting_for_attribution: "En attente d'attribution"
     structure:
       add_file: Ajouter un fichier
       add_image: Ajouter une image

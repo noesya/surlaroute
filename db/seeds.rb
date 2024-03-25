@@ -1,6 +1,14 @@
+Page.find_or_create_by(internal_identifier: 'home') do |page|
+    page.name = 'Accueil'
+    page.slug = 'accueil'
+end
 Page.find_or_create_by(internal_identifier: 'mentions-legales') do |page|
     page.name = 'Mentions légales'
     page.slug = 'mentions-legales'
+end
+Page.find_or_create_by(internal_identifier: 'cgu') do |page|
+    page.name = "Conditions générales d'utilisation"
+    page.slug = 'conditions-generales-d-utilisation'
 end
 Page.find_or_create_by(internal_identifier: 'contact') do |page|
     page.name = 'Contact'

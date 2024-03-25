@@ -7,16 +7,25 @@
                       :search, 
                       label: t('admin.filters.search_field')
                       %>
+ 
+    <% if can?(:publish, Material) %>
+      <%= render_filter f, 
+                        :select, 
+                        :status, 
+                        label: t('admin.filters.status'),
+                        collection: Material.statuses.map { |r, v| { to_s: I18n.t("admin.publication_statuses.#{r}"), id: r } }
+                        %>
 
-    <%= render_filter f, 
-                      :select, 
-                      :published, 
-                      label: t('admin.filters.published'),
-                      collection: [
-                        { to_s: I18n.t('true'), id: 'true' },
-                        { to_s: I18n.t('false'), id: 'false' }
-                      ]
-                      %>
+      <%= render_filter f, 
+                        :select, 
+                        :published, 
+                        label: t('admin.filters.published'),
+                        collection: [
+                          { to_s: I18n.t('true'), id: 'true' },
+                          { to_s: I18n.t('false'), id: 'false' }
+                        ]
+                        %>
+    <% end %>
 
     <%= render_filter f, 
                       :select, 

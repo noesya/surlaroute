@@ -10,7 +10,7 @@ class Ability
 
   def visitor
     can :manage, Actor, id: @user.actor_ids
-    cannot [:publish, :premium], Actor
+    cannot [:publish, :premium, :lab_member], Actor
     can :create, Actor
     can :manage, Project, id: @user.project_ids
     cannot :publish, Project

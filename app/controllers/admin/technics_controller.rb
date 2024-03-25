@@ -24,7 +24,7 @@ class Admin::TechnicsController < Admin::ApplicationController
   def create
     @technic.authors << current_user if cannot?(:publish, @technic)
     if @technic.save
-      redirect_to [:admin, @technic], notice: t('admin.successfully_created_html', model: @technic.to_s)
+      redirect_to [:edit, :admin, @technic], notice: t('admin.successfully_created_html', model: @technic.to_s)
     else
       breadcrumb
       render :new, status: :unprocessable_entity
@@ -33,7 +33,7 @@ class Admin::TechnicsController < Admin::ApplicationController
 
   def update
     if @technic.update(technic_params)
-      redirect_to [:admin, @technic], notice: t('admin.successfully_updated_html', model: @technic.to_s)
+      redirect_to [:edit, :admin, @technic], notice: t('admin.successfully_updated_html', model: @technic.to_s)
     else
       breadcrumb
       add_breadcrumb t('edit')
@@ -61,7 +61,7 @@ class Admin::TechnicsController < Admin::ApplicationController
       actor_ids: [], region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes
     ]
-    allowed_params += [:published, author_ids: []] if can?(:publish, Technic)
+    allowed_params += [:published, :status, author_ids: []] if can?(:publish, Technic)
     params.require(:technic)
           .permit(allowed_params)
   end

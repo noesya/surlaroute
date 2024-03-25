@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_011242) do
     t.string "contact_website"
     t.string "contact_inventory_url"
     t.boolean "lab_member", default: false
+    t.integer "status", default: 0
   end
 
   create_table "actors_materials", id: false, force: :cascade do |t|
@@ -216,6 +217,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_011242) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
+    t.integer "status", default: 0
     t.index ["actor_id"], name: "index_materials_on_actor_id"
     t.index ["slug"], name: "index_materials_on_slug"
   end
@@ -306,6 +308,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_011242) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
+    t.integer "status", default: 0
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
@@ -428,6 +431,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_011242) do
     t.boolean "published", default: false
     t.string "image_alt"
     t.string "image_credit"
+    t.integer "status", default: 0
   end
 
   create_table "technics_users", id: false, force: :cascade do |t|

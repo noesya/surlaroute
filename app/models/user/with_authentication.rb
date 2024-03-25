@@ -7,9 +7,12 @@ module User::WithAuthentication
 
     has_one_time_password(encrypted: true)
 
+    attr_accessor :accepts_terms_of_service
+
     validates_presence_of :first_name, :last_name, :email, :role
     validate :password_complexity
     validates :mobile_phone, format: { with: /\A\+[0-9]+\z/ }, allow_blank: true
+    validates_acceptance_of :accepts_terms_of_service, on: :create
 
     before_validation :adjust_mobile_phone, :sanitize_fields
 
