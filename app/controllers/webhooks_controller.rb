@@ -6,21 +6,19 @@ class WebhooksController < ApplicationController
     payload = request.body.read
     data = nil
     begin
-      data = JSON.parse(payload, symbolize_names: true) || {}
+      data = JSON.parse(payload, symbolize_names: true)
     rescue JSON::ParserError => e
       # Invalid payload
       head :bad_request and return
     end
 
-    if !is_subscription_order?(data)
+    # Verify the authenticity of the request
+    if request_from_helloasso?(data)
       # Skip if the event is not an Order from subscriptions
+      HelloassoEvent.create(data: data) if is_subscription_order?(data)
       head :ok
-    elsif !request_from_helloasso?(data)
-      # Verify the authenticity of the request
-      head :forbidden
     else
-      HelloassoEvent.create(data: data)
-      head :ok
+      head :forbidden
     end
   end
 
@@ -34,6 +32,6 @@ class WebhooksController < ApplicationController
 
   def request_from_helloasso?(data)
     secret = data.dig(:metadata, :secret)
-    secret == ENV["HELLOASSO_WEBHOOK_SECRET"]
+    secret.present? && secret == ENV["HELLOASSO_WEBHOOK_SECRET"]
   end
 end
