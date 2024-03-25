@@ -28,8 +28,6 @@
         margin: 0
         min-width: min-content
         article
-            a::after // Cancel stretched link
-                display: none
             h2
                 margin-top: 0
                 a
@@ -42,6 +40,8 @@
                     white-space: nowrap
                 a:not(:hover)
                     color: inherit
+    &-popup-close-button
+        z-index: 10
     &-popup-tip
         display: none
     @include media-breakpoint-up(md)
