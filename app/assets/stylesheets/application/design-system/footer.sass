@@ -6,6 +6,12 @@ footer.document-footer
     font-weight: 400
     a
         text-decoration: none
+        &[target="_blank"]
+            @include icon(link, after)
+            &::after
+                margin-left: map-get($spacers, 1)
+                margin-right: calc(#{map-get($spacers, 1)} / 2)
+                font-size: pxToRem(13)
     strong
         font-weight: 600
     ul
@@ -29,11 +35,6 @@ footer.document-footer
         a
             font-weight: 600
             font-size: $font-size-base
-            @include icon(link, after)
-            &::after
-                margin-left: map-get($spacers, 1)
-                margin-right: calc(#{map-get($spacers, 1)} / 2)
-                font-size: pxToRem(13)
         li
             + li 
                 margin-top: calc(#{map-get($spacers, 1)} / 2)
