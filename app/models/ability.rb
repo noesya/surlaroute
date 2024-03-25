@@ -27,7 +27,8 @@ class Ability
     can :manage, Technic, id: @user.technic_ids
     can [:read, :create], Technic
     cannot :publish, Technic
-    can :manage, User::Comment, user_id: @user.id
+    # can :manage, User::Comment, user_id: @user.id
+    can :create, User::Comment
     can :manage, User::Favorite, user_id: @user.id
   end
 
@@ -38,6 +39,8 @@ class Ability
   def admin
     can :manage, :all
     cannot :manage, User, role: :superadmin
+    can :read, User, role: :superadmin
+    cannot :manage, Structure::Item
   end
 
   def superadmin
