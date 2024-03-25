@@ -27,7 +27,10 @@
       <li>Confirmation</li>
     </ol>
 
-    <h2>Paiement en cours de traitement</h2>
+    <h2>
+      <span class="spinner-border" role="status"></span>
+      Paiement en cours de traitement
+    </h2>
     <p>Veuillez patienter, vous allez être automatiquement redirigé·e lorsque votre paiement sera traité.</p>
     <div id="js-subscription-verification" data-checkout-intent-id="<%= params[:checkout_intent_id] %>" data-url="<%= verification_subscription_path %>"></div>
   </div>
