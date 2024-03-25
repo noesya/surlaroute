@@ -13,9 +13,15 @@ class WebhooksController < ApplicationController
     end
 
     # Skip if the event is not an Order from subscriptions
-    head :ok and return unless is_subscription_order?(data)
+    unless is_subscription_order?(data)
+      head :ok
+      return
+    end
     # Verify the authenticity of the request
-    head :forbidden and return unless request_from_helloasso?(data)
+    unless request_from_helloasso?(data)
+      head :forbidden
+      return
+    end
 
     HelloassoEvent.create(data: data)
     head :ok
