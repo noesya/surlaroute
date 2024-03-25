@@ -26,9 +26,10 @@ class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :product
 
+  before_validation :set_expiration_date, on: :create
   after_commit :update_user_role, on: :create
 
-  scope :active, -> { where('paid_at >= ?', 1.year.ago) }
+  scope :active, -> { where('expiration_date > ?', Time.zone.now) }
   scope :ordered, -> { order(created_at: :desc) }
 
   def update_user_role
@@ -41,5 +42,10 @@ class Subscription < ApplicationRecord
 
   def to_s
     "#{reference} - #{user} - #{product}"
+  end
+
+  def set_expiration_date
+    # paid_at = 25/03/2024 à 18h34 ; expiration_date = 25/03/2025
+    self.expiration_date = self.paid_at.to_date + 1.year
   end
 end
