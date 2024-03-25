@@ -2,12 +2,12 @@ module Actor::WithGeolocation
   extend ActiveSupport::Concern
 
   included do
-    geocoded_by :full_address, lookup: -> (actor) { actor.geocoder_lookup }
+    geocoded_by :full_address_for_geocode, lookup: -> (actor) { actor.geocoder_lookup }
 
     after_validation :geocode, if: -> (geocodable) { geocodable.full_address_present? && geocodable.full_address_changed? }
   end
 
-  def full_address
+  def full_address_for_geocode
     [address, zipcode, city, country].join
   end
 
