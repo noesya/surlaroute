@@ -8,7 +8,7 @@
   <i class="<%= Icon::ADD %>"></i>
   Ajouter une image
 </a>
-<draggable :list="data.elements" rowhandle=".dragHandle" class="row">
+<draggable :list="data.elements" handle=".dragHandle" class="row">
   <div v-for="(element, index) in data.elements" class="col-lg-4 draggable-item">
     <div class="card">
       <div class="card-header bg-transparent pt-3">

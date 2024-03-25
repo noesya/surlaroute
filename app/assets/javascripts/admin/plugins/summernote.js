@@ -41,7 +41,7 @@ window.summernoteManager = {
             followingToolbar: true,
             disableDragAndDrop: true,
             callbacks: {
-                onPaste: this.pasteSanitizedClipboardContent.bind(this, ['b', 'strong', 'i', 'em', 'a', 'ul', 'ol', 'li'], ['href', 'target'])
+                onPaste: this.pasteSanitizedClipboardContent.bind(this, ['b', 'strong', 'i', 'em', 'a', 'ul', 'ol', 'li', 'p'], ['href', 'target'])
             }
         });
 

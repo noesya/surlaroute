@@ -7,5 +7,6 @@
                       class: 'select2'
                     } %>
   <%= f.input :status,
-              include_blank: false %>
+              include_blank: false,
+              label_method: lambda { |g| I18n.t("admin.publication_statuses.#{g.last}") } %>
 <% end %>

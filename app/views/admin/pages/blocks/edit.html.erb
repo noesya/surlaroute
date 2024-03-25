@@ -108,9 +108,10 @@
           styleTags: window.SUMMERNOTE_CONFIGS[config].styleTags,
           followingToolbar: true,
           disableDragAndDrop: true,
-          callbacks: {
-            onChange: onChangeCallback
-          }
+          callbacks: Object.assign(
+            window.SUMMERNOTE_CONFIGS[config].callbacks || {},
+            { onChange: onChangeCallback }
+          )
         });
         this.monkeyPatchDropdownButtons();
         this.monkeyPatchDropdownClosing();

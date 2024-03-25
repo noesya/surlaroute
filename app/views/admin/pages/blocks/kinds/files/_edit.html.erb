@@ -3,7 +3,7 @@
   <i class="<%= Icon::ADD %>"></i>
   Ajouter un élément
 </a>
-<draggable :list="data.elements" rowhandle=".dragHandle">
+<draggable :list="data.elements" handle=".dragHandle">
   <div v-for="(element, index) in data.elements" class="draggable-item">
     <div class="card">
       <div class="card-header bg-transparent pt-3">
@@ -28,7 +28,7 @@
             Ajouter un fichier
           </a>
 
-          <draggable :list="element.files" rowhandle=".dragHandle">
+          <draggable :list="element.files" handle=".fileDragHandle">
             <div v-for="(file, fileIndex) in element.files" class="draggable-item">
               <div class="card bg-white">
                 <div class="card-header pt-1">
@@ -37,7 +37,7 @@
                       title="Delete">
                     <i class="<%= Icon::DELETE %>"></i>
                   </a>
-                  <a class="btn ps-0 dragHandle" title="Drag and drop">
+                  <a class="btn ps-0 fileDragHandle" title="Drag and drop">
                     <i class="<%= Icon::MOVE %> handle"></i>
                   </a>
                 </div>
