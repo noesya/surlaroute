@@ -21,12 +21,12 @@
   <div class="container py-5">
     <div class="row text-md-start py-3">
       <div class="col-lg-9">
-        <ol>
-          <li>Choix d'abonnement</li>
-          <li><b>Récapitulatif</b></li>
-          <li>Paiement</li>
-          <li>Vérification</li>
-          <li>Confirmation</li>
+        <ol class="subscription-steps">
+          <li><span>1</span>Choix d'abonnement</li>
+          <li class="is-selected"><span>2</span>Récapitulatif</li>
+          <li><span>3</span>Paiement</li>
+          <li><span>4</span>Vérification</li>
+          <li><span>5</span>Confirmation</li>
         </ol>
 
         <%= form_tag payment_subscription_path do |f| %>
