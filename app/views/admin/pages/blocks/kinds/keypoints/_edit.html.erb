@@ -3,7 +3,7 @@
   <i class="<%= Icon::ADD %>"></i>
   Ajouter un point-clé
 </a>
-<draggable :list="data.elements" rowhandle=".dragHandle" class="row">
+<draggable :list="data.elements" handle=".dragHandle" class="row">
   <div v-for="(element, index) in data.elements" class="col-lg-4 draggable-item">
     <div class="card">
       <div class="card-header bg-transparent pt-3">
@@ -31,8 +31,8 @@
           <div class="mb-3">
             <label class="form-label">Texte</label>
             <textarea class="form-control summernote-vue"
-                      data-summernote-config="without_styles" 
-                      v-model="element.text" 
+                      data-summernote-config="without_styles"
+                      v-model="element.text"
                       rows="5"></textarea>
           </div>
         </div>
