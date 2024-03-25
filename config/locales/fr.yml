@@ -133,6 +133,7 @@ fr:
         text: Texte
         title: Titre
       subscription:
+        expiration_date: Date d'expiration
         helloasso_checkout_intent_identifier: Référence de session de paiement HelloAsso
         helloasso_order_identifier: Référence de commande HelloAsso
         paid_amount: Montant payé
