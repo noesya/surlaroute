@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_202301) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_011242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -194,6 +194,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_202301) do
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
   end
 
+  create_table "helloasso_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "helloasso_tokens", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "access_token"
+    t.text "refresh_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "materials", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -254,6 +267,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_202301) do
     t.string "slug"
     t.integer "ancestor_kind", default: 0
     t.index ["parent_id"], name: "index_pages_on_parent_id"
+  end
+
+  create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "redirect_url"
   end
 
   create_table "project_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -386,6 +408,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_202301) do
     t.index ["item_id"], name: "index_structure_values_on_item_id"
   end
 
+  create_table "subscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "product_id", null: false
+    t.datetime "paid_at"
+    t.bigint "helloasso_checkout_intent_identifier"
+    t.bigint "helloasso_order_identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "paid_amount"
+    t.date "expiration_date"
+    t.index ["product_id"], name: "index_subscriptions_on_product_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "technics", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -485,6 +521,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_202301) do
   add_foreign_key "structure_options_values", "structure_values", column: "value_id"
   add_foreign_key "structure_value_files", "structure_values", column: "value_id"
   add_foreign_key "structure_values", "structure_items", column: "item_id"
+  add_foreign_key "subscriptions", "products"
+  add_foreign_key "subscriptions", "users"
   add_foreign_key "user_comments", "user_comments", column: "reply_to_id"
   add_foreign_key "user_comments", "users"
   add_foreign_key "user_favorites", "users"

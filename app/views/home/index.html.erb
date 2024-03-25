@@ -3,24 +3,20 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <h1 class="text-center mt-5">La plateforme collaborative de l'écoscénographie</h1>
-        <div class="mt-3 text-center home-placeholder mb-0">
-          <%= form_tag search_path, method: :get, class: "row align-items-end", role: "search" do %>
-            <div class="col-10 col-md-5">
-              <input name="term" class="form-control search-input" type="search" placeholder="Cherchez ici un·e acteur·rice, un projet, un matériau ou une technique écoresponsables" aria-label="<%= t('search.label') %>">
-            </div>
-            <div class="col-2 col-md-7">
-              <button class="btn-search rounded-pill" type="submit">
-                <span><%= t('search.label') %></span>
-              </button>
-            </div>
-          <% end %>  
-        </div>
-        <div>
-          <%= link_to 'Ou explorez nos annuaires', '#section-actors' %>
+        <div class="home-search mt-3 text-center">
+          <%= form_tag search_path, method: :get, role: "search" do %>
+            <input name="term" class="form-control search-input" type="search" placeholder="Cherchez ici un·e acteur·rice, un projet, un matériau ou une technique écoresponsables" aria-label="<%= t('search.label') %>">
+            <button class="btn-search" type="submit">
+              <span><%= t('search.label') %></span>
+            </button>
+          <% end %>
         </div>
       </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-lg-5">
+      <div class="text-center mt-2 mt-lg-0 home-ecosystem-link order-lg-2 mb-3 mb-lg-0">
+        <%= link_to 'Ou explorez nos annuaires', '#section-actors', class: "link-arrow-down" %>
+      </div>
       <div class="col-lg-2 offset-lg-10">
         <p class="small mb-1">Un projet porté par</p>
         <%= image_tag('logos/logo-augureslab.svg', alt: 'Augures Lab', width: '191', height: '45') %>

@@ -16,7 +16,7 @@
             &::before
                 font-size: 12px
                 margin-right: calc(#{map-get($spacers, 1)} / 2)
-        
+
     .credit
         &::before
             content: '© '
@@ -34,7 +34,7 @@
             repeat: no-repeat
             size: 100%
             position: right bottom
-        hgroup 
+        hgroup
             p
                 font-weight: 600
         dl
@@ -47,16 +47,24 @@
         @include media-breakpoint-up(xxl)
             background-size: contain
 
-.offers-index
+.offers-index,
+.subscriptions-new,
+.subscriptions-summary,
+.subscriptions-verification,
+.subscriptions-confirmation
     .hero
         background: white
-.regions-index, 
-.offers-index
+.regions-index,
+.offers-index,
+.subscriptions-new,
+.subscriptions-summary,
+.subscriptions-verification,
+.subscriptions-confirmation
     .hero
         overflow: unset
         z-index: 5
         position: relative
-        > img 
+        > img
             bottom: 0
             right: 0
             position: absolute
@@ -72,7 +80,7 @@
             @include media-breakpoint-up(xxl)
                 height: 130%
 .regions-index
-    .hero > img 
+    .hero > img
 .structure--zone-header
     > .row
         row-gap: map-get($spacers, 4)
