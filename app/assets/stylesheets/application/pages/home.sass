@@ -6,13 +6,23 @@
             background: #292929
             color: white
 
-.home-placeholder
+.home-search
+    form
+        display: flex
+        align-items: center
+        border-bottom: 1px solid #000
+        input
+            text-overflow: ellipsis
+    .btn-search
+        &::before
+            border: none
     a
         @include icon(link, after)
         text-underline-offset: 2px
         &::after
             font-size: pxToRem(12)
             margin-left: calc(#{map-get($spacers, 1)} / 2)
+    
 
 .home-navigation
     background:
