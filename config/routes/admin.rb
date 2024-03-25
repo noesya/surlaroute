@@ -16,7 +16,7 @@ namespace :admin do
   resources :materials
   resources :projects
   resources :technics
-  namespace :projects do 
+  namespace :projects do
     resources :criterions do
       collection do
         post :reorder
@@ -24,7 +24,7 @@ namespace :admin do
     end
   end
   resources :regions
-  resources :pages do 
+  resources :pages do
     resources :blocks, controller: 'pages/blocks', except: [:index, :show] do
       collection do
         post :reorder
@@ -52,5 +52,7 @@ namespace :admin do
       end
     end
   end
+  resources :products
+  resources :subscriptions, only: [:index, :show]
   root to: "dashboard#index"
 end

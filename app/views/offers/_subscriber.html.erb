@@ -1,26 +1,31 @@
-<% hide_cta ||= false %>
+<%
+hide_price ||= false
+hide_cta ||= false
+%>
 
 <div class="col-lg-3 mt-3 mt-lg-0">
-    <div class="card border">
-      <div class="card-body">
-        <h5 class="card-title">S’abonner</h5>
-        <p>Accès complet à l’écothèque</p>
-        <hr>
-        <p>Offre “inscrit·e” avec en plus :</p>
-        <ul class="check-list">
-          <li>Accès complet à tous les annuaires</li>
-          <li>Proposez des fiches matériaux et techniques</li>
-          <li>Commentaires de fiches</li>
-          <li>Bibliothèque de favoris</li>
-        </ul>
+  <div class="card border">
+    <div class="card-body">
+      <h5 class="card-title">S’abonner</h5>
+      <p>Accès complet à l’écothèque</p>
+      <hr>
+      <p>Offre “inscrit·e” avec en plus :</p>
+      <ul class="check-list">
+        <li>Accès complet à tous les annuaires</li>
+        <li>Proposez des fiches matériaux et techniques</li>
+        <li>Commentaires de fiches</li>
+        <li>Bibliothèque de favoris</li>
+      </ul>
+      <% unless hide_price %>
         <hr>
         <p class="small text-muted">Les tarifs varient selon votre statut</p>
         <p>Entre 5€ et 1500€</p>
-        <% if !current_user || current_user.visitor? %>
-          <%= link_to "Choisir cette offre", "#TODOHELLOASSOS", class: "btn btn-dark w-100" unless hide_cta %>
+        <% if !user_signed_in? || current_user.visitor? %>
+          <%= link_to "Choisir cette offre", new_subscription_path, class: "btn btn-dark w-100" unless hide_cta %>
         <% elsif current_user.subscriber? %>
           <span class="btn btn-dark w-100 disabled">C'est votre formule actuelle</span>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>

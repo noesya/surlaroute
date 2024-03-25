@@ -6,9 +6,24 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
+  authenticate :user, -> (user) { user.superadmin? } do
+    mount GoodJob::Engine => 'good_job'
+  end
+
+  post 'webhooks/helloasso' => 'webhooks#helloasso', as: :helloasso_webhook
+
   draw 'admin'
 
+  # Tunnel d'abo
   get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement'               => 'subscriptions#new', as: :new_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/recapitulatif' => 'subscriptions#summary', as: :summary_subscription
+  post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/paiement'     => 'subscriptions#payment', as: :payment_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/retour'        => 'subscriptions#helloasso_callback', as: :helloasso_callback_subscription
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/verification'  => 'subscriptions#verification', as: :verification_subscription
+  post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/verification' => 'subscriptions#async_verification'
+  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/confirmation'  => 'subscriptions#confirmation', as: :confirmation_subscription
+
   get 'le-lab/les-membres' => 'members#index', as: :members
 
   get 'communaute' => 'users#index', as: :users
@@ -22,7 +37,7 @@ Rails.application.routes.draw do
   end
 
   get 'recherche' => 'search#show', as: :search
-  
+
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
       region_slug.blank? || Region.where(slug: region_slug).exists?

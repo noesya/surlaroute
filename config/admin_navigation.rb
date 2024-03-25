@@ -16,12 +16,14 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :comments, t('admin.comments.title'), pending_admin_comments_path, { icon: Icon::COMMENT, highlights_on: /admin\/comments/ } if can?(:update, User::Comment)
     primary.item :regions, Region.model_name.human(count: 2), admin_regions_path, { icon: Icon::REGION } if can?(:read, Region)
     primary.item :users, User.model_name.human(count: 2), admin_users_path, { icon: Icon::USER } if can?(:read, User)
+    primary.item :subscriptions, Subscription.model_name.human(count: 2), admin_subscriptions_path, { icon: Icon::SUBSCRIPTION } if can?(:read, Subscription)
     primary.item :structure, t('admin.structure.title'), nil, { icon: Icon::STRUCTURE } do |secondary|
       Structure::Item::ABOUT_CLASSES.each do |about_class|
         label = about_class == 'Actor' ? t('ecosystem') : about_class.model_name.human(count: 2)
         secondary.item about_class.to_s, label, admin_structure_items_path(about_class: about_class)
       end
     end if can?(:edit, Structure::Item)
+    primary.item :products, Product.model_name.human(count: 2), admin_products_path, { icon: Icon::PRODUCT } if can?(:manage, Product)
     # primary.item :analytics, 'Analytics', admin_analytics_path, { icon: Icon::ANALYTICS } if can?(:read, :analytics)
   end
 end
