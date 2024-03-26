@@ -4,7 +4,12 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <%= f.input :image, as: :single_deletable_file %>
+      <%= f.input :image,
+                  as: :single_deletable_file,
+                  input_html: { accept: default_images_formats_accepted },
+                  resize: 1,
+                  hint: images_formats_accepted_hint,
+                  preview: true %>
       <%= f.input :image_alt %>
       <%= f.input :image_credit %>
     </div>
