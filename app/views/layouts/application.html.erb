@@ -10,18 +10,18 @@
     <%= render "seo" %>
   </head>
   <body class="<%= body_classes(yield(:additional_body_class)) %>">
+    <%= render "header" %>
+    <%= render "notice" %>
     <main>
-      <%= render "header" %>
-      <%= render "notice" %>
       <% if breadcrumbs.many? %>
         <div class="container">
           <%= render_breadcrumbs builder: Mazer::BreadcrumbsOnRailsBuilder %>
         </div>
       <% end %>
       <%= yield %>
-      <%= render "search-modal" %>
-      <%= render "footer" %>
     </main>
+    <%= render "search-modal" %>
+    <%= render "footer" %>
   </body>
   <% if content_for? :with_leaflet %>
     <%= javascript_include_tag 'leafletMap', defer: 'defer' %>

@@ -27,6 +27,7 @@
             border-width: 0
             font-weight: normal
             padding: 0
+
 @include media-breakpoint-down(lg)
     .directory-filters
         flex-direction: column-reverse
@@ -50,3 +51,6 @@
     .actor-informations
         + .bg-white
             margin-top: map-get($spacers, 5)
+
+.actor-informations:last-child
+    padding-bottom: map-get($spacers, 5)
