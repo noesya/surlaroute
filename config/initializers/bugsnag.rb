@@ -10,7 +10,8 @@ Bugsnag.configure do |config|
     ignored_error_classes = [
       "ActiveStorage::FileNotFoundError",
       "Aws::S3::Errors::NoSuchKey",
-      "Aws::S3::Errors::NotFound"
+      "Aws::S3::Errors::NotFound",
+      "MiniMagick::Error"
     ]
     error_class = event.exceptions.first[:errorClass]
     next unless ignored_error_classes.include?(error_class)
