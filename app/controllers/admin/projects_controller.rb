@@ -58,6 +58,7 @@ class Admin::ProjectsController < Admin::ApplicationController
     allowed_params = [
       :name, :slug, :description,
       :image, :image_delete, :image_infos, :image_alt, :image_credit,
+      :acceptance,
       actor_ids: [], material_ids: [], technic_ids: [],
       region_ids: [],
       answers_attributes: [:id, :criterion_id, :value, :text],

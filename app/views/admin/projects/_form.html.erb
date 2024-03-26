@@ -43,6 +43,11 @@
 
   <%= render 'brezet_fields', f: f %>
 
+  <%= f.input :acceptance,
+              as: :boolean,
+              label: "J’ai obtenu les accords nécessaires au partage de ces informations et illustrations. J’accepte qu’elles soient utilisées pour la communication digitale de l’écothèque, dans un but de promotion de ce travail",
+              required: true unless project.persisted? %>
+
   <% content_for :buttons do %>
     <%= destroy_link project if project.persisted? %>
     <%= submit f %>

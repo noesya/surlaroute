@@ -36,7 +36,10 @@ class Project < ApplicationRecord
 
   has_one_attached_deletable :image
 
+  attr_accessor :acceptance
+
   validates_presence_of :name
+  validates_acceptance_of :acceptance, on: :create
 
   scope :ordered, -> { order(:name) }
   scope :ordered_by_creation_date, -> { order(created_at: :desc) }
