@@ -1,7 +1,7 @@
 <%
 title = content_for?(:title)  ? "#{CGI::unescapeHTML(yield(:title))} • #{t('website')}"
                               : t('website')
-icon = asset_path 'icons/favicons/favicon.svg'
+icon = asset_path 'icons/favicons/favicon.png'
 color = "#F2F3F4"
 %>
 <title><%= title %></title>
