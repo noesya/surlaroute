@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
   include ApplicationHelper
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :new
   before_action :ensure_user_is_not_subscribed, only: [:new, :summary, :payment]
   before_action :redirect_to_confirmation_if_active_subscription, only: [:helloasso_callback, :verification]
   before_action :load_product, only: [:summary, :payment]
@@ -60,7 +60,7 @@ class SubscriptionsController < ApplicationController
   protected
 
   def ensure_user_is_not_subscribed
-    redirect_to root_path, notice: t('ui.subscriptions.notices.already_subscribed') unless current_user.visitor?
+    redirect_to root_path, notice: t('ui.subscriptions.notices.already_subscribed') if user_signed_in? && !current_user.visitor?
   end
 
   def redirect_to_confirmation_if_active_subscription
