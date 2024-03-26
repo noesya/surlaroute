@@ -5,6 +5,9 @@
         footer
             background: #292929
             color: white
+    @include media-breakpoint-up(lg)
+        h1
+            font-size: pxToRem(84)
 
 .home-search
     form
@@ -104,8 +107,8 @@
             gap: map-get($spacers, 2)
 
 .home-quote
-    padding-top: map-get($spacers, 8)
-    padding-bottom: map-get($spacers, 8)
+    // padding-top: map-get($spacers, 8) !important
+    // padding-bottom: map-get($spacers, 8) !important
     cite
         @include icon(arrow-right, after)
         &::after

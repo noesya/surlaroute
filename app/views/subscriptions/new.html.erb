@@ -30,14 +30,14 @@
 
         <% @products.each do |product| %>
           <div class="row align-items-center my-3">
-            <div class="col-lg-7">
+            <div class="col-lg-7 mb-2 mb-lg-0">
               <h3><%= product %></h3>
               <p><%= product.description %></p>
             </div>
-            <div class="col-lg-2 offset-lg-1">
+            <div class="col-6 col-lg-2 offset-lg-1">
               <p class="h2"><%= number_to_currency(product.price, precision: 0) %></p>
             </div>
-            <div class="col-lg-2 text-end">
+            <div class="col-6 col-lg-2 text-end">
               <% if product.redirect_url.present? %>
                 <%= link_to "Choisir", product.redirect_url, target: :_blank, class: "btn btn-outline-primary btn-external" %>
               <% else %>

@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="row mt-lg-5">
-      <div class="text-center mt-2 mt-lg-0 home-ecosystem-link order-lg-2 mb-3 mb-lg-0">
+      <div class="text-center mt-4 mt-lg-0 home-ecosystem-link order-lg-2 mb-5 mb-lg-0">
         <%= link_to 'Ou explorez nos annuaires', '#section-actors', class: "link-arrow-down" %>
       </div>
       <div class="col-lg-2 offset-lg-10">
@@ -25,7 +25,7 @@
   </div>
 </section>
 
-<section class="home-quote py-4 py-md-6">
+<section class="home-quote py-6 py-md-8">
   <div class="container">
     <div class="row">
       <div class="col-md-10 small offset-md-1">
@@ -39,7 +39,7 @@
 </section>
 
 <section id="section-actors" class="home-navigation actors">
-  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse pb-5 py-lg-8">
     <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-lg-0">
         <h2><%= t('ecosystem') %></h2>
@@ -63,7 +63,7 @@
 </section>
 
 <section class="home-navigation projects">
-  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse pb-5 py-lg-8">
     <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-lg-0">
         <h2><%= Project.model_name.human(count: 2) %></h2>
@@ -87,7 +87,7 @@
 </section>
 
 <section class="home-navigation materials">
-  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse pb-5 py-lg-8">
     <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-lg-0">
         <h2><%= Material.model_name.human(count: 2) %></h2>
@@ -111,7 +111,7 @@
 </section>
 
 <section class="home-navigation technics">
-  <div class="container d-flex flex-column flex-lg-column-reverse py-5 py-lg-8">
+  <div class="container d-flex flex-column flex-lg-column-reverse pb-5 py-lg-8">
     <div class="row align-items-end mt-4 mt-xl-8">
       <div class="col-12 col-xl-8 mb-2 mb-xl-0">
         <h2><%= Technic.model_name.human(count: 2) %></h2>
