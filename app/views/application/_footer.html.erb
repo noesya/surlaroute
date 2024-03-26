@@ -46,10 +46,11 @@
           <% page_legal = Page.find_by(internal_identifier: 'mentions-legales') %>
           <%= link_to page_legal, page_path(page_legal), class: "fw-bold" %>
         </li>
-        <li>
+        <li class="mt-2">
           <% page_cgu = Page.find_by(internal_identifier: 'cgu') %>
           <%= link_to page_cgu, page_path(page_cgu), class: "fw-bold" %>
         </li>
+        <li class="mt-2"><a href="https://www.numeriqueinteretgeneral.org/etudes-de-cas/ecotheque" title="Numériques d'intérêt général - Lien externe" target="_blank">Écoconception</a></li>
         <li class="mt-2">
           <% page_contact = Page.find_by(internal_identifier: 'contact') %>
           <%= link_to page_contact, page_path(page_contact) %>
