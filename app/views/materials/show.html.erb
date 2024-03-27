@@ -7,10 +7,12 @@
   <%= render 'structure/items/zones/page', about: @material %>
 
   <% if actor = @actors.premium.with_contact_informations.first %>
-    <section class="py-5 actors-list">
+    <section class="py-5 bg-projects actors-list">
       <div class="container">
-        <h2 class="mb-4"><%= t('ui.material.contact') %></h2>
-        <%= render 'actors/contact', actor: actor %>
+        <div class="row">
+          <h2 class="mb-4 col-lg-6"><%= t('ui.material.contact') %></h2>
+          <%= render 'actors/contact', actor: actor %>
+        </div>
       </div>
     </section>
   <% end %>

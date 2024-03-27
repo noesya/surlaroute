@@ -17,7 +17,7 @@
             <p><%= @actor.full_address %></p>
           </div>
         <% end %>
-        <%= render 'actors/contact', actor: @actor if @actor.has_any_contact_informations? %>
+        <%= render 'actors/contact', html_class: "offset-lg-6", actor: @actor if @actor.has_any_contact_informations? %>
       </div>
     </div>
   </section>

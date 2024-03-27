@@ -1,4 +1,5 @@
-<div class="actor-contact offset-lg-6 col-lg-6">
+<% html_class = html_class || nil %>
+<div class="actor-contact col-lg-6 <%= html_class if html_class %>">
   <div class="structure__item__string">
     <%= render 'structure/items/label', label: t('ui.actor.contact') %>
     <% if actor.contact_name.present? %>
