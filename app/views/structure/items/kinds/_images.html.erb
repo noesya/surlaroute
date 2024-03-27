@@ -21,7 +21,7 @@
                       <p class="small mb-0"><%= file.text %></p>
                     <% end %>
                     <% if file.credit.present? %>
-                      <p class="small text-muted"><%= file.credit %></p>
+                      <p class="small text-muted">© <%= file.credit %></p>
                     <% end %>
                   </figcaption>
                 <% end %>
@@ -46,7 +46,7 @@
                   <p class="small mb-0"><%= file.text %></p>
                 <% end %>
                 <% if file.credit.present? %>
-                  <p class="small text-muted"><%= file.credit %></p>
+                  <p class="small text-muted">© <%= file.credit %></p>
                 <% end %>
               </figcaption>
             <% end %>
