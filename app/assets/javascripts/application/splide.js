@@ -9,6 +9,7 @@ if (sliders) {
             pagination: false,
             perPage: 2,
             autoHeight: true,
+            autoWidth: true,
             breakpoints: {
                 768: {
                     perPage: 1,
