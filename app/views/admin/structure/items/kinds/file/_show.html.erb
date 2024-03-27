@@ -1,5 +1,10 @@
 <% file = item.file_for(about) %>
 <div class="mb-4">
   <label class="small text-muted"><%= item %></label>
-  <p><%= link_to file.file.filename, file.file, target: :_blank if file.present? && file.file.attached? %></p>
+  <% if file.present? && file.file.attached? %>
+    <p>
+      <%= link_to file.file.filename, file.file, target: :_blank %>
+      (<%= number_to_human_size file.file.blob.byte_size %>)
+    </p>
+  <% end %>
 </div>

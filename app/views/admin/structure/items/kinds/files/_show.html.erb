@@ -6,10 +6,8 @@
       <% next unless file.file.attached? %>
       <div class="col-lg-3">
         <p>
-          <%- if file.text.present? %>
-            <%= file.text %><br>
-          <%- end -%>
-          <%= link_to file.file.filename, file.file, target: :_blank if file.present? && file.file.attached? %>
+          <%= link_to (file.text.present? ? file.text : file.file.filename), file.file, target: :_blank if file.present? && file.file.attached? %>
+          (<%= number_to_human_size file.file.blob.byte_size %>)
         </p>
       </div>
     <% end %>

@@ -18,10 +18,8 @@ elements = block.data.dig('elements') || []
           next if blob.nil?
           %>
           <li>
-            <%- if file_title.present? -%>
-            <%= file_title %> :
-            <%- end -%>
-            <%= link_to blob.filename, blob, target: :_blank %>
+            <%= link_to (file_title.present? ? file_title : blob.filename), blob, target: :_blank %>
+            (<%= number_to_human_size blob.byte_size %>)
           </li>
         <% end %>
       </ul>
