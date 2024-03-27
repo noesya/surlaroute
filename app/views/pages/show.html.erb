@@ -2,7 +2,7 @@
 <%= content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
 <%= content_for :additional_body_class, " parent-page" if @page.children %>
 <%= content_for :meta_description, @page.description if @page.description.present? %>
-<%= content_for :og_image, polymorphic_url(@page.image, only_path: false) if @page.respond_to?(:image) && @page.image.attached? %>
+<%= content_for :og_image, polymorphic_url(@page.image, only_path: false) if @page.image.attached? %>
 
 <header class="hero">
   <div class="container">

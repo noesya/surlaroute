@@ -1,6 +1,6 @@
 <%= content_for :title, @technic %>
 <%= content_for :meta_description, @technic.description if @technic.description.present? %>
-<%= content_for :og_image, polymorphic_url(@technic.image, only_path: false) if @technic.respond_to?(:image) && @technic.image.attached? %>
+<%= content_for :og_image, polymorphic_url(@technic.image, only_path: false) if @technic.image.attached? %>
 
 <%= render 'hero', object: @technic %>
 

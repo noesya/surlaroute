@@ -15,7 +15,5 @@ og_image = content_for?(:og_image) ? yield(:og_image) : image_url("og_image.jpg"
 <!-- Facebook Meta Tags -->
 <meta property="og:title" content="<%= title %>">
 <meta property="og:description" content="<%= description %>">
-<% if og_image %>
-  <meta property="og:image" content="<%= og_image %>">
-<% end %>
+<meta property="og:image" content="<%= og_image %>">
 <meta property="og:type" content="website">
