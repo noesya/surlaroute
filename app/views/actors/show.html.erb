@@ -1,4 +1,6 @@
 <%= content_for :title, @actor %>
+<%= content_for :meta_description, @actor.description if @actor.description.present? %>
+<%= content_for :og_image, polymorphic_url(@actor.image, only_path: false) if @actor.image.attached? %>
 
 <%= render 'hero', object: @actor %>
 

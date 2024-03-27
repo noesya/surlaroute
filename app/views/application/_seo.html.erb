@@ -3,8 +3,17 @@ title = content_for?(:title)  ? "#{CGI::unescapeHTML(yield(:title))} • #{t('we
                               : t('website')
 icon = asset_path 'icons/favicons/favicon.png'
 color = "#F2F3F4"
+description = content_for?(:meta_description) ? yield(:meta_description) : "écothèque, la plateforme collaborative de l’écoscénographie"
+og_image = content_for?(:og_image) ? yield(:og_image) : image_url("og_image.jpg")
 %>
+
 <title><%= title %></title>
 <link rel="icon" href="<%= icon %>">
 <meta name="theme-color" content="<%= color %>">
+<meta name="description" content="<%= description %>">
 
+<!-- Facebook Meta Tags -->
+<meta property="og:title" content="<%= title %>">
+<meta property="og:description" content="<%= description %>">
+<meta property="og:image" content="<%= og_image %>">
+<meta property="og:type" content="website">
