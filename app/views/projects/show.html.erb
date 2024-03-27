@@ -1,6 +1,6 @@
 <%= content_for :title, @project %>
 <%= content_for :meta_description, @project.description if @project.description.present? %>
-<%= content_for :og_image, (@project.image, only_path: false) if @project.respond_to?(:image) && @project.image.attached? %>
+<%= content_for :og_image, polymorphic_url(@project.image, only_path: false) if @project.respond_to?(:image) && @project.image.attached? %>
 
 <%= render 'hero', object: @project %>
 
