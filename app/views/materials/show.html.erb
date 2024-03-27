@@ -1,4 +1,6 @@
 <%= content_for :title, @material %>
+<%= content_for :meta_description, @material.description if @material.description.present? %>
+<%= content_for :og_image, (@material.image, only_path: false) if @material.respond_to?(:image) && @material.image.attached? %>
 
 <%= render 'hero', object: @material %>
 

@@ -1,4 +1,5 @@
 <%= content_for :title, @region %>
+<%= content_for :meta_description, @region.description if @region.description.present? %>
 
 <header class="hero pb-5">
   <div class="container">
