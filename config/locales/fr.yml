@@ -430,7 +430,7 @@ fr:
         format: "%n %u"
   please_confirm: Merci de confirmer
   projects:
-    description: Des projets écoresponsables représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire ; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brézet pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux.
+    description: Des projets écoresponsables représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire ; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brezet pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux.
     call_to_action:
       button: Référencer votre projet
       text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif : rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
