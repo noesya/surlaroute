@@ -41,12 +41,12 @@
             <%= f.input :mobile_phone %>
             <%= f.input :email, required: true %>
 
-            <% if resource.lab_member? %>
+            <% if resource.has_access_to_website_and_description?  %>
               <%= f.input :website %>
               <%= f.input :description %>
             <% end %>
 
-            <% if resource.lab_member? || resource.subscriber? %>
+            <% if resource.possible_author? %>
               <%= f.input :allow_listing %>
             <% end %>
 

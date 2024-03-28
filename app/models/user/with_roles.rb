@@ -32,6 +32,10 @@ module User::WithRoles
       !visitor
     end
 
+    def has_access_to_website_and_description?
+      ['lab_member', 'admin', 'superadmin'].include?(role)
+    end
+
     protected
 
     def check_modifier_role
