@@ -54,5 +54,6 @@ namespace :admin do
   end
   resources :products
   resources :subscriptions, only: [:index, :show]
+  get 'analytics' => 'analytics#index'
   root to: "dashboard#index"
 end
