@@ -63,6 +63,7 @@ class Technic < ApplicationRecord
     {
       name: name,
       description: description,
+      published: published,
       structure_values: searchable_text_from_structure_values
     }
   end

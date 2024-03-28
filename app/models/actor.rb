@@ -101,6 +101,7 @@ class Actor < ApplicationRecord
     {
       name: name,
       description: description,
+      published: published,
       full_address: full_address,
       contact_email: contact_email,
       contact_inventory_url: contact_inventory_url,
