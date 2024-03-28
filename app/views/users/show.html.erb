@@ -17,9 +17,6 @@
         <p class="small mb-2"><%= t('ui.users.contact') %></p>
         <ul class="contact-list list-unstyled">
           <li><%= link_to @user.email, "mailto:#{@user.email}", target: '_blank' %></li>
-          <% if @user.mobile_phone.present? %>
-            <li class="mt-1"><%= link_to @user.mobile_phone, "tel:#{@user.mobile_phone}", target: '_blank', class: 'link-phone' %></li>
-          <% end %>
           <% if @user.website.present? %>
             <li class="mt-1"><%= link_to t('ui.users.website'), @user.website, target: '_blank', class: 'link-website' %></li>
           <% end %>
