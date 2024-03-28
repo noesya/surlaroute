@@ -17,7 +17,7 @@ module FacetedSearch
     def values
       item.options.in_use
     end
-    
+
     def find_by
       :slug
     end
@@ -25,7 +25,10 @@ module FacetedSearch
     def add_scope(scope)
       return scope if params_array.blank?
       # TODO limiter à ceux qui résultats
-      scope.joins(:structure_options).where(structure_options: { id: structure_options_selected })
+      alias_suffix = "_#{item.id.gsub('-', '_')}"
+      model = facets.class_name.safe_constantize
+      options_table_alias = model.connection.quote_column_name("structure_options#{alias_suffix}")
+      scope.joins(model.structure_join_chain(alias_suffix)).where(options_table_alias => { id: structure_options_selected })
     end
 
     def structure_options_selected
