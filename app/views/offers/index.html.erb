@@ -350,69 +350,47 @@
       <div class="row pt-3">
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
           <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
-          <h3 class="fw-bold">S’inspirer et s’entourer</h3>
-          <p class="mt-2">Plongez dans un réseau d'inspiration où les idées se développent avec passion. Notre plateforme vous connecte avec des esprits créatifs et des innovateurs, favorisant ainsi un environnement propice à l'inspiration et à la collaboration.</p>
+          <h3 class="fw-bold">Comprendre</h3>
+          <p class="mt-2">les enjeux liés à l'écoscénographie</p>
         </div>
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
           <%= image_tag "icons/offers/network.svg", class: "mb-2" %>
-          <h3 class="fw-bold">Se connecter avec un grand réseau acteur·ices de la culture</h3>
-          <p class="mt-2">Élargissez votre réseau professionnel en vous connectant avec XX acteur·ices de la culture, des scénographes aux décideurs. Ces connexions ouvrent la voie à des collaborations enrichissantes et à des opportunités de croissance professionnelle.</p>
+          <h3 class="fw-bold">S'inspirer</h3>
+          <p class="mt-2">d'initiatives créatives et innovantes</p>
         </div>
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
           <%= image_tag "icons/offers/share.svg", class: "mb-2" %>
-          <h3 class="fw-bold">Partager à un public ciblé</h3>
-          <p class="mt-2">Présentez votre travail à un public attentif et réceptif. Notre plateforme offre une tribune idéale pour partager vos projets, idées et conseils avec une audience intéressée, favorisant ainsi les échanges constructifs et l'inspiration mutuelle.</p>
+          <h3 class="fw-bold">Se connecter</h3>
+          <p class="mt-2">à un large réseau d'acteur·rices engagée·es</p>
         </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6">
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
           <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
-          <h3 class="fw-bold">Bénéficier de ressources sélectionnées</h3>
-          <p class="mt-2">Accédez à une sélection précieuse de ressources pour nourrir votre pratique. Notre plateforme vous offre un accès facile à des outils, guides pratiques et études de cas spécialisés dans l'éco-conception, vous aidant à développer vos compétences et à innover de manière durable.</p>
+          <h3 class="fw-bold">Valoriser</h3>
+          <p class="mt-2">sa démarche d'écoconception auprès de la communauté</p>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
+          <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
+          <h3 class="fw-bold">Trouver</h3>
+          <p class="mt-2">des leviers d'action en phase avec les réalités du terrain</p>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
+          <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
+          <h3 class="fw-bold">Participer</h3>
+          <p class="mt-2">à une réflexion commune et collaborative avec ses pairs</p>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
+          <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
+          <h3 class="fw-bold">Contribuer</h3>
+          <p class="mt-2">à l'expertise de la transition écologique dans le secteur culturel</p>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-5">
+          <%= image_tag "icons/offers/arrows.svg", class: "mb-2" %>
+          <h3 class="fw-bold">Agir</h3>
+          <p class="mt-2">à son échelle</p>
         </div>
       </div>
     </div>
   </section>
 
-  <%
-  images = [
-    {
-      source: "offers/image1.jpeg",
-      description: "Atelier lorem ipsum nec mergitur adam nut silam rosae luparum."
-    },
-    {
-      source: "offers/image2.jpeg",
-      description: "Présentation de nec loreat magicus poliem miam."
-    },
-    {
-      source: "offers/image1.jpeg",
-      description: "Atelier lorem ipsum nec mergitur adam nut silam rosae luparum."
-    },
-    {
-      source: "offers/image2.jpeg",
-      description: "Présentation de nec loreat magicus poliem miam."
-    }
-  ]
-  %>
-  <section class="py-5 overflow-hidden">
-    <div class="container">
-      <h2>L’Augures Lab Scénogrrrraphie en images</h2>
-      <div class="mt-4">
-        <div class="structure__item__images">
-          <div class="splide" aria-label="Galerie">
-            <div class="splide__track">
-              <ul class="splide__list">
-                <% images.each do |image| %>
-                  <li class="splide__slide col-md-3 col-lg-6">
-                    <figure>
-                      <%= image_tag image[:source], class: 'img-fluid', alt: image[:description] %>
-                      <figcaption class="mt-1 small"><%= image[:description] %></figcaption>
-                    </figure>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 </div>
