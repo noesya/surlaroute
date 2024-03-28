@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/verification' => 'subscriptions#async_verification'
   get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/confirmation'  => 'subscriptions#confirmation', as: :confirmation_subscription
 
-  get 'le-lab/les-membres' => 'members#index', as: :members
+  # get 'le-lab/les-membres' => 'members#index', as: :members
 
   get 'communaute' => 'users#index', as: :users
   get 'communaute/:id' => 'users#show', as: :user
