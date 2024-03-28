@@ -31,10 +31,9 @@
 .block-gallery
     figure
         margin: 0
-    @include media-breakpoint-down(lg)
-        &__item 
-            + .block-gallery__item
-                margin-top: map-get($spacers, 4)
+    &__item
+        + .block-gallery__item
+            margin-top: map-get($spacers, 4)
 
 // .block-text
 //     p
