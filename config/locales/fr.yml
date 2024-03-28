@@ -248,6 +248,7 @@ fr:
       title: Vous avez une bonne adresse à partager ?
   add: Ajouter
   admin:
+    analytics: Analytics
     comments:
       approve: Approuver
       pending: À traiter

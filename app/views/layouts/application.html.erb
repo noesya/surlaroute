@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", defer: true %>
     <%= render "seo" %>
+    <%= render "plausible" if ENV["APPLICATION_ENV"] == "production" %>
   </head>
   <body class="<%= body_classes(yield(:additional_body_class)) %>">
     <%= render "header" %>
