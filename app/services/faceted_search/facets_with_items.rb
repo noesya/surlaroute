@@ -1,4 +1,5 @@
 class FacetedSearch::FacetsWithItems < FacetedSearch::Facets
+  attr_reader :class_name
 
   protected
 

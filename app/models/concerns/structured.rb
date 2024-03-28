@@ -19,6 +19,23 @@ module Structured
     after_save :mark_options_used
   end
 
+  class_methods do
+    def structure_join_chain(alias_suffix)
+      values_table_alias = self.connection.quote_column_name("structure_values#{alias_suffix}")
+      options_values_table_alias = self.connection.quote_column_name("structure_options_values#{alias_suffix}")
+      options_table_alias = self.connection.quote_column_name("structure_options#{alias_suffix}")
+      "
+      INNER JOIN \"structure_values\" #{values_table_alias}
+          ON #{values_table_alias}.\"about_type\" = \'#{name}\'
+          AND #{values_table_alias}.\"about_id\" = \"#{table_name}\".\"id\"
+        INNER JOIN \"structure_options_values\" #{options_values_table_alias}
+          ON #{options_values_table_alias}.\"value_id\" = #{values_table_alias}.\"id\"
+        INNER JOIN \"structure_options\" #{options_table_alias}
+          ON #{options_table_alias}.\"id\" = #{options_values_table_alias}.\"option_id\"
+      "
+    end
+  end
+
   def items
     @items ||= Structure::Item.where(about_class: self.class.to_s).ordered
   end
