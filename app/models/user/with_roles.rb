@@ -29,7 +29,7 @@ module User::WithRoles
 
     def possible_author?
       # mirror of the "possible_authors" scope
-      !visitor
+      !visitor?
     end
 
     def has_access_to_website_and_description?
