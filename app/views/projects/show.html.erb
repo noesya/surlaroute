@@ -48,13 +48,13 @@
                 </section>
               <% end %>
               <%= render 'projects/brezet_wheel/step', step: 2 %>
+              <%= render 'projects/brezet_wheel/step', step: 3 %>
               <% if @technics.any? %>
                 <section class="project-technics pt-3 pt-lg-5">
                   <h2 class="h3 fw-bold mb-2 pb-1"><%= t('ui.project.technics', count: @technics.count) %></h2>
                   <%= render 'list', objects: @technics, col_number: 6 %>
                 </section>
               <% end %>
-              <%= render 'projects/brezet_wheel/step', step: 3 %>
               <%= render 'projects/brezet_wheel/step', step: 4 %>
               <%= render 'projects/brezet_wheel/step', step: 5 %>
               <%= render 'projects/brezet_wheel/step', step: 6 %>
@@ -65,7 +65,7 @@
       </div>
     </section>
   <% end %>
-  
+
   <%= render 'structure/items/zones/lower_page', about: @project %>
 
   <%= render 'comments/list', about: @project %>
