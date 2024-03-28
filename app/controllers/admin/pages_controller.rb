@@ -20,12 +20,11 @@ class Admin::PagesController < Admin::ApplicationController
 
   def reorder
     authorize!(:reorder, Page)
-    parent_page = Page.find(params[:parentId])
-    old_parent_page = Page.find(params[:oldParentId])
+    parent_page = Page.find(params[:parentId]) if params[:parentId]
     ids = params[:ids] || []
     ids.each.with_index do |id, index|
       page = Page.find(id)
-      page.update_columns parent_id: parent_page.id,
+      page.update_columns parent_id: parent_page&.id,
                           position: index + 1
     end
   end
