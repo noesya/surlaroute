@@ -1,7 +1,7 @@
 <% Project::Criterion::STEPS.each do |step| %>
   <div class="mb-4">
     <h3 class="h6">
-      <%= t("projects.brezet_wheel.step#{step}") %>
+      <%= step %>. <%= t("projects.brezet_wheel.step#{step}") %>
     </h3>
     <div class="table-responsive">
       <table class="<%= table_classes %>">
