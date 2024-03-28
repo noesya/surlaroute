@@ -29,14 +29,14 @@
                   %>
       <div class="d-none"
            data-conditional-source="user_role"
-           data-conditional-value="lab_member"
+           data-conditional-value="[lab_member,admin,superadmin]"
            >
         <%= f.input :website %>
         <%= f.input :description %>
       </div>
       <div class="d-none"
            data-conditional-source="user_role"
-           data-conditional-value="[lab_member,subscriber]"
+           data-conditional-value="[lab_member,subscriber,admin,superadmin]"
            >
         <%= f.input :allow_listing %>
       </div>
