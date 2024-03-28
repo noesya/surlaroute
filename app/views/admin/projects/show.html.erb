@@ -20,7 +20,7 @@
 
     <h2 class="h4">Roue de Brezet</h2>
     <% Project::Criterion::STEPS.each do |step| %>
-      <h3 class="h5"><%= t("projects.brezet_wheel.step#{step}") %></h3>
+      <h3 class="h5"><%= step %>. <%= t("projects.brezet_wheel.step#{step}") %></h3>
       <% Project::Criterion.for_step(step).each do |criterion| %>
         <%
         answer = Project::Answer.where(criterion: criterion, project: @project).first_or_initialize
