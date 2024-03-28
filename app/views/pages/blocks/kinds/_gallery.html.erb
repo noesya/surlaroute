@@ -1,20 +1,21 @@
 <%
+text = block.data.dig('text')
 elements = block.data.dig('elements')
 %>
 <div class="block block-gallery py-5 overflow-hidden">
   <div class="container">
-    <% if block.name.present? || block.data.dig('text').present? %>
+    <% if block.name.present? || text.present? %>
       <div class="row mb-4">
-        <% if block.name.present? %>
-          <div class="col-lg-6">
-              <h2 class="m-0"><%= block.name %></h2>
-          </div>
-        <% end %>
-        <% if block.data.dig('text').present? %>
-          <div class="col-lg-6 mt-3 mt-lg-0">
-            <%= simple_format block.data.dig('text') %>
-          </div>
-        <% end %>
+        <div class="col-lg-6">
+          <% if block.name.present? %>
+            <h2 <% unless text.present? %>class="mb-0"<% end %>><%= block.name %></h2>
+          <% end %>
+        </div>
+        <div class="col-lg-6">
+          <% if text.present? %>
+              <%= simple_format text %>
+          <% end %>
+        </div>
       </div>
     <% end %>
     <% if elements %>
@@ -33,8 +34,8 @@ elements = block.data.dig('elements')
                 <% next unless image_blob %>
                 <li class="splide__slide">
                   <figure>
-                    <%= kamifusen_tag image_blob, 
-                                      width: 600, 
+                    <%= kamifusen_tag image_blob,
+                                      width: 600,
                                       alt: alt,
                                       class: 'img-fluid rounded' if image_blob %>
                     <% if credit.present? || caption.present? %>
@@ -65,8 +66,8 @@ elements = block.data.dig('elements')
             %>
             <div class="block-gallery__item">
               <figure>
-                <%= kamifusen_tag image_blob, 
-                                  width: 600, 
+                <%= kamifusen_tag image_blob,
+                                  width: 600,
                                   alt: alt,
                                   class: 'img-fluid rounded' if image_blob %>
                 <figcaption class="small mt-1">
