@@ -559,6 +559,11 @@ fr:
       technics:
         one: Technique utilisée
         other: Techniques utilisées
+    regions:
+      see_all_actors: Voir tous les acteur·ice·s de cette région
+      see_all_materials: Voir tous les matériaux de cette région
+      see_all_projects: Voir tous les projets de cette région
+      see_all_technics: Voir toutes les techniques de cette région
     subscriptions:
       errors:
         generic_payment_error: Une erreur est survenue lors du paiement. Veuillez réessayer.

@@ -44,6 +44,7 @@
     <div class="container pb-3">
       <h2 class="mb-4"><%= link_to t('ecosystem'), actors_path(@region.slug) %></h2>
       <%= render 'actors/list', objects: @actors %>
+      <%= link_to t('ui.regions.see_all_actors'), actors_path(@region.slug) if @all_actors.count > 4 %>
     </div>
   <% end %>
 
@@ -53,6 +54,8 @@
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Project.model_name.human(count: 2), projects_path(@region.slug) %></h2>
       <%= render 'list', objects: @projects %>
+      <%= link_to t('ui.regions.see_all_projects'), projects_path(@region.slug) if @all_projects.count > 4 %>
+
     </div>
   <% end %>
 
@@ -62,6 +65,8 @@
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Material.model_name.human(count: 2), materials_path(@region.slug) %></h2>
       <%= render 'list', objects: @materials %>
+      <%= link_to t('ui.regions.see_all_materials'), materials_path(@region.slug) if @all_materials.count > 4 %>
+
     </div>
   <% end %>
 
@@ -71,6 +76,7 @@
     <div class="container pb-3 pt-5">
       <h2 class="mb-4"><%= link_to Technic.model_name.human(count: 2), technics_path(@region.slug) %></h2>
       <%= render 'list', objects: @technics %>
+      <%= link_to t('ui.regions.see_all_technics'), technics_path(@region.slug) if @all_technics.count > 4 %>
     </div>
   <% end %>
 
