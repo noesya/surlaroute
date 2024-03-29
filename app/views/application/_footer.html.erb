@@ -3,7 +3,7 @@
     <nav class="row">
       <div class="col-lg-4">
         <%= link_to root_path, class: "footer-brand" do %>
-          <%= image_tag 'logo.svg', alt: t('website') %>
+          <%= image_tag 'logo.svg', alt: t('website'), loading: 'lazy' %>
         <% end %>
       </div>
       <ul class="col-lg-2 mt-4 mt-lg-0">
@@ -67,17 +67,17 @@
     </div>
     <div class="row mt-3 align-items-end">
       <div class="col-12 col-md-4 col-md-6 d-flex align-items-center">
-        <%= image_tag('logos/logo-augures.png', alt: 'Augures Lab', width: '64', height: '64', class: 'me-3') %>
-        <%= image_tag('logos/logo-augureslab.svg', alt: 'Augures Lab', width: '171', height: '40') %>
+        <%= image_tag('logos/logo-augures.png', alt: 'Augures Lab', width: '64', height: '64', class: 'me-3', loading: 'lazy') %>
+        <%= image_tag('logos/logo-augureslab.svg', alt: 'Augures Lab', width: '171', height: '40', loading: 'lazy') %>
       </div>
       <div class="col-12 col-md-8 col-lg-6 mt-5 mt-lg-0">
         <span class="small"><%= t('footer.implementation.sponsored') %></span>
         <ul class="footer-supports justify-content-lg-between">
-          <li><%= image_tag('logos/logo-france2030.svg', alt: 'France 2030', width: '80', height: '80') %></li>
-          <li><%= image_tag('logos/logo-bdt.svg', alt: 'Banque des territoires', width: '170', height: '80') %></li>
-          <li><%= image_tag('logos/logo-parisville.svg', alt: 'Ville de Paris', width: '70', height: '80') %></li>
-          <li><%= image_tag('logos/logo-ildefrance.svg', alt: 'Région Île de France', width: '80', height: '80') %></li>
-          <li><%= image_tag('logos/logo-prefetidf.svg', alt: 'Préfet de la région Île de France', width: '80', height: '80') %></li>
+          <li><%= image_tag('logos/logo-france2030.svg', alt: 'France 2030', width: '80', height: '80', loading: 'lazy') %></li>
+          <li><%= image_tag('logos/logo-bdt.svg', alt: 'Banque des territoires', width: '170', height: '80', loading: 'lazy') %></li>
+          <li><%= image_tag('logos/logo-parisville.svg', alt: 'Ville de Paris', width: '70', height: '80', loading: 'lazy') %></li>
+          <li><%= image_tag('logos/logo-ildefrance.svg', alt: 'Région Île de France', width: '80', height: '80', loading: 'lazy') %></li>
+          <li><%= image_tag('logos/logo-prefetidf.svg', alt: 'Préfet de la région Île de France', width: '80', height: '80', loading: 'lazy') %></li>
         </ul>
       </div>
     </div>

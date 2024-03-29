@@ -40,6 +40,7 @@ gem "simple_form_password_with_hints", "~> 0"
 gem "simple-navigation", "~> 4"
 gem "sprockets-rails"
 gem "summernote-rails", git: "https://github.com/noesya/summernote-rails.git", branch: "fix/dart-sass"
+gem "terser", "~> 1.2"
 gem "two_factor_authentication", git: "https://github.com/noesya/two_factor_authentication.git"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
@@ -57,4 +58,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
