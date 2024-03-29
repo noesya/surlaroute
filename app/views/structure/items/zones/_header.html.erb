@@ -2,7 +2,7 @@
   <div class="row">
     <% about.items.zone_header.ordered.each do |item| %>
       <div class="structure__item__<%= item.kind %> col-lg-6">
-        <%= render 'structure/items/label', label: item.to_s if item.show_label %>
+        <%= render 'structure/items/label', label: item.to_s, zone: 'header' if item.show_label %>
         <%= render "structure/items/kinds/#{item.kind}", 
                     about: about, 
                     item: item, 

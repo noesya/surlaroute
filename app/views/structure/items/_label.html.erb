@@ -1,1 +1,2 @@
-<h3 class="small text-muted mb-2"><%= label %></h3>
+<% zone ||= 'base' %>
+<h3 class="small text-muted mb-2" <% if zone == 'header' %>role="heading" aria-level="2"<% end %>><%= label %></h3>
