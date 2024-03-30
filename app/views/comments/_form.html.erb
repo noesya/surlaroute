@@ -2,7 +2,7 @@
   <%= f.input :about_id, as: :hidden %>
   <%= f.input :about_type, as: :hidden %>
   <%= f.input :reply_to_id, as: :hidden if comment.reply_to %>
-  <%= f.input :title, label: t('comments.title') %>
-  <%= f.input :text, label: t('comments.text') %>
+  <%= f.input :title %>
+  <%= f.input :text %>
   <%= submit f %>
 <% end %>
