@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
   protected
 
   def ensure_authorize
-    redirect_back fallback_location: root_path, alert: 'Vous devez être connecté avec un compte adhérant pour accéder à cette partie' unless can?(:create, User::Comment) 
+    redirect_back fallback_location: root_path, alert: 'Vous devez être connecté avec un compte abonné pour accéder à cette partie' unless can?(:create, User::Comment) 
   end
 
   def load_and_authorize_comment
