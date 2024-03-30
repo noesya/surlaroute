@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
+  before_action :ensure_authorize, only: [:index, :create]
   before_action :load_and_authorize_comment, except: [:index, :create]
 
   def index
-    redirect_to root_path unless can?(:create, User::Comment) 
     @comments = current_user.comments.ordered
   end
 
@@ -29,6 +29,10 @@ class CommentsController < ApplicationController
   end
   
   protected
+
+  def ensure_authorize
+    redirect_back fallback_location: root_path, alert: 'Vous devez être connecté avec un compte adhérant pour accéder à cette partie' unless can?(:create, User::Comment) 
+  end
 
   def load_and_authorize_comment
     @comment = User::Comment.find params[:id]
