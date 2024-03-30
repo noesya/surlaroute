@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :load_and_authorize_comment, except: [:index, :create]
 
   def index
+    redirect_to root_path unless can?(:create, User::Comment) 
     @comments = current_user.comments.ordered
   end
 
