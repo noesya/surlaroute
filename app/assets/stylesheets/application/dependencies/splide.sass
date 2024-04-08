@@ -1,6 +1,7 @@
 .splide
     display: flex
     flex-direction: column-reverse
+    // height: 600px
     &__track
         overflow: visible
     &__list
@@ -19,13 +20,17 @@
             &--next
                 @include icon(arrow-right)
                 margin-left: map-get($spacers, 1)
+    @include media-breakpoint-up(md)
+        &__slide
+            img
+                max-height: 70vh
+                width: auto
+    @include media-breakpoint-down(md)
+        &__slide
+            img
+                max-width: 100%
     @media print
         &__list
             display: block !important
         &__slide
             opacity: 1 !important
-.splide__slide
-    opacity: 0.5
-    &.is-visible,
-    &.is-next
-        opacity: 1

@@ -10,7 +10,7 @@
         <ul class="splide__list">
           <% files.each do |file| %>
             <% next unless file.file.attached? %>
-            <li class="splide__slide col-md-6">
+            <li class="splide__slide">
               <figure>
                 <%= kamifusen_tag file.file,
                                   class: 'img-fluid rounded',
