@@ -5,7 +5,8 @@
         position: absolute 
     @include media-breakpoint-up(lg)
         position: sticky
-        top: map-get($spacers, 3)
+        top: map-get($spacers, 6)
+        transition: top 0.3s
         .faceted__facets
             max-height: 95vh
             overflow: auto
@@ -18,6 +19,11 @@
                 transform: rotate(180deg)
     @include media-breakpoint-down(lg)
         background: $light
+    
+    html.is-scrolling-down &
+        @include media-breakpoint-up(lg)
+            top: map-get($spacers, 3)
+
 
 .offcanvas-search-btn
     @include icon(settings)

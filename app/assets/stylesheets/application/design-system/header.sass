@@ -8,6 +8,7 @@ header#document-header
         text-decoration: none
     .container
         padding-top: map-get($spacers, 1)
+        padding-bottom: map-get($spacers, 1)
     .collapse
         > .container
             padding-top: 0
@@ -69,3 +70,17 @@ header#document-header
             .dropdown-toggle[aria-expanded="true"]
                 &::after
                     transform: rotate(180deg)
+    // Sticky effect
+    top: 0
+    position: sticky
+    z-index: 200
+    transform: translateY(0)
+    transition: 0.4s
+    &:not(.is-top)
+        background: white
+    html.is-scrolling-down &
+        @include media-breakpoint-down(lg)
+            transform: translateY(-100%)
+        @include media-breakpoint-up(lg)
+            &:not(:hover)
+                transform: translateY(-100%)

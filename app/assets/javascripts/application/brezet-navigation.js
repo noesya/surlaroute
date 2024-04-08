@@ -1,6 +1,6 @@
-window.ecosystem = window.ecosystem || {};
+window.ecotheque = window.ecotheque || {};
 
-window.ecosystem.brezetNavigation = {
+window.ecotheque.brezetNavigation = {
     init: function () {
         'use strict';
         this.dom = document.querySelector('.brezet-wheel-container');
@@ -62,4 +62,4 @@ window.ecosystem.brezetNavigation = {
     }
 };
 
-window.ecosystem.brezetNavigation.init();
+window.ecotheque.brezetNavigation.init();

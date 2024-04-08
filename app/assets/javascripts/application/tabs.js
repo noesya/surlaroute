@@ -1,6 +1,6 @@
-window.ecosystem = window.ecosystem || {};
+window.ecotheque = window.ecotheque || {};
 
-window.ecosystem.tabs = {
+window.ecotheque.tabs = {
     init: function () {
         'use strict';
         this.buttons = document.querySelectorAll('[data-toggle="tab"]');
@@ -39,4 +39,4 @@ window.ecosystem.tabs = {
     }
 };
 
-window.ecosystem.tabs.init();
+window.ecotheque.tabs.init();

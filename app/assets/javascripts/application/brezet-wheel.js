@@ -1,6 +1,6 @@
-window.ecosystem = window.ecosystem || {};
+window.ecotheque = window.ecotheque || {};
 
-window.ecosystem.brezetWheel = {
+window.ecotheque.brezetWheel = {
     init: function () {
         'use strict';
         // brezet-wheel-container comprend à la fois la figure avec l'image et les points
@@ -63,4 +63,4 @@ window.ecosystem.brezetWheel = {
     }
 };
 
-window.ecosystem.brezetWheel.init();
+window.ecotheque.brezetWheel.init();
