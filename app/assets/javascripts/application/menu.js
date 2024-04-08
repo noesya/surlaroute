@@ -32,17 +32,10 @@ window.ecotheque.menu = {
     },
     onScroll: function () {
         'use strict';
-        var offset = this.dom.offsetHeight - 30,
-            y = window.scrollY,
-            isNearTop = y < offset,
+        var y = window.scrollY,
+            isNearTop = this.isNearTop(y),
             threshold = 50,
             hasChanged = false;
-
-        if (isNearTop) {
-            this.dom.classList.add('is-top');
-        } else {
-            this.dom.classList.remove('is-top');
-        }
 
         if (y > this.previousScrollY + threshold && !isNearTop) {
             document.documentElement.classList.add('is-scrolling-down');
@@ -55,6 +48,19 @@ window.ecotheque.menu = {
         if (hasChanged) {
             this.previousScrollY = y;
         }
+    },
+    isNearTop: function (y) {
+        'use strict';
+        var offset = this.dom.offsetHeight - 30,
+            isNearTop = y < offset;
+
+        if (isNearTop) {
+            this.dom.classList.add('is-top');
+        } else {
+            this.dom.classList.remove('is-top');
+        }
+
+        return isNearTop;
     }
 };
 
