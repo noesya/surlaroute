@@ -70,7 +70,9 @@ header#document-header
             .dropdown-toggle[aria-expanded="true"]
                 &::after
                     transform: rotate(180deg)
-    // Sticky effect
+
+// Sticky effect
+header#document-header
     top: 0
     position: sticky
     z-index: 200
@@ -78,9 +80,8 @@ header#document-header
     transition: 0.4s
     &:not(.is-top)
         background: white
+    &.is-opened
+        background: white
     html.is-scrolling-down &
-        @include media-breakpoint-down(lg)
+        &:not(:hover), &:not(.is-opened)
             transform: translateY(-100%)
-        @include media-breakpoint-up(lg)
-            &:not(:hover)
-                transform: translateY(-100%)
