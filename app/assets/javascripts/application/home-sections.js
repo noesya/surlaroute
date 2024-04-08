@@ -1,6 +1,6 @@
-window.ecosystem = window.ecosystem || {};
+window.ecotheque = window.ecotheque || {};
 
-window.ecosystem.homeAnimation = {
+window.ecotheque.homeAnimation = {
     init: function () {
         'use strict';
         this.sections = document.querySelectorAll('.home-navigation');
@@ -31,4 +31,4 @@ window.ecosystem.homeAnimation = {
     }
 };
 
-window.ecosystem.homeAnimation.init();
+window.ecotheque.homeAnimation.init();

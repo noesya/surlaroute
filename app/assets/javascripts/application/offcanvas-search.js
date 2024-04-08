@@ -1,6 +1,6 @@
-window.ecosystem = window.ecosystem || {};
+window.ecotheque = window.ecotheque || {};
 
-window.ecosystem.offcanvasSearch = {
+window.ecotheque.offcanvasSearch = {
     init: function () {
         'use strict';
         this.dom = document.querySelector('.directory');
@@ -62,4 +62,4 @@ window.ecosystem.offcanvasSearch = {
     }
 };
 
-window.ecosystem.offcanvasSearch.init();
+window.ecotheque.offcanvasSearch.init();
