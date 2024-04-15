@@ -2,7 +2,9 @@ class Admin::UsersController < Admin::ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = @users.autofilter(params[:filters]).ordered.page(params[:page])
+    @users = @users.autofilter(params[:filters])
+                   .ordered_by_date
+                   .page(params[:page])
     breadcrumb
   end
 

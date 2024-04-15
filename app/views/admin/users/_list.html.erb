@@ -6,6 +6,7 @@
         <th><%= User.human_attribute_name('first_name') %></th>
         <th><%= User.human_attribute_name('email') %></th>
         <th><%= User.human_attribute_name('role') %></th>
+        <th><%= User.human_attribute_name('created_at') %></th>
         <th></th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
           <td><%= link_to_if can?(:read, user), user.first_name, [:admin, user] %></td>
           <td><%= link_to user.email, "mailto:#{user.email}", target: '_blank' %></td>
           <td><%= t("activerecord.attributes.user.roles.#{user.role}") %></td>
+          <td><%= l user.created_at.to_date %></td>
           <td class="text-end">
             <%= edit_link user %>
           </td>
