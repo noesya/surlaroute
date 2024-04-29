@@ -1,6 +1,6 @@
 <%
 criterions = Project::Criterion.for_step(step)
-answers = @project.answers.includes(:criterion).where(criterion: criterions, value: true)
+answers = @project.answers.includes(:criterion).where(criterion: criterions, value: true).order("project_criterions.position")
 %>
 <% if answers.any? %>
   <h3 id="step-<%= step %>" class="h2 mt-4 mt-lg-5">
