@@ -1,22 +1,17 @@
 <%
 criterions = Project::Criterion.for_step(step)
-step_has_values = Project::Answer.where(criterion: criterions, value: true).any?
+answers = @project.answers.includes(:criterion).where(criterion: criterions, value: true).order("project_criterions.position")
 %>
-<% if step_has_values %>
+<% if answers.any? %>
   <h3 id="step-<%= step %>" class="h2 mt-4 mt-lg-5">
     <%= step%>. <%= t("projects.brezet_wheel.step#{step}") %>
   </h3>
-  <% criterions.each do |criterion| %>
-    <%
-    answer = Project::Answer.where(criterion: criterion, project: @project).first_or_initialize
-    %>
-    <% if answer.value %>
-      <div class="mt-4">
-        <h4 class="label with-check"><%= criterion.name %></h4>
-        <p class="mt-2">
-          <%= sanitize answer.text %>
-        </p>
-      </div>
-    <% end %>
+  <% answers.each do |answer| %>
+    <div class="mt-4">
+      <h4 class="label with-check"><%= answer.criterion.name %></h4>
+      <p class="mt-2">
+        <%= sanitize answer.text %>
+      </p>
+    </div>
   <% end %>
 <% end %>
