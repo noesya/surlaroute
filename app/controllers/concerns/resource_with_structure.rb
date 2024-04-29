@@ -9,8 +9,8 @@ module ResourceWithStructure
   end
 
   def option
-    @item = Structure::Item.find_by(slug: params[:item_slug], about_class: resources_class_string)
-    @option = @item.options.find_by(slug: params[:option_slug])
+    @item = Structure::Item.find_by!(slug: params[:item_slug], about_class: resources_class_string)
+    @option = @item.options.find_by!(slug: params[:option_slug])
     @objects = @option.objects.published.ordered
     @objects = @objects.joins(:regions).where(regions: { id: @region.id }) if @region.present?
     breadcrumb
