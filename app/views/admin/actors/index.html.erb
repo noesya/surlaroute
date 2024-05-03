@@ -1,5 +1,7 @@
 <%= content_for :title, "#{t('ecosystem')} (#{@actors.total_count})" %>
 
+<%= render 'sort_by_form' %>
+
 <%= render 'filters', current_path: admin_actors_path %>
 
 <%= render 'admin/actors/list', actors: @actors %>

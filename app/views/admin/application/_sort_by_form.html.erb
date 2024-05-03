@@ -1,0 +1,21 @@
+<%= form_tag('', method: :get, class: 'text-sm-end mt-n2 mt-sm-n5 js-sort-by-form') do %>
+  <% unless params[:filters].blank? %>
+    <% params[:filters].each do |key, val| %>
+      <%= hidden_field_tag "filters[#{key}]", val %>
+    <% end %>
+  <% end %>
+  <%= select_tag( 'sort_by', 
+                  options_for_select(
+                    [
+                      ['Trier par date de création', 'date:asc'],
+                      ['Trier par date de création (décroissante)', 'date:desc'],
+                      ['Trier par date de mise à jour', 'update_date:asc'],
+                      ['Trier par date de mise à jour (décroissante)', 'update_date:desc'],
+                      ['Trier par nom', 'name:asc'],
+                      ['Trier par nom (inversé)', 'name:desc']
+                    ],
+                    params[:sort_by],
+                  ),
+                  { class: 'text-end btn btn-sm border-0 filter js-sort-by-list' }
+                  ) %>
+<% end %>

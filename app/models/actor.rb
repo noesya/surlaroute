@@ -31,14 +31,13 @@
 class Actor < ApplicationRecord
   include Commentable
   include Favoritable
+  include Orderable
   include Publishable
   include Regional
   include Searchable
   include Slugged
   include Structured
   include WithGeolocation
-
-  attr_accessor :sort_order
 
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :projects
@@ -49,26 +48,9 @@ class Actor < ApplicationRecord
 
   validates_presence_of :name
 
-  scope :sort_order, -> { order(:name) }
-  scope :ordered, -> { order(:name) }
-  scope :ordered_by_creation_date, -> { order(created_at: :desc) }
   scope :premium, -> { where(premium: true) }
   scope :lab_member, -> { where(lab_member: true) }
   scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
-  scope :order_by, -> (order_param) {
-    case order_param
-    when "name:asc"
-      order(name: :asc)
-    when "name:desc"
-      order(name: :desc)
-    when "date:asc"
-      order(created_at: :asc)
-    when "date:desc"
-      order(created_at: :desc)
-    else
-      all
-    end
-  }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {

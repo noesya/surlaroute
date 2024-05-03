@@ -4,7 +4,8 @@ class Admin::ProjectsController < Admin::ApplicationController
   include Admin::ResourceWithStructure
 
   def index
-    @projects = @projects.autofilter(params[:filters]).ordered.page(params[:page])
+    params[:sort_by] ||= 'date:desc'
+    @projects = @projects.autofilter(params[:filters]).order_by(params[:sort_by]).page(params[:page])
     breadcrumb
   end
 

@@ -4,7 +4,8 @@ class Admin::TechnicsController < Admin::ApplicationController
   include Admin::ResourceWithStructure
 
   def index
-    @technics = @technics.autofilter(params[:filters]).ordered.page(params[:page])
+    params[:sort_by] ||= 'date:desc'
+    @technics = @technics.autofilter(params[:filters]).order_by(params[:sort_by]).page(params[:page])
     breadcrumb
   end
 
