@@ -490,15 +490,21 @@ fr:
       actor:
         contact_inventory_url: Doit commencer par https://
         contact_website: Doit commencer par https://
+        description: Vous pouvez ajouter ici votre expérience sur l'acteur·ice et le comité écothèque en fera une relecture et une ré-écriture
       definition:
         title: Le texte qui sera recherché dans l'article
       material:
         actors: Vous devez créer une fiche dans écosystème en choissisant "fabricant" dans "métier".<br>Cette fiche ne sera pas publiée.
+        description: Vous pouvez ajouter ici votre expérience du matériau et le comité écothèque en fera une relecture et une ré-écriture
+      project:
+        description: Vous pouvez ajouter ici votre expérience sur le projet et le comité écothèque en fera une relecture et une ré-écriture
       product:
         redirect_url: Si renseignée, l'utilisateur sera redirigé sur cette adresse à la place du tunnel classique d'abonnement.
       structure_item:
         color: Pour ajouter une couleur au bloc (code héxa sans "#" initial)
         premium: "Si actif, le critère sera réservé aux acteur·ices premium."
+      technic:
+        description: Vous pouvez ajouter ici votre expérience de la technique et le comité écothèque en fera une relecture et une ré-écriture
       user:
         mobile_phone: "Format international (+XX). Ce numéro reste privé. En renseignant ce champ, vous acceptez de recevoir vos codes de double authentification par SMS."
     "no": Non
