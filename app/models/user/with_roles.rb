@@ -12,9 +12,6 @@ module User::WithRoles
     before_validation :check_modifier_role
 
     scope :for_role, -> (role) { where(role: role) }
-    # "Or" condition in incoming scope is because someone might have been set as author when subscriber, and is now only a visitor.
-    # We don't want to lose the actual author even if he's not subscriber anymore
-    scope :possible_authors, -> (author_ids) { not_visitor.or(where(id: author_ids)) }
 
     def managed_roles
       User.roles.map do |role_name, role_id|
@@ -25,11 +22,6 @@ module User::WithRoles
 
     def ability
       @ability ||= Ability.new(self)
-    end
-
-    def possible_author?
-      # mirror of the "possible_authors" scope
-      !visitor?
     end
 
     def has_access_to_website_and_description?

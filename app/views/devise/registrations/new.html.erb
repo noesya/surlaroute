@@ -53,6 +53,7 @@
                     input_html: { autocomplete: "new-password" } %>
       </div>
     </div>
+    <%= f.input :allow_listing %>
     <% page_cgu = Page.find_by(internal_identifier: 'cgu') %>
     <%= f.input :accepts_terms_of_service,
                 as: :boolean,

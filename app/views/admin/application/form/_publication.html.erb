@@ -2,7 +2,7 @@
   <h5>Publication</h5>
   <%= f.input :published %>
   <%= f.association :authors,
-                    collection: User.possible_authors(f.object.author_ids).ordered,
+                    collection: User.ordered,
                     input_html: {
                       class: 'select2'
                     } %>

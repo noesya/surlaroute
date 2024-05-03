@@ -15,18 +15,20 @@ class Ability
     can :manage, Project, id: @user.project_ids
     cannot :publish, Project
     can :create, Project
+    can :manage, Material, id: @user.material_ids
+    cannot :publish, Material
+    cannot :create, Material
+    can :manage, Technic, id: @user.technic_ids
+    cannot :publish, Technic
+    cannot :create, Technic
   end
   
   def subscriber
     visitor
     can :read, Actor
     can :read, Project
-    can :manage, Material, id: @user.material_ids
     can [:read, :create], Material
-    cannot :publish, Material
-    can :manage, Technic, id: @user.technic_ids
     can [:read, :create], Technic
-    cannot :publish, Technic
     # can :manage, User::Comment, user_id: @user.id
     can :create, User::Comment
     can :manage, User::Favorite, user_id: @user.id
