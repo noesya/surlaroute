@@ -30,7 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:mobile_phone, :first_name, :last_name, :accepts_terms_of_service])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:mobile_phone, :first_name, :last_name, :allow_listing, :accepts_terms_of_service])
   end
 
   def configure_account_update_params
