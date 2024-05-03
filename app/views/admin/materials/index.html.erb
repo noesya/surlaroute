@@ -1,6 +1,6 @@
 <%= content_for :title, "#{Material.model_name.human(count: 2)} (#{@materials.total_count})" %>
 
-<%= render 'sort_by_form' %>
+<%= render 'order_by_form' %>
 
 <%= render 'filters', current_path: admin_materials_path %>
 
