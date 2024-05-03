@@ -271,6 +271,13 @@ fr:
       status: Statut
       title: Rechercher
     infos: Informations
+    order_by:
+      created_at: Trier par date de création
+      created_at_desc: Trier par date de création (décroissante)
+      name: Trier par nom
+      name_desc: Trier par nom (inversé)
+      updated_at: Trier par date de mise à jour
+      updated_at_desc: Trier par date de mise à jour (décroissante)
     pages:
       cant_destroy: Impossible de supprimer la page %{name}
     projects:

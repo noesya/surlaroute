@@ -9,6 +9,7 @@
     <div>
       <%= yield %>
       <div class='form-group'>
+        <%= hidden_field_tag :order_by, params[:order_by] unless params[:order_by].blank? %>
         <%= submit_tag t('admin.filters.buttons.submit'), class: button_classes %>
         <%= link_to t('admin.filters.buttons.reset'), current_path, class: 'btn btn-secondary btn-sm' %>
       </div>

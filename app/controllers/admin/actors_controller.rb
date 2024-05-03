@@ -4,7 +4,8 @@ class Admin::ActorsController < Admin::ApplicationController
   include Admin::ResourceWithStructure
 
   def index
-    @actors = @actors.autofilter(params[:filters]).ordered.page(params[:page])
+    params[:order_by] ||= 'date:desc'
+    @actors = @actors.autofilter(params[:filters]).order_by(params[:order_by]).page(params[:page])
     breadcrumb
   end
 

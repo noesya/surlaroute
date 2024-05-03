@@ -20,6 +20,7 @@
 class Project < ApplicationRecord
   include Commentable
   include Favoritable
+  include Orderable
   include Publishable
   include Regional
   include Searchable
@@ -40,23 +41,6 @@ class Project < ApplicationRecord
 
   validates_presence_of :name
   validates_acceptance_of :acceptance, on: :create
-
-  scope :ordered, -> { order(:name) }
-  scope :ordered_by_creation_date, -> { order(created_at: :desc) }
-  scope :order_by, -> (order_param) {
-    case order_param
-    when "name:asc"
-      order(name: :asc)
-    when "name:desc"
-      order(name: :desc)
-    when "date:asc"
-      order(created_at: :asc)
-    when "date:desc"
-      order(created_at: :desc)
-    else
-      all
-    end
-  }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
   scope :autofilter_search, -> (term) {

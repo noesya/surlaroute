@@ -4,7 +4,8 @@ class Admin::MaterialsController < Admin::ApplicationController
   include Admin::ResourceWithStructure
 
   def index
-    @materials = @materials.autofilter(params[:filters]).ordered.page(params[:page])
+    params[:order_by] ||= 'date:desc'
+    @materials = @materials.autofilter(params[:filters]).order_by(params[:order_by]).page(params[:page])
     breadcrumb
   end
 
