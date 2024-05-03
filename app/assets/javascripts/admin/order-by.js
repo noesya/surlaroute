@@ -1,8 +1,8 @@
 window.ecotheque.orderBy = {
     init: function () {
         'use strict';
-        var orderByForm = document.querySelector('.js-order-by-form');
-        var orderByToggle = document.querySelector('.js-order-by-list');
+        var orderByForm = document.querySelector('.js-order-by-form'),
+            orderByToggle = document.querySelector('.js-order-by-list');
         if (!orderByToggle) {
             return;
         }
