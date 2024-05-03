@@ -529,6 +529,7 @@ fr:
       projects:
         one: Projet relié à cet·te acteur·ice
         other: Projets reliés à cet·te acteur·ice
+      service_access: Conditions d'accès au service
       technics:
         one: Technique proposée par cet·te acteur·ice
         other: Techniques proposées par cet·te acteur·ice
