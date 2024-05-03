@@ -7,12 +7,12 @@
   <%= select_tag( 'order_by', 
                   options_for_select(
                     [
-                      ['Trier par date de création', 'date:asc'],
-                      ['Trier par date de création (décroissante)', 'date:desc'],
-                      ['Trier par date de mise à jour', 'update_date:asc'],
-                      ['Trier par date de mise à jour (décroissante)', 'update_date:desc'],
-                      ['Trier par nom', 'name:asc'],
-                      ['Trier par nom (inversé)', 'name:desc']
+                      [t('admin.order_by.created_at'), 'date:asc'],
+                      [t('admin.order_by.created_at_desc'), 'date:desc'],
+                      [t('admin.order_by.updated_at'), 'update_date:asc'],
+                      [t('admin.order_by.updated_at_desc'), 'update_date:desc'],
+                      [t('admin.order_by.name'), 'name:asc'],
+                      [t('admin.order_by.name_desc'), 'name:desc']
                     ],
                     params[:order_by],
                   ),
