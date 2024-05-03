@@ -6,20 +6,29 @@
 
 <%= render 'structure/items/zones/page', about: @actor %>
 
-<% if @actor.full_address.present? || @actor.has_any_contact_informations? %>
+<% if @actor.service_access_terms.present? || @actor.full_address.present? || @actor.has_any_contact_informations? %>
+  <% block_already_displayed = false %>
   <section class="actor-informations pt-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
           <h2><%= t('ui.actor.informations') %></h2>
         </div>
+        <% if @actor.service_access_terms.present? %>
+          <div class="actor-service-access col-lg-6 structure__item__string">
+            <%= render 'structure/items/label', label: t('ui.actor.service_access') %>
+            <%= sanitize @actor.service_access_terms %>
+          </div>
+          <% block_already_displayed = true %>
+        <% end %>
         <% if @actor.full_address.present? %>
-          <div class="actor-adress col-lg-6 structure__item__string">
+          <div class="actor-adress col-lg-6 <%= 'offset-lg-6' if block_already_displayed %> structure__item__string">
             <%= render 'structure/items/label', label: t('ui.actor.address') %>
             <p><%= @actor.full_address %></p>
           </div>
+          <% block_already_displayed = true %>
         <% end %>
-        <%= render 'actors/contact', html_class: "offset-lg-6", actor: @actor if @actor.has_any_contact_informations? %>
+        <%= render 'actors/contact', html_class: block_already_displayed ? "offset-lg-6" : '', actor: @actor if @actor.has_any_contact_informations? %>
       </div>
     </div>
   </section>

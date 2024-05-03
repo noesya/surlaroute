@@ -70,7 +70,7 @@ class Actor < ApplicationRecord
       contact_email.present? ||
       contact_phone.present? ||
       contact_website.present? ||
-      contact_inventory_url.present?
+      contact_inventory_url.present? 
   end
 
   def to_s
