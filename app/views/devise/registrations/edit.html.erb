@@ -46,9 +46,7 @@
               <%= f.input :description %>
             <% end %>
 
-            <% if resource.possible_author? %>
-              <%= f.input :allow_listing %>
-            <% end %>
+            <%= f.input :allow_listing %>
 
             <h3 class="mt-5 mb-4 fw-bold"><%= t("devise.passwords.edit.new") %></h3>
 

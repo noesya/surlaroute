@@ -54,9 +54,7 @@
                       <% if can?(:create, User::Comment) %>
                         <li><%= link_to t('account.comments.title'), user_comments_path, class: "dropdown-item" %></li>
                       <% end %>
-                      <% unless current_user.visitor? %>
-                        <li><%= link_to t('admin.title'), admin_root_path, class: "dropdown-item" %></li>
-                      <% end %>
+                      <li><%= link_to t('admin.title'), admin_root_path, class: "dropdown-item" %></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
                     </ul>
