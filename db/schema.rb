@@ -265,8 +265,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_113017) do
     t.uuid "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
     t.string "body_class", default: ""
+    t.string "slug"
     t.integer "ancestor_kind", default: 0
     t.index ["parent_id"], name: "index_pages_on_parent_id"
   end
