@@ -18,7 +18,10 @@
           <td><%= kamifusen_tag project.image, width: 100 if project.image.attached? %></td>
           <% if can?(:publish, Project) %>
             <td><%= t(project.published?) %></td>
-            <td><%= t("admin.publication_statuses.#{project.status}") %></td>
+            <td>
+              <%= t("admin.publication_statuses.#{project.status}") %>
+              <%= render 'dates', object: project %>
+              </td>
           <% end %>
           <td class="text-end">
             <%= edit_link project %>
