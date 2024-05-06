@@ -39,7 +39,7 @@ elements = block.data.dig('elements')
                                       alt: alt,
                                       class: 'img-fluid rounded' if image_blob %>
                     <% if credit.present? || caption.present? %>
-                      <figcaption class="mt-1 small">
+                      <figcaption class="mt-1 small position-absolute">
                         <% if caption.present? %>
                           <p class="small mb-0"><%= caption %></p>
                         <% end %>
@@ -64,7 +64,7 @@ elements = block.data.dig('elements')
             image_blob_id = element.dig('image', 'id')
             image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
             %>
-            <div class="block-gallery__item">
+            <div class="block-gallery__item col-md-6">
               <figure>
                 <%= kamifusen_tag image_blob,
                                   width: 600,
