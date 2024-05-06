@@ -32,7 +32,7 @@ elements = block.data.dig('elements')
                 image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
                 %>
                 <% next unless image_blob %>
-                <li class="splide__slide col-md-6">
+                <li class="splide__slide">
                   <figure>
                     <%= kamifusen_tag image_blob,
                                       width: 600,
