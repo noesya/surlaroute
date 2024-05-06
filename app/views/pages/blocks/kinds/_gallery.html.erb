@@ -32,14 +32,14 @@ elements = block.data.dig('elements')
                 image_blob = ActiveStorage::Blob.find_by(id: image_blob_id)
                 %>
                 <% next unless image_blob %>
-                <li class="splide__slide<% if credit.present? || caption.present? %> pb-3<% end %>">
+                <li class="splide__slide col-md-6">
                   <figure>
                     <%= kamifusen_tag image_blob,
                                       width: 600,
                                       alt: alt,
                                       class: 'img-fluid rounded' if image_blob %>
                     <% if credit.present? || caption.present? %>
-                      <figcaption class="mt-1 small position-absolute">
+                      <figcaption class="mt-1 small">
                         <% if caption.present? %>
                           <p class="small mb-0"><%= caption %></p>
                         <% end %>
