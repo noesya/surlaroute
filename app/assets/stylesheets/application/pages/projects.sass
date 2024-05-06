@@ -52,37 +52,40 @@
                 left: 47%
                 top: -3%
                 gap: map-get($spacers, 2)
-                span
-                    width: 50%
                 @include media-breakpoint-up(lg)
                     flex-direction: column-reverse
                     top: -15%
+                    span
+                        max-width: 10ch
             &.step-1
                 left: 83%
                 top: 13%
-                span
-                    width: 35%
                 @include media-breakpoint-up(lg)
                     top: 5%
                     align-items: flex-end
+                    span
+                        max-width: 18ch
             &.step-2
                 left: 92%
                 top: 27%
-                span
-                    width: 50%
+                @include media-breakpoint-up(lg)
+                    span
+                        max-width: 19ch
             &.step-3
                 align-items: center
                 left: 94%
                 top: 57%
-                span
-                    width: 50%
+                @include media-breakpoint-up(lg)
+                    span
+                        max-width: 16ch
             &.step-4
                 flex-direction: column
                 left: 68%
                 top: 91%
                 gap: map-get($spacers, 2)
-                span
-                    width: 55%
+                @include media-breakpoint-up(lg)
+                    span
+                        max-width: 16ch
             &.step-5
                 top: 91%
                 right: 69%
@@ -90,8 +93,9 @@
                 flex-direction: column
                 text-align: right
                 align-items: flex-end
-                span 
-                    width: 45%
+                @include media-breakpoint-up(lg)
+                    span
+                        max-width: 27ch
             &.step-6
                 right: 95%
                 top: 55%
@@ -99,8 +103,9 @@
                 text-align: right
                 justify-content: right
                 align-items: flex-end
-                span
-                    width: 50%
+                @include media-breakpoint-up(lg)
+                    span
+                        max-width: 22ch
             &.step-7
                 right: 88%
                 top: 15%
@@ -108,8 +113,9 @@
                 text-align: right
                 justify-content: right
                 align-items: flex-end
-                span
-                    width: 50%
+                @include media-breakpoint-up(lg)
+                    span
+                        max-width: 19ch
     @include media-breakpoint-down(xl)
         .brezet-steps
             > div
