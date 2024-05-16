@@ -63,6 +63,7 @@ module ApplicationHelper
   def add_definitions(text)
     return '' unless text.present?
     all_mapping = definitions_mapping
+    # byebug
     if all_mapping.any?
       regexp = Regexp.union(all_mapping.keys)
       text.gsub(regexp, all_mapping)
@@ -75,9 +76,12 @@ module ApplicationHelper
 
   def definitions_mapping
     @definitions_mapping ||= begin
+      # j'ai honte mais je n'ai pas envie de me prendre la tête ce soir : on a besoin de pouvoir gérer aussi la version downcase des termes
       definitions_mapping = Definition.all.pluck(:title, :text).map { |title, text| [title, definition_html(title, text)] }.to_h
+      definitions_mapping_downcase = Definition.all.pluck(:title, :text).map { |title, text| [title.downcase, definition_html(title.downcase, text)] }.to_h
       aliases_mapping = Definition.all.joins(:aliases).pluck("definition_aliases.title", "definitions.text").map { |title, text| [title, definition_html(title, text)] }.to_h
-      all_mapping = definitions_mapping.merge(aliases_mapping).sort.reverse.to_h
+      aliases_mapping_downcase = Definition.all.joins(:aliases).pluck("definition_aliases.title", "definitions.text").map { |title, text| [title.downcase, definition_html(title.downcase, text)] }.to_h
+      all_mapping = definitions_mapping.merge(aliases_mapping).merge(definitions_mapping_downcase).merge(aliases_mapping_downcase).uniq.sort.reverse.to_h
     end
   end
 
