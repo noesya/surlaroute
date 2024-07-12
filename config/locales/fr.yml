@@ -72,6 +72,9 @@ fr:
       page:
         children: Pages enfants
         description: Description
+        meta_description: Description (meta)
+        meta_illustration: Illustration (meta)
+        meta_title: Titre (meta)
         name: Nom
         parent: Page parente
         path: Chemin
@@ -280,6 +283,7 @@ fr:
       updated_at_desc: Trier par date de mise à jour (décroissante)
     pages:
       cant_destroy: Impossible de supprimer la page %{name}
+      meta_informations: Informations de référencement / partage
     projects:
       brezet_wheel:
         enabled: Actif ?

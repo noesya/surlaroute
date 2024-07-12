@@ -6,6 +6,14 @@
     <div class="col-lg-8">
       <%= f.input :name %>
       <%= f.input :description %>
+      <h5 class="mt-5"><%= t('admin.pages.meta_informations') %></h5>
+      <%= f.input :meta_title %>
+      <%= f.input :meta_description %>
+      <%= f.input :meta_illustration,
+                  as: :single_deletable_file,
+                  input_html: { accept: default_images_formats_accepted },
+                  hint: images_formats_accepted_hint,
+                  preview: true %>
     </div>
     <div class="col-lg-4">
       <%= f.association :parent, 

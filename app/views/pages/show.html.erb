@@ -1,7 +1,14 @@
-<%= content_for :title, @page %>
-<%= content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
-<%= content_for :additional_body_class, " parent-page" if @page.children %>
-<%= content_for :meta_description, @page.description if @page.description.present? %>
+<% meta_description = @page.meta_description.present? ? @page.meta_description : @page.description %>
+<% content_for :title, @page.meta_title.present? ? @page.meta_title : @page %>
+<% content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
+<% content_for :additional_body_class, " parent-page" if @page.children %>
+<% content_for :meta_description, meta_description if meta_description.present? %>
+<% 
+  if @page.meta_illustration.attached? && @page.meta_illustration.image? && @page.meta_illustration.variable?
+    image = @page.meta_illustration.variant(resize_and_pad: [1000, 600, gravity: 'center'])
+    content_for :og_image, polymorphic_url(image, only_path: false)
+  end
+%>
 
 <header class="hero">
   <div class="container">

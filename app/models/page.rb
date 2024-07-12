@@ -7,6 +7,8 @@
 #  body_class          :string           default("")
 #  description         :text
 #  internal_identifier :string
+#  meta_description    :text
+#  meta_title          :string
 #  name                :string           not null
 #  path                :string           not null
 #  position            :integer
@@ -37,6 +39,8 @@ class Page < ApplicationRecord
   has_many :blocks, dependent: :destroy
   belongs_to :parent, class_name: 'Page', optional: true
   has_many :children, class_name: 'Page', foreign_key: :parent_id, dependent: :destroy
+
+  has_one_attached_deletable :meta_illustration
 
   validates :name, presence: true
 

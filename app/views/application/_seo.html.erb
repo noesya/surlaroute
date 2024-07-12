@@ -4,7 +4,7 @@ title = content_for?(:title)  ? "#{CGI::unescapeHTML(yield(:title))} • #{t('we
 icon = asset_path 'icons/favicons/favicon.png'
 color = "#F2F3F4"
 description = content_for?(:meta_description) ? yield(:meta_description) : "écothèque, la plateforme collaborative de l’écoscénographie"
-og_image = content_for?(:og_image) ? yield(:og_image) : image_url("og_image.jpg")
+og_image = content_for?(:og_image) ? yield(:og_image) : image_url("social/default.jpg")
 %>
 
 <title><%= title %></title>
