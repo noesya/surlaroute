@@ -2,8 +2,8 @@
 
 <%
   additional_body_classes = []
-  additional_body_classes <<  @page.body_class unless @page.body_class.blank?
-  additional_body_classes <<  'parent-page' if @page.children
+  additional_body_classes << @page.body_class unless @page.body_class.blank?
+  additional_body_classes << 'parent-page' if @page.children
 %>
 <% content_for :additional_body_class, additional_body_classes.join(' ') if additional_body_classes.any? %>
 
