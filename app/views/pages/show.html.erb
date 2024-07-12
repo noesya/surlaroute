@@ -1,5 +1,5 @@
-<% meta_description = @page.meta_description.present? ? @page.meta_description : @page.description %>
-<% content_for :title, @page.meta_title.present? ? @page.meta_title : @page %>
+<% meta_description = @page.meta_description.presence || @page.description %>
+<% content_for :title, @page.meta_title.presence || @page %>
 <% content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
 <% content_for :additional_body_class, " parent-page" if @page.children %>
 <% content_for :meta_description, meta_description if meta_description.present? %>
