@@ -1,0 +1,9 @@
+<% meta_description = page.meta_description.presence || page.description %>
+<% content_for :title, page.meta_title.presence || page %>
+<% content_for :meta_description, meta_description if meta_description.present? %>
+<% 
+  if page.meta_illustration.attached? && page.meta_illustration.image? && page.meta_illustration.variable?
+    image = page.meta_illustration.variant(resize_and_pad: [1000, 600, gravity: 'center'])
+    content_for :og_image, polymorphic_url(image, only_path: false)
+  end
+%>
