@@ -1,7 +1,11 @@
-<%= content_for :title, @page %>
-<%= content_for :additional_body_class, @page.body_class unless @page.body_class.blank? %>
-<%= content_for :additional_body_class, " parent-page" if @page.children %>
-<%= content_for :meta_description, @page.description if @page.description.present? %>
+<%= render 'meta_elements', page: @page %>
+
+<%
+  additional_body_classes = []
+  additional_body_classes << @page.body_class unless @page.body_class.blank?
+  additional_body_classes << 'parent-page' if @page.children
+%>
+<% content_for :additional_body_class, additional_body_classes.join(' ') if additional_body_classes.any? %>
 
 <header class="hero">
   <div class="container">
