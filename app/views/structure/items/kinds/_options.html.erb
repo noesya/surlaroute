@@ -1,6 +1,5 @@
 <%
 options = item.options_for(about)
-text = item.text_for(about)
 limit ||= Float::INFINITY
 %>
 <% if options.any? %>
@@ -15,6 +14,6 @@ limit ||= Float::INFINITY
 <% else %>
   <span class="<%= tag_classes_disabled %>"><%= t('admin.structure.not_set') %></span>
 <% end %>
-<% if text.present? %>
+<% if item.with_explanation && text.present? %>
   <p class="small mt-2"><%= text %></p>
 <% end %>
