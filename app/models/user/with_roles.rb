@@ -6,7 +6,7 @@ module User::WithRoles
 
     attr_accessor :modified_by
 
-    enum role: { visitor: 0, subscriber: 5, lab_member: 10, admin: 20, superadmin: 30 }
+    enum :role, { visitor: 0, subscriber: 5, lab_member: 10, admin: 20, superadmin: 30 }
 
     before_validation :set_default_role, on: :create
     before_validation :check_modifier_role

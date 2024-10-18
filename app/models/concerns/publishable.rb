@@ -2,7 +2,7 @@ module Publishable
   extend ActiveSupport::Concern
 
   included do
-    enum status: {
+    enum :status, {
       draft: 0,
       rejected: 10,
       waiting_for_attribution: 20,
@@ -12,7 +12,8 @@ module Publishable
       validated: 60,
       manufacturer: 70,
       ready_for_publication: 80
-    }, _prefix: :status
+    }, prefix: :status
+
     scope :published, -> { where(published: true) }
     scope :draft, -> { where(published: false) }
     scope :autofilter_status, -> (status) { where(status: status) }

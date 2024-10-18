@@ -27,7 +27,7 @@
 class User::Comment < ApplicationRecord
   belongs_to :user
   belongs_to :about, polymorphic: true
-  belongs_to :reply_to, 
+  belongs_to :reply_to,
               class_name: 'User::Comment',
               optional: true
 
@@ -48,7 +48,7 @@ class User::Comment < ApplicationRecord
 
   validates_presence_of :title
 
-  enum status: {
+  enum :status, {
     pending: 0,
     approved: 1,
     rejected: 2

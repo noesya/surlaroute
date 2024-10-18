@@ -23,14 +23,14 @@
 class Page::Block < ApplicationRecord
   include Positionable
 
-  enum kind: {
+  enum :kind, {
     text: 1,
     quote: 2,
     keypoints: 3,
     gallery: 4,
     collapse: 5,
     files: 6
-  }, _prefix: :kind
+  }, prefix: :kind
 
   belongs_to :page
 

@@ -48,7 +48,7 @@ class Structure::Item < ApplicationRecord
   scope :with_options, -> { where(kind: Structure::Item::KINDS_WITH_OPTIONS) }
   scope :in_list, -> { where(show_in_list: true) }
 
-  enum kind: {
+  enum :kind, {
     string: 0,
     text: 1,
     richtext: 5,
@@ -61,13 +61,13 @@ class Structure::Item < ApplicationRecord
     files: 22,
     images: 24,
     h2: 102
-  }, _prefix: :kind
+  }, prefix: :kind
 
-  enum zone: {
+  enum :zone, {
     header: 2,
     page: 3,
     lower_page: 6
-  }, _prefix: :zone
+  }, prefix: :zone
 
   def has_options?
     kind.in?(Structure::Item::KINDS_WITH_OPTIONS)

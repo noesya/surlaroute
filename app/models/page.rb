@@ -34,7 +34,7 @@ class Page < ApplicationRecord
   include Slugged
   include WithTree
 
-  enum ancestor_kind: { neutral: 0, lab: 10, toolbox: 20 }
+  enum :ancestor_kind, { neutral: 0, lab: 10, toolbox: 20 }
 
   has_many :blocks, dependent: :destroy
   belongs_to :parent, class_name: 'Page', optional: true
