@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.5"
+ruby "3.3.6"
 
 gem "activestorage-scaleway-service", "~> 1"
 gem "bootsnap", require: false
