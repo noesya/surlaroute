@@ -18,7 +18,7 @@
     <%= show @project, :actors, type: :list %>
     <%= render 'admin/structure/items/kinds/show', about: @project %>
 
-    <h2 class="h4">Roue de Brezet</h2>
+    <h2 class="h4">Roue de Brezet & Van Hemel</h2>
     <% Project::Criterion::STEPS.each do |step| %>
       <h3 class="h5"><%= step %>. <%= t("projects.brezet_wheel.step#{step}") %></h3>
       <% Project::Criterion.for_step(step).each do |criterion| %>
