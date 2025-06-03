@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_03_075443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -444,6 +444,32 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.index ["technic_id", "user_id"], name: "index_technics_users_on_technic_id_and_user_id"
   end
 
+  create_table "transparency_costs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "amount"
+    t.uuid "transparency_year_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transparency_year_id"], name: "index_transparency_costs_on_transparency_year_id"
+  end
+
+  create_table "transparency_revenues", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "amount"
+    t.uuid "transparency_year_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transparency_year_id"], name: "index_transparency_revenues_on_transparency_year_id"
+  end
+
+  create_table "transparency_years", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.string "about_type", null: false
@@ -527,6 +553,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
   add_foreign_key "structure_values", "structure_items", column: "item_id"
   add_foreign_key "subscriptions", "products"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "transparency_costs", "transparency_years"
+  add_foreign_key "transparency_revenues", "transparency_years"
   add_foreign_key "user_comments", "user_comments", column: "reply_to_id"
   add_foreign_key "user_comments", "users"
   add_foreign_key "user_favorites", "users"

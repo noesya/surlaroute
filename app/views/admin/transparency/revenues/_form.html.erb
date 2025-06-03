@@ -1,0 +1,23 @@
+<% 
+url = revenue.persisted? ? admin_transparency_year_revenue_path(revenue.year, revenue)
+                      : admin_transparency_year_revenues_path(year_id: @year.id)
+%>
+<%= simple_form_for revenue, url: url do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :amount %>
+  </div>
+
+  <% content_for :buttons do %>
+    <%= link_to t('delete'),
+                admin_transparency_year_revenue_path(year_id: @year.id, id: revenue.id),
+                method: :delete,
+                data: { confirm: t('please_confirm') },
+                class: button_classes_danger if revenue.persisted? %>
+    <%= submit f %>
+  <% end %>
+<% end %>

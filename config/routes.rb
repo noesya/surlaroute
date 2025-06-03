@@ -38,6 +38,9 @@ Rails.application.routes.draw do
 
   get 'recherche' => 'search#show', as: :search
 
+  get 'transparence' => 'transparency#index', as: :transparency
+  get 'transparence/:year' => 'transparency#show', as: :transparency_year
+
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
       region_slug.blank? || Region.where(slug: region_slug).exists?

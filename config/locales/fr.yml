@@ -160,6 +160,17 @@ fr:
         regions: Provenance
         slug: Identifiant
         status: Statut
+      transparency/cost:
+        amount: Montant
+        description: Description
+        title: Titre
+      transparency/revenue:
+        amount: Montant
+        description: Description
+        title: Titre
+      transparency/year:
+        total: Solde
+        value: Année
       user:
         accepts_terms_of_service: "Conditions d'utilisation"
         active_subscription: Abonnement en cours
@@ -236,6 +247,15 @@ fr:
       technic:
         one: Technique
         other: Techniques
+      transparency/cost:
+        one: Coût
+        other: Coûts
+      transparency/revenue:
+        one: Revenu
+        other: Revenus
+      transparency/year:
+        one: Année
+        other: Années
       user:
         one: Utilisateur·rice
         other: Utilisateur·rices
@@ -602,6 +622,14 @@ fr:
       projects:
         one: Projet qui l'utilise
         other: Projets qui l'utilisent
+    transparency:
+      title: Transparence
+      costs:
+        add: Ajouter un coût
+        total: Total des coûts
+      revenues:
+        add: Ajouter un revenu
+        total: Total des revenus
     users:
       title: Communauté
       ecosystem:

@@ -1,0 +1,9 @@
+<%= content_for :title, t('ui.transparency.title') %>
+
+
+<%= render 'admin/transparency/years/list', years: @years %>
+<%= paginate @years, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Transparency::Year %>
+<% end %>

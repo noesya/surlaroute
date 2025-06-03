@@ -1,0 +1,26 @@
+<%= content_for :title, @year %>
+
+<div class="mb-5">
+  <h2><%= Transparency::Cost.model_name.human(count: 2) %></h2>
+  <%= render 'admin/transparency/costs/list', year: @year %>
+  <%= link_to t('ui.transparency.costs.add'),
+              new_admin_transparency_year_cost_path(@year),
+              class: button_classes %>
+</div>
+
+<div class="mb-5">
+  <h2><%= Transparency::Revenue.model_name.human(count: 2) %></h2>
+  <%= render 'admin/transparency/revenues/list', year: @year %>
+  <%= link_to t('ui.transparency.revenues.add'),
+              new_admin_transparency_year_revenue_path(@year),
+              class: button_classes %>
+</div>
+
+<div class="mb-5">
+  <h2><%= Transparency::Year.human_attribute_name(:total) %></h2>
+  <p class="lead"><%= number_to_currency @year.total, precision: 0 %></p>
+</div>
+
+<% content_for :buttons do %>
+  <%= edit_link @year %>
+<% end %>

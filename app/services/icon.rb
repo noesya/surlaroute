@@ -12,6 +12,7 @@ class Icon
   REGION = 'bi bi-geo-alt-fill'
   STRUCTURE = 'bi bi-gear-fill'
   SUBSCRIPTION = 'bi bi-coin'
+  TRANSPARENCY = 'bi bi-search-heart-fill'
   USER = 'bi bi-person-fill'
 
   FOLDER_CLOSED = 'bi bi-folder'
