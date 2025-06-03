@@ -10,14 +10,16 @@
         value = about.structure_values.detect { |value| value.item_id == item.id }
         value ||= about.structure_values.new(item_id: item.id)
         %>
-        <div class="row mb-4">
+        <div class="row mb-4 kind--<%= item.kind %>">
           <div class="offset-lg-4 col-lg-8">
-            <label class="form-label" for="<%= dom_id(item) %>"><%= item %></label>
-            <%= f.simple_fields_for :structure_values, value do |value_f| %>
-              <%= value_f.hidden_field :item_id %>
-              <%= render "admin/structure/items/kinds/#{item.kind}/edit", f: value_f, item: item, value: value %>
-            <% end %>
-            <div class="form-text"><%= item.hint %></div>
+            <div class="content">
+              <label class="form-label" for="<%= dom_id(item) %>"><%= item %></label>
+              <%= f.simple_fields_for :structure_values, value do |value_f| %>
+                <%= value_f.hidden_field :item_id %>
+                <%= render "admin/structure/items/kinds/#{item.kind}/edit", f: value_f, item: item, value: value %>
+              <% end %>
+              <div class="form-text"><%= item.hint %></div>
+            </div>
           </div>
         </div>
       <% end %>

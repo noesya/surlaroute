@@ -60,7 +60,8 @@ class Structure::Item < ApplicationRecord
     file: 21,
     files: 22,
     images: 24,
-    h2: 102
+    h2: 102,
+    help: 900
   }, prefix: :kind
 
   enum :zone, {

@@ -39,7 +39,7 @@
            >
         <%= f.input :with_explanation %>
       </div>
-      <%= f.input :show_in_list %>
+      <%= f.input :show_in_list unless item.kind_help? %>
       <%= f.input :show_label %>
       <%= f.input :premium if item.about_class.in?(Structure::Item::ABOUT_CLASSES_WITH_PREMIUM) %>
     </div>
