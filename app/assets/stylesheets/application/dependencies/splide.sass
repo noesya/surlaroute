@@ -6,6 +6,7 @@
     &__list
         flex-wrap: nowrap
         gap: $grid-gutter-width
+        height: 80vh
     &__arrows
         text-align: right
         margin-top: map-get($spacers, 3)
@@ -21,9 +22,8 @@
                 @include icon(arrow-right)
                 margin-left: map-get($spacers, 1)
     &__slide 
-        width: calc(50% - calc(#{$grid-gutter-width} / 2))
         img
-            width: 100%
+            height: 80vh
     @media print
         &__list
             display: block !important
