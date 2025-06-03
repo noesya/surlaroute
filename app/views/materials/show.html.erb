@@ -4,43 +4,35 @@
 
 <%= render 'hero', object: @material %>
 
-<% if user_is_subscribed? %>
+<%= render 'structure/items/zones/page', about: @material %>
 
-  <%= render 'structure/items/zones/page', about: @material %>
-
-  <% if actor = @actors.premium.with_contact_informations.first %>
-    <section class="py-5 bg-projects actors-list">
-      <div class="container">
-        <div class="row">
-          <h2 class="mb-4 col-lg-6"><%= t('ui.material.contact') %></h2>
-          <%= render 'actors/contact', actor: actor %>
-        </div>
+<% if actor = @actors.premium.with_contact_informations.first %>
+  <section class="py-5 bg-projects actors-list">
+    <div class="container">
+      <div class="row">
+        <h2 class="mb-4 col-lg-6"><%= t('ui.material.contact') %></h2>
+        <%= render 'actors/contact', actor: actor %>
       </div>
-    </section>
-  <% end %>
-
-  <% if @actors.any? %>
-    <section class="bg-white pt-5 actors-list">
-      <div class="container">
-        <h2 class="mb-4"><%= t('ui.material.actors') %></h2>
-        <%= render 'actors/list', objects: @actors %>
-      </div>
-    </section>
-  <% end %>
-
-  <% if @projects.any? %>
-    <section class="bg-white pt-5 projects-list">
-      <div class="container">
-        <h2 class="mb-4"><%= t('ui.material.projects', count: @projects.count) %></h2>
-        <%= render 'list', objects: @projects %>
-      </div>
-    </section>
-  <% end %>
-
-  <%= render 'comments/list', about: @material %>
-
-<% else %>
-
-  <%= render 'paywall' %>
-
+    </div>
+  </section>
 <% end %>
+
+<% if @actors.any? %>
+  <section class="bg-white pt-5 actors-list">
+    <div class="container">
+      <h2 class="mb-4"><%= t('ui.material.actors') %></h2>
+      <%= render 'actors/list', objects: @actors %>
+    </div>
+  </section>
+<% end %>
+
+<% if @projects.any? %>
+  <section class="bg-white pt-5 projects-list">
+    <div class="container">
+      <h2 class="mb-4"><%= t('ui.material.projects', count: @projects.count) %></h2>
+      <%= render 'list', objects: @projects %>
+    </div>
+  </section>
+<% end %>
+
+<%= render 'comments/list', about: @material %>
