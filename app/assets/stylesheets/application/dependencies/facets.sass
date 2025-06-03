@@ -1,6 +1,26 @@
 .faceted__facets
     &-selected
         display: none
+    .faceted__facet__list
+        &__value
+            a
+                @extend .btn
+                @extend .rounded-pill
+                border: solid 1px black
+                margin-right: 0.75rem
+                margin-top: 0.75rem
+                &:hover
+                    background: black
+                    color: white
+            &--selected
+                a
+                    background: black
+                    color: white
+                    &:hover
+                        background: black
+                        color: white
+                    &::after
+                        content: ' ×'  
     > li:not(:last-of-type)
         border-bottom: 1px solid $border-color
         padding-bottom: pxToRem(24)

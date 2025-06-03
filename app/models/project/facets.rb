@@ -9,5 +9,6 @@ class Project::Facets < FacetedSearch::FacetsWithItems
       placeholder: I18n.t('search.search_in_name')
     }
     add_facets_for_items
+    add_facets_for_regions
   end
 end
