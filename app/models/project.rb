@@ -32,8 +32,11 @@ class Project < ApplicationRecord
   has_and_belongs_to_many :technics
   has_and_belongs_to_many :authors, class_name: 'User', join_table: "projects_users", association_foreign_key: :user_id
 
-  has_many :answers, dependent: :destroy
+  has_many  :answers, dependent: :destroy
   accepts_nested_attributes_for :answers
+  has_many  :criterions,
+            -> { where('project_answers.value IS TRUE') },
+            through: :answers
 
   has_one_attached_deletable :image
 
