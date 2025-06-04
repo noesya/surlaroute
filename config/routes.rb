@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   get 'transparence' => 'transparency#index', as: :transparency
   get 'transparence/:year' => 'transparency#show', as: :transparency_year
 
+  get 'telechargement/:block/:blob' => 'downloads#download_from_page_block', as: :download_from_page_block
+  get 'telechargement/:file' => 'downloads#download_from_structure_item', as: :download_from_structure_item
+
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
       region_slug.blank? || Region.where(slug: region_slug).exists?

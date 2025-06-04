@@ -1,0 +1,4 @@
+<%= content_for :title, User::Log.model_name.human(count: 2) %>
+
+<%= render 'list', logs: @logs %>
+<%= paginate @logs, theme: 'bootstrap-5' %>

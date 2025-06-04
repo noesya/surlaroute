@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_03_075443) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_04_132709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -495,6 +495,18 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_03_075443) do
     t.index ["user_id"], name: "index_user_favorites_on_user_id"
   end
 
+  create_table "user_logs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "about_type", null: false
+    t.uuid "about_id", null: false
+    t.uuid "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["about_type", "about_id"], name: "index_user_logs_on_about"
+    t.index ["blob_id"], name: "index_user_logs_on_blob_id"
+    t.index ["user_id"], name: "index_user_logs_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -558,4 +570,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_03_075443) do
   add_foreign_key "user_comments", "user_comments", column: "reply_to_id"
   add_foreign_key "user_comments", "users"
   add_foreign_key "user_favorites", "users"
+  add_foreign_key "user_logs", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "user_logs", "users"
 end
