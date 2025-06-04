@@ -4,6 +4,16 @@
 
 <%= render 'hero', object: @actor %>
 
+<% if @actor.logo.attached? %>
+  <div class="container pb-5">
+    <div class="row">
+      <div class="offset-lg-6 col-lg-6">
+        <%= kamifusen_tag @actor.logo, width: 200, alt: '' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <%= render 'structure/items/zones/page', about: @actor %>
 
 <% if @actor.service_access_terms.present? || @actor.full_address.present? || @actor.has_any_contact_informations? %>

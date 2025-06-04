@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-lg-4">
     <%= show @actor, :image, type: :image %>
+    <%= show @actor, :logo, type: :image %>
   </div>
   <div class="col-lg-8">
     <% if can?(:publish, @actor) %>

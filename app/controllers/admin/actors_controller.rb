@@ -59,6 +59,7 @@ class Admin::ActorsController < Admin::ApplicationController
     allowed_params = [
       :name, :slug, :description,
       :image, :image_delete, :image_infos, :image_alt, :image_credit,
+      :logo, :logo_delete,
       :service_access_terms, :address, :address_additional, :zipcode, :city, :country,
       :contact_name, :contact_email, :contact_phone, :contact_website, :contact_inventory_url,
       project_ids: [], material_ids: [],
