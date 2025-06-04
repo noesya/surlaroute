@@ -23,14 +23,12 @@ header#document-header
                 > b
                     @extend .fs-6
                     display: block
-            li:last-child a
-                text-transform: uppercase
+            // li:last-child a b
+            //     text-transform: uppercase
     .dropdown-menu
         --bs-dropdown-border-color: var(--bs-body-color)
         --bs-dropdown-border-radius: 0
         --bs-dropdown-padding-y: 0
-        .dropdown-toggle[aria-expanded="true"]::after
-            transform: rotate(180deg)
     .nav-secondary
         .dropdown-item
             --bs-dropdown-item-padding-y: 0.5rem
@@ -60,15 +58,23 @@ header#document-header
         .dropdown-menu
             margin-top: map-get($spacers, 2)
         .navbar-nav 
+            .dropdown-toggle[aria-expanded="true"]::before
+                background: var(--bs-body-color)
+                bottom: var(--bs-navbar-nav-link-padding-x)
+                content: ''
+                height: 1px
+                left: var(--bs-navbar-nav-link-padding-x)
+                position: absolute
+                right: var(--bs-navbar-nav-link-padding-x)
             .dropdown-menu
                 width: 270px
-                li:last-child a
-                    background-color: var(--bs-body-color)
-                    color: var(--bs-body-bg)
-                    text-transform: uppercase
-                    &:hover, &:focus
-                        background-color: var(--bs-dropdown-link-hover-bg)
-                        color: var(--bs-dropdown-link-hover-color)
+                // TODO: for 'contribuez' links
+                // li:last-child a
+                //     background-color: var(--bs-body-color)
+                //     color: var(--bs-body-bg)
+                //     &:hover, &:focus
+                //         background-color: var(--bs-dropdown-link-hover-bg)
+                //         color: var(--bs-dropdown-link-hover-color)
             @include media-breakpoint-up(xl)
                 padding-left: var(--bs-gutter-x)
                 padding-right: var(--bs-gutter-x)

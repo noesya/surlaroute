@@ -44,12 +44,6 @@ page_lab = Page.find_by(internal_identifier: 'le-lab')
                   <span><%= t('ui.directories.details.technics') %></span>
                 <% end %>
               </li>
-              <li>
-                <%= link_to technics_path(region_slug: nil), class: "dropdown-item py-2" do %>
-                  <b>TODO : Contribuer</b>
-                  <span>TODO</span>
-                <% end %>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
