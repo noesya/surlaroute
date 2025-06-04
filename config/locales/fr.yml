@@ -477,6 +477,9 @@ fr:
       text: "L’écothèque référence des projets de scénographie écoresponsables, représentatifs de la diversité des pratiques. L’objectif\_: rendre compte des changements de pratiques pour sortir de l’économie linéaire, se sensibiliser aux outils disponibles pour limiter ses impacts environnementaux et s’inspirer !"
       title: "Vous avez participé à un projet écoresponsable et vous souhaitez le partager\_?"
     description: "Des projets écoresponsables représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire\_; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brezet & Van Hemel pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux."
+  regions:
+    description: Des régions continentales, des régions et des départements d’outre-mer, des pays limitrophes de la France et/ou des pays dont une partie des professionnel·le·s travaille en langue française.
+
   save: Enregistrer
   search:
     also: Vous pouvez également consulter nos annuaires
