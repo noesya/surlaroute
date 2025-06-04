@@ -454,6 +454,9 @@ fr:
       title: "Vous souhaitez recommander un matériau\_?"
     description: Des matériaux dont la qualité a été vérifiée par la pratique et par la recherche, avec des données détaillées en matière de critères environnementaux et de critères d’usage en scénographie, afin de proposer plus qu’un annuaire d’alternatives aux matériaux pétrosourcés.
   menu:
+    primary:
+      donate: Faire un don
+      lab: À propos du lab
     my_account: Mon compte
   number:
     currency:
