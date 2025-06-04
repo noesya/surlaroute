@@ -197,6 +197,10 @@ fr:
         text: Texte
         title: Titre
         user: Auteur·ice
+      user/log:
+        about: À propos
+        created_at: Date
+        user: Utilisateur·ice
     errors:
       models:
         definition:
@@ -262,6 +266,9 @@ fr:
       user/comment:
         one: Commentaire
         other: Commentaires
+      user/log:
+        one: Téléchargement
+        other: Téléchargements
   actors:
     call_to_action:
       button: Référencer un·e acteur·rice
