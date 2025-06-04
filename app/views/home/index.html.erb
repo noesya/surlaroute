@@ -142,15 +142,14 @@
       <div class="col-12 col-xl-8 mb-2 mb-xl-0">
         <h2><%= Region.model_name.human(count: 2) %></h2>
       </div>
-      <div class="home-navigation__link col col-lg-4 position-relative">
-        <%= link_to 'Découvrir les écothèques régionales', regions_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
-      </div>
     </div>
     <div class="row align-items-start mt-5 mt-lg-0">
-      <div class="col-lg-7">
+      <div class="col-lg-4">
         <p class="fw-bold"><%= t('regions.description') %></p>
+        <%= link_to 'Découvrir les écothèques régionales', regions_path(region_slug: nil), class: 'fw-bold' %>
+
       </div>
-      <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
+      <div class="col-lg-5 offset-lg-1 mt-3 mt-lg-0">
         <dl class="text-lowercase">
           <dt class="key-figure"><%= Region.all.count %></dt>
           <dd><%= Region.model_name.human(count: Region.all.count).downcase %></dd>

@@ -9,44 +9,47 @@ header#document-header
     .container
         padding-top: map-get($spacers, 1)
         padding-bottom: map-get($spacers, 1)
-    .collapse
-        > .container
-            padding-top: 0
+        flex-wrap: wrap
     .navbar-logo
         z-index: 99
         @include media-breakpoint-down(md)
             width: fit-content
-    .nav-with-dropdowns
-        a[role="button"]
-            font-weight: 500
-            &::after
-                display: none
-            &.show
-                text-decoration: underline
-                text-underline-offset: 2px
-        li
-            position: static
-        @include media-breakpoint-down(md)
-            li
-                border-bottom: 1px solid currentColor
-            a.nav-link
-                font-size: $h2-font-size-sm
-                font-weight: bold
-                padding-bottom: space(6)
-                padding-top: space(6)
+    .navbar-nav
+        .dropdown-menu
+            li a
+                font-size: 0.8rem
+                font-weight: 600
+                white-space: normal
+                > b
+                    @extend .fs-6
+                    display: block
+            // li:last-child a b
+            //     text-transform: uppercase
+    .dropdown-menu
+        --bs-dropdown-border-color: var(--bs-body-color)
+        --bs-dropdown-border-radius: 0
+        --bs-dropdown-padding-y: 0
+    .nav-secondary
+        .dropdown-item
+            --bs-dropdown-item-padding-y: 0.5rem
+    // buttons as icons
     .btn-user
         @include icon(user)
+    .btn-regions
+        @include icon(pin)
+    .btn-icon
         display: flex
-    .btn-user,
-    .btn-search
-        align-items: center
-        gap: calc(#{map-get($spacers, 1)} / 2)
-        font-weight: 500
         &::before
             @include rounded-icon
+    .btn-dotane
+        @extend .btn
+        @extend .btn-dark
+        font-weight: 500
     @include media-breakpoint-up(md)
-        .btn-user,
-        .btn-search
+        .collapse,
+        .container
+            gap: var(--bs-gutter-x)
+        .btn-icon
             font-size: 0
         .nav-container
             width: calc(100% + 16px)
@@ -54,22 +57,73 @@ header#document-header
                 padding-right: 0
         .dropdown-menu
             margin-top: map-get($spacers, 2)
-    @include media-breakpoint-down(lg)
+        .navbar-nav 
+            .dropdown-toggle[aria-expanded="true"]::before
+                background: var(--bs-body-color)
+                bottom: var(--bs-navbar-nav-link-padding-x)
+                content: ''
+                height: 1px
+                left: var(--bs-navbar-nav-link-padding-x)
+                position: absolute
+                right: var(--bs-navbar-nav-link-padding-x)
+            .dropdown-menu
+                width: 270px
+                // TODO: for 'contribuez' links
+                // li:last-child a
+                //     background-color: var(--bs-body-color)
+                //     color: var(--bs-body-bg)
+                //     &:hover, &:focus
+                //         background-color: var(--bs-dropdown-link-hover-bg)
+                //         color: var(--bs-dropdown-link-hover-color)
+            @include media-breakpoint-up(xl)
+                padding-left: var(--bs-gutter-x)
+                padding-right: var(--bs-gutter-x)
+        .nav-secondary
+            align-items: center
+            flex: 1
+            gap: map-get($spacers, 2)
+            justify-content: flex-end
+    @include media-breakpoint-down(xl)
         .nav-secondary
             width: 100%
     @include media-breakpoint-down(md)
-        .navbar-logo
-            position: absolute
-        .navbar-nav-content
-            position: relative
+        &.is-opened
+            height: 100vh
+            overflow: auto
+            .navbar-logo,
+            .navbar-toggler
+                background-color: var(--bs-body-bg)
+                position: sticky
+                top: map-get($spacers, 1)
+        .dropdown-menu
+            --bs-dropdown-border-color: var(--bs-body-color)
+            --bs-dropdown-border-width: 0
+            --bs-dropdown-padding-x: 0
+            --bs-dropdown-item-padding-x: 0
+        .navbar-nav
+            .nav-item
+                > a
+                    font-size: $h2-font-size-sm
+                    font-weight: bold
+                    padding-bottom: space(6)
+                    padding-top: space(6)
+                &:not(:last-child)
+                    border-bottom: 1px solid currentColor
         .nav-secondary
+            margin-top: map-get($spacers, 2)
+            > li 
+                &:last-child
+                    margin-top: map-get($spacers, 3)
+                + li
+                    margin-top: map-get($spacers, 2)
             .dropdown-menu
                 margin-top: map-get($spacers, 1)
                 &.show
                     position: relative
-            .dropdown-toggle[aria-expanded="true"]
-                &::after
-                    transform: rotate(180deg)
+            .btn-icon
+                align-items: center
+                gap: calc(#{map-get($spacers, 1)} / 2)
+                font-weight: 500
 
 // Sticky effect
 header#document-header

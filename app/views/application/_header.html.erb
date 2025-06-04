@@ -4,95 +4,88 @@ page_lab = Page.find_by(internal_identifier: 'le-lab')
 %>
 <header id="document-header" class="mb-3 is-top">
   <nav class="navbar navbar-expand-lg">
-    <div class="container d-block">
-      <div class="row align-items-lg-center">
-        <div class="navbar-logo col col-md-3 col-xl-3">
-          <%= link_to root_path, class: "navbar-brand" do %>
-            <%= image_tag 'logo.svg', alt: t('website') %>
-          <% end %>
-        </div>
-        <div class="navbar-nav-content col">
-          <button id="main-menu-button" class="d-block d-lg-none ms-auto ms-lg-0 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="row align-items-center nav-container">
-              <ul class="nav-with-dropdowns header-nav d-md-flex flex-column flex-md-row gap-2 col justify-content-around pt-2 pt-md-1 py-md-1">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <%= t('ui.directories.title') %>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <%= link_to actors_path(region_slug: nil), class: "dropdown-item py-2" do %>
-                        <b><%= t('ecosystem') %></b><br>
-                        <span><%= t('ui.directories.details.actors') %></span>
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to projects_path(region_slug: nil), class: "dropdown-item py-2" do %>
-                        <b><%= Project.model_name.human(count: 2) %></b><br>
-                        <span><%= t('ui.directories.details.projects') %></span>
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to materials_path(region_slug: nil), class: "dropdown-item py-2" do %>
-                        <b><%= Material.model_name.human(count: 2) %></b><br>
-                        <span><%= t('ui.directories.details.materials') %></span>
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to technics_path(region_slug: nil), class: "dropdown-item py-2" do %>
-                        <b><%= Technic.model_name.human(count: 2) %></b><br>
-                        <span><%= t('ui.directories.details.technics') %></span>
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to regions_path(region_slug: nil), class: "dropdown-item py-2" do %>
-                        <b><%= Region.model_name.human(count: 2) %></b><br>
-                        <span><%= t('ui.directories.details.regions') %></span>
-                      <% end %>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown">
-                  <%= link_to page_tools, page_path(page_tools), class: "nav-link" %>
-                </li>
-              </ul>
-              <ul class="nav-secondary col-12 col-md-3 col-xl-4 d-flex flex-column flex-md-row gap-2 gap-xl-3 align-items-md-center justify-content-end py-md-1">
-                <li class="nav-with-dropdowns nav-item dropdown position-static">
-                  <%= link_to page_lab, page_path(page_lab), class: "nav-link" %>
-                </li>
-                <li>
-                  <button class="btn-search rounded-pill" data-bs-toggle="modal" data-bs-target="#searchModal">
-                    <span><%= t('search.label') %></span>
-                  </button>
-                </li>
-                <% if user_signed_in? %>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn-user rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <%= current_user %>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-lg-end">
-                      <li><%= link_to t('account.my_account'), edit_user_registration_path, class: "dropdown-item" %></li>
-                      <% if can?(:create, User::Favorite) %>
-                        <li><%= link_to t('account.favorites.title'), favorites_path, class: "dropdown-item" %></li>
-                      <% end %>
-                      <% if can?(:create, User::Comment) %>
-                        <li><%= link_to t('account.comments.title'), user_comments_path, class: "dropdown-item" %></li>
-                      <% end %>
-                      <li><%= link_to t('admin.title'), admin_root_path, class: "dropdown-item" %></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
-                    </ul>
-                  </li>
-                <% else %>
-                  <li class="nav-item"><%= link_to t('login.sign_in'), new_user_session_path, class: "btn-user rounded-pill" %></li>
+    <div class="container container-fluid">
+      <div class="navbar-logo col-md-3">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag 'logo.svg', alt: t('website') %>
+        <% end %>
+      </div>
+      <button id="main-menu-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav col-xl-7 justify-content-between">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= t('ui.directories.title') %>
+            </a>
+            <ul class="dropdown-menu col-md-12 p-0">
+              <li>
+                <%= link_to actors_path(region_slug: nil), class: "dropdown-item pb-2 pt-md-2" do %>
+                  <b><%= t('ecosystem') %></b>
+                  <span><%= t('ui.directories.details.actors') %></span>
                 <% end %>
+              </li>
+              <li>
+                <%= link_to projects_path(region_slug: nil), class: "dropdown-item py-2" do %>
+                  <b><%= Project.model_name.human(count: 2) %></b>
+                  <span><%= t('ui.directories.details.projects') %></span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to materials_path(region_slug: nil), class: "dropdown-item py-2" do %>
+                  <b><%= Material.model_name.human(count: 2) %></b>
+                  <span><%= t('ui.directories.details.materials') %></span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to technics_path(region_slug: nil), class: "dropdown-item py-2" do %>
+                  <b><%= Technic.model_name.human(count: 2) %></b>
+                  <span><%= t('ui.directories.details.technics') %></span>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <%= link_to page_tools, page_path(page_tools), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('menu.primary.lab'), page_path(page_lab), class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="nav-secondary d-md-flex ps-0">
+          <li>
+            <button class="btn-icon btn-search" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <span><%= t('search.label') %></span>
+            </button>
+          </li>
+          <li>
+            <%= link_to regions_path(region_slug: nil), class: "btn-icon btn-regions" do %>
+              <span><%= Region.model_name.human(count: 2) %></span>
+            <% end %>
+          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle btn-icon btn-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= current_user %>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li><%= link_to t('account.my_account'), edit_user_registration_path, class: "dropdown-item" %></li>
+                <% if can?(:create, User::Favorite) %>
+                  <li><%= link_to t('account.favorites.title'), favorites_path, class: "dropdown-item" %></li>
+                <% end %>
+                <% if can?(:create, User::Comment) %>
+                  <li><%= link_to t('account.comments.title'), user_comments_path, class: "dropdown-item" %></li>
+                <% end %>
+                <li><%= link_to t('admin.title'), admin_root_path, class: "dropdown-item" %></li>
+                <li><%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, class: "dropdown-item border-top", method: :delete %></li>
               </ul>
-            </div>
-          </div>
-        </div>
+            </li>
+          <% else %>
+            <li class="nav-item"><%= link_to t('login.sign_in'), new_user_session_path, class: "btn-icon btn-user" %></li>
+          <% end %>
+            <li class="nav-item offset-md-1"><%= link_to t('menu.primary.donate'), new_user_session_path, class: "btn-dotane" %></li>
+        </ul>
       </div>
     </div>
   </nav>
