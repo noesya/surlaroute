@@ -200,6 +200,7 @@ fr:
       user/log:
         about: À propos
         created_at: Date
+        filename: Fichier
         user: Utilisateur·ice
     errors:
       models:

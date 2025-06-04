@@ -9,6 +9,9 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def show
+    @logs = @user.logs
+                 .ordered
+                 .page(params[:page])
     breadcrumb
   end
 

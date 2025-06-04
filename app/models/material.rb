@@ -27,6 +27,7 @@ class Material < ApplicationRecord
   include Commentable
   include Favoritable
   include Orderable
+  include Loggable
   include Publishable
   include Regional
   include Searchable

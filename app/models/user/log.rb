@@ -25,4 +25,6 @@ class User::Log < ApplicationRecord
   belongs_to :user
   belongs_to :about, polymorphic: true
   belongs_to :blob, class_name: 'ActiveStorage::Blob'
+
+  scope :ordered, -> { order(created_at: :desc) }
 end

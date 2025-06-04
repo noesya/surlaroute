@@ -5,6 +5,11 @@
     <p>
       <%= link_to file.file.filename, file.file, target: :_blank %>
       (<%= number_to_human_size file.file.blob.byte_size %>)
+      <span class="badge bg-primary">
+        <% logs_count = User::Log.where(blob: file.file.blob).count %>
+        <%= logs_count %>
+        <%= User::Log.model_name.human(count: logs_count).downcase %>
+      </span>
     </p>
   <% end %>
 </div>

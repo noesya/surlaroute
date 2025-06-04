@@ -4,7 +4,7 @@ class Admin::LogsController < Admin::ApplicationController
   include Admin::FiltersHelper
 
   def index
-    @logs = @logs.page(params[:page])
+    @logs = @logs.ordered.page(params[:page])
     breadcrumb
     add_breadcrumb User::Log.model_name.human(count: 2)
   end

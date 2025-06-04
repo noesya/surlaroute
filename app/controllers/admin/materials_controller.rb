@@ -10,6 +10,9 @@ class Admin::MaterialsController < Admin::ApplicationController
   end
 
   def show
+    @logs = @material.logs
+                     .ordered
+                     .page(params[:page])
     breadcrumb
   end
 

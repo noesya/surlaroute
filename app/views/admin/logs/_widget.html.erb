@@ -1,0 +1,6 @@
+<h2 class="h4 mt-5">
+  <%= @logs.total_count %>
+  <%= User::Log.model_name.human(count: @logs.total_count).downcase %>
+</h2>
+<%= render 'admin/logs/list', logs: @logs %>
+<%= paginate @logs, theme: 'bootstrap-5' %>
