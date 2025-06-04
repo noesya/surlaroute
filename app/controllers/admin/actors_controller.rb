@@ -10,6 +10,7 @@ class Admin::ActorsController < Admin::ApplicationController
   end
 
   def show
+    @logs = @actor.logs.ordered.page(params[:page])
     breadcrumb
   end
 

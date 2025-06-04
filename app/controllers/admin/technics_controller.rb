@@ -10,6 +10,7 @@ class Admin::TechnicsController < Admin::ApplicationController
   end
 
   def show
+    @logs = @technic.logs.ordered.page(params[:page])
     breadcrumb
   end
 

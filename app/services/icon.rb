@@ -4,6 +4,7 @@ class Icon
   COMMENT = 'bi bi-chat-fill'
   DASHBOARD = 'bi bi-grid-fill'
   DEFINITION = 'bi bi-body-text'
+  DOWNLOAD = 'bi bi-download'
   LOG = 'bi bi-download'
   MATERIAL = 'bi bi-box-fill'
   PAGE = 'bi bi-file-earmark-fill'

@@ -1,15 +1,12 @@
 <% files = item.files_for(about) %>
 <div class="mb-4">
   <label class="small text-muted"><%= item %></label>
-  <div class="row">
-    <% files.each do |file| %>
-      <% next unless file.file.attached? %>
-      <div class="col-lg-3">
-        <p>
-          <%= link_to (file.text.present? ? file.text : file.file.filename), file.file, target: :_blank if file.present? && file.file.attached? %>
-          (<%= number_to_human_size file.file.blob.byte_size %>)
-        </p>
-      </div>
-    <% end %>
-  </div>
+  <% files.each do |file| %>
+    <% next unless file.file.attached? %>
+    <p>
+      <%= link_to (file.text.present? ? file.text : file.file.filename), file.file, target: :_blank if file.present? && file.file.attached? %>
+      (<%= number_to_human_size file.file.blob.byte_size %>)
+      <%= render 'admin/logs/badge', blob: file.file.blob %>
+    </p>
+  <% end %>
 </div>

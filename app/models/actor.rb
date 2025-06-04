@@ -31,6 +31,7 @@
 class Actor < ApplicationRecord
   include Commentable
   include Favoritable
+  include Loggable
   include Orderable
   include Publishable
   include Regional
