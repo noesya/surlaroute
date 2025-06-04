@@ -23,7 +23,7 @@ class Project::Criterion < ApplicationRecord
             through: :answers
 
   scope :for_step, -> (step) { where(step: step).ordered }
-  scope :orderd_by_step, -> { order(:step, :position) }
+  scope :ordered_by_step, -> { order(:step, :position) }
 
   def to_s
     "#{name}"

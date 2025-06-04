@@ -12,7 +12,7 @@ class Project::Facets < FacetedSearch::FacetsWithItems
     add_facets_for_regions
     filter_with_list :answers, {
       title: I18n.t('projects.brezet_wheel.title'),
-      source: Project::Criterion.orderd_by_step
+      source: Project::Criterion.ordered_by_step
     }
   end
 end
