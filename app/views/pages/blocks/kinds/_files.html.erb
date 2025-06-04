@@ -28,7 +28,7 @@ elements = block.data.dig('elements')
                 next if blob.nil?
                 %>
                 <div class="col-md-6 block-files__element__file is-file">
-                  <%= link_to blob,
+                  <%= link_to download_from_page_block_path(block: block.id, blob: blob_id),
                               class: 'text-decoration-none filename',
                               target: :_blank do %>
                     <strong><%= file_title.present? ? file_title : blob.filename %></strong><br>

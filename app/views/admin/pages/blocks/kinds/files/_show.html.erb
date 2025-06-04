@@ -1,28 +1,27 @@
 <%
 elements = block.data.dig('elements') || []
 %>
-<ul class="list-unstyled">
-  <% elements.each do |element| %>
-    <%
-    title = element.dig('title')
-    files = element.dig('files') || []
-    %>
-    <li>
-      <b><%= title %></b>
-      <ul>
-        <% files.each do |file| %>
-          <%
-          file_title = file.dig('title')
-          blob_id = file.dig('blob', 'id')
-          blob = ActiveStorage::Blob.find_by(id: blob_id)
-          next if blob.nil?
-          %>
-          <li>
-            <%= link_to (file_title.present? ? file_title : blob.filename), blob, target: :_blank %>
-            (<%= number_to_human_size blob.byte_size %>)
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ul>
+<% elements.each do |element| %>
+  <%
+  title = element.dig('title')
+  files = element.dig('files') || []
+  %>
+  <div class="mb-4">
+    <b><%= title %></b>
+    <ul class="list-unstyled">
+      <% files.each do |file| %>
+        <%
+        file_title = file.dig('title')
+        blob_id = file.dig('blob', 'id')
+        blob = ActiveStorage::Blob.find_by(id: blob_id)
+        next if blob.nil?
+        %>
+        <li class="mb-1">
+          <%= link_to (file_title.present? ? file_title : blob.filename), blob, target: :_blank %>
+          (<%= number_to_human_size blob.byte_size %>)
+          <%= render 'admin/logs/badge', blob: blob %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

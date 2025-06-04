@@ -14,6 +14,8 @@
 <%= render 'admin/pages/blocks/list', blocks: @page.blocks.ordered %>
 <%= link_to 'Ajouter un bloc', new_admin_page_block_path(@page), class: button_classes %>
 
+<%= render 'admin/logs/widget' %>
+
 <% content_for :buttons do %>
   <%= destroy_link @page unless @page.internal_identifier.present? %>
   <%= edit_link @page %>
