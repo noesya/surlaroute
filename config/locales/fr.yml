@@ -171,7 +171,6 @@ fr:
         value: Année
       user:
         accepts_terms_of_service: Conditions d'utilisation
-        active_subscription: Abonnement en cours
         allow_listing: Accepter d'apparaître comme auteur·rice
         description: Présentation
         email: Email
@@ -185,7 +184,6 @@ fr:
         roles:
           admin: Administrateur
           lab_member: Membre
-          subscriber: Abonné·e
           superadmin: Superadmin
           visitor: Visiteur
         website: Site internet
@@ -488,7 +486,6 @@ fr:
     description: "Des projets écoresponsables représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire\_; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brezet & Van Hemel pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux."
   regions:
     description: Des régions continentales, des régions et des départements d’outre-mer, des pays limitrophes de la France et/ou des pays dont une partie des professionnel·le·s travaille en langue française.
-
   save: Enregistrer
   search:
     also: Vous pouvez également consulter nos annuaires
@@ -568,7 +565,6 @@ fr:
       materials:
         one: Matériau proposé par cet·te acteur·ice
         other: Matériaux proposés par cet·te acteur·ice
-      owner: "Vous êtes le.la propriétaire de cette structure\_?"
       projects:
         one: Projet relié à cet·te acteur·ice
         other: Projets reliés à cet·te acteur·ice
@@ -606,8 +602,6 @@ fr:
       section: Le Lab
       title: Les membres
       website: Site internet
-    offers:
-      title: "Comment nous rejoindre\_?"
     project:
       actors:
         one: Acteur·rice du projet
@@ -625,16 +619,6 @@ fr:
       see_all_materials: Voir tous les matériaux de cette région
       see_all_projects: Voir tous les projets de cette région
       see_all_technics: Voir toutes les techniques de cette région
-    subscriptions:
-      errors:
-        generic_payment_error: Une erreur est survenue lors du paiement. Veuillez réessayer.
-        helloasso_payment_error: "Une erreur est survenue lors du paiement avec HelloAsso. Message\_: %{error}"
-        please_select_a_product: Veuillez sélectionner une formule d'abonnement.
-        refused_payment_error: Le paiement a été refusé. Veuillez réessayer.
-      new:
-        title: Abonnement annuel
-      notices:
-        already_subscribed: Vous êtes déjà abonné·e.
     technic:
       actors:
         one: Contact

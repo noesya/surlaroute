@@ -50,7 +50,6 @@
 class User < ApplicationRecord
   include WithAuthentication
   include WithRoles
-  include WithSubscriptions
 
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
