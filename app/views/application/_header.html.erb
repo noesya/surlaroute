@@ -19,35 +19,47 @@ page_lab = Page.find_by(internal_identifier: 'le-lab')
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= t('ui.directories.title') %>
             </a>
-            <ul class="dropdown-menu col-md-12 p-0">
+            <ul class="dropdown-menu dropdown-menu--primary col-md-12 p-0">
               <li>
-                <%= link_to actors_path(region_slug: nil), class: "dropdown-item pb-2 pt-md-2" do %>
+                <%= link_to actors_path(region_slug: nil), class: "dropdown-item dropdown-item--ecosystem py-2" do %>
                   <b><%= t('ecosystem') %></b>
                   <span><%= t('ui.directories.details.actors') %></span>
                 <% end %>
               </li>
               <li>
-                <%= link_to projects_path(region_slug: nil), class: "dropdown-item py-2" do %>
+                <%= link_to projects_path(region_slug: nil), class: "dropdown-item dropdown-item--projects py-2" do %>
                   <b><%= Project.model_name.human(count: 2) %></b>
                   <span><%= t('ui.directories.details.projects') %></span>
                 <% end %>
               </li>
               <li>
-                <%= link_to materials_path(region_slug: nil), class: "dropdown-item py-2" do %>
+                <%= link_to materials_path(region_slug: nil), class: "dropdown-item dropdown-item--materials py-2" do %>
                   <b><%= Material.model_name.human(count: 2) %></b>
                   <span><%= t('ui.directories.details.materials') %></span>
                 <% end %>
               </li>
               <li>
-                <%= link_to technics_path(region_slug: nil), class: "dropdown-item py-2" do %>
+                <%= link_to technics_path(region_slug: nil), class: "dropdown-item dropdown-item--technics py-2" do %>
                   <b><%= Technic.model_name.human(count: 2) %></b>
                   <span><%= t('ui.directories.details.technics') %></span>
                 <% end %>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <%= link_to page_tools, page_path(page_tools), class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= t('menu.primary.toolbox') %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu--toolbox col-md-12 p-0">
+              <% get_toolbox_page.children.ordered_by_position.each do |page| %>
+                <li>
+                <%= link_to page, class: "dropdown-item dropdown-item--ecosystem py-2" do %>
+                  <b><%= sanitize page.name %></b>
+                  <%= sanitize page.description %>
+                <% end %>
+                </li>
+              <% end %>
+            </ul>
           </li>
           <li class="nav-item">
             <%= link_to t('menu.primary.lab'), page_path(page_lab), class: "nav-link" %>

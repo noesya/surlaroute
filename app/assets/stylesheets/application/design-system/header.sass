@@ -18,15 +18,27 @@ header#document-header
         .dropdown-menu
             li a
                 font-size: 0.8rem
-                font-weight: 600
+                font-weight: 500
                 white-space: normal
                 > b
                     @extend .fs-6
                     display: block
-            // li:last-child a b
-            //     text-transform: uppercase
+            &--primary
+                a:not(:hover).dropdown-item
+                    &--ecosystem
+                        background-color: $ecosystem-primary
+                    &--projects
+                        background-color: $projects-primary
+                    &--materials
+                        background-color: $materials-primary
+                    &--technics
+                        background-color: $technic-primary
+            &--toolbox
+                li:first-child a:not(:hover)
+                    background-color: $toolbox-primary
     .dropdown-menu
-        --bs-dropdown-border-color: var(--bs-body-color)
+        --bs-dropdown-box-shadow: 0 .5rem 1rem rgba($black, .15)
+        --bs-dropdown-border-color: transparent
         --bs-dropdown-border-radius: 0
         --bs-dropdown-padding-y: 0
     .nav-secondary
@@ -56,6 +68,7 @@ header#document-header
             > ul:last-of-type
                 padding-right: 0
         .dropdown-menu
+            box-shadow: 0 .5rem 1rem rgba($black, .15)
             margin-top: map-get($spacers, 2)
         .navbar-nav 
             .dropdown-toggle[aria-expanded="true"]::before
@@ -68,13 +81,6 @@ header#document-header
                 right: var(--bs-navbar-nav-link-padding-x)
             .dropdown-menu
                 width: 270px
-                // TODO: for 'contribuez' links
-                // li:last-child a
-                //     background-color: var(--bs-body-color)
-                //     color: var(--bs-body-bg)
-                //     &:hover, &:focus
-                //         background-color: var(--bs-dropdown-link-hover-bg)
-                //         color: var(--bs-dropdown-link-hover-color)
             @include media-breakpoint-up(xl)
                 padding-left: var(--bs-gutter-x)
                 padding-right: var(--bs-gutter-x)
@@ -99,7 +105,6 @@ header#document-header
             --bs-dropdown-border-color: var(--bs-body-color)
             --bs-dropdown-border-width: 0
             --bs-dropdown-padding-x: 0
-            --bs-dropdown-item-padding-x: 0
         .navbar-nav
             .nav-item
                 > a
@@ -107,8 +112,13 @@ header#document-header
                     font-weight: bold
                     padding-bottom: space(6)
                     padding-top: space(6)
-                &:not(:last-child)
-                    border-bottom: 1px solid currentColor
+                &:not(:last-child) 
+                    .nav-link[aria-expanded="false"]
+                        border-bottom: 1px solid currentColor
+            .dropdown-menu
+                margin-left: calc(var(--bs-gutter-x) * -0.5)
+                margin-right: calc(var(--bs-gutter-x) * -0.5)
+                --bs-dropdown-item-padding-x: #{map-get($spacers, 3)}
         .nav-secondary
             margin-top: map-get($spacers, 2)
             > li 
@@ -117,6 +127,7 @@ header#document-header
                 + li
                     margin-top: map-get($spacers, 2)
             .dropdown-menu
+                --bs-dropdown-item-padding-x: 0
                 margin-top: map-get($spacers, 1)
                 &.show
                     position: relative
