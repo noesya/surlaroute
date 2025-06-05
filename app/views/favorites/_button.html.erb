@@ -20,4 +20,6 @@
       </span>
     <% end %>
   <% end %>
+<% else %>
+  <a class="btn btn-sm btn-light bg-white btn-favorites favorites__add" data-bs-toggle="modal" data-bs-target="#favoriteModal"><%= t('account.favorites.add') %></a>
 <% end %>

@@ -4,15 +4,17 @@ fr:
       about_html: À propos de “%{title}”
       none: Aucun commentaire pour l'instant.
       title: Mes commentaires
-    cta:
-      create: Créer un compte gratuit
-      text: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit.
-      title: Rejoignez l'écothèque
     favorites:
       add: Suivre
       none: Vous ne suivez pas encore de fiche.
       remove: Ne plus suivre
       title: Mes fiches suivies
+    modal:
+      create: Créer un compte gratuit
+      texts:
+        favorite: Pour pouvoir suivre une fiche vous devez créer un compte gratuit.
+        suggestion: Pour proposer une fiche et contribuer à l’écothèque, vous devez créer un compte gratuit.
+      title: Rejoignez l'écothèque
     my_account: Mon compte
     subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte écothèque.
     title: Mon compte

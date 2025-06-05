@@ -16,12 +16,12 @@
                       public_send("new_admin_#{objects.singularize}_path"),
                       class: 'btn btn-dark' %>
         <% else %>
-          <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#redirectionModal"><%= t("#{objects}.call_to_action.button") %></button>
+          <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#suggestionModal"><%= t("#{objects}.call_to_action.button") %></button>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 <% unless current_user && can?(:create, klass) %>
-  <%= render 'application/redirection-modale', context: klass.name %>
+  <%= render 'registration-modal', context: 'suggestion' %>
 <% end %>

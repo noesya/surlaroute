@@ -21,6 +21,7 @@
       <% end %>
       <%= yield %>
     </main>
+    <%= render 'registration-modal', context: 'favorite' %>
     <%= render "search-modal" %>
     <%= render "footer" %>
   </body>
