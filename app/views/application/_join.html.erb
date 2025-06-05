@@ -1,0 +1,23 @@
+<% context ||= 'default' %>
+
+<section class="call-to-action <%= context == 'home' ? 'home' : 'bg-dark text-white mt-2' %>%">
+  <div class="container py-5">
+    <div class="row align-items-center text-center text-md-start py-3">
+      <div class="col-lg-6">
+        <h3 class="cta-title">"Rejoignez l’écothèque"</h3>
+        <p class="mt-4 d-none d-md-block">
+          <ul>
+            <li>Proposer une bonne adresse, un matériau, un projet ou une technique</li>
+            <li>Créer votre bibliothèque personnelle de favoris</li>
+            <li>Télécharger les documents</li>
+            <li>Partager vos retours d’expériences en commentaire</li>
+            <li>Recevoir la newsletter mensuelle avec nos actualités</li>
+          </ul>
+        </p>
+      </div>
+      <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
+        <%= link_to "S'inscrire", new_registration_path(User), class: 'btn btn-light' %>
+      </div>
+    </div>
+  </div>
+</section>

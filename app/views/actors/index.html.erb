@@ -40,4 +40,6 @@
     </div>
   </div>
   <%= render 'reference-cta', objects: @actors %>
+  <%= render 'join' unless user_signed_in? %>
+
 </div>

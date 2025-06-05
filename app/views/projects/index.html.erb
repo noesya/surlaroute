@@ -36,4 +36,6 @@
     </div>
   </div>
   <%= render 'reference-cta', objects: @projects %>
+  <%= render 'join' unless user_signed_in? %>
+
 </div>

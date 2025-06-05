@@ -176,7 +176,7 @@
   </div>
 </section>
 
-<%= render 'offers/join' %>
+<%= render 'join', context: 'home' unless user_signed_in? %>
 
 <section class="home-about bg-light">
   <%= render 'pages/blocks/list', blocks: @home_page.blocks.ordered %>
