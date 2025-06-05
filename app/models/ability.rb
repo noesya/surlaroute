@@ -17,10 +17,10 @@ class Ability
     can :create, Project
     can :manage, Material, id: @user.material_ids
     cannot :publish, Material
-    cannot :create, Material
+    can :create, Material
     can :manage, Technic, id: @user.technic_ids
     cannot :publish, Technic
-    cannot :create, Technic
+    can :create, Technic
   end
   
   def subscriber
