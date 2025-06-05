@@ -23,7 +23,7 @@ class Ability
     can :create, Technic
   end
   
-  def subscriber
+  def lab_member
     visitor
     can :read, Actor
     can :read, Project
@@ -32,10 +32,6 @@ class Ability
     # can :manage, User::Comment, user_id: @user.id
     can :create, User::Comment
     can :manage, User::Favorite, user_id: @user.id
-  end
-
-  def lab_member
-    subscriber
   end
 
   def admin

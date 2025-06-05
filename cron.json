@@ -1,7 +1,6 @@
 {
   "jobs": [
     {
-      "command": "0 2 * * * rails app:subscriptions:check_expiration"
     }
   ]
 }

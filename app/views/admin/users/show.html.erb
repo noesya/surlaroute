@@ -27,9 +27,6 @@
         <%= simple_format @user.description %>
       </div>
     <% end %>
-    <% if @user.active_subscription.present? && can?(:read, @user.active_subscription) %>
-      <%= show @user, :active_subscription, type: :reference %>
-    <% end %>
   </div>
 </div>
 
