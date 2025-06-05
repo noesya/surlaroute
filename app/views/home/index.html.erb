@@ -149,11 +149,10 @@
         <%= link_to 'Découvrir les écothèques régionales', regions_path(region_slug: nil), class: 'fw-bold' %>
 
       </div>
-      <div class="col-lg-5 offset-lg-1 mt-3 mt-lg-0">
-        <dl class="text-lowercase">
-          <dt class="key-figure"><%= Region.all.count %></dt>
-          <dd><%= Region.model_name.human(count: Region.all.count).downcase %></dd>
-        </dl>
+      <div class="regions-map">
+        <%= link_to regions_path(region_slug: nil), class: 'home-navigation__link', title: Region.model_name.human(count: 2) do %>
+          <%= image_tag('letters/home/home-map.svg') %>
+        <% end %>
       </div>
     </div>
   </div>

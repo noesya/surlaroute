@@ -75,9 +75,27 @@
             background-color: $technic-secondary
             background-image: asset-url("letters/home/home-technics-hovered.svg")
     &.regions
+        position: relative
         background-color: $regions-primary
         background-image: asset-url("letters/home/home-regions.svg")
         transition: background-color 0.3s ease, background-image 0.3s ease
+        .home-navigation__link::before
+            content: none
+        .regions-map
+            @extend .col-md-5
+            @extend .col-xxl-4
+            @extend .offset-md-5
+            @extend .offset-xxl-4
+            @include media-breakpoint-up(md)
+                position: absolute
+                top: map-get($spacers, 4)
+            @include media-breakpoint-down(md)
+                margin-top: -(map-get($spacers, 4))
+        &.is-hovered
+            background-color: $regions-secondary
+            background-image: asset-url("letters/home/home-regions-hovered.svg")
+            &, a
+                color: $regions-primary
     &.toolbox
         background-color: $toolbox-primary
         background-image: asset-url("letters/home/home-toolbox.svg")
