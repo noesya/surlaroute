@@ -19,6 +19,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :users, User.model_name.human(count: 2), admin_users_path, { icon: Icon::USER } if can?(:read, User)
     primary.item :subscriptions, Subscription.model_name.human(count: 2), admin_subscriptions_path, { icon: Icon::SUBSCRIPTION } if can?(:read, Subscription)
     primary.item :transparency, t('ui.transparency.title'), admin_transparency_years_path, { icon: Icon::TRANSPARENCY } if can?(:read, Transparency)
+    primary.item :transparency, Banner.model_name.human, admin_banner_path, { icon: Icon::BANNER } if can?(:update, Banner)
     primary.item :structure, t('admin.structure.title'), nil, { icon: Icon::STRUCTURE } do |secondary|
       Structure::Item::ABOUT_CLASSES.each do |about_class|
         label = about_class == 'Actor' ? t('ecosystem') : about_class.model_name.human(count: 2)

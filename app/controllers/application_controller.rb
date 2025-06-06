@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include WithBasicAuthentication
   include WithErrors
 
-  before_action :load_region
+  before_action :load_region, :load_banner
 
   protected
 
@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
   def load_region
     return unless params.has_key?(:region_slug)
     @region = Region.find_by!(slug: params[:region_slug])
+  end
+
+  def load_banner
+    @banner = Banner.first
   end
 
   def default_url_options

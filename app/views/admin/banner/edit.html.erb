@@ -1,0 +1,31 @@
+<% content_for :title, Banner.model_name.human %>
+
+<%= simple_form_for [:admin, @banner] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <h5><%= t('admin.infos') %></h5>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :published %>
+      <%= f.input :text %>
+      <%= f.input :background_color, 
+                  as: :select, 
+                  collection: [
+                    ['Vert', '#befec2'],
+                    ['Violet écosystème', '#f4d4ff'],
+                    ['Jaune projet', '#f5ff85'],
+                    ['Bleu matériaux', '#b7e0ff'],
+                    ['Orange technique', '#ff8355'],
+                  ],
+                  include_blank: false %>
+    </div>
+    <div class="col-lg-6">
+    </div>
+  </div>
+
+
+  <% content_for :buttons do %>
+    <%= submit f %>
+  <% end %>
+<% end %>
