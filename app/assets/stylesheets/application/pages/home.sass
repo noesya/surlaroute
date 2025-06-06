@@ -96,6 +96,8 @@
             background-image: asset-url("letters/home/home-regions-hovered.svg")
             &, a
                 color: $regions-primary
+        @include media-breakpoint-down(md)
+            padding-bottom: map-get($spacers, 5)
     &.toolbox
         background-color: $toolbox-primary
         background-image: asset-url("letters/home/home-toolbox.svg")
