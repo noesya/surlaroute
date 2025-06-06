@@ -40,7 +40,6 @@ fr:
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
-        lab_member: Membre du Lab
         materials: Matériaux fabriqués
         name: Nom
         premium: Fiche premium
@@ -297,7 +296,6 @@ fr:
         expand: Rechercher
         reset: Réinitialiser
         submit: Filtrer
-      lab_member: Membre du Lab
       premium: "Premium\_?"
       published: "Publié\_?"
       search_field: Recherche
