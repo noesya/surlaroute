@@ -1,6 +1,7 @@
-<%= content_for :title, @material %>
-<%= content_for :meta_description, @material.description if @material.description.present? %>
-<%= content_for :og_image, polymorphic_url(@material.image, only_path: false) if @material.image.attached? %>
+<% content_for :title, @material %>
+<% content_for :meta_description, @material.description if @material.description.present? %>
+<% content_for :og_image, polymorphic_url(@material.image, only_path: false) if @material.image.attached? %>
+<% content_for :canonical_url, material_url(@material, region_slug: nil) %>
 
 <%= render 'hero', object: @material %>
 
