@@ -1,4 +1,6 @@
 <% content_for :title, t('search.title') %>
+<% content_for :noindex, true %>
+
 <header class="hero pb-5">
   <div class="container search-container">
     <%= form_tag search_path, method: :get, class: "row align-items-end", role: "search" do %>
