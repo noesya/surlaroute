@@ -12,6 +12,7 @@ class FacetedSearch::FacetsWithItems < FacetedSearch::Facets
   def add_facets_for_regions
     filter_with_list :regions, {
       title: Region.model_name.human(count: 2),
+      find_by: :slug,
       habtm: true
     }
   end
@@ -29,6 +30,6 @@ class FacetedSearch::FacetsWithItems < FacetedSearch::Facets
   end
 
   def items
-    @items ||= Structure::Item.where(about_class: @class_name ).with_options.ordered
+    @items ||= Structure::Item.where(about_class: @class_name).with_options.ordered
   end
 end
