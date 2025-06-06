@@ -11,9 +11,15 @@
     <tbody>
       <% logs.each do |log| %>
         <tr>
-          <td><%= link_to_if can?(:read, log.user), log.user, [:admin, log.user] %></td>
+          <td>
+            <% if log.user.nil? %>
+              <%= t('admin.deleted_user') %>
+            <% else %>
+              <%= link_to_if can?(:read, log.user), log.user, [:admin, log.user] %>
+            <% end %>
+          </td>
           <td><%= link_to_if can?(:read, log.about), log.about, [:admin, log.about] %></td>
-          <td><%= log.blob.filename %></td>
+          <td><%= log.filename %></td>
           <td><%= l log.created_at %></td>
         </tr>
       <% end %>

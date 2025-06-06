@@ -288,6 +288,7 @@ fr:
       title: Modération
     dashboard: Tableau de bord
     definitions_hint: Des variantes du titre qui seront recherchées également dans les articles pour afficher le texte.
+    deleted_user: Utilisateur·rice supprimé·e
     file_hint_with_formats: Fichiers %{formats} uniquement.
     file_hint_with_formats_and_filesize: Fichiers %{formats} uniquement. %{filesize} max.
     filters:

@@ -4,11 +4,12 @@
 #
 #  id         :uuid             not null, primary key
 #  about_type :string           not null, indexed => [about_id]
+#  filename   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  about_id   :uuid             not null, indexed => [about_type]
-#  blob_id    :uuid             not null, indexed
-#  user_id    :uuid             not null, indexed
+#  blob_id    :uuid             indexed
+#  user_id    :uuid             indexed
 #
 # Indexes
 #
@@ -22,9 +23,18 @@
 #  fk_rails_903088cca6  (user_id => users.id)
 #
 class User::Log < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :about, polymorphic: true
-  belongs_to :blob, class_name: 'ActiveStorage::Blob'
+  belongs_to :blob, class_name: 'ActiveStorage::Blob', optional: true
+
+  before_validation :set_filename, on: :create
 
   scope :ordered, -> { order(created_at: :desc) }
+
+  protected
+
+  def set_filename
+    return unless blob.present?
+    self.filename = blob.filename.to_s
+  end
 end

@@ -3,8 +3,9 @@ module Loggable
 
   included do
     has_many  :logs,
+              class_name: 'User::Log',
               as: :about,
-              class_name: 'User::Log'
+              dependent: :destroy
   end
 
 end

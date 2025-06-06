@@ -12,4 +12,13 @@ Rails.application.config.to_prepare do
       [base_filename, extension_with_delimiter].join('')
     end
   end
+
+  module ActiveStorageBlobUserLogsConcern
+    extend ActiveSupport::Concern
+
+    included do
+      has_many :user_logs, class_name: "User::Log", dependent: :nullify
+    end
+  end
+  ActiveStorage::Blob.include ActiveStorageBlobUserLogsConcern
 end
