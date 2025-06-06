@@ -43,13 +43,22 @@ module ApplicationHelper
     tag_classes("disabled #{classes}")
   end
 
-  def polymorphic_option_path(option)
+  def polymorphic_option_path(option, **url_options)
     # materials
     resources_class_name = option.item.about_class.to_s.downcase.pluralize
     # option_materials_path
     path_name = "option_#{resources_class_name}_path"
     # option_materials_path(item_slug: 'materiaux', option_slug: 'plastiques')
-    public_send(path_name, item_slug: option.item.slug, option_slug: option.slug)
+    public_send(path_name, item_slug: option.item.slug, option_slug: option.slug, **url_options)
+  end
+
+  def polymorphic_option_url(option, **url_options)
+    # materials
+    resources_class_name = option.item.about_class.to_s.downcase.pluralize
+    # option_materials_url
+    url_name = "option_#{resources_class_name}_url"
+    # option_materials_url(item_slug: 'materiaux', option_slug: 'plastiques')
+    public_send(url_name, item_slug: option.item.slug, option_slug: option.slug, **url_options)
   end
 
   def user_is_subscribed?

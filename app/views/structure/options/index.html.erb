@@ -1,5 +1,9 @@
-<% model_name = controller_class.singularize %>
-<%= content_for :title, t("ui.#{model_name}.glossary.title") %>
+<%
+model_name = controller_class.singularize
+options_url_helper = "options_#{model_name.pluralize}_url"
+%>
+<% content_for :title, t("ui.#{model_name}.glossary.title") %>
+<% content_for :canonical_url, public_send(options_url_helper, region_slug: nil) %>
 
 <div class="hero mt-5" data-first-letter="g" data-second-letter="l">
   <div class="container py-5">
