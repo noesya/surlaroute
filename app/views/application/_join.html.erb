@@ -6,13 +6,11 @@
       <div class="col-lg-6">
         <h3 class="cta-title">"Rejoignez l’écothèque"</h3>
         <p class="mt-4 d-none d-md-block">
-          <ul>
-            <li>Proposer une bonne adresse, un matériau, un projet ou une technique</li>
-            <li>Créer votre bibliothèque personnelle de favoris</li>
-            <li>Télécharger les documents</li>
-            <li>Partager vos retours d’expériences en commentaire</li>
-            <li>Recevoir la newsletter mensuelle avec nos actualités</li>
-          </ul>
+        <ul>
+          <% t('login.not_registered_yet_details.list').each do |item| %>
+            <li><%= sanitize item %></li>
+          <% end %>
+        </ul>
         </p>
       </div>
       <div class="col-lg-3 offset-lg-2 mt-3 mt-lg-0">
