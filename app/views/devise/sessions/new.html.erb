@@ -2,7 +2,7 @@
   <%= content_for :title, t('.title', title: t('website')) %>
 
   <div class="row">
-    <div class="col-md-6 mb-5">
+    <div class="col-md-6 col-lg-5 mb-5">
       <h2 class="mb-3 mb-md-5 pb-md-5"><%= t('login.already_registered') %></h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -41,9 +41,14 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-6 pb-5 pb-md-0">
+    <div class="col-md-6 col-lg-5 offset-lg-2 pb-5 pb-md-0">
       <h2 class="mb-3 mb-md-5 pb-md-5"><%= t('login.not_registered_yet') %></h2>
-      <p><%= t('login.not_registered_yet_details') %></p>
+      <p><%= t('login.not_registered_yet_details.text') %></p>
+      <ul>
+        <% t('login.not_registered_yet_details.list').each do |item| %>
+          <li class="fw-bold"><%= sanitize item %></li>
+        <% end %>
+      </ul>
       <div class="form-actions">
         <%= link_to t("devise.registrations.new.sign_up"),
                     new_registration_path(resource_name),

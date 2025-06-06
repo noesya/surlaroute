@@ -20,11 +20,6 @@
         <hr class="my-4">
         <%= render 'structure/items/zones/header', about: object %>
         <%= render 'regions', about: object %>
-        <% if object.class.name.downcase === 'actor' %>
-          <% unless object.premium? %>
-            <%= link_to t("ui.actor.owner"), offers_path, class: 'mt-4 d-block' %>
-          <% end %>
-        <% end %>
       </div>
     </div>
   </div>

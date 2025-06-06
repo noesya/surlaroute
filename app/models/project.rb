@@ -9,6 +9,7 @@
 #  name         :string
 #  published    :boolean          default(FALSE)
 #  slug         :string           indexed
+#  sources      :text
 #  status       :integer          default("draft")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -20,6 +21,7 @@
 class Project < ApplicationRecord
   include Commentable
   include Favoritable
+  include Loggable
   include Orderable
   include Publishable
   include Regional
@@ -32,8 +34,11 @@ class Project < ApplicationRecord
   has_and_belongs_to_many :technics
   has_and_belongs_to_many :authors, class_name: 'User', join_table: "projects_users", association_foreign_key: :user_id
 
-  has_many :answers, dependent: :destroy
+  has_many  :answers, dependent: :destroy
   accepts_nested_attributes_for :answers
+  has_many  :criterions,
+            -> { where('project_answers.value IS TRUE') },
+            through: :answers
 
   has_one_attached_deletable :image
 

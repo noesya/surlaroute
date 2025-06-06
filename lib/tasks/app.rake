@@ -55,11 +55,5 @@ namespace :app do
       end
     end
   end
-
-  namespace :subscriptions do
-    desc 'Reset user roles for expired subscriptions'
-    task check_expiration: :environment do
-      Subscription::ExpirationCheckJob.perform_later
-    end
-  end
+  
 end

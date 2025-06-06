@@ -52,8 +52,16 @@ namespace :admin do
       end
     end
   end
-  resources :products
   resources :subscriptions, only: [:index, :show]
+  get 'logs' => 'logs#index', as: :logs
+  namespace :transparency do
+    resources :years do
+      resources :revenues, except: :index
+      resources :costs, except: :index
+    end
+  end
+  get 'banner' => 'banner#edit'
+  patch 'banner' => 'banner#update'
   get 'analytics' => 'analytics#index'
   root to: "dashboard#index"
 end

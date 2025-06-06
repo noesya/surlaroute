@@ -45,6 +45,18 @@ window.summernoteManager = {
             }
         });
 
+        this.setConfig('mini', {
+            toolbar: [
+                ['font', ['bold', 'italic']],
+                ['insert', ['link', 'unlink']]
+            ],
+            followingToolbar: true,
+            disableDragAndDrop: true,
+            callbacks: {
+                onPaste: this.pasteSanitizedClipboardContent.bind(this, ['b', 'strong', 'i', 'em', 'a', 'p'], ['href', 'target'])
+            }
+        });
+
         window.SUMMERNOTE_CONFIGS = this.configs;
     },
 

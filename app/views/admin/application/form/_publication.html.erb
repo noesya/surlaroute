@@ -1,5 +1,5 @@
 <% if can?(:publish, f.object) %>
-  <h5>Publication</h5>
+  <h2 class="h4">Publication</h2>
   <%= f.input :published %>
   <%= f.association :authors,
                     collection: User.ordered,

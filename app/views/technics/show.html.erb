@@ -1,37 +1,30 @@
-<%= content_for :title, @technic %>
-<%= content_for :meta_description, @technic.description if @technic.description.present? %>
-<%= content_for :og_image, polymorphic_url(@technic.image, only_path: false) if @technic.image.attached? %>
+<% content_for :title, @technic %>
+<% content_for :meta_description, @technic.description if @technic.description.present? %>
+<% content_for :og_image, polymorphic_url(@technic.image, only_path: false) if @technic.image.attached? %>
+<% content_for :canonical_url, technic_url(@technic, region_slug: nil) %>
 
 <%= render 'hero', object: @technic %>
 
 <div class="document-content">
-  <% if user_is_subscribed? %>
+  <%= render 'structure/items/zones/page', about: @technic %>
 
-    <%= render 'structure/items/zones/page', about: @technic %>
-
-    <% if @actors.any? %>
-      <section class="bg-white pt-5">
-        <div class="container">
-          <h2 class="mb-4"><%= t('ui.technic.actors', count: @actors.count) %></h2>
-          <%= render 'actors/list', objects: @actors %>
-        </div>
-      </section>
-    <% end %>
-
-    <% if @projects.any? %>
-      <section class="bg-white pt-5">
-        <div class="container">
-          <h2 class="mb-4"><%= t('ui.technic.projects', count: @projects.count) %></h2>
-          <%= render 'list', objects: @projects %>
-        </div>
-      </section>
-    <% end %>
-
-    <%= render 'comments/list', about: @technic %>
-
-  <% else %>
-
-    <%= render 'paywall' %>
-
+  <% if @actors.any? %>
+    <section class="bg-white pt-5">
+      <div class="container">
+        <h2 class="mb-4"><%= t('ui.technic.actors', count: @actors.count) %></h2>
+        <%= render 'actors/list', objects: @actors %>
+      </div>
+    </section>
   <% end %>
+
+  <% if @projects.any? %>
+    <section class="bg-white pt-5">
+      <div class="container">
+        <h2 class="mb-4"><%= t('ui.technic.projects', count: @projects.count) %></h2>
+        <%= render 'list', objects: @projects %>
+      </div>
+    </section>
+  <% end %>
+
+  <%= render 'comments/list', about: @technic %>
 </div>

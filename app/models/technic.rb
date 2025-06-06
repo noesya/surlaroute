@@ -9,6 +9,7 @@
 #  name         :string
 #  published    :boolean          default(FALSE)
 #  slug         :string
+#  sources      :text
 #  status       :integer          default("draft")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -16,6 +17,7 @@
 class Technic < ApplicationRecord
   include Commentable
   include Favoritable
+  include Loggable
   include Orderable
   include Publishable
   include Regional

@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Transparency::Cost.human_attribute_name('title') %></th>
+        <th><%= Transparency::Cost.human_attribute_name('description') %></th>
+        <th><%= Transparency::Cost.human_attribute_name('amount') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% year.revenues.each do |revenue| %>
+        <tr>
+          <td><%= link_to_if  can?(:read, revenue),
+                              revenue, 
+                              admin_transparency_year_revenue_path(year_id: revenue.year.id, id: revenue.id) %></td>
+          <td><%= revenue.description %></td>
+          <td><%= number_to_currency revenue.amount, precision: 0 %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="2"><%= t('ui.transparency.revenues.total') %></th>
+        <th><%= number_to_currency year.total_revenues, precision: 0 %></th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

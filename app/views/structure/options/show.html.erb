@@ -5,6 +5,7 @@
 
   partial = @resources_slug == 'actors' ? 'actors/list' : 'application/list'
 %>
+<% content_for :canonical_url, polymorphic_option_url(@option, region_slug: nil) %>
 <div class="hero mt-4" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>">
   <div class="container">
   <h1><%= @option %></h1>
@@ -16,5 +17,5 @@
   </div>
 
   <%= render 'reference-cta', objects: @objects %>
-  
+
 </div>

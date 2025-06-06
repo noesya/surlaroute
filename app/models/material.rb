@@ -9,6 +9,7 @@
 #  name         :string
 #  published    :boolean          default(FALSE)
 #  slug         :string           indexed
+#  sources      :text
 #  status       :integer          default("draft")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -27,6 +28,7 @@ class Material < ApplicationRecord
   include Commentable
   include Favoritable
   include Orderable
+  include Loggable
   include Publishable
   include Regional
   include Searchable

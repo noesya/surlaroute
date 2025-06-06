@@ -15,7 +15,6 @@
 #  description           :text
 #  image_alt             :string
 #  image_credit          :string
-#  lab_member            :boolean          default(FALSE)
 #  latitude              :decimal(, )
 #  longitude             :decimal(, )
 #  name                  :string
@@ -23,6 +22,7 @@
 #  published             :boolean          default(FALSE)
 #  service_access_terms  :text
 #  slug                  :string
+#  sources               :text
 #  status                :integer          default("draft")
 #  zipcode               :string
 #  created_at            :datetime         not null
@@ -31,6 +31,7 @@
 class Actor < ApplicationRecord
   include Commentable
   include Favoritable
+  include Loggable
   include Orderable
   include Publishable
   include Regional
@@ -45,11 +46,11 @@ class Actor < ApplicationRecord
   has_and_belongs_to_many :authors, class_name: 'User', join_table: "actors_users", association_foreign_key: :user_id
 
   has_one_attached_deletable :image
+  has_one_attached_deletable :logo
 
   validates_presence_of :name
 
   scope :premium, -> { where(premium: true) }
-  scope :lab_member, -> { where(lab_member: true) }
   scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
@@ -58,7 +59,6 @@ class Actor < ApplicationRecord
   }
   scope :autofilter_published, -> (status) { where(published: status) }
   scope :autofilter_premium, -> (status) { where(premium: status) }
-  scope :autofilter_lab_member, -> (status) { where(lab_member: status) }
 
   def full_address
     @full_address ||= [address, address_additional, city, zipcode, country].compact_blank.join(', ')

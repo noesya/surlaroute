@@ -11,6 +11,7 @@
     <%= render "plausible" if ENV["APPLICATION_ENV"] == "production" %>
   </head>
   <body class="<%= body_classes(yield(:additional_body_class)) %>">
+    <%= render "banner" if @banner.present? && @banner.published? %>
     <%= render "header" %>
     <%= render "notice" %>
     <main>
@@ -21,6 +22,7 @@
       <% end %>
       <%= yield %>
     </main>
+    <%= render 'registration-modal', context: 'favorite' %>
     <%= render "search-modal" %>
     <%= render "footer" %>
   </body>

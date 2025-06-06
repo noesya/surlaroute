@@ -4,7 +4,11 @@ class MaterialsController < ApplicationController
   def index
     base_scope = @region.present? ? @region.materials : Material.all
     @all_materials = base_scope.published
-    @facets = Material::Facets.new(params[:facets], model: @all_materials)
+    @facets = Material::Facets.new(
+      params[:facets],
+      model: @all_materials,
+      region: @region
+    )
     @materials = @facets.results.ordered_by_creation_date.page(params[:page])
     breadcrumb
   end

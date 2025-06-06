@@ -1,0 +1,5 @@
+<% logs_count = User::Log.where(blob: blob).count %>
+<span class="badge text-dark fw-normal rounded-pill border px-3">
+  <i class="<%= Icon::DOWNLOAD %>"></i>
+  <%= logs_count %>
+</span>

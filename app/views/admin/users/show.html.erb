@@ -27,12 +27,10 @@
         <%= simple_format @user.description %>
       </div>
     <% end %>
-    <% if @user.active_subscription.present? && can?(:read, @user.active_subscription) %>
-      <%= show @user, :active_subscription, type: :reference %>
-    <% end %>
   </div>
 </div>
 
+<%= render 'admin/logs/widget' %>
 
 <% content_for :buttons do %>
   <%= destroy_link @user %>

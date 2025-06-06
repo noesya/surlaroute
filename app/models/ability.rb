@@ -10,32 +10,28 @@ class Ability
 
   def visitor
     can :manage, Actor, id: @user.actor_ids
-    cannot [:publish, :premium, :lab_member], Actor
+    cannot [:publish, :premium, :update_sources], Actor
     can :create, Actor
     can :manage, Project, id: @user.project_ids
-    cannot :publish, Project
+    cannot [:publish, :update_sources], Project
     can :create, Project
     can :manage, Material, id: @user.material_ids
-    cannot :publish, Material
-    cannot :create, Material
+    cannot [:publish, :update_sources], Material
+    can :create, Material
     can :manage, Technic, id: @user.technic_ids
-    cannot :publish, Technic
-    cannot :create, Technic
-  end
-  
-  def subscriber
-    visitor
-    can :read, Actor
-    can :read, Project
-    can [:read, :create], Material
-    can [:read, :create], Technic
-    # can :manage, User::Comment, user_id: @user.id
-    can :create, User::Comment
-    can :manage, User::Favorite, user_id: @user.id
+    cannot [:publish, :update_sources], Technic
+    can :create, Technic
   end
 
   def lab_member
-    subscriber
+    visitor
+    can [:read, :update_sources], Actor
+    can [:read, :update_sources], Project
+    can [:read, :update_sources], Material
+    can [:read, :update_sources], Technic
+    # can :manage, User::Comment, user_id: @user.id
+    can :create, User::Comment
+    can :manage, User::Favorite, user_id: @user.id
   end
 
   def admin
@@ -43,7 +39,6 @@ class Ability
     cannot :manage, User, role: :superadmin
     can :read, User, role: :superadmin
     cannot :manage, Structure::Item
-    cannot :manage, Product
     cannot :manage, Region
   end
 

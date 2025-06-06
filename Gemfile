@@ -16,7 +16,7 @@ gem "devise-i18n", "~> 1"
 gem "devise-bootstrap5", "~> 0"
 gem "elasticsearch", "~> 7"
 gem "enum_help", "~> 0"
-gem "faceted_search"
+gem "faceted_search"#, path: '../faceted_search'
 gem "faraday-typhoeus", "~> 1.1"
 gem "gdpr", "~> 1"
 gem "geocoder", "~> 1.8"

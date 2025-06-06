@@ -5,7 +5,11 @@ class ActorsController < ApplicationController
     @mode = params[:mode] || 'list'
     base_scope = @region.present? ? @region.actors : Actor.all
     @all_actors = base_scope.published
-    @facets = Actor::Facets.new(params[:facets], model: @all_actors)
+    @facets = Actor::Facets.new(
+      params[:facets],
+      model: @all_actors,
+      region: @region
+    )
     @actors = @facets.results.ordered_by_creation_date
     @actors = @actors.page(params[:page]) if @mode == "list"
 

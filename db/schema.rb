@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_06_144049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -66,8 +66,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.string "contact_phone"
     t.string "contact_website"
     t.string "contact_inventory_url"
-    t.boolean "lab_member", default: false
     t.integer "status", default: 0
+    t.text "sources"
   end
 
   create_table "actors_materials", id: false, force: :cascade do |t|
@@ -100,6 +100,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.uuid "actor_id", null: false
     t.uuid "user_id", null: false
     t.index ["actor_id", "user_id"], name: "index_actors_users_on_actor_id_and_user_id"
+  end
+
+  create_table "banners", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "text"
+    t.string "background_color"
+    t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "definition_aliases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -196,19 +204,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
   end
 
-  create_table "helloasso_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.jsonb "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "helloasso_tokens", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.text "access_token"
-    t.text "refresh_token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "materials", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -220,6 +215,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.string "image_alt"
     t.string "image_credit"
     t.integer "status", default: 0
+    t.text "sources"
     t.index ["actor_id"], name: "index_materials_on_actor_id"
     t.index ["slug"], name: "index_materials_on_slug"
   end
@@ -313,6 +309,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.string "image_alt"
     t.string "image_credit"
     t.integer "status", default: 0
+    t.text "sources"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
@@ -436,12 +433,39 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.string "image_alt"
     t.string "image_credit"
     t.integer "status", default: 0
+    t.text "sources"
   end
 
   create_table "technics_users", id: false, force: :cascade do |t|
     t.uuid "technic_id", null: false
     t.uuid "user_id", null: false
     t.index ["technic_id", "user_id"], name: "index_technics_users_on_technic_id_and_user_id"
+  end
+
+  create_table "transparency_costs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "amount"
+    t.uuid "transparency_year_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transparency_year_id"], name: "index_transparency_costs_on_transparency_year_id"
+  end
+
+  create_table "transparency_revenues", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "amount"
+    t.uuid "transparency_year_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transparency_year_id"], name: "index_transparency_revenues_on_transparency_year_id"
+  end
+
+  create_table "transparency_years", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -467,6 +491,19 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
     t.datetime "updated_at", null: false
     t.index ["about_type", "about_id"], name: "index_user_favorites_on_about"
     t.index ["user_id"], name: "index_user_favorites_on_user_id"
+  end
+
+  create_table "user_logs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id"
+    t.string "about_type", null: false
+    t.uuid "about_id", null: false
+    t.uuid "blob_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "filename"
+    t.index ["about_type", "about_id"], name: "index_user_logs_on_about"
+    t.index ["blob_id"], name: "index_user_logs_on_blob_id"
+    t.index ["user_id"], name: "index_user_logs_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -527,7 +564,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_142923) do
   add_foreign_key "structure_values", "structure_items", column: "item_id"
   add_foreign_key "subscriptions", "products"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "transparency_costs", "transparency_years"
+  add_foreign_key "transparency_revenues", "transparency_years"
   add_foreign_key "user_comments", "user_comments", column: "reply_to_id"
   add_foreign_key "user_comments", "users"
   add_foreign_key "user_favorites", "users"
+  add_foreign_key "user_logs", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "user_logs", "users"
 end

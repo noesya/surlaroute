@@ -1,6 +1,8 @@
 <% content_for :title, 'Partage de techniques pour une scénographie durable' %>
 <% content_for :meta_description, 'Découvrez des techniques favorisant les pratiques low-tech et le réemploi, par la fabrication et l’assemblage d’éléments modulables, standardisés, réutilisables…' %>
 <% content_for :og_image, image_url("social/technics.png") %>
+<% content_for :canonical_url, technics_url %>
+<% content_for :noindex, params[:facets].present? || params[:page].present? %>
 
 <header class="hero pb-5">
   <div class="container">
@@ -38,4 +40,6 @@
     </div>
   </div>
   <%= render 'reference-cta', objects: @technics %>
+  <%= render 'join' unless user_signed_in? %>
+
 </div>

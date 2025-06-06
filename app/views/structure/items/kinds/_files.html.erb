@@ -4,7 +4,7 @@
     <% next unless file.file.attached? %>
     <div class="col-lg-6">
       <div class="structure__item__files__file">
-        <%= link_to file.file,
+        <%= link_to download_from_structure_item_path(file.id),
                     class: 'filename',
                     target: :_blank do %>
           <strong><%= file.text.present? ? file.text : file.file.filename %></strong><br>

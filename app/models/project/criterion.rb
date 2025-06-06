@@ -16,9 +16,14 @@ class Project::Criterion < ApplicationRecord
 
   include Positionable
 
-  has_many :answers, dependent: :destroy
+  has_many  :answers,
+            dependent: :destroy
+  has_many  :projects,
+            -> { where('project_answers.value IS TRUE') },
+            through: :answers
 
   scope :for_step, -> (step) { where(step: step).ordered }
+  scope :ordered_by_step, -> { order(:step, :position) }
 
   def to_s
     "#{name}"

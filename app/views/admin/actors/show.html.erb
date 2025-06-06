@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-lg-4">
     <%= show @actor, :image, type: :image %>
+    <%= show @actor, :logo, type: :image %>
   </div>
   <div class="col-lg-8">
     <% if can?(:publish, @actor) %>
@@ -13,14 +14,14 @@
     <% if can?(:premium, @actor) %>
       <%= show @actor, :premium %>
     <% end %>
-    <% if can?(:lab_member, @actor) %>
-      <%= show @actor, :lab_member %>
-    <% end %>
     <%= show @actor, :description %>
     <%= show @actor, :regions, type: :list %>
+    <%= show(@actor, :sources) if can?(:update_sources, @actor) %>
     <%= render 'admin/structure/items/kinds/show', about: @actor %>
   </div>
 </div>
+
+<%= render 'admin/logs/widget' %>
 
 <% content_for :buttons do %>
   <%= destroy_link @actor %>

@@ -10,21 +10,7 @@ Rails.application.routes.draw do
     mount GoodJob::Engine => 'good_job'
   end
 
-  post 'webhooks/helloasso' => 'webhooks#helloasso', as: :helloasso_webhook
-
   draw 'admin'
-
-  # Tunnel d'abo
-  get 'le-lab/comment-nous-rejoindre' => 'offers#index', as: :offers
-  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement'               => 'subscriptions#new', as: :new_subscription
-  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/recapitulatif' => 'subscriptions#summary', as: :summary_subscription
-  post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/paiement'     => 'subscriptions#payment', as: :payment_subscription
-  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/retour'        => 'subscriptions#helloasso_callback', as: :helloasso_callback_subscription
-  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/verification'  => 'subscriptions#verification', as: :verification_subscription
-  post 'le-lab/comment-nous-rejoindre/nouvel-abonnement/verification' => 'subscriptions#async_verification'
-  get 'le-lab/comment-nous-rejoindre/nouvel-abonnement/confirmation'  => 'subscriptions#confirmation', as: :confirmation_subscription
-
-  # get 'le-lab/les-membres' => 'members#index', as: :members
 
   get 'communaute' => 'users#index', as: :users
   get 'communaute/:id' => 'users#show', as: :user
@@ -37,6 +23,14 @@ Rails.application.routes.draw do
   end
 
   get 'recherche' => 'search#show', as: :search
+
+  get 'sitemap' => 'sitemap#show', constraints: lambda { |request| request.format == 'xml' }
+
+  get 'transparence' => 'transparency#index', as: :transparency
+  get 'transparence/:year' => 'transparency#show', as: :transparency_year
+
+  get 'telechargement/:block/:blob' => 'downloads#download_from_page_block', as: :download_from_page_block
+  get 'telechargement/:file' => 'downloads#download_from_structure_item', as: :download_from_structure_item
 
   scope "(:region_slug)", constraints: lambda { |request|
       region_slug = request.params[:region_slug]
@@ -75,8 +69,8 @@ Rails.application.routes.draw do
   }
 
   match '*path', via: :all, to: 'pages#show', constraints: lambda { |req|
-    Page.find_by(path: req.path[1..-1]).present?
-  }
+    Page.where.not(path: 'accueil').find_by(path: req.path[1..-1]).present?
+  }, as: :page
 
   get '/media/:signed_id/:filename_with_transformations' => 'media#show', as: :medium
 

@@ -61,5 +61,7 @@
                 label: t('activerecord.attributes.user.optin_tos_html', link: page_path(page_cgu)) %>
 
     <%= f.button :submit, t(".sign_up"), class: 'btn btn-dark mx-auto d-block mt-md-5' %>
+
+    <p class="text-center mt-4">Déjà inscrit·e ? <%= link_to 'Cliquez ici', new_user_session_path %> pour vous connecter</p>
   <% end %>
 </div>

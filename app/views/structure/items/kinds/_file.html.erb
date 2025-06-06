@@ -1,7 +1,7 @@
 <% file = item.file_for(about) %>
 <% if file.present? && file.file.attached? %>
   <div class="position-relative">
-    <%= link_to file.file,
+    <%= link_to download_from_structure_item_path(file.id),
                 class: 'filename',
                 target: :_blank do %>
       <strong><%= file.file.filename %></strong><br>

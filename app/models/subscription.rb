@@ -28,14 +28,9 @@ class Subscription < ApplicationRecord
   belongs_to :product
 
   before_validation :set_expiration_date, on: :create
-  after_commit :update_user_role, on: :create
 
   scope :active, -> { where('expiration_date > ?', Time.zone.now) }
   scope :ordered, -> { order(created_at: :desc) }
-
-  def update_user_role
-    user.update_role_from_subscriptions!
-  end
 
   def reference
     "##{helloasso_order_identifier}"

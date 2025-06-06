@@ -5,6 +5,7 @@
     <p>
       <%= link_to file.file.filename, file.file, target: :_blank %>
       (<%= number_to_human_size file.file.blob.byte_size %>)
+      <%= render 'admin/logs/badge', blob: file.file.blob %>
     </p>
   <% end %>
 </div>

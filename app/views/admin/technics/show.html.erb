@@ -8,12 +8,16 @@
     <% if can?(:publish, @technic) %>
       <%= show @technic, :published %>
       <%= show @technic, :authors, type: :list %>
+      <%= show @technic, :regions, type: :list %>
+      <%= show(@technic, :sources) if can?(:update_sources, @technic) %>
       <%= show @technic, :status, type: :enum, value: t("admin.publication_statuses.#{@technic.status}") %>
     <% end %>
     <%= show @technic, :description %>
     <%= render 'admin/structure/items/kinds/show', about: @technic %>
   </div>
 </div>
+
+<%= render 'admin/logs/widget' %>
 
 <% content_for :buttons do %>
   <%= destroy_link @technic %>

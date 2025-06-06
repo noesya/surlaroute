@@ -17,3 +17,24 @@ og_image = content_for?(:og_image) ? yield(:og_image) : image_url("social/defaul
 <meta property="og:description" content="<%= description %>">
 <meta property="og:image" content="<%= og_image %>">
 <meta property="og:type" content="website">
+
+<% if content_for?(:canonical_url) && !content_for?(:noindex) %>
+  <link rel="canonical" href="<%= yield(:canonical_url) %>" />
+<% end %>
+<% if content_for?(:noindex) %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "écothèque – Augures Lab",
+    "url": "https://www.ecotheque.fr",
+    "logo": "https://www.ecotheque.fr/logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/les-augures/",
+      "https://www.instagram.com/ecotheque_/"
+    ]
+  }
+</script>

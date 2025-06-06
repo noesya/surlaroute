@@ -30,6 +30,7 @@ class Page < ApplicationRecord
   LAB_INTERNAL_IDENTIFIER = 'le-lab'
   TOOLBOX_INTERNAL_IDENTIFIER = 'boite-a-outils'
 
+  include Loggable
   include Searchable
   include Slugged
   include WithTree

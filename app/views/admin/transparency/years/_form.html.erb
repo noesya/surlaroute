@@ -1,0 +1,14 @@
+
+<%= simple_form_for [:admin, year] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :value %>
+  </div>
+
+  <% content_for :buttons do %>
+    <%= destroy_link year if year.persisted? %>
+    <%= submit f %>
+  <% end %>
+<% end %>

@@ -88,23 +88,6 @@
 
   <section>
     <div class="container pb-5">
-      <div class="row mb-3">
-        <div class="col-lg-5">
-          <h2 class="mb-1 pb-1 h3 fw-bold">Mon offre actuelle</h2>
-          <% if current_user.active_subscription.present? %>
-            <p>Votre abonnement prendra fin le <%= l(current_user.active_subscription.expiration_date, format: :long) %>.</p>
-          <% end %>
-          <p>Voici les modalités de parcours sur le site écothèque que vous permet votre offre actuelle :</p>
-        </div>
-      </div>
-      <%= render "offers/#{current_user.role}", hide_cta: true %>
-    </div>
-  </section>
-
-  <%= render 'offers/join', title: "Vous souhaitez changer d'offre ?" %>
-
-  <section>
-    <div class="container pb-5">
       <h3 class="mt-5 mb-4 fw-bold"><%= t(".cancel_my_account") %></h3>
 
       <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>

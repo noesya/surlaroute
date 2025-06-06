@@ -1,0 +1,9 @@
+<%= content_for :title, @revenue %>
+
+<%= simple_format @revenue.description %>
+
+<p><%= number_to_currency @revenue.amount, precision: 0 %></p>
+
+<% content_for :buttons do %>
+  <%= link_to t('edit'), edit_admin_transparency_year_revenue_path(@year, @revenue), class: button_classes %>
+<% end %>

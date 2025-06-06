@@ -10,6 +10,7 @@ class Admin::MaterialsController < Admin::ApplicationController
   end
 
   def show
+    @logs = @material.logs.ordered.page(params[:page])
     breadcrumb
   end
 
@@ -57,7 +58,7 @@ class Admin::MaterialsController < Admin::ApplicationController
 
   def material_params
     allowed_params = [
-      :name, :slug, :description,
+      :name, :slug, :description, :sources,
       :image, :image_delete, :image_infos, :image_alt, :image_credit,
       actor_ids: [], project_ids: [],
       region_ids: [],
