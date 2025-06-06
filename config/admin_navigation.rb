@@ -25,7 +25,6 @@ SimpleNavigation::Configuration.run do |navigation|
         secondary.item about_class.to_s, label, admin_structure_items_path(about_class: about_class)
       end
     end if can?(:edit, Structure::Item)
-    primary.item :products, Product.model_name.human(count: 2), admin_products_path, { icon: Icon::PRODUCT } if can?(:manage, Product)
     primary.item :analytics, 'Analytics', admin_analytics_path, { icon: Icon::ANALYTICS } if ENV["APPLICATION_ENV"] == "production" && can?(:read, :analytics)
   end
 end

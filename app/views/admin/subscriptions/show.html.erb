@@ -4,7 +4,7 @@
   <div class="col-lg-8">
     <h3>Informations générales</h3>
     <%= show @subscription, :user, type: :reference %>
-    <%= show @subscription, :product, type: :reference %>
+    <%= show @subscription, :product, type: :string, value: @subscription.product %>
     <%= show @subscription, :paid_amount, type: :currency %>
     <%= show @subscription, :paid_at %>
     <%= show @subscription, :expiration_date, value: @subscription.expiration_date_to_display %>
