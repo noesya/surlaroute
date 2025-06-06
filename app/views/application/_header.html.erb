@@ -1,6 +1,6 @@
 <%
-page_tools = Page.find_by(internal_identifier: 'boite-a-outils')
-page_lab = Page.find_by(internal_identifier: 'le-lab')
+page_toolbox = Page.toolbox
+page_lab = Page.lab
 %>
 <header id="document-header" class="mb-3 is-top">
   <nav class="navbar navbar-expand-lg">
@@ -51,7 +51,7 @@ page_lab = Page.find_by(internal_identifier: 'le-lab')
               <%= t('menu.primary.toolbox') %>
             </a>
             <ul class="dropdown-menu dropdown-menu--toolbox col-md-12 p-0">
-              <% get_toolbox_page.children.ordered_by_position.each_with_index do |page, index| %>
+              <% page_toolbox.children.ordered_by_position.each_with_index do |page, index| %>
                 <li>
                 <%= link_to page, class: "dropdown-item dropdown-item--ecosystem py-2" do %>
                   <b><%= sanitize page.name %></b>
