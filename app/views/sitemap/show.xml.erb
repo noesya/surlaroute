@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc><%= root_url %></loc>
+    <lastmod><%= @home_page.updated_at.to_date.iso8601 %></lastmod>
+  </url>
+  <% @pages.find_each do |page| %>
+    <url>
+      <loc><%= page_url(page.path) %></loc>
+      <lastmod><%= page.updated_at.to_date.iso8601 %></lastmod>
+    </url>
+  <% end %>
+  <url>
+    <loc><%= actors_url %></loc>
+    <lastmod><%= Actor.published.maximum(:updated_at).to_date.iso8601 %></lastmod>
+  </url>
+  <% @actors.find_each do |actor| %>
+    <url>
+      <loc><%= actor_url(actor) %></loc>
+      <lastmod><%= actor.updated_at.to_date.iso8601 %></lastmod>
+    </url>
+  <% end %>
+  <url>
+    <loc><%= materials_url %></loc>
+    <lastmod><%= Material.published.maximum(:updated_at).to_date.iso8601 %></lastmod>
+  </url>
+  <% @materials.find_each do |material| %>
+    <url>
+      <loc><%= material_url(material) %></loc>
+      <lastmod><%= material.updated_at.to_date.iso8601 %></lastmod>
+    </url>
+  <% end %>
+  <url>
+    <loc><%= projects_url %></loc>
+    <lastmod><%= Material.published.maximum(:updated_at).to_date.iso8601 %></lastmod>
+  </url>
+  <% @projects.find_each do |project| %>
+    <url>
+      <loc><%= project_url(project) %></loc>
+      <lastmod><%= project.updated_at.to_date.iso8601 %></lastmod>
+    </url>
+  <% end %>
+  <url>
+    <loc><%= technics_url %></loc>
+    <lastmod><%= Technic.published.maximum(:updated_at).to_date.iso8601 %></lastmod>
+  </url>
+  <% @technics.find_each do |technic| %>
+    <url>
+      <loc><%= technic_url(technic) %></loc>
+      <lastmod><%= technic.updated_at.to_date.iso8601 %></lastmod>
+    </url>
+  <% end %>
+  <url>
+    <loc><%= regions_url %></loc>
+    <lastmod><%= Region.maximum(:updated_at).to_date.iso8601 %></lastmod>
+  </url>
+  <% @regions.find_each do |region| %>
+    <%
+      next if region.empty?
+      actors_max_updated_at = region.actors.published.maximum(:updated_at) || Date.today
+      materials_max_updated_at = region.materials.published.maximum(:updated_at) || Date.today
+      projects_max_updated_at = region.projects.published.maximum(:updated_at) || Date.today
+      technics_max_updated_at = region.technics.published.maximum(:updated_at) || Date.today
+    %>
+    <url>
+      <loc><%= region_url(region) %></loc>
+      <lastmod><%= region.updated_at.to_date.iso8601 %></lastmod>
+    </url>
+    <url>
+      <loc><%= actors_url(region_slug: region.slug) %></loc>
+      <lastmod><%= actors_max_updated_at.to_date.iso8601 %></lastmod>
+    </url>
+    <url>
+      <loc><%= materials_url(region_slug: region.slug) %></loc>
+      <lastmod><%= materials_max_updated_at.to_date.iso8601 %></lastmod>
+    </url>
+    <url>
+      <loc><%= projects_url(region_slug: region.slug) %></loc>
+      <lastmod><%= projects_max_updated_at.to_date.iso8601 %></lastmod>
+    </url>
+    <url>
+      <loc><%= technics_url(region_slug: region.slug) %></loc>
+      <lastmod><%= technics_max_updated_at.to_date.iso8601 %></lastmod>
+    </url>
+  <% end %>
+</urlset>

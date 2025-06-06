@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get 'recherche' => 'search#show', as: :search
 
+  get 'sitemap' => 'sitemap#show', constraints: lambda { |request| request.format == 'xml' }
+
   get 'transparence' => 'transparency#index', as: :transparency
   get 'transparence/:year' => 'transparency#show', as: :transparency_year
 
@@ -68,7 +70,7 @@ Rails.application.routes.draw do
 
   match '*path', via: :all, to: 'pages#show', constraints: lambda { |req|
     Page.where.not(path: 'accueil').find_by(path: req.path[1..-1]).present?
-  }
+  }, as: :page
 
   get '/media/:signed_id/:filename_with_transformations' => 'media#show', as: :medium
 
