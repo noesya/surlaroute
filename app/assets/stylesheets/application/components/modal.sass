@@ -5,10 +5,14 @@
             position: absolute
             top: map-get($spacers, 3)
             right: map-get($spacers, 3)
-        
+
     &.cta-modal
         .modal-dialog
             max-width: pxToRem(842)
+
+    &-content
+        a:not(.btn)
+            color: var(--bs-modal-color)
     @include media-breakpoint-down(md)
         &-content
             padding-bottom: var(--bs-modal-header-padding-y)
