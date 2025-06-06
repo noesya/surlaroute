@@ -14,7 +14,7 @@ class Banner < ApplicationRecord
     'Vert' => '#beffc1',
     'Violet écosystème' => '#f4d4ff',
     'Jaune projet' => '#f5ff85',
-    'Bleu matériaux' => '#b7e0ff',
+    'Bleu matériau' => '#b7e0ff',
     'Orange technique' => '#ff8355'
   }
 end
