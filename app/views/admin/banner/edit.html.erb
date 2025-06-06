@@ -10,15 +10,9 @@
       <%= f.input :published %>
       <%= f.input :text,
                   as: :summernote %>
-      <%= f.input :background_color, 
-                  as: :select, 
-                  collection: [
-                    ['Vert', '#beffc1'],
-                    ['Violet écosystème', '#f4d4ff'],
-                    ['Jaune projet', '#f5ff85'],
-                    ['Bleu matériaux', '#b7e0ff'],
-                    ['Orange technique', '#ff8355'],
-                  ],
+      <%= f.input :background_color,
+                  as: :select,
+                  collection: Banner::BACKGROUND_COLOR_OPTIONS,
                   include_blank: false %>
     </div>
     <div class="col-lg-6">

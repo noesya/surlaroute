@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_06_131305) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_06_140445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -106,7 +106,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_06_131305) do
   create_table "banners", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "text"
     t.string "background_color"
-    t.boolean "published"
+    t.boolean "published", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
