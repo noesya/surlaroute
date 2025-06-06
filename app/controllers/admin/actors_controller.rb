@@ -58,7 +58,7 @@ class Admin::ActorsController < Admin::ApplicationController
 
   def actor_params
     allowed_params = [
-      :name, :slug, :description,
+      :name, :slug, :description, :sources,
       :image, :image_delete, :image_infos, :image_alt, :image_credit,
       :logo, :logo_delete,
       :service_access_terms, :address, :address_additional, :zipcode, :city, :country,

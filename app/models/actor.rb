@@ -23,6 +23,7 @@
 #  published             :boolean          default(FALSE)
 #  service_access_terms  :text
 #  slug                  :string
+#  sources               :text
 #  status                :integer          default("draft")
 #  zipcode               :string
 #  created_at            :datetime         not null

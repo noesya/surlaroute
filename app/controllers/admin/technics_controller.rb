@@ -58,7 +58,7 @@ class Admin::TechnicsController < Admin::ApplicationController
 
   def technic_params
     allowed_params = [
-      :name, :slug, :description,
+      :name, :slug, :description, :sources,
       :image, :image_delete, :image_infos, :image_alt, :image_credit,
       actor_ids: [], region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes

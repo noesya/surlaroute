@@ -48,6 +48,7 @@ fr:
         regions: Localisation(s)
         service_access_terms: Conditions d'accès au service
         slug: Identifiant
+        sources: Sources
         status: Statut
         zipcode: Code postal
       banner:
@@ -72,6 +73,7 @@ fr:
         published: Fiche publiée
         regions: Région
         slug: Identifiant
+        sources: Sources
         status: Statut
       page:
         children: Pages enfants
@@ -98,6 +100,7 @@ fr:
         published: Fiche publiée
         regions: Régions
         slug: Identifiant
+        sources: Sources
         status: Statut
         technics: Techniques
       project/answer:
@@ -158,6 +161,7 @@ fr:
         published: Fiche publiée
         regions: Provenance
         slug: Identifiant
+        sources: Sources
         status: Statut
       transparency/cost:
         amount: Montant
