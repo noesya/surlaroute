@@ -36,7 +36,7 @@
                         input_html: {
                           class: 'select2'
                         } %>
-      <%= f.input :sources if can?(:sources, project) %>
+      <%= f.input :sources if can?(:update_sources, project) %>
     </div>
   </div>
 

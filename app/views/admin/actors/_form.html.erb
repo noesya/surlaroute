@@ -31,7 +31,7 @@
                         input_html: {
                           class: 'select2'
                         } %>
-      <%= f.input :sources if can?(:sources, actor) %>
+      <%= f.input :sources if can?(:update_sources, actor) %>
     </div>
   </div>
 
