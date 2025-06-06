@@ -2,7 +2,7 @@
 <% content_for :meta_description, 'Découvrez des alternatives aux matériaux polluants pour la construction de scénographie. Partagez vos recommandations de matériaux innovants à la communauté écothèque.' %>
 <% content_for :og_image, image_url("social/materials.png") %>
 <% content_for :canonical_url, materials_url %>
-<% content_for :noindex, params[:facets].present? %>
+<% content_for :noindex, params[:facets].present? || params[:page].present? %>
 
 <header class="hero pb-5">
   <div class="container">
