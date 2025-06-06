@@ -86,11 +86,6 @@ fr:
       page/block:
         kind: Type de bloc
         name: Nom
-      product:
-        description: Description
-        name: Nom
-        price: Prix
-        redirect_url: URL de redirection
       project:
         actors: Acteurices
         authors: Fiche publiée par
@@ -239,9 +234,6 @@ fr:
       page:
         one: Page
         other: Pages
-      product:
-        one: Produit
-        other: Produits
       project:
         one: Projet
         other: Projets
@@ -547,8 +539,6 @@ fr:
       material:
         actors: Vous devez créer une fiche dans écosystème en choissisant "fabricant" dans "métier".<br>Cette fiche ne sera pas publiée.
         description: Vous pouvez ajouter ici votre expérience du matériau et le comité écothèque en fera une relecture et une ré-écriture
-      product:
-        redirect_url: Si renseignée, l'utilisateur sera redirigé sur cette adresse à la place du tunnel classique d'abonnement.
       project:
         description: Vous pouvez ajouter ici votre expérience sur le projet et le comité écothèque en fera une relecture et une ré-écriture
       structure_item:
