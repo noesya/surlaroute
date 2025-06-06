@@ -80,10 +80,6 @@ module ApplicationHelper
     end
   end
 
-  def get_toolbox_page
-    toolbox_page = Page.find_by(internal_identifier: 'boite-a-outils')
-  end
-
   private
 
   def definitions_mapping
