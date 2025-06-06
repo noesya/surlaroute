@@ -51,11 +51,13 @@ page_lab = Page.find_by(internal_identifier: 'le-lab')
               <%= t('menu.primary.toolbox') %>
             </a>
             <ul class="dropdown-menu dropdown-menu--toolbox col-md-12 p-0">
-              <% get_toolbox_page.children.ordered_by_position.each do |page| %>
+              <% get_toolbox_page.children.ordered_by_position.each_with_index do |page, index| %>
                 <li>
                 <%= link_to page, class: "dropdown-item dropdown-item--ecosystem py-2" do %>
                   <b><%= sanitize page.name %></b>
-                  <%= sanitize page.description %>
+                  <% if index === 0 %>
+                    <%= sanitize page.description %>
+                  <% end %>
                 <% end %>
                 </li>
               <% end %>

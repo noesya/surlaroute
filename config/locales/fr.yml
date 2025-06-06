@@ -360,7 +360,7 @@ fr:
   delete: Supprimer
   devise:
     already_registered:
-      title: Déjà inscrit ?
+      title: Déjà inscrit·e ?
     login: Je me connecte
     logout: Déconnexion
     mailer:
@@ -369,7 +369,7 @@ fr:
         text_html: Votre code d'authentification est :<br><br><b>%{code}</b><br><br>Il expirera dans %{duration}.
     not_yet_registered:
       text: Inscrivez-vous si vous n'avez pas encore de compte.
-      title: Pas encore inscrit ?
+      title: Pas encore inscrit·e ?
     profile: Mon profil
     register: Je crée mon compte
     sessions:
@@ -452,7 +452,14 @@ fr:
   login:
     already_registered: Déjà inscrit·e ?
     not_registered_yet: Pas encore inscrit·e ?
-    not_registered_yet_details: Inscrivez-vous si vous n'avez pas encore de compte.
+    not_registered_yet_details:
+      text: "L'inscription est gratuite et vous permet de :"
+      list:
+        - Proposer une Bonne addresse, un matériau, un projet ou une technique
+        - Créer votre bibliothèque personnelle de favorisant
+        - Télécharger les documents
+        - Partager vos retours d'expériences en commentaire
+        - Recevoir la newsletter mensuelle avec nos actualités
     or: ou bien
     sign_in: Se connecter
     sign_in_with_credentials: Se connecter avec ses identifiants
