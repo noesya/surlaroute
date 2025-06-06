@@ -58,7 +58,7 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   def project_params
     allowed_params = [
-      :name, :slug, :description,
+      :name, :slug, :description, :sources,
       :image, :image_delete, :image_infos, :image_alt, :image_credit,
       :acceptance,
       actor_ids: [], material_ids: [], technic_ids: [],

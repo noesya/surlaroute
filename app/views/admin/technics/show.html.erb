@@ -8,6 +8,8 @@
     <% if can?(:publish, @technic) %>
       <%= show @technic, :published %>
       <%= show @technic, :authors, type: :list %>
+      <%= show @technic, :regions, type: :list %>
+      <%= show @technic, :sources %>
       <%= show @technic, :status, type: :enum, value: t("admin.publication_statuses.#{@technic.status}") %>
     <% end %>
     <%= show @technic, :description %>

@@ -10,25 +10,25 @@ class Ability
 
   def visitor
     can :manage, Actor, id: @user.actor_ids
-    cannot [:publish, :premium, :lab_member], Actor
+    cannot [:publish, :premium, :lab_member, :sources], Actor
     can :create, Actor
     can :manage, Project, id: @user.project_ids
-    cannot :publish, Project
+    cannot [:publish, :sources], Project
     can :create, Project
     can :manage, Material, id: @user.material_ids
-    cannot :publish, Material
+    cannot [:publish, :sources], Material
     can :create, Material
     can :manage, Technic, id: @user.technic_ids
-    cannot :publish, Technic
+    cannot [:publish, :sources], Technic
     can :create, Technic
   end
   
   def lab_member
     visitor
-    can :read, Actor
-    can :read, Project
-    can [:read, :create], Material
-    can [:read, :create], Technic
+    can [:read, :sources], Actor
+    can [:read, :sources], Project
+    can [:read, :sources], Material
+    can [:read, :sources], Technic
     # can :manage, User::Comment, user_id: @user.id
     can :create, User::Comment
     can :manage, User::Favorite, user_id: @user.id
