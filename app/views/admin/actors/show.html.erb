@@ -19,7 +19,7 @@
     <% end %>
     <%= show @actor, :description %>
     <%= show @actor, :regions, type: :list %>
-    <%= show @actor, :sources %>
+    <%= show(@actor, :sources) if can?(:update_sources, @actor) %>
     <%= render 'admin/structure/items/kinds/show', about: @actor %>
   </div>
 </div>

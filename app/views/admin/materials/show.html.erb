@@ -13,7 +13,7 @@
     <%= show @material, :description %>
     <%= show @material, :actors, type: :list %>
     <%= show @material, :regions, type: :list %>
-    <%= show @material, :sources %>
+    <%= show(@material, :sources) if can?(:update_sources, @material) %>
     <%= render 'admin/structure/items/kinds/show', about: @material %>
   </div>
 </div>
