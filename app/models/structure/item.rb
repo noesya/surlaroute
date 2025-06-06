@@ -39,11 +39,18 @@ class Structure::Item < ApplicationRecord
     'colors'
   ]
 
+  KINDS_ALLOWED_IN_LIST = [
+    'option',
+    'options'
+  ]
+
   has_many :values, dependent: :destroy
   has_many :options, dependent: :destroy
   accepts_nested_attributes_for :options, reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :name
+
+  before_validation :force_hide_in_list, unless: :allowed_in_list?
 
   scope :with_options, -> { where(kind: Structure::Item::KINDS_WITH_OPTIONS) }
   scope :in_list, -> { where(show_in_list: true) }
@@ -155,6 +162,14 @@ class Structure::Item < ApplicationRecord
 
   def next_title
     @next_title ||= next_siblings.kind_h2.first
+  end
+
+  def force_hide_in_list
+    self.show_in_list = false
+  end
+
+  def allowed_in_list?
+    kind.in?(Structure::Item::KINDS_ALLOWED_IN_LIST)
   end
 
 end
