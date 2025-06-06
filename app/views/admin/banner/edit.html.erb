@@ -9,7 +9,12 @@
     <div class="col-lg-6">
       <%= f.input :published %>
       <%= f.input :text,
-                  as: :summernote %>
+                  as: :summernote,
+                  input_html: { 
+                    data: {
+                      "summernote-config": "mini"
+                    }
+                  } %>
       <%= f.input :background_color, 
                   as: :select, 
                   collection: [
