@@ -39,18 +39,6 @@
                         %>
     <% end %>
 
-    <% if can?(:lab_member, Actor) %>
-      <%= render_filter f, 
-                        :select, 
-                        :lab_member, 
-                        label: t('admin.filters.lab_member'),
-                        collection: [
-                          { to_s: I18n.t('true'), id: 'true' },
-                          { to_s: I18n.t('false'), id: 'false' }
-                        ]
-                        %>
-    <% end %>
-
     <%= render_filter f, 
                       :select, 
                       :region, 

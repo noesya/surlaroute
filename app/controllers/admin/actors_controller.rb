@@ -69,7 +69,6 @@ class Admin::ActorsController < Admin::ApplicationController
     ]
     allowed_params += [:published, :status, author_ids: []] if can?(:publish, Actor)
     allowed_params << :premium if can?(:premium, Actor)
-    allowed_params << :lab_member if can?(:lab_member, Actor)
     params.require(:actor)
           .permit(allowed_params)
   end

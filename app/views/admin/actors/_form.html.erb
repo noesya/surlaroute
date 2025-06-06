@@ -6,7 +6,6 @@
     <div class="col-lg-4">
       <%= render 'admin/application/form/publication', f: f %>
       <%= f.input :premium if can?(:premium, actor) %>
-      <%= f.input :lab_member if can?(:lab_member, actor) %>
       <h2 class="h4 mt-5"><%= Actor.human_attribute_name(:image) %></h2>
       <%= f.input :image,
                   as: :single_deletable_file,

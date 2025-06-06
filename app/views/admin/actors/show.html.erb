@@ -14,9 +14,6 @@
     <% if can?(:premium, @actor) %>
       <%= show @actor, :premium %>
     <% end %>
-    <% if can?(:lab_member, @actor) %>
-      <%= show @actor, :lab_member %>
-    <% end %>
     <%= show @actor, :description %>
     <%= show @actor, :regions, type: :list %>
     <%= show(@actor, :sources) if can?(:update_sources, @actor) %>

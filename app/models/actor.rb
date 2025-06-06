@@ -15,7 +15,6 @@
 #  description           :text
 #  image_alt             :string
 #  image_credit          :string
-#  lab_member            :boolean          default(FALSE)
 #  latitude              :decimal(, )
 #  longitude             :decimal(, )
 #  name                  :string
@@ -52,7 +51,6 @@ class Actor < ApplicationRecord
   validates_presence_of :name
 
   scope :premium, -> { where(premium: true) }
-  scope :lab_member, -> { where(lab_member: true) }
   scope :with_contact_informations, -> { where.not(contact_name: [nil, ''], contact_email: [nil, ''], contact_phone: [nil, ''], contact_website: [nil, ''], contact_inventory_url: [nil, '']) }
 
   scope :autofilter, -> (parameters) { ::Filters::Autofilter.new(self, parameters).filter }
@@ -61,7 +59,6 @@ class Actor < ApplicationRecord
   }
   scope :autofilter_published, -> (status) { where(published: status) }
   scope :autofilter_premium, -> (status) { where(premium: status) }
-  scope :autofilter_lab_member, -> (status) { where(lab_member: status) }
 
   def full_address
     @full_address ||= [address, address_additional, city, zipcode, country].compact_blank.join(', ')
