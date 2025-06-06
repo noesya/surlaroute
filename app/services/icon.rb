@@ -1,6 +1,7 @@
 class Icon
   ACTOR = 'bi bi-people-fill'
   ANALYTICS = 'bi bi-activity'
+  BANNER = 'bi bi-exclamation-diamond'
   COMMENT = 'bi bi-chat-fill'
   DASHBOARD = 'bi bi-grid-fill'
   DEFINITION = 'bi bi-body-text'

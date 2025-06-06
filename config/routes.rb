@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   }
 
   match '*path', via: :all, to: 'pages#show', constraints: lambda { |req|
-    Page.find_by(path: req.path[1..-1]).present?
+    Page.where.not(path: 'accueil').find_by(path: req.path[1..-1]).present?
   }, as: :page
 
   get '/media/:signed_id/:filename_with_transformations' => 'media#show', as: :medium

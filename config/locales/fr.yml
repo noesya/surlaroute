@@ -50,6 +50,10 @@ fr:
         slug: Identifiant
         status: Statut
         zipcode: Code postal
+      banner:
+        background_color: Couleur du fond
+        published: Active
+        text: Texte
       definition:
         text: Texte
         title: Titre
@@ -220,6 +224,9 @@ fr:
       actor:
         one: Acteur·ice
         other: Acteur·ices
+      banner:
+        one: Bannière
+        other: Bannières
       definition:
         one: Définition
         other: Définitions
