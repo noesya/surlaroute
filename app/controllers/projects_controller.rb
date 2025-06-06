@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
   def index
     base_scope = @region.present? ? @region.projects : Project.all
     @all_projects = base_scope.published
-    @facets = Project::Facets.new(params[:facets], model: @all_projects)
+    @facets = Project::Facets.new(
+      params[:facets],
+      model: @all_projects,
+      region: @region
+    )
     @projects = @facets.results.ordered_by_creation_date.page(params[:page])
     breadcrumb
   end
