@@ -150,3 +150,11 @@ header#document-header
     html.is-scrolling-down &
         &:not(:hover), &:not(.is-opened)
             transform: translateY(-100%)
+
+// banner
+.banner
+    p
+        text-align: center
+        font-weight: bold
+        @include media-breakpoint-down(md)
+            font-size: $small-font-size
