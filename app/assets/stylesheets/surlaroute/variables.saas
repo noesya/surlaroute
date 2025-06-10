@@ -1,0 +1,189 @@
+$enable-negative-margins: true
+
+$font-family-headings: "Augures", sans-serif
+$font-family-sans-serif: "Work Sans", sans-serif
+$font-family-base: $font-family-sans-serif
+
+$grid-gutter-width: 32px
+$hr-opacity: 1
+
+// Colors
+$color-bg: #F2F3F4
+$light: $color-bg
+$color-text: #292929
+$border-color: #161616
+$primary: $color-text
+
+// PAGES COLORS
+$ecosystem-primary: #F4D4FF
+$ecosystem-secondary: #81D996
+$materials-primary: #B7E0FF
+$materials-secondary: #DAFF96
+$projects-primary: #F5FF85
+$projects-secondary: #99C8FF
+$technic-primary: #FF8355
+$technic-secondary: #CBB9FF
+$regions-primary: $light
+$regions-secondary: $color-text
+$toolbox-primary: #BEFFC1
+$toolbox-secondary: #85E0F4
+
+// Base
+$font-size-base: 1rem
+$font-size-sm: $font-size-base
+$font-size-lg: $font-size-base
+$line-height-base: 1.35
+$line-height-sm: $line-height-base
+$font-weight-base: 500
+$font-weight-bold: 600
+
+// Headings
+// h1
+$h1-font-size: pxToRem(64)
+$h1-font-size-sm: pxToRem(32) // Pas implémenté
+$h1-font-weight: bold
+$h1-line-height: 110%
+
+// h2
+$h2-font-size: pxToRem(38)
+$h2-font-size-sm: pxToRem(24)
+$h2-font-weight: 600
+$h2-line-height: 110%
+
+// h3
+$h3-font-size: pxToRem(20)
+$h3-font-size-sm: $h3-font-size // Pas implémenté
+$h3-font-weight: bold
+$h3-line-height: 135%
+
+// Display
+$display-font-sizes: (1: 5rem, 2: 4.5rem, 3: 4rem, 4: 3.5rem, 5: 3rem, 6: pxToRem(25))
+$display-line-height: 140%
+
+// hero
+$hero-font-size: pxToRem(25)
+$hero-line-height: 140%
+
+// small
+$small-color: $color-text
+$small-font-size: pxToRem(14)
+$small-font-weight: normal
+$small-line-height: 135%
+
+// key figures
+$key-figures-font-size: pxToRem(24)
+$key-figures-font-size-md: pxToRem(48)
+$key-figures-line-height: 135%
+$key-figures-font-weight: bold
+
+// call to action
+$cta-background: #161616
+$cta-font-size: pxToRem(24)
+$cta-font-size-md: pxToRem(38)
+$cta-line-height: 110%
+$cta-btn-padding-y: pxToRem(24)
+$cta-btn-padding-x: pxToRem(48)
+$btn-border-radius: 8px
+
+// NAVBAR
+$nav-link-padding-x: 0
+$navbar-toggler-padding-y: 0
+$navbar-toggler-padding-x: 0
+$navbar-light-toggler-border-color: transparent
+$navbar-dark-toggler-border-color: transparent
+$navbar-toggler-focus-width: 0
+
+// MODAL RECHERCHE
+$modal-backdrop-opacity: 0.5
+$modal-content-bg: $border-color
+$modal-content-color: white
+// BADGES
+$badge-padding-x: pxToRem(12)
+$badge-padding-y: pxToRem(5)
+
+// DROPDOWN
+$dropdown-link-active-color: white
+$dropdown-link-active-bg: $border-color
+
+// INPUT
+$input-focus-border-color: $border-color
+$input-btn-focus-border-color: $border-color
+$form-check-input-checked-bg-color: $border-color
+$form-check-input-focus-border: $border-color
+
+// BTN
+$btn-focus-box-shadow: 0 0 0 0.25rem rgba($input-btn-focus-border-color, 0.25)
+
+// ACCORDION
+$accordion-padding-y: 0
+$accordion-padding-x: 0
+$accordion-color: $color-text
+$accordion-bg: transparent
+$accordion-border-width: 0
+$accordion-border-radius: 0
+$accordion-inner-border-radius: 0
+$accordion-button-active-bg: $accordion-bg
+$accordion-button-focus-box-shadow: none
+$accordion-button-active-color: $accordion-color
+$accordion-icon-width: pxToRem(12)
+
+// BREADCRUMB
+$breadcrumb-item-padding-x: 0
+
+// CARDS
+$card-border-radius: 4px
+$card-inner-border-radius: 0
+$card-cap-padding-y: 0
+$card-cap-padding-x: 0
+$card-border-width: 0
+
+// SPACERS
+$spacers: (0: 0, 1: 0.75rem, 2: 0.938rem, 3: 1.875rem, 4: 3rem, 5: 4rem, 6: 7.5rem, 7: 10rem, 8: 12rem)
+
+// NAVLINK
+$nav-link-color: $color-text
+$nav-link-hover-color: $nav-link-color
+
+// TABLE
+$table-cell-padding-y: pxToRem(24)
+$table-cell-padding-x: 0
+$table-border-color: rgba(black, 0.15)
+$table-th-font-weight: 500
+$table-variants: ("success": #BEFFC1)
+
+// TOOLTOP
+$tooltip-color: $color-text
+$tooltip-bg: white
+$tooltip-opacity: 1
+$tooltip-arrow-width: 0
+$tooltip-arrow-height: 0
+$tooltip-padding-y: pxToRem(12)
+$tooltip-padding-x: pxToRem(12)
+$tooltip-border-radius: pxToRem(12)
+$tooltip-max-width: pxToRem(320)
+
+// PAGINATION
+$pagination-border-width: 0
+
+// ICONS
+$icons: ()
+$icons: map-merge($icons, ("link": "\e905"))
+$icons: map-merge($icons, ("chevron-up": "\e913"))
+$icons: map-merge($icons, ("chevron-down": "\e912"))
+$icons: map-merge($icons, ("arrow-left": "\e904"))
+$icons: map-merge($icons, ("arrow-up": "\e902"))
+$icons: map-merge($icons, ("arrow-down": "\e901"))
+$icons: map-merge($icons, ("arrow-right": "\e903"))
+$icons: map-merge($icons, ("saved": "\e910"))
+$icons: map-merge($icons, ("usaved": "\e911"))
+$icons: map-merge($icons, ("lens": "\e909"))
+$icons: map-merge($icons, ("catalogue": "\e914"))
+$icons: map-merge($icons, ("settings": "\e906"))
+$icons: map-merge($icons, ("pin": "\e908"))
+$icons: map-merge($icons, ("check": "\e932"))
+$icons: map-merge($icons, ("delete": "\e907"))
+$icons: map-merge($icons, ("user": "\e928"))
+$icons: map-merge($icons, ("map": "\e945"))
+$icons: map-merge($icons, ("list": "\e946"))
+
+    
