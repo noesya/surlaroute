@@ -46,23 +46,27 @@ page_lab = Page.lab
               </li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= t('menu.primary.toolbox') %>
-            </a>
-            <ul class="dropdown-menu dropdown-menu--toolbox col-md-12 p-0">
-              <% page_toolbox.children.ordered_by_position.each do |page| %>
-                <li>
-                <%= link_to page, class: "dropdown-item dropdown-item--ecosystem py-2" do %>
-                  <b><%= sanitize page.name %></b>
+          <% if page_toolbox.present? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= t('menu.primary.toolbox') %>
+              </a>
+              <ul class="dropdown-menu dropdown-menu--toolbox col-md-12 p-0">
+                <% page_toolbox.children.ordered_by_position.each_with_index do |page, index| %>
+                  <li>
+                  <%= link_to page, class: "dropdown-item dropdown-item--ecosystem py-2" do %>
+                    <b><%= sanitize page.name %></b>
+                  <% end %>
+                  </li>
                 <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <%= link_to t('menu.primary.lab'), page_path(page_lab), class: "nav-link" %>
-          </li>
+              </ul>
+            </li>
+          <% end %>
+          <% if page_lab.present? %>
+            <li class="nav-item">
+              <%= link_to t('menu.primary.lab'), page_path(page_lab), class: "nav-link" %>
+            </li>
+          <% end %>
         </ul>
         <ul class="nav-secondary d-md-flex ps-0">
           <li>
