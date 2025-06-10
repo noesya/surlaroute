@@ -157,24 +157,7 @@
     </div>
   </div>
 </section>
-
-<section class="home-navigation toolbox">
-  <div class="container py-5 py-md-5">
-    <div class="row py-4 pb-3">
-      <div class="col">
-        <h2 class="h1"><%= @toolbox_page %></h2>
-      </div>
-    </div>
-    <div class="row">
-      <% @toolbox_page.children.ordered_by_position.each do |page| %>
-        <div class="col-md-6 mt-4">
-          <%= link_to page, page, class: "text-decoration-none fw-bold arrow-right" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</section>
-
+<%= render 'home/slices/toolbox' if @toolbox_page.present? %>
 <%= render 'join', context: 'home' unless user_signed_in? %>
 
 <section class="home-about bg-light">

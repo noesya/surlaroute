@@ -1,3 +1,8 @@
+<%
+page_toolbox = Page.toolbox
+page_lab = Page.lab
+%>
+
 <footer class="document-footer">
   <div class="container">
     <nav class="row">
@@ -13,26 +18,28 @@
         <li class="mt-2 pt-md-1"><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil) %></li>
         <li class="mt-2 pt-md-1"><%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil) %></li>
       </ul>
-      <ul class="col-lg-2 mt-4 mt-lg-0">
-        <li>
-          <% page_tools = Page.find_by(internal_identifier: 'boite-a-outils') %>
-          <%= link_to page_tools, page_path(page_tools), class: "fw-bold" %>
-        </li>
-        <% page_tools.children.ordered_by_position.each do |child| %>
-          <li class="mt-2">
-            <%= link_to child, page_path(child) %>
+      <% if page_toolbox.present? %>
+        <ul class="col-lg-2 mt-4 mt-lg-0">
+          <li>
+            <%= link_to page_toolbox, page_path(page_toolbox), class: "fw-bold" %>
           </li>
-        <% end %>
-      </ul>
+          <% page_toolbox.children.ordered_by_position.each do |child| %>
+            <li class="mt-2">
+              <%= link_to child, page_path(child) %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
       <ul class="col-lg-2 mt-4 mt-lg-0">
-        <li>
-          <% page_lab = Page.lab %>
-          <%= link_to page_lab, page_path(page_lab), class: "fw-bold" %>
-        </li>
-        <% page_lab.children.ordered_by_position.each do |child| %>
-          <li class="mt-2">
-            <%= link_to child, page_path(child) %>
+        <% if page_lab.present? %>
+          <li>
+            <%= link_to page_lab, page_path(page_lab), class: "fw-bold" %>
           </li>
+          <% page_lab.children.ordered_by_position.each do |child| %>
+            <li class="mt-2">
+              <%= link_to child, page_path(child) %>
+            </li>
+          <% end %>
         <% end %>
         <li class="mt-2">
           <%= link_to t('ui.transparency.title'), transparency_path %>
