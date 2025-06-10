@@ -1,0 +1,23 @@
+<section class="home-navigation projects">
+  <div class="container d-flex flex-column flex-lg-column-reverse pb-5 py-lg-8">
+    <div class="row align-items-end mt-4 mt-xl-8">
+      <div class="col-12 col-xl-8 mb-2 mb-lg-0">
+        <h2><%= Project.model_name.human(count: 2) %></h2>
+      </div>
+      <div class="home-navigation__link col col-lg-4 position-relative">
+        <%= link_to 'Découvrir des projets d’écoscénographie au travers de leur démarche de réduction d’impacts environnementaux', projects_path(region_slug: nil), class: 'text-decoration-none stretched-link d-flex flex-column' %>
+      </div>
+    </div>
+    <div class="row align-items-start mt-5 mt-lg-0">
+      <div class="col-lg-7">
+        <p class="fw-bold">Des projets d’écoproduction représentatifs de la diversité des pratiques et rendant compte des modèles économiques mis en place pour sortir de l’économie linéaire ; la présentation de ces projets passe par une approche de cycle de vie simplifiée à partir de la roue de Brezet & Van Hemel pour sensibiliser aux outils disponibles afin d’évaluer ses impacts environnementaux.</p>
+      </div>
+      <div class="col-lg-4 offset-lg-1 mt-3 mt-lg-0">
+        <dl class="text-lowercase">
+          <dt class="key-figure"><%= @projects_count %></dt>
+          <dd><%= Project.model_name.human(count: Project.all.count).downcase %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
