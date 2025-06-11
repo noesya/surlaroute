@@ -7,6 +7,15 @@
 
 <div class="document-content">
   <%= render 'structure/items/zones/page', about: @tour %>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= render 'tours/shows/map', shows: @shows %>
+      </div>
+      <div class="col-lg-6">
+        <%= render 'tours/shows/list', shows: @shows %>
+      </div>
+    </div>
+  </div>
   <%= render 'comments/list', about: @tour %>
 </div>

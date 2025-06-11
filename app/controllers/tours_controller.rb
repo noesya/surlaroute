@@ -15,6 +15,7 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find_by!(slug: params[:id])
+    @shows = @tour.shows.ordered
     @new_comment = User::Comment.new(about: @tour) if can?(:create, User::Comment)
     breadcrumb
     add_breadcrumb @tour

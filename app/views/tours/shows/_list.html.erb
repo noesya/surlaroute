@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="fw-bold"><%= Tour::Show.human_attribute_name(:day) %></th>
+        <th class="text-end fw-bold"><%= Tour::Show.human_attribute_name(:place) %></th>
+      </tr>
+    </head>
+    <tbody>
+      <% shows.each do |show| %>
+        <tr>
+          <td><%= l show.day %></td>
+          <td class="text-end"><%= link_to show.place, show.place %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

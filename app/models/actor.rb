@@ -44,6 +44,9 @@ class Actor < ApplicationRecord
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :technics
   has_and_belongs_to_many :authors, class_name: 'User', join_table: "actors_users", association_foreign_key: :user_id
+  has_many  :shows,
+            class_name: 'Tour::Show',
+            foreign_key: :place_id
 
   has_one_attached_deletable :image
   has_one_attached_deletable :logo

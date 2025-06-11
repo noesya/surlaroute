@@ -12,7 +12,6 @@ class ActorsController < ApplicationController
     )
     @actors = @facets.results.ordered_by_creation_date
     @actors = @actors.page(params[:page]) if @mode == "list"
-
     breadcrumb
   end
 
@@ -21,6 +20,7 @@ class ActorsController < ApplicationController
     @materials = @actor.materials.published.ordered
     @projects = @actor.projects.published.ordered
     @technics = @actor.technics.published.ordered
+    @shows = @actor.shows.published.ordered_reverse.page params[:page]
     @new_comment = User::Comment.new(about: @actor) if can?(:create, User::Comment)
 
     breadcrumb

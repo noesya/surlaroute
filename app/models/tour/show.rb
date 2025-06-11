@@ -38,6 +38,7 @@ class Tour::Show < ApplicationRecord
   belongs_to :place, class_name: 'Actor'
 
   scope :ordered, -> { order(:day) }
+  scope :ordered_reverse, -> { order(day: :desc) }
 
   validates_presence_of :day, :place
 
