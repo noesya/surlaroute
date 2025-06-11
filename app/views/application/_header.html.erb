@@ -34,11 +34,6 @@ page_lab = Page.lab
               <span><%= t('search.label') %></span>
             </button>
           </li>
-          <li>
-            <%= link_to regions_path(region_slug: nil), class: "btn-icon btn-regions" do %>
-              <span><%= Region.model_name.human(count: 2) %></span>
-            <% end %>
-          </li>
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle btn-icon btn-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,7 +54,6 @@ page_lab = Page.lab
           <% else %>
             <li class="nav-item"><%= link_to t('login.sign_in'), new_user_session_path, class: "btn-icon btn-user" %></li>
           <% end %>
-            <li class="nav-item offset-md-1"><%= link_to t('menu.primary.donate'), "https://www.helloasso.com/associations/association-les-augures/formulaires/1", class: "btn-dotane" %></li>
         </ul>
       </div>
     </div>
