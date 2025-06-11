@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Tour.human_attribute_name('name') %></th>
+        <th><%= Tour.human_attribute_name('image') %></th>
+        <% if can?(:publish, Tour) %>
+          <th><%= Tour.human_attribute_name('published') %></th>
+          <th><%= Tour.human_attribute_name('status') %></th>
+        <% end %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tours.each do |tour| %>
+        <tr>
+          <td><%= link_to_if can?(:read, tour), tour, [:admin, tour] %></td>
+          <td><%= kamifusen_tag tour.image, width: 100 if tour.image.attached? %></td>
+          <% if can?(:publish, Tour) %>
+            <td><%= t(tour.published?) %></td>
+            <td>
+              <%= t("admin.publication_statuses.#{tour.status}") %>
+            </td>
+          <% end %>
+          <td class="text-end">
+            <%= edit_link tour %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

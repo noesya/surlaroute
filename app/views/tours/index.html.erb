@@ -1,0 +1,45 @@
+<% content_for :title, Tour.model_name.human(count: 2) %>
+<% content_for :meta_description, '' %>
+<% content_for :og_image, image_url("social/tours.png") %>
+<% content_for :canonical_url, tours_url %>
+<% content_for :noindex, params[:facets].present? || params[:page].present? %>
+
+<header class="hero pb-5">
+  <div class="container">
+    <div class="row mt-md-4">
+      <div class="col-lg-5">
+        <hgroup>
+          <h1><%= Tour.model_name.human(count: 2) %></h1>
+          <p class="mt-3 mt-md-5"><%= t('tours.description') %></p>
+        </hgroup>
+        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
+          <dt class="key-figure"><%= @tours.total_count %></dt>
+          <dd><%= Tour.model_name.human(count: Tour.all.count) %></dd>
+        </dl>
+        <%= link_to 'Voir le glossaire', options_tours_path, class: 'small arrow-right' %>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="document-content bg-white py-5" id="results">
+  <div class="container directory">
+    <div class="row">
+      <div class="col d-flex gap-2">
+        <%= render 'application/offcanvas-search-cta' %>
+      </div>
+    </div>
+    <div class="row align-items-start position-relative mt-lg-4">
+      <div class="offcanvas-search col-lg-3 mt-3 mt-lg-0 pt-3 pt-lg-0" tabindex="-1" id="offcanvasScrolling">
+        <%= render 'faceted_search/facets', facets: @facets, anchor: "#results"  %>
+      </div>
+      <div class="directory-container col-lg-9 tours-list mt-4 mt-lg-0">
+        <%= render 'list', objects: @tours, col_number: 4 %>
+        <%= paginate @tours, theme: "bootstrap-5", params: { anchor: "results" } %>
+      </div>
+    </div>
+  </div>
+  <%= render 'reference-cta', objects: @tours %>
+  <%= render 'join' unless user_signed_in? %>
+
+</div>

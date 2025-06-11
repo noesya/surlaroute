@@ -1,0 +1,12 @@
+<%= content_for :title, "#{Tour.model_name.human(count: 2)} (#{@tours.total_count})" %>
+
+<%= render 'order_by_form' %>
+
+<%= render 'filters', current_path: admin_tours_path %>
+
+<%= render 'admin/tours/list', tours: @tours %>
+<%= paginate @tours, theme: 'bootstrap-5' %>
+
+<% content_for :buttons do %>
+  <%= create_link Tour %>
+<% end %>

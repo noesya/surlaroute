@@ -16,6 +16,11 @@ namespace :admin do
   resources :materials
   resources :projects
   resources :technics
+  resources :tours do 
+    member do 
+      resources :show
+    end
+  end
   namespace :projects do
     resources :criterions do
       collection do

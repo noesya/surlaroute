@@ -1,0 +1,24 @@
+<%= content_for :title, @tour %>
+
+<div class="row">
+  <div class="col-lg-4">
+    <%= show @tour, :image, type: :image %>
+  </div>
+  <div class="col-lg-8">
+    <% if can?(:publish, @tour) %>
+      <%= show @tour, :published %>
+      <%= show @tour, :authors, type: :list %>
+      <%= show @tour, :regions, type: :list %>
+      <%= show @tour, :status, type: :enum, value: t("admin.publication_statuses.#{@tour.status}") %>
+    <% end %>
+    <%= show @tour, :description %>
+    <%= render 'admin/structure/items/kinds/show', about: @tour %>
+  </div>
+</div>
+
+<%= render 'admin/logs/widget' %>
+
+<% content_for :buttons do %>
+  <%= destroy_link @tour %>
+  <%= edit_link @tour %>
+<% end %>

@@ -1,0 +1,37 @@
+
+<%= simple_form_for [:admin, @tour] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render 'admin/application/form/publication', f: f %>
+      <h5><%= Tour.human_attribute_name(:image) %></h5>
+      <%= f.input :image,
+                  as: :single_deletable_file,
+                  input_html: { accept: default_images_formats_accepted },
+                  label: false,
+                  resize: 1,
+                  hint: images_formats_accepted_hint,
+                  preview: true %>
+      <%= f.input :image_alt %>
+      <%= f.input :image_credit %>
+    </div>
+    <div class="col-lg-8">
+      <h5>Informations</h5>
+      <%= f.input :name %>
+      <%= f.input :year %>
+      <%= f.input :description %>
+      <%= f.association :regions,
+                        input_html: {
+                          class: 'select2'
+                        } %>
+    </div>
+  </div>
+  <%= render 'admin/structure/items/kinds/edit', f: f %>
+
+  <% content_for :buttons do %>
+    <%= destroy_link tour if tour.persisted? %>
+    <%= submit f %>
+  <% end %>
+<% end %>

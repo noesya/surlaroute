@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @tour_show %>
+
+<div>
+  <%= link_to "Edit this show", edit_tour_show_path(@tour_show) %> |
+  <%= link_to "Back to shows", tour_shows_path %>
+
+  <%= button_to "Destroy this show", @tour_show, method: :delete %>
+</div>

@@ -1,0 +1,11 @@
+<% content_for :title, "New show" %>
+
+<h1>New show</h1>
+
+<%= render "form", tour_show: @tour_show %>
+
+<br>
+
+<div>
+  <%= link_to "Back to shows", tour_shows_path %>
+</div>

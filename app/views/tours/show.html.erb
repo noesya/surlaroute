@@ -1,0 +1,12 @@
+<% content_for :title, @tour %>
+<% content_for :meta_description, @tour.description if @tour.description.present? %>
+<% content_for :og_image, polymorphic_url(@tour.image, only_path: false) if @tour.image.attached? %>
+<% content_for :canonical_url, tour_url(@tour, region_slug: nil) %>
+
+<%= render 'hero', object: @tour %>
+
+<div class="document-content">
+  <%= render 'structure/items/zones/page', about: @tour %>
+
+  <%= render 'comments/list', about: @tour %>
+</div>

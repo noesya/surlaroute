@@ -15,7 +15,7 @@
             <%= link_to t('ecosystem'), actors_path %>
           </li>
           <li class="nav-item">
-            <%= link_to t('menu.primary.tour'), actors_path %>
+            <%= link_to Tour.model_name.human(count: 2), tours_path %>
           </li>
           <li class="nav-item">
             <% page = Page.find_by(slug: 'le-projet') %>

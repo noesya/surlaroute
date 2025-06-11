@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_06_144049) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_11_185714) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -351,6 +351,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_06_144049) do
     t.index ["technic_id", "region_id"], name: "index_regions_technics_on_technic_id_and_region_id"
   end
 
+  create_table "regions_tours", id: false, force: :cascade do |t|
+    t.uuid "region_id", null: false
+    t.uuid "tour_id", null: false
+    t.index ["region_id", "tour_id"], name: "index_regions_tours_on_region_id_and_tour_id"
+    t.index ["tour_id", "region_id"], name: "index_regions_tours_on_tour_id_and_region_id"
+  end
+
   create_table "structure_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.integer "kind", default: 0
@@ -440,6 +447,37 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_06_144049) do
     t.uuid "technic_id", null: false
     t.uuid "user_id", null: false
     t.index ["technic_id", "user_id"], name: "index_technics_users_on_technic_id_and_user_id"
+  end
+
+  create_table "tour_shows", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "tour_id", null: false
+    t.uuid "place_id", null: false
+    t.boolean "published", default: false
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_tour_shows_on_place_id"
+    t.index ["tour_id"], name: "index_tour_shows_on_tour_id"
+  end
+
+  create_table "tours", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "slug"
+    t.string "website"
+    t.integer "year"
+    t.boolean "published", default: false
+    t.integer "status", default: 0
+    t.string "image_alt"
+    t.string "image_credit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tours_users", id: false, force: :cascade do |t|
+    t.uuid "tour_id", null: false
+    t.uuid "user_id", null: false
+    t.index ["tour_id", "user_id"], name: "index_tours_users_on_tour_id_and_user_id"
   end
 
   create_table "transparency_costs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -564,6 +602,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_06_144049) do
   add_foreign_key "structure_values", "structure_items", column: "item_id"
   add_foreign_key "subscriptions", "products"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "tour_shows", "actors", column: "place_id"
+  add_foreign_key "tour_shows", "tours"
   add_foreign_key "transparency_costs", "transparency_years"
   add_foreign_key "transparency_revenues", "transparency_years"
   add_foreign_key "user_comments", "user_comments", column: "reply_to_id"
