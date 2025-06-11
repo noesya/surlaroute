@@ -11,6 +11,7 @@ class Admin::ToursController < Admin::ApplicationController
 
   def show
     @logs = @tour.logs.ordered.page(params[:page])
+    @shows = @tour.shows.ordered
     breadcrumb
   end
 
@@ -29,6 +30,7 @@ class Admin::ToursController < Admin::ApplicationController
     if @tour.save
       redirect_to [:edit, :admin, @tour], notice: t('admin.successfully_created_html', model: @tour.to_s)
     else
+      breadcrumb
       render :new, status: :unprocessable_entity
     end
   end
@@ -36,7 +38,9 @@ class Admin::ToursController < Admin::ApplicationController
   def update
     if @tour.update(tour_params)
       redirect_to [:edit, :admin, @tour], notice: t('admin.successfully_updated_html', model: @tour.to_s)
-    else
+    else 
+      breadcrumb
+      add_breadcrumb t('edit')
       render :edit, status: :unprocessable_entity
     end
   end
@@ -56,7 +60,7 @@ class Admin::ToursController < Admin::ApplicationController
 
   def tour_params
     allowed_params = [
-      :name, :slug, :description, :year,
+      :name, :slug, :description, :year, :website,
       :image, :image_delete, :image_infos, :image_alt, :image_credit,
       region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes

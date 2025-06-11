@@ -17,9 +17,7 @@ namespace :admin do
   resources :projects
   resources :technics
   resources :tours do 
-    member do 
-      resources :show
-    end
+    resources :shows, controller: 'tours/shows', except: :index
   end
   namespace :projects do
     resources :criterions do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_11_185714) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_11_200503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -351,6 +351,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_11_185714) do
     t.index ["technic_id", "region_id"], name: "index_regions_technics_on_technic_id_and_region_id"
   end
 
+  create_table "regions_tour_shows", id: false, force: :cascade do |t|
+    t.uuid "show_id", null: false
+    t.uuid "region_id", null: false
+    t.index ["region_id", "show_id"], name: "index_regions_tour_shows_on_region_id_and_show_id"
+    t.index ["region_id"], name: "index_regions_tour_shows_on_region_id"
+    t.index ["show_id", "region_id"], name: "index_regions_tour_shows_on_show_id_and_region_id"
+    t.index ["show_id"], name: "index_regions_tour_shows_on_show_id"
+  end
+
   create_table "regions_tours", id: false, force: :cascade do |t|
     t.uuid "region_id", null: false
     t.uuid "tour_id", null: false
@@ -456,8 +465,18 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_11_185714) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "day"
     t.index ["place_id"], name: "index_tour_shows_on_place_id"
     t.index ["tour_id"], name: "index_tour_shows_on_tour_id"
+  end
+
+  create_table "tour_shows_users", id: false, force: :cascade do |t|
+    t.uuid "show_id", null: false
+    t.uuid "user_id", null: false
+    t.index ["show_id", "user_id"], name: "index_tour_shows_users_on_show_id_and_user_id"
+    t.index ["show_id"], name: "index_tour_shows_users_on_show_id"
+    t.index ["user_id", "show_id"], name: "index_tour_shows_users_on_user_id_and_show_id"
+    t.index ["user_id"], name: "index_tour_shows_users_on_user_id"
   end
 
   create_table "tours", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -595,6 +614,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_11_185714) do
   add_foreign_key "pages", "pages", column: "parent_id"
   add_foreign_key "project_answers", "project_criterions", column: "criterion_id"
   add_foreign_key "project_answers", "projects"
+  add_foreign_key "regions_tour_shows", "regions"
+  add_foreign_key "regions_tour_shows", "tour_shows", column: "show_id"
   add_foreign_key "structure_options", "structure_items", column: "item_id"
   add_foreign_key "structure_options_values", "structure_options", column: "option_id"
   add_foreign_key "structure_options_values", "structure_values", column: "value_id"
@@ -604,6 +625,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_11_185714) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tour_shows", "actors", column: "place_id"
   add_foreign_key "tour_shows", "tours"
+  add_foreign_key "tour_shows_users", "tour_shows", column: "show_id"
+  add_foreign_key "tour_shows_users", "users"
   add_foreign_key "transparency_costs", "transparency_years"
   add_foreign_key "transparency_revenues", "transparency_years"
   add_foreign_key "user_comments", "user_comments", column: "reply_to_id"

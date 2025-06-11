@@ -163,20 +163,24 @@ fr:
         sources: Sources
         status: Statut
       tour:
-        actors: Contacts
-        authors: Fiche publiée par
+        authors: Publiée par
         description: Description
         image: Image
         image_alt: Texte alternatif
         image_credit: Crédit
-        materials: Matériaux utilisés
         name: Nom
-        published: Fiche publiée
+        published: Publiée
         regions: Provenance
         slug: Identifiant
         sources: Sources
         status: Statut
+        website: Site Web
         year: Année
+      tour/show:
+        day: Jour
+        place: Lieu
+        status: Statut
+        published: Publiée
       transparency/cost:
         amount: Montant
         description: Description
@@ -270,6 +274,9 @@ fr:
       tour:
         one: Tournée
         other: Tournées
+      tour/show:
+        one: Date
+        other: Dates
       transparency/cost:
         one: Coût
         other: Coûts

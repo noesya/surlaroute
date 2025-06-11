@@ -1,10 +1,27 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @tour_show %>
-
-<div>
-  <%= link_to "Edit this show", edit_tour_show_path(@tour_show) %> |
-  <%= link_to "Back to shows", tour_shows_path %>
-
-  <%= button_to "Destroy this show", @tour_show, method: :delete %>
+<%= content_for :title, @show %>
+<div class="row">
+  <div class="col-lg-4">
+  </div>
+  <div class="col-lg-8">
+    <% if can?(:publish, @show) %>
+      <%= show @show, :published %>
+      <%= show @show, :authors, type: :list %>
+      <%= show @show, :regions, type: :list %>
+      <%= show @show, :status, type: :enum, value: t("admin.publication_statuses.#{@show.status}") %>
+    <% end %>
+    <%= render 'admin/structure/items/kinds/show', about: @show %>
+  </div>
 </div>
+
+<%= render 'admin/logs/widget' %>
+
+<% content_for :buttons do %>
+  <%= link_to t('delete'),
+              admin_tour_show_path(tour_id: @tour, id: @show),
+              method: :delete,
+              data: { confirm: t('please_confirm') },
+              class: button_classes_danger %>
+  <%= link_to t('edit'),
+              edit_admin_tour_show_path(tour_id: @tour, id: @show), 
+              class: button_classes %>
+<% end %>

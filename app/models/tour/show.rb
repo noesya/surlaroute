@@ -3,8 +3,9 @@
 # Table name: tour_shows
 #
 #  id         :uuid             not null, primary key
+#  day        :date
 #  published  :boolean          default(FALSE)
-#  status     :integer          default(0)
+#  status     :integer          default("draft")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  place_id   :uuid             not null, indexed
@@ -21,6 +22,26 @@
 #  fk_rails_dccff436e9  (place_id => actors.id)
 #
 class Tour::Show < ApplicationRecord
+  include Commentable
+  include Favoritable
+  include Loggable
+  include Orderable
+  include Publishable
+  include Regional
+  include Structured
+
+  has_and_belongs_to_many :authors,
+                          class_name: 'User',
+                          join_table: 'tour_shows_users',
+                          association_foreign_key: :user_id
   belongs_to :tour
-  belongs_to :place
+  belongs_to :place, class_name: 'Actor'
+
+  scope :ordered, -> { order(:day) }
+
+  validates_presence_of :day, :place
+
+  def to_s
+    "#{I18n.l(day)}, #{place}"
+  end
 end

@@ -3,12 +3,14 @@
 # Table name: tours
 #
 #  id           :uuid             not null, primary key
+#  description  :text
 #  image_alt    :string
 #  image_credit :string
 #  name         :string
 #  published    :boolean          default(FALSE)
 #  slug         :string
 #  status       :integer          default("draft")
+#  website      :string
 #  year         :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -25,6 +27,7 @@ class Tour < ApplicationRecord
   include Structured
 
   has_and_belongs_to_many :authors, class_name: 'User', join_table: "tours_users", association_foreign_key: :user_id
+  has_many :shows
 
   has_one_attached_deletable :image
   has_one_attached_deletable :logo
