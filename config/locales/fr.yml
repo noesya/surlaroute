@@ -471,7 +471,7 @@ fr:
   menu:
     primary:
       project: Le projet
-      explorer: Explorer
+      explore: Explorer
       tour: Tournées
       directory: Annuaire
       donate: Faire un don

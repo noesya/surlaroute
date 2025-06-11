@@ -13,12 +13,13 @@ page_lab = Page.lab
       <button id="main-menu-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav col-xl-7 justify-content-between">
           <li class="nav-item">
-            <%= t('menu.primary.project') %>
+            <%= t('menu.primary.projects') %>
           </li>
           <li class="nav-item">
-            <%= t('menu.primary.explorer') %>
+            <%= t('menu.primary.explore') %>
           </li>
           <li class="nav-item">
             <%= t('menu.primary.tour') %>
@@ -26,7 +27,6 @@ page_lab = Page.lab
           <li class="nav-item">
             <%= t('menu.primary.directory') %>
           </li>
-
         </ul>
         <ul class="nav-secondary d-md-flex ps-0">
           <li>
@@ -61,5 +61,7 @@ page_lab = Page.lab
           <% end %>
             <li class="nav-item offset-md-1"><%= link_to t('menu.primary.donate'), "https://www.helloasso.com/associations/association-les-augures/formulaires/1", class: "btn-dotane" %></li>
         </ul>
+      </div>
+    </div>
   </nav>
 </header>
