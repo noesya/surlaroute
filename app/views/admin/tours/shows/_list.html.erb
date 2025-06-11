@@ -1,0 +1,34 @@
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Tour::Show.human_attribute_name('day') %></th>
+        <th><%= Tour::Show.human_attribute_name('place')  %></th>
+        <% if can?(:publish, Tour::Show) %>
+          <th><%= Tour::Show.human_attribute_name('published') %></th>
+          <th><%= Tour::Show.human_attribute_name('status') %></th>
+        <% end %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% shows.each do |show| %>
+        <tr>
+          <td><%= link_to_if can?(:read, show), show, admin_tour_show_path(tour_id: @tour, id: show) %></td>
+          <% if can?(:publish, Tour::Show) %>
+            <td><%= t(show.published?) %></td>
+            <td>
+              <%= t("admin.publication_statuses.#{show.status}") %>
+            </td>
+          <% end %>
+          <td class="text-end">
+            <%= link_to_if  can?(:edit, show),
+                            t('edit'),
+                            edit_admin_tour_show_path(tour_id: @tour, id: show),
+                            class: button_classes %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

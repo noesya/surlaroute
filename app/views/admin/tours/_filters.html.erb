@@ -1,0 +1,42 @@
+<%= simple_form_for :filters, url: current_path, method: :get do |f| %>
+
+  <%= filters_panel current_path: current_path, active_filters_count: active_filters_count do |form| %>
+
+    <%= render_filter f, 
+                      :string, 
+                      :search, 
+                      label: t('admin.filters.search_field')
+                      %>
+
+    <% if can?(:publish, Tour) %>
+      <%= render_filter f, 
+                        :select, 
+                        :status, 
+                        label: t('admin.filters.status'),
+                        collection: Tour.statuses.map { |r, v| { to_s: I18n.t("admin.publication_statuses.#{r}"), id: r } }
+                        %>
+
+      <%= render_filter f, 
+                        :select, 
+                        :published, 
+                        label: t('admin.filters.published'),
+                        collection: [
+                          { to_s: I18n.t('true'), id: 'true' },
+                          { to_s: I18n.t('false'), id: 'false' }
+                        ]
+                        %>
+    <% end %>
+
+    <%= render_filter f, 
+                      :select, 
+                      :region, 
+                      label: Region.model_name.human,
+                      multiple: true,
+                      collection: Region.ordered
+                      %>
+
+  <% end %>
+
+<% end %>
+
+

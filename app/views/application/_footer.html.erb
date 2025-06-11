@@ -1,85 +1,35 @@
-<%
-page_toolbox = Page.toolbox
-page_lab = Page.lab
-%>
 <footer class="document-footer">
   <div class="container">
     <nav class="row">
-      <div class="col-lg-4">
-        <%= link_to root_path, class: "footer-brand" do %>
-          <%= image_tag 'logo.svg', alt: t('website'), loading: 'lazy' %>
+      <div class="col-lg-6">
+        <%= link_to root_path do %>
+          <%= image_tag('surlaroute/logos/logo-sur-la-route-entier.svg', alt: 'Sur la route', width: 300, height: 46, loading: 'lazy') %>
         <% end %>
       </div>
-      <ul class="col-lg-2 mt-4 mt-lg-0">
+      <ul class="col-lg-3 mt-4 mt-lg-0">
         <li><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
         <li class="mt-2 pt-md-1"><%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil) %></li>
-        <li class="mt-2 pt-md-1"><%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil) %></li>
-        <li class="mt-2 pt-md-1"><%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil) %></li>
-        <li class="mt-2 pt-md-1"><%= link_to Region.model_name.human(count: 2), regions_path(region_slug: nil) %></li>
       </ul>
-      <% if page_toolbox.present? %>
-        <ul class="col-lg-2 mt-4 mt-lg-0">
-          <li>
-            <%= link_to page_toolbox, page_path(page_toolbox), class: "fw-bold" %>
-          </li>
-          <% page_toolbox.children.ordered_by_position.each do |child| %>
-            <li class="mt-2">
-              <%= link_to child, page_path(child) %>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-      <ul class="col-lg-2 mt-4 mt-lg-0">
-        <% if page_lab.present? %>
-          <li>
-            <%= link_to page_lab, page_path(page_lab), class: "fw-bold" %>
-          </li>
-          <% page_lab.children.ordered_by_position.each do |child| %>
-            <li class="mt-2">
-              <%= link_to child, page_path(child) %>
-            </li>
-          <% end %>
-        <% end %>
-        <li class="mt-2">
-          <%= link_to t('ui.transparency.title'), transparency_path %>
-        </li>
-      </ul>
-      <ul class="col-lg-2 mt-4 mt-lg-0">
+      <ul class="col-lg-3 mt-4 mt-lg-0">
         <li>
           <% page_legal = Page.find_by(internal_identifier: 'mentions-legales') %>
-          <%= link_to page_legal, page_path(page_legal), class: "fw-bold" %>
+          <%= link_to page_legal, page_path(page_legal) %>
         </li>
         <li class="mt-2">
           <% page_cgu = Page.find_by(internal_identifier: 'cgu') %>
-          <%= link_to page_cgu, page_path(page_cgu), class: "fw-bold" %>
+          <%= link_to page_cgu, page_path(page_cgu) %>
         </li>
         <li class="mt-2">
-          <a href="https://www.numeriqueinteretgeneral.org/etudes-de-cas/ecotheque" title="Numérique d'intérêt général - Lien externe" target="_blank">
-            Numérique d'intérêt général
-          </a>
+          <%= link_to t('ui.transparency.title'), transparency_path %>
         </li>
         <li class="mt-2">
           <% page_contact = Page.find_by(internal_identifier: 'contact') %>
           <%= link_to page_contact, page_path(page_contact) %>
         </li>
-        <li class="mt-2"><a href="https://www.linkedin.com/company/les-augures/" title="Linkedin - Lien externe" target="_blank">Linkedin</a></li>
-        <li class="mt-2"><a href="https://www.instagram.com/ecotheque_/" title="Instagram - Lien externe" target="_blank">Instagram</a></li>
       </ul>
     </nav>
-    <div class="row mt-5">
-        <span class="small pb-2 pb-lg-0"><%= t('footer.implementation.title') %></span>
-        <ul class="footer-credits small">
-          <li class="row mt-1"><a class="col-lg-2" href="https://villettemakerz.com" target="_blank" rel="noreferrer">Villette Makerz</a> <span class="col"><%= t('footer.implementation.project_management') %></span></li>
-          <li class="row mt-1"><a class="col-lg-2" href="https://www.dazd.fr" target="_blank" rel="noreferrer">studio dazd</a> <span class="col"><%= t('footer.implementation.design') %></span></li>
-          <li class="row mt-1"><a class="col-lg-2" href="https://ctrls.studio" target="_blank" rel="noreferrer">Ctrl S</a> <span class="col"><%= t('footer.implementation.ecoconception') %></span></li>
-          <li class="row mt-1"><a class="col-lg-2" href="https://www.noesya.coop" target="_blank" rel="noreferrer">noesya</a> <span class="col"><%= t('footer.implementation.development') %></span></li>
-        </ul>
-    </div>
     <div class="row mt-3 align-items-center">
-      <div class="col-12 col-lg-4 col-xxl-6 align-bottom">
-        <%= image_tag('surlaroute/logos/logo-sur-la-route-entier.svg', alt: 'sur la route', width: '300', height: '300', class: 'me-3', loading: 'lazy') %>
-      </div>
-      <div class="col-12 col-lg-8 col-xxl-6 mt-5 mt-lg-0">
+      <div class="offset-lg-6 col-lg-6 mt-5 mt-lg-0">
         <span class="small"><%= t('footer.implementation.sponsored') %></span>
         <ul class="footer-supports">
           <%= image_tag('surlaroute/logos-partners/encc.svg', alt: 'European Network of Cultural Centres', width: '150', height: '80', loading: 'lazy') %></li>

@@ -15,6 +15,7 @@ class Icon
   STRUCTURE = 'bi bi-gear-fill'
   SUBSCRIPTION = 'bi bi-coin'
   TECHNIC = 'bi bi-pencil-fill'
+  TOUR = 'bi bi-signpost-split-fill'
   TRANSPARENCY = 'bi bi-search-heart-fill'
   USER = 'bi bi-person-fill'
 

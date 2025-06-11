@@ -1,0 +1,38 @@
+<%
+url = show.persisted? ? admin_tour_show_path(tour_id: @tour.slug, id: show.id) : admin_tour_shows_path(tour_id: @tour.slug)
+%>
+<%= simple_form_for show, url: url do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render 'admin/application/form/publication', f: f %>
+    </div>
+    <div class="col-lg-8">
+      <h5>Informations</h5>
+      <div class="row">
+        <div class="col-lg-4">
+          <%= f.input :day, html5: true %>
+        </div>
+        <div class="col-lg-8">
+          <%= f.association :place,
+                            input_html: {
+                              class: 'select2'
+                            },
+                            collection: Actor.ordered %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'admin/structure/items/kinds/edit', f: f %>
+
+  <% content_for :buttons do %>
+    <%= link_to t('delete'),
+                admin_tour_show_path(tour_id: @tour, id: show),
+                method: :delete,
+                data: { confirm: t('please_confirm') },
+                class: button_classes_danger if show.persisted? %>
+    <%= submit f %>
+  <% end %>
+<% end %>

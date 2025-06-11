@@ -61,6 +61,15 @@ Rails.application.routes.draw do
         get ':item_slug/:option_slug' => 'technics#option', as: :option
       end
     end
+    resources :tours, path: 'tournees', only: [:index, :show] do
+      collection do
+        get 'glossaire' => 'tours#options', as: :options
+        get ':item_slug/:option_slug' => 'tours#option', as: :option
+      end
+      member do 
+        resources :shows, only: :show
+      end
+    end
   end
   get 'regions' => 'regions#index', as: :regions
   get '/:id' => 'regions#show', as: :region, constraints: lambda { |request|

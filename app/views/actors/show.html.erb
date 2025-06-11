@@ -74,4 +74,19 @@
   </section>
 <% end %>
 
+<% if @shows.any? %>
+  <section class="bg-white py-5">
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2><%= Actor.human_attribute_name(:shows) %></h2>
+      </div>
+      <div class="col-lg-6">
+        <%= render 'actors/shows', shows: @shows %>
+        <%= paginate @shows, theme: "bootstrap-5" %>
+      </div>    
+    </div>
+  </section>
+<% end %>
+
 <%= render 'comments/list', about: @actor %>
