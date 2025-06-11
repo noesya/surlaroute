@@ -5,6 +5,7 @@ class Admin::DashboardController < Admin::ApplicationController
       Project,
       Material,
       Technic,
+      Tour,
       Page,
       Definition,
       Region,
