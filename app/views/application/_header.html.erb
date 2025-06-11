@@ -1,7 +1,3 @@
-<%
-page_toolbox = Page.toolbox
-page_lab = Page.lab
-%>
 <header id="document-header" class="mb-3 is-top">
   <nav class="navbar navbar-expand-lg">
     <div class="container container-fluid">
@@ -16,16 +12,14 @@ page_lab = Page.lab
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav col-md-7 offset-md-2 justify-content-between">
           <li class="nav-item">
-            <%= t('menu.primary.project') %>
+            <%= link_to t('ecosystem'), actors_path %>
           </li>
           <li class="nav-item">
-            <%= t('menu.primary.explore') %>
+            <%= link_to t('menu.primary.tour'), actors_path %>
           </li>
           <li class="nav-item">
-            <%= t('menu.primary.tour') %>
-          </li>
-          <li class="nav-item">
-            <%= t('menu.primary.directory') %>
+            <% page = Page.find_by(slug: 'le-projet') %>
+            <%= link_to page, page_path(page) %>
           </li>
         </ul>
         <ul class="nav-secondary d-md-flex ps-0">
