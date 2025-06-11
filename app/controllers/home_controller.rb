@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     @materials_count = Material.published.count
     @projects_count = Project.published.count
     @technics_count = Technic.published.count
+    @regions_count = Region.count
     breadcrumb
   end
 end
