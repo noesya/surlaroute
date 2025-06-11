@@ -70,7 +70,7 @@ header#document-header
         .dropdown-menu
             box-shadow: 0 .5rem 1rem rgba($black, .15)
             margin-top: map-get($spacers, 2)
-        .navbar-nav 
+        .navbar-nav
             .dropdown-toggle[aria-expanded="true"]::before
                 background: var(--bs-body-color)
                 bottom: var(--bs-navbar-nav-link-padding-x)
@@ -112,7 +112,7 @@ header#document-header
                     font-weight: bold
                     padding-bottom: space(6)
                     padding-top: space(6)
-                &:not(:last-child) 
+                &:not(:last-child)
                     .nav-link[aria-expanded="false"]
                         border-bottom: 1px solid currentColor
             .dropdown-menu
@@ -121,7 +121,7 @@ header#document-header
                 --bs-dropdown-item-padding-x: #{map-get($spacers, 3)}
         .nav-secondary
             margin-top: map-get($spacers, 2)
-            > li 
+            > li
                 &:last-child
                     margin-top: map-get($spacers, 3)
                 + li
