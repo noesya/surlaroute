@@ -15,69 +15,24 @@ page_lab = Page.lab
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav col-xl-7 justify-content-between">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= t('ui.directories.title') %>
-            </a>
-            <ul class="dropdown-menu dropdown-menu--primary col-md-12 p-0">
-              <li>
-                <%= link_to actors_path(region_slug: nil), class: "dropdown-item dropdown-item--ecosystem py-2" do %>
-                  <b><%= t('ecosystem') %></b>
-                  <span><%= t('ui.directories.details.actors') %></span>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to projects_path(region_slug: nil), class: "dropdown-item dropdown-item--projects py-2" do %>
-                  <b><%= Project.model_name.human(count: 2) %></b>
-                  <span><%= t('ui.directories.details.projects') %></span>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to materials_path(region_slug: nil), class: "dropdown-item dropdown-item--materials py-2" do %>
-                  <b><%= Material.model_name.human(count: 2) %></b>
-                  <span><%= t('ui.directories.details.materials') %></span>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to technics_path(region_slug: nil), class: "dropdown-item dropdown-item--technics py-2" do %>
-                  <b><%= Technic.model_name.human(count: 2) %></b>
-                  <span><%= t('ui.directories.details.technics') %></span>
-                <% end %>
-              </li>
-            </ul>
+          <li class="nav-item">
+            <%= t('menu.primary.projects') %>
           </li>
-          <% if page_toolbox.present? %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= t('menu.primary.toolbox') %>
-              </a>
-              <ul class="dropdown-menu dropdown-menu--toolbox col-md-12 p-0">
-                <% page_toolbox.children.ordered_by_position.each_with_index do |page, index| %>
-                  <li>
-                  <%= link_to page, class: "dropdown-item dropdown-item--ecosystem py-2" do %>
-                    <b><%= sanitize page.name %></b>
-                  <% end %>
-                  </li>
-                <% end %>
-              </ul>
-            </li>
-          <% end %>
-          <% if page_lab.present? %>
-            <li class="nav-item">
-              <%= link_to t('menu.primary.lab'), page_path(page_lab), class: "nav-link" %>
-            </li>
-          <% end %>
+          <li class="nav-item">
+            <%= t('menu.primary.explore') %>
+          </li>
+          <li class="nav-item">
+            <%= t('menu.primary.tour') %>
+          </li>
+          <li class="nav-item">
+            <%= t('menu.primary.directory') %>
+          </li>
         </ul>
         <ul class="nav-secondary d-md-flex ps-0">
           <li>
             <button class="btn-icon btn-search" data-bs-toggle="modal" data-bs-target="#searchModal">
               <span><%= t('search.label') %></span>
             </button>
-          </li>
-          <li>
-            <%= link_to regions_path(region_slug: nil), class: "btn-icon btn-regions" do %>
-              <span><%= Region.model_name.human(count: 2) %></span>
-            <% end %>
           </li>
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
@@ -99,7 +54,6 @@ page_lab = Page.lab
           <% else %>
             <li class="nav-item"><%= link_to t('login.sign_in'), new_user_session_path, class: "btn-icon btn-user" %></li>
           <% end %>
-            <li class="nav-item offset-md-1"><%= link_to t('menu.primary.donate'), "https://www.helloasso.com/associations/association-les-augures/formulaires/1", class: "btn-dotane" %></li>
         </ul>
       </div>
     </div>
