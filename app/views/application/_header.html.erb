@@ -17,10 +17,12 @@
           <li class="nav-item">
             <%= link_to Tour.model_name.human(count: 2), tours_path %>
           </li>
-          <li class="nav-item">
-            <% page = Page.find_by(slug: 'le-projet') %>
-            <%= link_to page, page_path(page) %>
-          </li>
+          <% page = Page.find_by(slug: 'le-projet') %>
+          <% if page %>
+            <li class="nav-item">
+              <%= link_to page, page_path(page) %>
+            </li>
+          <% end %>
         </ul>
         <ul class="nav-secondary d-md-flex ps-0">
           <li>
