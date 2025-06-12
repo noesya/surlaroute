@@ -452,6 +452,8 @@ fr:
           approved: Approuvé
           pending: En attente de modération
           rejected: Rejeté
+  faceted_search:
+    reset: Réinitialiser
   'false': Non
   folder:
     close: Fermer le dossier
