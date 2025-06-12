@@ -26,7 +26,9 @@ class Structure::Item < ApplicationRecord
     Actor,
     Project,
     Material,
-    Technic
+    Technic,
+    Tour,
+    Tour::Show
   ]
 
   ABOUT_CLASSES_WITH_PREMIUM = [
