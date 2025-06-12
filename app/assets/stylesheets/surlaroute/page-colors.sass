@@ -1,0 +1,100 @@
+\:root
+    --page-main-color: #{$yellow}
+    // Blocks
+    --block-quote-background: white
+
+body
+    background: var(--page-main-color)
+
+.bg-actors
+    background-color: $ecosystem-primary
+.bg-materials
+    background-color: $materials-primary
+.bg-projects
+    background-color: $projects-primary
+.bg-technics
+    background-color: $technic-primary
+.bg-toolbox
+    background-color: $toolbox-primary
+
+// colors and hero images
+.pages-show
+    --page-main-color: #{$yellow}
+
+.actors-index
+    --page-main-color: #{$yellow}
+.actors-index
+    .hero
+        background-image: asset-url("letters/actors.svg")
+
+.materials-index
+    --page-main-color: #{$materials-primary}
+.materials-index
+    .hero
+        background-image: asset-url("letters/materials.svg")
+
+.projects-index
+    --page-main-color: #{$projects-primary}
+.projects-index
+    .hero
+        background-image: asset-url("letters/projects.svg")
+
+.technics-index
+    --page-main-color: #{$technic-primary}
+.technics-index
+    .hero
+        background-image: asset-url("letters/technics.svg")
+
+.laboratory-index
+    --page-main-color: white
+.laboratory-index
+    .hero
+        background-image: asset-url("letters/lab-index.svg")
+
+.offers-index, .subscriptions-new
+    .hero
+        background-image: asset-url("letters/lab.svg")
+        background-size: contain
+        background-position: 100% 100%
+        background-repeat: no-repeat
+
+.members-index
+    .hero
+        background-image: asset-url("letters/members.svg")
+
+.toolbox-index, .toolbox-child
+    --page-main-color: #{$toolbox-primary}
+    --block-quote-background: #{$toolbox-primary}
+.hero
+    .toolbox-index &
+        background-image: asset-url("letters/toolbox.svg")
+    .toolbox-child &
+        background-image: asset-url("letters/toolbox-expanded.svg")
+
+.hero
+    .actors-options &,
+    .actors-option &
+        background: $ecosystem-primary
+    .materials-options &,
+    .materials-option &
+        background: $materials-primary
+    .projects-options &,
+    .projects-option &
+        background: $projects-primary
+    .technics-options &,
+    .technics-option &
+        background: $technic-primary
+
+// search colored links
+
+.search-quick-links
+    a
+        background-size: cover
+    .bg-actors
+        background-image: asset-url("letters/reduced-actors.svg")
+    .bg-materials
+        background-image: asset-url("letters/reduced-materials.svg")
+    .bg-technics
+        background-image: asset-url("letters/reduced-technics.svg")
+    .bg-projects
+        background-image: asset-url("letters/reduced-projects.svg")

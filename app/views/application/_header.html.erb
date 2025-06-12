@@ -19,7 +19,9 @@
           </li>
           <li class="nav-item">
             <% page = Page.find_by(slug: 'le-projet') %>
-            <%= link_to page, page_path(page) %>
+            <% if page %>
+              <%= link_to page, page_path(page) %>
+            <% end %>
           </li>
         </ul>
         <ul class="nav-secondary d-md-flex ps-0">
