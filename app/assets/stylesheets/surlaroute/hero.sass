@@ -92,15 +92,15 @@
         margin-right: 0px !important
         padding-bottom: 0px !important
         .logo-round-1
-            img
+            .stickers
                 width: auto
                 height: 230px
                 position: absolute
-                left: 50%
+                left: 60%
                 top: 15%
                 rotate: -10deg
         .logo-round-2
-            img
+            .stickers
                 width: auto
                 height: 230px
                 position: absolute
@@ -108,6 +108,8 @@
                 bottom: -8%
                 rotate: 45deg
         .directory-image
+            right: -15%
+            position: relative
             img
                 width: 100%
                 height: 600px
@@ -115,3 +117,39 @@
                 -webkit-mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
                 mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
 
+
+@keyframes rotate-right
+  0%
+    transform: rotate(0deg)
+
+
+  50%
+    transform: rotate(90deg)
+
+
+  100%
+    transform: rotate(180deg)
+
+
+@keyframes rotate-left
+  0%
+    transform: rotate(-180deg)
+
+
+  50%
+    transform: rotate(-90deg)
+
+
+  100%
+    transform: rotate(0deg)
+
+
+
+.logo-round-1.scroll-down .stickers,
+.logo-round-2.scroll-down .stickers
+  animation: rotate-right 0.4s ease
+
+
+.logo-round-1.scroll-up .stickers,
+.logo-round-2.scroll-up .stickers
+  animation: rotate-left 0.4s ease
