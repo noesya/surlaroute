@@ -1,0 +1,119 @@
+.hero
+    position: relative
+    overflow: hidden
+    z-index: 1
+    padding-top: map-get($spacers, 5)
+    background: var(--page-main-color)
+    .locations-list
+        display: flex
+        gap: map-get($spacers, 1)
+        flex-wrap: wrap
+        > h3
+            width: 100%
+            margin-bottom: pxToRem(3) !important
+        a.btn
+            @include icon(pin)
+            &::before
+                font-size: 12px
+                margin-right: calc(#{map-get($spacers, 1)} / 2)
+
+    .credit
+        &::before
+            content: '© '
+.actors-index,
+.materials-index,
+.projects-index,
+.technics-index,
+.regions-index,
+.members-index,
+.toolbox-index,
+.toolbox-child,
+.laboratory-index,
+    .hero
+        background:
+            repeat: no-repeat
+            size: 100%
+            position: right bottom
+        hgroup
+            p
+                font-weight: 600
+        dl
+            dd
+                font-weight: 400
+        @include media-breakpoint-up(md)
+            dl
+                dd
+                    font-size: pxToRem(20)
+        @include media-breakpoint-up(xxl)
+            background-size: contain
+
+.offers-index,
+.subscriptions-new,
+.subscriptions-summary,
+.subscriptions-verification,
+.subscriptions-confirmation
+    .hero
+        background: white
+.regions-index,
+.offers-index,
+.subscriptions-new,
+.subscriptions-summary,
+.subscriptions-verification,
+.subscriptions-confirmation
+    .hero
+        overflow: unset
+        z-index: 5
+        position: relative
+        > img
+            bottom: 0
+            right: 0
+            position: absolute
+            pointer-events: none
+            width: auto
+            height: 30%
+            @include media-breakpoint-down(xxl)
+                height: 100%
+            @include media-breakpoint-down(lg)
+                height: 80%
+            @include media-breakpoint-down(sm)
+                height: 40%
+            @include media-breakpoint-up(xxl)
+                height: 130%
+.regions-index
+    .hero > img
+.structure--zone-header
+    > .row
+        row-gap: map-get($spacers, 4)
+    + .locations-list
+        margin-top: map-get($spacers, 4)
+
+.actors-index
+    .hero
+        margin-right: 0px !important
+        padding-bottom: 0px !important
+        .logo-round-1
+            img
+                width: auto
+                height: 230px
+                position: absolute
+                left: 50%
+                top: 15%
+                rotate: -10deg
+        .logo-round-2
+            img
+                width: auto
+                height: 230px
+                position: absolute
+                left: 25%
+                bottom: -8%
+                rotate: 45deg
+        .directory-image
+            img
+                width: 100%
+                height: 600px
+                object-fit: cover
+                -webkit-mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
+                mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
+
+.header
+

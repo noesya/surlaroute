@@ -6,7 +6,7 @@
 
 <header class="hero pb-5">
   <div class="container">
-    <div class="row mt-md-4">
+    <div class="row mt-md-4 ">
       <div class="col-lg-5">
         <hgroup>
           <h1><%= t('ecosystem') %></h1>
@@ -18,7 +18,16 @@
         </dl>
         <%= link_to 'Voir le glossaire', options_actors_path, class: 'small arrow-right' %>
       </div>
+      <div class="col-lg-7 directory-image">
+          <%= image_tag 'surlaroute/images-directory/image-annuaire.png', alt: t('Image annuaire') %>
+      </div>
     </div>
+  </div>
+  <div class="logo-round-1">
+    <%= image_tag 'surlaroute/images-directory/logo-round.svg', alt: t('Logo Sur la Route en cercle') %>
+  </div>
+  <div class="logo-round-2">
+    <%= image_tag 'surlaroute/images-directory/logo-round.svg', alt: t('Logo Sur la Route en cercle') %>
   </div>
 </header>
 
@@ -46,5 +55,4 @@
   </div>
   <%= render 'reference-cta', objects: @actors %>
   <%= render 'join' unless user_signed_in? %>
-
 </div>
