@@ -477,11 +477,10 @@ fr:
     not_registered_yet: Pas encore inscrit·e ?
     not_registered_yet_details:
       list:
-        - Proposer une bonne addresse, un matériau, un projet ou une technique
+        - Proposer un acteur ou une actrice
         - Créer votre bibliothèque personnelle de favoris
         - Télécharger les documents
-        - Partager vos retours d'expériences en commentaire
-        - Recevoir la newsletter mensuelle avec nos actualités
+        - Partager vos retours d'expérience en commentaire
       text: "L'inscription est gratuite et vous permet de :"
     or: ou bien
     sign_in: Se connecter
