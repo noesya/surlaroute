@@ -8,7 +8,7 @@
     <div class="row align-items-start mt-5 mt-lg-0">
       <div class="col-lg-4">
         <p class="fw-bold"><%= t('regions.description') %></p>
-        <%= link_to 'Découvrir les écothèques régionales', regions_path(region_slug: nil), class: 'fw-bold' %>
+        <%= link_to 'Découvrir les régions', regions_path(region_slug: nil), class: 'fw-bold' %>
       </div>
       <div class="regions-map">
         <%= link_to regions_path(region_slug: nil), class: 'home-navigation__link', title: Region.model_name.human(count: 2) do %>

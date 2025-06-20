@@ -3,7 +3,7 @@ title = content_for?(:title)  ? "#{CGI::unescapeHTML(yield(:title))} • #{t('we
                               : t('website')
 icon = asset_path 'icons/favicons/favicon.png'
 color = "#F2F3F4"
-description = content_for?(:meta_description) ? yield(:meta_description) : "écothèque, la plateforme collaborative de l’écoscénographie"
+description = content_for?(:meta_description) ? yield(:meta_description) : "Sur la route, l'atlas des tournées à modes doux'"
 og_image = content_for?(:og_image) ? yield(:og_image) : image_url("social/default.jpg")
 %>
 
@@ -24,17 +24,3 @@ og_image = content_for?(:og_image) ? yield(:og_image) : image_url("social/defaul
 <% if content_for?(:noindex) %>
   <meta name="robots" content="noindex">
 <% end %>
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "écothèque – Augures Lab",
-    "url": "https://www.ecotheque.fr",
-    "logo": "https://www.ecotheque.fr/logo.png",
-    "sameAs": [
-      "https://www.linkedin.com/company/les-augures/",
-      "https://www.instagram.com/ecotheque_/"
-    ]
-  }
-</script>
