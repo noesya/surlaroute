@@ -59,6 +59,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :technics
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :actors
+  has_and_belongs_to_many :tours
+  has_and_belongs_to_many :tour_show, though: :tours, class_name: 'Tour::Show'
 
   has_one_attached_deletable :image
 
