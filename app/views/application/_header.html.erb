@@ -3,7 +3,7 @@
     <div class="container container-fluid">
       <div class="navbar-logo col-md-3">
         <%= link_to root_path, class: "navbar-brand" do %>
-          <%= image_tag 'logo.svg', alt: t('website') %>
+          <%= render "logo" %>
         <% end %>
       </div>
       <button id="main-menu-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
