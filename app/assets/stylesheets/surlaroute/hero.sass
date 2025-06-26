@@ -89,67 +89,76 @@
 
 .actors-index
     .hero
-        margin-right: 0px !important
-        padding-bottom: 0px !important
-        .logo-round-1
+        @include media-breakpoint-down(md)
+            height: 500px
+        .logo-round-1, .logo-round-2
             .stickers
                 width: auto
                 height: 230px
+                @include media-breakpoint-down(md)
+                    height: 150px
                 position: absolute
-                left: 60%
-                top: 15%
+        .logo-round-1
+            .stickers
+                @include media-breakpoint-down(md)
+                    width: 35%
+                    left: 50%
+                    top: 35%
+                @include media-breakpoint-up(md)
+                    width: 45%
+                    left: 45%
+                    top: 0%
                 rotate: -10deg
         .logo-round-2
             .stickers
-                width: auto
-                height: 230px
-                position: absolute
-                left: 25%
-                bottom: -8%
+                @include media-breakpoint-down(md)
+                    width: 35%
+                    left: 5%
+                    bottom: -10%
+                @include media-breakpoint-up(md)
+                    width: 45%
+                    left: 25%
+                    bottom: -10%
                 rotate: 45deg
         .directory-image
-            right: -15%
-            position: relative
+            @include media-breakpoint-up(md)
+                position: absolute
+                right: -15%
+                top: 0%
+            @include media-breakpoint-down(md)
+                position: absolute
+                right: -15%
+                bottom: -40%
             img
                 width: 100%
+                @include media-breakpoint-down(md)
+                    width: auto
                 height: 600px
                 object-fit: cover
                 -webkit-mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
                 mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
 
-
 @keyframes rotate-right
-  0%
-    transform: rotate(0deg)
-
-
-  50%
-    transform: rotate(90deg)
-
-
-  100%
-    transform: rotate(180deg)
-
+    0%
+        transform: rotate(0deg)
+    50%
+        transform: rotate(90deg)
+    100%
+        transform: rotate(180deg)
 
 @keyframes rotate-left
-  0%
-    transform: rotate(-180deg)
-
-
-  50%
-    transform: rotate(-90deg)
-
-
-  100%
-    transform: rotate(0deg)
-
-
+    0%
+        transform: rotate(-180deg)
+    50%
+        transform: rotate(-90deg)
+    100%
+        transform: rotate(0deg)
 
 .logo-round-1.scroll-down .stickers,
 .logo-round-2.scroll-down .stickers
-  animation: rotate-right 0.4s ease
+    animation: rotate-right 0.4s ease
 
 
 .logo-round-1.scroll-up .stickers,
 .logo-round-2.scroll-up .stickers
-  animation: rotate-left 0.4s ease
+    animation: rotate-left 0.4s ease
