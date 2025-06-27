@@ -4,7 +4,7 @@ width ||= nil
 <% if source.respond_to?(:image) && source.image.attached? %>
   <%= kamifusen_tag source.image,
                     width: width,
-                    class: 'img-fluid square',
+                    class: 'img-fluid rounded square',
                     alt: (source.respond_to?(:image_alt) && source.image_alt.present?) ?  source.image_alt : '' %>
 <% else %>
   <%
@@ -12,5 +12,5 @@ width ||= nil
     first_letter = name_elements.first[0]
     second_letter = name_elements.many? ? name_elements.second[0] : name_elements.first[1]
   %>
-  <div class="placeholder-illustration square overflow-hidden position-relative bg-white" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>"></div>
+  <div class="placeholder-illustration rounded square overflow-hidden position-relative bg-white" data-first-letter="<%= first_letter %>" data-second-letter="<%= second_letter %>"></div>
 <% end %>
