@@ -23,12 +23,16 @@ body
             display: block
             height: 100%
             border-radius: 6px
-            img
-                filter: grayscale(1)
-                mix-blend-mode: screen
     .actors-list > div:nth-child(odd)
         picture
             background-color: $ecosystem-secondary
+            img
+                filter: grayscale(1)
+                mix-blend-mode: screen
+
     .actors-list > div:nth-child(even)
         picture
             background-color: $color-yellow
+            img
+                filter: grayscale(1) opacity(0.4) contrast(1) brightness(1.4)
+                mix-blend-mode: luminosity
