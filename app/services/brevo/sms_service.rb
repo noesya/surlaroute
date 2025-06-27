@@ -1,6 +1,6 @@
 module Brevo
   class SmsService
-    DEFAULT_SENDER_NAME = 'Ecotheque'.freeze
+    DEFAULT_SENDER_NAME = 'Sur la route'.freeze
 
     def self.send_mfa_code(user, code)
       duration =  ActiveSupport::Duration.build(Rails.application.config.devise.direct_otp_valid_for).inspect
