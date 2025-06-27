@@ -27,7 +27,7 @@ development:
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: ecotheque
+  #username: surlaroute
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -81,4 +81,4 @@ test:
 #   <<: *default
 #   database: surlaroute_production
 #   username: surlaroute
-#   password: <%= ENV["ECOTHEQUE_DATABASE_PASSWORD"] %>
+#   password: <%= ENV["SURLAROUTE_DATABASE_PASSWORD"] %>
