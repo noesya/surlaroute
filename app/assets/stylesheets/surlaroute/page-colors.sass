@@ -17,22 +17,18 @@ body
     --page-main-color: #{$toolbox-primary}
     --block-quote-background: #{$toolbox-primary}
 
-
-
 .directory-container
     .actors-list > div
         picture
             display: block
             height: 100%
+            border-radius: 6px
             img
                 filter: grayscale(1)
+                mix-blend-mode: screen
     .actors-list > div:nth-child(odd)
         picture
             background-color: $ecosystem-secondary
-            img
-                mix-blend-mode: screen
     .actors-list > div:nth-child(even)
         picture
             background-color: $color-yellow
-            img
-                mix-blend-mode: hard-light
