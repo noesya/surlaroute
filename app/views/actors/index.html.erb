@@ -18,7 +18,16 @@
         </dl>
         <%= link_to 'Voir le glossaire', options_actors_path, class: 'small arrow-right' %>
       </div>
+      <div class="col-lg-7 directory-image">
+          <%= image_tag 'surlaroute/images-directory/image-annuaire.jpeg', alt: '' %>
+      </div>
     </div>
+  </div>
+  <div class="logo-round-1">
+    <%= image_tag 'surlaroute/images-directory/logo-round.svg', alt: "L’atlas des tournées à modes des doux - sur la route", class: 'stickers' %>
+  </div>
+  <div class="logo-round-2">
+    <%= image_tag 'surlaroute/images-directory/logo-round.svg', alt: "L’atlas des tournées à modes des doux - sur la route", class: 'stickers' %>
   </div>
 </header>
 
@@ -46,5 +55,4 @@
   </div>
   <%= render 'reference-cta', objects: @actors %>
   <%= render 'join' unless user_signed_in? %>
-
 </div>
