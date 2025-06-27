@@ -13,13 +13,26 @@ body
         background-position: 100% 100%
         background-repeat: no-repeat
 
-  
 .toolbox-index, .toolbox-child
     --page-main-color: #{$toolbox-primary}
     --block-quote-background: #{$toolbox-primary}
 
-// How to apply the blend mode on images if you can't see them in local ?
-.row-actors-list:nth-of-type(odd)
-    article
+
+
+.directory-container
+    .actors-list > div
         picture
-            mix-blend-mode: multiply
+            display: block
+            height: 100%
+            img
+                filter: grayscale(1)
+    .actors-list > div:nth-child(odd)
+        picture
+            background-color: $ecosystem-secondary
+            img
+                mix-blend-mode: screen
+    .actors-list > div:nth-child(even)
+        picture
+            background-color: $color-yellow
+            img
+                mix-blend-mode: hard-light
