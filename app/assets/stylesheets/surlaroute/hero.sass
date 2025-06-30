@@ -87,7 +87,8 @@
     + .locations-list
         margin-top: map-get($spacers, 4)
 
-.actors-index, .tours-index
+.actors-index,
+.tours-index
     .hero
         @include media-breakpoint-down(md)
             height: 500px
@@ -135,8 +136,8 @@
                     width: auto
                 height: 600px
                 object-fit: cover
-                -webkit-mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
-                mask-image: asset-url('surlaroute/images-directory/mask-hero.svg')
+                -webkit-mask-image: asset-url('surlaroute/mask-hero.svg')
+                mask-image: asset-url('surlaroute/mask-hero.svg')
 
 @keyframes rotate-right
     0%
@@ -158,27 +159,21 @@
 .logo-round-2.scroll-down .stickers
     animation: rotate-right 0.4s ease
 
-
 .logo-round-1.scroll-up .stickers,
 .logo-round-2.scroll-up .stickers
     animation: rotate-left 0.4s ease
 
 .tours-index
     .hero
-        .directory-image
-            @include media-breakpoint-down(md)
-                position: absolute
-                right: -15%
-                bottom: -20%
-            @extend .rounded
+        .rounded
             display: block
             height: 100%
             overflow: hidden
             @include media-breakpoint-down(md)
-
-
-            img
-                filter: grayscale(1)
-                mix-blend-mode: luminosity
-                @include media-breakpoint-down(md)
-                    height: 60vh
+                position: absolute
+                right: -15%
+                bottom: -20%
+                height: 60vh
+        img
+            filter: grayscale(1)
+            mix-blend-mode: luminosity
