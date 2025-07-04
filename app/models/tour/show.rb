@@ -43,6 +43,6 @@ class Tour::Show < ApplicationRecord
   validates_presence_of :day, :place
 
   def to_s
-    "#{I18n.l(day)}, #{place}"
+    title.present? ? "#{title}" : "#{I18n.l(day)}, #{place}"
   end
 end

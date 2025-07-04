@@ -9,7 +9,11 @@
     <tbody>
       <% shows.each do |show| %>
         <tr>
-          <td><%= l show.day %></td>
+          <td>
+            <%= l show.day %><% if show.title.present? %>,
+              <%= show.title %>
+            <% end %>
+          </td>
           <td class="text-end"><%= link_to show.place, show.place %></td>
         </tr>
       <% end %>

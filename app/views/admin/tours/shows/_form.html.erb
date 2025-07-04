@@ -10,7 +10,8 @@ url = show.persisted? ? admin_tour_show_path(tour_id: @tour.slug, id: show.id) :
       <%= render 'admin/application/form/publication', f: f %>
     </div>
     <div class="col-lg-8">
-      <h5>Informations</h5>
+      <h2 class="h4">Informations</h2>
+      <%= f.input :title %>
       <div class="row">
         <div class="col-lg-4">
           <%= f.input :day, html5: true %>

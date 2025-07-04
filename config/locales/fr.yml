@@ -178,9 +178,11 @@ fr:
         website: Site Web
         year: Année
       tour/show:
+        authors: Fiche publiée par
         day: Jour
         place: Lieu
         status: Statut
+        title: Titre
         published: Publiée
       transparency/cost:
         amount: Montant
