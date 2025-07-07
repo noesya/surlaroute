@@ -558,6 +558,9 @@ fr:
         one: Technique
         other: Techniques
       toolbox: Résultats - Boîte à outils
+      tours:
+        one: Tournée
+        other: Tournées
     search_in_name: Rechercher dans le nom
     title: Recherche
   show: Voir

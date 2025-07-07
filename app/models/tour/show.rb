@@ -6,6 +6,7 @@
 #  day        :date
 #  published  :boolean          default(FALSE)
 #  status     :integer          default("draft")
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  place_id   :uuid             not null, indexed
