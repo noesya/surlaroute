@@ -6,6 +6,7 @@
 #  day        :date
 #  published  :boolean          default(FALSE)
 #  status     :integer          default("draft")
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  place_id   :uuid             not null, indexed
@@ -43,6 +44,6 @@ class Tour::Show < ApplicationRecord
   validates_presence_of :day, :place
 
   def to_s
-    "#{I18n.l(day)}, #{place}"
+    title.present? ? "#{title}" : "#{I18n.l(day)}, #{place}"
   end
 end

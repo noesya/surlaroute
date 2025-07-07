@@ -24,42 +24,10 @@
       </div>
       <div class="col-lg-2">
         <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <% if @projects.any? %><a href="#projects"><% end %>
-            <dt class="key-figure"><%= @projects.total_count %></dt>
-            <dd><%= Project.model_name.human(count: @projects.total_count) %></dd>
-          <% if @projects.any? %></a><% end %>
-        </dl>
-      </div>
-      <div class="col-lg-2">
-        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <% if @materials.any? %><a href="#materials"><% end %>
-            <dt class="key-figure"><%= @materials.total_count %></dt>
-            <dd><%= Material.model_name.human(count: @materials.total_count) %></dd>
-          <% if @materials.any? %></a><% end %>
-        </dl>
-      </div>
-      <div class="col-lg-2">
-        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <% if @technics.any? %><a href="#technics"><% end %>
-            <dt class="key-figure"><%= @technics.total_count %></dt>
-            <dd><%= Technic.model_name.human(count: @technics.total_count) %></dd>
-          <% if @technics.any? %></a><% end %>
-        </dl>
-      </div>
-      <div class="col-lg-2">
-        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <% if @toolbox_pages.any? %><a href="#toolbox-pages"><% end %>
-            <dt class="key-figure"><%= @toolbox_pages.total_count %></dt>
-            <dd><%= Page.model_name.human(count: @toolbox_pages.total_count) %> <%= Page.toolbox.name %></dd>
-          <% if @toolbox_pages.any? %></a><% end %>
-        </dl>
-      </div>
-      <div class="col-lg-2">
-        <dl class="mt-4 mb-3 mt-md-5 mb-md-4">
-          <% if @lab_pages.any? %><a href="#lab-pages"><% end %>
-            <dt class="key-figure"><%= @lab_pages.total_count %></dt>
-            <dd><%= Page.model_name.human(count: @lab_pages.total_count) %> <%= Page.lab.name %></dd>
-          <% if @lab_pages.any? %></a><% end %>
+          <% if @tours.any? %><a href="#tours"><% end %>
+            <dt class="key-figure"><%= @tours.total_count %></dt>
+            <dd><%= Tour.model_name.human(count: @tours.total_count) %></dd>
+          <% if @tours.any? %></a><% end %>
         </dl>
       </div>
     </div>
@@ -77,90 +45,12 @@
     </section>
   <% end %>
 
-  <% if @projects.any? %>
-    <section class="bg-white pt-5" id="projects">
+  <% if @tours.any? %>
+    <section class="bg-white pt-5" id="tours">
       <div class="container">
-        <h2 class="mb-4"><%= t('search.results.projects.other') %></h2>
-        <%= render 'application/list', objects: @projects %>
-        <%= paginate @projects, theme: 'bootstrap-5', param_name: :projects_page, params: { anchor: "projects" } %>
-      </div>
-    </section>
-  <% end %>
-
-  <% if @materials.any? %>
-    <section class="bg-white pt-5" id="materials">
-      <div class="container">
-        <h2 class="mb-4"><%= t('search.results.materials.other') %></h2>
-        <%= render 'application/list', objects: @materials %>
-        <%= paginate @materials, theme: 'bootstrap-5', param_name: :materials_page, params: { anchor: "materials" } %>
-      </div>
-    </section>
-  <% end %>
-
-  <% if @technics.any? %>
-    <section class="bg-white pt-5" id="technics">
-      <div class="container">
-        <h2 class="mb-4"><%= t('search.results.technics.other') %></h2>
-        <%= render 'application/list', objects: @technics %>
-        <%= paginate @technics, theme: 'bootstrap-5', param_name: :technics_page, params: { anchor: "technics" } %>
-      </div>
-    </section>
-  <% end %>
-
-  <% if @toolbox_pages.any? %>
-    <section class="pt-5 pb-5 bg-toolbox" id="toolbox-pages">
-      <div class="container">
-        <h2 class="mb-4"><%= t('search.results.results.other') %> - <%= Page.toolbox.name %></h2>
-        <ul class="pages-results list-unstyled">
-          <% @toolbox_pages.each do |page| %>
-            <li class="row position-relative">
-              <div class="col-md-6">
-                <%= link_to page, class: "stretched-link text-decoration-none" do %>
-                  <h3 class="fw-700 mb-0"><%= page %></h3>
-                  <% if page.description.present? %>
-                    <p class="mt-2">
-                      <%= page.description.truncate(80) %>
-                    </p>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="col-md-6 d-flex align-items-end justify-content-end">
-                <span class="arrow-right"></span>
-              </div>
-            </li>
-            <hr class="my-3">
-          <% end %>
-        </ul>
-        <%= paginate @toolbox_pages, theme: 'bootstrap-5', param_name: :toolbox_pages_page, params: { anchor: "toolbox-pages" } %>
-      </div>
-    </section>
-  <% end %>
-
-  <% if @lab_pages.any? %>
-    <section class="pt-5 pb-5 bg-white" id="lab-pages">
-      <div class="container">
-        <h2 class="mb-4"><%= t('search.results.results.other') %> - <%= Page.lab.name %></h2>
-        <ul class="pages-results list-unstyled">
-          <% @lab_pages.each do |page| %>
-            <li class="row position-relative">
-              <div class="col-md-6">
-                <%= link_to page, class: "stretched-link text-decoration-none" do %>
-                  <h3 class="fw-700 mb-0"><%= page %></h3>
-                  <% if page.description.present? %>
-                    <p class="mt-2">
-                      <%= page.description.truncate(80) %>
-                    </p>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="col-md-6 d-flex align-items-end justify-content-end">
-                <span class="arrow-right"></span>
-              </div>
-            </li>
-            <hr class="my-3">
-          <% end %>
-        </ul>
-        <%= paginate @lab_pages, theme: 'bootstrap-5', param_name: :lab_pages_page, params: { anchor: "lab-pages" } %>
+        <h2 class="mb-4"><%= t('search.results.tours.other') %></h2>
+        <%= render 'application/list', objects: @tours %>
+        <%= paginate @tours, theme: 'bootstrap-5', param_name: :tours_page, params: { anchor: "tours" } %>
       </div>
     </section>
   <% end %>
@@ -176,13 +66,7 @@
             <%= link_to t('ecosystem'), actors_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-actors d-flex align-items-center justify-content-center" %>
           </div>
           <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
-            <%= link_to Project.model_name.human(count: 2), projects_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-projects d-flex align-items-center justify-content-center" %>
-          </div>
-          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
-            <%= link_to Material.model_name.human(count: 2), materials_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-materials d-flex align-items-center justify-content-center" %>
-          </div>
-          <div class="col-6 mb-3 mb-md-0 col-lg-3 position-relative">
-            <%= link_to Technic.model_name.human(count: 2), technics_path(region_slug: nil), class: "square rounded text-decoration-none stretched-link h2 w-100 bg-technics d-flex align-items-center justify-content-center" %>
+            <%= link_to Tour.model_name.human(count: 2), tours_path(region_slug: nil), class: "text-decoration-none stretched-link h2 w-100 square rounded bg-tours d-flex align-items-center justify-content-center" %>
           </div>
         </div>
       </div>

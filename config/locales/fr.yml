@@ -178,9 +178,11 @@ fr:
         website: Site Web
         year: Année
       tour/show:
+        authors: Fiche publiée par
         day: Jour
         place: Lieu
         status: Statut
+        title: Titre
         published: Publiée
       transparency/cost:
         amount: Montant
@@ -556,6 +558,9 @@ fr:
         one: Technique
         other: Techniques
       toolbox: Résultats - Boîte à outils
+      tours:
+        one: Tournée
+        other: Tournées
     search_in_name: Rechercher dans le nom
     title: Recherche
   show: Voir

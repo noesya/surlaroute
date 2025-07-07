@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_11_200503) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_04_160359) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
   enable_extension "unaccent"
 
   create_table "active_storage_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -466,6 +466,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_11_200503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "day"
+    t.string "title"
     t.index ["place_id"], name: "index_tour_shows_on_place_id"
     t.index ["tour_id"], name: "index_tour_shows_on_tour_id"
   end

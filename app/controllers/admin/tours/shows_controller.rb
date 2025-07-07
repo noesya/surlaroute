@@ -62,7 +62,7 @@ class Admin::Tours::ShowsController < Admin::ApplicationController
 
   def show_params
     allowed_params = [
-      :day, :place_id, 
+      :day, :place_id, :title,
       region_ids: [],
       structure_values_attributes: structure_values_permitted_attributes
     ]

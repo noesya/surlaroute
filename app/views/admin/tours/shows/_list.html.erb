@@ -4,6 +4,7 @@
       <tr>
         <th><%= Tour::Show.human_attribute_name('day') %></th>
         <th><%= Tour::Show.human_attribute_name('place')  %></th>
+        <th><%= Tour::Show.human_attribute_name('title')  %></th>
         <% if can?(:publish, Tour::Show) %>
           <th><%= Tour::Show.human_attribute_name('published') %></th>
           <th><%= Tour::Show.human_attribute_name('status') %></th>
@@ -14,7 +15,9 @@
     <tbody>
       <% shows.each do |show| %>
         <tr>
-          <td><%= link_to_if can?(:read, show), show, admin_tour_show_path(tour_id: @tour, id: show) %></td>
+          <td><%= link_to_if can?(:read, show), l(show.day), admin_tour_show_path(tour_id: @tour, id: show) %></td>
+          <td><%= show.place %></td>
+          <td><%= show.title %></td>
           <% if can?(:publish, Tour::Show) %>
             <td><%= t(show.published?) %></td>
             <td>
