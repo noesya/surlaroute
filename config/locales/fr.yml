@@ -600,7 +600,7 @@ fr:
       button: Référencer une tournée
       text: "Sur la route référence des tournées à modes doux."
       title: "Vous souhaitez recommander une tournée\_?"
-    description: Des tournées à vélo, à cheval, à pieds ou à la voile.
+    description: Des tournées à vélo, à cheval, à pieds ou en bateau.
   'true': Oui
   ui:
     actor:
