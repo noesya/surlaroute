@@ -1,0 +1,164 @@
+header#document-header
+    z-index: 99
+    position: relative
+    ul
+        list-style: none
+        margin-bottom: 0
+    a
+        text-decoration: none
+    .container
+        padding-top: map-get($spacers, 1)
+        padding-bottom: map-get($spacers, 1)
+        flex-wrap: wrap
+    .navbar-logo
+        z-index: 99
+        @include media-breakpoint-down(md)
+            width: fit-content
+    .navbar-nav
+        .dropdown-menu
+            li a
+                font-size: 0.8rem
+                font-weight: 500
+                white-space: normal
+                > b
+                    @extend .fs-6
+                    display: block
+            &--primary
+                a:not(:hover).dropdown-item
+                    &--ecosystem
+                        background-color: $ecosystem-primary
+                    &--projects
+                        background-color: $projects-primary
+                    &--materials
+                        background-color: $materials-primary
+                    &--technics
+                        background-color: $technic-primary
+            &--toolbox
+                li:first-child a:not(:hover)
+                    background-color: $toolbox-primary
+    .dropdown-menu
+        --bs-dropdown-box-shadow: 0 .5rem 1rem rgba($black, .15)
+        --bs-dropdown-border-color: transparent
+        --bs-dropdown-border-radius: 0
+        --bs-dropdown-padding-y: 0
+    .nav-secondary
+        .dropdown-item
+            --bs-dropdown-item-padding-y: 0.5rem
+    // buttons as icons
+    .btn-user
+        @include icon(user)
+    .btn-regions
+        @include icon(pin)
+    .btn-icon
+        display: flex
+        &::before
+            @include rounded-icon
+    .btn-dotane
+        @extend .btn
+        @extend .btn-dark
+        font-weight: 500
+    @include media-breakpoint-up(md)
+        .collapse,
+        .container
+            gap: var(--bs-gutter-x)
+        .btn-icon
+            font-size: 0
+        .nav-container
+            width: calc(100% + 16px)
+            > ul:last-of-type
+                padding-right: 0
+        .dropdown-menu
+            box-shadow: 0 .5rem 1rem rgba($black, .15)
+            margin-top: map-get($spacers, 2)
+        .navbar-nav
+            .dropdown-toggle[aria-expanded="true"]::before
+                background: var(--bs-body-color)
+                bottom: var(--bs-navbar-nav-link-padding-x)
+                content: ''
+                height: 1px
+                left: var(--bs-navbar-nav-link-padding-x)
+                position: absolute
+                right: var(--bs-navbar-nav-link-padding-x)
+            .dropdown-menu
+                width: 270px
+            @include media-breakpoint-up(xl)
+                padding-left: var(--bs-gutter-x)
+                padding-right: var(--bs-gutter-x)
+        .nav-secondary
+            align-items: center
+            flex: 1
+            gap: map-get($spacers, 2)
+            justify-content: flex-end
+    @include media-breakpoint-down(xl)
+        .nav-secondary
+            width: 100%
+    @include media-breakpoint-down(md)
+        &.is-opened
+            height: 100vh
+            overflow: auto
+            .navbar-logo,
+            .navbar-toggler
+                background-color: var(--bs-body-bg)
+                position: sticky
+                top: map-get($spacers, 1)
+        .dropdown-menu
+            --bs-dropdown-border-color: var(--bs-body-color)
+            --bs-dropdown-border-width: 0
+            --bs-dropdown-padding-x: 0
+        .navbar-nav
+            padding-top: space(6)
+            padding-bottom: space(5)
+            border-bottom: 1px solid
+            .nav-item
+                > a
+                    display: block
+                    font-size: $h2-font-size-sm
+                    font-weight: bold
+                    padding-bottom: space(4)
+                    padding-top: space(4)
+                &:not(:last-child)
+                    .nav-link[aria-expanded="false"]
+                        border-bottom: 1px solid currentColor
+            .dropdown-menu
+                margin-left: calc(var(--bs-gutter-x) * -0.5)
+                margin-right: calc(var(--bs-gutter-x) * -0.5)
+                --bs-dropdown-item-padding-x: #{map-get($spacers, 3)}
+        .nav-secondary
+            padding-top: space(9)
+            > li
+                &:last-child
+                    margin-top: map-get($spacers, 3)
+                + li
+                    margin-top: map-get($spacers, 2)
+            .dropdown-menu
+                --bs-dropdown-item-padding-x: 0
+                margin-top: map-get($spacers, 1)
+                &.show
+                    position: relative
+            .btn-icon
+                align-items: center
+                gap: calc(#{map-get($spacers, 1)} / 2)
+                font-weight: 500
+
+// Sticky effect
+header#document-header
+    top: 0
+    position: sticky
+    z-index: 200
+    transform: translateY(0)
+    transition: 0.4s
+    &:not(.is-top)
+        background: white
+    &.is-opened
+        background: white
+    html.is-scrolling-down &
+        &:not(:hover), &:not(.is-opened)
+            transform: translateY(-100%)
+
+// banner
+.banner
+    p
+        text-align: center
+        font-weight: 600
+        @include media-breakpoint-down(md)
+            font-size: $small-font-size
