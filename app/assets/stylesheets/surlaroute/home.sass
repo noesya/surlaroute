@@ -1,0 +1,122 @@
+.home-index
+    background: #EEFF00
+    .home-quote
+        &,
+        footer
+            background: #292929
+            color: white
+    @include media-breakpoint-up(lg)
+        h1
+            font-size: pxToRem(84)
+
+.home-search
+    form
+        display: flex
+        align-items: center
+        border-bottom: 1px solid
+        input
+            text-overflow: ellipsis
+    .btn-search
+        padding: pxToRem(12)
+        margin: pxToRem(-12)
+        &::before
+            border: none
+    a
+        @include icon(link, after)
+        text-underline-offset: 2px
+        &::after
+            font-size: pxToRem(12)
+            margin-left: calc(#{map-get($spacers, 1)} / 2)
+
+
+.home-navigation
+    background:
+        repeat: no-repeat
+        size: 100%
+        position: right bottom
+    @include media-breakpoint-up(lg)
+        min-height: 95vh
+        display: flex
+        align-items: center
+        .home-navigation__link
+            &::before
+                transition: transform 0.3s ease
+                width: 100%
+        &.is-hovered
+            .home-navigation__link
+                &::before
+                    transform: translateX(calc(100% - (#{$grid-gutter-width} * 2)))
+    &.actors
+        transition: background-color 0.3s ease, background-image 0.3s ease
+        background-color: $color-text
+        color: $color-bg
+        a
+            color: $color-bg
+        &.is-hovered
+            background-color: $projects-secondary
+    &.projects
+        transition: background-color 0.3s ease, background-image 0.3s ease
+        background-color: $ecosystem-primary
+        color: $color-text
+        a
+            color: $color-text
+        &.is-hovered
+            background-color: $projects-primary
+    &.regions
+        position: relative
+        background-color: $regions-primary
+        transition: background-color 0.3s ease, background-image 0.3s ease
+        .home-navigation__link::before
+            content: none
+        .regions-map
+            @extend .col-md-8
+            @extend .col-xxl-6
+            @include media-breakpoint-up(md)
+                position: absolute
+                top: map-get($spacers, 4)
+                right: var(--bs-gutter-x)
+        &.is-hovered
+            background-color: $regions-secondary
+            &, a
+                color: $regions-primary
+    &.toolbox
+        background-color: $toolbox-primary
+    &:not(.toolbox)
+        h2
+            @extend .large-title
+    &.toolbox
+        a
+            font-size: pxToRem(24)
+            &::after
+                font-size: pxToRem(18)
+                margin-left: map-get($spacers, 1)
+            &:hover::after
+                margin-left: map-get($spacers, 2)
+            @include media-breakpoint-up(md)
+                font-size: pxToRem(38)
+                &::after
+                    font-size: pxToRem(32)
+                &:hover::after
+                    margin-left: map-get($spacers, 3)
+    &__link
+        @include icon(arrow-right)
+        &::before
+            font-size: pxToRem(28)
+            @include media-breakpoint-up(lg)
+                font-size: pxToRem(48)
+                margin-bottom: map-get($spacers, 2)
+        @include media-breakpoint-down(lg)
+            display: flex
+            flex-direction: row-reverse
+            align-items: center
+            justify-content: flex-end
+            gap: map-get($spacers, 2)
+
+.home-quote
+    // padding-top: map-get($spacers, 8) !important
+    // padding-bottom: map-get($spacers, 8) !important
+    cite
+        @include icon(arrow-right, after)
+        &::after
+            font-size: pxToRem(10)
+            margin-left: calc(#{map-get($spacers, 1)} / 2)
