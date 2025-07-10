@@ -44,13 +44,16 @@ article
         margin-top: map-get($spacers, 2)
 
 blockquote
+    @include media-breakpoint-down(md)
+        width: 95%
     > p
         font-weight: bold
         font-size: pxToRem(46)
         @include media-breakpoint-down(lg)
             font-size: pxToRem(32)
         @include media-breakpoint-down(md)
-            font-size: pxToRem(28)
+            font-size: pxToRem(23)
+
 
 .arrow-right
     @include icon(arrow-right, after)
