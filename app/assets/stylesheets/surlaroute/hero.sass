@@ -20,6 +20,54 @@
     .credit
         &::before
             content: '© '
+
+
+// hero index
+main
+    section
+        .container
+            margin-bottom: 104px
+            position: relative
+
+a.link-arrow-right
+    text-decoration: none
+    color: $color-bg
+    background: $color-text
+    padding: 15px
+    border-radius: 9px
+
+
+.logo-round-1, .logo-round-2
+    .stickers
+        width: auto
+        height: 230px
+        @include media-breakpoint-down(md)
+            height: 150px
+        position: absolute
+.logo-round-1
+    .stickers
+        @include media-breakpoint-down(md)
+            width: 35%
+            left: 80%
+            top: 40%
+        @include media-breakpoint-up(md)
+            width: 45%
+            left: 75%
+            top: 20%
+        rotate: 50deg
+.logo-round-2
+    .stickers
+        @include media-breakpoint-down(md)
+            width: 35%
+            left: -3%
+            bottom: -25%
+        @include media-breakpoint-up(md)
+            width: 45%
+            left: -10%
+            bottom: -41%
+            rotate: -10deg
+
+//hero page
 .actors-index,
 .materials-index,
 .projects-index,
