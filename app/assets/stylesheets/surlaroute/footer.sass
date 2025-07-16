@@ -1,0 +1,72 @@
+footer.document-footer
+    background: $color-text
+    padding-bottom: map-get($spacers, 5)
+    padding-top: map-get($spacers, 5)
+    font-family: 'Work Sans', sans-serif
+    font-weight: 400
+    a
+        text-decoration: none
+        color: $color-bg
+        &[target="_blank"]
+            @include icon(link, after)
+            &::after
+                margin-left: map-get($spacers, 1)
+                margin-right: calc(#{map-get($spacers, 1)} / 2)
+                font-size: pxToRem(13)
+        img
+            height: 209px
+            @include media-breakpoint-down(md)
+                height: 90px
+    strong
+        font-weight: 600
+    ul
+        list-style: none
+    .footer-brand
+        display: block
+        width: 170px
+        img
+            max-width: 100%
+    .footer-social,
+    nav
+        ul:first-of-type
+            font-weight: 600
+        @include media-breakpoint-up(md)
+            li + li
+                margin-top: map-get($spacers, 1)
+    .footer-social
+        li:first-of-type a
+            font-weight: 600
+    .footer-credits
+        a
+            font-weight: 600
+            font-size: $font-size-base
+        li
+            + li
+                margin-top: calc(#{map-get($spacers, 1)} / 2)
+    .footer-supports
+        display: flex
+        gap: map-get($spacers, 3)
+        flex-wrap: wrap
+        padding-left: 0
+        margin-bottom: 0
+        li
+            margin-top: 0 !important
+    @include media-breakpoint-up(md)
+        .container
+            > .row + .row
+                align-items: flex-end
+        span.small
+            display: block
+            margin-bottom: map-get($spacers, 1)
+    @include media-breakpoint-down(md)
+        .footer-supports
+            img
+                height: 70px
+        padding-bottom: map-get($spacers, 3)
+        padding-top: map-get($spacers, 3)
+        .row > div + div
+            margin-top: map-get($spacers, 5)
+        ul + ul
+            margin-top: map-get($spacers, 5)
+        li + li
+            margin-top: map-get($spacers, 2)

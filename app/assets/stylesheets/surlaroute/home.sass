@@ -48,16 +48,12 @@
                     transform: translateX(calc(100% - (#{$grid-gutter-width} * 2)))
     &.actors
         transition: background-color 0.3s ease, background-image 0.3s ease
-        background-color: $color-text
-        color: $color-bg
-        a
-            color: $color-bg
-    &.projects
-        transition: background-color 0.3s ease, background-image 0.3s ease
         background-color: $ecosystem-primary
         color: $color-text
-        a
-            color: $color-text
+    &.projects
+        transition: background-color 0.3s ease, background-image 0.3s ease
+        background-color: $color-yellow
+        color: $color-text
     &.regions
         position: relative
         background-color: $regions-primary
