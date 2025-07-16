@@ -16,7 +16,8 @@ footer.document-footer
         img
             height: 209px
             @include media-breakpoint-down(md)
-                height: 90px
+                height: auto
+                width: 160px
     strong
         font-weight: 600
     ul
@@ -45,10 +46,11 @@ footer.document-footer
                 margin-top: calc(#{map-get($spacers, 1)} / 2)
     .footer-supports
         display: flex
-        gap: map-get($spacers, 3)
+        gap: map-get($spacers, 4)
         flex-wrap: wrap
         padding-left: 0
         margin-bottom: 0
+        padding-right: 64px
         li
             margin-top: 0 !important
     @include media-breakpoint-up(md)
