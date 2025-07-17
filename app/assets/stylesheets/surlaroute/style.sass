@@ -26,3 +26,13 @@
 .document-content
     overflow: visible
     position: relative
+    .logo-round-2
+        .stickers
+            @include media-breakpoint-down(md)
+                left: 5%
+                bottom: -10%
+            @include media-breakpoint-up(md)
+                left: 40%
+                top: -15%
+            rotate: 45deg
+            z-index: 1
