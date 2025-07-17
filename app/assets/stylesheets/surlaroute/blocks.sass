@@ -11,14 +11,19 @@
     .logo-round-call-to-action
         .stickers
             @include media-breakpoint-down(md)
-                left: 80%
-                bottom: 70%
+                left: 67%
+                bottom: 4%
             @include media-breakpoint-up(md)
                 left: 50%
                 bottom: 24%
                 rotate: -10deg
     .container
         div
+            div:first-of-type
+                h3, li
+                    @include media-breakpoint-down(md)
+                        justify-content: flex-start
+                        display: flex
             div:nth-of-type(2)
                 @include media-breakpoint-up(md)
                     justify-content: end
