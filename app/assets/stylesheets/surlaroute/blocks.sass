@@ -6,29 +6,25 @@
     .logo-round-call-to-action
         .stickers
             @include media-breakpoint-down(md)
-                width: 35%
-                left: -3%
-                bottom: -25%
+                left: 80%
+                bottom: 70%
             @include media-breakpoint-up(md)
-                width: 45%
-                left: 41%
+                left: 50%
                 bottom: 24%
                 rotate: -10deg
     .container
         div
             div:nth-of-type(2)
-                justify-content: end
-                display: flex
-                padding-right: 0
+                @include media-breakpoint-up(md)
+                    justify-content: end
+                    display: flex
+                    padding-right: 0
     ul
+        padding-left: 0
         li
             list-style-type: none
-            &:before
-                content: '→'
-                padding-right:  pxToRem(10)
-
-
-
-
-
-
+            @include icon(arrow-right)
+                font-size: $accordion-icon-width
+            padding-right: $accordion-icon-width
+            &::before
+                padding-right: 6px
