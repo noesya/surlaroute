@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const stickers = document.querySelectorAll(".logo-round-1 .stickers, .logo-round-2 .stickers, .logo-round-call-to-action .stickers");
+  const stickers = document.querySelectorAll(".logo-round-1 .stickers, .logo-round-2 .stickers, .logo-round-call-to-action .stickers, .logo-round-directory .stickers");
 
   let lastScrollY = window.scrollY;
   let currentRotation = 0;
