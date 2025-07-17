@@ -62,8 +62,9 @@
             height: 100%
             bottom: -25%
             left: 70%
-            opacity: 30%
             background-image: asset-url('surlaroute/home-directory.png')
+            mix-blend-mode: multiply
+            filter: grayscale(1)
             -webkit-mask-image: asset-url('surlaroute/home-directory-mask.svg')
             mask-image: asset-url('surlaroute/home-directory-mask.svg')
             mask-repeat: no-repeat
@@ -87,6 +88,7 @@
             mask-image: asset-url('surlaroute/home-tour-mask.svg')
             mask-repeat: no-repeat
             -webkit-mask-repeat: no-repeat
+            mix-blend-mode: luminosity
     &.regions
         position: relative
         z-index: 2
