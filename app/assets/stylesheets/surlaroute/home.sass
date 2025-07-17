@@ -28,7 +28,12 @@
             font-size: pxToRem(12)
             margin-left: calc(#{map-get($spacers, 1)} / 2)
 
+.call-to-action.home
+    position: relative
+    z-index: 0
 .home-navigation
+    position: relative
+    z-index: 0
     background:
         repeat: no-repeat
         size: 100%
@@ -49,12 +54,27 @@
         transition: background-color 0.3s ease, background-image 0.3s ease
         background-color: $ecosystem-primary
         color: $color-text
+        &::after
+            z-index: -3
+            content: ""
+            position: absolute
+            width: 100%
+            height: 100%
+            bottom: -25%
+            left: 70%
+            opacity: 30%
+            background-image: asset-url('surlaroute/home-directory.png')
+            -webkit-mask-image: asset-url('surlaroute/home-directory-mask.svg')
+            mask-image: asset-url('surlaroute/home-directory-mask.svg')
+            mask-repeat: no-repeat
+            -webkit-mask-repeat: no-repeat
     &.projects
         transition: background-color 0.3s ease, background-image 0.3s ease
         background-color: $color-yellow
         color: $color-text
     &.regions
         position: relative
+        z-index: 2
         background-color: $regions-primary
         transition: background-color 0.3s ease, background-image 0.3s ease
         .home-navigation__link::before
