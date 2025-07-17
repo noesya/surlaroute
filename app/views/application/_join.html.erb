@@ -2,7 +2,7 @@
 
 <section class="call-to-action <%= context == 'home' ? 'home' : 'bg-dark text-white mt-2' %>%">
   <div class="container py-5">
-    <div class="row align-items-center text-center text-md-start py-3">
+    <div class="row align-items-end text-center text-md-start py-3">
       <div class="col-lg-6">
         <h3 class="cta-title"><%= t('account.modal.title') %></h3>
         <p class="mt-4 d-none d-md-block">
@@ -17,5 +17,7 @@
         <%= link_to "S'inscrire", new_registration_path(User), class: 'btn btn-night link-arrow-right' %>
       </div>
     </div>
-  </div>
+    <div class="logo-round-call-to-action">
+      <%= image_tag 'surlaroute/logo-round.svg', alt: "L’atlas des tournées à modes des doux - sur la route", class: 'stickers' %>
+    </div>  </div>
 </section>
