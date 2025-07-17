@@ -24,12 +24,13 @@
 
 // hero index
 main
+    overflow-x: hidden
     section
         .container
             margin-bottom: 104px
             position: relative
 
-.logo-round-1, .logo-round-2
+.logo-round-1, .logo-round-2, .logo-round-call-to-action
     .stickers
         width: auto
         height: 230px
@@ -46,7 +47,7 @@ main
             width: 45%
             left: 75%
             top: 20%
-        rotate: 50deg
+            rotate: 50deg
 .logo-round-2
     .stickers
         @include media-breakpoint-down(md)
@@ -178,30 +179,6 @@ main
                 object-fit: cover
                 -webkit-mask-image: asset-url('surlaroute/mask-hero.svg')
                 mask-image: asset-url('surlaroute/mask-hero.svg')
-
-@keyframes rotate-right
-    0%
-        transform: rotate(0deg)
-    50%
-        transform: rotate(90deg)
-    100%
-        transform: rotate(180deg)
-
-@keyframes rotate-left
-    0%
-        transform: rotate(-180deg)
-    50%
-        transform: rotate(-90deg)
-    100%
-        transform: rotate(0deg)
-
-.logo-round-1.scroll-down .stickers,
-.logo-round-2.scroll-down .stickers
-    animation: rotate-right 0.4s ease
-
-.logo-round-1.scroll-up .stickers,
-.logo-round-2.scroll-up .stickers
-    animation: rotate-left 0.4s ease
 
 .tours-index
     .hero
