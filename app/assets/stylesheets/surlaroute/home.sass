@@ -69,6 +69,7 @@
             mask-image: asset-url('surlaroute/home-directory-mask.svg')
             mask-repeat: no-repeat
             -webkit-mask-repeat: no-repeat
+
     &.projects
         transition: background-color 0.3s ease, background-image 0.3s ease
         background-color: $color-yellow
@@ -82,13 +83,14 @@
             height: 100%
             bottom: -25%
             left: 70%
-            opacity: 30%
+            opacity: 40%
             background-image: asset-url('surlaroute/home-directory.png')
             -webkit-mask-image: asset-url('surlaroute/home-tour-mask.svg')
             mask-image: asset-url('surlaroute/home-tour-mask.svg')
             mask-repeat: no-repeat
             -webkit-mask-repeat: no-repeat
             mix-blend-mode: luminosity
+            filter: grayscale(1)
     &.regions
         position: relative
         z-index: 2
