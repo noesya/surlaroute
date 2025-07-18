@@ -1,0 +1,102 @@
+body
+    color: $color-text
+
+a
+    color: $color-text
+
+h1, .h1
+    font-family: $font-family-headings
+    font-size: $h1-font-size-sm
+    @include media-breakpoint-up(md)
+        font-size: $h1-font-size
+
+h2, .h2
+    font-size: $h2-font-size-sm
+    font-weight: $h2-font-weight
+    line-height: $h2-line-height
+    @include media-breakpoint-up(md)
+        font-size: $h2-font-size
+    .devise &
+        font-family: $font-family-headings
+
+h3, .h3
+    font-size: $h3-font-size-sm
+    @include media-breakpoint-up(md)
+        font-size: $h3-font-size
+
+h1,
+h2,
+h3
+    a
+        text-decoration: none
+        color: $color-text
+
+body
+    color: $color-text
+
+p:last-child
+    margin-bottom: 0
+
+article
+    h2
+        font-size: pxToRem(20)
+        line-height: pxToRem(27)
+        margin-top: map-get($spacers, 2)
+
+blockquote
+    @include media-breakpoint-down(md)
+        width: 95%
+    > p
+        font-weight: normal
+        font-size: pxToRem(56)
+        @include media-breakpoint-down(lg)
+            font-size: pxToRem(43)
+        @include media-breakpoint-down(md)
+            font-size: pxToRem(23)
+
+
+.arrow-right
+    @include icon(arrow-right, after)
+    &::after
+        font-size: pxToRem(10)
+        margin-left: calc(#{map-get($spacers, 1)} / 2)
+        transition: margin-left 0.3s ease
+    &:hover::after
+        margin-left: map-get($spacers, 1)
+
+.key-figure
+    font-size: $key-figures-font-size-md
+    line-height: $key-figures-line-height
+    font-weight: $key-figures-font-weight
+
+.label
+    background: white
+    border-radius: 4px
+    font-size: inherit
+    padding: pxToRem(6) pxToRem(17)
+    width: fit-content
+    &.with-check
+        @include icon(check, after)
+        &::after
+            font-size: pxToRem(12)
+            margin-left: map-get($spacers, 1)
+
+.large-title
+    @extend h1
+    @include media-breakpoint-up(md)
+        font-size: pxToRem(120)
+        line-height: pxToRem(108)
+
+%hero
+    font-size: $hero-font-size
+    line-height: $hero-line-height
+
+.link-arrow-down
+    @include icon(arrow-down, after)
+        font-size: pxToRem(10)
+        padding-left: space(2)
+
+.link-arrow-right
+    @include icon(arrow-right, after)
+        font-size: pxToRem(10)
+        padding-left: space(2)

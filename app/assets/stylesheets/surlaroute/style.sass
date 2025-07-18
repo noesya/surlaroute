@@ -1,0 +1,48 @@
+.square
+    aspect-ratio: 1
+    object-fit: cover
+
+.key-figure
+    font-size: 98px
+
+.text-lowercase,
+.home-navigation__link
+    font-weight: bold
+
+.btn-night
+    background-color: $color-text
+    color: white
+    height: 50px
+    width: 160px
+    padding: 15px
+    font-weight: 500 !important
+    &:hover
+        background-color: #474747ed !important
+        color: white !important
+
+.btn-dark
+    font-weight: 500 !important
+
+.document-content
+    overflow: visible
+    position: relative
+    .logo-round-2
+        .stickers
+            @include media-breakpoint-down(md)
+                left: 5%
+                bottom: -10%
+            @include media-breakpoint-up(md)
+                left: 40%
+                top: -13%
+            rotate: 45deg
+            z-index: 1
+    .logo-round-directory
+        .stickers
+            @include media-breakpoint-down(md)
+                left: 5%
+                bottom: -10%
+            @include media-breakpoint-up(md)
+                left: 40%
+                top: -8%
+            rotate: 45deg
+            z-index: 1

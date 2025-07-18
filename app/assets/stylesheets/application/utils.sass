@@ -17,6 +17,20 @@
         vertical-align: middle
         @content
 
+@mixin icon-srl($icon-name: '', $pseudo-element: before)
+    &::#{$pseudo-element}
+        content: map-get($icons-srl, $icon-name)
+        display: inline-block
+        font-family: 'Iconfontsrl'
+        font-style: normal
+        font-variant: normal
+        font-weight: normal
+        line-height: 1
+        speak: never
+        text-transform: none
+        vertical-align: middle
+        @content
+    
 @mixin rounded-icon
     @extend .rounded-pill
     align-items: center
