@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? raw("#{yield(:title)} • #{t('website')}") : t('website') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="<%= asset_path 'icons/favicons/favicon-dark.svg' %>">
+    <link rel="icon" href="<%= asset_path 'surlaroute/favicons/favicon-dark.svg' %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "admin" %>
