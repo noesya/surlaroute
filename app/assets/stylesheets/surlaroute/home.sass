@@ -69,6 +69,8 @@
             mask-image: asset-url('surlaroute/home-directory-mask.svg')
             mask-repeat: no-repeat
             -webkit-mask-repeat: no-repeat
+            @include media-breakpoint-down(md)
+                left: 38%
 
     &.projects
         transition: background-color 0.3s ease, background-image 0.3s ease
@@ -91,6 +93,9 @@
             -webkit-mask-repeat: no-repeat
             mix-blend-mode: luminosity
             filter: grayscale(1)
+            @include media-breakpoint-down(md)
+                left: 38%
+
     &.regions
         position: relative
         z-index: 2
