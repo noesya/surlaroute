@@ -38,3 +38,7 @@
             padding-right: $accordion-icon-width
             &::before
                 padding-right: 6px
+                @include media-breakpoint-down(md)
+                    padding-top: pxToRem(4)
+                @include media-breakpoint-up(md)
+                    padding-bottom: pxToRem(2)
