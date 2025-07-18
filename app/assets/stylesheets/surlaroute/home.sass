@@ -72,7 +72,11 @@
             mask-repeat: no-repeat
             -webkit-mask-repeat: no-repeat
             @include media-breakpoint-down(md)
-                left: 38%
+                left: 26%
+                top: 27%
+                transform: scale(0.5)
+                background-size: cover
+                background-position: center
     &.projects
         transition: background-color 0.3s ease, background-image 0.3s ease
         background-color: $color-yellow
@@ -80,6 +84,7 @@
         overflow: hidden
         &::after
             background-size: contain
+            background-repeat: no-repeat
             z-index: -3
             content: ""
             position: absolute
@@ -102,9 +107,10 @@
                 left: 27%
                 top: 27%
                 transform: scale(0.5)
-                background-position-x: -0.75rem
-                background-position-y: -16.75rem
-                background-size: contain
+                background-size: cover
+                background-position: center
+
+
 
 
     &.regions
