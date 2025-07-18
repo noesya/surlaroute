@@ -46,7 +46,8 @@ header#document-header
             --bs-dropdown-item-padding-y: 0.5rem
     // buttons as icons
     .btn-user
-        @include icon(user)
+        &::before
+            content: url('surlaroute/user.svg')
     .btn-regions
         @include icon(pin)
     .btn-icon
