@@ -34,10 +34,17 @@ body
             img
                 mix-blend-mode: screen
 
+
     .actors-list > div:nth-child(even)
-        picture
+        picture, .placeholder-illustration
             background-color: $color-yellow
             img
                 mix-blend-mode: luminosity
+            &::before
+                mix-blend-mode: difference
 
-
+    .actors-list > div:nth-child(odd)
+        .placeholder-illustration
+            background-color: $ecosystem-primary
+            &::before
+                mix-blend-mode: color-burn
