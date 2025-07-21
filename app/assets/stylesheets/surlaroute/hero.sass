@@ -26,14 +26,15 @@ main
         .container
             position: relative
 
-.logo-round-1, .logo-round-2, .logo-round-call-to-action, .logo-round-directory
+.js-stickers
+    transform-origin: center center
     .stickers
         width: auto
         height: pxToRem(230)
         @include media-breakpoint-down(md)
             height: pxToRem(150)
         position: absolute
-.logo-round-1
+.stickers-right
     .stickers
         @include media-breakpoint-down(md)
             left: 80%
@@ -42,7 +43,7 @@ main
             left: 90%
             top: 20%
             rotate: 50deg
-.logo-round-2
+.stickers-left
     .stickers
         @include media-breakpoint-down(md)
             width: 35%
@@ -126,14 +127,14 @@ main
     .hero
         @include media-breakpoint-down(md)
             height: pxToRem(500)
-        .logo-round-1, .logo-round-2
+        .stickers-right, .stickers-left
             .stickers
                 width: auto
                 height: pxToRem(230)
                 @include media-breakpoint-down(md)
                     height: pxToRem(120)
                 position: absolute
-        .logo-round-1
+        .stickers-right
             .stickers
                 @include media-breakpoint-down(md)
                     left: 50%

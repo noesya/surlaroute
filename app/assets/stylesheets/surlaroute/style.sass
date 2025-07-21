@@ -11,7 +11,7 @@
 
 .btn-night
     background-color: $color-text
-    color: white
+    color: $color-bg
     padding: pxToRem(20) pxToRem(25)
     height: pxToRem(50)
     font-weight: 500 !important
@@ -21,6 +21,7 @@
     border-radius: pxToRem(8)
     &:hover
         background-color: #474747ed !important
+        color: $color-bg
 
 .btn-dark
     font-weight: 500 !important
@@ -28,7 +29,7 @@
 .document-content
     overflow: visible
     position: relative
-    .logo-round-2
+    .stickers-left
         .stickers
             @include media-breakpoint-down(md)
                 left: 5%
