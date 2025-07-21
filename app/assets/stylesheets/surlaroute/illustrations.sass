@@ -14,9 +14,9 @@
         line-height: 1
     &::before
         content: url('surlaroute/arrow.svg')
-        width: 250px
+        width: pxToRem(250)
         @include media-breakpoint-down(md)
-            width: 150px
+            width: pxToRem(150)
             top: 0%
 
     .actors-show .hero &,
@@ -41,11 +41,11 @@
         background-color: white
         color: $ecosystem-secondary
         &::before
-            width: 500px
+            width: pxToRem(500)
             top: 14%
             @include media-breakpoint-down(md)
                 top: 14%
-                width: 291px
+                width: pxToRem(291)
     .materials-show .hero &
         background-color: $materials-primary
         color: $materials-secondary
@@ -58,7 +58,6 @@
     .members-show .hero &
         background-color: white
         color: $color-text
-
     .actors-list &
         background-color: $ecosystem-primary
         color: $ecosystem-secondary

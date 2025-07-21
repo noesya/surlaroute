@@ -14,13 +14,11 @@
         a.btn
             @include icon(pin)
             &::before
-                font-size: 12px
+                font-size: pxToRem(12)
                 margin-right: calc(#{map-get($spacers, 1)} / 2)
-
     .credit
         &::before
             content: '© '
-
 
 // hero index
 main
@@ -28,13 +26,12 @@ main
         .container
             position: relative
 
-
 .logo-round-1, .logo-round-2, .logo-round-call-to-action, .logo-round-directory
     .stickers
         width: auto
-        height: 230px
+        height: pxToRem(230)
         @include media-breakpoint-down(md)
-            height: 150px
+            height: pxToRem(150)
         position: absolute
 .logo-round-1
     .stickers
@@ -128,13 +125,13 @@ main
 .tours-index
     .hero
         @include media-breakpoint-down(md)
-            height: 500px
+            height: pxToRem(500)
         .logo-round-1, .logo-round-2
             .stickers
                 width: auto
-                height: 230px
+                height: pxToRem(230)
                 @include media-breakpoint-down(md)
-                    height: 120px
+                    height: pxToRem(120)
                 position: absolute
         .logo-round-1
             .stickers
@@ -162,7 +159,7 @@ main
                 width: 100%
                 @include media-breakpoint-down(md)
                     width: auto
-                height: 600px
+                height: pxToRem(600)
                 object-fit: cover
                 -webkit-mask-image: asset-url('surlaroute/mask-hero.svg')
                 mask-image: asset-url('surlaroute/mask-hero.svg')

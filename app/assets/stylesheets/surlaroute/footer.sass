@@ -17,14 +17,14 @@ footer.document-footer
             height: 209px
             @include media-breakpoint-down(md)
                 height: auto
-                width: 160px
+                width: pxToRem(160)
     strong
         font-weight: 600
     ul
         list-style: none
     .footer-brand
         display: block
-        width: 170px
+        width: pxToRem(170)
         img
             max-width: 100%
     .footer-social,
@@ -50,7 +50,7 @@ footer.document-footer
         flex-wrap: wrap
         padding-left: 0
         margin-bottom: 0
-        padding-right: 64px
+        padding-right: pxToRem(64)
         li
             margin-top: 0 !important
     @include media-breakpoint-up(md)
@@ -63,7 +63,7 @@ footer.document-footer
     @include media-breakpoint-down(md)
         .footer-supports
             img
-                height: 70px
+                height: pxToRem(70)
         padding-bottom: map-get($spacers, 3)
         padding-top: map-get($spacers, 3)
         .row > div + div
