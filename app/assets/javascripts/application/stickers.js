@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const stickerContainers = document.querySelectorAll(".js-stickers");
+  const stickerContainers = document.querySelectorAll(".js-sticker");
   const stickers = Array.from(stickerContainers).map(c => c.querySelector(".stickers"));
 
   let lastScrollY = window.scrollY;
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentRotation += direction === "down" ? rotationStep : -rotationStep;
 
     stickers.forEach(el => {
+      el.style.transform = `rotate(${currentRotation}deg)`;
       if (el) el.style.transform = `rotate(${currentRotation}deg)`;
     });
   });
