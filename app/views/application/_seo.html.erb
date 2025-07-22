@@ -1,7 +1,7 @@
 <%
 title = content_for?(:title)  ? "#{CGI::unescapeHTML(yield(:title))} • #{t('website')}"
                               : t('website')
-icon = asset_path 'icons/favicons/favicon.png'
+icon = asset_path 'surlaroute/favicons/favicon-dark.png'
 color = "#F2F3F4"
 description = content_for?(:meta_description) ? yield(:meta_description) : "Sur la route, l'atlas des tournées à modes doux'"
 og_image = content_for?(:og_image) ? yield(:og_image) : image_url("social/default.jpg")

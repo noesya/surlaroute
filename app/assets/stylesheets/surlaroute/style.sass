@@ -1,0 +1,65 @@
+.square
+    aspect-ratio: 1
+    object-fit: cover
+
+.key-figure
+    font-size: pxToRem(98)
+
+.text-lowercase,
+.home-navigation__link
+    font-weight: bold
+
+.btn-night
+    background-color: $color-text
+    color: $color-bg
+    padding: pxToRem(20) pxToRem(25)
+    height: pxToRem(50)
+    font-weight: 500 !important
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    border-radius: pxToRem(8)
+    &:hover
+        background-color: #474747ed !important
+        color: $color-bg
+
+.btn-dark
+    font-weight: 500 !important
+
+.document-content
+    overflow: visible
+    position: relative
+    .stickers-left
+        .stickers
+            @include media-breakpoint-down(md)
+                left: 5%
+                bottom: -10%
+            @include media-breakpoint-up(md)
+                left: 40%
+                top: -13%
+            rotate: 45deg
+            z-index: 1
+    .logo-round-directory
+        .stickers
+            @include media-breakpoint-down(md)
+                left: 5%
+                bottom: -10%
+            @include media-breakpoint-up(md)
+                left: 40%
+                top: -8%
+            rotate: 45deg
+            z-index: 1
+
+
+// modal
+.search-modal
+    a:not(.btn)
+        color: $color-text
+    .search-quick-links 
+        a
+            @extend .p-md-4
+            text-decoration: none
+            &:hover
+                text-decoration: underline
+            @include media-breakpoint-down(md)
+                aspect-ratio: 1

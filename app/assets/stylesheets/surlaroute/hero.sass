@@ -14,12 +14,47 @@
         a.btn
             @include icon(pin)
             &::before
-                font-size: 12px
+                font-size: pxToRem(12)
                 margin-right: calc(#{map-get($spacers, 1)} / 2)
-
     .credit
         &::before
             content: '© '
+
+// hero index
+main
+    section
+        .container
+            position: relative
+
+.js-sticker
+    transform-origin: center center
+    .stickers
+        width: auto
+        height: pxToRem(230)
+        @include media-breakpoint-down(md)
+            height: pxToRem(150)
+        position: absolute
+.stickers-right
+    .stickers
+        @include media-breakpoint-down(md)
+            left: 80%
+            top: 40%
+        @include media-breakpoint-up(md)
+            left: 90%
+            top: 20%
+            rotate: 50deg
+.stickers-left
+    .stickers
+        @include media-breakpoint-down(md)
+            width: 35%
+            left: -3%
+            bottom: -15%
+        @include media-breakpoint-up(md)
+            left: -10%
+            bottom: -11%
+            rotate: -10deg
+
+//hero page
 .actors-index,
 .materials-index,
 .projects-index,
@@ -91,77 +126,44 @@
 .tours-index
     .hero
         @include media-breakpoint-down(md)
-            height: 500px
-        .logo-round-1, .logo-round-2
+            height: pxToRem(500)
+        .stickers-right, .stickers-left
             .stickers
                 width: auto
-                height: 230px
+                height: pxToRem(230)
                 @include media-breakpoint-down(md)
-                    height: 150px
+                    height: pxToRem(120)
                 position: absolute
-        .logo-round-1
+        .stickers-right
             .stickers
                 @include media-breakpoint-down(md)
-                    width: 35%
                     left: 50%
-                    top: 35%
+                    top: 40%
                 @include media-breakpoint-up(md)
-                    width: 45%
-                    left: 45%
+                    left: 60%
                     top: 0%
                 rotate: -10deg
-        .logo-round-2
-            .stickers
-                @include media-breakpoint-down(md)
-                    width: 35%
-                    left: 5%
-                    bottom: -10%
-                @include media-breakpoint-up(md)
-                    width: 45%
-                    left: 25%
-                    bottom: -10%
-                rotate: 45deg
         .directory-image
             @include media-breakpoint-up(md)
                 position: absolute
                 right: -15%
-                top: 0%
+                top: 10%
             @include media-breakpoint-down(md)
                 position: absolute
-                right: -15%
+                right: -46%
+                bottom: -40%
+            @include media-breakpoint-down(sm)
+                position: absolute
+                right: -26%
                 bottom: -40%
             img
                 width: 100%
                 @include media-breakpoint-down(md)
                     width: auto
-                height: 600px
+                height: pxToRem(600)
                 object-fit: cover
                 -webkit-mask-image: asset-url('surlaroute/mask-hero.svg')
                 mask-image: asset-url('surlaroute/mask-hero.svg')
-
-@keyframes rotate-right
-    0%
-        transform: rotate(0deg)
-    50%
-        transform: rotate(90deg)
-    100%
-        transform: rotate(180deg)
-
-@keyframes rotate-left
-    0%
-        transform: rotate(-180deg)
-    50%
-        transform: rotate(-90deg)
-    100%
-        transform: rotate(0deg)
-
-.logo-round-1.scroll-down .stickers,
-.logo-round-2.scroll-down .stickers
-    animation: rotate-right 0.4s ease
-
-.logo-round-1.scroll-up .stickers,
-.logo-round-2.scroll-up .stickers
-    animation: rotate-left 0.4s ease
 
 .tours-index
     .hero

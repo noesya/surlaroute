@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const stickers = document.querySelectorAll(".logo-round-1 .stickers, .logo-round-2 .stickers");
+  const stickerContainers = document.querySelectorAll(".js-sticker");
+  const stickers = Array.from(stickerContainers).map(c => c.querySelector(".stickers"));
 
   let lastScrollY = window.scrollY;
   let currentRotation = 0;
@@ -9,14 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const direction = newScrollY > lastScrollY ? "down" : "up";
     lastScrollY = newScrollY;
 
-    const rotationStep = 5; // en degrés
-
-    // Mettre à jour la rotation cumulée
+    const rotationStep = 5;
     currentRotation += direction === "down" ? rotationStep : -rotationStep;
 
-    // Appliquer la rotation à tous les éléments
     stickers.forEach(el => {
       el.style.transform = `rotate(${currentRotation}deg)`;
+      if (el) el.style.transform = `rotate(${currentRotation}deg)`;
     });
   });
 });

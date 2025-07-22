@@ -1,6 +1,6 @@
-<% 
+<%
   klass = objects.klass
-  objects = objects.name.downcase.pluralize 
+  objects = objects.name.downcase.pluralize
 %>
 
 <div class="call-to-action bg-<%= objects %> mt-5">
@@ -14,9 +14,9 @@
         <% if current_user && can?(:create, klass) %>
           <%= link_to t("#{objects}.call_to_action.button"),
                       public_send("new_admin_#{objects.singularize}_path"),
-                      class: 'btn btn-dark' %>
+                      class: 'btn btn-night' %>
         <% else %>
-          <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#suggestionModal"><%= t("#{objects}.call_to_action.button") %></button>
+          <button class="btn btn-night link-arrow-right" data-bs-toggle="modal" data-bs-target="#suggestionModal"><%= t("#{objects}.call_to_action.button") %></button>
         <% end %>
       </div>
     </div>

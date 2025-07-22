@@ -1,0 +1,43 @@
+.block
+    h2
+        margin-bottom: space(6)
+
+.call-to-action
+    p
+      font-weight: 500 !important
+    &:first-of-type
+        background: $color-yellow
+    .logo-round-call-to-action
+        .stickers
+            @include media-breakpoint-down(md)
+                left: 67%
+                bottom: 4%
+            @include media-breakpoint-up(md)
+                left: 50%
+                bottom: 24%
+                rotate: -10deg
+    .container
+        div
+            div:first-of-type
+                h3, li
+                    @include media-breakpoint-down(md)
+                        justify-content: flex-start
+                        display: flex
+            div:nth-of-type(2)
+                @include media-breakpoint-up(md)
+                    justify-content: end
+                    display: flex
+                    padding-right: 0
+    ul
+        padding-left: 0
+        li
+            list-style-type: none
+            @include icon(arrow-right)
+                font-size: $accordion-icon-width
+            padding-right: $accordion-icon-width
+            &::before
+                padding-right: 6px
+                @include media-breakpoint-down(md)
+                    padding-top: pxToRem(4)
+                @include media-breakpoint-up(md)
+                    padding-bottom: pxToRem(2)

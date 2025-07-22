@@ -5,10 +5,16 @@
         <h1 class="text-center mt-5">L'atlas des tournées à modes doux</h1>
       </div>
     </div>
-    <div class="row mt-lg-5">
+    <div class="row mt-lg-5 mb-5">
       <div class="text-center mt-4 mt-lg-0 home-ecosystem-link order-lg-2 mb-5 mb-lg-0">
-        <%= link_to "Voir l'atlas", map_actors_path(anchor: 'results'), class: "link-arrow-right" %>
+        <%= link_to "Voir l'atlas", map_actors_path(anchor: 'results'), class: "btn btn-night link-arrow-right" %>
       </div>
+    </div>
+    <div class="stickers-right js-sticker">
+      <%= image_tag 'surlaroute/stickers-right.svg', alt: "L’atlas des tournées à modes des doux - sur la route", class: 'stickers' %>
+    </div>
+    <div class="stickers-left js-sticker">
+      <%= image_tag 'surlaroute/stickers-left.svg', alt: "L’atlas des tournées à modes des doux - sur la route", class: 'stickers' %>
     </div>
   </div>
 </section>
