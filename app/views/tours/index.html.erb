@@ -1,6 +1,6 @@
 <% content_for :title, Tour.model_name.human(count: 2) %>
 <% content_for :meta_description, '' %>
-<% content_for :og_image, image_url("surlaroute/default.jpg") %>
+<% content_for :og_image, image_url("/surlaroute/social/default.jpg") %>
 <% content_for :canonical_url, tours_url %>
 <% content_for :noindex, params[:facets].present? || params[:page].present? %>
 
