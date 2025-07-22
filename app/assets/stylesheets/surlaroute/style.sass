@@ -49,3 +49,17 @@
                 top: -8%
             rotate: 45deg
             z-index: 1
+
+
+// modal
+.search-modal
+    a:not(.btn)
+        color: $color-text
+    .search-quick-links 
+        a
+            @extend .p-md-4
+            text-decoration: none
+            &:hover
+                text-decoration: underline
+            @include media-breakpoint-down(md)
+                aspect-ratio: 1
