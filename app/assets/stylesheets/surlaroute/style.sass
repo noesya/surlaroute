@@ -32,8 +32,7 @@
     .stickers-left
         .stickers
             @include media-breakpoint-down(md)
-                left: 5%
-                bottom: -10%
+                display: none
             @include media-breakpoint-up(md)
                 left: 40%
                 top: -13%
@@ -55,7 +54,7 @@
 .search-modal
     a:not(.btn)
         color: $color-text
-    .search-quick-links 
+    .search-quick-links
         a
             @extend .p-md-4
             text-decoration: none
