@@ -1,5 +1,5 @@
 <footer class="document-footer">
-  <div class="container">
+  <div class="container text-light pb-5">
     <nav class="row">
       <div class="col-lg-6">
         <%= link_to root_path do %>
@@ -7,36 +7,51 @@
         <% end %>
       </div>
       <ul class="col-lg-3 mt-4 mt-lg-0">
-        <li><%= link_to Tour.model_name.human(count: 2), tours_path(region_slug: nil) %></li>
-        <li class="mt-2 pt-md-1"><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
+        <li><%= link_to 'Atlas', map_actors_path(anchor: 'results') %></li>
+        <li class="mt-2"><%= link_to Tour.model_name.human(count: 2), tours_path(region_slug: nil) %></li>
+        <li class="mt-2"><%= link_to t('ecosystem'), actors_path(region_slug: nil) %></li>
       </ul>
       <ul class="col-lg-3 mt-4 mt-lg-0">
         <li>
           <% page_legal = Page.find_by(internal_identifier: 'mentions-legales') %>
           <%= link_to page_legal, page_path(page_legal) %>
         </li>
+        <!--
         <li class="mt-2">
           <% page_cgu = Page.find_by(internal_identifier: 'cgu') %>
           <%= link_to page_cgu, page_path(page_cgu) %>
         </li>
         <li class="mt-2">
-          <%= link_to t('ui.transparency.title'), transparency_path %>
+        <%= link_to t('ui.transparency.title'), transparency_path %>
         </li>
+        -->
         <li class="mt-2">
           <% page_contact = Page.find_by(internal_identifier: 'contact') %>
           <%= link_to page_contact, page_path(page_contact) %>
         </li>
       </ul>
     </nav>
-    <div class="row mt-3 align-items-center">
+    <div class="row mt-4 align-items-center">
       <div class="offset-lg-6 col-lg-6 mt-5 mt-lg-0">
-        <span class="small"><%= t('footer.implementation.sponsored') %></span>
-        <ul class="footer-supports">
-          <li><%= image_tag('surlaroute/logos-partners/encc.svg', alt: 'European Network of Cultural Centres', width: '150', height: '80', loading: 'lazy') %></li>
-          <li><%= image_tag('surlaroute/logos-partners/nouvelle-aquitaine.svg', alt: 'Région Nouvelle Aquitaine', width: '60', height: '80', loading: 'lazy') %></li>
-          <li><%= image_tag('surlaroute/logos-partners/slowfest.svg', alt: 'Slowfest', width: '80', height: '80', loading: 'lazy') %></li>
-          <li><%= image_tag('surlaroute/logos-partners/livemx.svg', alt: 'Livemx', width: '100', height: '80', loading: 'lazy') %></li>
+        <span class="small"><%= t('footer.implementation.title') %></span>
+        <ul class="footer-credits small mt-3 ps-0">
+        <li class="row mt-1"><a class="col" href="https://www.ecotheque.fr" target="_blank" rel="noreferrer">écothèque</a> <span class="col">Code source originel</span></li>
+          <li class="row mt-1"><a class="col" href="https://jeudi.am" target="_blank" rel="noreferrer">Jeudimatin</a> <span class="col"><%= t('footer.implementation.design') %></span></li>
+          <li class="row mt-1"><a class="col" href="https://www.noesya.coop" target="_blank" rel="noreferrer">noesya</a> <span class="col"><%= t('footer.implementation.development') %></span></li>
         </ul>
+      </div>
+    </div>
+    <div class="row mt-4 align-items-center">
+      <div class="offset-lg-6 col-lg-6 mt-5 mt-lg-0">
+        <div>
+          <span class="small"><%= t('footer.implementation.sponsored') %></span>
+          <ul class="mt-3 footer-supports">
+            <li><%= image_tag('surlaroute/logos-partners/encc.svg', alt: 'European Network of Cultural Centres', width: '150', height: '80', loading: 'lazy') %></li>
+            <li><%= image_tag('surlaroute/logos-partners/nouvelle-aquitaine.svg', alt: 'Région Nouvelle Aquitaine', width: '60', height: '80', loading: 'lazy') %></li>
+            <li><%= image_tag('surlaroute/logos-partners/slowfest.svg', alt: 'Slowfest', width: '80', height: '80', loading: 'lazy') %></li>
+            <li><%= image_tag('surlaroute/logos-partners/livemx.svg', alt: 'Livemx', width: '100', height: '80', loading: 'lazy') %></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
