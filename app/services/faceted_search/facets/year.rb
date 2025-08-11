@@ -17,7 +17,7 @@ module FacetedSearch
     end
 
     def values
-      @values ||= source.distinct(:year).order(year: :desc).pluck(:year).uniq.reject(&:blank?)
+      @values ||= source.distinct.reorder(year: :desc).pluck(:year).uniq.reject(&:blank?)
     end
   end
 end
