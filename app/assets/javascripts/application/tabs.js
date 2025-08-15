@@ -8,7 +8,7 @@ window.ecotheque.tabs = {
         if (!this.buttons) {
             return;
         }
-        
+
         this.buttons.forEach(button => {
             button.addEventListener('click', () => {
                 this.toggleTab(button);
@@ -22,9 +22,9 @@ window.ecotheque.tabs = {
         this.activeBtn = document.querySelector('.nav-link.active');
         this.activeBtn.classList.remove('active');
         button.classList.add('active');
-        
-        const tabContentClass = button.getAttribute("data-target");
-        const tabContentElements = document.getElementsByClassName(tabContentClass);
+
+        const tabContentClass = button.getAttribute('data-target'),
+            tabContentElements = document.getElementsByClassName(tabContentClass);
 
         this.activeTabs.forEach(activeTab => {
             activeTab.classList.remove('show');

@@ -1,21 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const stickerContainers = document.querySelectorAll(".js-sticker");
-  const stickers = Array.from(stickerContainers).map(c => c.querySelector(".stickers"));
+document.addEventListener('DOMContentLoaded', () => {
+    'use strict';
+    var stickers = document.querySelectorAll('.js-sticker'),
+        lastScrollY = window.scrollY,
+        currentRotation = 0;
 
-  let lastScrollY = window.scrollY;
-  let currentRotation = 0;
+    window.addEventListener('scroll', function () {
+        var newScrollY = window.scrollY,
+            direction = newScrollY > lastScrollY ? 'down' : 'up',
+            transformValue,
+            i;
 
-  window.addEventListener("scroll", () => {
-    const newScrollY = window.scrollY;
-    const direction = newScrollY > lastScrollY ? "down" : "up";
-    lastScrollY = newScrollY;
+        lastScrollY = newScrollY;
+        if (direction === 'up') {
+            currentRotation -= 5;
+        } else {
+            currentRotation += 5;
+        }
 
-    const rotationStep = 5;
-    currentRotation += direction === "down" ? rotationStep : -rotationStep;
+        transformValue = 'rotate(' + currentRotation + 'deg)';
 
-    stickers.forEach(el => {
-      el.style.transform = `rotate(${currentRotation}deg)`;
-      if (el) el.style.transform = `rotate(${currentRotation}deg)`;
+        for (i = 0; i < stickers.length; i += 1) {
+            stickers[i].style.transform = transformValue;
+        }
     });
-  });
 });

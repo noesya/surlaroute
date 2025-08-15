@@ -4,7 +4,7 @@ window.ecotheque.brezetNavigation = {
     init: function () {
         'use strict';
         this.dom = document.querySelector('.brezet-wheel-container');
-        
+
         if (!this.dom) {
             return;
         }
@@ -17,21 +17,22 @@ window.ecotheque.brezetNavigation = {
     },
 
     disableLinks: function () {
+        'use strict';
         const sectionIds = Array.from(this.activeSections).map(section => section.getAttribute('id'));
 
         this.navigations.forEach(navigation => {
             navigation.querySelectorAll('a').forEach(link => {
                 const href = link.getAttribute('href').substring(1);
-    
+
                 if (!sectionIds.includes(href)) {
                     link.parentNode.classList.add('is-disabled');
                 }
             });
         });
-
     },
 
     initIntersectionObserver: function () {
+        'use strict';
         this.observedEl = this.dom;
 
         if (!this.observedEl) {
@@ -41,7 +42,8 @@ window.ecotheque.brezetNavigation = {
     },
 
     observeSections: function () {
-        function handleIntersection(entries, observer) {
+        'use strict';
+        var handleIntersection = function (entries) {
             entries.forEach(entry => {
                 this.id = entry.target.getAttribute('id');
                 this.link = document.querySelector(`#brezet-navigation a[href="#${this.id}"]`);
@@ -52,9 +54,9 @@ window.ecotheque.brezetNavigation = {
                     this.link.classList.remove('active');
                 }
             });
-        }
+        };
 
-        this.observer = new IntersectionObserver(handleIntersection, { threshold: [0, 0.25, 0.75, 1], rootMargin: '0px 0px -50% 0px'  });
+        this.observer = new IntersectionObserver(handleIntersection, { threshold: [0, 0.25, 0.75, 1], rootMargin: '0px 0px -50% 0px' });
 
         this.activeSections.forEach(section => {
             this.observer.observe(section);

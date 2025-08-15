@@ -119,20 +119,20 @@ window.summernoteManager = {
     cleanHtml: function (html) {
         'use strict';
         // remove allMicrosoft Office tag
-        html = html.replace(/<!\[if !supportLists[\s\S]*?endif\]>/g, '');
+        var newHtml = html.replace(/<!\[if !supportLists[\s\S]*?endif\]>/g, '');
         // remove all html comments
-        html = html.replace(/<!--[\s\S]*?-->/g, '');
+        newHtml = newHtml.replace(/<!--[\s\S]*?-->/g, '');
         // remove all microsoft attributes,
-        html = html.replace(/( class=(")?Mso[a-zA-Z]+(")?)/g, ' ');
+        newHtml = newHtml.replace(/( class=(")?Mso[a-zA-Z]+(")?)/g, ' ');
         // ensure regular quote
-        html = html.replace(/[\u2018\u2019\u201A]/g, '\'');
+        newHtml = newHtml.replace(/[\u2018\u2019\u201A]/g, '\'');
         // ensure regular double quote
-        html = html.replace(/[\u201C\u201D\u201E]/g, '"');
+        newHtml = newHtml.replace(/[\u201C\u201D\u201E]/g, '"');
         // ensure regular ellipsis
-        html = html.replace(/\u2026/g, '...');
+        newHtml = newHtml.replace(/\u2026/g, '...');
         // ensure regular hyphen
-        html = html.replace(/[\u2013\u2014]/g, '-');
-        return html;
+        newHtml = newHtml.replace(/[\u2013\u2014]/g, '-');
+        return newHtml;
     },
 
     sanitizeTags: function (html, allowedTags) {

@@ -3,7 +3,7 @@ window.ecotheque.conditional = {
     init: function () {
         'use strict';
         var element,
-        i;
+            i;
         this.elements = document.querySelectorAll('[data-conditional="true"]');
         for (i = 0; i < this.elements.length; i += 1) {
             element = this.elements[i];

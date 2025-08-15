@@ -114,7 +114,7 @@ window.ecotheque.maps = {
         }.bind(this));
     },
 
-    updateMarkerIcon: function(e, selected) {
+    updateMarkerIcon: function (e, selected) {
         'use strict';
         var marker = e.popup._source._icon,
             icon = marker.querySelector('img'),

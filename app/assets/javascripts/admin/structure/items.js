@@ -4,7 +4,7 @@ window.ecotheque.structure.items = {
         'use strict';
         this.initAddItemCallback();
     },
-   
+
     initAddItemCallback: function () {
         'use strict';
         $('#options').on('cocoon:after-insert', function (e, newElmt) {

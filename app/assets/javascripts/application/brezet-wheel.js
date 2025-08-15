@@ -6,11 +6,11 @@ window.ecotheque.brezetWheel = {
         // brezet-wheel-container comprend à la fois la figure avec l'image et les points
         // et le texte qui s'affiche en-dessous
         this.brezetContainer = document.querySelector('.brezet-wheel-container');
-        
+
         if (!this.brezetContainer) {
             return;
         }
-        
+
         // la figure contient l'image + les points
         this.figure = this.brezetContainer.querySelector('figure');
         // les intilutés qui ne doivent pas s'afficher au scroll
@@ -19,26 +19,25 @@ window.ecotheque.brezetWheel = {
         this.content = this.brezetContainer.querySelector('.brezet-details');
         this.breakpoint = 992;
 
-        if(window.innerWidth >= this.breakpoint) {
+        if (window.innerWidth >= this.breakpoint) {
             this.scrollAnimation();
         }
     },
     scrollAnimation: function () {
+        'use strict';
         this.scrollListener = () => {
-            // on récupère la hauteur de container Top dans la page par rapport au scroll : 
+            // on récupère la hauteur de container Top dans la page par rapport au scroll :
             // quand brezetContainer n'est pas visible : valeur positive
             // quand c'est visible : 0 ou valeur positive
-            var containerTop = this.brezetContainer.getBoundingClientRect().top;
-
-            // on récupère la distance entre le haut brezet-details et le haut de son parent (brezet-wheel-container)
-            // on divise par 2 pour ajuster la valeur désirée
-            var distance = this.content.offsetTop / 2;
-
-            // on détermine un ratio compris entre 0 et 1 -> il va de 1 à 0 donc il faut l'inverser avce 1 - ...
-            // même si notre ratio est écouté pdt tout le scroll, il ne prendra ses bonnes valeurs qu'une fois entre 1 et 0
-            // on divise containerTop par distance pour avoir le temps de scroll désiré pour l'animation
-            // on ajoute un - car on est à l'inverse
-            var ratio =1 - Math.max(0, Math.min(1,  -containerTop / distance));
+            var containerTop = this.brezetContainer.getBoundingClientRect().top,
+                // on récupère la distance entre le haut brezet-details et le haut de son parent (brezet-wheel-container)
+                // on divise par 2 pour ajuster la valeur désirée
+                distance = this.content.offsetTop / 2,
+                // on détermine un ratio compris entre 0 et 1 -> il va de 1 à 0 donc il faut l'inverser avce 1 - ...
+                // même si notre ratio est écouté pdt tout le scroll, il ne prendra ses bonnes valeurs qu'une fois entre 1 et 0
+                // on divise containerTop par distance pour avoir le temps de scroll désiré pour l'animation
+                // on ajoute un - car on est à l'inverse
+                ratio = 1 - Math.max(0, Math.min(1, -containerTop / distance));
 
             // pour que notre élément reste centré, on lui ajoute la valeur des gouttières bootstrap
             // on multiplie le tout par le ratio pour obtenir une valeur décroissante entre 50% et 0%
@@ -52,7 +51,7 @@ window.ecotheque.brezetWheel = {
         };
 
         // on écoute le scroll
-        window.addEventListener("scroll", this.scrollListener);
+        window.addEventListener('scroll', this.scrollListener);
 
         // pour éviter le saut de la figure au rechargement :
         // 1) de base figure est en opacity 0

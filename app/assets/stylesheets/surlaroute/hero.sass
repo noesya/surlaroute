@@ -26,32 +26,30 @@ main
         .container
             position: relative
 
-.js-sticker
-    transform-origin: center center
-    .stickers
-        width: auto
-        height: pxToRem(230)
-        @include media-breakpoint-down(md)
-            height: pxToRem(150)
-        position: absolute
-.stickers-right
-    .stickers
-        @include media-breakpoint-down(md)
-            left: 80%
-            top: 40%
-        @include media-breakpoint-up(md)
-            left: 90%
-            top: 20%
-            rotate: 50deg
-.stickers-left
-    .stickers
-        @include media-breakpoint-down(md)
-            left: -3%
-            bottom: -15%
-        @include media-breakpoint-up(md)
-            left: -10%
-            bottom: -11%
-            rotate: -10deg
+.sticker
+    width: auto
+    height: pxToRem(230)
+    @include media-breakpoint-down(md)
+        height: pxToRem(150)
+    position: absolute
+
+.stickers-right .sticker
+    @include media-breakpoint-down(md)
+        left: 80%
+        top: 40%
+    @include media-breakpoint-up(md)
+        left: 90%
+        top: 20%
+        rotate: 50deg
+
+.stickers-left .sticker
+    @include media-breakpoint-down(md)
+        left: -3%
+        bottom: -15%
+    @include media-breakpoint-up(md)
+        left: -10%
+        bottom: -11%
+        rotate: -10deg
 
 //hero page
 .actors-index,
