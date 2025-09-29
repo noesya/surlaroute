@@ -38,6 +38,8 @@
             <div class="actor-adress col-lg-6 <%= 'offset-lg-6' if block_already_displayed %> structure__item__string">
               <%= render 'structure/items/label', label: t('ui.actor.address') %>
               <p><%= @actor.full_address %></p>
+
+              <%= render 'actors/actor_map', actor: @actor %>
             </div>
             <% block_already_displayed = true %>
           <% end %>

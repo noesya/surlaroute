@@ -1,0 +1,29 @@
+<%
+if actor.geocoded?
+  content_for :with_leaflet, true
+  content_for :additional_body_class, 'is-map'
+%>
+  <script type="text/javascript" nonce=<%= request.content_security_policy_nonce %>>
+    window.map = {
+      iconUrl : "<%= asset_path('icons/marker-unselected.svg') %>",
+      iconSelectedUrl : "<%= asset_path('icons/marker.svg') %>",
+      markers : {
+        "type": "FeatureCollection",
+        "features": []
+      },
+    }
+    window.map.markers.features.push(
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [<%= actor.latitude %>, <%= actor.longitude %>]
+        },
+        "properties": {
+          "name": "<%= j(actor.to_s.html_safe) %>",
+        }
+      }
+    );
+  </script>
+  <div class="map rounded js-map" data-latitude="<%= actor.latitude %>" data-longitude="<%= actor.longitude %>" data-markers="true"></div>
+<% end %>
