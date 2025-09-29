@@ -42,10 +42,8 @@ namespace :app do
     def load_db(app_name)
       Bundler.with_unbundled_env do
         Dotenv.load
-        addon_result = `scalingo addons --app #{app_name} | grep PostgreSQL`
-        addon_id = addon_result.split('|')[2].strip
-        sh "scalingo --app #{app_name} backups-create --addon #{addon_id}"
-        sh "scalingo --app #{app_name} backups-download --addon #{addon_id} --output db/scalingo-dump.tar.gz"
+        sh "scalingo --app #{app_name} backups-create --addon postgresql"
+        sh "scalingo --app #{app_name} backups-download --addon postgresql --output db/scalingo-dump.tar.gz"
 
         sh 'rm -f db/latest.dump' # Remove an old backup file if it exists
         sh 'tar zxvf db/scalingo-dump.tar.gz -C db/' # Extract the new backup archive
