@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.6"
+ruby "3.4.7"
 
 gem "activestorage-scaleway-service", "~> 1"
 gem "bootsnap", require: false
@@ -30,7 +30,7 @@ gem "mini_magick", "~> 4"
 gem "ostruct"
 gem "popper_js", "~> 2"
 gem "pg", "~> 1"
-gem "puma", "~> 6"
+gem "puma", "~> 7"
 gem "rails", "~> 8.0"
 gem "rails-i18n"
 gem "searchkick", "~> 5.3"
