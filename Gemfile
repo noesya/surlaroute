@@ -21,7 +21,7 @@ gem "faceted_search"#, path: '../faceted_search'
 gem "faraday-typhoeus", "~> 1"
 gem "gdpr", "~> 1"
 gem "geocoder", "~> 1"
-gem "good_job", "~> 3"
+gem "good_job", "~> 4"
 gem "image_processing", "~> 1"
 gem "jquery-rails", "~> 4"
 gem "kamifusen", "~> 1"
