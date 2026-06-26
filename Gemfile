@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "4.0.3"
+ruby "4.0.5"
 
 gem "activestorage-scaleway-service", "~> 1"
 gem "bootsnap", require: false
@@ -23,15 +23,15 @@ gem "gdpr", "~> 1"
 # Use Geocoder from GitHub as we need the HTTPS-fix for Adresse Nationale
 gem "geocoder", git: "https://github.com/alexreisner/geocoder.git"
 gem "good_job", "~> 4"
-gem "image_processing", "~> 1"
+gem "image_processing", "~> 2"
 gem "jquery-rails", "~> 4"
 gem "kamifusen", "~> 1"
 gem "kaminari", "~> 1"
 gem "mazer-rails", "~> 0"
-gem "ostruct", "~> 0" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
+gem "mini_magick", "~> 5"
 gem "popper_js", "~> 2"
 gem "pg", "~> 1"
-gem "puma", "~> 7"
+gem "puma", "~> 8"
 gem "rails", "~> 8.1.0"
 gem "rails-i18n", "~> 8"
 gem "searchkick", "~> 5.3"
