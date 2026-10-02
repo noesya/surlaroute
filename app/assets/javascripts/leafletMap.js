@@ -72,7 +72,7 @@ window.ecotheque.maps = {
             zoom = 15,
             markerIcon = null,
             copyright = 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu ©CartoDB',
-            tile = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+            tile = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=cb1_451m_2_76ea92af75dc480741b5b29d',
             mymap;
 
         mymap = L.map(mapElement, { tap: false }).setView([lat, long], zoom);
