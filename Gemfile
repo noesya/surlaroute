@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "4.0.6"
+ruby "4.0.7"
 
 gem "activestorage-scaleway-service", "~> 1"
 gem "active_hashcash", "~> 0.4.0"
@@ -18,8 +18,8 @@ gem "devise-i18n", "~> 1"
 gem "devise-bootstrap5", "~> 0"
 gem "elasticsearch", "~> 7"
 gem "enum_help", "~> 0"
-gem "faceted_search"#, path: '../faceted_search'
-gem "faraday-typhoeus", "~> 1"
+gem "faceted_search"#, path: "../faceted_search"
+gem "faraday-typhoeus", "~> 2"
 gem "gdpr", "~> 1"
 # Use Geocoder from GitHub as we need the HTTPS-fix for Adresse Nationale
 gem "geocoder", git: "https://github.com/alexreisner/geocoder.git"

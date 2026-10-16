@@ -9,7 +9,7 @@
 #  name         :string
 #  published    :boolean          default(FALSE)
 #  slug         :string
-#  status       :integer          default(0)
+#  status       :integer          default("draft")
 #  website      :string
 #  year         :integer
 #  created_at   :datetime         not null
