@@ -18,6 +18,8 @@ fr:
     my_account: Mon compte
     subtitle: Au sein de cet espace, vous retrouverez l’ensemble des informations relatives à votre compte Sur la route.
     title: Mon compte
+  active_hashcash:
+    error_label: La vérification hashcash a échoué. Veuillez réessayer.
   activemodel:
     models:
       structure:

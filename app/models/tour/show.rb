@@ -5,7 +5,7 @@
 #  id         :uuid             not null, primary key
 #  day        :date
 #  published  :boolean          default(FALSE)
-#  status     :integer          default("draft")
+#  status     :integer          default(0)
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

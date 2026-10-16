@@ -4,6 +4,7 @@
 //= require bootstrap-sprockets
 //= require simple_form_password_with_hints
 //= require simple_form_bs5_file_input
+//= require hashcash
 //= require cropperjs/dist/cropper
 //= require jquery-cropper/dist/jquery-cropper
 //= require notyf/notyf.min
